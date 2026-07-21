@@ -1,0 +1,308 @@
+import Image from "next/image";
+import Link from "next/link";
+
+export default function Footer() {
+  return (
+    <footer className="border-t border-white/10 bg-black px-6 text-white">
+      <div className="mx-auto max-w-7xl py-20">
+
+        {/* MAIN FOOTER */}
+        <div className="grid gap-14 md:grid-cols-2 lg:grid-cols-5">
+
+          {/* BRAND */}
+          <div className="lg:col-span-2">
+            <Link
+              href="/"
+              className="inline-flex flex-col items-center"
+            >
+              <Image
+                src="/logo/hs-global-ai-logo.png"
+                alt="HS Global AI"
+                width={90}
+                height={70}
+                className="h-auto w-[90px]"
+              />
+
+              <span className="mt-2 text-sm font-bold tracking-wide text-white">
+                HS GLOBAL AI
+              </span>
+            </Link>
+
+            <p className="mt-6 max-w-sm leading-7 text-gray-500">
+              Building intelligent AI experiences that connect the
+              physical and digital world.
+            </p>
+          </div>
+
+          {/* PRODUCTS */}
+          <div>
+            <h3 className="mb-6 text-sm font-semibold uppercase tracking-wider text-gray-400">
+              Products
+            </h3>
+
+            <div className="flex flex-col gap-4 text-sm text-gray-500">
+              <Link href="/products/ai-digital-humans" className="transition hover:text-white">
+                AI Digital Humans
+              </Link>
+
+              <Link href="/products/ai-hologram-box" className="transition hover:text-white">
+                AI Hologram Box
+              </Link>
+
+              <Link href="/products/spatial-display" className="transition hover:text-white">
+                Spatial Display
+              </Link>
+
+              <Link href="/products/virtual-try-on" className="transition hover:text-white">
+                Virtual Try-On
+              </Link>
+            </div>
+          </div>
+
+          {/* INDUSTRIES */}
+          <div>
+            <h3 className="mb-6 text-sm font-semibold uppercase tracking-wider text-gray-400">
+              Industries
+            </h3>
+
+            <div className="flex flex-col gap-4 text-sm text-gray-500">
+              <Link href="/industries/banking" className="transition hover:text-white">
+                Banking & Financial Services
+              </Link>
+
+              <Link href="/industries/retail" className="transition hover:text-white">
+                Retail & Advertising
+              </Link>
+
+              <Link href="/industries/corporate" className="transition hover:text-white">
+                Corporate Services
+              </Link>
+
+              <Link href="/industries/tourism" className="transition hover:text-white">
+                Tourism & Exhibitions
+              </Link>
+
+              <Link href="/industries/healthcare" className="transition hover:text-white">
+                Healthcare & Telemedicine
+              </Link>
+
+              <Link href="/industries/education" className="transition hover:text-white">
+                Education & Training
+              </Link>
+            </div>
+          </div>
+
+          {/* COMPANY */}
+          <div>
+            <h3 className="mb-6 text-sm font-semibold uppercase tracking-wider text-gray-400">
+              Company
+            </h3>
+
+            <div className="flex flex-col gap-4 text-sm text-gray-500">
+              <Link href="/about" className="transition hover:text-white">
+                About Us
+              </Link>
+
+              <Link href="/resources" className="transition hover:text-white">
+                Resources
+              </Link>
+
+              <Link href="/blog" className="transition hover:text-white">
+                Blog
+              </Link>
+
+              <Link href="/contact" className="transition hover:text-white">
+                Contact
+              </Link>
+
+              <Link href="/contact" className="transition hover:text-white">
+                Book a Demo
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* BOTTOM FOOTER */}
+        <div className="mt-20 flex flex-col gap-6 border-t border-white/10 pt-8 text-sm text-gray-600 md:flex-row md:items-center md:justify-between">
+
+          <p>
+            © {new Date().getFullYear()} HS Global AI. All rights reserved.
+          </p>
+
+          <div className="flex flex-wrap items-center gap-6">
+
+            <Link href="/privacy" className="transition hover:text-white">
+              Privacy Policy
+            </Link>
+
+            <Link href="/terms" className="transition hover:text-white">
+              Terms & Conditions
+            </Link>
+
+            {/* SOCIAL ICONS */}
+<div className="flex items-center gap-5">
+
+  {/* Facebook */}
+  <a
+    href="#"
+    aria-label="Facebook"
+    className="transition hover:text-white"
+  >
+    <span className="text-lg font-bold">f</span>
+  </a>
+
+  {/* X / Twitter */}
+  <a
+    href="#"
+    aria-label="X"
+    className="transition hover:text-white"
+  >
+    <span className="text-lg font-medium">𝕏</span>
+  </a>
+
+  {/* Instagram */}
+  <a
+    href="#"
+    aria-label="Instagram"
+    className="transition hover:text-white"
+  >
+    <svg
+      width="19"
+      height="19"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      aria-hidden="true"
+    >
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  </a>
+
+  {/* LinkedIn */}
+  <a
+    href="#"
+    aria-label="LinkedIn"
+    className="transition hover:text-white"
+  >
+    <svg
+      width="19"
+      height="19"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M5.5 8.5H2.5V21h3V8.5ZM4 3a1.75 1.75 0 1 0 0 3.5A1.75 1.75 0 0 0 4 3ZM9 8.5h2.9v1.7h.1c.4-.8 1.4-2 3.6-2 3.8 0 4.5 2.5 4.5 5.8V21h-3v-6.2c0-1.5 0-3.4-2.1-3.4s-2.4 1.6-2.4 3.3V21H9V8.5Z" />
+    </svg>
+  </a>
+
+  {/* YouTube */}
+  <a
+    href="#"
+    aria-label="YouTube"
+    className="transition hover:text-white"
+  >
+    <svg
+      width="21"
+      height="21"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M23 12s0-3.5-.4-5.2a3 3 0 0 0-2.1-2.1C18.8 4.2 12 4.2 12 4.2s-6.8 0-8.5.5a3 3 0 0 0-2.1 2.1C1 8.5 1 12 1 12s0 3.5.4 5.2a3 3 0 0 0 2.1 2.1c1.7.5 8.5.5 8.5.5s6.8 0 8.5-.5a3 3 0 0 0 2.1-2.1C23 15.5 23 12 23 12Zm-13.2 4V8l6.9 4-6.9 4Z" />
+    </svg>
+  </a>
+
+</div>
+
+</div>
+{/* 
+              <a
+  href="#"
+  aria-label="Facebook"
+  className="transition hover:text-white"
+>
+  <svg
+    width="19"
+    height="19"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    aria-hidden="true"
+  >
+    <path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v2H6v4h3v9h4v-9h3.5l.5-4h-4V9c0-.7.3-1 1-1z" />
+  </svg>
+</a>
+
+              <a
+                href="#"
+                aria-label="X"
+                className="transition hover:text-white"
+              >
+                <span className="text-lg font-medium">X</span>
+              </a>
+
+              <a
+                href="#"
+                aria-label="Instagram"
+                className="transition hover:text-white"
+              >
+                <svg
+  width="19"
+  height="19"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  strokeWidth="2"
+  aria-hidden="true"
+>
+  <rect x="3" y="3" width="18" height="18" rx="5" />
+  <circle cx="12" cy="12" r="4" />
+  <circle
+    cx="17.5"
+    cy="6.5"
+    r="1"
+    fill="currentColor"
+    stroke="none"
+  />
+</svg>
+              </a>
+
+              <a
+                href="#"
+                aria-label="LinkedIn"
+                className="transition hover:text-white"
+              >
+                <svg
+  width="19"
+  height="19"
+  viewBox="0 0 24 24"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path d="M5.5 8.5H2.5V21h3V8.5ZM4 3a1.75 1.75 0 1 0 0 3.5A1.75 1.75 0 0 0 4 3ZM9 8.5h2.9v1.7h.1c.4-.8 1.4-2 3.6-2 3.8 0 4.5 2.5 4.5 5.8V21h-3v-6.2c0-1.5 0-3.4-2.1-3.4s-2.4 1.6-2.4 3.3V21H9V8.5Z" />
+</svg>
+              </a>
+
+              <a
+                href="#"
+                aria-label="YouTube"
+                className="transition hover:text-white"
+              >
+                <svg
+  width="20"
+  height="20"
+  viewBox="0 0 24 24"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path d="M23 12s0-3.5-.4-5.2a3 3 0 0 0-2.1-2.1C18.8 4.2 12 4.2 12 4.2s-6.8 0-8.5.5a3 3 0 0 0-2.1 2.1C1 8.5 1 12 1 12s0 3.5.4 5.2a3 3 0 0 0 2.1 2.1c1.7.5 8.5.5 8.5.5s6.8 0 8.5-.5a3 3 0 0 0 2.1-2.1C23 15.5 23 12 23 12Zm-13.2 4V8l6.9 4-6.9 4Z" />
+</svg>
+              </a> */}
+
+                    </div>
+      </div>
+    </footer>
+  );
+}
