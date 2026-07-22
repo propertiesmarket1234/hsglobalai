@@ -1,3 +1,4 @@
+import Image from "next/image";
 export default function ProductShowcase() {
   return (
     <section className="bg-black px-6 py-24 text-white">
@@ -17,6 +18,15 @@ export default function ProductShowcase() {
                 <br />
                 Humans
               </h2>
+              <div className="mt-10 overflow-hidden rounded-2xl">
+  <Image
+    src="/products/digital-humans/digital-human-new.png"
+    alt="AI Digital Human"
+    width={700}
+    height={900}
+    className="h-auto w-full object-cover"
+  />
+</div>
             </div>
 
             {/* RIGHT */}
