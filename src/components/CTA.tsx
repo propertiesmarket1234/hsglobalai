@@ -7,10 +7,10 @@ export default function CTA() {
         <div className="relative overflow-hidden rounded-[40px] border border-white/10 bg-white/[0.03] px-8 py-24 text-center md:px-16 md:py-32">
 
           {/* Background glow */}
-          <div className="pointer-events-none absolute left-1/2 top-1/2 h-[400px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/10 blur-[120px]" />
+          <div className="pointer-events-none absolute left-1/2 top-1/2 h-[400px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-600/10 blur-[120px]" />
 
           <div className="relative z-10">
-            <p className="mb-5 text-sm uppercase tracking-[0.3em] text-gray-500">
+            <p className="mb-5 text-sm uppercase tracking-[0.3em] text-cyan-400 font-semibold">
               Build the Future with AI
             </p>
 
@@ -29,7 +29,7 @@ export default function CTA() {
             <div className="mt-10">
               <Link
                 href="/contact"
-                className="inline-flex rounded-full bg-white px-8 py-4 font-semibold text-black transition hover:scale-105"
+                className="inline-flex rounded-full bg-white px-8 py-4 font-semibold text-black transition hover:scale-105 hover:shadow-[0_0_30px_rgba(6,182,212,0.4)]"
               >
                 Book a Demo →
               </Link>
