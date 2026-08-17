@@ -74,32 +74,54 @@ const avatarOptions: AvatarOption[] = [
 ];
 
 export default function AvatarFaceSelection() {
-  const [selectedIndex, setSelectedIndex] = useState<number>(4);
+  const [selectedIndex, setSelectedIndex] = useState<number>(3);
   const [isPaused, setIsPaused] = useState<boolean>(false);
+  const [isInView, setIsInView] = useState<boolean>(false);
+  const sectionRef = useRef<HTMLElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const totalCards = avatarOptions.length;
   const centerIndex = (totalCards - 1) / 2; // 3
-  const selectedAvatar = avatarOptions[selectedIndex] || avatarOptions[4];
+  const selectedAvatar = avatarOptions[selectedIndex] || avatarOptions[3];
 
-  // Auto Slideshow Timer
+  // Detect when user is actively viewing this section
   useEffect(() => {
-    if (isPaused) return;
+    const el = sectionRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0.15 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // Auto Slideshow Timer - Only active when user is visiting this section
+  useEffect(() => {
+    if (isPaused || !isInView) return;
     const interval = setInterval(() => {
       setSelectedIndex((prev) => (prev + 1) % totalCards);
     }, 3500);
     return () => clearInterval(interval);
-  }, [isPaused, totalCards]);
+  }, [isPaused, isInView, totalCards]);
 
-  // Smoothly Scroll Active Card into Center View
+  // Smoothly Scroll Active Card horizontally inside container only (NO window page jump)
   useEffect(() => {
-    const el = cardRefs.current[selectedIndex];
-    if (el && containerRef.current) {
-      el.scrollIntoView({
+    const container = containerRef.current;
+    const card = cardRefs.current[selectedIndex];
+    if (container && card) {
+      const containerWidth = container.clientWidth;
+      const cardLeft = card.offsetLeft;
+      const cardWidth = card.clientWidth;
+      const targetScrollLeft = cardLeft - (containerWidth / 2) + (cardWidth / 2);
+      container.scrollTo({
+        left: Math.max(0, targetScrollLeft),
         behavior: "smooth",
-        inline: "center",
-        block: "nearest",
       });
     }
   }, [selectedIndex]);
@@ -113,7 +135,7 @@ export default function AvatarFaceSelection() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-[#07080a] px-4 sm:px-6 py-24 sm:py-32 text-white border-t border-white/10">
+    <section ref={sectionRef} className="relative overflow-hidden bg-[#07080a] px-4 sm:px-6 py-24 sm:py-32 text-white border-t border-white/10">
       {/* Ambient Glow Effects matching site brand theme */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[850px] rounded-full bg-gradient-to-r from-cyan-600/20 via-sky-600/15 to-cyan-600/20 blur-[160px]" />
       <div className="pointer-events-none absolute left-1/2 bottom-10 -translate-x-1/2 h-[220px] w-[600px] rounded-full bg-cyan-500/15 blur-[120px]" />
