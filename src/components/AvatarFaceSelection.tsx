@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -74,13 +74,43 @@ const avatarOptions: AvatarOption[] = [
 ];
 
 export default function AvatarFaceSelection() {
-  const [selectedId, setSelectedId] = useState<string>("executive-lady");
-
-  const selectedAvatar =
-    avatarOptions.find((a) => a.id === selectedId) || avatarOptions[4];
+  const [selectedIndex, setSelectedIndex] = useState<number>(4);
+  const [isPaused, setIsPaused] = useState<boolean>(false);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const totalCards = avatarOptions.length;
   const centerIndex = (totalCards - 1) / 2; // 3
+  const selectedAvatar = avatarOptions[selectedIndex] || avatarOptions[4];
+
+  // Auto Slideshow Timer
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      setSelectedIndex((prev) => (prev + 1) % totalCards);
+    }, 3500);
+    return () => clearInterval(interval);
+  }, [isPaused, totalCards]);
+
+  // Smoothly Scroll Active Card into Center View
+  useEffect(() => {
+    const el = cardRefs.current[selectedIndex];
+    if (el && containerRef.current) {
+      el.scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+        block: "nearest",
+      });
+    }
+  }, [selectedIndex]);
+
+  const handlePrev = () => {
+    setSelectedIndex((prev) => (prev === 0 ? totalCards - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setSelectedIndex((prev) => (prev === totalCards - 1 ? 0 : prev + 1));
+  };
 
   return (
     <section className="relative overflow-hidden bg-[#07080a] px-4 sm:px-6 py-24 sm:py-32 text-white border-t border-white/10">
@@ -116,48 +146,75 @@ export default function AvatarFaceSelection() {
           </p>
         </motion.div>
 
-        {/* FANNED CARD DECK CONTAINER (Matching Image 1 Pattern) */}
-        <div className="mt-14 sm:mt-20 relative flex items-center justify-center min-h-[440px] sm:min-h-[500px] pt-8 pb-12 overflow-visible">
-          <div className="relative flex items-center justify-center w-full max-w-6xl">
-            {avatarOptions.map((avatar, idx) => {
-              const isSelected = avatar.id === selectedId;
-              const offsetFromCenter = idx - centerIndex; // -3, -2, -1, 0, 1, 2, 3
+        {/* CAROUSEL SLIDESHOW CONTAINER WITH NAVIGATION ARROWS */}
+        <div 
+          className="mt-14 sm:mt-20 relative flex flex-col items-center justify-center min-h-[440px] sm:min-h-[500px] pt-4 pb-8"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={() => setIsPaused(true)}
+        >
+          {/* LEFT PREVIOUS BUTTON */}
+          <button
+            onClick={handlePrev}
+            aria-label="Previous Avatar"
+            className="absolute left-1 sm:left-4 top-1/2 -translate-y-1/2 z-40 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-cyan-500/40 bg-black/70 text-cyan-300 backdrop-blur-md transition-all hover:bg-cyan-500/20 hover:scale-110 hover:border-cyan-400 active:scale-95 shadow-[0_0_20px_rgba(6,182,212,0.3)]"
+          >
+            <svg className="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
 
-              // Clean Fanned Arc Geometry calculation (matching Image 1)
-              const baseRotation = offsetFromCenter * 6.5; // -19.5 to +19.5 deg tilt
-              const arcY = Math.abs(offsetFromCenter) * Math.abs(offsetFromCenter) * 6; // Slight arc curve upward/downward
+          {/* RIGHT NEXT BUTTON */}
+          <button
+            onClick={handleNext}
+            aria-label="Next Avatar"
+            className="absolute right-1 sm:right-4 top-1/2 -translate-y-1/2 z-40 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-cyan-500/40 bg-black/70 text-cyan-300 backdrop-blur-md transition-all hover:bg-cyan-500/20 hover:scale-110 hover:border-cyan-400 active:scale-95 shadow-[0_0_20px_rgba(6,182,212,0.3)]"
+          >
+            <svg className="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          {/* HORIZONTALLY SCROLLABLE / SWIPEABLE CARDS CONTAINER */}
+          <div
+            ref={containerRef}
+            className="relative flex items-center justify-start md:justify-center w-full max-w-6xl overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory py-8 px-8 md:px-0 scroll-smooth touch-pan-x"
+          >
+            {avatarOptions.map((avatar, idx) => {
+              const isSelected = idx === selectedIndex;
+              const offsetFromCenter = idx - centerIndex; // -3, -2, -1, 0, 1, 2, 3
 
               return (
                 <motion.div
                   key={avatar.id}
-                  onMouseEnter={() => setSelectedId(avatar.id)}
-                  onClick={() => setSelectedId(avatar.id)}
+                  ref={(el) => {
+                    cardRefs.current[idx] = el;
+                  }}
+                  onClick={() => {
+                    setSelectedIndex(idx);
+                  }}
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: idx * 0.06 }}
-                  style={{
-                    zIndex: isSelected ? 50 : 10 + (3 - Math.abs(offsetFromCenter)),
-                    transformOrigin: "50% 110%",
-                    transform: isSelected
-                      ? `translateY(-32px) scale(1.12) rotate(0deg)`
-                      : `translateY(${arcY}px) scale(0.96) rotate(${baseRotation}deg)`,
-                  }}
-                  className={`group relative cursor-pointer select-none transition-all duration-500 ease-out -mx-3 sm:-mx-5 md:-mx-7 lg:-mx-8 ${
+                  transition={{ duration: 0.6, delay: idx * 0.05 }}
+                  className={`group relative shrink-0 snap-center cursor-pointer select-none transition-all duration-500 ease-out mx-2 sm:mx-3 md:-mx-5 lg:-mx-7 ${
                     isSelected
-                      ? "drop-shadow-[0_0_35px_rgba(6,182,212,0.6)]"
-                      : "opacity-85 hover:opacity-100 hover:scale-100"
+                      ? "drop-shadow-[0_0_35px_rgba(6,182,212,0.6)] z-30"
+                      : "opacity-80 hover:opacity-100 hover:scale-100 z-10"
                   }`}
+                  style={{
+                    zIndex: isSelected ? 40 : 10 + (3 - Math.abs(offsetFromCenter)),
+                  }}
                 >
-                  {/* Outer Card Frame - Light Off-White Background matching Image 1 */}
+                  {/* Outer Card Frame */}
                   <div
                     className={`relative w-[150px] h-[250px] sm:w-[185px] sm:h-[300px] md:w-[205px] md:h-[330px] overflow-hidden rounded-[24px] transition-all duration-500 bg-gradient-to-b from-[#f2f4f7] via-[#e5e7ea] to-[#d6d9de] shadow-xl ${
                       isSelected
-                        ? "ring-4 ring-cyan-400 ring-offset-2 ring-offset-black/80 shadow-2xl scale-[1.02]"
-                        : "border border-white/60 hover:border-cyan-400/60"
+                        ? "ring-4 ring-cyan-400 ring-offset-2 ring-offset-black/80 shadow-2xl scale-105 md:scale-110 md:-translate-y-6"
+                        : "border border-white/60 hover:border-cyan-400/60 opacity-85"
                     }`}
                   >
-                    {/* Avatar Image (Half-body Bust Portrait) */}
+                    {/* Avatar Image */}
                     <Image
                       src={avatar.imageSrc}
                       alt={avatar.name}
@@ -169,10 +226,10 @@ export default function AvatarFaceSelection() {
                       }`}
                     />
 
-                    {/* Subtle Bottom Vignette for text contrast */}
+                    {/* Subtle Bottom Vignette */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
 
-                    {/* DARK PILL BADGE (Image 1 pattern: active card displays dark badge at bottom) */}
+                    {/* DARK PILL BADGE */}
                     <AnimatePresence>
                       {isSelected ? (
                         <motion.div
@@ -202,6 +259,44 @@ export default function AvatarFaceSelection() {
                 </motion.div>
               );
             })}
+          </div>
+
+          {/* SLIDESHOW CONTROLS & PAGINATION DOTS */}
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-4 z-30">
+            {/* Play/Pause Toggle Button */}
+            <button
+              onClick={() => setIsPaused(!isPaused)}
+              className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-950/40 px-3.5 py-1.5 text-xs text-gray-200 hover:border-cyan-400 hover:text-white transition-all backdrop-blur-md shadow-md"
+              title={isPaused ? "Resume auto slideshow" : "Pause auto slideshow"}
+            >
+              <span
+                className={`h-2 w-2 rounded-full ${
+                  isPaused ? "bg-amber-400" : "bg-cyan-400 animate-pulse"
+                }`}
+              />
+              <span className="font-mono text-[11px] uppercase tracking-wider font-semibold">
+                {isPaused ? "Slideshow Paused" : "Auto Slideshow"}
+              </span>
+              <span className="text-xs ml-1">{isPaused ? "▶" : "❚❚"}</span>
+            </button>
+
+            {/* Pagination Dots */}
+            <div className="flex items-center gap-2">
+              {avatarOptions.map((avatar, idx) => (
+                <button
+                  key={avatar.id}
+                  onClick={() => {
+                    setSelectedIndex(idx);
+                  }}
+                  aria-label={`Select ${avatar.name}`}
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
+                    idx === selectedIndex
+                      ? "w-8 bg-cyan-400 shadow-[0_0_12px_rgba(6,182,212,0.9)]"
+                      : "w-2.5 bg-white/30 hover:bg-white/60"
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </div>
 
