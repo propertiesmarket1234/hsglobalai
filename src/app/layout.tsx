@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
+import ScrollProgressAndGlow from "@/components/ScrollProgressAndGlow";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -91,7 +92,7 @@ export default function RootLayout({
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        'https://www.googletagmanager.com/googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-NRR92D9K');
       `,
         }}
@@ -107,6 +108,7 @@ export default function RootLayout({
           />
         </noscript>
 
+        <ScrollProgressAndGlow />
         {children}
       </body>
     </html>

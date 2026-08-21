@@ -345,15 +345,38 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
               );
             }
 
-            // 5. H3 HEADINGS
+            // 5. H3 HEADINGS (Questions or Subheadings)
             if (trimmed.startsWith("### ")) {
-              const titleText = trimmed.replace("### ", "");
+              const fullContent = trimmed.replace("### ", "").trim();
+
+              // If the H3 block contains an inline answer (separated by \n)
+              if (fullContent.includes("\n")) {
+                const lines = fullContent.split("\n").map((l) => l.trim()).filter(Boolean);
+                const question = lines[0];
+                const answer = lines.slice(1).join(" ");
+
+                return (
+                  <div
+                    key={idx}
+                    className="my-6 rounded-2xl border border-cyan-500/30 bg-neutral-950/90 p-6 shadow-xl backdrop-blur-md"
+                  >
+                    <h3 className="text-lg md:text-xl font-bold text-cyan-400 tracking-wide mb-2 flex items-start gap-2">
+                      <span className="text-cyan-400 shrink-0 font-mono">Q:</span>
+                      <span>{renderFormattedText(question)}</span>
+                    </h3>
+                    <p className="text-base md:text-lg text-white leading-8 font-normal pl-6 border-l-2 border-cyan-500/30 mt-3">
+                      {renderFormattedText(answer)}
+                    </p>
+                  </div>
+                );
+              }
+
               return (
                 <h3
                   key={idx}
-                  className="mt-10 mb-4 text-xl font-semibold text-cyan-300 tracking-wide"
+                  className="mt-10 mb-3 text-xl md:text-2xl font-bold text-cyan-400 tracking-wide"
                 >
-                  {titleText}
+                  {renderFormattedText(fullContent)}
                 </h3>
               );
             }
@@ -364,9 +387,9 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
               return (
                 <h4
                   key={idx}
-                  className="mt-6 mb-3 text-lg font-medium text-gray-100"
+                  className="mt-6 mb-3 text-lg font-semibold text-cyan-300"
                 >
-                  {titleText}
+                  {renderFormattedText(titleText)}
                 </h4>
               );
             }
@@ -402,7 +425,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
                         return (
                           <tr key={rIdx} className="hover:bg-white/[0.03] transition-colors">
                             {cols.map((col, cIdx) => (
-                              <td key={cIdx} className="py-4 px-5 text-gray-300">
+                              <td key={cIdx} className="py-4 px-5 text-gray-200">
                                 {renderFormattedText(col.trim())}
                               </td>
                             ))}
@@ -424,14 +447,14 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
                     if (line.startsWith("- ")) {
                       const cleanText = line.replace("- ", "");
                       return (
-                        <li key={lIdx} className="flex items-start gap-3 text-gray-300 text-base">
+                        <li key={lIdx} className="flex items-start gap-3 text-gray-200 text-base md:text-lg">
                           <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(6,182,212,0.8)]" />
                           <span>{renderFormattedText(cleanText)}</span>
                         </li>
                       );
                     }
                     return (
-                      <p key={lIdx} className="text-gray-300 mb-2">
+                      <p key={lIdx} className="text-white mb-2 text-base md:text-lg">
                         {renderFormattedText(line)}
                       </p>
                     );
@@ -449,7 +472,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
               return (
                 <div key={idx} className="my-8 rounded-2xl border border-cyan-500/30 bg-neutral-950 p-6 text-center shadow-lg">
                   {precedingText && (
-                    <p className="text-base text-gray-300 mb-4">{renderFormattedText(precedingText)}</p>
+                    <p className="text-base text-gray-200 mb-4">{renderFormattedText(precedingText)}</p>
                   )}
                   <Link
                     href={linkHref}
@@ -463,7 +486,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
 
             // 11. REGULAR PARAGRAPHS
             return (
-              <p key={idx} className="mb-6 text-base md:text-lg leading-8 text-gray-300">
+              <p key={idx} className="mb-6 text-base md:text-lg leading-8 text-white font-normal">
                 {renderFormattedText(trimmed)}
               </p>
             );

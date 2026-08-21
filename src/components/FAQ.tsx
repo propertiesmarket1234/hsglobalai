@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
 interface FAQItem {
@@ -149,21 +149,24 @@ export default function FAQ() {
 
       <div className="relative mx-auto max-w-5xl">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-center"
         >
-          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400">
-            Official Knowledge Center
-          </span>
+          <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 backdrop-blur-md mb-6 shadow-[0_0_20px_rgba(6,182,212,0.25)]">
+            <span className="h-2 w-2 rounded-full bg-cyan-400 animate-pulse" />
+            <span className="text-xs font-semibold uppercase tracking-[0.25em] text-cyan-300">
+              Official Knowledge Center
+            </span>
+          </div>
 
-          <h2 className="mt-4 text-4xl font-bold tracking-tight text-white md:text-6xl">
+          <h2 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl">
             Frequently Asked Questions
           </h2>
 
-          <p className="mx-auto mt-4 max-w-xl text-base leading-8 text-gray-400 sm:text-lg">
+          <p className="mx-auto mt-4 max-w-xl text-base leading-8 text-gray-300 sm:text-lg">
             Everything you need to know about DIHUAVA Digital Humans, 3D Hologram Box hardware, security compliance, and enterprise rollouts.
           </p>
         </motion.div>
@@ -177,9 +180,9 @@ export default function FAQ() {
                 setSelectedCategory(cat);
                 setOpenIndex(0);
               }}
-              className={`rounded-full px-4 py-2 text-xs font-medium backdrop-blur-md transition-all ${
+              className={`rounded-full px-4 py-2 text-xs font-semibold backdrop-blur-md transition-all duration-300 ${
                 selectedCategory === cat
-                  ? "bg-cyan-500 text-black font-semibold shadow-[0_0_20px_rgba(6,182,212,0.4)]"
+                  ? "bg-cyan-500 text-black shadow-[0_0_25px_rgba(6,182,212,0.4)] scale-105"
                   : "border border-white/15 bg-white/5 text-gray-300 hover:border-white/30 hover:text-white"
               }`}
             >
@@ -193,11 +196,15 @@ export default function FAQ() {
           {filteredFaqs.map((faq, idx) => {
             const isOpen = openIndex === idx;
             return (
-              <div
+              <motion.div
                 key={faq.question}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.05 }}
                 className={`overflow-hidden rounded-2xl border transition-all duration-300 ${
                   isOpen
-                    ? "border-cyan-500/40 bg-neutral-950/90 shadow-[0_0_25px_rgba(6,182,212,0.1)]"
+                    ? "border-cyan-500/50 bg-neutral-950/90 shadow-[0_0_30px_rgba(6,182,212,0.15)]"
                     : "border-white/15 bg-neutral-950/60 hover:border-white/30"
                 }`}
               >
@@ -208,29 +215,31 @@ export default function FAQ() {
                   <span className="pr-4">{faq.question}</span>
                   <span
                     className={`ml-2 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/5 text-sm transition-transform duration-300 ${
-                      isOpen ? "rotate-180 border-cyan-400 text-cyan-400" : "text-gray-400"
+                      isOpen ? "rotate-180 border-cyan-400 text-cyan-400 bg-cyan-500/10" : "text-gray-400"
                     }`}
                   >
                     ↓
                   </span>
                 </button>
 
-                {isOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="px-6 pb-6 text-sm leading-7 text-gray-300 sm:text-base border-t border-white/10 pt-4"
-                  >
-                    <p>{faq.answer}</p>
-                    <div className="mt-4 flex items-center justify-between text-xs text-gray-500 font-mono">
-                      <span>CATEGORY // {faq.category.toUpperCase()}</span>
-                      <span className="text-cyan-400">● DIHUAVA VERIFIED</span>
-                    </div>
-                  </motion.div>
-                )}
-              </div>
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                      className="px-6 pb-6 text-sm leading-7 text-gray-300 sm:text-base border-t border-white/10 pt-4 overflow-hidden"
+                    >
+                      <p>{faq.answer}</p>
+                      <div className="mt-4 flex items-center justify-between text-xs text-gray-500 font-mono">
+                        <span>CATEGORY // {faq.category.toUpperCase()}</span>
+                        <span className="text-cyan-400 font-semibold">● DIHUAVA VERIFIED</span>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
             );
           })}
         </div>

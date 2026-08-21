@@ -167,8 +167,13 @@ export default function ImmersiveUseCases() {
             className="group relative overflow-hidden rounded-3xl border border-white/15 bg-neutral-950/90 p-8 md:p-12 backdrop-blur-2xl shadow-2xl"
           >
             <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
-              {/* LEFT COLUMN: STORY DETAILS & CTAS */}
-              <div className="lg:col-span-6 flex flex-col justify-between">
+              {/* LEFT COLUMN: STORY DETAILS & CTAS — SLIDES FROM LEFT */}
+              <motion.div
+                initial={{ opacity: 0, x: -80 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                className="lg:col-span-6 flex flex-col justify-between"
+              >
                 <div>
                   <span className="text-xs font-bold tracking-widest text-cyan-400 uppercase font-mono">
                     {activeStory.badge}
@@ -228,10 +233,15 @@ export default function ImmersiveUseCases() {
                     {activeStory.ctaSecondaryText} →
                   </Link>
                 </div>
-              </div>
+              </motion.div>
 
-              {/* RIGHT COLUMN: HIGH-RES SPATIAL HOLOGRAPHIC VISUAL DISPLAY */}
-              <div className="lg:col-span-6">
+              {/* RIGHT COLUMN: HIGH-RES SPATIAL HOLOGRAPHIC VISUAL DISPLAY — SLIDES FROM RIGHT */}
+              <motion.div
+                initial={{ opacity: 0, x: 80 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                className="lg:col-span-6"
+              >
                 <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-white/15 bg-black shadow-2xl">
                   <Image
                     src={activeStory.imageSrc}
@@ -255,7 +265,7 @@ export default function ImmersiveUseCases() {
                     <span>Real-Time 3D Hologram Avatar</span>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         </AnimatePresence>

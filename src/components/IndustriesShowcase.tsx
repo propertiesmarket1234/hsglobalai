@@ -111,18 +111,17 @@ export default function IndustriesShowcase() {
   return (
     <section className="relative overflow-hidden bg-black px-6 py-24 text-white">
       <div className="relative mx-auto max-w-7xl divide-y divide-white/10">
-        {industries.map((industry, index) => (
-          <motion.div
-            key={industry.number}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.7, delay: index * 0.1 }}
-            className="py-20 first:pt-0 last:pb-0"
-          >
+        {industries.map((industry) => (
+          <div key={industry.number} className="py-20 first:pt-0 last:pb-0 overflow-hidden">
             <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
-              {/* LEFT HEADER & ICON */}
-              <div className="lg:col-span-5">
+              {/* LEFT HEADER & ICON — COMES FROM LEFT SIDE */}
+              <motion.div
+                initial={{ opacity: 0, x: -90 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+                className="lg:col-span-5"
+              >
                 <div className="flex items-center gap-4">
                   <span className="font-mono text-sm font-semibold tracking-wider text-cyan-400">
                     {industry.number}
@@ -140,11 +139,17 @@ export default function IndustriesShowcase() {
                     {industry.title}
                   </h2>
                 </div>
-              </div>
+              </motion.div>
 
-              {/* RIGHT DESCRIPTION & FEATURES */}
-              <div className="lg:col-span-7">
-                <div className="relative overflow-hidden rounded-3xl border border-white/15 bg-neutral-950/80 p-8 backdrop-blur-xl transition-all duration-500 hover:border-white/30">
+              {/* RIGHT DESCRIPTION & FEATURES — COMES FROM RIGHT SIDE */}
+              <motion.div
+                initial={{ opacity: 0, x: 90 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+                className="lg:col-span-7"
+              >
+                <div className="relative overflow-hidden rounded-3xl border border-white/15 bg-neutral-950/80 p-8 backdrop-blur-xl transition-all duration-500 hover:border-cyan-500/40 hover:shadow-[0_0_35px_rgba(6,182,212,0.25)]">
                   {/* Subtle background glow */}
                   <div
                     className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${industry.accentColor} opacity-30`}
@@ -173,7 +178,7 @@ export default function IndustriesShowcase() {
 
                   <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
                     <a
-                      href="#"
+                      href="/contact"
                       className="group inline-flex items-center gap-2 text-sm font-semibold tracking-wide text-white transition-colors hover:text-cyan-400"
                     >
                       <span>Deploy for {industry.title}</span>
@@ -183,9 +188,9 @@ export default function IndustriesShowcase() {
                     </a>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </section>

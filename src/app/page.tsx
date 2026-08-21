@@ -15,6 +15,7 @@ import WhyHSGlobal from "@/components/WhyHSGlobal";
 import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
@@ -43,9 +44,19 @@ export default function Home() {
         </div>
 
         {/* HERO TEXT OVERLAY (ABOVE THE VIDEO WITH Z-10) */}
-        <div className="relative text-center text-white z-10 max-w-5xl">
+        <motion.div
+          initial={{ opacity: 0, y: 35 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          className="relative text-center text-white z-10 max-w-5xl"
+        >
           {/* Badge */}
-          <div className="inline-flex items-center gap-2.5 rounded-full border border-cyan-500/40 bg-cyan-950/80 px-4 py-1.5 backdrop-blur-md mb-8 shadow-[0_0_25px_rgba(6,182,212,0.35)]">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="inline-flex items-center gap-2.5 rounded-full border border-cyan-500/40 bg-cyan-950/80 px-4 py-1.5 backdrop-blur-md mb-8 shadow-[0_0_25px_rgba(6,182,212,0.35)]"
+          >
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-500" />
@@ -53,10 +64,10 @@ export default function Home() {
             <span className="text-xs font-semibold tracking-widest text-cyan-300 uppercase">
               Enterprise Digital Human Platform Powered by On-Device AI
             </span>
-          </div>
+          </motion.div>
 
           {/* Main Headline */}
-          <h1 className="text-5xl font-bold tracking-tight md:text-7xl lg:text-8xl drop-shadow-2xl">
+          <h1 className="text-5xl font-extrabold tracking-tight md:text-7xl lg:text-8xl drop-shadow-2xl">
             AI Experiences
             <br />
             Built for the{" "}
@@ -74,38 +85,43 @@ export default function Home() {
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <a
               href="/contact"
-              className="rounded-full bg-white px-8 py-4 text-sm font-semibold text-black transition-all hover:bg-neutral-200 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]"
+              className="rounded-full bg-white px-9 py-4 text-sm font-bold text-black transition-all duration-300 hover:scale-105 hover:bg-cyan-400 hover:shadow-[0_0_35px_rgba(6,182,212,0.6)]"
             >
               Book a Demo
             </a>
             <a
               href="/products"
-              className="rounded-full border border-cyan-400/40 bg-black/60 px-8 py-4 text-sm font-semibold text-cyan-300 backdrop-blur-md transition-all hover:border-cyan-400 hover:bg-cyan-500/10 shadow-[0_0_20px_rgba(6,182,212,0.2)]"
+              className="rounded-full border border-cyan-400/40 bg-black/60 px-8 py-4 text-sm font-semibold text-cyan-300 backdrop-blur-md transition-all duration-300 hover:border-cyan-400 hover:bg-cyan-500/10 hover:scale-105 shadow-[0_0_20px_rgba(6,182,212,0.2)]"
             >
               Explore Products →
             </a>
           </div>
 
           {/* Quick Metrics Bar */}
-          <div className="mt-16 grid grid-cols-2 gap-4 border-t border-white/15 pt-10 sm:grid-cols-4 backdrop-blur-sm rounded-2xl bg-black/40 p-6">
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-16 grid grid-cols-2 gap-4 border-t border-white/15 pt-10 sm:grid-cols-4 backdrop-blur-md rounded-2xl bg-black/50 p-6 shadow-2xl border border-cyan-500/20"
+          >
             <div>
               <p className="text-3xl font-bold text-cyan-400 drop-shadow">100%</p>
-              <p className="text-xs text-gray-300 uppercase tracking-wider mt-1 font-medium">Offline / On-Device AI</p>
+              <p className="text-xs text-gray-300 uppercase tracking-wider mt-1 font-medium font-mono">Offline / On-Device AI</p>
             </div>
             <div>
               <p className="text-3xl font-bold text-white drop-shadow">30+</p>
-              <p className="text-xs text-gray-300 uppercase tracking-wider mt-1 font-medium">Global Languages</p>
+              <p className="text-xs text-gray-300 uppercase tracking-wider mt-1 font-medium font-mono">Global Languages</p>
             </div>
             <div>
               <p className="text-3xl font-bold text-cyan-400 drop-shadow">&lt; 3000ms</p>
-              <p className="text-xs text-gray-300 uppercase tracking-wider mt-1 font-medium">On-Device Low Latency</p>
+              <p className="text-xs text-gray-300 uppercase tracking-wider mt-1 font-medium font-mono">On-Device Low Latency</p>
             </div>
             <div>
               <p className="text-3xl font-bold text-white drop-shadow">4x</p>
-              <p className="text-xs text-gray-300 uppercase tracking-wider mt-1 font-medium">Customer Engagement</p>
+              <p className="text-xs text-gray-300 uppercase tracking-wider mt-1 font-medium font-mono">Customer Engagement</p>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* CORE PLATFORM CAPABILITIES */}
