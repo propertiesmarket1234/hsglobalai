@@ -102,7 +102,7 @@ export default function BuildAvatarPipeline() {
             </div>
 
             <div className="rounded-xl border border-white/10 bg-black/60 p-4 text-center">
-              <span className="text-xs font-mono text-cyan-400">⚡ Zero-Latency On-Device Rendering Engine</span>
+              <span className="text-xs font-mono text-cyan-400">⚡ Low-Latency On-Device Rendering Engine</span>
             </div>
           </motion.div>
 
