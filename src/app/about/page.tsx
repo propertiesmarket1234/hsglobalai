@@ -46,9 +46,9 @@ const enterprisePillars = [
     icon: "👤",
   },
   {
-    title: "Multilingual Voice AI",
+    title: "Multilingual Voice AI & Voice Cloning",
     description:
-      "Communicate with global customers across 23+ languages with real-time neural speech synthesis.",
+      "Communicate with global customers across 30+ languages with real-time neural speech synthesis & voice cloning.",
     icon: "🌍",
   },
   {
@@ -58,9 +58,9 @@ const enterprisePillars = [
     icon: "📺",
   },
   {
-    title: "Custom AI Personalities",
+    title: "Avatar Customization & Voice Cloning",
     description:
-      "Build branded digital humans tailored to your industry, specific business processes, tone of voice, and custom 3D attire.",
+      "Build branded digital humans tailored to your industry with custom 3D facial rendering, voice cloning, tone of voice, and custom 3D attire.",
     icon: "✨",
   },
   {
@@ -104,9 +104,9 @@ const approachItems = [
   },
   {
     number: "03",
-    title: "Multilingual Intelligence",
+    title: "Multilingual Intelligence & Voice Cloning",
     description:
-      "Natural AI interactions designed to support global customers across 23+ languages and regional dialects.",
+      "Natural AI interactions designed to support global customers across 30+ languages, voice cloning, and regional dialects.",
   },
   {
     number: "04",

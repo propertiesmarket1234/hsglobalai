@@ -24,7 +24,7 @@ const comparisonData = [
   {
     feature: "Document Intelligence (RAG)",
     traditional: "Requires cloud connection & monthly token fees",
-    dihuava: "Instant local PDF/RAG lookup with zero cloud latency",
+    dihuava: "Instant local PDF/RAG lookup with Low Latency",
     highlight: false,
   },
   {
@@ -36,7 +36,7 @@ const comparisonData = [
   {
     feature: "Multilingual Voice Capabilities",
     traditional: "Robotic text-to-speech engine",
-    dihuava: "Human-like neural speech in 23+ languages",
+    dihuava: "Human-like neural speech & voice cloning in 30+ languages",
     highlight: false,
   },
 ];

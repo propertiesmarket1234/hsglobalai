@@ -6,13 +6,13 @@ import { useState } from "react";
 const capabilities = [
   {
     id: "avatar",
-    title: "Digital Human Avatar",
-    subtitle: "Hyper-Realistic Avatars",
+    title: "Avatar Customization & Voice Cloning",
+    subtitle: "Custom 3D Mesh & Neural Voice Cloning",
     description:
-      "Lifelike avatars featuring natural facial expressions via speech and micro-gestures suited for high-end retail, banking, and executive spaces.",
+      "Tailor every aspect of your digital human—from 3D facial mesh, attire, and brand persona to custom neural voice cloning that speaks naturally in your brand's authentic voice.",
     icon: "👤",
-    tags: ["Natural Expressions via speech"],
-    stat: "99.4% Realism Score",
+    tags: ["Custom 3D Mesh", "Voice Cloning", "Brand Persona", "Custom Attire"],
+    stat: "100% Brand Custom",
   },
   {
     id: "document",
@@ -26,13 +26,13 @@ const capabilities = [
   },
   {
     id: "language",
-    title: "Language Intelligence",
-    subtitle: "23+ Languages & Accents",
+    title: "Multilingual Support (30+ Languages)",
+    subtitle: "30+ Global Languages & Accents",
     description:
-      "Automatic real-time language detection and fluid multi-turn conversational AI supporting global and regional dialects with natural voice synthesis.",
+      "Automatic real-time language detection and fluid multi-turn conversational AI supporting 30+ global languages and regional dialects with natural speech synthesis.",
     icon: "🌍",
-    tags: ["23+ Languages", "Auto-Detect", "Neural Voice"],
-    stat: "23+ Dialects Supported",
+    tags: ["30+ Languages", "Auto Language Detect", "Neural Voice"],
+    stat: "30+ Languages Supported",
   },
   {
     id: "persona",
@@ -194,7 +194,7 @@ export default function DihuavaPlatform() {
                 <div className="mt-4 space-y-2 font-mono text-xs text-gray-400">
                   <p className="text-cyan-400">&gt; Initializing {activeCapability.title} Engine...</p>
                   <p>&gt; Offline RAG Index: Ready (0 cloud ping)</p>
-                  <p className="text-gray-500">&gt; Neural Audio Synthesizer: 23 Languages loaded</p>
+                  <p className="text-gray-500">&gt; Neural Audio Synthesizer: 30+ Languages & Voice Cloning loaded</p>
                 </div>
               </div>
             </motion.div>

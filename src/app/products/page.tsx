@@ -73,10 +73,13 @@ export default function ProductsPage() {
                 {/* Capability Pills */}
                 <div className="mt-6 flex flex-wrap gap-2">
                   <span className="rounded-full border border-cyan-500/30 bg-black/60 px-3.5 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md">
-                    Offline AI Engine
+                    Avatar Customization & Voice Cloning
                   </span>
                   <span className="rounded-full border border-cyan-500/30 bg-black/60 px-3.5 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md">
-                    Real-Time Interaction
+                    30+ Global Languages
+                  </span>
+                  <span className="rounded-full border border-cyan-500/30 bg-black/60 px-3.5 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md">
+                    100% Offline AI Engine
                   </span>
                   <span className="rounded-full border border-cyan-500/30 bg-black/60 px-3.5 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md">
                     3D Holographics

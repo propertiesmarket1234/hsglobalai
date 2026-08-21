@@ -85,9 +85,9 @@ const features: FeatureTab[] = [
     subtitle: "Cloned or synthetic. Multilingual support with sub-200ms real-time audio.",
     icon: "🎙️",
     badge: "Sub-200ms Voice",
-    userPrompt: "What is the voice response latency?",
+    userPrompt: "What is the Low Latency voice response?",
     botReply:
-      "Sub-200ms ultra-low latency voice synthesis supporting 23+ spoken languages and custom voice cloning.",
+      "Sub-200ms Low Latency voice synthesis supporting 30+ spoken languages and custom voice cloning.",
   },
   {
     id: "memory",
@@ -183,7 +183,7 @@ export default function RealtimeTalkingAvatars() {
     setIsSpeaking(false);
 
     setTimeout(() => {
-      const botReplyText = `Thank you for asking about "${userText}". Our conversational avatars process requests in real-time with sub-200ms latency and interactive response.`;
+      const botReplyText = `Thank you for asking about "${userText}". Our conversational avatars process requests in real-time with sub-200ms Low Latency and interactive response.`;
       setChatMessages((prev) => [
         ...prev,
         {
@@ -255,7 +255,7 @@ export default function RealtimeTalkingAvatars() {
     setIsSpeaking(false);
 
     setTimeout(() => {
-      const botText = `I hear you! Our real-time digital humans process live speech with sub-200ms ultra-low latency and full natural response.`;
+      const botText = `I hear you! Our real-time digital humans process live speech with sub-200ms Low Latency and full natural response.`;
       setChatMessages((prev) => [...prev, { sender: "bot", text: botText }]);
       speakResponse(botText);
     }, 600);

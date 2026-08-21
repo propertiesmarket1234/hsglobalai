@@ -13,25 +13,25 @@ const features = [
     id: "offline-rag",
     title: "Offline RAG & Enterprise Knowledge",
     description:
-      "Ingest custom corporate PDFs, product catalogs, banking rules, and training materials directly onto the local device. DIHUAVA delivers instant, offline search responses with zero cloud latency and total data privacy.",
+      "Ingest custom corporate PDFs, product catalogs, banking rules, and training materials directly onto the local device. DIHUAVA delivers instant, offline search responses with Low Latency and total data privacy.",
     icon: "⚡",
-    metrics: ["100% Offline Capable", "< 3000ms Response", "Zero Cloud Latency"],
+    metrics: ["100% Offline Capable", "< 3000ms Response", "Low Latency"],
   },
   {
     id: "multilingual-voice",
-    title: "23+ Multilingual Neural Voice",
+    title: "Multilingual Support (30+ Languages)",
     description:
-      "Fluid automatic language detection supporting 23+ global languages and regional dialects. Natural speech synthesis with pitch modulation and lip-sync precision matching conversational context.",
+      "Fluid automatic language detection supporting 30+ global languages and regional dialects. Natural speech synthesis with pitch modulation, voice cloning, and lip-sync precision.",
     icon: "🌐",
-    metrics: ["23+ Languages", "Auto-Language Detect", "Neural Lip-Sync"],
+    metrics: ["30+ Languages", "Auto-Language Detect", "Voice Cloning AI"],
   },
   {
     id: "persona-engine",
-    title: "Custom Avatar & Brand Persona",
+    title: "Avatar Customization & Voice Cloning",
     description:
-      "Configure facial features, wardrobe, gender, tone of voice, and micro-gestures. From historical legends like Einstein and Ratan Tata to custom corporate brand ambassadors tuned to your guidelines.",
+      "Configure 3D facial mesh, wardrobe, gender, voice cloning, tone of voice, and micro-gestures. From historical legends like Einstein and Ratan Tata to custom corporate brand ambassadors.",
     icon: "🎭",
-    metrics: ["Custom Avatars", "Brand Tone Control", "Micro-Gesture AI"],
+    metrics: ["Custom 3D Avatars", "Voice Cloning", "Brand Tone Control"],
   },
   {
     id: "multi-device",
@@ -46,7 +46,7 @@ const features = [
 const technicalSpecs = [
   { label: "Deployment Engine", value: "On-Device Local AI Workstation / Cloud API Hybrid" },
   { label: "RAG Document Formats", value: "PDF, DOCX, TXT, CSV, Enterprise Knowledge Bases" },
-  { label: "Response Latency", value: "< 300ms Speech Synthesis & Animation Generation" },
+  { label: "Low Latency", value: "< 300ms Speech Synthesis & Animation Generation" },
   { label: "Languages Supported", value: "English, Mandarin, Arabic, Spanish, Hindi, French + 17 dialect accents" },
   { label: "Rendering Tech", value: "Real-Time 3D Neural Facial Avatar Synthesis" },
   { label: "Security & Privacy", value: "Local Storage Encryption, Zero Data Leakage, SOC2 Compliant Arch" },

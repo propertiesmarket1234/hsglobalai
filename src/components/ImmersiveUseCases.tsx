@@ -30,7 +30,7 @@ const useCases: UseCaseStory[] = [
     titleHighlight: "Speak.",
     highlightColor: "from-cyan-400 via-sky-300 to-cyan-500",
     description:
-      "Imagine a portrait framed on a gallery wall or inside a 3D Hologram Box. When a visitor steps close, the historical figure begins to speak. Not a pre-recorded video loop—a real conversation. A full-presence conversational avatar that looks, sounds, and reacts in real-time, available every hour the museum is open, in 23+ languages, without staff or volunteers.",
+      "Imagine a portrait framed on a gallery wall or inside a 3D Hologram Box. When a visitor steps close, the historical figure begins to speak. Not a pre-recorded video loop—a real conversation. A full-presence conversational avatar with custom voice cloning that looks, sounds, and reacts in real-time, available every hour the museum is open, in 30+ global languages, without staff or volunteers.",
     ctaPrimaryText: "Build Your Exhibition Character",
     ctaSecondaryText: "Explore Museum Solutions",
     ctaPrimaryHref: "/contact",
@@ -40,12 +40,12 @@ const useCases: UseCaseStory[] = [
     capabilities: [
       "Sub-3000ms Voice Response",
       "Historical Document RAG",
-      "23+ Spoken Languages",
-      "Offline Air-Gapped Security",
+      "30+ Spoken Languages",
+      "Avatar & Voice Cloning AI",
     ],
     metrics: [
       { label: "Dwell Time Increase", value: "+65%" },
-      { label: "Languages Supported", value: "23+" },
+      { label: "Languages Supported", value: "30+" },
       { label: "Operating Uptime", value: "24/7" },
     ],
   },
@@ -92,12 +92,12 @@ const useCases: UseCaseStory[] = [
     capabilities: [
       "100% Air-Gapped Storage",
       "Local Enterprise PDF RAG",
-      "Zero Cloud Latency",
+      "Low Latency",
       "Bank-Grade Compliance",
     ],
     metrics: [
       { label: "Data Leakage Risk", value: "0%" },
-      { label: "On-Device Latency", value: "< 3000ms" },
+      { label: "On-Device Low Latency", value: "< 3000ms" },
       { label: "Handling Reduction", value: "35%" },
     ],
   },

@@ -8,7 +8,7 @@ const steps = [
     title: "Deploy On-Device",
     subtitle: "Rapid Setup & Zero Cloud Dependencies",
     description:
-      "Install DIHUAVA software onto your local hardware, Hologram Box, or kiosk in under 30 minutes. All AI models run locally with low-latency.",
+      "Install DIHUAVA software onto your local hardware, Hologram Box, or kiosk in under 30 minutes. All AI models run locally with Low Latency.",
     accentColor: "from-cyan-500/20 via-sky-500/5 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.3)",
     icon: "🚀",

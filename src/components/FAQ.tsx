@@ -74,7 +74,7 @@ const faqData: FAQItem[] = [
     category: "Capabilities & Features",
     question: "How many languages and dialects are supported?",
     answer:
-      "HS Global AI supports 23+ primary languages (including English, Spanish, Mandarin, Arabic, Japanese, French, German, and Hindi) and over 100 regional accents with automatic language detection.",
+      "HS Global AI supports 30+ primary languages (including English, Spanish, Mandarin, Arabic, Japanese, French, German, and Hindi), custom voice cloning, and over 100 regional accents with automatic language detection.",
   },
   {
     category: "Capabilities & Features",

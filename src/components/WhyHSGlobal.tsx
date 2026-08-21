@@ -34,8 +34,8 @@ const features = [
     title: "Multilingual Experiences",
     subtitle: "Real-Time Neural Speech",
     description:
-      "Communicate naturally across 23+ languages and regional accents for global and localized customer experiences.",
-    badge: "23+ Languages",
+      "Communicate naturally across 30+ global languages, voice cloning, and regional accents for global and localized customer experiences.",
+    badge: "30+ Global Languages",
     accentColor: "from-cyan-500/20 via-sky-500/5 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.3)",
     borderColor: "group-hover:border-cyan-500/40",
@@ -138,7 +138,7 @@ export default function WhyHSGlobal() {
             </h2>
 
             <p className="max-w-md text-base leading-7 text-gray-400 md:text-lg">
-              Engineered to operate securely, intelligently, and reliably across physical environments with zero dependency on cloud latency.
+              Engineered to operate securely, intelligently, and reliably across physical environments with Low Latency and zero cloud dependency.
             </p>
           </div>
         </motion.div>

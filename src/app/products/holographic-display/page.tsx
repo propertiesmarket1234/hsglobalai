@@ -18,7 +18,7 @@ const hologramFeatures = [
   {
     title: "Integrated AI Workstation",
     description:
-      "Built-in industrial-grade computing unit running DIHUAVA offline AI engine. Zero cloud dependence, sub-3000ms latency, and high-security enterprise operation.",
+      "Built-in industrial-grade computing unit running DIHUAVA offline AI engine. Zero cloud dependence, sub-3000ms Low Latency, and high-security enterprise operation.",
     icon: "⚙️",
     badge: "On-Device Processing",
   },

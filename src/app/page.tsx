@@ -93,12 +93,12 @@ export default function Home() {
               <p className="text-xs text-gray-300 uppercase tracking-wider mt-1 font-medium">Offline / On-Device AI</p>
             </div>
             <div>
-              <p className="text-3xl font-bold text-white drop-shadow">23+</p>
-              <p className="text-xs text-gray-300 uppercase tracking-wider mt-1 font-medium">Languages Supported</p>
+              <p className="text-3xl font-bold text-white drop-shadow">30+</p>
+              <p className="text-xs text-gray-300 uppercase tracking-wider mt-1 font-medium">Global Languages</p>
             </div>
             <div>
               <p className="text-3xl font-bold text-cyan-400 drop-shadow">&lt; 3000ms</p>
-              <p className="text-xs text-gray-300 uppercase tracking-wider mt-1 font-medium">On-Device AI Latency</p>
+              <p className="text-xs text-gray-300 uppercase tracking-wider mt-1 font-medium">On-Device Low Latency</p>
             </div>
             <div>
               <p className="text-3xl font-bold text-white drop-shadow">4x</p>

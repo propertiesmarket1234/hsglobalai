@@ -143,8 +143,8 @@ Platform: DIHUAVA On-Device AI Platform
 
 TECHNICAL SPECIFICATIONS:
 - 100% On-Device Air-Gapped AI Inference
-- Sub-3000ms Ultra-Low Voice latency
-- 23+ Spoken Multilingual Voice Engines
+- Sub-3000ms Low Latency Voice
+- 30+ Spoken Multilingual Voice Engines & Voice Cloning
 - Optical 3D Holographic Display Glass Specifications
 
 Singapore Headquarters: 20 Collyer Quay, #09-01, Singapore 049319

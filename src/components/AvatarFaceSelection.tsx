@@ -152,7 +152,7 @@ export default function AvatarFaceSelection() {
           <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 backdrop-blur-md mb-6 shadow-[0_0_20px_rgba(6,182,212,0.25)]">
             <span className="h-2 w-2 rounded-full bg-cyan-400 animate-pulse" />
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">
-              Interactive Digital Humans
+              Avatar Customization & Voice Cloning
             </span>
           </div>
 
@@ -164,7 +164,7 @@ export default function AvatarFaceSelection() {
           </h2>
 
           <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-gray-300 sm:text-lg">
-            Real-time talking avatars that engage and connect with your audience.
+            Full Avatar Customization & Voice Cloning supporting 30+ Global Languages and natural neural speech synthesis.
           </p>
         </motion.div>
 
