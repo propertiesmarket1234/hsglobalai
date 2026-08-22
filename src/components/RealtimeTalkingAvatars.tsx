@@ -14,11 +14,20 @@ interface FeatureTab {
   botReply: string;
 }
 
+interface VoiceProfile {
+  pitch: number;
+  rate: number;
+  voiceKeywords: string[];
+  description: string;
+}
+
 interface LadyOption {
   id: string;
   name: string;
   role: string;
   imageSrc: string;
+  greeting: string;
+  voiceProfile: VoiceProfile;
 }
 
 const ladyOptions: LadyOption[] = [
@@ -27,26 +36,81 @@ const ladyOptions: LadyOption[] = [
     name: "Elena Rostova",
     role: "AI Chief Presenter",
     imageSrc: "/images/avatars/full_digital_human_presenter.png",
+    greeting: "Hello, I am Elena Rostova, AI Chief Presenter. How may I assist your enterprise vision today?",
+    voiceProfile: {
+      pitch: 0.90,
+      rate: 0.92,
+      voiceKeywords: ["zira", "hazel", "en-gb", "google uk english female", "female"],
+      description: "Authoritative & Confident Deep Voice",
+    },
   },
   {
     id: "modern-presenter",
     name: "Sophia Vance",
     role: "Digital Executive Host",
     imageSrc: "/images/avatars/modern_digital_human_presenter.png",
+    greeting: "Hi there! I'm Sophia Vance, your Digital Executive Host. Welcome to our real-time interactive platform.",
+    voiceProfile: {
+      pitch: 1.18,
+      rate: 1.04,
+      voiceKeywords: ["samantha", "natural", "google us english", "female"],
+      description: "Bright, Energetic & Modern Executive Voice",
+    },
   },
   {
     id: "mei-lin",
     name: "Mei Lin",
     role: "Global Concierge Lead",
     imageSrc: "/images/avatars/asian_lady.png",
+    greeting: "Welcome! I am Mei Lin, Global Concierge Lead. I am here to guide your personalized journey.",
+    voiceProfile: {
+      pitch: 1.35,
+      rate: 0.88,
+      voiceKeywords: ["fiona", "karen", "kyoko", "google traditional chinese", "female"],
+      description: "Soft, Warm & Gentle Concierge Voice",
+    },
   },
   {
     id: "victoria",
     name: "Victoria Vance",
     role: "Corporate Wealth Advisor",
     imageSrc: "/images/avatars/executive_lady.png",
+    greeting: "Good day. I am Victoria Vance, Corporate Wealth Advisor. Let us optimize your AI strategy and investment portfolio.",
+    voiceProfile: {
+      pitch: 0.78,
+      rate: 0.95,
+      voiceKeywords: ["victoria", "serena", "google australian female", "en-au", "female"],
+      description: "Rich, Formal & Articulate Advisor Voice",
+    },
   },
 ];
+
+const findVoiceForLady = (voices: SpeechSynthesisVoice[], ladyId: string): SpeechSynthesisVoice | null => {
+  if (!voices || voices.length === 0) return null;
+  const lady = ladyOptions.find((l) => l.id === ladyId) || ladyOptions[0];
+  const keywords = lady.voiceProfile.voiceKeywords;
+
+  // 1. Try finding voice matching any keyword
+  for (const kw of keywords) {
+    const matched = voices.find(
+      (v) =>
+        v.name.toLowerCase().includes(kw.toLowerCase()) ||
+        v.lang.toLowerCase().includes(kw.toLowerCase())
+    );
+    if (matched) return matched;
+  }
+
+  // 2. Fallback to indexing based on ladyId if multiple English voices exist
+  const englishVoices = voices.filter((v) => v.lang.startsWith("en"));
+  if (englishVoices.length > 0) {
+    const index = ladyOptions.findIndex((l) => l.id === ladyId);
+    return englishVoices[index % englishVoices.length];
+  }
+
+  // 3. Fallback to indexing overall voices
+  const index = ladyOptions.findIndex((l) => l.id === ladyId);
+  return voices[index % voices.length] || voices[0];
+};
 
 const features: FeatureTab[] = [
   {
@@ -82,12 +146,12 @@ const features: FeatureTab[] = [
   {
     id: "voice",
     title: "Voice",
-    subtitle: "Cloned or synthetic. Multilingual support with sub-200ms real-time audio.",
+    subtitle: "Cloned or synthetic. Multilingual support with < 3000ms real-time audio.",
     icon: "🎙️",
-    badge: "Sub-200ms Voice",
+    badge: "< 3000ms Voice",
     userPrompt: "What is the Low Latency voice response?",
     botReply:
-      "Sub-200ms Low Latency voice synthesis supporting 30+ spoken languages and custom voice cloning.",
+      "< 3000ms Low Latency voice synthesis supporting 30+ spoken languages and custom voice cloning.",
   },
   {
     id: "memory",
@@ -113,8 +177,11 @@ export default function RealtimeTalkingAvatars() {
   const activeFeature = features.find((f) => f.id === activeTab) || features[0];
   const activeLady = ladyOptions.find((l) => l.id === selectedLadyId) || ladyOptions[0];
 
-  // Speech Synthesis
-  const speakResponse = (text: string) => {
+  // Speech Synthesis with Avatar-Specific Voice Profiles
+  const speakResponse = (text: string, ladyIdOverride?: string) => {
+    const currentLadyId = ladyIdOverride || selectedLadyId;
+    const lady = ladyOptions.find((l) => l.id === currentLadyId) || ladyOptions[0];
+
     if (!soundEnabled) {
       setIsSpeaking(true);
       setTimeout(() => setIsSpeaking(false), 3800);
@@ -130,20 +197,13 @@ export default function RealtimeTalkingAvatars() {
     try {
       window.speechSynthesis.cancel();
       const utterance = new SpeechSynthesisUtterance(text);
-      utterance.rate = 0.95;
-      utterance.pitch = 1.05;
+      
+      // Apply unique Pitch & Speed Rate for each Avatar Presenter
+      utterance.pitch = lady.voiceProfile.pitch;
+      utterance.rate = lady.voiceProfile.rate;
 
       const voices = window.speechSynthesis.getVoices();
-      const preferredVoice =
-        voices.find(
-          (v) =>
-            v.lang.startsWith("en") &&
-            (v.name.toLowerCase().includes("female") ||
-              v.name.toLowerCase().includes("natural") ||
-              v.name.toLowerCase().includes("samantha") ||
-              v.name.toLowerCase().includes("zira") ||
-              v.name.toLowerCase().includes("google"))
-        ) || voices[0];
+      const preferredVoice = findVoiceForLady(voices, currentLadyId);
 
       if (preferredVoice) {
         utterance.voice = preferredVoice;
@@ -157,6 +217,17 @@ export default function RealtimeTalkingAvatars() {
     } catch (err) {
       setIsSpeaking(true);
       setTimeout(() => setIsSpeaking(false), 3800);
+    }
+  };
+
+  const handleLadySelect = (ladyId: string) => {
+    setSelectedLadyId(ladyId);
+    const lady = ladyOptions.find((l) => l.id === ladyId);
+    if (lady) {
+      setChatMessages([
+        { sender: "bot", text: `Active Presenter: ${lady.name} (${lady.role}). "${lady.greeting}"` },
+      ]);
+      speakResponse(lady.greeting, ladyId);
     }
   };
 
@@ -183,7 +254,7 @@ export default function RealtimeTalkingAvatars() {
     setIsSpeaking(false);
 
     setTimeout(() => {
-      const botReplyText = `Thank you for asking about "${userText}". Our conversational avatars process requests in real-time with sub-200ms Low Latency and interactive response.`;
+      const botReplyText = `Thank you for asking about "${userText}". Our conversational avatars process requests in real-time with < 3000ms Low Latency and interactive response.`;
       setChatMessages((prev) => [
         ...prev,
         {
@@ -255,7 +326,7 @@ export default function RealtimeTalkingAvatars() {
     setIsSpeaking(false);
 
     setTimeout(() => {
-      const botText = `I hear you! Our real-time digital humans process live speech with sub-200ms Low Latency and full natural response.`;
+      const botText = `I hear you! Our real-time digital humans process live speech with < 3000ms Low Latency and full natural response.`;
       setChatMessages((prev) => [...prev, { sender: "bot", text: botText }]);
       speakResponse(botText);
     }, 600);
@@ -311,7 +382,7 @@ export default function RealtimeTalkingAvatars() {
               return (
                 <button
                   key={lady.id}
-                  onClick={() => setSelectedLadyId(lady.id)}
+                  onClick={() => handleLadySelect(lady.id)}
                   className={`inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-medium transition-all ${
                     isSelected
                       ? "border border-cyan-400 bg-cyan-950 text-cyan-200 shadow-[0_0_15px_rgba(6,182,212,0.4)]"
@@ -362,9 +433,12 @@ export default function RealtimeTalkingAvatars() {
                 </span>
               </div>
 
-              <div className="flex items-center gap-2 rounded-full border border-cyan-500/40 bg-black/85 px-4 py-2 backdrop-blur-md">
+              <div className="flex items-center gap-2.5 rounded-full border border-cyan-500/40 bg-black/85 px-4 py-2 backdrop-blur-md">
                 <span className="text-xs font-mono font-bold text-cyan-300 uppercase tracking-wider">
                   {activeLady.name}
+                </span>
+                <span className="hidden sm:inline-block text-[11px] font-mono text-cyan-400 border-l border-white/20 pl-2">
+                  🎙️ {activeLady.voiceProfile.description}
                 </span>
               </div>
             </div>
