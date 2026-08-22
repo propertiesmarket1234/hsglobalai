@@ -4,7 +4,6 @@ import Header from "@/components/Header";
 import DihuavaPlatform from "@/components/DihuavaPlatform";
 import Products from "@/components/Products";
 import ImmersiveUseCases from "@/components/ImmersiveUseCases";
-import AvatarFaceSelection from "@/components/AvatarFaceSelection";
 import RealtimeTalkingAvatars from "@/components/RealtimeTalkingAvatars";
 import BuildAvatarPipeline from "@/components/BuildAvatarPipeline";
 import HowItWorks from "@/components/HowItWorks";
@@ -129,9 +128,6 @@ export default function Home() {
 
       {/* PORTRAITS & HOLOGRAMS THAT SPEAK (IMMERSIVE USE CASES) */}
       <ImmersiveUseCases />
-
-      {/* CREATE THE PERFECT FACE FOR YOUR BUSINESS (AVATAR FACE SELECTION) */}
-      <AvatarFaceSelection />
 
       {/* REAL-TIME CONVERSATIONAL AVATARS WITH MEMORY */}
       <RealtimeTalkingAvatars />
