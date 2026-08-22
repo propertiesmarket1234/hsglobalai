@@ -61,8 +61,8 @@ const useCases: UseCaseStory[] = [
     ctaSecondaryText: "Explore Retail Solutions",
     ctaPrimaryHref: "/contact",
     ctaSecondaryHref: "/industries#retail",
-    imageSrc: "/images/blog/blog_banner_product_catalogue.png",
-    imageAlt: "Smart Retail Holographic Sales Guide",
+    imageSrc: "/images/use-cases/jewellery_hologram_kiosk.png",
+    imageAlt: "Actual 3D Holographic Jewellery Product Kiosk with Live Digital Human Presenter",
     capabilities: [
       "Real-Time 3D Product Catalog",
       "AI Recommendation Engine",
@@ -87,8 +87,8 @@ const useCases: UseCaseStory[] = [
     ctaSecondaryText: "Explore Banking Solutions",
     ctaPrimaryHref: "/contact",
     ctaSecondaryHref: "/industries#banking",
-    imageSrc: "/images/blog/blog_banner_offline_security.png",
-    imageAlt: "Private Wealth Air-Gapped AI Advisor",
+    imageSrc: "/images/use-cases/banking_hologram_kiosk.png",
+    imageAlt: "3D Hologram Kiosk display featuring Lady Corporate Wealth Advisor for Bank VIP Lounges",
     capabilities: [
       "100% Air-Gapped Storage",
       "Local Enterprise PDF RAG",
@@ -235,36 +235,49 @@ export default function ImmersiveUseCases() {
                 </div>
               </motion.div>
 
-              {/* RIGHT COLUMN: HIGH-RES SPATIAL HOLOGRAPHIC VISUAL DISPLAY — SLIDES FROM RIGHT */}
+              {/* RIGHT COLUMN: HIGH-RES SPATIAL HOLOGRAPHIC VISUAL DISPLAY — SLIDES & FLOATS WITH LASER SCAN ANIMATION */}
               <motion.div
                 initial={{ opacity: 0, x: 80 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                 className="lg:col-span-6"
               >
-                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-white/15 bg-black shadow-2xl">
+                <motion.div
+                  animate={{ y: [0, -8, 0] }}
+                  transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+                  className="relative aspect-[16/11] w-full overflow-hidden rounded-2xl border border-cyan-500/40 bg-neutral-950/90 shadow-[0_0_50px_rgba(6,182,212,0.35)] transition-all duration-500 hover:shadow-[0_0_80px_rgba(6,182,212,0.6)] hover:border-cyan-400 group"
+                >
+                  {/* Image Display */}
                   <Image
                     src={activeStory.imageSrc}
                     alt={activeStory.imageAlt}
                     fill
                     priority
                     sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="object-contain p-2 filter brightness-105 contrast-105 transition-transform duration-700 group-hover:scale-105"
+                  />
+
+                  {/* Laser Scan Beam Animation */}
+                  <motion.div
+                    animate={{ top: ["0%", "100%", "0%"] }}
+                    transition={{ duration: 4.5, repeat: Infinity, ease: "linear" }}
+                    className="pointer-events-none absolute left-0 right-0 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent shadow-[0_0_20px_#06b6d4] z-20 opacity-80"
                   />
 
                   {/* Dark gradient vignette overlay */}
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30" />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 z-10" />
 
-                  {/* Spatial Equations & Holographic Badge */}
-                  <div className="absolute top-4 left-4 rounded-full border border-white/20 bg-black/75 px-3 py-1 font-mono text-[11px] font-semibold text-cyan-300 backdrop-blur-md">
-                    E = mc² • Minkowski Spatial AI
-                  </div>
+                  {/* HUD Corner Accents */}
+                  <div className="pointer-events-none absolute top-3 left-3 h-5 w-5 border-t-2 border-l-2 border-cyan-400 z-20 opacity-80" />
+                  <div className="pointer-events-none absolute top-3 right-3 h-5 w-5 border-t-2 border-r-2 border-cyan-400 z-20 opacity-80" />
+                  <div className="pointer-events-none absolute bottom-3 left-3 h-5 w-5 border-b-2 border-l-2 border-cyan-400 z-20 opacity-80" />
+                  <div className="pointer-events-none absolute bottom-3 right-3 h-5 w-5 border-b-2 border-r-2 border-cyan-400 z-20 opacity-80" />
 
-                  <div className="absolute bottom-4 right-4 rounded-full border border-cyan-500/40 bg-black/75 px-3.5 py-1 text-xs font-bold text-cyan-300 backdrop-blur-md flex items-center gap-2">
+                  <div className="absolute bottom-4 right-4 z-20 rounded-full border border-cyan-500/50 bg-black/85 px-4 py-1.5 text-xs font-bold text-cyan-300 backdrop-blur-md flex items-center gap-2 shadow-lg">
                     <span className="flex h-2 w-2 rounded-full bg-cyan-400 animate-ping" />
-                    <span>Real-Time 3D Hologram Avatar</span>
+                    <span>Real-Time 3D Hologram Kiosk</span>
                   </div>
-                </div>
+                </motion.div>
               </motion.div>
             </div>
           </motion.div>
