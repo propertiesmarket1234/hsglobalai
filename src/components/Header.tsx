@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Header() {
   const pathname = usePathname();
   const [productsDropdownOpen, setProductsDropdownOpen] = useState(false);
+  const [industriesDropdownOpen, setIndustriesDropdownOpen] = useState(false);
   const [contactDropdownOpen, setContactDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -116,23 +117,106 @@ export default function Header() {
             </AnimatePresence>
           </div>
 
-          <Link
-            href="/industries"
-            className={`relative py-1 text-sm transition-colors ${
-              isActive("/industries")
-                ? "font-semibold text-cyan-400"
-                : "text-gray-300 hover:text-white"
-            }`}
+          {/* INDUSTRIES DROPDOWN */}
+          <div
+            className="relative"
+            onMouseEnter={() => setIndustriesDropdownOpen(true)}
+            onMouseLeave={() => setIndustriesDropdownOpen(false)}
           >
-            <span>Industries</span>
-            {isActive("/industries") && (
-              <motion.div
-                layoutId="activeNavIndicator"
-                className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-cyan-400 to-sky-400 shadow-[0_0_8px_#06b6d4]"
-                transition={{ type: "spring", stiffness: 380, damping: 30 }}
-              />
-            )}
-          </Link>
+            <Link
+              href="/industries"
+              className={`relative inline-flex items-center gap-1.5 py-1 text-sm transition-colors ${
+                isActive("/industries")
+                  ? "font-semibold text-cyan-400"
+                  : "text-gray-300 hover:text-white"
+              }`}
+            >
+              <span>Industries</span>
+              <svg
+                className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                  industriesDropdownOpen ? "rotate-180 text-cyan-400" : "text-gray-400"
+                }`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+
+              {isActive("/industries") && (
+                <motion.div
+                  layoutId="activeNavIndicator"
+                  className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-cyan-400 to-sky-400 shadow-[0_0_8px_#06b6d4]"
+                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                />
+              )}
+            </Link>
+
+            <AnimatePresence>
+              {industriesDropdownOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 8, scale: 0.95 }}
+                  transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                  className="absolute left-0 top-full pt-2 w-72 z-50"
+                >
+                  <div className="rounded-2xl border border-cyan-500/30 bg-neutral-950/95 p-2.5 shadow-2xl backdrop-blur-2xl">
+                    <Link
+                      href="/industries"
+                      className="block rounded-xl px-4 py-2.5 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
+                    >
+                      All Industry Deployments
+                    </Link>
+
+                    <div className="my-1.5 border-t border-white/10" />
+
+                    <Link
+                      href="/industries/banking"
+                      className="block rounded-xl px-4 py-2 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
+                    >
+                      <span className="text-cyan-400 font-bold">Banking & Financial</span> Services
+                    </Link>
+
+                    <Link
+                      href="/industries/retail"
+                      className="block rounded-xl px-4 py-2 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
+                    >
+                      <span className="text-cyan-400 font-bold">Retail & Advertising</span> Malls
+                    </Link>
+
+                    <Link
+                      href="/industries/corporate"
+                      className="block rounded-xl px-4 py-2 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
+                    >
+                      <span className="text-cyan-400 font-bold">Corporate Services</span> & HR
+                    </Link>
+
+                    <Link
+                      href="/industries/healthcare"
+                      className="block rounded-xl px-4 py-2 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
+                    >
+                      <span className="text-cyan-400 font-bold">Healthcare</span> & Hospitals
+                    </Link>
+
+                    <Link
+                      href="/industries/tourism"
+                      className="block rounded-xl px-4 py-2 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
+                    >
+                      <span className="text-cyan-400 font-bold">Tourism & Museums</span> Expos
+                    </Link>
+
+                    <Link
+                      href="/industries/education"
+                      className="block rounded-xl px-4 py-2 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
+                    >
+                      <span className="text-cyan-400 font-bold">Education & Training</span> Academies
+                    </Link>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
 
           <Link
             href="/about"

@@ -1,10 +1,12 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 const industries = [
   {
     number: "01",
+    slug: "banking",
     title: "Banking & Financial Services",
     subtitle: "Branch AI Bankers & Concierge",
     description:
@@ -22,6 +24,7 @@ const industries = [
   },
   {
     number: "02",
+    slug: "retail",
     title: "Retail & Advertising",
     subtitle: "Holographic Brand Ambassadors",
     description:
@@ -39,6 +42,7 @@ const industries = [
   },
   {
     number: "03",
+    slug: "corporate",
     title: "Corporate Services",
     subtitle: "Digital Receptionists & HR AI",
     description:
@@ -56,6 +60,7 @@ const industries = [
   },
   {
     number: "04",
+    slug: "healthcare",
     title: "Healthcare & Telemedicine",
     subtitle: "Patient Triage & Navigation AI",
     description:
@@ -73,6 +78,7 @@ const industries = [
   },
   {
     number: "05",
+    slug: "tourism",
     title: "Tourism & Exhibitions",
     subtitle: "Hologram Tour Guides & Storytellers",
     description:
@@ -90,6 +96,7 @@ const industries = [
   },
   {
     number: "06",
+    slug: "education",
     title: "Education & Training",
     subtitle: "3D Hologram Tutors & Instructors",
     description:
@@ -114,7 +121,7 @@ export default function IndustriesShowcase() {
         {industries.map((industry) => (
           <div key={industry.number} className="py-20 first:pt-0 last:pb-0 overflow-hidden">
             <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
-              {/* LEFT HEADER & ICON — COMES FROM LEFT SIDE */}
+              {/* LEFT HEADER & ICON */}
               <motion.div
                 initial={{ opacity: 0, x: -90 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -141,7 +148,7 @@ export default function IndustriesShowcase() {
                 </div>
               </motion.div>
 
-              {/* RIGHT DESCRIPTION & FEATURES — COMES FROM RIGHT SIDE */}
+              {/* RIGHT DESCRIPTION & FEATURES */}
               <motion.div
                 initial={{ opacity: 0, x: 90 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -177,15 +184,15 @@ export default function IndustriesShowcase() {
                   </div>
 
                   <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
-                    <a
-                      href="/contact"
+                    <Link
+                      href={`/industries/${industry.slug}`}
                       className="group inline-flex items-center gap-2 text-sm font-semibold tracking-wide text-white transition-colors hover:text-cyan-400"
                     >
-                      <span>Deploy for {industry.title}</span>
+                      <span>Explore {industry.title} Solutions</span>
                       <span className="transition-transform group-hover:translate-x-1 text-lg">
                         →
                       </span>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </motion.div>

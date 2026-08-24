@@ -1,8 +1,9 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface ProductItem {
   id: string;
@@ -12,6 +13,7 @@ interface ProductItem {
   description: string;
   tags: string[];
   imageSrc: string;
+  images?: string[];
   imageAlt: string;
   accentColor: string;
   accentGlow: string;
@@ -29,7 +31,7 @@ const products: ProductItem[] = [
     description:
       "Intelligent, human-like AI avatars designed to communicate naturally with customers across languages, industries, and real-world environments with hyper-realistic facial expressions and voice clarity.",
     tags: ["Multilingual", "Custom Avatars", "Voice AI", "Real-Time Interaction"],
-    imageSrc: "/products/digital-humans/digital-human-new.png",
+    imageSrc: "/products/digital-humans/digital-human-dashboard.jpg",
     imageAlt: "AI Digital Human Avatar",
     accentColor: "from-cyan-500/20 via-sky-500/10 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.25)",
@@ -44,7 +46,11 @@ const products: ProductItem[] = [
     description:
       "Bring intelligent AI Digital Humans into physical environments through immersive holographic experiences designed for real-world customer interaction, retail showcases, and executive lobbies.",
     tags: ["Interactive Avatars", "Offline AI", "Multilingual", "Multiple Sizes"],
-    imageSrc: "/products/hologram-box/hologram-box.png",
+    imageSrc: "/products/digital-humans/digital-human-new.png",
+    images: [
+      "/products/digital-humans/digital-human-new.png",
+      "/products/hologram-box/hologram-box-saree.jpg",
+    ],
     imageAlt: "AI Hologram Box Showcase",
     accentColor: "from-cyan-500/20 via-sky-500/10 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.25)",
@@ -86,6 +92,15 @@ const products: ProductItem[] = [
 ];
 
 export default function ProductShowcase() {
+  const [hologramIndex, setHologramIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setHologramIndex((prev) => (prev + 1) % 2);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="relative overflow-hidden bg-black px-6 py-24 text-white">
       {/* Background ambient lighting */}
@@ -93,98 +108,102 @@ export default function ProductShowcase() {
 
       <div className="relative mx-auto max-w-7xl">
         <div className="divide-y divide-white/10">
-          {products.map((product, index) => (
-            <div key={product.id} className="py-24 first:pt-0 last:pb-0">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className={`grid gap-12 lg:grid-cols-2 lg:items-center ${
-                  product.reverseLayout ? "lg:grid-flow-dense" : ""
-                }`}
-              >
-                {/* IMAGE CONTAINER WITH CONTINUOUS SCROLL / FLOAT ANIMATION */}
-                <div
-                  className={`group relative ${
-                    product.reverseLayout ? "lg:col-start-2" : ""
+          {products.map((product, index) => {
+            const activeImg = product.images ? product.images[hologramIndex] : product.imageSrc;
+            return (
+              <div key={product.id} className="py-24 first:pt-0 last:pb-0">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  className={`grid gap-12 lg:grid-cols-2 lg:items-center ${
+                    product.reverseLayout ? "lg:grid-flow-dense" : ""
                   }`}
                 >
-                  <motion.div
-                    className="relative overflow-hidden rounded-2xl border border-white/15 bg-neutral-900/40 p-2 backdrop-blur-xl shadow-2xl"
-                    animate={{
-                      y: [0, -14, 0, 14, 0],
-                      boxShadow: [
-                        `0 10px 40px -10px ${product.accentGlow}`,
-                        `0 25px 65px -5px ${product.accentGlow}`,
-                        `0 10px 40px -10px ${product.accentGlow}`,
-                      ],
-                    }}
-                    transition={{
-                      duration: 7 + index * 0.5,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
+                  {/* IMAGE CONTAINER WITH CONTINUOUS SCROLL / FLOAT ANIMATION */}
+                  <div
+                    className={`group relative ${
+                      product.reverseLayout ? "lg:col-start-2" : ""
+                    }`}
                   >
-                    {/* Glowing background gradient inside frame */}
-                    <div
-                      className={`absolute inset-0 bg-gradient-to-br ${product.accentColor} opacity-50 transition-opacity duration-700 group-hover:opacity-100`}
-                    />
-
-                    {/* Continuous Auto-Pan Image Container */}
-                    <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-black/60 sm:aspect-[4/5]">
-                      {/* Live Status Badge overlay */}
-                      <div className="absolute top-4 left-4 z-20 flex items-center gap-2 rounded-full border border-white/20 bg-black/70 px-3.5 py-1.5 backdrop-blur-md">
-                        <span className="relative flex h-2 w-2">
-                          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75" />
-                          <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-500" />
-                        </span>
-                        <span className="text-xs font-medium tracking-wider text-white/90 uppercase">
-                          {product.badge}
-                        </span>
-                      </div>
-
-                      {/* Glass light reflection sheen layer */}
-                      <motion.div
-                        className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-tr from-transparent via-white/10 to-transparent"
-                        animate={{
-                          x: ["-100%", "200%"],
-                        }}
-                        transition={{
-                          duration: 4,
-                          repeat: Infinity,
-                          repeatDelay: 3 + index,
-                          ease: "easeInOut",
-                        }}
+                    <motion.div
+                      className="relative overflow-hidden rounded-2xl border border-white/15 bg-neutral-900/40 p-2 backdrop-blur-xl shadow-2xl"
+                      animate={{
+                        y: [0, -14, 0, 14, 0],
+                        boxShadow: [
+                          `0 10px 40px -10px ${product.accentGlow}`,
+                          `0 25px 65px -5px ${product.accentGlow}`,
+                          `0 10px 40px -10px ${product.accentGlow}`,
+                        ],
+                      }}
+                      transition={{
+                        duration: 7 + index * 0.5,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                    >
+                      {/* Glowing background gradient inside frame */}
+                      <div
+                        className={`absolute inset-0 bg-gradient-to-br ${product.accentColor} opacity-50 transition-opacity duration-700 group-hover:opacity-100`}
                       />
 
-                      {/* Continuous Smooth Camera Motion Image */}
-                      {product.imageSrc ? (
+                      {/* Continuous Auto-Pan Image Container */}
+                      <div className={`relative w-full overflow-hidden rounded-xl bg-black/60 ${
+                        product.id === "digital-humans" ? "aspect-[16/11]" : "aspect-[4/5]"
+                      }`}>
+                        {/* Live Status Badge overlay */}
+                        <div className="absolute top-4 left-4 z-20 flex items-center gap-2 rounded-full border border-white/20 bg-black/70 px-3.5 py-1.5 backdrop-blur-md">
+                          <span className="relative flex h-2 w-2">
+                            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75" />
+                            <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-500" />
+                          </span>
+                          <span className="text-xs font-medium tracking-wider text-white/90 uppercase">
+                            {product.badge}
+                          </span>
+                        </div>
+
+                        {/* Glass light reflection sheen layer */}
                         <motion.div
-                          className="relative h-full w-full"
+                          className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-tr from-transparent via-white/10 to-transparent"
                           animate={{
-                            y: ["0%", "-4%", "0%", "3%", "0%"],
-                            scale: [1, 1.05, 1.02, 1.04, 1],
+                            x: ["-100%", "200%"],
                           }}
                           transition={{
-                            duration: 12 + index * 2,
+                            duration: 4,
                             repeat: Infinity,
+                            repeatDelay: 3 + index,
                             ease: "easeInOut",
                           }}
-                        >
-                          <Image
-                            src={product.imageSrc}
-                            alt={product.imageAlt}
-                            fill
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                            className={
-                              product.id === "spatial-display"
-                                ? "object-contain bg-neutral-950 p-1.5 transition-transform duration-700 group-hover:scale-105"
-                                : "object-cover transition-transform duration-700 group-hover:scale-105"
-                            }
-                            priority={index === 0}
-                          />
-                        </motion.div>
+                        />
+
+                        {/* Continuous Smooth Camera Motion Image */}
+                        {product.imageSrc ? (
+                          <motion.div
+                            className="relative h-full w-full"
+                            animate={{
+                              y: ["0%", "-4%", "0%", "3%", "0%"],
+                              scale: [1, 1.05, 1.02, 1.04, 1],
+                            }}
+                            transition={{
+                              duration: 12 + index * 2,
+                              repeat: Infinity,
+                              ease: "easeInOut",
+                            }}
+                          >
+                            <Image
+                              src={activeImg}
+                              alt={product.imageAlt}
+                              fill
+                              sizes="(max-width: 768px) 100vw, 50vw"
+                              className={
+                                product.id === "spatial-display" || product.id === "digital-humans" || product.id === "hologram-box"
+                                  ? "object-contain bg-neutral-950 p-1.5 transition-transform duration-700 group-hover:scale-105"
+                                  : "object-cover transition-transform duration-700 group-hover:scale-105"
+                              }
+                              priority={index === 0}
+                            />
+                          </motion.div>
                       ) : (
                         <div className="relative h-full w-full bg-gradient-to-br from-cyan-950/80 via-neutral-950 to-black p-8 flex flex-col justify-between overflow-hidden">
                           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-cyan-500/20 via-sky-600/5 to-transparent blur-xl" />
@@ -264,7 +283,8 @@ export default function ProductShowcase() {
                 </div>
               </motion.div>
             </div>
-          ))}
+          );
+        })}
         </div>
       </div>
     </section>

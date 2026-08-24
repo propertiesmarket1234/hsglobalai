@@ -112,8 +112,8 @@ export default function Home() {
               <p className="text-xs text-gray-300 uppercase tracking-wider mt-1 font-medium font-mono">Global Languages</p>
             </div>
             <div>
-              <p className="text-3xl font-bold text-cyan-400 drop-shadow">&lt; 3000ms</p>
-              <p className="text-xs text-gray-300 uppercase tracking-wider mt-1 font-medium font-mono">On-Device Low Latency</p>
+              <p className="text-3xl font-bold text-cyan-400 drop-shadow">Low Latency</p>
+              <p className="text-xs text-gray-300 uppercase tracking-wider mt-1 font-medium font-mono">On-Device Processing</p>
             </div>
             <div>
               <p className="text-3xl font-bold text-white drop-shadow">4x</p>

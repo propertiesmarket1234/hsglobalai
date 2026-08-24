@@ -80,7 +80,7 @@ export default function BuildAvatarPipeline() {
                 <span className="text-cyan-400">Real-Time</span> Performance
               </h3>
               <p className="mt-3 text-sm leading-6 text-gray-300">
-                Your avatar renders locally and streams on-device: high fidelity, zero cloud install required, sub-3000ms response time for fluid conversation.
+                Your avatar renders locally and streams on-device: high fidelity, zero cloud install required, Low Latency response time for fluid conversation.
               </p>
             </div>
 

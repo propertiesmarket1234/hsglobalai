@@ -1,8 +1,9 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const products = [
   {
@@ -11,7 +12,7 @@ const products = [
     category: "Conversational Avatars",
     description:
       "Intelligent, human-like AI avatars designed for natural real-time customer interactions across languages.",
-    imageSrc: "/products/digital-humans/digital-human-new.png",
+    imageSrc: "/products/digital-humans/digital-human-dashboard.jpg",
     imageAlt: "AI Digital Human Avatar",
     tags: ["Multilingual", "Voice AI", "Digital Avatars"],
     accentGlow: "rgba(6, 182, 212, 0.25)",
@@ -23,7 +24,11 @@ const products = [
     category: "3D Holographic Display",
     description:
       "Bring interactive AI-powered digital humans into real-world physical environments via 3D glass enclosures.",
-    imageSrc: "/products/hologram-box/hologram-box.png",
+    imageSrc: "/products/digital-humans/digital-human-new.png",
+    images: [
+      "/products/digital-humans/digital-human-new.png",
+      "/products/hologram-box/hologram-box-saree.jpg",
+    ],
     imageAlt: "AI Hologram Box",
     tags: ["3D Hologram", "Offline AI", "Interactive"],
     accentGlow: "rgba(6, 182, 212, 0.25)",
@@ -56,6 +61,15 @@ const products = [
 ];
 
 export default function Products() {
+  const [hologramIndex, setHologramIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setHologramIndex((prev) => (prev + 1) % 2);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="relative overflow-hidden bg-black px-6 py-32 text-white border-t border-white/10">
       {/* Background radial glow */}
@@ -97,6 +111,7 @@ export default function Products() {
         <div className="mt-20 grid gap-8 md:grid-cols-2">
           {products.map((product, index) => {
             const isLeft = index % 2 === 0;
+            const activeImg = product.images ? product.images[hologramIndex] : product.imageSrc;
             return (
               <motion.div
                 key={product.id}
@@ -122,12 +137,12 @@ export default function Products() {
                     }}
                   >
                     <Image
-                      src={product.imageSrc}
+                      src={activeImg}
                       alt={product.imageAlt}
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"
                       className={
-                        product.id === "03"
+                        product.id === "03" || product.id === "01" || product.id === "02"
                           ? "object-contain bg-neutral-950 p-1.5 transition-transform duration-700 group-hover:scale-105"
                           : "object-cover transition-transform duration-700 group-hover:scale-105"
                       }

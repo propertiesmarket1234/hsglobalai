@@ -143,7 +143,7 @@ Platform: DIHUAVA On-Device AI Platform
 
 TECHNICAL SPECIFICATIONS:
 - 100% On-Device Air-Gapped AI Inference
-- Sub-3000ms Low Latency Voice
+- Low Latency Voice
 - 30+ Spoken Multilingual Voice Engines & Voice Cloning
 - Optical 3D Holographic Display Glass Specifications
 

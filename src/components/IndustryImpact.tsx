@@ -22,7 +22,7 @@ const impacts = [
     description:
       "Provide instant, accurate responses to customer questions without queues or waiting for staff availability.",
     icon: "⚡",
-    stat: "< 3000ms Answer Time",
+    stat: "Low Latency Answer Time",
   },
   {
     title: "24/7 Service Availability",

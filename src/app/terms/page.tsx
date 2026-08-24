@@ -20,14 +20,14 @@ export default function TermsPage() {
             Terms & Conditions
           </h1>
           <p className="mt-4 text-sm text-gray-400 font-mono">
-            Effective Date: January 2026 | HS Global AI Pte. Ltd.
+            Effective Date: January 2026 | HS GLOBAL SG PTE LTD
           </p>
 
           <div className="mt-12 space-y-10 text-base leading-8 text-gray-300 border-t border-white/10 pt-10">
             <div>
               <h2 className="text-2xl font-bold text-white">1. Agreement to Terms</h2>
               <p className="mt-3">
-                By accessing or using the website hsglobalai.com, licensing the DIHUAVA Digital Human software platform, or purchasing 3D Hologram Box display hardware provided by HS Global AI Pte. Ltd. ("Company", "We", "Us"), you represent that you are at least 18 years of age and agree to be legally bound by these Terms and Conditions.
+                By accessing or using the website hsglobalai.com, licensing the DIHUAVA Digital Human software platform, or purchasing 3D Hologram Box display hardware provided by HS GLOBAL SG PTE LTD ("Company", "We", "Us"), you represent that you are at least 18 years of age and agree to be legally bound by these Terms and Conditions.
               </p>
             </div>
 
@@ -70,7 +70,7 @@ export default function TermsPage() {
                 These Terms and Conditions shall be governed by and construed in accordance with the laws of the Republic of Singapore. In the event of any concern or dispute, parties agree to first attempt informal resolution by contacting our legal department.
               </p>
               <div className="mt-4 rounded-2xl border border-white/15 bg-neutral-950 p-6 text-sm">
-                <p className="font-semibold text-white">Legal Department — HS Global AI Pte. Ltd.</p>
+                <p className="font-semibold text-white">Legal Department — HS GLOBAL SG PTE LTD</p>
                 <p className="text-gray-400">20 Collyer Quay, #09-01, Singapore 049319</p>
                 <p className="mt-2 text-cyan-400">Email: info@hsglobalai.com / sales@hsglobalai.com</p>
               </div>

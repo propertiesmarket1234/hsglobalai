@@ -156,7 +156,7 @@ Bring next-generation AI Digital Humans to your business locations, customer ser
 As AI transitions from online text prompts to real-time physical interactions (like 3D Hologram kiosks and voice-activated digital receptionists), network stability becomes a bottleneck.
 
 ### 1. The Low Latency Advantage
-A natural spoken dialogue requires voice input, speech-to-text (STT), LLM reasoning, text-to-speech (TTS), and natural facial expressions via speech animation to complete within 300 milliseconds. Over cloud connections, ping times and API queueing often delay responses beyond 2 seconds, creating uncomfortable awkward pauses for users. Edge AI processes speech and rendering directly on local GPU chips, achieving instantaneous sub-3000ms fluidity.
+A natural spoken dialogue requires voice input, speech-to-text (STT), LLM reasoning, text-to-speech (TTS), and natural facial expressions via speech animation to complete within 300 milliseconds. Over cloud connections, ping times and API queueing often delay responses beyond 2 seconds, creating uncomfortable awkward pauses for users. Edge AI processes speech and rendering directly on local GPU chips, achieving instantaneous Low Latency fluidity.
 
 ### 2. Air-Gapped Data Sovereignty
 Regulated industries—such as banking, defense, healthcare, and government facilities—are legally restricted from uploading raw customer audio, biometric scans, or confidential internal documents to external cloud endpoints. Edge AI keeps 100% of data contained within local physical hardware.
@@ -426,7 +426,7 @@ Instead of sending data to external servers, all processing happens locally on t
 | :--- | :--- | :--- |
 | **Data Processing** | Remote servers | Local device |
 | **Privacy & Security** | Lower (transmitted over public WAN) | High (100% air-gapped local storage) |
-| **Low Latency** | Dependent on internet (300ms–2s+) | Very low (< 3000ms real-time) |
+| **Low Latency** | Dependent on internet (300ms–2s+) | Low Latency (real-time) |
 | **Reliability** | Internet dependent | Always available 24/7 |
 | **Operating Cost** | Scaled recurring API fees | Fixed hardware ownership model |
 

@@ -40,8 +40,8 @@ const ladyOptions: LadyOption[] = [
     voiceProfile: {
       pitch: 0.90,
       rate: 0.92,
-      voiceKeywords: ["zira", "hazel", "en-gb", "google uk english female", "female"],
-      description: "Authoritative & Confident Deep Voice",
+      voiceKeywords: ["zira", "google uk english female", "hazel", "en-gb", "female", "natural"],
+      description: "Authoritative & Professional Executive Voice",
     },
   },
   {
@@ -51,10 +51,10 @@ const ladyOptions: LadyOption[] = [
     imageSrc: "/images/avatars/modern_digital_human_presenter.png",
     greeting: "Hi there! I'm Sophia Vance, your Digital Executive Host. Welcome to our real-time interactive platform.",
     voiceProfile: {
-      pitch: 1.18,
-      rate: 1.04,
-      voiceKeywords: ["samantha", "natural", "google us english", "female"],
-      description: "Bright, Energetic & Modern Executive Voice",
+      pitch: 0.96,
+      rate: 0.94,
+      voiceKeywords: ["zira", "samantha", "google us english", "female", "natural"],
+      description: "Smooth, Articulate & Professional Host Voice",
     },
   },
   {
@@ -64,10 +64,10 @@ const ladyOptions: LadyOption[] = [
     imageSrc: "/images/avatars/asian_lady.png",
     greeting: "Welcome! I am Mei Lin, Global Concierge Lead. I am here to guide your personalized journey.",
     voiceProfile: {
-      pitch: 1.35,
-      rate: 0.88,
-      voiceKeywords: ["fiona", "karen", "kyoko", "google traditional chinese", "female"],
-      description: "Soft, Warm & Gentle Concierge Voice",
+      pitch: 0.98,
+      rate: 0.90,
+      voiceKeywords: ["zira", "google us english", "samantha", "female", "natural"],
+      description: "Warm, Calm & Professional Concierge Voice",
     },
   },
   {
@@ -77,39 +77,59 @@ const ladyOptions: LadyOption[] = [
     imageSrc: "/images/avatars/executive_lady.png",
     greeting: "Good day. I am Victoria Vance, Corporate Wealth Advisor. Let us optimize your AI strategy and investment portfolio.",
     voiceProfile: {
-      pitch: 0.78,
-      rate: 0.95,
-      voiceKeywords: ["victoria", "serena", "google australian female", "en-au", "female"],
-      description: "Rich, Formal & Articulate Advisor Voice",
+      pitch: 0.92,
+      rate: 0.92,
+      voiceKeywords: ["zira", "victoria", "google uk english female", "female", "natural"],
+      description: "Articulate & Professional Wealth Advisor Voice",
     },
   },
 ];
 
 const findVoiceForLady = (voices: SpeechSynthesisVoice[], ladyId: string): SpeechSynthesisVoice | null => {
   if (!voices || voices.length === 0) return null;
+
+  // Filter for natural high-quality English female voices
+  const englishFemaleVoices = voices.filter(
+    (v) =>
+      v.lang.startsWith("en") &&
+      (v.name.toLowerCase().includes("zira") ||
+        v.name.toLowerCase().includes("female") ||
+        v.name.toLowerCase().includes("google") ||
+        v.name.toLowerCase().includes("samantha") ||
+        v.name.toLowerCase().includes("hazel") ||
+        v.name.toLowerCase().includes("natural") ||
+        v.name.toLowerCase().includes("karen") ||
+        v.name.toLowerCase().includes("victoria"))
+  );
+
   const lady = ladyOptions.find((l) => l.id === ladyId) || ladyOptions[0];
   const keywords = lady.voiceProfile.voiceKeywords;
 
-  // 1. Try finding voice matching any keyword
+  // 1. Try finding voice matching keywords in order
   for (const kw of keywords) {
     const matched = voices.find(
       (v) =>
-        v.name.toLowerCase().includes(kw.toLowerCase()) ||
-        v.lang.toLowerCase().includes(kw.toLowerCase())
+        v.lang.startsWith("en") &&
+        (v.name.toLowerCase().includes(kw.toLowerCase()) ||
+          v.lang.toLowerCase().includes(kw.toLowerCase()))
     );
     if (matched) return matched;
   }
 
-  // 2. Fallback to indexing based on ladyId if multiple English voices exist
+  // 2. Fallback to indexing english female voices
+  if (englishFemaleVoices.length > 0) {
+    const index = ladyOptions.findIndex((l) => l.id === ladyId);
+    return englishFemaleVoices[index % englishFemaleVoices.length];
+  }
+
+  // 3. Fallback to indexing overall english voices
   const englishVoices = voices.filter((v) => v.lang.startsWith("en"));
   if (englishVoices.length > 0) {
     const index = ladyOptions.findIndex((l) => l.id === ladyId);
     return englishVoices[index % englishVoices.length];
   }
 
-  // 3. Fallback to indexing overall voices
-  const index = ladyOptions.findIndex((l) => l.id === ladyId);
-  return voices[index % voices.length] || voices[0];
+  return voices[0] || null;
 };
 
 const features: FeatureTab[] = [
@@ -146,12 +166,12 @@ const features: FeatureTab[] = [
   {
     id: "voice",
     title: "Voice",
-    subtitle: "Cloned or synthetic. Multilingual support with < 3000ms real-time audio.",
+    subtitle: "Cloned or synthetic. Multilingual support with Low Latency real-time audio.",
     icon: "🎙️",
-    badge: "< 3000ms Voice",
+    badge: "Low Latency Voice",
     userPrompt: "What is the Low Latency voice response?",
     botReply:
-      "< 3000ms Low Latency voice synthesis supporting 30+ spoken languages and custom voice cloning.",
+      "Low Latency voice synthesis supporting 30+ spoken languages and custom voice cloning.",
   },
   {
     id: "memory",
@@ -254,7 +274,7 @@ export default function RealtimeTalkingAvatars() {
     setIsSpeaking(false);
 
     setTimeout(() => {
-      const botReplyText = `Thank you for asking about "${userText}". Our conversational avatars process requests in real-time with < 3000ms Low Latency and interactive response.`;
+      const botReplyText = `Thank you for asking about "${userText}". Our conversational avatars process requests in real-time with Low Latency and interactive response.`;
       setChatMessages((prev) => [
         ...prev,
         {
@@ -326,7 +346,7 @@ export default function RealtimeTalkingAvatars() {
     setIsSpeaking(false);
 
     setTimeout(() => {
-      const botText = `I hear you! Our real-time digital humans process live speech with < 3000ms Low Latency and full natural response.`;
+      const botText = `I hear you! Our real-time digital humans process live speech with Low Latency and full natural response.`;
       setChatMessages((prev) => [...prev, { sender: "bot", text: botText }]);
       speakResponse(botText);
     }, 600);

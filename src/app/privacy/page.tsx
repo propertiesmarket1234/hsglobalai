@@ -20,14 +20,14 @@ export default function PrivacyPage() {
             Privacy Policy
           </h1>
           <p className="mt-4 text-sm text-gray-400 font-mono">
-            Last Updated: January 2026 | HS Global AI Pte. Ltd.
+            Last Updated: January 2026 | HS GLOBAL SG PTE LTD
           </p>
 
           <div className="mt-12 space-y-10 text-base leading-8 text-gray-300 border-t border-white/10 pt-10">
             <div>
               <h2 className="text-2xl font-bold text-white">1. Introduction & On-Device Privacy Commitment</h2>
               <p className="mt-3">
-                HS Global AI Pte. Ltd. ("HS Global AI", "we", "our", "us") is dedicated to protecting user privacy and ensuring transparent handling of personal data. Our DIHUAVA Digital Human AI platform is engineered with an "On-Device / Air-Gapped" processing model. All AI model computations, speech recognition, RAG document intelligence, and 3D visual rendering occur locally on physical edge hardware without transmitting sensitive conversation data to external cloud servers.
+                HS GLOBAL SG PTE LTD ("HS Global AI", "we", "our", "us") is dedicated to protecting user privacy and ensuring transparent handling of personal data. Our DIHUAVA Digital Human AI platform is engineered with an "On-Device / Air-Gapped" processing model. All AI model computations, speech recognition, RAG document intelligence, and 3D visual rendering occur locally on physical edge hardware without transmitting sensitive conversation data to external cloud servers.
               </p>
             </div>
 
@@ -94,7 +94,7 @@ export default function PrivacyPage() {
                 To exercise any of your data protection rights or submit a Data Subject Access Request (DSAR), please contact our Data Protection Officer:
               </p>
               <div className="mt-4 rounded-2xl border border-white/15 bg-neutral-950 p-6 text-sm">
-                <p className="font-semibold text-white">Data Protection Office — HS Global AI Pte. Ltd.</p>
+                <p className="font-semibold text-white">Data Protection Office — HS GLOBAL SG PTE LTD</p>
                 <p className="text-gray-400">20 Collyer Quay, #09-01, Singapore 049319</p>
                 <p className="mt-2 text-cyan-400">Email: sales@hsglobalai.com</p>
               </div>

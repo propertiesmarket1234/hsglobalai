@@ -22,7 +22,7 @@ const capabilities = [
       "Upload enterprise PDFs, product manuals, banking guidelines, and knowledge bases for instant, offline AI RAG responses with zero data leaving your premises.",
     icon: "📄",
     tags: ["Offline RAG", "PDF Ingestion", "Enterprise Knowledge"],
-    stat: "< 3000ms Search Speed",
+    stat: "Low Latency Search",
   },
   {
     id: "language",

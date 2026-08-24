@@ -38,7 +38,7 @@ const useCases: UseCaseStory[] = [
     imageSrc: "/images/use-cases/museum_hologram_avatar.png",
     imageAlt: "Interactive Museum Hologram Avatar Exhibit",
     capabilities: [
-      "Sub-3000ms Voice Response",
+      "Low Latency Voice Response",
       "Historical Document RAG",
       "30+ Spoken Languages",
       "Avatar & Voice Cloning AI",
@@ -97,7 +97,7 @@ const useCases: UseCaseStory[] = [
     ],
     metrics: [
       { label: "Data Leakage Risk", value: "0%" },
-      { label: "On-Device Low Latency", value: "< 3000ms" },
+      { label: "On-Device Processing", value: "Low Latency" },
       { label: "Handling Reduction", value: "35%" },
     ],
   },

@@ -1,11 +1,25 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+
+const hologramHeroImages = [
+  {
+    src: "/products/digital-humans/digital-human-new.png",
+    alt: "AI Hologram Box Executive Avatar Enclosure",
+    caption: "Life-size 1:1 scale digital avatar enclosure in executive silver suit",
+  },
+  {
+    src: "/products/hologram-box/hologram-box-saree.jpg",
+    alt: "AI Hologram Box Cultural Avatar Enclosure",
+    caption: "Life-size 1:1 scale digital avatar enclosure in traditional attire",
+  },
+];
 
 const hologramFeatures = [
   {
@@ -18,7 +32,7 @@ const hologramFeatures = [
   {
     title: "Integrated AI Workstation",
     description:
-      "Built-in industrial-grade computing unit running DIHUAVA offline AI engine. Zero cloud dependence, sub-3000ms Low Latency, and high-security enterprise operation.",
+      "Built-in industrial-grade computing unit running DIHUAVA offline AI engine. Zero cloud dependence, Low Latency, and high-security enterprise operation.",
     icon: "⚙️",
     badge: "On-Device Processing",
   },
@@ -49,6 +63,15 @@ const hardwareSpecs = [
 ];
 
 export default function HolographicDisplayPage() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % hologramHeroImages.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <main className="min-h-screen bg-black text-white selection:bg-cyan-500 selection:text-black">
       <Header />
@@ -129,18 +152,44 @@ export default function HolographicDisplayPage() {
               </div>
             </div>
 
-            {/* Right Visual Image with Size Badges */}
+            {/* Right Visual Image with Size Badges & Auto-Sliding Dual Images */}
             <div className="lg:col-span-5">
               <div className="relative overflow-hidden rounded-3xl border border-cyan-500/30 bg-neutral-950/80 p-3 backdrop-blur-xl shadow-[0_0_50px_rgba(6,182,212,0.2)]">
                 <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-black">
-                  <Image
-                    src="/products/hologram-box/hologram-box.png"
-                    alt="AI Hologram Box Enclosure Sizes 65 75 86 inch"
-                    fill
-                    priority
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={currentImageIndex}
+                      initial={{ opacity: 0, scale: 1.04 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.96 }}
+                      transition={{ duration: 0.8, ease: "easeInOut" }}
+                      className="absolute inset-0"
+                    >
+                      <Image
+                        src={hologramHeroImages[currentImageIndex].src}
+                        alt={hologramHeroImages[currentImageIndex].alt}
+                        fill
+                        priority
+                        className="object-cover"
+                      />
+                    </motion.div>
+                  </AnimatePresence>
+
+                  <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
+
+                  {/* Top Left Auto Slide Indicators */}
+                  <div className="absolute top-4 left-4 z-20 flex items-center gap-1.5 rounded-full border border-white/20 bg-black/80 px-3 py-1.5 backdrop-blur-md">
+                    {hologramHeroImages.map((_, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setCurrentImageIndex(idx)}
+                        aria-label={`Go to slide ${idx + 1}`}
+                        className={`h-2 rounded-full transition-all duration-500 ${
+                          idx === currentImageIndex ? "w-6 bg-cyan-400" : "w-2 bg-white/40 hover:bg-white/70"
+                        }`}
+                      />
+                    ))}
+                  </div>
 
                   {/* Top Right Size Badge Floating Pill on Image */}
                   <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 rounded-full border border-cyan-400/40 bg-black/85 px-3.5 py-1.5 backdrop-blur-md shadow-[0_0_20px_rgba(6,182,212,0.3)]">
@@ -154,10 +203,10 @@ export default function HolographicDisplayPage() {
                   <div className="absolute bottom-4 left-4 right-4 z-20 rounded-xl border border-white/15 bg-black/85 p-4 backdrop-blur-md">
                     <div className="flex items-center justify-between text-xs font-mono">
                       <span className="text-cyan-400 font-bold">● AI HOLOGRAM BOX</span>
-                      <span className="text-emerald-400 font-bold">65" | 75" | 86"</span>
+                      <span className="text-emerald-400 font-bold">SLIDE {currentImageIndex + 1}/{hologramHeroImages.length}</span>
                     </div>
                     <p className="mt-1 text-xs text-gray-300">
-                      Life-size 1:1 scale digital avatar enclosure with touch & camera sensors
+                      {hologramHeroImages[currentImageIndex].caption}
                     </p>
                   </div>
                 </div>

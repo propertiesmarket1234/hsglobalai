@@ -82,22 +82,22 @@ export default function Footer() {
             </h3>
 
             <div className="flex flex-col gap-3 text-sm text-gray-400">
-              <Link href="/industries" className="transition-all hover:text-white hover:translate-x-1">
+              <Link href="/industries/banking" className="transition-all hover:text-white hover:translate-x-1">
                 Banking & Financial
               </Link>
-              <Link href="/industries" className="transition-all hover:text-white hover:translate-x-1">
+              <Link href="/industries/retail" className="transition-all hover:text-white hover:translate-x-1">
                 Retail & Advertising
               </Link>
-              <Link href="/industries" className="transition-all hover:text-white hover:translate-x-1">
+              <Link href="/industries/corporate" className="transition-all hover:text-white hover:translate-x-1">
                 Corporate Services
               </Link>
-              <Link href="/industries" className="transition-all hover:text-white hover:translate-x-1">
+              <Link href="/industries/tourism" className="transition-all hover:text-white hover:translate-x-1">
                 Tourism & Exhibitions
               </Link>
-              <Link href="/industries" className="transition-all hover:text-white hover:translate-x-1">
+              <Link href="/industries/healthcare" className="transition-all hover:text-white hover:translate-x-1">
                 Healthcare
               </Link>
-              <Link href="/industries" className="transition-all hover:text-white hover:translate-x-1">
+              <Link href="/industries/education" className="transition-all hover:text-white hover:translate-x-1">
                 Education
               </Link>
             </div>
