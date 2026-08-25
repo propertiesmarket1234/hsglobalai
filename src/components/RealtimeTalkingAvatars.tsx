@@ -3,12 +3,13 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { Brain, Eye, Sparkles, Mic, HardDrive } from "lucide-react";
 
 interface FeatureTab {
   id: string;
   title: string;
   subtitle: string;
-  icon: string;
+  icon: any;
   badge: string;
   userPrompt: string;
   botReply: string;
@@ -137,7 +138,7 @@ const features: FeatureTab[] = [
     id: "knowledge",
     title: "Knowledge",
     subtitle: "Feed it your data. It speaks as your expert with instant document intelligence.",
-    icon: "🧠",
+    icon: Brain,
     badge: "Built-in RAG",
     userPrompt: "How does it connect to our enterprise knowledge base?",
     botReply:
@@ -147,7 +148,7 @@ const features: FeatureTab[] = [
     id: "appearance",
     title: "Appearance",
     subtitle: "Face, hair, wardrobe. Every detail tailored to your brand brief.",
-    icon: "👁️",
+    icon: Eye,
     badge: "Hyper-Realism",
     userPrompt: "Can we customize the avatar's face and wardrobe?",
     botReply:
@@ -157,7 +158,7 @@ const features: FeatureTab[] = [
     id: "personality",
     title: "Personality",
     subtitle: "You set the character. It holds context and brand safety every time.",
-    icon: "✨",
+    icon: Sparkles,
     badge: "Brand Aligned",
     userPrompt: "How do you ensure brand consistency across interactions?",
     botReply:
@@ -167,7 +168,7 @@ const features: FeatureTab[] = [
     id: "voice",
     title: "Voice",
     subtitle: "Cloned or synthetic. Multilingual support with Low Latency real-time audio.",
-    icon: "🎙️",
+    icon: Mic,
     badge: "Low Latency Voice",
     userPrompt: "What is the Low Latency voice response?",
     botReply:
@@ -177,7 +178,7 @@ const features: FeatureTab[] = [
     id: "memory",
     title: "Conversational Memory",
     subtitle: "Extract insights from every conversation and retain context across sessions.",
-    icon: "💾",
+    icon: HardDrive,
     badge: "Session Memory",
     userPrompt: "Tell me more about digital human deployment packages.",
     botReply:
@@ -542,8 +543,8 @@ export default function RealtimeTalkingAvatars() {
                           : "border-white/10 bg-neutral-900/60 text-gray-300 hover:border-cyan-500/40 hover:text-white"
                       }`}
                     >
-                      <div className="flex items-center gap-1.5">
-                        <span>{feature.icon}</span>
+                      <div className="flex items-center gap-2">
+                        <feature.icon className="w-4 h-4 text-cyan-300 shrink-0" strokeWidth={1.75} />
                         <span className="font-bold">{feature.title}</span>
                       </div>
                     </button>

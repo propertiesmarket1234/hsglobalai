@@ -94,6 +94,13 @@ export default function Industries() {
             </Link>
           ))}
         </div>
+
+        {/* Bottom summary banner */}
+        <div className="mt-16 text-center">
+          <p className="inline-block rounded-2xl border border-cyan-500/30 bg-cyan-950/40 px-6 py-4 text-sm font-medium text-cyan-200 backdrop-blur-md max-w-3xl">
+            And more — built for any environment where immersive visual interaction can create a better customer, visitor, or user experience.
+          </p>
+        </div>
       </div>
     </section>
   );

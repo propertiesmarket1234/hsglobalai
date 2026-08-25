@@ -6,34 +6,46 @@ import CTA from "@/components/CTA";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import {
+  Maximize,
+  Eye,
+  Target,
+  Zap,
+  ShoppingBag,
+  Building2,
+  Stethoscope,
+  GraduationCap,
+  Hotel,
+  Landmark,
+} from "lucide-react";
 
 const spatialFeatures = [
   {
     title: "Ultra-Slim 6cm Profile & 4K Ultra HD",
     description:
       "Engineered with an ultra-thin 6cm depth profile featuring a high-precision 4K Ultra HD touch screen panel for true volumetric spatial depth.",
-    icon: "📐",
+    icon: Maximize,
     badge: "6cm Ultra-Slim 4K",
   },
   {
     title: "Volumetric 3D Visuals",
     description:
       "Advanced lenticular light-field spatial optics enabling natural 3D depth perception without requiring specialized wearables or headsets.",
-    icon: "👁️",
+    icon: Eye,
     badge: "3D Spatial Optics",
   },
   {
     title: "Real-Time Optical Eye Tracking",
     description:
       "High-speed precision camera sensors continuously track viewer eye position, dynamically rendering perspective shifts for crisp, stereoscopic 3D clarity from any angle.",
-    icon: "🎯",
+    icon: Target,
     badge: "Eye Tracking AI",
   },
   {
     title: "DIHUAVA AI Integration",
     description:
       "Seamlessly connects with the DIHUAVA platform to deliver interactive AI Digital Humans, conversational experiences, and 3D content in true spatial depth.",
-    icon: "⚡",
+    icon: Zap,
     badge: "Interactive Avatars",
   },
 ];
@@ -42,32 +54,32 @@ const spatialUseCases = [
   {
     title: "Retail & Shopping",
     description: "Interactive product showcases, virtual try-ons, digital sales assistants, and immersive customer experiences.",
-    icon: "🛍️",
+    icon: ShoppingBag,
   },
   {
     title: "Corporate & Enterprise",
     description: "Interactive presentations, digital receptionists, information displays, employee experiences, and branded environments.",
-    icon: "🏢",
+    icon: Building2,
   },
   {
     title: "Healthcare",
     description: "Patient information, wayfinding, educational content, digital assistants, and interactive healthcare experiences.",
-    icon: "🏥",
+    icon: Stethoscope,
   },
   {
     title: "Education & Training",
     description: "3D learning experiences, interactive demonstrations, virtual instructors, training content, and educational visualization.",
-    icon: "🎓",
+    icon: GraduationCap,
   },
   {
     title: "Hospitality, Tourism & Entertainment",
     description: "Immersive storytelling, digital concierges, destination experiences, interactive exhibits, and guest engagement.",
-    icon: "🏨",
+    icon: Hotel,
   },
   {
     title: "Museums, Exhibitions & Public Spaces",
     description: "Interactive 3D exhibits, digital humans, cultural storytelling, product demonstrations, and visitor experiences.",
-    icon: "🏛️",
+    icon: Landmark,
   },
 ];
 
@@ -278,8 +290,8 @@ export default function SpatialDisplayPage() {
               >
                 <div>
                   <div className="flex items-center justify-between">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-500/30 bg-cyan-950/40 text-2xl">
-                      {feature.icon}
+                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-500/40 bg-cyan-950/50 text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
+                      <feature.icon className="w-6 h-6 text-cyan-300" strokeWidth={1.75} />
                     </span>
                     <span className="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3.5 py-1 text-xs font-semibold text-cyan-300">
                       {feature.badge}
@@ -325,8 +337,8 @@ export default function SpatialDisplayPage() {
               >
                 <div>
                   <div className="flex items-center gap-4 mb-4">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-500/30 bg-cyan-950/40 text-2xl">
-                      {useCase.icon}
+                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-500/40 bg-cyan-950/50 text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
+                      <useCase.icon className="w-6 h-6 text-cyan-300" strokeWidth={1.75} />
                     </span>
                     <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors">
                       {useCase.title}

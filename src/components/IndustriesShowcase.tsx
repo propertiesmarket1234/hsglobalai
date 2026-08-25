@@ -2,6 +2,14 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import {
+  Landmark,
+  ShoppingBag,
+  Building2,
+  Stethoscope,
+  Castle,
+  GraduationCap,
+} from "lucide-react";
 
 const industries = [
   {
@@ -18,7 +26,7 @@ const industries = [
       "Account & Loan Explanations",
       "Interactive Queue Handling",
     ],
-    icon: "🏦",
+    icon: Landmark,
     accentColor: "from-cyan-500/20 via-sky-500/5 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.3)",
   },
@@ -36,7 +44,7 @@ const industries = [
       "AI Sales Ambassador",
       "Smart Promotional Displays",
     ],
-    icon: "🛍️",
+    icon: ShoppingBag,
     accentColor: "from-cyan-500/20 via-sky-500/5 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.3)",
   },
@@ -54,7 +62,7 @@ const industries = [
       "Employee HR Support",
       "Corporate Directory",
     ],
-    icon: "🏢",
+    icon: Building2,
     accentColor: "from-cyan-500/20 via-sky-500/5 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.3)",
   },
@@ -72,7 +80,7 @@ const industries = [
       "Appointment Booking",
       "Multilingual Care Support",
     ],
-    icon: "🏥",
+    icon: Stethoscope,
     accentColor: "from-cyan-500/20 via-sky-500/5 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.3)",
   },
@@ -90,7 +98,7 @@ const industries = [
       "Interactive Storytelling",
       "Wayfinding & Sightseeing",
     ],
-    icon: "🏛️",
+    icon: Castle,
     accentColor: "from-cyan-500/20 via-sky-500/5 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.3)",
   },
@@ -108,7 +116,7 @@ const industries = [
       "Campus Orientation",
       "Multilingual Education",
     ],
-    icon: "🎓",
+    icon: GraduationCap,
     accentColor: "from-cyan-500/20 via-sky-500/5 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.3)",
   },
@@ -139,8 +147,8 @@ export default function IndustriesShowcase() {
                 </div>
 
                 <div className="mt-6 flex items-center gap-4">
-                  <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-white/15 bg-neutral-950 text-3xl shadow-inner backdrop-blur-md">
-                    {industry.icon}
+                  <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-cyan-500/40 bg-cyan-950/60 text-cyan-300 shadow-[0_0_20px_rgba(6,182,212,0.25)] backdrop-blur-md">
+                    <industry.icon className="w-7 h-7 text-cyan-300" strokeWidth={1.75} />
                   </span>
                   <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
                     {industry.title}

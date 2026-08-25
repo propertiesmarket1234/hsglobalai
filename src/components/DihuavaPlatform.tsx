@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { UserCheck, FileText, Globe, Sparkles, ShoppingBag } from "lucide-react";
 
 const capabilities = [
   {
@@ -10,7 +11,7 @@ const capabilities = [
     subtitle: "Custom 3D Mesh & Neural Voice Cloning",
     description:
       "Tailor every aspect of your digital human—from 3D facial mesh, attire, and brand persona to custom neural voice cloning that speaks naturally in your brand's authentic voice.",
-    icon: "👤",
+    icon: UserCheck,
     tags: ["Custom 3D Mesh", "Voice Cloning", "Brand Persona", "Custom Attire"],
     stat: "100% Brand Custom",
   },
@@ -20,7 +21,7 @@ const capabilities = [
     subtitle: "Instant On-Device RAG Engine",
     description:
       "Upload enterprise PDFs, product manuals, banking guidelines, and knowledge bases for instant, offline AI RAG responses with zero data leaving your premises.",
-    icon: "📄",
+    icon: FileText,
     tags: ["Offline RAG", "PDF Ingestion", "Enterprise Knowledge"],
     stat: "Low Latency Search",
   },
@@ -30,7 +31,7 @@ const capabilities = [
     subtitle: "29 Global Languages & Accents",
     description:
       "Automatic real-time language detection and fluid multi-turn conversational AI supporting 29 global languages and regional dialects with natural speech synthesis.",
-    icon: "🌍",
+    icon: Globe,
     tags: ["29 Languages", "Auto Language Detect", "Neural Voice"],
     stat: "29 Languages Supported",
   },
@@ -40,7 +41,7 @@ const capabilities = [
     subtitle: "Custom Brand Voice & Tone",
     description:
       "Configure avatar personality, greeting scripts, industry domain expertise, custom attire, and multi-modal behavior to match your brand's unique identity.",
-    icon: "✨",
+    icon: Sparkles,
     tags: ["Brand Identity", "Domain Expert", "Custom Outfit"],
     stat: "100% Brand Tailored",
   },
@@ -50,7 +51,7 @@ const capabilities = [
     subtitle: "Interactive Discovery & Upselling",
     description:
       "Empower avatars to showcase 3D product models, compare features, recommend items based on customer preference, and drive instant conversions at retail kiosks.",
-    icon: "🛍️",
+    icon: ShoppingBag,
     tags: ["3D Product Views", "AI Upselling", "Retail Kiosks"],
     stat: "+38% Sales Conversion",
   },
@@ -110,8 +111,8 @@ export default function DihuavaPlatform() {
                   }`}
                 >
                   <div className="flex items-center gap-4">
-                    <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-black/60 text-xl shadow-inner">
-                      {cap.icon}
+                    <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-cyan-500/40 bg-cyan-950/50 text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
+                      <cap.icon className="w-5 h-5 text-cyan-300" strokeWidth={1.75} />
                     </span>
                     <div>
                       <h3
@@ -149,7 +150,9 @@ export default function DihuavaPlatform() {
               {/* Top Stat Badge */}
               <div className="flex items-center justify-between border-b border-white/10 pb-6">
                 <div className="flex items-center gap-3">
-                  <span className="text-3xl">{activeCapability.icon}</span>
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-500/40 bg-cyan-950/60 text-cyan-300 shadow-[0_0_20px_rgba(6,182,212,0.25)] backdrop-blur-md">
+                    <activeCapability.icon className="w-6 h-6 text-cyan-300" strokeWidth={1.75} />
+                  </span>
                   <div>
                     <span className="text-xs font-semibold uppercase tracking-wider text-cyan-400">
                       Feature Deep Dive

@@ -8,6 +8,18 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
+import {
+  Camera,
+  Sparkles,
+  ShoppingBag,
+  Zap,
+  Globe,
+  ShieldCheck,
+  Cpu,
+  User,
+  BookOpen,
+} from "lucide-react";
+
 // CORE PLATFORM SUBSYSTEMS
 const coreModules = [
   {
@@ -16,7 +28,7 @@ const coreModules = [
     subtitle: "Instant On-Device Photo Compositing",
     description:
       "Visitors tap Selfie on the display to capture a photo standing beside the AI Avatar. Features deterministic sub-second face-scale matching, 6 creative filters (Realistic, Original, B&W, Vivid, Warm, Cool), and optional QR phone sharing with 24-hour auto-expiring links.",
-    icon: "📸",
+    icon: Camera,
     badge: "Interactive Photo Experience",
     highlights: [
       "Sub-second (~300–400ms) local compositing",
@@ -31,7 +43,7 @@ const coreModules = [
     subtitle: "Real-Time Cartoon Face Mode",
     description:
       "A real-time camera-driven cartoon rendering mode where a visitor's live facial expressions (smiles, blinks, head turns) deform a stylized character skin directly onto their face in real time with ultra-low latency.",
-    icon: "🎭",
+    icon: Sparkles,
     badge: "Real-Time Face Tracking",
     highlights: [
       "50–100ms real-time camera face tracking",
@@ -46,7 +58,7 @@ const coreModules = [
     subtitle: "CSV-Driven Recommendation Engine",
     description:
       "Converts product catalog CSVs into an intelligent spoken recommendation system. Displays interactive product cards, price filtering, and automatic audio-visual synchronization so the avatar only discusses products currently on screen.",
-    icon: "🛍️",
+    icon: ShoppingBag,
     badge: "Smart Recommendation",
     highlights: [
       "Structured 9-column catalog schema",
@@ -61,7 +73,7 @@ const coreModules = [
     subtitle: "On-Device PDF RAG with Reranking",
     description:
       "Ingest custom corporate PDFs, CSVs, TXT, and Markdown files directly onto the local device. An on-device relevance reranker scores passages before generating grounded responses with zero data leaving your premises.",
-    icon: "⚡",
+    icon: Zap,
     badge: "100% Offline RAG",
     highlights: [
       "Local PDF, CSV, TXT & Markdown RAG",
@@ -76,7 +88,7 @@ const coreModules = [
     subtitle: "29 Global Languages & Brand Voice Matching",
     description:
       "Full on-device speech recognition, voice synthesis, and translation across 29 global languages, including regional accents and automatic per-persona voice cloning.",
-    icon: "🌐",
+    icon: Globe,
     badge: "29 Global Languages",
     highlights: [
       "100% local speech recognition & TTS",
@@ -91,7 +103,7 @@ const coreModules = [
     subtitle: "100% On-Device Data Security",
     description:
       "Engineered for highly regulated enterprise environments (banking, defense, healthcare). All voice computations, LLM dialogues, document searches, and photo compositing occur locally on physical edge hardware.",
-    icon: "🔒",
+    icon: ShieldCheck,
     badge: "Air-Gap Compliance",
     highlights: [
       "100% local hardware processing",
@@ -107,22 +119,22 @@ const archPillars = [
   {
     title: "AI Engine Subsystems",
     desc: "Local Conversational Engine, Speech Recognition, Tiered Voice Synthesis, Machine Translation, and Semantic Search RAG.",
-    icon: "🧠",
+    icon: Cpu,
   },
   {
     title: "Digital Avatar Renderer",
     desc: "3D facial mesh rendering, lip synchronization, micro-expressions, posture control, and persona identity management.",
-    icon: "👤",
+    icon: User,
   },
   {
     title: "Knowledge & Catalog Engine",
     desc: "RAG indexer with relevance reranking, 9-column product CSV catalog, and automatic vocabulary generation.",
-    icon: "📚",
+    icon: BookOpen,
   },
   {
-    title: "Universal Hardware Layer",
-    desc: "3D Hologram Boxes, touch displays, 4K camera tracking, dual microphone arrays, and local GPU workstations.",
-    icon: "🖥️",
+    title: "Hardware & Camera Array",
+    desc: "HD wide-angle face tracking camera, beamforming mic array, and industrial edge GPU/NPU workstation.",
+    icon: Camera,
   },
 ];
 
@@ -457,8 +469,8 @@ export default function DihuavaProductPage() {
                 className="rounded-3xl border border-white/15 bg-neutral-950/80 p-8 backdrop-blur-xl hover:border-cyan-500/40 transition-all flex flex-col justify-between"
               >
                 <div>
-                  <span className="flex h-14 w-14 items-center justify-center rounded-2xl border border-cyan-500/30 bg-cyan-950 text-3xl mb-6">
-                    {pillar.icon}
+                  <span className="flex h-14 w-14 items-center justify-center rounded-2xl border border-cyan-500/40 bg-cyan-950/60 text-cyan-300 shadow-[0_0_20px_rgba(6,182,212,0.25)] mb-6">
+                    <pillar.icon className="w-7 h-7 text-cyan-300" strokeWidth={1.75} />
                   </span>
                   <h3 className="text-xl font-bold text-white mb-3">{pillar.title}</h3>
                   <p className="text-sm leading-6 text-gray-300">{pillar.desc}</p>
@@ -555,8 +567,8 @@ export default function DihuavaProductPage() {
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-500/30 bg-cyan-950/40 text-2xl">
-                      {module.icon}
+                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-500/40 bg-cyan-950/50 text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
+                      <module.icon className="w-6 h-6 text-cyan-300" strokeWidth={1.75} />
                     </span>
                     <span className="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3 py-1 text-[11px] font-semibold text-cyan-300 font-mono">
                       {module.badge}
@@ -609,8 +621,8 @@ export default function DihuavaProductPage() {
             <div className="rounded-3xl border border-cyan-500/30 bg-neutral-950 p-8 backdrop-blur-xl shadow-[0_0_40px_rgba(6,182,212,0.15)] flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-4 mb-6">
-                  <span className="flex h-14 w-14 items-center justify-center rounded-2xl border border-cyan-400/40 bg-cyan-950 text-3xl">
-                    📸
+                  <span className="flex h-14 w-14 items-center justify-center rounded-2xl border border-cyan-400/40 bg-cyan-950/60 text-cyan-300 shadow-[0_0_20px_rgba(6,182,212,0.25)]">
+                    <Camera className="w-7 h-7 text-cyan-300" strokeWidth={1.75} />
                   </span>
                   <div>
                     <span className="text-xs font-mono text-cyan-400 uppercase tracking-wider">
@@ -638,7 +650,7 @@ export default function DihuavaProductPage() {
               </div>
 
               <div className="mt-8 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono text-gray-400">
-                <span>SPEED: ~300-400ms</span>
+                <span>FAST ON-DEVICE PROCESSING</span>
                 <span className="text-emerald-400">24-HR AUTO DELETE</span>
               </div>
             </div>
@@ -647,8 +659,8 @@ export default function DihuavaProductPage() {
             <div className="rounded-3xl border border-cyan-500/30 bg-neutral-950 p-8 backdrop-blur-xl shadow-[0_0_40px_rgba(6,182,212,0.15)] flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-4 mb-6">
-                  <span className="flex h-14 w-14 items-center justify-center rounded-2xl border border-cyan-400/40 bg-cyan-950 text-3xl">
-                    🎭
+                  <span className="flex h-14 w-14 items-center justify-center rounded-2xl border border-cyan-400/40 bg-cyan-950/60 text-cyan-300 shadow-[0_0_20px_rgba(6,182,212,0.25)]">
+                    <Sparkles className="w-7 h-7 text-cyan-300" strokeWidth={1.75} />
                   </span>
                   <div>
                     <span className="text-xs font-mono text-cyan-400 uppercase tracking-wider">
@@ -676,7 +688,7 @@ export default function DihuavaProductPage() {
               </div>
 
               <div className="mt-8 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono text-gray-400">
-                <span>LATENCY: 50-100ms</span>
+                <span>LOW-LATENCY</span>
                 <span className="text-emerald-400">LIVE FACE MESH</span>
               </div>
             </div>

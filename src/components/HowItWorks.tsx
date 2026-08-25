@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Rocket, MessageSquare, TrendingUp } from "lucide-react";
 
 const steps = [
   {
@@ -9,7 +10,7 @@ const steps = [
     subtitle: "Rapid Setup & Zero Cloud Dependencies",
     description:
       "Install DIHUAVA software onto your local hardware, Hologram Box, or kiosk in under 30 minutes. All AI models run locally with Low Latency.",
-    icon: "🚀",
+    icon: Rocket,
   },
   {
     step: "02",
@@ -17,7 +18,7 @@ const steps = [
     subtitle: "Natural 3D Voice & Gesture Communication",
     description:
       "Digital Human avatars engage visitors in real time with natural voice conversations, multi-language detection, and smart document lookup.",
-    icon: "💬",
+    icon: MessageSquare,
   },
   {
     step: "03",
@@ -25,7 +26,7 @@ const steps = [
     subtitle: "Automate Tasks & Drive Retail Sales",
     description:
       "Guide customers to product selections, collect leads, resolve customer queries automatically, and monitor real-time analytics from your dashboard.",
-    icon: "📈",
+    icon: TrendingUp,
   },
 ];
 
@@ -80,8 +81,8 @@ export default function HowItWorks() {
                   <span className="font-mono text-4xl font-extrabold text-white/20 group-hover:text-cyan-400 transition-colors">
                     {item.step}
                   </span>
-                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-500/30 bg-cyan-950/40 text-2xl shadow-inner group-hover:scale-110 transition-transform">
-                    {item.icon}
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-500/40 bg-cyan-950/50 text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.2)] group-hover:scale-110 transition-transform">
+                    <item.icon className="w-6 h-6 text-cyan-300" strokeWidth={1.75} />
                   </span>
                 </div>
 

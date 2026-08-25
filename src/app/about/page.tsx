@@ -4,6 +4,19 @@ import Header from "@/components/Header";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
+import {
+  Target,
+  Eye,
+  ShieldCheck,
+  User,
+  Globe,
+  Tv,
+  Sparkles,
+  BarChart2,
+  Zap,
+  Lock,
+  Rocket,
+} from "lucide-react";
 
 const missionVisionValues = [
   {
@@ -11,7 +24,7 @@ const missionVisionValues = [
     tagline: "Enhancing Human-AI Interaction",
     description:
       "To create lifelike AI-driven hologram experiences that enhance human-machine interaction and deliver meaningful business value. We empower organizations with intelligent digital human solutions that streamline communication and automate routine tasks.",
-    icon: "🎯",
+    icon: Target,
     accentColor: "from-cyan-500/20 via-blue-500/5 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.3)",
     badge: "Mission Statement",
@@ -21,7 +34,7 @@ const missionVisionValues = [
     tagline: "Redefining Customer Engagement",
     description:
       "To become the global leader in Digital Human and Holographic AI platforms. We envision a future where AI avatars seamlessly integrate into physical business operations, providing personalized, real-time interactions across all touchpoints.",
-    icon: "👁️",
+    icon: Eye,
     accentColor: "from-purple-500/20 via-indigo-500/5 to-transparent",
     accentGlow: "rgba(168, 85, 247, 0.3)",
     badge: "Global Vision",
@@ -31,7 +44,7 @@ const missionVisionValues = [
     tagline: "Ethical AI & Data Privacy",
     description:
       "Driven by innovation, trust, and ethical AI development. We prioritize data privacy, air-gapped security, and responsible AI practices while delivering immersive customer experiences that create long-term value.",
-    icon: "💎",
+    icon: ShieldCheck,
     accentColor: "from-emerald-500/20 via-teal-500/5 to-transparent",
     accentGlow: "rgba(16, 185, 129, 0.3)",
     badge: "Ethics & Security",
@@ -43,49 +56,49 @@ const enterprisePillars = [
     title: "Digital Human AI Assistant",
     description:
       "Create lifelike AI assistants that engage customers naturally through voice, visual expressions, and intelligent multi-turn conversations.",
-    icon: "👤",
+    icon: User,
   },
   {
     title: "Multilingual Voice AI & Voice Cloning",
     description:
       "Communicate with global customers across 29 languages with real-time neural speech synthesis & voice cloning.",
-    icon: "🌍",
+    icon: Globe,
   },
   {
     title: "Interactive Experience Solutions",
     description:
       "Deliver engaging customer experiences through 3D Hologram Boxes, spatial displays, and interactive retail kiosks.",
-    icon: "📺",
+    icon: Tv,
   },
   {
     title: "Avatar Customization & Voice Cloning",
     description:
       "Build branded digital humans tailored to your industry with custom 3D facial rendering, voice cloning, tone of voice, and custom 3D attire.",
-    icon: "✨",
+    icon: Sparkles,
   },
   {
     title: "Business Analytics Dashboard",
     description:
       "Track customer interactions, engagement metrics, conversation trends, and kiosk performance through real-time analytics.",
-    icon: "📊",
+    icon: BarChart2,
   },
   {
     title: "Enterprise Scalability",
     description:
       "Deploy Digital Human AI solutions seamlessly across multi-location branches, departments, web apps, and physical kiosks.",
-    icon: "⚡",
+    icon: Zap,
   },
   {
     title: "Secure Enterprise Architecture",
     description:
       "Protect sensitive customer data with 100% on-device local execution, air-gapped security, and role-based access controls.",
-    icon: "🔒",
+    icon: Lock,
   },
   {
     title: "Continuous Innovation",
     description:
       "Stay ahead with evolving LLM architectures, enhanced RAG document intelligence, and future-ready platform upgrades.",
-    icon: "🚀",
+    icon: Rocket,
   },
 ];
 
@@ -210,7 +223,9 @@ export default function AboutPage() {
 
                 <div>
                   <div className="flex items-center justify-between">
-                    <span className="text-3xl">{item.icon}</span>
+                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-500/40 bg-cyan-950/50 text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
+                      <item.icon className="w-6 h-6 text-cyan-300" strokeWidth={1.75} />
+                    </span>
                     <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-medium tracking-wide text-cyan-300 backdrop-blur-sm">
                       {item.badge}
                     </span>
@@ -265,8 +280,8 @@ export default function AboutPage() {
                 className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-neutral-950/70 p-6 backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/40 hover:bg-neutral-900/60"
               >
                 <div>
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-black/60 text-2xl shadow-inner group-hover:border-cyan-500/40 transition-colors">
-                    {pillar.icon}
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-cyan-500/40 bg-cyan-950/50 text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.2)] group-hover:border-cyan-400 transition-colors">
+                    <pillar.icon className="w-6 h-6 text-cyan-300" strokeWidth={1.75} />
                   </div>
 
                   <h3 className="mt-5 text-xl font-bold text-white group-hover:text-cyan-300 transition-colors">

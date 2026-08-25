@@ -7,6 +7,18 @@ import CTA from "@/components/CTA";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import {
+  Box,
+  Cpu,
+  Eye,
+  Volume2,
+  ShoppingBag,
+  Landmark,
+  Building2,
+  Stethoscope,
+  Castle,
+  GraduationCap,
+} from "lucide-react";
 
 const hologramHeroImages = [
   {
@@ -26,28 +38,28 @@ const hologramFeatures = [
     title: "Life-Size 3D Volumetric Enclosure",
     description:
       "Available in 55-inch, 65-inch, 75-inch, and 86-inch vertical holographic glass showcases displaying 1:1 scale digital human avatars with hyper-realistic depth perception and lifelike presence.",
-    icon: "📦",
+    icon: Box,
     badge: "55\" / 65\" / 75\" / 86\" Sizes",
   },
   {
     title: "Integrated AI Workstation",
     description:
       "Built-in industrial-grade computing unit running DIHUAVA offline AI engine. Zero cloud dependence, Low Latency, and high-security enterprise operation.",
-    icon: "⚙️",
+    icon: Cpu,
     badge: "On-Device Processing",
   },
   {
     title: "Multimodal Interaction Sensors",
     description:
       "Equipped with wide-angle HD camera tracking, directional microphone array, capacitive touch glass, and distance proximity sensors for natural human interaction.",
-    icon: "👁️",
+    icon: Eye,
     badge: "Camera & Sensor Array",
   },
   {
     title: "Directional Acoustic Sound Bar",
     description:
       "Focused spatial audio system designed for noisy exhibition halls, bank lobbies, and shopping malls, ensuring crystal-clear speech intelligibility.",
-    icon: "🔊",
+    icon: Volume2,
     badge: "Spatial Audio",
   },
 ];
@@ -56,32 +68,32 @@ const holographicUseCases = [
   {
     title: "Retail & Shopping",
     description: "Product showcases, virtual sales assistants, interactive brand experiences.",
-    icon: "🛍️",
+    icon: ShoppingBag,
   },
   {
     title: "Banking & Financial Services",
     description: "VIP lounges, customer guidance, product information and digital concierge experiences.",
-    icon: "🏦",
+    icon: Landmark,
   },
   {
     title: "Corporate & Enterprise",
     description: "Reception areas, visitor engagement, employee information and branded experiences.",
-    icon: "🏢",
+    icon: Building2,
   },
   {
     title: "Healthcare",
     description: "Patient guidance, hospital information and multilingual assistance.",
-    icon: "🏥",
+    icon: Stethoscope,
   },
   {
     title: "Museums & Exhibitions",
     description: "Digital humans, historical storytelling and interactive exhibits.",
-    icon: "🏛️",
+    icon: Castle,
   },
   {
     title: "Education & Campuses",
     description: "Interactive learning experiences, information kiosks and digital guides.",
-    icon: "🎓",
+    icon: GraduationCap,
   },
 ];
 
@@ -276,8 +288,8 @@ export default function HolographicDisplayPage() {
               >
                 <div>
                   <div className="flex items-center justify-between">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-500/30 bg-cyan-950/40 text-2xl">
-                      {feature.icon}
+                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-500/40 bg-cyan-950/50 text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
+                      <feature.icon className="w-6 h-6 text-cyan-300" strokeWidth={1.75} />
                     </span>
                     <span className="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3.5 py-1 text-xs font-semibold text-cyan-300">
                       {feature.badge}
@@ -323,8 +335,8 @@ export default function HolographicDisplayPage() {
               >
                 <div>
                   <div className="flex items-center gap-4 mb-4">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-500/30 bg-cyan-950/40 text-2xl">
-                      {useCase.icon}
+                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-500/40 bg-cyan-950/50 text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
+                      <useCase.icon className="w-6 h-6 text-cyan-300" strokeWidth={1.75} />
                     </span>
                     <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors">
                       {useCase.title}

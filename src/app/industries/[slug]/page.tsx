@@ -5,6 +5,49 @@ import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 import Link from "next/link";
 import { industriesData } from "@/data/industriesData";
+import {
+  ShieldCheck,
+  FileText,
+  Globe,
+  Ticket,
+  Landmark,
+  ShoppingBag,
+  Building2,
+  Stethoscope,
+  Castle,
+  GraduationCap,
+  BarChart2,
+  Zap,
+  Film,
+  Users,
+  Box,
+  UserCheck,
+  Sparkles,
+  HelpCircle,
+} from "lucide-react";
+
+const getIconComponent = (iconStr: string) => {
+  switch (iconStr) {
+    case "🔒": return ShieldCheck;
+    case "📄": return FileText;
+    case "🌐": return Globe;
+    case "🎫": return Ticket;
+    case "🏦": return Landmark;
+    case "🛍️": return ShoppingBag;
+    case "🏢": return Building2;
+    case "🏥": return Stethoscope;
+    case "🏛️": return Castle;
+    case "🎓": return GraduationCap;
+    case "📊": return BarChart2;
+    case "⚡": return Zap;
+    case "🎬": return Film;
+    case "👥": return Users;
+    case "📦": return Box;
+    case "👤": return UserCheck;
+    case "✨": return Sparkles;
+    default: return HelpCircle;
+  }
+};
 
 interface IndustryPageProps {
   params: Promise<{
@@ -48,6 +91,7 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
   }
 
   const allIndustries = Object.values(industriesData);
+  const MainIcon = getIconComponent(industry.icon);
 
   return (
     <main className="min-h-screen bg-black text-white selection:bg-cyan-500 selection:text-black">
@@ -121,8 +165,8 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
             <div className="lg:col-span-5">
               <div className="relative overflow-hidden rounded-3xl border border-cyan-500/30 bg-neutral-950/90 p-8 backdrop-blur-xl shadow-[0_0_50px_rgba(6,182,212,0.2)]">
                 <div className="flex items-center gap-4 border-b border-white/10 pb-6">
-                  <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-cyan-400/40 bg-cyan-950 text-4xl shadow-inner">
-                    {industry.icon}
+                  <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-cyan-400/40 bg-cyan-950/60 text-cyan-300 shadow-[0_0_20px_rgba(6,182,212,0.25)] backdrop-blur-md">
+                    <MainIcon className="w-8 h-8 text-cyan-300" strokeWidth={1.75} />
                   </span>
                   <div>
                     <span className="font-mono text-xs text-cyan-400 tracking-wider uppercase">
@@ -199,15 +243,17 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
           </div>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {industry.capabilities.map((cap, idx) => (
-              <div
-                key={idx}
-                className="group relative flex flex-col justify-between rounded-2xl border border-white/15 bg-neutral-950/80 p-6 backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/40 hover:shadow-[0_0_30px_rgba(6,182,212,0.2)]"
-              >
-                <div>
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/15 bg-black text-2xl mb-5 shadow-inner">
-                    {cap.icon}
-                  </span>
+            {industry.capabilities.map((cap, idx) => {
+              const CapIcon = getIconComponent(cap.icon);
+              return (
+                <div
+                  key={idx}
+                  className="group relative flex flex-col justify-between rounded-2xl border border-white/15 bg-neutral-950/80 p-6 backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/40 hover:shadow-[0_0_30px_rgba(6,182,212,0.2)]"
+                >
+                  <div>
+                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-500/40 bg-cyan-950/50 text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.2)] mb-5">
+                      <CapIcon className="w-6 h-6 text-cyan-300" strokeWidth={1.75} />
+                    </span>
                   <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors">
                     {cap.title}
                   </h3>
@@ -216,7 +262,8 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
                   </p>
                 </div>
               </div>
-            ))}
+            );
+          })}
           </div>
         </div>
       </section>
