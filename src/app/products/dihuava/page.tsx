@@ -12,7 +12,7 @@ import { useState } from "react";
 const coreModules = [
   {
     id: "selfie-engine",
-    title: "Selfie With Avatar Engine",
+    title: "Selfie With Avatar",
     subtitle: "Instant On-Device Photo Compositing",
     description:
       "Visitors tap Selfie on the display to capture a photo standing beside the AI Avatar. Features deterministic sub-second face-scale matching, 6 creative filters (Realistic, Original, B&W, Vivid, Warm, Cool), and optional QR phone sharing with 24-hour auto-expiring links.",
@@ -42,7 +42,7 @@ const coreModules = [
   },
   {
     id: "product-catalog",
-    title: "AI Product Catalog System",
+    title: "AI Product Catalog",
     subtitle: "CSV-Driven Recommendation Engine",
     description:
       "Converts product catalog CSVs into an intelligent spoken recommendation system. Displays interactive product cards, price filtering, and automatic audio-visual synchronization so the avatar only discusses products currently on screen.",
@@ -73,14 +73,14 @@ const coreModules = [
   {
     id: "multilingual-voice",
     title: "Multilingual Engine & Voice Cloning",
-    subtitle: "29+ Languages & Brand Voice Matching",
+    subtitle: "29 Global Languages & Brand Voice Matching",
     description:
-      "Full on-device speech recognition, voice synthesis, and translation across 29+ languages. Includes dedicated low-latency engines for 7 Indian languages (Hindi, Tamil, Telugu, Kannada, Bengali, Marathi, Gujarati) and automatic per-persona voice cloning.",
+      "Full on-device speech recognition, voice synthesis, and translation across 29 global languages, including regional accents and automatic per-persona voice cloning.",
     icon: "🌐",
-    badge: "29+ Local Languages",
+    badge: "29 Global Languages",
     highlights: [
       "100% local speech recognition & TTS",
-      "Dedicated 7 Indian language fast tier",
+      "Real-time 29 global languages engine",
       "Automatic per-persona voice cloning",
       "Localized currency & number speech",
     ],
@@ -126,22 +126,50 @@ const archPillars = [
   },
 ];
 
-// VOICE SYNTHESIS TIERS
-const voiceTiers = [
+// HOW DIHUAVA WORKS STEPS
+const howItWorksSteps = [
   {
-    name: "Fast English-Tuned Tier",
-    speed: "3x Faster Synthesis",
-    desc: "Optimized for natural English speech with expressive audible reactions like laughs and conversational cadence.",
+    step: "01",
+    title: "Understand",
+    desc: "Voice input, documents, product catalogs, and visitor questions are processed locally.",
+    badge: "Local Ingestion",
   },
   {
-    name: "Dedicated 7 Indian Languages Tier",
-    speed: "40ms Translation Latency",
-    desc: "Specialized model for Hindi, Tamil, Telugu, Kannada, Bengali, Marathi, and Gujarati with localized lakh/crore numbering.",
+    step: "02",
+    title: "Think",
+    desc: "The local AI engine retrieves relevant knowledge and generates a grounded response.",
+    badge: "On-Device AI",
   },
   {
-    name: "General Multilingual Tier",
-    speed: "22 Global Languages",
-    desc: "Covers Mandarin Chinese, Arabic, Spanish, French, German, Japanese, Korean, Russian, Turkish, and European languages.",
+    step: "03",
+    title: "Respond",
+    desc: "The digital human responds using natural speech, facial expressions, and personalized behavior.",
+    badge: "Neural Expression",
+  },
+  {
+    step: "04",
+    title: "Interact",
+    desc: "Connect the AI digital human to hologram boxes, kiosks, spatial displays, and other physical environments.",
+    badge: "Hardware Sync",
+  },
+];
+
+// VOICE SYNTHESIS ENGINE
+const voiceCapabilities = [
+  {
+    name: "Expressive Neural Voice Engine",
+    speed: "Expressive Synthesis",
+    desc: "Optimized for natural speech with expressive audible reactions like laughter, warmth, and fluid conversational cadence.",
+  },
+  {
+    name: "Regional Accent & Dialect Adaptation",
+    speed: "Localized Speech",
+    desc: "Specialized neural models for global and regional accents with localized currency, numbering, and regional speech rhythm.",
+  },
+  {
+    name: "29 Global Languages Engine",
+    speed: "29 Global Languages",
+    desc: "Covers English, Mandarin, Hindi, Spanish, Arabic, French, German, Japanese, Korean, Tamil, Telugu, Kannada, Bengali, Marathi, Gujarati, Russian, and major international languages.",
   },
 ];
 
@@ -169,39 +197,35 @@ const personaProfiles = [
   },
 ];
 
-// ACOUSTIC ENVIRONMENT PROFILES
-const acousticProfiles = [
+// CUSTOM AI PERSONA FEATURES
+const customPersonaFeatures = [
   {
-    name: "Indoor Patient Profile",
-    desc: "Calibrated for quiet executive lounges, private bank offices, and medical clinics with gentle voice sensitivity.",
+    title: "Appearance",
+    desc: "Create a digital human aligned with your brand identity.",
   },
   {
-    name: "Indoor Responsive Profile",
-    desc: "Optimized for corporate lobbies, retail stores, and campus centers with balanced noise cancellation.",
+    title: "Voice",
+    desc: "Use multilingual voices or a customized corporate voice.",
   },
   {
-    name: "Outdoor Patient Profile",
-    desc: "Tuned for high ambient noise exhibition halls, airport terminals, and shopping mall corridors with aggressive VAD.",
+    title: "Personality",
+    desc: "Configure communication style, tone and behavior.",
   },
-];
-
-// HARDWARE HOLOGRAPHIC ENCLOSURES
-const hologramModels = [
-  { model: "HS55OTB", size: "55-Inch", resolution: "4K UHD (2160 × 3840)", aspect: "9:16 Portrait" },
-  { model: "HS65OTB", size: "65-Inch", resolution: "4K UHD (2160 × 3840)", aspect: "9:16 Portrait" },
-  { model: "HS75OTB", size: "75-Inch", resolution: "4K UHD (2160 × 3840)", aspect: "9:16 Portrait" },
-  { model: "HS86OTB", size: "86-Inch", resolution: "4K UHD (2160 × 3840)", aspect: "9:16 Portrait" },
+  {
+    title: "Brand Identity",
+    desc: "Apply your organization's visual identity and interaction style.",
+  },
 ];
 
 // COMPARISON MATRIX
 const comparisonTable = [
-  { feature: "AI Voice & Conversation", dihuava: "100% Local On-Device", cloud: "Cloud API Dependent" },
-  { feature: "Internet Dependency", dihuava: "Not Required (Air-Gapped)", cloud: "Mandatory Active Connection" },
-  { feature: "Voice Data Privacy", dihuava: "Zero Cloud Voice Transmission", cloud: "External Cloud Processing" },
-  { feature: "Multilingual Engine", dihuava: "29+ Languages Fully Local", cloud: "Cloud Voice API Required" },
-  { feature: "Selfie With Avatar", dihuava: "Sub-Second Local Compositing", cloud: "Slow Cloud Generation" },
-  { feature: "Live Character Mode", dihuava: "Real-Time 50-100ms Face Track", cloud: "High Latency or Unsupported" },
-  { feature: "Regulatory Compliance", dihuava: "GDPR, PDPA & HIPAA-Friendly", cloud: "Complex Cloud Compliance" },
+  { feature: "AI Processing", dihuava: "Local / On-Device", cloud: "Cloud-Based" },
+  { feature: "Internet Dependency", dihuava: "Designed for Offline Operation", cloud: "Typically Requires Connectivity" },
+  { feature: "Voice Processing", dihuava: "Local Processing", cloud: "May Use Remote Processing" },
+  { feature: "Languages", dihuava: "29+ Local Languages", cloud: "Depends on Provider" },
+  { feature: "Selfie Experience", dihuava: "Local Compositing", cloud: "Cloud-Dependent Workflows" },
+  { feature: "Live Character", dihuava: "50–100ms Face Tracking", cloud: "Depends on Implementation" },
+  { feature: "Data Architecture", dihuava: "Edge / Air-Gapped Deployment", cloud: "Cloud Infrastructure" },
 ];
 
 // INDUSTRY USE CASES
@@ -228,7 +252,7 @@ const industryUseCases = [
     title: "Healthcare & Hospitals",
     icon: "🏥",
     description:
-      "Guide patients through hospital departments, triage intake symptoms, and explain pre/post-op care in 30+ languages.",
+      "Guide patients through hospital departments, triage intake symptoms, and explain pre/post-op care in 29 languages.",
   },
   {
     title: "Tourism & Museum Exhibits",
@@ -246,14 +270,12 @@ const industryUseCases = [
 
 // PRODUCT SPECS
 const productSpecs = [
-  { label: "Core AI Architecture", value: "Fully Local On-Device Voice & Conversation Platform" },
-  { label: "Supported Languages", value: "29 Languages Fully Local (7 Dedicated Indian Languages + 22 Global)" },
-  { label: "Speech & Voice Engine", value: "Tiered On-Device Speech Recognition & Synthesis with Voice Cloning" },
-  { label: "Document RAG Support", value: "On-Device Vector Search + Relevance Reranker (PDF, TXT, CSV, MD)" },
-  { label: "Product Catalog Engine", value: "9-Column Feature-Row Schema with Audio-Visual Screen Card Sync" },
-  { label: "Photo & Cartoon Modules", value: "Selfie With Avatar (Filter & QR Share) + Live Character Mode" },
-  { label: "Concurrency & Capacity", value: "Up to 10 Concurrent Sessions per Kiosk / Unlimited Daily Interactions" },
-  { label: "Display Enclosure Specs", value: "4K Ultra HD Volumetric Glass (55\", 65\", 75\", 86\" Hologram Enclosures)" },
+  { label: "Core AI Architecture", value: "Fully local on-device voice & conversation platform" },
+  { label: "Supported Languages", value: "29 languages" },
+  { label: "Speech & Voice Engine", value: "Speech recognition, synthesis & voice cloning" },
+  { label: "Document RAG", value: "PDF, TXT, CSV & Markdown" },
+  { label: "Product Catalog", value: "Product recommendation & screen synchronization" },
+  { label: "Photo & Character", value: "Selfie With Avatar + Live Character" },
 ];
 
 // FREQUENTLY ASKED QUESTIONS
@@ -264,7 +286,7 @@ const faqs = [
   },
   {
     q: "How many languages are supported on-device?",
-    a: "29 languages fully local, including 7 dedicated Indian languages (Hindi, Tamil, Telugu, Kannada, Bengali, Marathi, Gujarati) and 22 global languages (English, Mandarin, Arabic, Spanish, French, German, Japanese, etc.).",
+    a: "29 global languages fully local, including English, Mandarin, Hindi, Spanish, Arabic, French, German, Japanese, Korean, Tamil, Telugu, Kannada, Bengali, Marathi, Gujarati, and major international languages.",
   },
   {
     q: "Is visitor voice or conversation data transmitted to the cloud?",
@@ -324,14 +346,14 @@ export default function DihuavaProductPage() {
               </div>
 
               <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl lg:leading-[1.1]">
-                DIHUAVA AI Digital Human{" "}
+                AI Digital Humans Built for{" "}
                 <span className="bg-gradient-to-r from-cyan-400 via-sky-300 to-cyan-500 bg-clip-text text-transparent">
-                  Avatar Platform.
+                  Real-World Customer Interaction.
                 </span>
               </h1>
 
               <p className="mt-6 text-base leading-8 text-gray-300 sm:text-lg max-w-2xl">
-                An enterprise-grade, local-first Digital Human platform engineered for 3D Hologram Boxes, touch kiosks, and smart displays. Delivers real-time 29+ language speech, on-device document RAG, AI product catalog recommendations, Selfie With Avatar photo sharing, and Live Cartoon Face rendering with 100% air-gapped privacy.
+                Enterprise-grade digital humans that communicate naturally, understand your business knowledge, speak multiple languages, and run locally across kiosks, hologram boxes, and spatial displays.
               </p>
 
               {/* Action Buttons */}
@@ -356,7 +378,7 @@ export default function DihuavaProductPage() {
                   🔒 100% Offline Air-Gapped
                 </span>
                 <span className="rounded-full border border-cyan-500/30 bg-black/60 px-3.5 py-1 text-xs font-mono text-cyan-300">
-                  🌐 29+ Local Languages
+                  🌐 29 Global Languages
                 </span>
                 <span className="rounded-full border border-cyan-500/30 bg-black/60 px-3.5 py-1 text-xs font-mono text-cyan-300">
                   📸 Selfie With Avatar
@@ -399,23 +421,15 @@ export default function DihuavaProductPage() {
 
       {/* METRICS COUNTER BAR */}
       <section className="relative overflow-hidden bg-neutral-950 px-6 py-12 border-b border-white/10">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
+        <div className="mx-auto max-w-4xl">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             <div className="rounded-2xl border border-white/10 bg-black/60 p-6 text-center backdrop-blur-md">
-              <p className="text-3xl font-extrabold text-cyan-400 font-mono">29+</p>
-              <p className="mt-1 text-xs text-gray-300 font-mono uppercase tracking-wider">Local Voice Languages</p>
+              <p className="text-3xl font-extrabold text-cyan-400 font-mono">29</p>
+              <p className="mt-1 text-xs text-gray-300 font-mono uppercase tracking-wider">Global Languages</p>
             </div>
             <div className="rounded-2xl border border-white/10 bg-black/60 p-6 text-center backdrop-blur-md">
-              <p className="text-3xl font-extrabold text-cyan-400 font-mono">0%</p>
-              <p className="mt-1 text-xs text-gray-300 font-mono uppercase tracking-wider">Cloud Data Leakage</p>
-            </div>
-            <div className="rounded-2xl border border-white/10 bg-black/60 p-6 text-center backdrop-blur-md">
-              <p className="text-3xl font-extrabold text-cyan-400 font-mono">~300ms</p>
-              <p className="mt-1 text-xs text-gray-300 font-mono uppercase tracking-wider">Selfie Compositing</p>
-            </div>
-            <div className="rounded-2xl border border-white/10 bg-black/60 p-6 text-center backdrop-blur-md">
-              <p className="text-3xl font-extrabold text-cyan-400 font-mono">10</p>
-              <p className="mt-1 text-xs text-gray-300 font-mono uppercase tracking-wider">Concurrent Sessions</p>
+              <p className="text-3xl font-extrabold text-cyan-400 font-mono">100%</p>
+              <p className="mt-1 text-xs text-gray-300 font-mono uppercase tracking-wider">On-Device Processing</p>
             </div>
           </div>
         </div>
@@ -429,7 +443,7 @@ export default function DihuavaProductPage() {
               System Architecture
             </span>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-5xl">
-              Built on 4 Edge Architecture Pillars
+              Four Core Technologies Powering Dihuava
             </h2>
             <p className="mt-4 text-base text-gray-400">
               Dihuava operates via an integrated local-first model where conversational AI, rendering, knowledge indexing, and hardware interaction function harmoniously on physical edge workstations.
@@ -458,6 +472,62 @@ export default function DihuavaProductPage() {
         </div>
       </section>
 
+      {/* HOW DIHUAVA WORKS SECTION */}
+      <section className="relative overflow-hidden bg-neutral-950 px-6 py-24 border-b border-white/10">
+        <div className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 h-[400px] w-[500px] rounded-full bg-cyan-500/10 blur-[140px]" />
+        
+        <div className="relative mx-auto max-w-7xl">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400 font-mono">
+              Simple 4-Step Process
+            </span>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-5xl">
+              How Dihuava Works
+            </h2>
+            <p className="mt-4 text-base text-gray-400">
+              A seamless end-to-end edge pipeline powering human-like interactions without cloud dependencies.
+            </p>
+          </div>
+
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {howItWorksSteps.map((item, idx) => (
+              <motion.div
+                key={item.step}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="group relative flex flex-col justify-between rounded-3xl border border-white/15 bg-black/80 p-8 backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/50 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)]"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-6">
+                    <span className="text-3xl font-extrabold font-mono text-cyan-400 bg-cyan-950/60 border border-cyan-500/30 px-3.5 py-1 rounded-xl">
+                      {item.step}
+                    </span>
+                    <span className="text-[11px] font-mono text-gray-400 uppercase tracking-wider">
+                      STEP {item.step}
+                    </span>
+                  </div>
+
+                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors">
+                    {item.title}
+                  </h3>
+
+                  <p className="text-sm leading-6 text-gray-300">
+                    {item.desc}
+                  </p>
+                </div>
+
+                <div className="mt-8 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono text-cyan-400">
+                  <span>{item.badge}</span>
+                  <span className="group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CORE PLATFORM SUBSYSTEMS GRID (6 MODULES) */}
       <section className="relative overflow-hidden bg-neutral-950 px-6 py-24 border-b border-white/10">
         <div className="mx-auto max-w-7xl">
@@ -469,7 +539,7 @@ export default function DihuavaProductPage() {
               6 Intelligent Modules. 1 Integrated Local AI.
             </h2>
             <p className="mt-4 text-base text-gray-400">
-              Dihuava combines conversational intelligence, document indexing, product recommendations, voice cloning, and interactive media modules into one privacy-first edge platform.
+              Everything your digital human needs to understand, communicate, recommend, and interact — running locally on the edge.
             </p>
           </div>
 
@@ -622,15 +692,15 @@ export default function DihuavaProductPage() {
               Voice Architecture
             </span>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-5xl">
-              3-Tiered Voice Synthesis Engine
+              Natural Voice Across 29 Languages
             </h2>
             <p className="mt-4 text-base text-gray-400">
-              Dihuava uses a tiered speech synthesis pipeline matched to language families, delivering expressive natural voice output with automatic voice cloning.
+              DIHUAVA delivers natural, multilingual voice interaction with local speech processing, regional language support, and customizable voice experiences.
             </p>
           </div>
 
           <div className="grid gap-8 md:grid-cols-3">
-            {voiceTiers.map((tier, idx) => (
+            {voiceCapabilities.map((tier, idx) => (
               <div
                 key={idx}
                 className="rounded-3xl border border-white/15 bg-black/80 p-8 backdrop-blur-xl hover:border-cyan-400/40 transition-colors flex flex-col justify-between"
@@ -643,7 +713,7 @@ export default function DihuavaProductPage() {
                   <p className="text-sm leading-6 text-gray-300">{tier.desc}</p>
                 </div>
                 <div className="mt-6 pt-4 border-t border-white/10 text-xs font-mono text-gray-400">
-                  TIER 0{idx + 1}
+                  FEATURE 0{idx + 1}
                 </div>
               </div>
             ))}
@@ -661,7 +731,7 @@ export default function DihuavaProductPage() {
                 Persona Management
               </span>
               <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-4xl">
-                Specialized Avatars for Every Industry
+                Custom AI Digital Humans for Every Industry
               </h2>
               <p className="mt-4 text-sm leading-7 text-gray-300">
                 Organizations configure digital humans with industry-specific personalities, communication styles, voice behavior, micro-gestures, and corporate branding.
@@ -683,65 +753,26 @@ export default function DihuavaProductPage() {
               </div>
             </div>
 
-            {/* Right: Acoustic Profiles */}
+            {/* Right: Custom AI Persona */}
             <div className="lg:col-span-6">
               <div className="rounded-3xl border border-cyan-500/30 bg-neutral-950 p-8 backdrop-blur-xl shadow-[0_0_40px_rgba(6,182,212,0.15)]">
                 <span className="text-xs font-mono text-cyan-400 uppercase tracking-wider">
-                  ENVIRONMENT ENGINE
+                  TAILORED EXPERIENCE
                 </span>
                 <h3 className="mt-2 text-2xl font-bold text-white">
-                  3 Built-In Acoustic Profiles
+                  Custom AI Persona
                 </h3>
-                <p className="mt-3 text-sm text-gray-300">
-                  Tune voice detection sensitivity, microphone gain, noise thresholds, and response timing to match physical room acoustics.
-                </p>
 
                 <div className="mt-6 space-y-4">
-                  {acousticProfiles.map((ac, i) => (
+                  {customPersonaFeatures.map((feature, i) => (
                     <div key={i} className="rounded-xl border border-white/10 bg-white/5 p-4">
-                      <h4 className="text-sm font-semibold text-cyan-300 font-mono">{ac.name}</h4>
-                      <p className="mt-1 text-xs text-gray-400">{ac.desc}</p>
+                      <h4 className="text-sm font-semibold text-cyan-300 font-mono">{feature.title}</h4>
+                      <p className="mt-1 text-xs text-gray-400">{feature.desc}</p>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* HARDWARE HOLOGRAPHIC ENCLOSURES */}
-      <section className="relative overflow-hidden bg-neutral-950 px-6 py-24 border-b border-white/10">
-        <div className="mx-auto max-w-7xl">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400 font-mono">
-              Display Hardware Integration
-            </span>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-5xl">
-              Holographic Display Enclosures
-            </h2>
-            <p className="mt-4 text-base text-gray-400">
-              Dihuava powers 3D Hologram Boxes with optical glass enclosures, high-transmittance glass, and integrated multi-sensor hardware.
-            </p>
-          </div>
-
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {hologramModels.map((h, i) => (
-              <div
-                key={i}
-                className="rounded-2xl border border-white/15 bg-black/80 p-6 backdrop-blur-md text-center hover:border-cyan-400/40 transition-colors"
-              >
-                <span className="text-xs font-mono text-cyan-400 uppercase tracking-widest block mb-2">
-                  MODEL {h.model}
-                </span>
-                <p className="text-3xl font-extrabold text-white mb-2">{h.size}</p>
-                <div className="space-y-1 text-xs text-gray-400 font-mono">
-                  <p>{h.resolution}</p>
-                  <p>{h.aspect}</p>
-                  <p className="text-emerald-400">60Hz Refresh Rate</p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -777,7 +808,7 @@ export default function DihuavaProductPage() {
               Enterprise Verticals
             </span>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-5xl">
-              Proven Across Every Industry
+              AI Digital Humans Across Industries
             </h2>
           </div>
 
@@ -808,7 +839,7 @@ export default function DihuavaProductPage() {
               Why DIHUAVA
             </span>
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              DIHUAVA Edge AI vs Cloud AI Systems
+              Why Businesses Choose DIHUAVA
             </h2>
           </div>
 
@@ -816,17 +847,17 @@ export default function DihuavaProductPage() {
             <table className="w-full text-left text-sm text-gray-300">
               <thead className="bg-cyan-950/60 font-mono text-xs uppercase text-cyan-300 border-b border-white/10">
                 <tr>
-                  <th className="px-6 py-4">Platform Feature</th>
+                  <th className="px-6 py-4">Feature</th>
                   <th className="px-6 py-4 text-cyan-400">DIHUAVA Local Platform</th>
-                  <th className="px-6 py-4 text-gray-400">Cloud-Based Competitors</th>
+                  <th className="px-6 py-4 text-gray-400">Typical Cloud Architecture</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/10 font-sans">
                 {comparisonTable.map((row, idx) => (
                   <tr key={idx} className={idx % 2 === 0 ? "bg-white/[0.02]" : ""}>
                     <td className="px-6 py-4 font-semibold text-white">{row.feature}</td>
-                    <td className="px-6 py-4 font-semibold text-cyan-300">✓ {row.dihuava}</td>
-                    <td className="px-6 py-4 text-gray-400">✕ {row.cloud}</td>
+                    <td className="px-6 py-4 font-semibold text-cyan-300">{row.dihuava}</td>
+                    <td className="px-6 py-4 text-gray-400">{row.cloud}</td>
                   </tr>
                 ))}
               </tbody>
@@ -914,10 +945,10 @@ export default function DihuavaProductPage() {
       <section className="relative overflow-hidden bg-neutral-950 px-6 py-20">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-2xl font-bold text-white sm:text-3xl">
-            Ready to deploy DIHUAVA AI Digital Humans?
+            Ready to Deploy Your AI Digital Human?
           </h2>
           <p className="mt-3 text-sm text-gray-400">
-            Access product documentation, technical whitepapers, and hardware integration specs in our Download Center.
+            Bring multilingual, private and interactive AI experiences to your retail space, corporate environment, healthcare facility or public venue.
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -925,13 +956,13 @@ export default function DihuavaProductPage() {
               href="/contact"
               className="rounded-full bg-gradient-to-r from-cyan-500 to-sky-500 px-8 py-3.5 text-sm font-bold text-black transition-all hover:scale-105 hover:shadow-[0_0_25px_rgba(6,182,212,0.4)]"
             >
-              Contact Enterprise Sales →
+              Request a Demo →
             </Link>
             <Link
               href="/contact/download-center"
               className="rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-semibold text-gray-200 backdrop-blur-md transition-colors hover:border-cyan-400 hover:text-white"
             >
-              Go to Download Center
+              Download Product Datasheet
             </Link>
           </div>
         </div>

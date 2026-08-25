@@ -112,6 +112,7 @@ const countryCodes: CountryCodeItem[] = [
 
 export default function ContactPage({ defaultTab = "contact" }: { defaultTab?: "contact" | "downloads" }) {
   const [activeTab, setActiveTab] = useState<"contact" | "downloads">(defaultTab);
+  const [activeLocationMap, setActiveLocationMap] = useState<"singapore" | "india">("singapore");
   const [submitted, setSubmitted] = useState(false);
   const [downloadingTitle, setDownloadingTitle] = useState<string | null>(null);
 
@@ -144,7 +145,7 @@ Platform: DIHUAVA On-Device AI Platform
 TECHNICAL SPECIFICATIONS:
 - 100% On-Device Air-Gapped AI Inference
 - Low Latency Voice
-- 30+ Spoken Multilingual Voice Engines & Voice Cloning
+- 29 Spoken Multilingual Voice Engines & Voice Cloning
 - Optical 3D Holographic Display Glass Specifications
 
 Singapore Headquarters: 20 Collyer Quay, #09-01, Singapore 049319
@@ -258,17 +259,30 @@ Enterprise Contact: sales@hsglobalai.com
                 {/* LEFT COLUMN: CONTACT DETAILS & HQ */}
                 <div className="lg:col-span-5 space-y-8">
                   <div className="rounded-3xl border border-white/15 bg-neutral-950/80 p-8 backdrop-blur-xl">
-                    <h2 className="text-2xl font-bold text-white mb-6">Global Headquarters</h2>
+                    <h2 className="text-2xl font-bold text-white mb-6">Our Office Locations</h2>
 
                     <div className="space-y-6 text-sm text-gray-300">
+                      {/* SINGAPORE HQ */}
                       <div className="flex items-start gap-4">
                         <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-lg shadow-sm">
                           📍
                         </div>
                         <div>
-                          <p className="font-semibold text-white">HS GLOBAL SG PTE LTD</p>
-                          <p className="mt-1 text-gray-400">20 COLLYER QUAY, #09-01, SINGAPORE – 049319</p>
-                          <p className="mt-1 text-xs text-cyan-400 font-mono">Singapore Headquarters (Near Raffles Place MRT)</p>
+                          <p className="font-semibold text-white">Singapore Headquarters</p>
+                          <p className="mt-1 text-gray-400">HS GLOBAL SG PTE LTD, 20 COLLYER QUAY, #09-01, SINGAPORE – 049319</p>
+                          <p className="mt-1 text-xs text-cyan-400 font-mono">Singapore Global HQ (Near Raffles Place MRT)</p>
+                        </div>
+                      </div>
+
+                      {/* INDIA OFFICE */}
+                      <div className="flex items-start gap-4 border-t border-white/10 pt-5">
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-lg shadow-sm">
+                          🏢
+                        </div>
+                        <div>
+                          <p className="font-semibold text-white">India Office</p>
+                          <p className="mt-1 text-gray-400">49-4-1, 17/3E, Prasanth Colony, 1st line, Gunadala, Kanuru, Andhra Pradesh 520004, India</p>
+                          <p className="mt-1 text-xs text-cyan-400 font-mono">India Regional Office (Andhra Pradesh)</p>
                         </div>
                       </div>
 
@@ -484,38 +498,81 @@ Enterprise Contact: sales@hsglobalai.com
             </div>
           </section>
 
-          {/* EMBEDDED GOOGLE MAPS SECTION: SINGAPORE HQ */}
+          {/* EMBEDDED GOOGLE MAPS SECTION: DYNAMIC LOCATION SWITCHER */}
           <section className="relative overflow-hidden bg-black px-6 py-20 border-t border-white/10">
             <div className="relative mx-auto max-w-7xl">
               <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
                 <div>
-                  <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400">
-                    Interactive Location Map
+                  <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400 font-mono">
+                    Interactive Location Maps
                   </span>
                   <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-5xl">
-                    Visit Our Singapore Headquarters
+                    {activeLocationMap === "singapore"
+                      ? "Visit Our Singapore Headquarters"
+                      : "Visit Our India Regional Office"}
                   </h2>
                   <p className="mt-2 text-sm text-gray-400">
-                    Located at HS GLOBAL SG PTE LTD, 20 COLLYER QUAY, #09-01, SINGAPORE – 049319.
+                    {activeLocationMap === "singapore"
+                      ? "Located at HS GLOBAL SG PTE LTD, 20 COLLYER QUAY, #09-01, SINGAPORE – 049319."
+                      : "Located at 49-4-1, 17/3E, Prasanth Colony, 1st line, Gunadala, Kanuru, Andhra Pradesh 520004, India."}
                   </p>
                 </div>
 
-                <a
-                  href="https://www.google.com/maps/search/?api=1&query=HS+GLOBAL+SG+PTE+LTD,+20+COLLYER+QUAY,+#09-01,+SINGAPORE+-+049319"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-cyan-500/40 bg-cyan-500/10 px-6 py-3 text-xs font-bold text-cyan-300 backdrop-blur-md transition-all hover:bg-cyan-500/20 shadow-[0_0_20px_rgba(6,182,212,0.2)] shrink-0"
-                >
-                  <span>Get Directions on Google Maps</span>
-                  <span>↗</span>
-                </a>
+                <div className="flex flex-wrap items-center gap-3 shrink-0">
+                  {/* LOCATION MAP SWITCHER BUTTONS */}
+                  <div className="inline-flex rounded-full border border-white/15 bg-neutral-950 p-1.5 backdrop-blur-md">
+                    <button
+                      onClick={() => setActiveLocationMap("singapore")}
+                      className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-bold transition-all ${
+                        activeLocationMap === "singapore"
+                          ? "bg-cyan-500 text-black shadow-[0_0_20px_rgba(6,182,212,0.4)]"
+                          : "text-gray-300 hover:text-white"
+                      }`}
+                    >
+                      <span>🇸🇬 Singapore HQ</span>
+                    </button>
+                    <button
+                      onClick={() => setActiveLocationMap("india")}
+                      className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-bold transition-all ${
+                        activeLocationMap === "india"
+                          ? "bg-cyan-500 text-black shadow-[0_0_20px_rgba(6,182,212,0.4)]"
+                          : "text-gray-300 hover:text-white"
+                      }`}
+                    >
+                      <span>🇮🇳 India Office</span>
+                    </button>
+                  </div>
+
+                  {/* GET DIRECTIONS LINK */}
+                  <a
+                    href={
+                      activeLocationMap === "singapore"
+                        ? "https://www.google.com/maps/search/?api=1&query=HS+GLOBAL+SG+PTE+LTD,+20+COLLYER+QUAY,+#09-01,+SINGAPORE+-+049319"
+                        : "https://www.google.com/maps/search/?api=1&query=49-4-1,+17/3E,+Prasanth+Colony,+1st+line,+Gunadala,+Kanuru,+Andhra+Pradesh+520004,+India"
+                    }
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-cyan-500/40 bg-cyan-500/10 px-6 py-3 text-xs font-bold text-cyan-300 backdrop-blur-md transition-all hover:bg-cyan-500/20 shadow-[0_0_20px_rgba(6,182,212,0.2)]"
+                  >
+                    <span>Get Directions</span>
+                    <span>↗</span>
+                  </a>
+                </div>
               </div>
 
               {/* GOOGLE MAPS IFRAME CONTAINER */}
               <div className="relative overflow-hidden rounded-3xl border border-white/15 bg-neutral-950 shadow-2xl">
                 <iframe
-                  title="HS GLOBAL SG PTE LTD Singapore Headquarters Map"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.81926219468!2d103.85040997576572!3d1.2835154617833075!2m3!1f0!0f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da190875b1c5cd%3A0x6331a690e9d67568!2s20%20Collyer%20Quay%2C%20Singapore%20049319!5e0!3m2!1sen!2ssg!4v1710000000000!5m2!1sen!2ssg"
+                  title={
+                    activeLocationMap === "singapore"
+                      ? "HS GLOBAL SG PTE LTD Singapore Headquarters Map"
+                      : "HS Global AI India Office Map"
+                  }
+                  src={
+                    activeLocationMap === "singapore"
+                      ? "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.81926219468!2d103.85040997576572!3d1.2835154617833075!2m3!1f0!0f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da190875b1c5cd%3A0x6331a690e9d67568!2s20%20Collyer%20Quay%2C%20Singapore%20049319!5e0!3m2!1sen!2ssg!4v1710000000000!5m2!1sen!2ssg"
+                      : "https://maps.google.com/maps?q=49-4-1,+17/3E,+Prasanth+Colony,+1st+line,+Gunadala,+Kanuru,+Andhra+Pradesh+520004,+India&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                  }
                   width="100%"
                   height="520"
                   style={{ border: 0, filter: "invert(90%) hue-rotate(180deg) contrast(110%)" }}
@@ -534,13 +591,17 @@ Enterprise Contact: sales@hsglobalai.com
 
                   <div>
                     <div className="flex items-center gap-2">
-                      <h4 className="text-sm font-bold text-white tracking-wide">HS GLOBAL SG PTE LTD</h4>
+                      <h4 className="text-sm font-bold text-white tracking-wide">
+                        {activeLocationMap === "singapore" ? "HS GLOBAL SG PTE LTD" : "HS GLOBAL AI INDIA"}
+                      </h4>
                       <span className="rounded bg-red-500/20 px-1.5 py-0.5 text-[9px] font-bold text-red-400 border border-red-500/40">
-                        HQ PIN
+                        {activeLocationMap === "singapore" ? "HQ PIN" : "INDIA OFFICE PIN"}
                       </span>
                     </div>
                     <p className="text-[11px] font-mono text-gray-300 mt-0.5">
-                      20 COLLYER QUAY, #09-01, SINGAPORE – 049319
+                      {activeLocationMap === "singapore"
+                        ? "20 COLLYER QUAY, #09-01, SINGAPORE – 049319"
+                        : "49-4-1, 17/3E, PRASANTH COLONY, KANURU, AP 520004"}
                     </p>
                   </div>
                 </div>
@@ -549,13 +610,17 @@ Enterprise Contact: sales@hsglobalai.com
                 <div className="absolute bottom-6 left-6 max-w-sm rounded-2xl border border-white/20 bg-black/85 p-6 backdrop-blur-xl shadow-2xl hidden sm:block">
                   <div className="flex items-center gap-3">
                     <span className="flex h-3 w-3 rounded-full bg-cyan-400 animate-pulse" />
-                    <h4 className="text-sm font-bold text-white">HS GLOBAL SG PTE LTD</h4>
+                    <h4 className="text-sm font-bold text-white">
+                      {activeLocationMap === "singapore" ? "Singapore Global HQ" : "India Regional Office"}
+                    </h4>
                   </div>
                   <p className="mt-2 text-xs leading-5 text-gray-300">
-                    20 COLLYER QUAY, #09-01, SINGAPORE – 049319
+                    {activeLocationMap === "singapore"
+                      ? "20 COLLYER QUAY, #09-01, SINGAPORE – 049319"
+                      : "49-4-1, 17/3E, Prasanth Colony, 1st line, Gunadala, Kanuru, Andhra Pradesh 520004, India"}
                   </p>
                   <div className="mt-3 flex items-center justify-between text-[11px] font-mono text-cyan-400 border-t border-white/10 pt-3">
-                    <span>Raffles Place MRT (Exit B)</span>
+                    <span>{activeLocationMap === "singapore" ? "Raffles Place MRT (Exit B)" : "Vijayawada Region"}</span>
                     <span>Mon-Sat: 9:30am - 6:30pm (IST)</span>
                   </div>
                 </div>

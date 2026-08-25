@@ -48,7 +48,7 @@ const enterprisePillars = [
   {
     title: "Multilingual Voice AI & Voice Cloning",
     description:
-      "Communicate with global customers across 30+ languages with real-time neural speech synthesis & voice cloning.",
+      "Communicate with global customers across 29 languages with real-time neural speech synthesis & voice cloning.",
     icon: "🌍",
   },
   {
@@ -106,7 +106,7 @@ const approachItems = [
     number: "03",
     title: "Multilingual Intelligence & Voice Cloning",
     description:
-      "Natural AI interactions designed to support global customers across 30+ languages, voice cloning, and regional dialects.",
+      "Natural AI interactions designed to support global customers across 29 languages, voice cloning, and regional dialects.",
   },
   {
     number: "04",
@@ -167,8 +167,10 @@ export default function AboutPage() {
                   HS Global AI is a technology company specializing in Digital Human AI, Voice AI, and intelligent customer engagement solutions designed to connect digital experiences with physical environments.
                 </p>
 
-                <div className="mt-6 flex items-center gap-2 text-xs font-medium text-cyan-400">
+                <div className="mt-6 flex flex-wrap items-center gap-4 text-xs font-medium text-cyan-400 font-mono">
                   <span>📍 Global HQ: Singapore (20 Collyer Quay, #09-01)</span>
+                  <span className="text-gray-600">|</span>
+                  <span>🏢 India Office: Andhra Pradesh (Kanuru, Vijayawada)</span>
                 </div>
               </div>
             </div>

@@ -26,13 +26,13 @@ const capabilities = [
   },
   {
     id: "language",
-    title: "Multilingual Support (30+ Languages)",
-    subtitle: "30+ Global Languages & Accents",
+    title: "Multilingual Support (29 Languages)",
+    subtitle: "29 Global Languages & Accents",
     description:
-      "Automatic real-time language detection and fluid multi-turn conversational AI supporting 30+ global languages and regional dialects with natural speech synthesis.",
+      "Automatic real-time language detection and fluid multi-turn conversational AI supporting 29 global languages and regional dialects with natural speech synthesis.",
     icon: "🌍",
-    tags: ["30+ Languages", "Auto Language Detect", "Neural Voice"],
-    stat: "30+ Languages Supported",
+    tags: ["29 Languages", "Auto Language Detect", "Neural Voice"],
+    stat: "29 Languages Supported",
   },
   {
     id: "persona",
@@ -194,7 +194,7 @@ export default function DihuavaPlatform() {
                 <div className="mt-4 space-y-2 font-mono text-xs text-gray-400">
                   <p className="text-cyan-400">&gt; Initializing {activeCapability.title} Engine...</p>
                   <p>&gt; Offline RAG Index: Ready (0 cloud ping)</p>
-                  <p className="text-gray-500">&gt; Neural Audio Synthesizer: 30+ Languages & Voice Cloning loaded</p>
+                  <p className="text-gray-500">&gt; Neural Audio Synthesizer: 29 Languages & Voice Cloning loaded</p>
                 </div>
               </div>
             </motion.div>

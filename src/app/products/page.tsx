@@ -76,7 +76,7 @@ export default function ProductsPage() {
                     Avatar Customization & Voice Cloning
                   </span>
                   <span className="rounded-full border border-cyan-500/30 bg-black/60 px-3.5 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md">
-                    30+ Global Languages
+                    29 Global Languages
                   </span>
                   <span className="rounded-full border border-cyan-500/30 bg-black/60 px-3.5 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md">
                     100% Offline AI Engine

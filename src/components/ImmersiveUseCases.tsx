@@ -30,7 +30,7 @@ const useCases: UseCaseStory[] = [
     titleHighlight: "Speak.",
     highlightColor: "from-cyan-400 via-sky-300 to-cyan-500",
     description:
-      "Imagine a portrait framed on a gallery wall or inside a 3D Hologram Box. When a visitor steps close, the historical figure begins to speak. Not a pre-recorded video loop—a real conversation. A full-presence conversational avatar with custom voice cloning that looks, sounds, and reacts in real-time, available every hour the museum is open, in 30+ global languages, without staff or volunteers.",
+      "Imagine a portrait framed on a gallery wall or inside a 3D Hologram Box. When a visitor steps close, the historical figure begins to speak. Not a pre-recorded video loop—a real conversation. A full-presence conversational avatar with custom voice cloning that looks, sounds, and reacts in real-time, available every hour the museum is open, in 29 global languages, without staff or volunteers.",
     ctaPrimaryText: "Build Your Exhibition Character",
     ctaSecondaryText: "Explore Museum Solutions",
     ctaPrimaryHref: "/contact",
@@ -40,12 +40,12 @@ const useCases: UseCaseStory[] = [
     capabilities: [
       "Low Latency Voice Response",
       "Historical Document RAG",
-      "30+ Spoken Languages",
+      "29 Spoken Languages",
       "Avatar & Voice Cloning AI",
     ],
     metrics: [
       { label: "Dwell Time Increase", value: "+65%" },
-      { label: "Languages Supported", value: "30+" },
+      { label: "Languages Supported", value: "29" },
       { label: "Operating Uptime", value: "24/7" },
     ],
   },

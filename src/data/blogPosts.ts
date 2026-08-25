@@ -99,7 +99,7 @@ Deploying AI business automation yields measurable operational returns:
 
 - **60% Workload Reduction:** Automates routine front-desk inquiries, freeing staff for high-value client advising.
 - **3x Customer Dwell Time:** Visually captivating 3D hologram avatars attract and retain visitor attention.
-- **Zero Language Friction:** Supports real-time spoken conversation across 30+ global languages, voice cloning, and regional dialects.
+- **Zero Language Friction:** Supports real-time spoken conversation across 29 global languages, voice cloning, and regional dialects.
 
 ---
 
@@ -248,7 +248,7 @@ Deploying interactive AI product catalogues has been measured to increase **in-s
         date: "April 21, 2026",
         readTime: "7 min read",
         snippet:
-            "Serving international customers with 30+ real-time spoken languages, voice cloning, and automatic accent recognition using neural speech synthesis on edge hardware.",
+            "Serving international customers with 29 real-time spoken languages, voice cloning, and automatic accent recognition using neural speech synthesis on edge hardware.",
         author: "HS Global AI Voice Engineering",
         featured: false,
         bannerImage: "/images/blog/blog_banner_multilingual.png",
@@ -265,7 +265,7 @@ HS Global AI’s speech architecture incorporates real-time Language Identificat
 ### Core Capabilities:
 
 - **Automatic Accent & Language Detection:** The avatar listens to the customer’s opening sentence, automatically detects their language and accent, and seamlessly responds in kind.
-- **30+ Supported Global Languages & Voice Cloning:** Covers major languages including English, Mandarin, Spanish, Arabic, Japanese, Korean, French, German, and regional dialects.
+- **29 Supported Global Languages & Voice Cloning:** Covers major languages including English, Mandarin, Spanish, Arabic, Japanese, Korean, French, German, and regional dialects.
 - **Cultural Formalities & Tone Customization:** Avatars adjust phrasing, honorifics, and vocal warmth to match cultural expectations in each region.
 
 ---
@@ -338,7 +338,7 @@ Digital human avatars act as customer engagement AI tools that:
 | **Interaction** | Manual touch tapping | Voice + Visual gestures |
 | **Engagement** | Static & passive | High interactive attraction |
 | **Personalization** | Generic fixed catalog | Adaptive AI recommendations |
-| **Multilingual** | Limited language options | 30+ spoken languages in real time |
+| **Multilingual** | Limited language options | 29 spoken languages in real time |
 
 ---
 

@@ -171,7 +171,7 @@ const features: FeatureTab[] = [
     badge: "Low Latency Voice",
     userPrompt: "What is the Low Latency voice response?",
     botReply:
-      "Low Latency voice synthesis supporting 30+ spoken languages and custom voice cloning.",
+      "Low Latency voice synthesis supporting 29 spoken languages and custom voice cloning.",
   },
   {
     id: "memory",

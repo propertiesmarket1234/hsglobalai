@@ -4,40 +4,52 @@ import { motion } from "framer-motion";
 
 const comparisonData = [
   {
-    feature: "User Interaction & Engagement",
-    traditional: "Static text-only chatbox in corner",
-    dihuava: "Lifelike 3D Avatar with natural speech & gestures",
+    feature: "Interaction",
+    traditional: "Text-based",
+    dihuava: "Voice + visual avatar",
     highlight: true,
   },
   {
-    feature: "Engagement Retention",
-    traditional: "Low (~20-30% retention rate)",
-    dihuava: "4x Higher Customer Retention & Delight",
+    feature: "Customer Experience",
+    traditional: "Screen/chat interface",
+    dihuava: "Human-like conversation",
     highlight: true,
   },
   {
-    feature: "Data Privacy & Security",
-    traditional: "Cloud API pings; data leakage risk",
-    dihuava: "100% On-Device / Air-Gapped Local AI",
-    highlight: true,
-  },
-  {
-    feature: "Document Intelligence (RAG)",
-    traditional: "Requires cloud connection & monthly token fees",
-    dihuava: "Instant local PDF/RAG lookup with Low Latency",
+    feature: "Multilingual Capability",
+    traditional: "Depends on implementation",
+    dihuava: "29 global languages with voice cloning",
     highlight: false,
   },
   {
-    feature: "Physical Real-World Presence",
-    traditional: "Web browser popup only",
-    dihuava: "3D Hologram Box, Smart Mirrors, Kiosks & Screens",
+    feature: "Knowledge & Document Intelligence",
+    traditional: "Cloud/API dependent",
+    dihuava: "Local document & knowledge intelligence (RAG)",
     highlight: true,
   },
   {
-    feature: "Multilingual Voice Capabilities",
-    traditional: "Robotic text-to-speech engine",
-    dihuava: "Human-like neural speech & voice cloning in 30+ languages",
+    feature: "Privacy & Security",
+    traditional: "Often cloud-based",
+    dihuava: "On-device / offline air-gapped deployment",
+    highlight: true,
+  },
+  {
+    feature: "Physical Presence",
+    traditional: "Digital screen / web popup",
+    dihuava: "Hologram Box, kiosks & 3D displays",
+    highlight: true,
+  },
+  {
+    feature: "Customization",
+    traditional: "Chat UI / basic personality",
+    dihuava: "Avatar, voice, appearance & corporate persona",
     highlight: false,
+  },
+  {
+    feature: "Deployment Capabilities",
+    traditional: "Mainly digital",
+    dihuava: "Digital + physical real-world environments",
+    highlight: true,
   },
 ];
 

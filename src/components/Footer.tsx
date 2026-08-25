@@ -40,12 +40,16 @@ export default function Footer() {
             </p>
 
             <div className="mt-6 space-y-2 text-xs text-gray-400">
-              <p className="flex items-[flex-start] gap-2">
-                <span className="text-cyan-400 shrink-0">📍 Global HQ:</span>
-                <span>HS GLOBAL SG PTE LTD, 20 COLLYER QUAY, #09-01, SINGAPORE – 049319</span>
+              <p className="flex items-start gap-2">
+                <span className="text-cyan-400 shrink-0 font-mono">📍 Singapore HQ:</span>
+                <span>20 COLLYER QUAY, #09-01, SINGAPORE – 049319</span>
               </p>
-              <p className="flex items-center gap-2">
-                <span className="text-cyan-400">✉️ Email:</span>
+              <p className="flex items-start gap-2">
+                <span className="text-cyan-400 shrink-0 font-mono">🏢 India Office:</span>
+                <span>49-4-1, 17/3E, Prasanth Colony, 1st line, Gunadala, Kanuru, Andhra Pradesh 520004, India</span>
+              </p>
+              <p className="flex items-center gap-2 pt-1">
+                <span className="text-cyan-400 shrink-0 font-mono">✉️ Email:</span>
                 <a href="mailto:sales@hsglobalai.com" className="hover:text-white transition-colors">
                   sales@hsglobalai.com
                 </a>

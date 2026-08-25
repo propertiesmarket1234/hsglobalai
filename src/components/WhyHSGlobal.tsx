@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 const features = [
   {
     number: "01",
-    title: "100% Offline AI",
-    subtitle: "Zero Cloud Dependency",
+    title: "Secure On-Device AI",
+    subtitle: "Air-Gapped Data Privacy",
     description:
-      "Run intelligent, high-performance AI digital humans locally without depending on cloud servers or external internet connectivity.",
+      "Deploy high-performance digital humans that run 100% locally on physical edge hardware. Protect sensitive customer interactions and business intelligence with zero cloud data leakage.",
     badge: "Local Processing",
     accentColor: "from-cyan-500/20 via-sky-500/5 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.3)",
@@ -31,11 +31,11 @@ const features = [
   },
   {
     number: "02",
-    title: "Multilingual Experiences",
-    subtitle: "Real-Time Neural Speech",
+    title: "Multilingual Voice AI",
+    subtitle: "Human-Like Conversation",
     description:
-      "Communicate naturally across 30+ global languages, voice cloning, and regional accents for global and localized customer experiences.",
-    badge: "30+ Global Languages",
+      "Engage global visitors with natural, human-like voice interaction across 29 languages, regional accents, and per-persona voice cloning for seamless customer service.",
+    badge: "29 Global Languages",
     accentColor: "from-cyan-500/20 via-sky-500/5 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.3)",
     borderColor: "group-hover:border-cyan-500/40",
@@ -57,10 +57,10 @@ const features = [
   },
   {
     number: "03",
-    title: "Custom AI Avatars",
-    subtitle: "Tailored Brand Aesthetics",
+    title: "Custom Brand Avatars",
+    subtitle: "Tailored Corporate Persona",
     description:
-      "Create bespoke 3D digital avatars engineered to represent your exact brand identity, voice, attire, and domain expertise.",
+      "Create bespoke 3D digital avatars engineered to embody your exact brand identity, voice, attire, and domain expertise for authentic customer engagement.",
     badge: "Bespoke Design",
     accentColor: "from-cyan-500/20 via-sky-500/5 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.3)",
@@ -83,11 +83,11 @@ const features = [
   },
   {
     number: "04",
-    title: "Privacy by Design",
-    subtitle: "Enterprise-Grade Security",
+    title: "Knowledge & Catalog AI",
+    subtitle: "Intelligent Business Search",
     description:
-      "Keep sensitive customer interactions, biometric data, and proprietary knowledge bases safely secured within air-gapped systems.",
-    badge: "Air-Gapped Privacy",
+      "Instantly connect corporate document RAG and product catalog data to deliver grounded, real-time answers across 3D hologram boxes, kiosks, and digital displays.",
+    badge: "Document & Catalog RAG",
     accentColor: "from-cyan-500/20 via-sky-500/5 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.3)",
     borderColor: "group-hover:border-cyan-500/40",

@@ -25,9 +25,9 @@ const hologramFeatures = [
   {
     title: "Life-Size 3D Volumetric Enclosure",
     description:
-      "Available in 65-inch, 75-inch, and 86-inch vertical holographic glass showcases displaying 1:1 scale digital human avatars with hyper-realistic depth perception and lifelike presence.",
+      "Available in 55-inch, 65-inch, 75-inch, and 86-inch vertical holographic glass showcases displaying 1:1 scale digital human avatars with hyper-realistic depth perception and lifelike presence.",
     icon: "📦",
-    badge: "65\" / 75\" / 86\" Sizes",
+    badge: "55\" / 65\" / 75\" / 86\" Sizes",
   },
   {
     title: "Integrated AI Workstation",
@@ -52,14 +52,46 @@ const hologramFeatures = [
   },
 ];
 
+const holographicUseCases = [
+  {
+    title: "Retail & Shopping",
+    description: "Product showcases, virtual sales assistants, interactive brand experiences.",
+    icon: "🛍️",
+  },
+  {
+    title: "Banking & Financial Services",
+    description: "VIP lounges, customer guidance, product information and digital concierge experiences.",
+    icon: "🏦",
+  },
+  {
+    title: "Corporate & Enterprise",
+    description: "Reception areas, visitor engagement, employee information and branded experiences.",
+    icon: "🏢",
+  },
+  {
+    title: "Healthcare",
+    description: "Patient guidance, hospital information and multilingual assistance.",
+    icon: "🏥",
+  },
+  {
+    title: "Museums & Exhibitions",
+    description: "Digital humans, historical storytelling and interactive exhibits.",
+    icon: "🏛️",
+  },
+  {
+    title: "Education & Campuses",
+    description: "Interactive learning experiences, information kiosks and digital guides.",
+    icon: "🎓",
+  },
+];
+
 const hardwareSpecs = [
-  { label: "Display Size Options", value: "65-Inch, 75-Inch, 86-Inch (Custom OEM sizes available)" },
-  { label: "Display Technology", value: "Ultra-HD 4K (3840 x 2160) High-Transmittance Holographic Optical Glass" },
-  { label: "Brightness & Contrast", value: "700 nits High Brightness / 4000:1 Dynamic Contrast Ratio" },
-  { label: "Touch & Camera System", value: "10-point Capacitive Touch Glass + 4K Wide-Angle Tracking Camera" },
-  { label: "Audio Hardware", value: "Integrated Directional Acoustic Soundbar & Beamforming Microphone Array" },
-  { label: "Operating Environment", value: "Designed for continuous 24/7 commercial operations (Lobbies, Malls, Museums)" },
-  { label: "Compliant Datasheets", value: "86 Inch Hologram Box Data Sheet, Price List, Product Comparison Sheet" },
+  { label: "Display Sizes", value: "55-inch, 65-inch, 75-inch, 86-inch" },
+  { label: "Display Technology", value: "Ultra-HD 4K high-transmission holographic optical glass" },
+  { label: "Brightness & Contrast", value: "700 nits / 4000:1 dynamic contrast ratio" },
+  { label: "Touch & Camera System", value: "10-point capacitive touch glass + wide-angle tracking camera" },
+  { label: "Audio Hardware", value: "Integrated directional soundbar + beamforming microphone array" },
+  { label: "Operating Environment", value: "Designed for continuous 24/7 commercial operation" },
 ];
 
 export default function HolographicDisplayPage() {
@@ -116,13 +148,16 @@ export default function HolographicDisplayPage() {
               </h1>
 
               <p className="mt-6 text-base leading-8 text-gray-300 sm:text-lg max-w-2xl">
-                Bring intelligent AI Digital Humans into physical environments. Available in <strong className="text-cyan-300">65-inch, 75-inch, and 86-inch</strong> 3D holographic enclosures engineered for high-impact retail showcases, VIP bank lounges, corporate headquarters, and museum exhibits.
+                Bring intelligent AI Digital Humans into physical environments. Available in <strong className="text-cyan-300">55-inch, 65-inch, 75-inch, and 86-inch</strong> 3D holographic enclosures engineered for high-impact retail showcases, VIP bank lounges, corporate headquarters, and museum exhibits.
               </p>
 
               {/* Size Badge Selector Pills */}
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 <span className="text-xs font-mono font-semibold uppercase tracking-wider text-gray-400">
                   Available Sizes:
+                </span>
+                <span className="rounded-full border border-cyan-500/40 bg-cyan-950/80 px-3.5 py-1 text-xs font-bold text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
+                  55" Inch
                 </span>
                 <span className="rounded-full border border-cyan-500/40 bg-cyan-950/80 px-3.5 py-1 text-xs font-bold text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
                   65" Inch
@@ -194,6 +229,7 @@ export default function HolographicDisplayPage() {
                   {/* Top Right Size Badge Floating Pill on Image */}
                   <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 rounded-full border border-cyan-400/40 bg-black/85 px-3.5 py-1.5 backdrop-blur-md shadow-[0_0_20px_rgba(6,182,212,0.3)]">
                     <span className="text-[11px] font-semibold text-cyan-300 font-mono">SIZES:</span>
+                    <span className="rounded-md bg-cyan-500/20 px-2 py-0.5 text-xs font-extrabold text-white border border-cyan-400/40">55"</span>
                     <span className="rounded-md bg-cyan-500/20 px-2 py-0.5 text-xs font-extrabold text-white border border-cyan-400/40">65"</span>
                     <span className="rounded-md bg-cyan-500/20 px-2 py-0.5 text-xs font-extrabold text-white border border-cyan-400/40">75"</span>
                     <span className="rounded-md bg-cyan-500/20 px-2 py-0.5 text-xs font-extrabold text-white border border-cyan-400/40">86"</span>
@@ -260,6 +296,57 @@ export default function HolographicDisplayPage() {
         </div>
       </section>
 
+      {/* BUILT FOR HIGH-IMPACT PHYSICAL SPACES */}
+      <section className="relative overflow-hidden bg-neutral-950 px-6 py-24 text-white border-t border-white/10">
+        <div className="mx-auto max-w-7xl">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400 font-mono">
+              Deployment Use Cases
+            </span>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-5xl">
+              Built for High-Impact Physical Spaces
+            </h2>
+            <p className="mt-4 text-base text-gray-400">
+              Designed for immersive customer engagement across retail, banking, corporate, healthcare, tourism, and exhibition environments.
+            </p>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {holographicUseCases.map((useCase, idx) => (
+              <motion.div
+                key={useCase.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.08 }}
+                className="group relative rounded-3xl border border-white/15 bg-black/80 p-8 backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/50 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)] flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center gap-4 mb-4">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-500/30 bg-cyan-950/40 text-2xl">
+                      {useCase.icon}
+                    </span>
+                    <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors">
+                      {useCase.title}
+                    </h3>
+                  </div>
+                  <p className="text-sm leading-6 text-gray-300">
+                    {useCase.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Bottom line under the cards */}
+          <div className="mt-16 text-center">
+            <p className="inline-block rounded-2xl border border-cyan-500/30 bg-cyan-950/40 px-6 py-4 text-sm font-medium text-cyan-200 backdrop-blur-md max-w-3xl">
+              And more — built for any environment where immersive visual interaction can create a better customer, visitor, or user experience.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* HARDWARE SPECIFICATIONS TABLE */}
       <section className="relative overflow-hidden bg-neutral-950 px-6 py-24 text-white border-t border-white/10">
         <div className="mx-auto max-w-5xl">
@@ -273,6 +360,10 @@ export default function HolographicDisplayPage() {
           </div>
 
           <div className="overflow-hidden rounded-2xl border border-cyan-500/30 bg-black/60 shadow-2xl backdrop-blur-xl">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 px-6 py-4 bg-cyan-950/60 font-mono text-xs uppercase text-cyan-300 border-b border-white/10">
+              <span>Specification</span>
+              <span className="sm:col-span-2">Details</span>
+            </div>
             <div className="divide-y divide-white/10">
               {hardwareSpecs.map((spec, i) => (
                 <div
@@ -315,7 +406,11 @@ export default function HolographicDisplayPage() {
         </div>
       </section>
 
-      <CTA />
+      <CTA
+        title="Bring AI Digital Humans"
+        highlightTitle="Into Your Physical Space"
+        description="Explore holographic display hardware designed for immersive customer engagement across retail, banking, corporate, healthcare, museums, and exhibitions."
+      />
       <Footer />
     </main>
   );

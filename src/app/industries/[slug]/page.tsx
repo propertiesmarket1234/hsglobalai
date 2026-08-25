@@ -154,7 +154,7 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
 
                 <div className="mt-6 pt-6 border-t border-white/10 flex items-center justify-between text-xs font-mono text-gray-400">
                   <span>STATUS: READY TO DEPLOY</span>
-                  <span className="text-emerald-400">30+ LANGUAGES</span>
+                  <span className="text-emerald-400">29 LANGUAGES</span>
                 </div>
               </div>
             </div>
@@ -221,45 +221,78 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
         </div>
       </section>
 
-      {/* REAL-WORLD USE CASES */}
-      <section className="relative overflow-hidden bg-neutral-950 px-6 py-24 border-b border-white/10">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-16">
-            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400 font-mono">
-              Deployment Use Cases
-            </span>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-5xl">
-              Real-world implementation scenarios.
+      {/* REAL-WORLD DEPLOYMENT USE CASES - HIGH VISIBILITY & STUNNING DESIGN */}
+      <section className="relative overflow-hidden bg-black px-6 py-28 md:py-36 border-b border-cyan-500/30">
+        {/* Ambient Radial Background Light Orbs */}
+        <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[700px] w-[1000px] rounded-full bg-gradient-to-r from-cyan-500/20 via-sky-600/10 to-transparent blur-[180px]" />
+        <div className="pointer-events-none absolute right-0 top-1/4 h-96 w-96 rounded-full bg-cyan-600/15 blur-[140px]" />
+        <div className="pointer-events-none absolute left-0 bottom-1/4 h-96 w-96 rounded-full bg-sky-500/10 blur-[140px]" />
+
+        <div className="relative mx-auto max-w-7xl">
+          {/* Header Block with Glowing Badge and Gradient Typography */}
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <div className="inline-flex items-center gap-2.5 rounded-full border border-cyan-400/40 bg-cyan-950/90 px-5 py-2 backdrop-blur-md shadow-[0_0_30px_rgba(6,182,212,0.4)] mb-6">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-cyan-400" />
+              </span>
+              <span className="text-xs font-extrabold tracking-[0.25em] text-cyan-300 uppercase font-mono">
+                DEPLOYMENT USE CASES
+              </span>
+            </div>
+
+            <h2 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl lg:leading-tight">
+              Real-world{" "}
+              <span className="bg-gradient-to-r from-cyan-300 via-sky-200 to-cyan-400 bg-clip-text text-transparent">
+                {industry.slug === "banking" ? "banking" : industry.title.toLowerCase()}
+              </span>{" "}
+              applications.
             </h2>
+
+            <p className="mt-5 text-base text-gray-300 sm:text-lg leading-8">
+              Explore how our 3D Hologram Box and Digital Human AI platform are deployed across 6 core operational workflows in {industry.title}.
+            </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-3">
+          {/* 6 High-Impact Glowing Cards Grid */}
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {industry.useCases.map((useCase, idx) => (
               <div
                 key={idx}
-                className="relative flex flex-col justify-between rounded-3xl border border-white/15 bg-black/80 p-8 backdrop-blur-xl transition-all duration-300 hover:border-cyan-400/40"
+                className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-cyan-500/35 bg-neutral-950/90 p-8 backdrop-blur-2xl shadow-[0_0_35px_rgba(6,182,212,0.15)] transition-all duration-500 hover:-translate-y-2.5 hover:scale-[1.02] hover:border-cyan-400 hover:shadow-[0_0_55px_rgba(6,182,212,0.4)]"
               >
+                {/* Top Accent Gradient Line */}
+                <div className="absolute left-0 top-0 h-1.5 w-full bg-gradient-to-r from-cyan-500 via-sky-400 to-cyan-600 opacity-80 group-hover:opacity-100 transition-opacity" />
+
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3 py-1 text-xs font-semibold text-cyan-300 font-mono">
+                  {/* Category Pill & Number Badge */}
+                  <div className="flex items-center justify-between gap-3 mb-6">
+                    <span className="rounded-full border border-cyan-500/40 bg-cyan-500/10 px-3.5 py-1 text-xs font-semibold text-cyan-300 font-mono tracking-wide">
                       {useCase.category}
                     </span>
-                    <span className="text-xs font-mono text-gray-500">0{idx + 1}</span>
+                    <span className="rounded-xl border border-cyan-500/40 bg-cyan-950/90 px-3 py-1 font-mono text-xs font-bold text-cyan-400 shadow-inner">
+                      0{idx + 1}
+                    </span>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-white mb-3">
+                  {/* Title */}
+                  <h3 className="text-2xl font-bold tracking-tight text-white group-hover:text-cyan-300 transition-colors mb-3">
                     {useCase.title}
                   </h3>
 
+                  {/* Description */}
                   <p className="text-sm leading-7 text-gray-300">
                     {useCase.description}
                   </p>
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-white/10">
-                  <span className="text-xs font-mono text-cyan-400">
-                    ⚡ Key Advantage: {useCase.highlight}
-                  </span>
+                {/* Key Advantage Footer Box */}
+                <div className="mt-8 pt-6 border-t border-white/15">
+                  <div className="rounded-xl border border-cyan-500/40 bg-cyan-950/70 p-3.5 backdrop-blur-md shadow-[0_0_20px_rgba(6,182,212,0.2)] group-hover:border-cyan-400/70 transition-colors">
+                    <span className="text-xs font-mono font-bold text-cyan-300 flex items-center gap-2">
+                      <span className="text-amber-400 text-sm">⚡</span> Key Advantage: {useCase.highlight}
+                    </span>
+                  </div>
                 </div>
               </div>
             ))}

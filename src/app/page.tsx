@@ -108,7 +108,7 @@ export default function Home() {
               <p className="text-xs text-gray-300 uppercase tracking-wider mt-1 font-medium font-mono">Offline / On-Device AI</p>
             </div>
             <div>
-              <p className="text-3xl font-bold text-white drop-shadow">30+</p>
+              <p className="text-3xl font-bold text-white drop-shadow">29</p>
               <p className="text-xs text-gray-300 uppercase tracking-wider mt-1 font-medium font-mono">Global Languages</p>
             </div>
             <div>

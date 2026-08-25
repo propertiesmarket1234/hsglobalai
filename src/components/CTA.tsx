@@ -3,7 +3,27 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-export default function CTA() {
+interface CTAProps {
+  badgeText?: string;
+  title?: string;
+  highlightTitle?: string;
+  description?: string;
+  primaryButtonText?: string;
+  primaryButtonHref?: string;
+  secondaryButtonText?: string;
+  secondaryButtonHref?: string;
+}
+
+export default function CTA({
+  badgeText = "Build the Future with AI",
+  title = "Bring intelligent AI",
+  highlightTitle = "experiences to your business.",
+  description = "Discover how HS Global AI can transform customer engagement with AI Digital Humans, holographic experiences, spatial displays, and intelligent on-device solutions.",
+  primaryButtonText = "Book a Demo",
+  primaryButtonHref = "/contact",
+  secondaryButtonText = "Download Datasheets (PDF)",
+  secondaryButtonHref = "/contact/download-center",
+}: CTAProps) {
   return (
     <section className="relative overflow-hidden bg-black px-6 py-28 md:py-36 text-white">
       <div className="mx-auto max-w-7xl">
@@ -21,35 +41,35 @@ export default function CTA() {
             <span className="inline-flex items-center gap-2 rounded-full border border-cyan-500/40 bg-cyan-950/60 px-4 py-1.5 backdrop-blur-md mb-6 shadow-[0_0_20px_rgba(6,182,212,0.3)]">
               <span className="h-2 w-2 rounded-full bg-cyan-400 animate-pulse" />
               <span className="text-xs font-semibold uppercase tracking-[0.25em] text-cyan-300">
-                Build the Future with AI
+                {badgeText}
               </span>
             </span>
 
             <h2 className="mx-auto max-w-4xl text-3xl font-extrabold leading-tight sm:text-5xl md:text-6xl tracking-tight text-white">
-              Bring intelligent AI
+              {title}
               <br />
               <span className="bg-gradient-to-r from-cyan-300 via-sky-200 to-cyan-400 bg-clip-text text-transparent">
-                experiences to your business.
+                {highlightTitle}
               </span>
             </h2>
 
             <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg leading-8 text-gray-300">
-              Discover how HS Global AI can transform customer engagement with AI Digital Humans, holographic experiences, spatial displays, and intelligent on-device solutions.
+              {description}
             </p>
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <Link
-                href="/contact"
+                href={primaryButtonHref}
                 className="inline-flex items-center gap-2 rounded-full bg-white px-9 py-4 text-sm font-bold text-black shadow-xl transition-all duration-300 hover:scale-105 hover:bg-cyan-400 hover:shadow-[0_0_35px_rgba(6,182,212,0.6)]"
               >
-                Book a Demo
+                {primaryButtonText}
                 <span>→</span>
               </Link>
               <Link
-                href="/contact/download-center"
+                href={secondaryButtonHref}
                 className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-8 py-4 text-sm font-semibold text-gray-200 backdrop-blur-md transition-all hover:border-cyan-400 hover:text-white"
               >
-                Download Datasheets (PDF)
+                {secondaryButtonText}
               </Link>
             </div>
           </div>
