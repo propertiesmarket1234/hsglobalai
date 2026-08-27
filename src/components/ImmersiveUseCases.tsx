@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -30,7 +30,7 @@ const useCases: UseCaseStory[] = [
     titleHighlight: "Speak.",
     highlightColor: "from-cyan-400 via-sky-300 to-cyan-500",
     description:
-      "Imagine a portrait framed on a gallery wall or inside a 3D Hologram Box. When a visitor steps close, the historical figure begins to speak. Not a pre-recorded video loop—a real conversation. A full-presence conversational avatar with custom voice cloning that looks, sounds, and reacts in real-time, available every hour the museum is open, in 29 global languages, without staff or volunteers.",
+      "Imagine a portrait framed on a gallery wall or inside a 3D Hologram Box. When a visitor steps close, the historical figure begins to speak. Not a pre-recorded video loop—a real conversation. A full-presence conversational avatar with custom voice cloning that looks, sounds, and reacts in real-time, available every hour the museum is open, in 29+ global languages, without staff or volunteers.",
     ctaPrimaryText: "Build Your Exhibition Character",
     ctaSecondaryText: "Explore Museum Solutions",
     ctaPrimaryHref: "/contact",
@@ -40,12 +40,12 @@ const useCases: UseCaseStory[] = [
     capabilities: [
       "Low Latency Voice Response",
       "Historical Document RAG",
-      "29 Spoken Languages",
+      "29+ Spoken Languages",
       "Avatar & Voice Cloning AI",
     ],
     metrics: [
-      { label: "Dwell Time Increase", value: "+65%" },
-      { label: "Languages Supported", value: "29" },
+      { label: "More Time Spent Engaging", value: "+65%" },
+      { label: "Languages Supported", value: "29+" },
       { label: "Operating Uptime", value: "24/7" },
     ],
   },
@@ -106,6 +106,19 @@ const useCases: UseCaseStory[] = [
 export default function ImmersiveUseCases() {
   const [activeTab, setActiveTab] = useState<string>("museums");
 
+  // Unconditional automatic slide show: advances slide every 4 seconds continuously without user interaction
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveTab((prev) => {
+        const currentIndex = useCases.findIndex((u) => u.id === prev);
+        const nextIndex = (currentIndex + 1) % useCases.length;
+        return useCases[nextIndex].id;
+      });
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   const activeStory = useMemo(
     () => useCases.find((u) => u.id === activeTab) || useCases[0],
     [activeTab]
@@ -118,42 +131,21 @@ export default function ImmersiveUseCases() {
       <div className="pointer-events-none absolute right-1/4 bottom-10 h-[500px] w-[700px] rounded-full bg-sky-600/10 blur-[160px]" />
 
       <div className="relative mx-auto max-w-7xl">
-        {/* SECTION HEADER & STORY TABS */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14">
-          <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 backdrop-blur-md mb-4">
-              <span className="h-2 w-2 rounded-full bg-cyan-400 animate-pulse" />
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">
-                Immersive Real-World Stories
-              </span>
-            </div>
-
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Bringing Digital Humans to{" "}
-              <span className="bg-gradient-to-r from-white via-neutral-100 to-cyan-400 bg-clip-text text-transparent">
-                Physical Spaces.
-              </span>
-            </h2>
+        {/* SECTION HEADER */}
+        <div className="mb-14">
+          <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 backdrop-blur-md mb-4">
+            <span className="h-2 w-2 rounded-full bg-cyan-400 animate-pulse" />
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">
+              Immersive Real-World Stories
+            </span>
           </div>
 
-          {/* TAB SWITCHER */}
-          <div className="inline-flex rounded-full border border-white/15 bg-neutral-950/90 p-1.5 backdrop-blur-xl">
-            {useCases.map((uc) => (
-              <button
-                key={uc.id}
-                onClick={() => setActiveTab(uc.id)}
-                className={`rounded-full px-5 py-2.5 text-xs font-bold transition-all ${
-                  activeTab === uc.id
-                    ? "bg-gradient-to-r from-cyan-500 via-sky-500 to-cyan-600 text-white shadow-[0_0_20px_rgba(6,182,212,0.4)]"
-                    : "text-gray-400 hover:text-white"
-                }`}
-              >
-                {uc.id === "museums" && "🏛️ Museums"}
-                {uc.id === "retail" && "🛍️ Smart Retail"}
-                {uc.id === "banking" && "🏦 Banking"}
-              </button>
-            ))}
-          </div>
+          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+            Bringing Digital Humans to{" "}
+            <span className="bg-gradient-to-r from-white via-neutral-100 to-cyan-400 bg-clip-text text-transparent">
+              Physical Spaces.
+            </span>
+          </h2>
         </div>
 
         {/* FEATURED USE CASE CARD SPOTLIGHT */}
@@ -282,6 +274,22 @@ export default function ImmersiveUseCases() {
             </div>
           </motion.div>
         </AnimatePresence>
+
+        {/* Subtle Slide Progress Dots */}
+        <div className="mt-8 flex items-center justify-center gap-2">
+          {useCases.map((uc, i) => (
+            <button
+              key={uc.id}
+              onClick={() => setActiveTab(uc.id)}
+              className={`h-1.5 rounded-full transition-all duration-500 ${
+                activeTab === uc.id
+                  ? "w-8 bg-cyan-400 shadow-[0_0_12px_#06b6d4]"
+                  : "w-2 bg-white/20 hover:bg-white/40"
+              }`}
+              aria-label={`Go to slide ${i + 1}`}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -18,6 +18,8 @@ interface FeatureTab {
 interface VoiceProfile {
   pitch: number;
   rate: number;
+  lang: string;
+  accentName: string;
   voiceKeywords: string[];
   description: string;
 }
@@ -39,10 +41,12 @@ const ladyOptions: LadyOption[] = [
     imageSrc: "/images/avatars/full_digital_human_presenter.png",
     greeting: "Hello, I am Elena Rostova, AI Chief Presenter. How may I assist your enterprise vision today?",
     voiceProfile: {
-      pitch: 0.90,
-      rate: 0.92,
-      voiceKeywords: ["zira", "google uk english female", "hazel", "en-gb", "female", "natural"],
-      description: "Authoritative & Professional Executive Voice",
+      pitch: 0.94,
+      rate: 0.90,
+      lang: "en-GB",
+      accentName: "British Executive",
+      voiceKeywords: ["uk", "gb", "hazel", "susan", "catherine", "sonia", "amy", "british", "en-gb", "female"],
+      description: "British Executive Lady Voice (Authoritative & Formal)",
     },
   },
   {
@@ -52,10 +56,12 @@ const ladyOptions: LadyOption[] = [
     imageSrc: "/images/avatars/modern_digital_human_presenter.png",
     greeting: "Hi there! I'm Sophia Vance, your Digital Executive Host. Welcome to our real-time interactive platform.",
     voiceProfile: {
-      pitch: 0.96,
-      rate: 0.94,
-      voiceKeywords: ["zira", "samantha", "google us english", "female", "natural"],
-      description: "Smooth, Articulate & Professional Host Voice",
+      pitch: 1.06,
+      rate: 1.02,
+      lang: "en-US",
+      accentName: "American Tech Host",
+      voiceKeywords: ["us", "samantha", "aria", "jenny", "zira", "google us english", "en-us", "female"],
+      description: "American Corporate Host Lady Voice (Articulate & Dynamic)",
     },
   },
   {
@@ -65,10 +71,12 @@ const ladyOptions: LadyOption[] = [
     imageSrc: "/images/avatars/asian_lady.png",
     greeting: "Welcome! I am Mei Lin, Global Concierge Lead. I am here to guide your personalized journey.",
     voiceProfile: {
-      pitch: 0.98,
-      rate: 0.90,
-      voiceKeywords: ["zira", "google us english", "samantha", "female", "natural"],
-      description: "Warm, Calm & Professional Concierge Voice",
+      pitch: 1.00,
+      rate: 0.86,
+      lang: "en-SG",
+      accentName: "Asian Concierge",
+      voiceKeywords: ["singapore", "asia", "en-sg", "en-in", "hiu", "ya-ting", "sin-ji", "ting-ting", "kyoko", "yuna", "linda", "female"],
+      description: "Asian Concierge Lady Voice (Serene & Gentle)",
     },
   },
   {
@@ -78,59 +86,140 @@ const ladyOptions: LadyOption[] = [
     imageSrc: "/images/avatars/executive_lady.png",
     greeting: "Good day. I am Victoria Vance, Corporate Wealth Advisor. Let us optimize your AI strategy and investment portfolio.",
     voiceProfile: {
-      pitch: 0.92,
-      rate: 0.92,
-      voiceKeywords: ["zira", "victoria", "google uk english female", "female", "natural"],
-      description: "Articulate & Professional Wealth Advisor Voice",
+      pitch: 0.97,
+      rate: 0.95,
+      lang: "en-AU",
+      accentName: "Australian Wealth Advisor",
+      voiceKeywords: ["australia", "au", "en-au", "victoria", "karen", "serena", "fiona", "moira", "au english", "female"],
+      description: "Australian Wealth Advisor Lady Voice (Refined & Crisp)",
     },
   },
 ];
 
+// Elegant Subtle Web Audio Presenter Cue
+const playAvatarAudioStinger = (ladyId: string) => {
+  if (typeof window === "undefined") return;
+  try {
+    const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
+    if (!AudioContextClass) return;
+    const ctx = new AudioContextClass();
+    const now = ctx.currentTime;
+
+    const osc1 = ctx.createOscillator();
+    const osc2 = ctx.createOscillator();
+    const gain = ctx.createGain();
+
+    osc1.type = "sine";
+    osc2.type = "sine";
+
+    if (ladyId === "full-presenter") {
+      // Elena: Soft executive chime (220Hz + 330Hz)
+      osc1.frequency.setValueAtTime(220, now);
+      osc2.frequency.setValueAtTime(330, now);
+    } else if (ladyId === "modern-presenter") {
+      // Sophia: Vibrant host stinger (440Hz + 554Hz)
+      osc1.frequency.setValueAtTime(440, now);
+      osc2.frequency.setValueAtTime(554, now);
+    } else if (ladyId === "mei-lin") {
+      // Mei Lin: Soft 432Hz zen bell chime
+      osc1.frequency.setValueAtTime(432, now);
+      osc2.frequency.setValueAtTime(432, now);
+    } else {
+      // Victoria: Sophisticated wealth advisor chime (370Hz + 554Hz)
+      osc1.frequency.setValueAtTime(370, now);
+      osc2.frequency.setValueAtTime(554, now);
+    }
+
+    gain.gain.setValueAtTime(0.08, now);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+
+    osc1.connect(gain);
+    osc2.connect(gain);
+    gain.connect(ctx.destination);
+
+    osc1.start(now);
+    osc2.start(now);
+    osc1.stop(now + 0.35);
+    osc2.stop(now + 0.35);
+  } catch (e) {
+    // AudioContext autoplay restrictions
+  }
+};
+
+// Strict Female Voice Identification to prevent male or robotic fallbacks
+const MALE_VOICE_PATTERNS = ["david", "mark", "george", "james", "richard", "paul", "male", "guy", "alex", "fred", "daniel", "steffi", "stefan", "pablo", "diego", "nicolas"];
+
+const isStrictlyFemaleVoice = (voice: SpeechSynthesisVoice): boolean => {
+  const name = voice.name.toLowerCase();
+  if (MALE_VOICE_PATTERNS.some((m) => name.includes(m))) return false;
+  return (
+    name.includes("female") ||
+    name.includes("zira") ||
+    name.includes("hazel") ||
+    name.includes("susan") ||
+    name.includes("catherine") ||
+    name.includes("linda") ||
+    name.includes("samantha") ||
+    name.includes("victoria") ||
+    name.includes("karen") ||
+    name.includes("fiona") ||
+    name.includes("moira") ||
+    name.includes("veena") ||
+    name.includes("aria") ||
+    name.includes("jenny") ||
+    name.includes("sonia") ||
+    name.includes("amy") ||
+    name.includes("natural") ||
+    name.includes("google us english") ||
+    name.includes("google uk english female")
+  );
+};
+
 const findVoiceForLady = (voices: SpeechSynthesisVoice[], ladyId: string): SpeechSynthesisVoice | null => {
   if (!voices || voices.length === 0) return null;
 
-  // Filter for natural high-quality English female voices
-  const englishFemaleVoices = voices.filter(
-    (v) =>
-      v.lang.startsWith("en") &&
-      (v.name.toLowerCase().includes("zira") ||
-        v.name.toLowerCase().includes("female") ||
-        v.name.toLowerCase().includes("google") ||
-        v.name.toLowerCase().includes("samantha") ||
-        v.name.toLowerCase().includes("hazel") ||
-        v.name.toLowerCase().includes("natural") ||
-        v.name.toLowerCase().includes("karen") ||
-        v.name.toLowerCase().includes("victoria"))
-  );
-
-  const lady = ladyOptions.find((l) => l.id === ladyId) || ladyOptions[0];
+  const ladyIndex = ladyOptions.findIndex((l) => l.id === ladyId);
+  const lady = ladyOptions[ladyIndex >= 0 ? ladyIndex : 0];
+  const targetLang = lady.voiceProfile.lang.toLowerCase();
   const keywords = lady.voiceProfile.voiceKeywords;
 
-  // 1. Try finding voice matching keywords in order
+  // 1. Filter English voices strictly eliminating male voice names
+  const validFemaleVoices = voices.filter(
+    (v) => v.lang.startsWith("en") && isStrictlyFemaleVoice(v)
+  );
+
+  const fallbackEnglishVoices = voices.filter(
+    (v) => v.lang.startsWith("en") && !MALE_VOICE_PATTERNS.some((m) => v.name.toLowerCase().includes(m))
+  );
+
+  const candidatePool = validFemaleVoices.length > 0 ? validFemaleVoices : fallbackEnglishVoices;
+
+  // 2. Try finding voice matching lady-specific language & keywords
   for (const kw of keywords) {
-    const matched = voices.find(
+    const matched = candidatePool.find(
       (v) =>
-        v.lang.startsWith("en") &&
-        (v.name.toLowerCase().includes(kw.toLowerCase()) ||
-          v.lang.toLowerCase().includes(kw.toLowerCase()))
+        (v.lang.toLowerCase().includes(targetLang) || v.name.toLowerCase().includes(targetLang)) &&
+        (v.name.toLowerCase().includes(kw.toLowerCase()) || v.lang.toLowerCase().includes(kw.toLowerCase()))
     );
     if (matched) return matched;
   }
 
-  // 2. Fallback to indexing english female voices
-  if (englishFemaleVoices.length > 0) {
-    const index = ladyOptions.findIndex((l) => l.id === ladyId);
-    return englishFemaleVoices[index % englishFemaleVoices.length];
+  // 3. Try matching regional language code (en-GB, en-US, en-SG, en-AU)
+  const langMatch = candidatePool.find((v) => v.lang.toLowerCase().startsWith(targetLang.slice(0, 5)));
+  if (langMatch) return langMatch;
+
+  // 4. Try matching keywords anywhere in candidate pool
+  for (const kw of keywords) {
+    const matched = candidatePool.find((v) => v.name.toLowerCase().includes(kw.toLowerCase()));
+    if (matched) return matched;
   }
 
-  // 3. Fallback to indexing overall english voices
-  const englishVoices = voices.filter((v) => v.lang.startsWith("en"));
-  if (englishVoices.length > 0) {
-    const index = ladyOptions.findIndex((l) => l.id === ladyId);
-    return englishVoices[index % englishVoices.length];
+  // 5. Assign distinct female system voices by ladyIndex if candidate pool has multiple voices
+  if (candidatePool.length > 0) {
+    return candidatePool[ladyIndex % candidatePool.length];
   }
 
-  return voices[0] || null;
+  return voices[ladyIndex % voices.length] || voices[0] || null;
 };
 
 const features: FeatureTab[] = [
@@ -172,7 +261,7 @@ const features: FeatureTab[] = [
     badge: "Low Latency Voice",
     userPrompt: "What is the Low Latency voice response?",
     botReply:
-      "Low Latency voice synthesis supporting 29 spoken languages and custom voice cloning.",
+      "Low Latency voice synthesis supporting 29+ spoken languages and custom voice cloning.",
   },
   {
     id: "memory",
@@ -209,6 +298,9 @@ export default function RealtimeTalkingAvatars() {
       return;
     }
 
+    // Play signature Web Audio sound stinger for this avatar presenter
+    playAvatarAudioStinger(currentLadyId);
+
     if (typeof window === "undefined" || !("speechSynthesis" in window)) {
       setIsSpeaking(true);
       setTimeout(() => setIsSpeaking(false), 3800);
@@ -219,7 +311,8 @@ export default function RealtimeTalkingAvatars() {
       window.speechSynthesis.cancel();
       const utterance = new SpeechSynthesisUtterance(text);
       
-      // Apply unique Pitch & Speed Rate for each Avatar Presenter
+      // Apply unique language accent, pitch, and rate for each presenter
+      utterance.lang = lady.voiceProfile.lang;
       utterance.pitch = lady.voiceProfile.pitch;
       utterance.rate = lady.voiceProfile.rate;
 

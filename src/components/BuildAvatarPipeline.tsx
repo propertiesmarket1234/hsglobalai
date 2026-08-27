@@ -182,7 +182,7 @@ export default function BuildAvatarPipeline() {
                 <span className="text-cyan-400">Deploy</span> Anywhere
               </h3>
               <p className="mt-3 text-sm leading-6 text-gray-400">
-                Web, mobile, kiosk, 3D Hologram Box, spatial display or live stage. Your avatar runs on any device, any screen, in any country, around the clock.
+                Web, mobile, kiosk, 3D Hologram Box, spatial display or live stage. Your avatar runs on any screen, in any country, around the clock.
               </p>
             </div>
 
