@@ -11,12 +11,6 @@ import {
   Eye,
   Target,
   Zap,
-  ShoppingBag,
-  Building2,
-  Stethoscope,
-  GraduationCap,
-  Hotel,
-  Landmark,
 } from "lucide-react";
 
 const spatialFeatures = [
@@ -50,38 +44,7 @@ const spatialFeatures = [
   },
 ];
 
-const spatialUseCases = [
-  {
-    title: "Retail & Shopping",
-    description: "Interactive product showcases, virtual try-ons, digital sales assistants, and immersive customer experiences.",
-    icon: ShoppingBag,
-  },
-  {
-    title: "Corporate & Enterprise",
-    description: "Interactive presentations, digital receptionists, information displays, employee experiences, and branded environments.",
-    icon: Building2,
-  },
-  {
-    title: "Healthcare",
-    description: "Patient information, wayfinding, educational content, digital assistants, and interactive healthcare experiences.",
-    icon: Stethoscope,
-  },
-  {
-    title: "Education & Training",
-    description: "3D learning experiences, interactive demonstrations, virtual instructors, training content, and educational visualization.",
-    icon: GraduationCap,
-  },
-  {
-    title: "Hospitality, Tourism & Entertainment",
-    description: "Immersive storytelling, digital concierges, destination experiences, interactive exhibits, and guest engagement.",
-    icon: Hotel,
-  },
-  {
-    title: "Museums, Exhibitions & Public Spaces",
-    description: "Interactive 3D exhibits, digital humans, cultural storytelling, product demonstrations, and visitor experiences.",
-    icon: Landmark,
-  },
-];
+
 
 const spatialSpecs = [
   { label: "Thickness & Profile", value: "Ultra-Slim 6CM Body Thickness" },
@@ -92,7 +55,7 @@ const spatialSpecs = [
   { label: "Viewing Angle & Depth", value: "160° Ultra-Wide Viewing Angle with 3D Depth Field" },
   { label: "Brightness & Contrast", value: "800 nits Commercial Grade / 5000:1 Dynamic Contrast Ratio" },
   { label: "Content Compatibility", value: "DIHUAVA 3D Digital Humans, OBJ/FBX 3D Models, Real-Time Unity/Unreal Engine" },
-  { label: "Available Documentation", value: "Spatial Display Data Sheet, Latest Spatial Screen Price List" },
+  { label: "Available Documentation", value: "Spatial Display Data Sheet, Product Specifications" },
 ];
 
 export default function SpatialDisplayPage() {
@@ -310,56 +273,7 @@ export default function SpatialDisplayPage() {
         </div>
       </section>
 
-      {/* INDUSTRIES & USE CASES SECTION */}
-      <section className="relative overflow-hidden bg-neutral-950 px-6 py-24 text-white border-t border-white/10">
-        <div className="mx-auto max-w-7xl">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400 font-mono">
-              VERSATILE ACROSS INDUSTRIES
-            </span>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-5xl">
-              Immersive Spatial Experiences for Every Industry
-            </h2>
-            <p className="mt-4 text-base text-gray-400">
-              Transform physical spaces with interactive 3D visuals, digital humans, product experiences, and intelligent spatial content. Designed to adapt to different environments, customer journeys, and business applications.
-            </p>
-          </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {spatialUseCases.map((useCase, idx) => (
-              <motion.div
-                key={useCase.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.08 }}
-                className="group relative rounded-3xl border border-white/15 bg-black/80 p-8 backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/50 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)] flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center gap-4 mb-4">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-500/40 bg-cyan-950/50 text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
-                      <useCase.icon className="w-6 h-6 text-cyan-300" strokeWidth={1.75} />
-                    </span>
-                    <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors">
-                      {useCase.title}
-                    </h3>
-                  </div>
-                  <p className="text-sm leading-6 text-gray-300">
-                    {useCase.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Bottom line under the cards */}
-          <div className="mt-16 text-center">
-            <p className="inline-block rounded-2xl border border-cyan-500/30 bg-cyan-950/40 px-6 py-4 text-sm font-medium text-cyan-200 backdrop-blur-md max-w-3xl">
-              And more — built for any environment where immersive visual interaction can create a better customer, visitor, or user experience.
-            </p>
-          </div>
-        </div>
-      </section>
 
       {/* TECHNICAL SPECIFICATIONS TABLE */}
       <section className="relative overflow-hidden bg-neutral-950 px-6 py-24 text-white border-t border-white/10">
@@ -395,28 +309,14 @@ export default function SpatialDisplayPage() {
         </div>
       </section>
 
-      {/* DOWNLOAD SPATIAL DATA SHEET */}
-      <section className="relative overflow-hidden bg-black px-6 py-20 border-t border-white/10">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-2xl font-bold text-white sm:text-3xl">
-            Download Spatial Display Specifications & Prices
-          </h2>
-          <p className="mt-3 text-sm text-gray-400">
-            Access 86 Inch Spatial Display Data Sheets and current price lists in our Download Center.
-          </p>
-
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Link
-              href="/contact/download-center"
-              className="rounded-full bg-cyan-500 px-6 py-3 text-xs font-bold uppercase tracking-wider text-black transition-all hover:bg-cyan-400 hover:shadow-[0_0_25px_rgba(6,182,212,0.4)]"
-            >
-              Get Spatial Display Datasheet →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <CTA />
+      <CTA
+        title="Bring 3D Spatial Displays"
+        highlightTitle="To Your Customer Environment"
+        description="Experience volumetric light-field displays for retail showcases, corporate lobbies, exhibitions, interactive kiosks, and 3D digital human presentations."
+        primaryButtonText="Book a Demo"
+        secondaryButtonText="Download Datasheets (PDF)"
+        secondaryButtonHref="/contact/download-center"
+      />
       <Footer />
     </main>
   );

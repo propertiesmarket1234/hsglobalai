@@ -5,7 +5,6 @@ import DihuavaPlatform from "@/components/DihuavaPlatform";
 import Products from "@/components/Products";
 import ImmersiveUseCases from "@/components/ImmersiveUseCases";
 import RealtimeTalkingAvatars from "@/components/RealtimeTalkingAvatars";
-import BuildAvatarPipeline from "@/components/BuildAvatarPipeline";
 import ChatbotVsAvatar from "@/components/ChatbotVsAvatar";
 import Industries from "@/components/Industries";
 import FAQ from "@/components/FAQ";
@@ -134,9 +133,6 @@ export default function Home() {
 
       {/* FEATURED PRODUCTS */}
       <Products />
-
-      {/* HOW WE BUILD YOUR AVATAR PIPELINE */}
-      <BuildAvatarPipeline />
 
       {/* CHATBOT VS DIGITAL HUMAN COMPARISON */}
       <ChatbotVsAvatar />

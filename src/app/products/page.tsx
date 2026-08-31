@@ -3,6 +3,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ProductShowcase from "@/components/ProductShowcase";
+import GlobalLanguagesSection from "@/components/GlobalLanguagesSection";
 import DihuavaPlatform from "@/components/DihuavaPlatform";
 import ChatbotVsAvatar from "@/components/ChatbotVsAvatar";
 import CTA from "@/components/CTA";
@@ -65,18 +66,16 @@ export default function ProductsPage() {
               {/* Description Column */}
               <div className="lg:col-span-5 lg:pb-2">
                 <p className="text-base leading-8 text-gray-200 sm:text-lg drop-shadow">
-                  Explore intelligent AI solutions designed to connect digital
-                  experiences with physical environments — from AI Digital Humans
-                  and holographic avatars to spatial displays and Virtual Try-On.
+                  Explore intelligent AI solutions supporting <strong>29+ Global Languages</strong> — from AI Digital Humans and holographic avatars to spatial displays and Virtual Try-On.
                 </p>
 
                 {/* Capability Pills */}
                 <div className="mt-6 flex flex-wrap gap-2">
-                  <span className="rounded-full border border-cyan-500/30 bg-black/60 px-3.5 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md">
-                    Avatar Customization & Voice Cloning
+                  <span className="rounded-full border border-cyan-500/40 bg-cyan-950/60 px-3.5 py-1 text-xs font-semibold text-cyan-300 backdrop-blur-md shadow-[0_0_12px_rgba(6,182,212,0.2)]">
+                    🌍 29+ Global Languages
                   </span>
                   <span className="rounded-full border border-cyan-500/30 bg-black/60 px-3.5 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md">
-                    29 Global Languages
+                    Avatar Customization & Voice Cloning
                   </span>
                   <span className="rounded-full border border-cyan-500/30 bg-black/60 px-3.5 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md">
                     100% Offline AI Engine
@@ -96,6 +95,9 @@ export default function ProductsPage() {
 
       {/* PRODUCT SHOWCASE */}
       <ProductShowcase />
+
+      {/* DEDICATED 29+ GLOBAL LANGUAGES SECTION */}
+      <GlobalLanguagesSection />
 
       {/* CORE PLATFORM CAPABILITIES ENGINE */}
       <DihuavaPlatform />

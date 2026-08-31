@@ -38,6 +38,25 @@ export default function Header() {
 
         {/* DESKTOP NAVIGATION LINKS */}
         <nav className="hidden items-center gap-8 md:flex">
+          {/* HOME LINK */}
+          <Link
+            href="/"
+            className={`relative py-1 text-sm transition-colors ${
+              isActive("/")
+                ? "font-semibold text-cyan-400"
+                : "text-gray-300 hover:text-white"
+            }`}
+          >
+            <span>Home</span>
+            {isActive("/") && (
+              <motion.div
+                layoutId="activeNavIndicator"
+                className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-cyan-400 to-sky-400 shadow-[0_0_8px_#06b6d4]"
+                transition={{ type: "spring", stiffness: 380, damping: 30 }}
+              />
+            )}
+          </Link>
+
           {/* PRODUCTS DROPDOWN */}
           <div
             className="relative"
@@ -320,7 +339,7 @@ export default function Header() {
                       href="/contact"
                       className="block rounded-xl px-4 py-2.5 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
                     >
-                      Contact Us & HQ
+                      Contact Us
                     </Link>
 
                     <Link
@@ -455,6 +474,18 @@ export default function Header() {
             className="md:hidden overflow-hidden border-t border-white/10 bg-neutral-950/98 backdrop-blur-2xl px-6 py-6"
           >
             <div className="space-y-4">
+              <Link
+                href="/"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`block rounded-xl px-4 py-3 text-base font-semibold transition-colors ${
+                  isActive("/")
+                    ? "bg-cyan-500/10 text-cyan-400 border border-cyan-500/30"
+                    : "text-gray-200 hover:bg-white/5 hover:text-white"
+                }`}
+              >
+                Home
+              </Link>
+
               <div>
                 <Link
                   href="/products"
@@ -570,7 +601,7 @@ export default function Header() {
                       : "text-gray-200 hover:bg-white/5 hover:text-white"
                   }`}
                 >
-                  📍 Contact Us & Singapore HQ
+                  📍 Contact Us
                 </Link>
 
                 <Link

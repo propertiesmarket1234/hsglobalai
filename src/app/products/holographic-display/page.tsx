@@ -12,12 +12,6 @@ import {
   Cpu,
   Eye,
   Volume2,
-  ShoppingBag,
-  Landmark,
-  Building2,
-  Stethoscope,
-  Castle,
-  GraduationCap,
 } from "lucide-react";
 
 const hologramHeroImages = [
@@ -35,16 +29,16 @@ const hologramHeroImages = [
 
 const hologramFeatures = [
   {
-    title: "Life-Size 3D Volumetric Enclosure",
+    title: "Life-Size 4K 3D Volumetric Enclosure",
     description:
-      "Available in 55-inch, 65-inch, 75-inch, and 86-inch vertical holographic glass showcases displaying 1:1 scale digital human avatars with hyper-realistic depth perception and lifelike presence.",
+      "Available in 55-inch, 65-inch, 75-inch, and 86-inch vertical 4K Ultra-HD holographic glass showcases displaying 1:1 scale digital human avatars with hyper-realistic depth perception and lifelike presence.",
     icon: Box,
-    badge: "55\" / 65\" / 75\" / 86\" Sizes",
+    badge: "4K Ultra-HD | 55\" - 86\"",
   },
   {
     title: "Integrated AI Workstation",
     description:
-      "Built-in industrial-grade computing unit running DIHUAVA offline AI engine. Zero cloud dependence, Low Latency, and high-security enterprise operation.",
+      "Built-in high-performance industrial AI computing unit running the DIHUAVA 100% offline AI engine delivering sub-500ms real-time latency, zero cloud dependency, and enterprise-grade data privacy.",
     icon: Cpu,
     badge: "On-Device Processing",
   },
@@ -64,43 +58,12 @@ const hologramFeatures = [
   },
 ];
 
-const holographicUseCases = [
-  {
-    title: "Retail & Shopping",
-    description: "Product showcases, virtual sales assistants, interactive brand experiences.",
-    icon: ShoppingBag,
-  },
-  {
-    title: "Banking & Financial Services",
-    description: "VIP lounges, customer guidance, product information and digital concierge experiences.",
-    icon: Landmark,
-  },
-  {
-    title: "Corporate & Enterprise",
-    description: "Reception areas, visitor engagement, employee information and branded experiences.",
-    icon: Building2,
-  },
-  {
-    title: "Healthcare",
-    description: "Patient guidance, hospital information and multilingual assistance.",
-    icon: Stethoscope,
-  },
-  {
-    title: "Museums & Exhibitions",
-    description: "Digital humans, historical storytelling and interactive exhibits.",
-    icon: Castle,
-  },
-  {
-    title: "Education & Campuses",
-    description: "Interactive learning experiences, information kiosks and digital guides.",
-    icon: GraduationCap,
-  },
-];
 
 const hardwareSpecs = [
   { label: "Display Sizes", value: "55-inch, 65-inch, 75-inch, 86-inch" },
-  { label: "Display Technology", value: "Ultra-HD 4K high-transmission holographic optical glass" },
+  { label: "Display Resolution & Technology", value: "Ultra-HD 4K (3840 x 2160) high-transmission 3D holographic optical glass" },
   { label: "Brightness & Contrast", value: "700 nits / 4000:1 dynamic contrast ratio" },
+  { label: "AI Computing Unit", value: "Built-in industrial-grade AI workstation (Edge GPU/NPU) running 100% offline" },
   { label: "Touch & Camera System", value: "10-point capacitive touch glass + wide-angle tracking camera" },
   { label: "Audio Hardware", value: "Integrated directional soundbar + beamforming microphone array" },
   { label: "Operating Environment", value: "Designed for continuous 24/7 commercial operation" },
@@ -160,13 +123,16 @@ export default function HolographicDisplayPage() {
               </h1>
 
               <p className="mt-6 text-base leading-8 text-gray-300 sm:text-lg max-w-2xl">
-                Bring intelligent AI Digital Humans into physical environments. Available in <strong className="text-cyan-300">55-inch, 65-inch, 75-inch, and 86-inch</strong> 3D holographic enclosures engineered for high-impact retail showcases, VIP bank lounges, corporate headquarters, and museum exhibits.
+                Bring intelligent AI Digital Humans into physical environments. Available in <strong className="text-cyan-300">55-inch, 65-inch, 75-inch, and 86-inch 4K Ultra-HD</strong> 3D holographic enclosures engineered for high-impact retail showcases, VIP bank lounges, corporate headquarters, and museum exhibits.
               </p>
 
               {/* Size Badge Selector Pills */}
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 <span className="text-xs font-mono font-semibold uppercase tracking-wider text-gray-400">
-                  Available Sizes:
+                  Available Specs:
+                </span>
+                <span className="rounded-full border border-cyan-500/40 bg-cyan-950/80 px-3.5 py-1 text-xs font-bold text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
+                  4K Ultra-HD
                 </span>
                 <span className="rounded-full border border-cyan-500/40 bg-cyan-950/80 px-3.5 py-1 text-xs font-bold text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
                   55" Inch
@@ -308,56 +274,7 @@ export default function HolographicDisplayPage() {
         </div>
       </section>
 
-      {/* BUILT FOR HIGH-IMPACT PHYSICAL SPACES */}
-      <section className="relative overflow-hidden bg-neutral-950 px-6 py-24 text-white border-t border-white/10">
-        <div className="mx-auto max-w-7xl">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400 font-mono">
-              Deployment Use Cases
-            </span>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-5xl">
-              Built for High-Impact Physical Spaces
-            </h2>
-            <p className="mt-4 text-base text-gray-400">
-              Designed for immersive customer engagement across retail, banking, corporate, healthcare, tourism, and exhibition environments.
-            </p>
-          </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {holographicUseCases.map((useCase, idx) => (
-              <motion.div
-                key={useCase.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.08 }}
-                className="group relative rounded-3xl border border-white/15 bg-black/80 p-8 backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/50 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)] flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center gap-4 mb-4">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-500/40 bg-cyan-950/50 text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
-                      <useCase.icon className="w-6 h-6 text-cyan-300" strokeWidth={1.75} />
-                    </span>
-                    <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors">
-                      {useCase.title}
-                    </h3>
-                  </div>
-                  <p className="text-sm leading-6 text-gray-300">
-                    {useCase.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Bottom line under the cards */}
-          <div className="mt-16 text-center">
-            <p className="inline-block rounded-2xl border border-cyan-500/30 bg-cyan-950/40 px-6 py-4 text-sm font-medium text-cyan-200 backdrop-blur-md max-w-3xl">
-              And more — built for any environment where immersive visual interaction can create a better customer, visitor, or user experience.
-            </p>
-          </div>
-        </div>
-      </section>
 
       {/* HARDWARE SPECIFICATIONS TABLE */}
       <section className="relative overflow-hidden bg-neutral-950 px-6 py-24 text-white border-t border-white/10">
@@ -397,31 +314,13 @@ export default function HolographicDisplayPage() {
         </div>
       </section>
 
-      {/* DOWNLOAD SPEC SHEETS */}
-      <section className="relative overflow-hidden bg-black px-6 py-20 border-t border-white/10">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-2xl font-bold text-white sm:text-3xl">
-            Looking for Hologram Box Datasheets & Price Lists?
-          </h2>
-          <p className="mt-3 text-sm text-gray-400">
-            Download official spec sheets, OEM licenses, and product comparisons in PDF format.
-          </p>
-
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Link
-              href="/contact/download-center"
-              className="rounded-full bg-cyan-500 px-6 py-3 text-xs font-bold uppercase tracking-wider text-black transition-all hover:bg-cyan-400 hover:shadow-[0_0_25px_rgba(6,182,212,0.4)]"
-            >
-              Get Hologram Box Datasheets →
-            </Link>
-          </div>
-        </div>
-      </section>
-
       <CTA
         title="Bring AI Digital Humans"
         highlightTitle="Into Your Physical Space"
         description="Explore holographic display hardware designed for immersive customer engagement across retail, banking, corporate, healthcare, museums, and exhibitions."
+        primaryButtonText="Book a Demo"
+        secondaryButtonText="Download Datasheets (PDF)"
+        secondaryButtonHref="/contact/download-center"
       />
       <Footer />
     </main>

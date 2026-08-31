@@ -15,13 +15,13 @@ export interface SheetItem {
 
 const dataSheetsAndPriceList: SheetItem[] = [
   { title: "86 Inch HOLOGRAM BOX DATA SHEET", filename: "86_Inch_Hologram_Box_Data_Sheet.pdf" },
-  { title: "Hologram Box With Software Price List", filename: "Hologram_Box_Software_Price_List.pdf" },
+  { title: "Hologram Box With Software Specification Sheet", filename: "Hologram_Box_Software_Data_Sheet.pdf" },
   { title: "Hologram Box Product Comparison Sheet", filename: "Hologram_Box_Product_Comparison_Sheet.pdf" },
-  { title: "OEM 许可证价格表", filename: "OEM_License_Price_List_ZH.pdf", lang: "Chinese" },
+  { title: "OEM 许可证规格表", filename: "OEM_License_Data_Sheet_ZH.pdf", lang: "Chinese" },
   { title: "86 Inch SPATIAL DISPLAY Data Sheet", filename: "86_Inch_Spatial_Display_Data_Sheet.pdf" },
   { title: "Dihuava Product Brochure 2026 JUN", filename: "Dihuava_Product_Brochure_2026_JUN.pdf" },
   { title: "AI数字人软件介绍 2026 JUN Bilingual", filename: "AI_Digital_Human_Software_Intro_2026_JUN_Bilingual.pdf", lang: "Bilingual" },
-  { title: "SPATIAL Display 空间屏最新价格表", filename: "Spatial_Display_Latest_Price_List_ZH.pdf", lang: "Chinese" },
+  { title: "SPATIAL Display 空间屏规格表", filename: "Spatial_Display_Data_Sheet_ZH.pdf", lang: "Chinese" },
   { title: "HS International Business Card", filename: "HS_International_Business_Card.pdf" },
 ];
 
@@ -217,7 +217,7 @@ Enterprise Contact: sales@hsglobalai.com
             <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-gray-300 sm:text-lg">
               {activeTab === "contact"
                 ? "Speak with our enterprise specialists to schedule a live demonstration, inquire about DIHUAVA deployments, or visit our Singapore headquarters."
-                : "Download English & Chinese product data sheets, price lists, Dihuava brochures, partner templates, and connect directly with executive team QR codes."}
+                : "Download English & Chinese product data sheets, Dihuava brochures, partner templates, and connect directly with executive team QR codes."}
             </p>
 
             {/* INTEGRATED SUBPAGE TAB SWITCHER BUTTONS */}
@@ -231,7 +231,7 @@ Enterprise Contact: sales@hsglobalai.com
                       : "text-gray-400 hover:text-white"
                   }`}
                 >
-                  <span>📍 Contact Us & HQ Map</span>
+                  <span>📍 Contact Us</span>
                 </button>
 
                 <button
@@ -639,7 +639,7 @@ Enterprise Contact: sales@hsglobalai.com
             <div>
               <div className="text-center mb-10">
                 <span className="inline-block rounded-full border border-cyan-400/40 bg-cyan-500/15 px-6 py-2 text-sm font-bold text-cyan-300 shadow-[0_0_20px_rgba(6,182,212,0.3)]">
-                  Data Sheets & Price List
+                  Data Sheets & Specifications
                 </span>
               </div>
 
@@ -834,49 +834,8 @@ Enterprise Contact: sales@hsglobalai.com
                 </div>
               </div>
 
-              {/* SALES TEAM PAIR 2: HARVEY & CATHERINE */}
-              <div className="grid gap-12 md:grid-cols-2 max-w-4xl mx-auto">
-                {/* HARVEY (Overseas Sales Director) */}
-                <div className="rounded-3xl border border-white/15 bg-neutral-950/90 p-8 text-center backdrop-blur-xl shadow-2xl">
-                  <h3 className="text-lg font-bold tracking-wide text-cyan-300 mb-6">
-                    Harvey (Overseas Sales Director)
-                  </h3>
-
-                  <div className="grid gap-6 sm:grid-cols-2 justify-items-center">
-                    {/* WHATSAPP */}
-                    <div className="flex flex-col items-center">
-                      <div className="flex h-44 w-44 items-center justify-center rounded-2xl border border-black bg-white p-2 shadow-xl">
-                        <img
-                          src="/images/harvey-whatsapp-qr.png"
-                          alt="Harvey Overseas Sales Director WhatsApp QR Code"
-                          width={160}
-                          height={160}
-                          className="rounded-lg object-contain w-full h-full"
-                        />
-                      </div>
-                      <span className="mt-3 font-mono text-xs font-bold italic tracking-widest text-gray-300 uppercase">
-                        WHATSAPP
-                      </span>
-                    </div>
-
-                    {/* WECHAT */}
-                    <div className="flex flex-col items-center">
-                      <div className="flex h-44 w-44 items-center justify-center rounded-2xl border border-cyan-500/50 bg-white p-2 shadow-xl">
-                        <img
-                          src="/images/harvey-wechat-qr.png"
-                          alt="Harvey Overseas Sales Director WeChat QR Code"
-                          width={160}
-                          height={160}
-                          className="rounded-lg object-contain w-full h-full"
-                        />
-                      </div>
-                      <span className="mt-3 font-mono text-xs font-bold italic tracking-widest text-cyan-400 uppercase">
-                        WECHAT
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
+              {/* SALES TEAM: CATHERINE */}
+              <div className="max-w-md mx-auto">
                 {/* CATHERINE (Asia Sales Manager) */}
                 <div className="rounded-3xl border border-white/15 bg-neutral-950/90 p-8 text-center backdrop-blur-xl shadow-2xl">
                   <h3 className="text-lg font-bold tracking-wide text-cyan-300 mb-6">

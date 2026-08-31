@@ -114,27 +114,47 @@ const coreModules = [
   },
 ];
 
-// ARCHITECTURAL PILLARS
+// ARCHITECTURAL PILLARS (8 CORE TECHNOLOGIES)
 const archPillars = [
   {
     title: "AI Engine Subsystems",
-    desc: "Local Conversational Engine, Speech Recognition, Tiered Voice Synthesis, Machine Translation, and Semantic Search RAG.",
+    desc: "Local Conversational LLM, Automatic Speech Recognition (ASR), Machine Translation, and Semantic Reasoning running 100% on-device.",
     icon: Cpu,
   },
   {
     title: "Digital Avatar Renderer",
-    desc: "3D facial mesh rendering, lip synchronization, micro-expressions, posture control, and persona identity management.",
+    desc: "3D facial mesh rendering, real-time lip synchronization, micro-expressions, posture control, and persona identity management.",
     icon: User,
   },
   {
-    title: "Knowledge & Catalog Engine",
-    desc: "RAG indexer with relevance reranking, 9-column product CSV catalog, and automatic vocabulary generation.",
+    title: "29+ Multilingual Speech Engine",
+    desc: "Real-time speech recognition & synthesis across 29+ global languages and 7+ Indian languages with instant auto-switch (<200ms).",
+    icon: Globe,
+  },
+  {
+    title: "Knowledge & Catalog RAG Engine",
+    desc: "Air-gapped local vector indexer with cross-encoder reranking, multi-column CSV catalog ingestion, and auto vocabulary generation.",
     icon: BookOpen,
   },
   {
-    title: "Hardware & Camera Array",
-    desc: "HD wide-angle face tracking camera, beamforming mic array, and industrial edge GPU/NPU workstation.",
+    title: "Low-Latency Edge Pipeline",
+    desc: "High-speed local stream architecture delivering end-to-end conversational response times under 500ms for fluid dialogue.",
+    icon: Zap,
+  },
+  {
+    title: "Computer Vision & Face Tracking",
+    desc: "HD wide-angle camera face tracking, eye-gaze direction sensing, visitor posture tracking, and presence detection array.",
     icon: Camera,
+  },
+  {
+    title: "100% Offline Air-Gapped Security",
+    desc: "Zero cloud internet dependency, enterprise privacy compliance, encrypted local vector storage, and physical edge workstation hosting.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Spatial & Hologram Display Controller",
+    desc: "Synchronized output drivers for 3D Hologram Boxes, volumetric optical spatial displays, touch kiosks, and multi-screen arrays.",
+    icon: Sparkles,
   },
 ];
 
@@ -238,46 +258,6 @@ const comparisonTable = [
   { feature: "Selfie Experience", dihuava: "Local Compositing", cloud: "Cloud-Dependent Workflows" },
   { feature: "Live Character", dihuava: "50–100ms Face Tracking", cloud: "Depends on Implementation" },
   { feature: "Data Architecture", dihuava: "Edge / Air-Gapped Deployment", cloud: "Cloud Infrastructure" },
-];
-
-// INDUSTRY USE CASES
-const industryUseCases = [
-  {
-    title: "Banking & Financial Services",
-    icon: "🏦",
-    description:
-      "Deploy air-gapped avatar bankers in VIP lounges for onboarding, loan disclosures, and queue management without cloud data risk.",
-  },
-  {
-    title: "Retail & Shopping Malls",
-    icon: "🛍️",
-    description:
-      "Boost store footfall with AI product recommendation catalogs, Virtual Try-On previews, and Selfie With Avatar engagement.",
-  },
-  {
-    title: "Corporate Lobbies & HR",
-    icon: "🏢",
-    description:
-      "Automate visitor check-in, issue visitor badges, and answer employee policy queries with 24/7 holographic receptionists.",
-  },
-  {
-    title: "Healthcare & Hospitals",
-    icon: "🏥",
-    description:
-      "Guide patients through hospital departments, triage intake symptoms, and explain pre/post-op care in 29 languages.",
-  },
-  {
-    title: "Tourism & Museum Exhibits",
-    icon: "🏛️",
-    description:
-      "Bring historical figures and cultural docents to life with 3D hologram storytelling, multilingual Q&A, and interactive photo souvenirs.",
-  },
-  {
-    title: "Education & Campus Academies",
-    icon: "🎓",
-    description:
-      "Engage students with 3D hologram STEM tutors, virtual lab safety instructors, and 24/7 campus admissions guides.",
-  },
 ];
 
 // PRODUCT SPECS
@@ -455,10 +435,10 @@ export default function DihuavaProductPage() {
               System Architecture
             </span>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-5xl">
-              Four Core Technologies Powering Dihuava
+              Eight Core Technologies Powering Dihuava
             </h2>
             <p className="mt-4 text-base text-gray-400">
-              Dihuava operates via an integrated local-first model where conversational AI, rendering, knowledge indexing, and hardware interaction function harmoniously on physical edge workstations.
+              Dihuava operates via an integrated local-first model where conversational AI, rendering, multilingual speech, vision, and hardware interaction function harmoniously on physical edge workstations.
             </p>
           </div>
 
@@ -476,7 +456,7 @@ export default function DihuavaProductPage() {
                   <p className="text-sm leading-6 text-gray-300">{pillar.desc}</p>
                 </div>
                 <div className="mt-6 pt-4 border-t border-white/10 text-xs font-mono text-cyan-400">
-                  PILLAR 0{idx + 1}
+                  PILLAR {String(idx + 1).padStart(2, "0")}
                 </div>
               </div>
             ))}
@@ -812,37 +792,6 @@ export default function DihuavaProductPage() {
         </div>
       </section>
 
-      {/* INDUSTRY DEPLOYMENT SHOWCASE */}
-      <section className="relative overflow-hidden bg-neutral-950 px-6 py-24 border-b border-white/10">
-        <div className="mx-auto max-w-7xl">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400 font-mono">
-              Enterprise Verticals
-            </span>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-5xl">
-              AI Digital Humans Across Industries
-            </h2>
-          </div>
-
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {industryUseCases.map((useCase, idx) => (
-              <div
-                key={idx}
-                className="rounded-2xl border border-white/15 bg-black/80 p-6 backdrop-blur-md hover:border-cyan-500/40 transition-colors"
-              >
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="text-3xl">{useCase.icon}</span>
-                  <h3 className="text-lg font-bold text-white">{useCase.title}</h3>
-                </div>
-                <p className="text-xs leading-6 text-gray-300">
-                  {useCase.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* COMPETITIVE ADVANTAGES: DIHUAVA VS CLOUD AI */}
       <section className="relative overflow-hidden bg-black px-6 py-24 border-b border-white/10">
         <div className="mx-auto max-w-5xl">
@@ -953,34 +902,17 @@ export default function DihuavaProductPage() {
         </div>
       </section>
 
-      {/* DOWNLOAD BROCHURES & DOCS */}
-      <section className="relative overflow-hidden bg-neutral-950 px-6 py-20">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-2xl font-bold text-white sm:text-3xl">
-            Ready to Deploy Your AI Digital Human?
-          </h2>
-          <p className="mt-3 text-sm text-gray-400">
-            Bring multilingual, private and interactive AI experiences to your retail space, corporate environment, healthcare facility or public venue.
-          </p>
-
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Link
-              href="/contact"
-              className="rounded-full bg-gradient-to-r from-cyan-500 to-sky-500 px-8 py-3.5 text-sm font-bold text-black transition-all hover:scale-105 hover:shadow-[0_0_25px_rgba(6,182,212,0.4)]"
-            >
-              Request a Demo →
-            </Link>
-            <Link
-              href="/contact/download-center"
-              className="rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-semibold text-gray-200 backdrop-blur-md transition-colors hover:border-cyan-400 hover:text-white"
-            >
-              Download Product Datasheet
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <CTA />
+      {/* SINGLE CALL TO ACTION SECTION */}
+      <CTA
+        badgeText="Build the Future with AI"
+        title="Ready to Deploy Your"
+        highlightTitle="AI Digital Human?"
+        description="Bring 29+ multilingual, private, and interactive AI experiences to your retail space, corporate environment, healthcare facility, or public venue."
+        primaryButtonText="Book a Demo"
+        primaryButtonHref="/contact"
+        secondaryButtonText="Download Product Datasheet"
+        secondaryButtonHref="/contact/download-center"
+      />
       <Footer />
     </main>
   );

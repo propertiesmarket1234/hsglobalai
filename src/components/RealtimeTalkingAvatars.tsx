@@ -1,26 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Brain, Eye, Sparkles, Mic, HardDrive } from "lucide-react";
-
-interface FeatureTab {
-  id: string;
-  title: string;
-  subtitle: string;
-  icon: any;
-  badge: string;
-  userPrompt: string;
-  botReply: string;
-}
+import { Brain, Eye, Sparkles, Mic, Globe, Film } from "lucide-react";
 
 interface VoiceProfile {
-  pitch: number;
-  rate: number;
   lang: string;
   accentName: string;
-  voiceKeywords: string[];
   description: string;
 }
 
@@ -28,9 +15,14 @@ interface LadyOption {
   id: string;
   name: string;
   role: string;
-  imageSrc: string;
+  videoSrc?: string;
+  imageSrc?: string;
   greeting: string;
   voiceProfile: VoiceProfile;
+  capabilityTitle: string;
+  capabilityIcon: any;
+  userPrompt: string;
+  botReply: string;
 }
 
 const ladyOptions: LadyOption[] = [
@@ -38,421 +30,85 @@ const ladyOptions: LadyOption[] = [
     id: "full-presenter",
     name: "Elena Rostova",
     role: "AI Chief Presenter",
+    videoSrc: "/videos/avatars/elena-rostova.mp4",
     imageSrc: "/images/avatars/full_digital_human_presenter.png",
     greeting: "Hello, I am Elena Rostova, AI Chief Presenter. How may I assist your enterprise vision today?",
     voiceProfile: {
-      pitch: 0.94,
-      rate: 0.90,
       lang: "en-GB",
       accentName: "British Executive",
-      voiceKeywords: ["uk", "gb", "hazel", "susan", "catherine", "sonia", "amy", "british", "en-gb", "female"],
       description: "British Executive Lady Voice (Authoritative & Formal)",
     },
+    capabilityTitle: "Knowledge & RAG Intelligence",
+    capabilityIcon: Brain,
+    userPrompt: "How does it connect to our enterprise knowledge base?",
+    botReply: "I ingest PDFs, internal documentation, and APIs via built-in RAG with 100% offline, air-gapped security.",
   },
   {
     id: "modern-presenter",
     name: "Sophia Vance",
     role: "Digital Executive Host",
+    videoSrc: "/videos/avatars/sophia-vance.mp4",
     imageSrc: "/images/avatars/modern_digital_human_presenter.png",
     greeting: "Hi there! I'm Sophia Vance, your Digital Executive Host. Welcome to our real-time interactive platform.",
     voiceProfile: {
-      pitch: 1.06,
-      rate: 1.02,
       lang: "en-US",
       accentName: "American Tech Host",
-      voiceKeywords: ["us", "samantha", "aria", "jenny", "zira", "google us english", "en-us", "female"],
       description: "American Corporate Host Lady Voice (Articulate & Dynamic)",
     },
+    capabilityTitle: "Hyper-Realistic Appearance",
+    capabilityIcon: Eye,
+    userPrompt: "Can we customize the avatar's face and wardrobe?",
+    botReply: "Yes! Hair, facial structure, brand uniforms, accessories, and 3D environments are fully customizable.",
   },
   {
     id: "mei-lin",
     name: "Mei Lin",
     role: "Global Concierge Lead",
+    videoSrc: "/videos/avatars/mei-lin.mp4",
     imageSrc: "/images/avatars/asian_lady.png",
     greeting: "Welcome! I am Mei Lin, Global Concierge Lead. I am here to guide your personalized journey.",
     voiceProfile: {
-      pitch: 1.00,
-      rate: 0.86,
       lang: "en-SG",
       accentName: "Asian Concierge",
-      voiceKeywords: ["singapore", "asia", "en-sg", "en-in", "hiu", "ya-ting", "sin-ji", "ting-ting", "kyoko", "yuna", "linda", "female"],
       description: "Asian Concierge Lady Voice (Serene & Gentle)",
     },
+    capabilityTitle: "Brand Aligned Personality",
+    capabilityIcon: Sparkles,
+    userPrompt: "How do you ensure brand consistency across interactions?",
+    botReply: "Custom neural system prompts enforce exact brand tone, empathetic responses, and strict guardrails.",
   },
   {
     id: "victoria",
     name: "Victoria Vance",
     role: "Corporate Wealth Advisor",
+    videoSrc: "/videos/avatars/victoria-vance.mp4",
     imageSrc: "/images/avatars/executive_lady.png",
     greeting: "Good day. I am Victoria Vance, Corporate Wealth Advisor. Let us optimize your AI strategy and investment portfolio.",
     voiceProfile: {
-      pitch: 0.97,
-      rate: 0.95,
       lang: "en-AU",
       accentName: "Australian Wealth Advisor",
-      voiceKeywords: ["australia", "au", "en-au", "victoria", "karen", "serena", "fiona", "moira", "au english", "female"],
       description: "Australian Wealth Advisor Lady Voice (Refined & Crisp)",
     },
-  },
-];
-
-// Elegant Subtle Web Audio Presenter Cue
-const playAvatarAudioStinger = (ladyId: string) => {
-  if (typeof window === "undefined") return;
-  try {
-    const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
-    if (!AudioContextClass) return;
-    const ctx = new AudioContextClass();
-    const now = ctx.currentTime;
-
-    const osc1 = ctx.createOscillator();
-    const osc2 = ctx.createOscillator();
-    const gain = ctx.createGain();
-
-    osc1.type = "sine";
-    osc2.type = "sine";
-
-    if (ladyId === "full-presenter") {
-      // Elena: Soft executive chime (220Hz + 330Hz)
-      osc1.frequency.setValueAtTime(220, now);
-      osc2.frequency.setValueAtTime(330, now);
-    } else if (ladyId === "modern-presenter") {
-      // Sophia: Vibrant host stinger (440Hz + 554Hz)
-      osc1.frequency.setValueAtTime(440, now);
-      osc2.frequency.setValueAtTime(554, now);
-    } else if (ladyId === "mei-lin") {
-      // Mei Lin: Soft 432Hz zen bell chime
-      osc1.frequency.setValueAtTime(432, now);
-      osc2.frequency.setValueAtTime(432, now);
-    } else {
-      // Victoria: Sophisticated wealth advisor chime (370Hz + 554Hz)
-      osc1.frequency.setValueAtTime(370, now);
-      osc2.frequency.setValueAtTime(554, now);
-    }
-
-    gain.gain.setValueAtTime(0.08, now);
-    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
-
-    osc1.connect(gain);
-    osc2.connect(gain);
-    gain.connect(ctx.destination);
-
-    osc1.start(now);
-    osc2.start(now);
-    osc1.stop(now + 0.35);
-    osc2.stop(now + 0.35);
-  } catch (e) {
-    // AudioContext autoplay restrictions
-  }
-};
-
-// Strict Female Voice Identification to prevent male or robotic fallbacks
-const MALE_VOICE_PATTERNS = ["david", "mark", "george", "james", "richard", "paul", "male", "guy", "alex", "fred", "daniel", "steffi", "stefan", "pablo", "diego", "nicolas"];
-
-const isStrictlyFemaleVoice = (voice: SpeechSynthesisVoice): boolean => {
-  const name = voice.name.toLowerCase();
-  if (MALE_VOICE_PATTERNS.some((m) => name.includes(m))) return false;
-  return (
-    name.includes("female") ||
-    name.includes("zira") ||
-    name.includes("hazel") ||
-    name.includes("susan") ||
-    name.includes("catherine") ||
-    name.includes("linda") ||
-    name.includes("samantha") ||
-    name.includes("victoria") ||
-    name.includes("karen") ||
-    name.includes("fiona") ||
-    name.includes("moira") ||
-    name.includes("veena") ||
-    name.includes("aria") ||
-    name.includes("jenny") ||
-    name.includes("sonia") ||
-    name.includes("amy") ||
-    name.includes("natural") ||
-    name.includes("google us english") ||
-    name.includes("google uk english female")
-  );
-};
-
-const findVoiceForLady = (voices: SpeechSynthesisVoice[], ladyId: string): SpeechSynthesisVoice | null => {
-  if (!voices || voices.length === 0) return null;
-
-  const ladyIndex = ladyOptions.findIndex((l) => l.id === ladyId);
-  const lady = ladyOptions[ladyIndex >= 0 ? ladyIndex : 0];
-  const targetLang = lady.voiceProfile.lang.toLowerCase();
-  const keywords = lady.voiceProfile.voiceKeywords;
-
-  // 1. Filter English voices strictly eliminating male voice names
-  const validFemaleVoices = voices.filter(
-    (v) => v.lang.startsWith("en") && isStrictlyFemaleVoice(v)
-  );
-
-  const fallbackEnglishVoices = voices.filter(
-    (v) => v.lang.startsWith("en") && !MALE_VOICE_PATTERNS.some((m) => v.name.toLowerCase().includes(m))
-  );
-
-  const candidatePool = validFemaleVoices.length > 0 ? validFemaleVoices : fallbackEnglishVoices;
-
-  // 2. Try finding voice matching lady-specific language & keywords
-  for (const kw of keywords) {
-    const matched = candidatePool.find(
-      (v) =>
-        (v.lang.toLowerCase().includes(targetLang) || v.name.toLowerCase().includes(targetLang)) &&
-        (v.name.toLowerCase().includes(kw.toLowerCase()) || v.lang.toLowerCase().includes(kw.toLowerCase()))
-    );
-    if (matched) return matched;
-  }
-
-  // 3. Try matching regional language code (en-GB, en-US, en-SG, en-AU)
-  const langMatch = candidatePool.find((v) => v.lang.toLowerCase().startsWith(targetLang.slice(0, 5)));
-  if (langMatch) return langMatch;
-
-  // 4. Try matching keywords anywhere in candidate pool
-  for (const kw of keywords) {
-    const matched = candidatePool.find((v) => v.name.toLowerCase().includes(kw.toLowerCase()));
-    if (matched) return matched;
-  }
-
-  // 5. Assign distinct female system voices by ladyIndex if candidate pool has multiple voices
-  if (candidatePool.length > 0) {
-    return candidatePool[ladyIndex % candidatePool.length];
-  }
-
-  return voices[ladyIndex % voices.length] || voices[0] || null;
-};
-
-const features: FeatureTab[] = [
-  {
-    id: "knowledge",
-    title: "Knowledge",
-    subtitle: "Feed it your data. It speaks as your expert with instant document intelligence.",
-    icon: Brain,
-    badge: "Built-in RAG",
-    userPrompt: "How does it connect to our enterprise knowledge base?",
-    botReply:
-      "I ingest PDFs, internal documentation, and APIs via built-in RAG with 100% offline, air-gapped security.",
-  },
-  {
-    id: "appearance",
-    title: "Appearance",
-    subtitle: "Face, hair, wardrobe. Every detail tailored to your brand brief.",
-    icon: Eye,
-    badge: "Hyper-Realism",
-    userPrompt: "Can we customize the avatar's face and wardrobe?",
-    botReply:
-      "Yes! Hair, facial structure, brand uniforms, accessories, and 3D environments are fully customizable.",
-  },
-  {
-    id: "personality",
-    title: "Personality",
-    subtitle: "You set the character. It holds context and brand safety every time.",
-    icon: Sparkles,
-    badge: "Brand Aligned",
-    userPrompt: "How do you ensure brand consistency across interactions?",
-    botReply:
-      "Custom neural system prompts enforce exact brand tone, empathetic responses, and strict guardrails.",
-  },
-  {
-    id: "voice",
-    title: "Voice",
-    subtitle: "Cloned or synthetic. Multilingual support with Low Latency real-time audio.",
-    icon: Mic,
-    badge: "Low Latency Voice",
-    userPrompt: "What is the Low Latency voice response?",
-    botReply:
-      "Low Latency voice synthesis supporting 29+ spoken languages and custom voice cloning.",
-  },
-  {
-    id: "memory",
-    title: "Conversational Memory",
-    subtitle: "Extract insights from every conversation and retain context across sessions.",
-    icon: HardDrive,
-    badge: "Session Memory",
-    userPrompt: "Tell me more about digital human deployment packages.",
-    botReply:
-      "HS Global AI offers complete packages: On-Device Kiosk, 3D Hologram Box, and Spatial Display screens.",
+    capabilityTitle: "Multilingual Low Latency Voice",
+    capabilityIcon: Mic,
+    userPrompt: "What is the voice latency and language coverage?",
+    botReply: "Low Latency voice synthesis supporting 29+ spoken languages and custom per-persona voice cloning.",
   },
 ];
 
 export default function RealtimeTalkingAvatars() {
-  const [activeTab, setActiveTab] = useState<string>("knowledge");
-  const [selectedLadyId, setSelectedLadyId] = useState<string>("full-presenter");
-  const [inputVal, setInputVal] = useState<string>("");
-  const [chatMessages, setChatMessages] = useState<{ sender: "user" | "bot"; text: string }[]>([]);
-  const [isSpeaking, setIsSpeaking] = useState<boolean>(false);
-  const [isListening, setIsListening] = useState<boolean>(false);
-  const [soundEnabled, setSoundEnabled] = useState<boolean>(true);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const activeFeature = features.find((f) => f.id === activeTab) || features[0];
-  const activeLady = ladyOptions.find((l) => l.id === selectedLadyId) || ladyOptions[0];
+  // Automatic Carousel Rotation every 4.5 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % ladyOptions.length);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, []);
 
-  // Speech Synthesis with Avatar-Specific Voice Profiles
-  const speakResponse = (text: string, ladyIdOverride?: string) => {
-    const currentLadyId = ladyIdOverride || selectedLadyId;
-    const lady = ladyOptions.find((l) => l.id === currentLadyId) || ladyOptions[0];
-
-    if (!soundEnabled) {
-      setIsSpeaking(true);
-      setTimeout(() => setIsSpeaking(false), 3800);
-      return;
-    }
-
-    // Play signature Web Audio sound stinger for this avatar presenter
-    playAvatarAudioStinger(currentLadyId);
-
-    if (typeof window === "undefined" || !("speechSynthesis" in window)) {
-      setIsSpeaking(true);
-      setTimeout(() => setIsSpeaking(false), 3800);
-      return;
-    }
-
-    try {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      
-      // Apply unique language accent, pitch, and rate for each presenter
-      utterance.lang = lady.voiceProfile.lang;
-      utterance.pitch = lady.voiceProfile.pitch;
-      utterance.rate = lady.voiceProfile.rate;
-
-      const voices = window.speechSynthesis.getVoices();
-      const preferredVoice = findVoiceForLady(voices, currentLadyId);
-
-      if (preferredVoice) {
-        utterance.voice = preferredVoice;
-      }
-
-      utterance.onstart = () => setIsSpeaking(true);
-      utterance.onend = () => setIsSpeaking(false);
-      utterance.onerror = () => setIsSpeaking(false);
-
-      window.speechSynthesis.speak(utterance);
-    } catch (err) {
-      setIsSpeaking(true);
-      setTimeout(() => setIsSpeaking(false), 3800);
-    }
-  };
-
-  const handleLadySelect = (ladyId: string) => {
-    setSelectedLadyId(ladyId);
-    const lady = ladyOptions.find((l) => l.id === ladyId);
-    if (lady) {
-      setChatMessages([
-        { sender: "bot", text: `Active Presenter: ${lady.name} (${lady.role}). "${lady.greeting}"` },
-      ]);
-      speakResponse(lady.greeting, ladyId);
-    }
-  };
-
-  const handleTabClick = (id: string) => {
-    setActiveTab(id);
-    const feature = features.find((f) => f.id === id);
-    if (feature) {
-      setChatMessages([
-        { sender: "user", text: feature.userPrompt },
-        { sender: "bot", text: feature.botReply },
-      ]);
-      speakResponse(feature.botReply);
-    }
-  };
-
-  const handleSend = (e?: React.FormEvent) => {
-    if (e) e.preventDefault();
-    if (!inputVal.trim()) return;
-
-    const userText = inputVal;
-    setInputVal("");
-
-    setChatMessages((prev) => [...prev, { sender: "user", text: userText }]);
-    setIsSpeaking(false);
-
-    setTimeout(() => {
-      const botReplyText = `Thank you for asking about "${userText}". Our conversational avatars process requests in real-time with Low Latency and interactive response.`;
-      setChatMessages((prev) => [
-        ...prev,
-        {
-          sender: "bot",
-          text: botReplyText,
-        },
-      ]);
-      speakResponse(botReplyText);
-    }, 600);
-  };
-
-  const handleMicClick = () => {
-    if (isSpeaking) {
-      if (typeof window !== "undefined" && "speechSynthesis" in window) {
-        window.speechSynthesis.cancel();
-      }
-      setIsSpeaking(false);
-      setIsListening(false);
-      return;
-    }
-
-    if (
-      typeof window !== "undefined" &&
-      ("webkitSpeechRecognition" in window || "SpeechRecognition" in window)
-    ) {
-      try {
-        const SpeechRecognition =
-          (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
-        const recognition = new SpeechRecognition();
-        recognition.continuous = false;
-        recognition.interimResults = false;
-        recognition.lang = "en-US";
-
-        setIsListening(true);
-
-        recognition.onresult = (event: any) => {
-          const spokenText = event.results[0][0].transcript;
-          setIsListening(false);
-          if (spokenText) {
-            triggerUserMessage(spokenText);
-          }
-        };
-
-        recognition.onerror = () => {
-          setIsListening(false);
-          triggerUserMessage("Can you demonstrate your real-time conversational AI avatar capabilities?");
-        };
-
-        recognition.onend = () => {
-          setIsListening(false);
-        };
-
-        recognition.start();
-        return;
-      } catch (e) {
-        console.log("Speech recognition fallback");
-      }
-    }
-
-    setIsListening(true);
-    setTimeout(() => {
-      setIsListening(false);
-      triggerUserMessage("Can you demonstrate your real-time conversational AI avatar capabilities?");
-    }, 1200);
-  };
-
-  const triggerUserMessage = (userText: string) => {
-    setChatMessages((prev) => [...prev, { sender: "user", text: userText }]);
-    setIsSpeaking(false);
-
-    setTimeout(() => {
-      const botText = `I hear you! Our real-time digital humans process live speech with Low Latency and full natural response.`;
-      setChatMessages((prev) => [...prev, { sender: "bot", text: botText }]);
-      speakResponse(botText);
-    }, 600);
-  };
-
-  const displayMessages =
-    chatMessages.length > 0
-      ? chatMessages
-      : [
-          { sender: "user" as const, text: activeFeature.userPrompt },
-          { sender: "bot" as const, text: activeFeature.botReply },
-        ];
+  const activeLady = ladyOptions[currentIndex];
+  const CapabilityIcon = activeLady.capabilityIcon;
 
   return (
     <section className="relative overflow-hidden bg-black px-4 sm:px-6 py-24 sm:py-32 text-white border-b border-white/10">
@@ -465,7 +121,7 @@ export default function RealtimeTalkingAvatars() {
           <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-950/60 px-4 py-1.5 backdrop-blur-md mb-4 shadow-[0_0_20px_rgba(6,182,212,0.25)]">
             <span className="h-2 w-2 rounded-full bg-cyan-400 animate-ping" />
             <span className="text-xs font-semibold uppercase tracking-widest text-cyan-300">
-              Interactive Avatar AI
+              Digital Human Showcase
             </span>
           </div>
 
@@ -478,64 +134,105 @@ export default function RealtimeTalkingAvatars() {
           </h2>
 
           <p className="mt-4 text-base leading-8 text-gray-300 sm:text-lg">
-            Extract valuable insights from every conversation and interact with your visitors exactly the way you want.
+            Autonomous conversational digital humans operating in real-time with memory, brand alignment, and multilingual voice cloning.
           </p>
         </div>
 
-        {/* LADY AVATAR SELECTOR CONTROL BAR */}
-        <div className="mb-8 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-white/10 bg-neutral-950/80 p-3.5 backdrop-blur-md">
+        {/* CAROUSEL PRESENTER INDICATOR BAR (NON-CLICKABLE VISUAL SHOWCASE) */}
+        <div className="mb-8 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-white/10 bg-neutral-950/80 p-3.5 backdrop-blur-md pointer-events-none select-none">
           <div className="flex items-center gap-2">
             <span className="text-xs font-mono font-bold uppercase text-cyan-300 tracking-wider">
-              Select Avatar Presenter:
+              Avatar Presenter:
             </span>
           </div>
 
           <div className="flex flex-wrap items-center gap-2">
-            {ladyOptions.map((lady) => {
-              const isSelected = lady.id === selectedLadyId;
+            {ladyOptions.map((lady, idx) => {
+              const isSelected = idx === currentIndex;
               return (
-                <button
+                <div
                   key={lady.id}
-                  onClick={() => handleLadySelect(lady.id)}
                   className={`inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-medium transition-all ${
                     isSelected
                       ? "border border-cyan-400 bg-cyan-950 text-cyan-200 shadow-[0_0_15px_rgba(6,182,212,0.4)]"
-                      : "border border-white/15 bg-black/60 text-gray-400 hover:border-cyan-500/40 hover:text-white"
+                      : "border border-white/15 bg-black/60 text-gray-400 opacity-60"
                   }`}
                 >
                   <span
                     className={`h-2 w-2 rounded-full ${
-                      isSelected ? "bg-cyan-400 animate-pulse" : "bg-gray-500"
+                      isSelected ? "bg-cyan-400 animate-ping" : "bg-gray-500"
                     }`}
                   />
                   <span>{lady.name}</span>
                   <span className="text-[10px] text-gray-400 font-mono">({lady.role})</span>
-                </button>
+                </div>
               );
             })}
           </div>
         </div>
 
-        {/* MAIN 2-COLUMN UNOBSTRUCTED LAYOUT (7 Cols Full Avatar | 5 Cols Side Chat & Features) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        {/* MAIN 2-COLUMN CAROUSEL SHOWCASE (7 Cols Video Frame | 5 Cols Side Panel) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch pointer-events-none select-none">
           
-          {/* LEFT COLUMN: 100% FULL UNCOVERED AVATAR SHOWCASE FRAME (7/12 Width) */}
+          {/* LEFT COLUMN: DEDICATED CAROUSEL VIDEO FRAME AREA (7/12 Width) */}
           <div className="lg:col-span-7 relative min-h-[540px] sm:min-h-[620px] rounded-3xl border border-cyan-500/40 bg-neutral-950 overflow-hidden backdrop-blur-2xl shadow-[0_0_80px_rgba(6,182,212,0.25)] flex flex-col justify-between p-6">
             
-            {/* Full Uncovered Avatar Presenter Image */}
-            <div className="absolute inset-0 z-0 overflow-hidden bg-black">
-              <Image
-                src={activeLady.imageSrc}
-                alt={activeLady.name}
-                fill
-                priority
-                className="object-cover object-top filter brightness-105 contrast-105 transition-all duration-500"
-              />
-              {/* Soft Gradient Vignette for crisp badges & status readability */}
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30 z-10" />
-            </div>
+            {/* Smooth Video / Slide Frame Container */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeLady.id}
+                initial={{ opacity: 0, scale: 1.03 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.97 }}
+                transition={{ duration: 0.7, ease: "easeInOut" }}
+                className="absolute inset-0 z-0 overflow-hidden bg-neutral-950 flex items-center justify-center"
+              >
+                {activeLady.videoSrc ? (
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    key={activeLady.videoSrc}
+                    className="h-full w-full object-cover object-top filter brightness-105 contrast-105"
+                  >
+                    <source src={activeLady.videoSrc} type="video/mp4" />
+                    {activeLady.imageSrc && (
+                      <Image
+                        src={activeLady.imageSrc}
+                        alt={activeLady.name}
+                        fill
+                        className="object-cover object-top"
+                      />
+                    )}
+                  </video>
+                ) : activeLady.imageSrc ? (
+                  <Image
+                    src={activeLady.imageSrc}
+                    alt={activeLady.name}
+                    fill
+                    priority
+                    className="object-cover object-top filter brightness-105 contrast-105"
+                  />
+                ) : (
+                  <div className="relative flex flex-col items-center justify-center p-8 text-center bg-gradient-to-b from-neutral-950 via-cyan-950/20 to-black w-full h-full">
+                    <div className="rounded-2xl border border-cyan-500/40 bg-cyan-950/60 p-4 text-cyan-300 mb-3 shadow-[0_0_20px_rgba(6,182,212,0.3)]">
+                      <Film className="w-8 h-8" />
+                    </div>
+                    <span className="text-sm font-bold font-mono text-cyan-300 uppercase tracking-wider">
+                      Video Stream Area — Slide 0{currentIndex + 1} ({activeLady.name})
+                    </span>
+                    <p className="mt-2 text-xs font-mono text-gray-400 max-w-xs">
+                      MP4 Video Slot: {activeLady.videoSrc}
+                    </p>
+                  </div>
+                )}
 
-            {/* TOP HEADER STATUS BADGES (Cleanly positioned at top, 0 covering avatar face) */}
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30 z-10" />
+              </motion.div>
+            </AnimatePresence>
+
+            {/* TOP HEADER STATUS BADGES */}
             <div className="relative z-20 flex flex-wrap items-center justify-between gap-3">
               <div className="flex items-center gap-3 rounded-full border border-cyan-500/40 bg-black/85 px-4 py-2 backdrop-blur-md shadow-[0_0_20px_rgba(6,182,212,0.3)]">
                 <span className="relative flex h-2.5 w-2.5">
@@ -557,93 +254,60 @@ export default function RealtimeTalkingAvatars() {
               </div>
             </div>
 
-            {/* BOTTOM BAR: MIC & AUDIO CONTROLS (Cleanly positioned at bottom edge, 0 covering avatar face/body) */}
+            {/* BOTTOM STATUS BAR (NON-CLICKABLE VISUAL BADGES) */}
             <div className="relative z-20 flex items-center justify-between gap-4 pt-4 border-t border-white/10 backdrop-blur-md bg-black/60 -mx-6 -mb-6 p-6">
               <div className="flex items-center gap-3">
                 <div className="relative flex items-center justify-center">
-                  <span
-                    className={`absolute h-14 w-14 rounded-full transition-all ${
-                      isListening
-                        ? "bg-emerald-400/50 animate-ping"
-                        : isSpeaking
-                        ? "bg-cyan-400/40 animate-ping"
-                        : "bg-cyan-500/20 animate-pulse"
-                    }`}
-                  />
-                  <button
-                    onClick={handleMicClick}
-                    title={isListening ? "Listening..." : "Click to speak with AI avatar"}
-                    className={`relative flex h-12 w-12 items-center justify-center rounded-full border transition-all duration-300 hover:scale-110 shadow-xl ${
-                      isListening
-                        ? "border-emerald-400 bg-emerald-950/90 text-emerald-300 shadow-[0_0_30px_rgba(52,211,153,0.8)]"
-                        : isSpeaking
-                        ? "border-cyan-300 bg-cyan-900/90 text-cyan-200 shadow-[0_0_30px_rgba(6,182,212,0.8)]"
-                        : "border-cyan-400 bg-cyan-950/90 text-cyan-300 shadow-[0_0_25px_rgba(6,182,212,0.6)]"
-                    }`}
-                  >
-                    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"
-                      />
-                    </svg>
-                  </button>
+                  <span className="absolute h-10 w-10 rounded-full bg-cyan-400/30 animate-ping" />
+                  <div className="relative flex h-10 w-10 items-center justify-center rounded-full border border-cyan-400 bg-cyan-950 text-cyan-300 shadow-[0_0_20px_rgba(6,182,212,0.6)]">
+                    <Mic className="h-5 w-5" />
+                  </div>
                 </div>
 
-                <button
-                  onClick={handleMicClick}
-                  className="rounded-full border border-cyan-500/40 bg-black/85 px-4 py-2 font-mono text-xs font-bold text-cyan-300 backdrop-blur-md shadow-lg hover:border-cyan-400 transition-colors"
-                >
-                  {isListening
-                    ? "LISTENING TO VOICE..."
-                    : isSpeaking
-                    ? "AVATAR SPEAKING..."
-                    : "Click to Speak with Avatar"}
-                </button>
+                <div className="rounded-full border border-cyan-500/40 bg-black/85 px-4 py-2 font-mono text-xs font-bold text-cyan-300 backdrop-blur-md shadow-lg">
+                  AUTONOMOUS NEURAL VIDEO STREAM
+                </div>
               </div>
 
-              <button
-                onClick={() => setSoundEnabled(!soundEnabled)}
-                title={soundEnabled ? "Mute voice sound" : "Enable voice sound"}
-                className="rounded-full border border-white/20 bg-black/80 px-3.5 py-2 font-mono text-xs text-gray-300 hover:text-white backdrop-blur-md transition-colors"
-              >
-                {soundEnabled ? "🔊 Voice On" : "🔇 Muted"}
-              </button>
+              <div className="rounded-full border border-white/20 bg-black/80 px-3.5 py-2 font-mono text-xs text-gray-300 backdrop-blur-md">
+                🔊 29+ Languages Enabled
+              </div>
             </div>
 
           </div>
 
-          {/* RIGHT COLUMN: DEDICATED INTERACTIVE CHAT & FEATURE CONTROLS PANEL (5/12 Width) */}
+          {/* RIGHT COLUMN: DEDICATED CAROUSEL CAPABILITY & DIALOGUE PANEL (5/12 Width) */}
           <div className="lg:col-span-5 flex flex-col justify-between rounded-3xl border border-white/15 bg-neutral-950/90 p-6 backdrop-blur-xl shadow-2xl space-y-5">
             
-            {/* Top Feature Selector Tabs */}
+            {/* Top Capability Indicator Card */}
             <div>
               <span className="block text-[11px] font-mono font-bold uppercase tracking-wider text-cyan-400 mb-3">
-                SELECT AVATAR CAPABILITY:
+                AVATAR CAPABILITY:
               </span>
-              <div className="grid grid-cols-2 gap-2">
-                {features.map((feature) => {
-                  const isActive = activeTab === feature.id;
-                  return (
-                    <button
-                      key={feature.id}
-                      onClick={() => handleTabClick(feature.id)}
-                      className={`text-left p-3 rounded-xl border transition-all text-xs font-medium ${
-                        isActive
-                          ? "border-cyan-400 bg-cyan-950/80 text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.3)]"
-                          : "border-white/10 bg-neutral-900/60 text-gray-300 hover:border-cyan-500/40 hover:text-white"
-                      }`}
-                    >
-                      <div className="flex items-center gap-2">
-                        <feature.icon className="w-4 h-4 text-cyan-300 shrink-0" strokeWidth={1.75} />
-                        <span className="font-bold">{feature.title}</span>
-                      </div>
-                    </button>
-                  );
-                })}
-              </div>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeLady.id}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.4 }}
+                  className="p-4 rounded-2xl border border-cyan-400 bg-cyan-950/70 text-cyan-200 shadow-[0_0_20px_rgba(6,182,212,0.2)]"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="rounded-xl border border-cyan-500/40 bg-black/60 p-2.5 text-cyan-300">
+                      <CapabilityIcon className="w-5 h-5" strokeWidth={1.75} />
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-bold text-white">
+                        {activeLady.capabilityTitle}
+                      </h3>
+                      <p className="text-xs text-cyan-300 font-mono mt-0.5">
+                        {activeLady.voiceProfile.accentName}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
             </div>
 
             {/* Chat Interface Header */}
@@ -656,61 +320,45 @@ export default function RealtimeTalkingAvatars() {
                   ONLINE
                 </span>
               </div>
-              <div
-                className={`h-2.5 w-2.5 rounded-full ${
-                  isSpeaking
-                    ? "bg-cyan-300 animate-ping"
-                    : isListening
-                    ? "bg-emerald-400 animate-ping"
-                    : "bg-emerald-400 animate-pulse"
-                }`}
-              />
+              <div className="h-2.5 w-2.5 rounded-full bg-cyan-300 animate-ping" />
             </div>
 
             {/* Chat Message Stream */}
             <div className="flex-1 overflow-y-auto space-y-3 pr-1 min-h-[220px] max-h-[300px] text-xs">
-              <AnimatePresence mode="popLayout">
-                {displayMessages.map((msg, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className={`flex flex-col ${
-                      msg.sender === "user" ? "items-end" : "items-start"
-                    }`}
-                  >
-                    <div
-                      className={`max-w-[92%] rounded-2xl px-4 py-3 font-sans leading-relaxed ${
-                        msg.sender === "user"
-                          ? "bg-gradient-to-r from-cyan-500 to-sky-600 font-medium text-white shadow-[0_0_15px_rgba(6,182,212,0.3)] rounded-br-none"
-                          : "border border-white/15 bg-neutral-900/90 text-gray-200 rounded-bl-none"
-                      }`}
-                    >
-                      {msg.text}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeLady.id}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -12 }}
+                  transition={{ duration: 0.4 }}
+                  className="space-y-3"
+                >
+                  {/* User Prompt Bubble */}
+                  <div className="flex flex-col items-end">
+                    <div className="max-w-[92%] rounded-2xl rounded-br-none px-4 py-3 font-sans font-medium leading-relaxed bg-gradient-to-r from-cyan-500 to-sky-600 text-white shadow-[0_0_15px_rgba(6,182,212,0.3)]">
+                      {activeLady.userPrompt}
                     </div>
-                  </motion.div>
-                ))}
+                  </div>
+
+                  {/* Bot Response Bubble */}
+                  <div className="flex flex-col items-start">
+                    <div className="max-w-[92%] rounded-2xl rounded-bl-none px-4 py-3 font-sans leading-relaxed border border-white/15 bg-neutral-900/90 text-gray-200">
+                      {activeLady.botReply}
+                    </div>
+                  </div>
+                </motion.div>
               </AnimatePresence>
             </div>
 
-            {/* Chat Prompt Input Box */}
-            <form onSubmit={handleSend} className="flex items-center gap-2 pt-2 border-t border-white/15">
-              <input
-                type="text"
-                value={inputVal}
-                onChange={(e) => setInputVal(e.target.value)}
-                placeholder="Type a message to avatar..."
-                className="w-full rounded-full border border-white/20 bg-neutral-900/80 px-4 py-2.5 text-xs text-white placeholder-gray-400 backdrop-blur-sm focus:border-cyan-400 focus:outline-none"
-              />
-              <button
-                type="submit"
-                className="rounded-full bg-gradient-to-r from-cyan-400 to-sky-500 px-5 py-2.5 text-xs font-bold text-black transition-all hover:scale-105 shadow-[0_0_15px_rgba(6,182,212,0.4)]"
-              >
-                Send
-              </button>
-            </form>
+            {/* Carousel Auto-play Progress Footer Bar */}
+            <div className="pt-3 border-t border-white/15 flex items-center justify-between text-xs font-mono text-gray-400">
+              <div className="flex items-center gap-2">
+                <Globe className="h-4 w-4 text-cyan-400" />
+                <span className="text-gray-300">29+ Global Languages</span>
+              </div>
+              <span className="text-cyan-400 font-semibold">● Auto Video Carousel</span>
+            </div>
 
           </div>
         </div>
