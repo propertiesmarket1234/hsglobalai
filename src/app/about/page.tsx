@@ -61,7 +61,7 @@ const enterprisePillars = [
   {
     title: "Multilingual Voice AI & Voice Cloning",
     description:
-      "Communicate with global customers across 29 languages with real-time neural speech synthesis & voice cloning.",
+      "Communicate with global customers across 29+ languages with real-time neural speech synthesis & voice cloning.",
     icon: Globe,
   },
   {
@@ -119,7 +119,7 @@ const approachItems = [
     number: "03",
     title: "Multilingual Intelligence & Voice Cloning",
     description:
-      "Natural AI interactions designed to support global customers across 29 languages, voice cloning, and regional dialects.",
+      "Natural AI interactions designed to support global customers across 29+ languages, voice cloning, and regional dialects.",
   },
   {
     number: "04",

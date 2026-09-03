@@ -114,6 +114,8 @@ export default function ContactPage({ defaultTab = "contact" }: { defaultTab?: "
   const [activeTab, setActiveTab] = useState<"contact" | "downloads">(defaultTab);
   const [activeLocationMap, setActiveLocationMap] = useState<"singapore" | "india">("singapore");
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [downloadingTitle, setDownloadingTitle] = useState<string | null>(null);
 
   const [formData, setFormData] = useState({
@@ -126,9 +128,39 @@ export default function ContactPage({ defaultTab = "contact" }: { defaultTab?: "
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || "Failed to submit inquiry. Please try again.");
+      }
+
+      setSubmitted(true);
+      setFormData({
+        name: "",
+        email: "",
+        countryCode: "+65",
+        phone: "",
+        company: "",
+        industry: "Banking",
+        message: "",
+      });
+    } catch (err: any) {
+      setSubmitError(err?.message || "An unexpected error occurred. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleDownload = (item: SheetItem) => {
@@ -379,6 +411,16 @@ Enterprise Contact: sales@hsglobalai.com
                       </div>
                     ) : (
                       <form onSubmit={handleSubmit} className="space-y-6">
+                        {submitError && (
+                          <div className="rounded-2xl border border-red-500/40 bg-red-500/10 p-4 text-sm text-red-300 flex items-start gap-3">
+                            <span className="text-xl shrink-0">⚠️</span>
+                            <div>
+                              <p className="font-semibold text-red-200">Unable to Submit Form</p>
+                              <p className="mt-1 text-xs text-red-300/90">{submitError}</p>
+                            </div>
+                          </div>
+                        )}
+
                         <div className="grid gap-6 sm:grid-cols-2">
                           <div>
                             <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
@@ -486,9 +528,20 @@ Enterprise Contact: sales@hsglobalai.com
 
                         <button
                           type="submit"
-                          className="w-full rounded-xl bg-gradient-to-r from-cyan-500 via-blue-600 to-cyan-400 px-6 py-4 text-sm font-bold text-white shadow-xl transition-all hover:from-cyan-400 hover:to-blue-500 shadow-cyan-500/25"
+                          disabled={isSubmitting}
+                          className="w-full rounded-xl bg-gradient-to-r from-cyan-500 via-blue-600 to-cyan-400 px-6 py-4 text-sm font-bold text-white shadow-xl transition-all hover:from-cyan-400 hover:to-blue-500 shadow-cyan-500/25 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
                         >
-                          Submit Inquiry & Request Live Demo
+                          {isSubmitting ? (
+                            <>
+                              <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                              </svg>
+                              <span>Sending Inquiry...</span>
+                            </>
+                          ) : (
+                            <span>Submit Inquiry & Request Live Demo</span>
+                          )}
                         </button>
                       </form>
                     )}

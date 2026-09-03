@@ -103,15 +103,15 @@ export const industriesData: Record<string, IndustryDetail> = {
         title: "Multilingual Banking Assistant",
         category: "Global Services",
         description:
-          "Serve international and expatriate clients across 29 global languages with real-time on-device speech translation and localized financial terms.",
-        highlight: "29 Global Languages On-Device",
+          "Serve international and expatriate clients across 29+ global languages with real-time on-device speech translation and localized financial terms.",
+        highlight: "29+ Global Languages On-Device",
       },
     ],
     techSpecs: [
       { label: "Data Processing", value: "100% Air-Gapped On-Device GPU Processing" },
       { label: "Security Compliance", value: "ISO 27001 & Bank Security Architecture Compliant" },
       { label: "Hardware Support", value: "65\", 75\", 86\" 3D Hologram Enclosures & Interactive Kiosks" },
-      { label: "Document Ingestion", value: "Real-Time Local PDF / DOCX RAG Neural Vector Engine" },
+      { label: "Document Processing", value: "Real-Time Local PDF / DOCX RAG Neural Vector Engine" },
     ],
     metaTitle: "AI Digital Humans & Holograms for Banking & Financial Services | HS Global AI",
     metaDescription:
@@ -128,7 +128,7 @@ export const industriesData: Record<string, IndustryDetail> = {
     description:
       "Engage shoppers with holographic brand ambassadors, smart product explainers, Virtual Try-On mirrors, and interactive promotional displays designed to boost in-store footfall and checkout conversion rates.",
     heroOverview:
-      "Transform static storefront displays and luxury retail floors into interactive 3D shopping experiences. Holographic brand avatars greet shoppers, demonstrate high-end watches, jewellery, apparel, and electronics, answer specs in 29 languages, and feature instant Virtual Try-On.",
+      "Transform static storefront displays and luxury retail floors into interactive 3D shopping experiences. Holographic brand avatars greet shoppers, demonstrate high-end watches, jewellery, apparel, and electronics, answer specs in 29+ languages, and feature instant Virtual Try-On.",
     accentColor: "from-cyan-500/20 via-sky-500/10 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.3)",
     metrics: [
@@ -428,12 +428,12 @@ export const industriesData: Record<string, IndustryDetail> = {
     description:
       "Deliver unforgettable visitor experiences using 3D hologram tour guides, multilingual information kiosks, exhibition storytelling avatars, and interactive museum docents powered by digital humans.",
     heroOverview:
-      "Delight visitors at museums, heritage sites, national landmarks, and international expos with interactive 3D hologram tour guides. Avatars speak 29 global languages, recite historical archives via local RAG, and bring cultural exhibits to life.",
+      "Delight visitors at museums, heritage sites, national landmarks, and international expos with interactive 3D hologram tour guides. Avatars speak 29+ global languages, recite historical archives via local RAG, and bring cultural exhibits to life.",
     accentColor: "from-cyan-500/20 via-sky-500/10 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.3)",
     metrics: [
       { label: "Visitor Engagement Lift", value: "4x" },
-      { label: "Spoken Global Languages", value: "29" },
+      { label: "Spoken Global Languages", value: "29+" },
       { label: "Exhibit Satisfaction", value: "95%" },
       { label: "Operating Hours", value: "24/7" },
     ],
@@ -483,7 +483,7 @@ export const industriesData: Record<string, IndustryDetail> = {
         category: "Exhibition AI",
         description:
           "Welcome global trade show attendees with multilingual digital human hosts explaining nation innovations and exhibits.",
-        highlight: "29 Global Languages",
+        highlight: "29+ Global Languages",
       },
       {
         title: "City Visitor Information Center Kiosk",

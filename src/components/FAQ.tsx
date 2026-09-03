@@ -74,7 +74,7 @@ const faqData: FAQItem[] = [
     category: "Capabilities & Features",
     question: "How many languages and dialects are supported?",
     answer:
-      "HS Global AI supports 29 global languages (including English, Spanish, Mandarin, Arabic, Japanese, French, German, and Hindi), custom voice cloning, and over 100 regional accents with automatic language detection.",
+      "HS Global AI supports 29+ global languages (including English, Spanish, Mandarin, Arabic, Japanese, French, German, and Hindi), custom voice cloning, and over 100 regional accents with automatic language detection.",
   },
   {
     category: "Capabilities & Features",
@@ -104,7 +104,7 @@ const faqData: FAQItem[] = [
     category: "Deployment & Support",
     question: "How long does a standard deployment take?",
     answer:
-      "Standard deployments can be completed in 2 to 4 weeks, including avatar customization, knowledge base ingestion, and hardware setup. Phased enterprise rollouts are tailored to project scope.",
+      "Standard deployments can be completed in 2 to 4 weeks, including avatar customization, knowledge base setup, and hardware installation. Phased enterprise rollouts are tailored to project scope.",
   },
   {
     category: "Deployment & Support",

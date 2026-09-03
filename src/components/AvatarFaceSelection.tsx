@@ -164,7 +164,7 @@ export default function AvatarFaceSelection() {
           </h2>
 
           <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-gray-300 sm:text-lg">
-            Full Avatar Customization & Voice Cloning supporting 29 Global Languages and natural neural speech synthesis.
+            Full Avatar Customization & Voice Cloning supporting 29+ Global Languages and natural neural speech synthesis.
           </p>
         </motion.div>
 

@@ -198,7 +198,7 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
 
                 <div className="mt-6 pt-6 border-t border-white/10 flex items-center justify-between text-xs font-mono text-gray-400">
                   <span>STATUS: READY TO DEPLOY</span>
-                  <span className="text-emerald-400">29 LANGUAGES</span>
+                  <span className="text-emerald-400">29+ LANGUAGES</span>
                 </div>
               </div>
             </div>

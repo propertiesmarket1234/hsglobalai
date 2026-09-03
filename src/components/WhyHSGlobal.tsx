@@ -34,8 +34,8 @@ const features = [
     title: "Multilingual Voice AI",
     subtitle: "Human-Like Conversation",
     description:
-      "Engage global visitors with natural, human-like voice interaction across 29 languages, regional accents, and per-persona voice cloning for seamless customer service.",
-    badge: "29 Global Languages",
+      "Engage global visitors with natural, human-like voice interaction across 29+ languages, regional accents, and per-persona voice cloning for seamless customer service.",
+    badge: "29+ Global Languages",
     accentColor: "from-cyan-500/20 via-sky-500/5 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.3)",
     borderColor: "group-hover:border-cyan-500/40",

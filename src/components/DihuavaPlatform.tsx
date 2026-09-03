@@ -47,7 +47,7 @@ const capabilities: CapabilityItem[] = [
     description:
       "Upload enterprise PDFs, Word files, and Markdown documents locally. Our cross-encoder re-ranker retrieves grounded answers on-device with zero data leaving your building.",
     icon: FileText,
-    tags: ["100% Air-Gapped RAG", "Cross-Encoder Reranker", "Multi-Format Ingestion", "Grounding Guard"],
+    tags: ["100% Air-Gapped RAG", "Cross-Encoder Reranker", "Multi-Format Data Import", "Grounding Guard"],
     stat: "No Cloud Dependency",
     linkUrl: "/platform/document-intelligence",
     linkText: "Learn More About Document Intelligence →",

@@ -34,9 +34,9 @@ const impacts = [
   {
     title: "Multilingual Communication",
     description:
-      "Engage visitors in 29 global languages with automatic language detection & voice cloning.",
+      "Engage visitors in 29+ global languages with automatic language detection & voice cloning.",
     icon: "🌍",
-    stat: "29 Global Languages",
+    stat: "29+ Global Languages",
   },
   {
     title: "Improved Brand Perception",

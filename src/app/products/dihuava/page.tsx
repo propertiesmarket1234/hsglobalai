@@ -85,14 +85,14 @@ const coreModules = [
   {
     id: "multilingual-voice",
     title: "Multilingual Engine & Voice Cloning",
-    subtitle: "29 Global Languages & Brand Voice Matching",
+    subtitle: "29+ Global Languages & Brand Voice Matching",
     description:
-      "Full on-device speech recognition, voice synthesis, and translation across 29 global languages, including regional accents and automatic per-persona voice cloning.",
+      "Full on-device speech recognition, voice synthesis, and translation across 29+ global languages, including regional accents and automatic per-persona voice cloning.",
     icon: Globe,
-    badge: "29 Global Languages",
+    badge: "29+ Global Languages",
     highlights: [
       "100% local speech recognition & TTS",
-      "Real-time 29 global languages engine",
+      "Real-time 29+ global languages engine",
       "Automatic per-persona voice cloning",
       "Localized currency & number speech",
     ],
@@ -133,7 +133,7 @@ const archPillars = [
   },
   {
     title: "Knowledge & Catalog RAG Engine",
-    desc: "Air-gapped local vector indexer with cross-encoder reranking, multi-column CSV catalog ingestion, and auto vocabulary generation.",
+    desc: "Air-gapped local vector indexer with cross-encoder reranking, multi-column CSV catalog import, and auto vocabulary generation.",
     icon: BookOpen,
   },
   {
@@ -164,7 +164,7 @@ const howItWorksSteps = [
     step: "01",
     title: "Understand",
     desc: "Voice input, documents, product catalogs, and visitor questions are processed locally.",
-    badge: "Local Ingestion",
+    badge: "Local Data Input",
   },
   {
     step: "02",
@@ -199,8 +199,8 @@ const voiceCapabilities = [
     desc: "Specialized neural models for global and regional accents with localized currency, numbering, and regional speech rhythm.",
   },
   {
-    name: "29 Global Languages Engine",
-    speed: "29 Global Languages",
+    name: "29+ Global Languages Engine",
+    speed: "29+ Global Languages",
     desc: "Covers English, Mandarin, Hindi, Spanish, Arabic, French, German, Japanese, Korean, Tamil, Telugu, Kannada, Bengali, Marathi, Gujarati, Russian, and major international languages.",
   },
 ];
@@ -263,7 +263,7 @@ const comparisonTable = [
 // PRODUCT SPECS
 const productSpecs = [
   { label: "Core AI Architecture", value: "Fully local on-device voice & conversation platform" },
-  { label: "Supported Languages", value: "29 languages" },
+  { label: "Supported Languages", value: "29+ Global Languages" },
   { label: "Speech & Voice Engine", value: "Speech recognition, synthesis & voice cloning" },
   { label: "Document RAG", value: "PDF, TXT, CSV & Markdown" },
   { label: "Product Catalog", value: "Product recommendation & screen synchronization" },
@@ -278,7 +278,7 @@ const faqs = [
   },
   {
     q: "How many languages are supported on-device?",
-    a: "29 global languages fully local, including English, Mandarin, Hindi, Spanish, Arabic, French, German, Japanese, Korean, Tamil, Telugu, Kannada, Bengali, Marathi, Gujarati, and major international languages.",
+    a: "29+ global languages fully local, including English, Mandarin, Hindi, Spanish, Arabic, French, German, Japanese, Korean, Tamil, Telugu, Kannada, Bengali, Marathi, Gujarati, and major international languages.",
   },
   {
     q: "Is visitor voice or conversation data transmitted to the cloud?",
@@ -370,7 +370,7 @@ export default function DihuavaProductPage() {
                   🔒 100% Offline Air-Gapped
                 </span>
                 <span className="rounded-full border border-cyan-500/30 bg-black/60 px-3.5 py-1 text-xs font-mono text-cyan-300">
-                  🌐 29 Global Languages
+                  🌐 29+ Global Languages
                 </span>
                 <span className="rounded-full border border-cyan-500/30 bg-black/60 px-3.5 py-1 text-xs font-mono text-cyan-300">
                   📸 Selfie With Avatar
@@ -416,7 +416,7 @@ export default function DihuavaProductPage() {
         <div className="mx-auto max-w-4xl">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             <div className="rounded-2xl border border-white/10 bg-black/60 p-6 text-center backdrop-blur-md">
-              <p className="text-3xl font-extrabold text-cyan-400 font-mono">29</p>
+              <p className="text-3xl font-extrabold text-cyan-400 font-mono">29+</p>
               <p className="mt-1 text-xs text-gray-300 font-mono uppercase tracking-wider">Global Languages</p>
             </div>
             <div className="rounded-2xl border border-white/10 bg-black/60 p-6 text-center backdrop-blur-md">
@@ -684,7 +684,7 @@ export default function DihuavaProductPage() {
               Voice Architecture
             </span>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-5xl">
-              Natural Voice Across 29 Languages
+              Natural Voice Across 29+ Languages
             </h2>
             <p className="mt-4 text-base text-gray-400">
               DIHUAVA delivers natural, multilingual voice interaction with local speech processing, regional language support, and customizable voice experiences.

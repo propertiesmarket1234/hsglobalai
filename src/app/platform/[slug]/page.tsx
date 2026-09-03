@@ -246,7 +246,7 @@ const platformData: Record<string, PlatformPageData> = {
     demoVideos: [
       {
         id: "rag-pdf-ingest",
-        title: "Drag & Drop PDF Ingestion to Instant Grounded Answer",
+        title: "Drag & Drop PDF Upload to Instant Grounded Answer",
         duration: "0:40",
         description: "Drag a technical PDF manual into the dashboard, watch local vector indexing, and ask a question answered strictly from the PDF.",
         videoSrc: "/videos/features/document_rag_ingest_demo.mp4",
@@ -303,7 +303,7 @@ const platformData: Record<string, PlatformPageData> = {
         desc: "Each avatar persona maintains its own isolated document vector store—preventing cross-department data exposure.",
       },
       {
-        title: "Multi-Format Local Ingestion",
+        title: "Multi-Format Local Processing",
         desc: "Native support for Markdown (.md), plain text (.txt), Word documents (.docx), and enterprise PDFs with automatic hash deduplication.",
       },
     ],
@@ -333,7 +333,7 @@ const platformData: Record<string, PlatformPageData> = {
       { item: "Supported File Formats", spec: ".md (recommended best), .txt, .docx, .pdf" },
       { item: "Indexing Speed", spec: "10–60 seconds per document on local GPU" },
       { item: "Max Index Capacity", spec: "Up to 500MB per persona knowledge base" },
-      { item: "Deduplication", spec: "Automatic MD5 hash checking prevents duplicate ingestion" },
+      { item: "Deduplication", spec: "Automatic MD5 hash checking prevents duplicate imports" },
     ],
     useCases: [
       "Banking & Financial Compliance Policy Search Desks",
