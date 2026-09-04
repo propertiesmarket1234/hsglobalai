@@ -68,12 +68,19 @@ export async function generateMetadata({ params }: IndustryPageProps): Promise<M
   if (!industry) {
     return {
       title: "Industry Solutions | HS Global AI",
+      description: "AI Digital Human and 3D Hologram Box solutions tailored for global enterprise industries.",
+      alternates: {
+        canonical: `/industries/${slug}`,
+      },
     };
   }
 
   return {
     title: industry.metaTitle,
     description: industry.metaDescription,
+    alternates: {
+      canonical: `/industries/${slug}`,
+    },
     openGraph: {
       title: industry.metaTitle,
       description: industry.metaDescription,
@@ -93,8 +100,37 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
   const allIndustries = Object.values(industriesData);
   const MainIcon = getIconComponent(industry.icon);
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://www.hsglobalai.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Industries",
+        item: "https://www.hsglobalai.com/industries",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: industry.title,
+        item: `https://www.hsglobalai.com/industries/${industry.slug}`,
+      },
+    ],
+  };
+
   return (
     <main className="min-h-screen bg-black text-white selection:bg-cyan-500 selection:text-black">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <Header />
 
       {/* HERO SECTION */}
@@ -191,7 +227,7 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
                       Core AI Architecture
                     </span>
                     <p className="mt-1 text-sm font-semibold text-cyan-200">
-                      100% Offline On-Device GPU Inference & Local PDF Document RAG
+                      100% Offline GPU Inference & <Link href="/products/dihuava/document-intelligence" className="underline hover:text-white">Local Document Intelligence RAG</Link>
                     </p>
                   </div>
                 </div>
@@ -297,7 +333,7 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
             </h2>
 
             <p className="mt-5 text-base text-gray-300 sm:text-lg leading-8">
-              Explore how our 3D Hologram Box and Digital Human AI platform are deployed across 6 core operational workflows in {industry.title}.
+              Explore how our <Link href="/products/holographic-display" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">AI Hologram Box</Link> and <Link href="/products/dihuava" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">DIHUAVA Digital Human AI platform</Link> are deployed across core operational workflows in {industry.title}.
             </p>
           </div>
 

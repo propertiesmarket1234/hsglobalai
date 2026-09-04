@@ -42,10 +42,6 @@ export const metadata: Metadata = {
     "Conversational AI",
   ],
 
-  alternates: {
-    canonical: "https://www.hsglobalai.com/",
-  },
-
   robots: {
     index: true,
     follow: true,
@@ -76,6 +72,71 @@ export const metadata: Metadata = {
   },
 };
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.hsglobalai.com/#organization",
+      "name": "HS Global AI",
+      "legalName": "HS GLOBAL SG PTE LTD",
+      "url": "https://www.hsglobalai.com",
+      "logo": "https://www.hsglobalai.com/logo/hs-global-ai-logo.png",
+      "description":
+        "HS Global AI provides an interactive AI digital human platform, 3D Hologram Box displays, and spatial displays for enterprise customer engagement.",
+      "email": "sales@hsglobalai.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "20 Collyer Quay, #09-01",
+        "addressLocality": "Singapore",
+        "postalCode": "049319",
+        "addressCountry": "SG",
+      },
+      "location": [
+        {
+          "@type": "Place",
+          "name": "Singapore Headquarters",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "20 Collyer Quay, #09-01",
+            "addressLocality": "Singapore",
+            "postalCode": "049319",
+            "addressCountry": "SG",
+          },
+        },
+        {
+          "@type": "Place",
+          "name": "India Office",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress":
+              "49-4-1, 17/3E, Prasanth Colony, 1st line, Gunadala, Kanuru",
+            "addressLocality": "Andhra Pradesh",
+            "postalCode": "520004",
+            "addressCountry": "IN",
+          },
+        },
+      ],
+      "sameAs": [
+        "https://www.facebook.com/hsglobalai/",
+        "https://x.com/HSGlobalAI",
+        "https://www.linkedin.com/company/hs-global-ai/",
+        "https://www.instagram.com/hsglobalai/",
+        "https://www.youtube.com/@hsglobalai",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.hsglobalai.com/#website",
+      "url": "https://www.hsglobalai.com",
+      "name": "HS Global AI",
+      "publisher": {
+        "@id": "https://www.hsglobalai.com/#organization",
+      },
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -86,6 +147,14 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd),
+          }}
+        />
+      </head>
       <Script
         id="google-tag-manager"
         strategy="afterInteractive"

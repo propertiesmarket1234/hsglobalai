@@ -28,6 +28,9 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
     return {
       title: "Article Not Found | HS Global AI",
       description: "The requested blog article could not be found.",
+      alternates: {
+        canonical: `/blog/${slug}`,
+      },
     };
   }
 
@@ -35,6 +38,9 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
     title: `${post.title} | HS Global AI`,
     description: post.snippet,
     keywords: post.tags,
+    alternates: {
+      canonical: `/blog/${post.slug}`,
+    },
     openGraph: {
       title: post.title,
       description: post.snippet,
@@ -58,15 +64,28 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
   };
 }
 
-/** Helper function to parse bold markdown text (**text**) */
+/** Helper function to parse bold markdown text (**text**) and inline links ([text](url)) */
 function renderFormattedText(text: string) {
-  const parts = text.split(/(\*\*.*?\*\*)/g);
+  const parts = text.split(/(\*\*.*?\*\*|\[.*?\]\(.*?\))/g);
   return parts.map((part, index) => {
     if (part.startsWith("**") && part.endsWith("**")) {
       return (
         <strong key={index} className="font-semibold text-white">
           {part.slice(2, -2)}
         </strong>
+      );
+    }
+    if (part.startsWith("[") && part.includes("](") && part.endsWith(")")) {
+      const linkText = part.substring(1, part.indexOf("]("));
+      const linkHref = part.substring(part.indexOf("](") + 2, part.length - 1);
+      return (
+        <Link
+          key={index}
+          href={linkHref}
+          className="text-cyan-400 hover:text-cyan-300 underline underline-offset-4 font-semibold transition-colors"
+        >
+          {linkText}
+        </Link>
       );
     }
     return part;
@@ -127,6 +146,31 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
     "keywords": post.tags.join(", "),
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://www.hsglobalai.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+        item: "https://www.hsglobalai.com/blog",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: post.title,
+        item: `https://www.hsglobalai.com/blog/${post.slug}`,
+      },
+    ],
+  };
+
   const contentBlocks = post.content.split("\n\n");
 
   return (
@@ -135,6 +179,10 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
       <Header />
@@ -463,17 +511,13 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
               );
             }
 
-            // 10. INLINE LINKS OR CTA PARAGRAPHS
-            if (trimmed.includes("[") && trimmed.includes("](") && trimmed.includes(")")) {
-              const linkText = trimmed.substring(trimmed.indexOf("[") + 1, trimmed.indexOf("]"));
-              const linkHref = trimmed.substring(trimmed.indexOf("](") + 2, trimmed.indexOf(")"));
-              const precedingText = trimmed.substring(0, trimmed.indexOf("["));
+            // 10. STANDALONE CTA BUTTON PARAGRAPHS
+            if (trimmed.startsWith("[") && trimmed.endsWith(")") && !trimmed.includes("\n") && trimmed.split("](").length === 2) {
+              const linkText = trimmed.substring(1, trimmed.indexOf("]("));
+              const linkHref = trimmed.substring(trimmed.indexOf("](") + 2, trimmed.length - 1);
 
               return (
                 <div key={idx} className="my-8 rounded-2xl border border-cyan-500/30 bg-neutral-950 p-6 text-center shadow-lg">
-                  {precedingText && (
-                    <p className="text-base text-gray-200 mb-4">{renderFormattedText(precedingText)}</p>
-                  )}
                   <Link
                     href={linkHref}
                     className="inline-flex items-center gap-2 rounded-full bg-cyan-500 px-8 py-3 text-xs font-bold text-black shadow-lg transition hover:bg-cyan-400 hover:scale-105"

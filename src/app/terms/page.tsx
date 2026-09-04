@@ -1,11 +1,42 @@
-"use client";
-
+import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
+export const metadata: Metadata = {
+  title: "Terms & Conditions | HS Global AI",
+  description:
+    "Review the Terms and Conditions for accessing hsglobalai.com, licensing DIHUAVA software, and purchasing 3D Hologram Box display hardware.",
+  alternates: {
+    canonical: "/terms",
+  },
+};
+
 export default function TermsPage() {
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://www.hsglobalai.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Terms & Conditions",
+        item: "https://www.hsglobalai.com/terms",
+      },
+    ],
+  };
+
   return (
     <main className="min-h-screen bg-black text-white selection:bg-cyan-500 selection:text-black">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <Header />
 
       <section className="relative overflow-hidden px-6 pt-32 pb-24 md:pt-40 md:pb-32">

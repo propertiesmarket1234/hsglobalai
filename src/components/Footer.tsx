@@ -60,21 +60,30 @@ export default function Footer() {
           {/* PRODUCTS */}
           <div>
             <h3 className="mb-6 text-xs font-semibold uppercase tracking-wider text-cyan-400 font-mono">
-              Products
+              Products & Features
             </h3>
 
-            <div className="flex flex-col gap-3 text-sm text-gray-400">
-              <Link href="/products/dihuava" className="transition-all hover:text-white hover:translate-x-1">
+            <div className="flex flex-col gap-2.5 text-sm text-gray-400">
+              <Link href="/products/dihuava" className="transition-all hover:text-white hover:translate-x-1 font-semibold text-gray-300">
                 DIHUAVA AI Digital Humans
               </Link>
-              <Link href="/products/holographic-display" className="transition-all hover:text-white hover:translate-x-1">
+              <Link href="/products/dihuava/avatar-customization" className="transition-all hover:text-cyan-300 hover:translate-x-1 text-xs text-gray-400 pl-2">
+                • Avatar & Voice Cloning
+              </Link>
+              <Link href="/products/dihuava/document-intelligence" className="transition-all hover:text-cyan-300 hover:translate-x-1 text-xs text-gray-400 pl-2">
+                • Document Intelligence (RAG)
+              </Link>
+              <Link href="/products/dihuava/multilingual-support" className="transition-all hover:text-cyan-300 hover:translate-x-1 text-xs text-gray-400 pl-2">
+                • Multilingual AI Engine
+              </Link>
+              <Link href="/products/holographic-display" className="transition-all hover:text-white hover:translate-x-1 font-semibold text-gray-300 pt-1">
                 AI Hologram Box
               </Link>
-              <Link href="/products/spatial-display" className="transition-all hover:text-white hover:translate-x-1">
+              <Link href="/products/spatial-display" className="transition-all hover:text-white hover:translate-x-1 font-semibold text-gray-300">
                 Spatial Display
               </Link>
-              <Link href="/products" className="transition-all hover:text-white hover:translate-x-1">
-                All Products Overview
+              <Link href="/products" className="transition-all hover:text-white hover:translate-x-1 text-xs text-cyan-400 pt-1">
+                All Products Overview →
               </Link>
             </div>
           </div>

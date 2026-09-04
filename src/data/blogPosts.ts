@@ -42,7 +42,7 @@ export const blogPosts: BlogPost[] = [
 
 AI business automation is transforming how modern enterprises manage customer onboarding, information retrieval, visitor reception, and repetitive front-office tasks. Legacy automation tools—such as website pop-up widgets or interactive voice response (IVR) phone menus—suffer from drop-off rates exceeding 70% due to rigid text scripts, lack of Low Latency, and an absence of human connection.
 
-Embodied AI Digital Humans bridge this gap by uniting visual presence, natural neural voice synthesis, and domain-specific Large Language Models (LLMs). When deployed on spatial hardware like the **DIHUAVA Hologram Box** or smart interactive kiosks, digital human avatars attract foot traffic while running 24/7 autonomous operations.
+Embodied AI Digital Humans bridge this gap by uniting visual presence, natural neural voice synthesis, and domain-specific Large Language Models (LLMs). When deployed on spatial hardware like the **[AI Hologram Box](/products/holographic-display)** or smart interactive kiosks, [DIHUAVA AI Digital Human](/products/dihuava) avatars attract foot traffic while running 24/7 autonomous operations.
 
 ---
 
@@ -54,7 +54,7 @@ Traditional cloud-hosted AI APIs introduce network round-trip delay, causing unn
 
 ### 2. Enterprise Knowledge Retrieval via RAG
 
-Instead of requiring staff to manually lookup policies or inventory, the avatar executes sub-second Retrieval-Augmented Generation (RAG) queries across indexed enterprise manuals, product catalogues, and internal knowledge bases.
+Instead of requiring staff to manually lookup policies or inventory, the avatar executes sub-second Retrieval-Augmented Generation [document intelligence (On-Device RAG)](/products/dihuava/document-intelligence) queries across indexed enterprise manuals, product catalogues, and internal knowledge bases.
 
 ### 3. Autonomous Visitor Onboarding & Lead Intake
 
@@ -85,11 +85,11 @@ Avatars greet incoming executives and guests, check appointment credentials, iss
 
 ### Self-Service Customer Onboarding & Query Resolution
 
-In banking branches or telecom stores, digital human assistants guide customers through account openings, loan applications, and service upgrades.
+In [banking & financial services](/industries/banking) branches or telecom stores, digital human assistants guide customers through account openings, loan applications, and service upgrades.
 
 ### Interactive Smart Retail & Product Catalogues
 
-Deployed in retail showrooms and shopping centers, 3D holographic avatars present products in high-definition spatial rendering, recommend items, and answer product questions.
+Deployed in [smart retail showrooms](/industries/retail) and shopping centers, 3D holographic avatars present products in high-definition spatial rendering, recommend items, and answer product questions.
 
 ---
 
@@ -99,7 +99,7 @@ Deploying AI business automation yields measurable operational returns:
 
 - **60% Workload Reduction:** Automates routine front-desk inquiries, freeing staff for high-value client advising.
 - **3x Customer Dwell Time:** Visually captivating 3D hologram avatars attract and retain visitor attention.
-- **Zero Language Friction:** Supports real-time spoken conversation across 29 global languages, voice cloning, and regional dialects.
+- **Zero Language Friction:** Supports real-time spoken conversation across [29+ global languages engine](/products/dihuava/multilingual-support), voice cloning, and regional dialects.
 
 ---
 
@@ -156,10 +156,10 @@ Bring next-generation AI Digital Humans to your business locations, customer ser
 As AI transitions from online text prompts to real-time physical interactions (like 3D Hologram kiosks and voice-activated digital receptionists), network stability becomes a bottleneck.
 
 ### 1. The Low Latency Advantage
-A natural spoken dialogue requires voice input, speech-to-text (STT), LLM reasoning, text-to-speech (TTS), and natural facial expressions via speech animation to complete within 300 milliseconds. Over cloud connections, ping times and API queueing often delay responses beyond 2 seconds, creating uncomfortable awkward pauses for users. Edge AI processes speech and rendering directly on local GPU chips, achieving instantaneous Low Latency fluidity.
+A natural spoken dialogue requires voice input, speech-to-text (STT), LLM reasoning, text-to-speech (TTS), and natural facial expressions via speech animation to complete within 300 milliseconds. Over cloud connections, ping times and API queueing often delay responses beyond 2 seconds, creating uncomfortable awkward pauses for users. Edge AI platforms like [DIHUAVA](/products/dihuava) process speech and rendering directly on local GPU chips, achieving instantaneous Low Latency fluidity.
 
 ### 2. Air-Gapped Data Sovereignty
-Regulated industries—such as banking, defense, healthcare, and government facilities—are legally restricted from uploading raw customer audio, biometric scans, or confidential internal documents to external cloud endpoints. Edge AI keeps 100% of data contained within local physical hardware.
+Regulated industries—such as [banking & financial services](/industries/banking), defense, healthcare, and government facilities—are legally restricted from uploading raw customer audio, biometric scans, or confidential internal documents to external cloud endpoints. Edge AI keeps 100% of data contained within local physical hardware with [100% offline document intelligence](/products/dihuava/document-intelligence).
 
 ---
 
@@ -167,7 +167,7 @@ Regulated industries—such as banking, defense, healthcare, and government faci
 
 1. **Bandwidth Savings:** Local model execution eliminates continuous high-resolution video and audio streaming back and forth across WAN networks.
 2. **Deterministic Reliability:** Edge AI continues to function seamlessly during internet outages, regional ISP failures, or server downtime.
-3. **Predictable Cost Scale:** Cloud AI API pricing scales linearly with usage volume, leading to unpredictable monthly bills. Edge AI operates on a fixed one-time hardware investment.
+3. **Predictable Cost Scale:** Cloud AI API pricing scales linearly with usage volume, leading to unpredictable monthly bills. Edge AI operates on a fixed one-time hardware investment like the [AI Hologram Box](/products/holographic-display).
 
 ---
 
@@ -198,13 +198,13 @@ Deploy **Edge AI** when your application demands sub-second real-time voice, str
 Humans are biologically wired for face-to-face visual communication. Static touchscreens and mobile apps lack emotional resonance, leading to low visitor interest. Digital Human Avatars combine real-time facial expressions, eye contact, and natural body language to create instant visual attraction.
 
 ### 1. Natural Neural Conversation
-Powered by multi-modal AI models, DIHUAVA avatars listen attentively, detect visual speaker presence, and reply using warm, lifelike neural voices tailored to match brand personality.
+Powered by multi-modal AI models, [DIHUAVA AI Digital Humans](/products/dihuava) listen attentively, detect visual speaker presence, and reply using warm, lifelike neural voices with [zero-shot voice cloning](/products/dihuava/avatar-customization) tailored to match brand personality.
 
 ### 2. Instant Document & Policy Lookups
-When customers ask detailed technical or operational questions—such as loan criteria, store refund policies, or event schedules—the avatar performs sub-second local RAG search across indexed enterprise PDFs and displays clear visual summaries alongside verbal explanations.
+When customers ask detailed technical or operational questions—such as loan criteria, store refund policies, or event schedules—the avatar performs sub-second local RAG search across indexed enterprise PDFs using [document intelligence](/products/dihuava/document-intelligence) and displays clear visual summaries alongside verbal explanations.
 
 ### 3. Multi-Touchpoint Omnichannel Deployment
-Whether placed in an entry-way 3D Hologram Box, an interactive touch kiosk, or an executive reception display, digital human avatars present a unified, highly professional brand presence.`,
+Whether placed in an entry-way [AI Hologram Box](/products/holographic-display), an interactive touch kiosk, or an executive reception display, digital human avatars present a unified, highly professional brand presence across [banking branch environments](/industries/banking).`,
     },
     {
         id: "4",
@@ -226,13 +226,13 @@ Whether placed in an entry-way 3D Hologram Box, an interactive touch kiosk, or a
 
 ## Reimagining In-Store Physical Displays
 
-The **DIHUAVA AI Product Catalogue** turns physical space into a spatial interactive sales floor. By placing a 3D Hologram Box or Spatial Display at store entrances, retailers create an immersive showcase where customers interact directly with digital product models and avatar shopping guides.
+The **[AI Product Catalog sales engine](/products/dihuava/ai-product-catalog)** turns physical space into a spatial interactive sales floor. By placing an [AI Hologram Box](/products/holographic-display) or [Spatial Display](/products/spatial-display) at store entrances, retailers create an immersive showcase where customers interact directly with digital product models and avatar shopping guides.
 
 ### Key Innovations in Smart Product Displays:
 
 1. **Interactive 3D Spatial Rendering:** Customers can view products in high-definition 3D, inspect angles, and see color variations rendered in real-time.
-2. **Intelligent Cross-Selling & Recommendations:** As the visitor discusses their preferences with the digital human avatar, the underlying recommendation engine suggests complementary items and highlights current promotions.
-3. **Multi-Language Customer Conversions:** International shoppers can converse with the avatar in their native language, removing sales barriers and increasing average basket value.
+2. **Intelligent Cross-Selling & Recommendations:** As the visitor discusses their preferences with the digital human avatar on the [DIHUAVA platform](/products/dihuava), the underlying recommendation engine suggests complementary items and highlights current promotions.
+3. **Multi-Language Customer Conversions:** International shoppers can converse with the avatar in their native language via our [29+ global languages engine](/products/dihuava/multilingual-support), removing sales barriers in [smart retail showrooms](/industries/retail).
 
 ---
 
@@ -265,14 +265,14 @@ HS Global AI’s speech architecture incorporates real-time Language Identificat
 ### Core Capabilities:
 
 - **Automatic Accent & Language Detection:** The avatar listens to the customer’s opening sentence, automatically detects their language and accent, and seamlessly responds in kind.
-- **29 Supported Global Languages & Voice Cloning:** Covers major languages including English, Mandarin, Spanish, Arabic, Japanese, Korean, French, German, and regional dialects.
+- **[Multilingual AI Engine](/products/dihuava/multilingual-support) (29 Supported Global Languages):** Covers major languages including English, Mandarin, Spanish, Arabic, Japanese, Korean, French, German, and regional dialects with [zero-shot voice cloning](/products/dihuava/avatar-customization).
 - **Cultural Formalities & Tone Customization:** Avatars adjust phrasing, honorifics, and vocal warmth to match cultural expectations in each region.
 
 ---
 
 ## Real-World Applications
 
-Multilingual avatars are deployed in **international airport information desks, luxury hotel lobbies, museum docent tours, and government service centers**, providing instant multilingual assistance with zero wait time.`,
+Multilingual avatars are deployed on the [DIHUAVA platform](/products/dihuava) in **international airport information desks, luxury hotel lobbies, museum docent tours, and [corporate enterprise offices](/industries/corporate)**, providing instant multilingual assistance with zero wait time.`,
     },
     {
         id: "6",
@@ -294,7 +294,7 @@ Multilingual avatars are deployed in **international airport information desks, 
 
 The retail industry is undergoing a major technological transformation with the adoption of **AI in retail**. Businesses are now using AI-powered solutions to enhance customer engagement, improve sales, and deliver personalized in-store experiences.
 
-One of the most impactful innovations leading this change is the use of digital human avatars as intelligent sales assistants.
+One of the most impactful innovations leading this change is the use of [DIHUAVA AI Digital Humans](/products/dihuava) as intelligent sales assistants.
 
 ---
 
@@ -313,9 +313,9 @@ This is where **retail automation powered by AI** plays a crucial role.
 
 ## What is AI in Retail?
 
-**AI in retail** refers to the use of artificial intelligence to automate processes, analyze customer behavior, and improve physical and digital shopping experiences.
+**AI in retail** refers to the use of artificial intelligence to automate processes, analyze customer behavior, and improve physical and digital shopping experiences in [retail & shopping interactive environments](/industries/retail).
 
-With solutions like **AI sales assistants and Hologram Kiosks**, retailers can interact with customers in real time and provide personalized recommendations.
+With solutions like **AI sales assistants and [AI Hologram Boxes](/products/holographic-display)**, retailers can interact with customers in real time and provide personalized recommendations via the [AI Product Catalog](/products/dihuava/ai-product-catalog).
 
 ---
 
@@ -326,7 +326,7 @@ Digital human avatars act as customer engagement AI tools that:
 - **Greet customers** at store entrances and high-traffic aisles
 - **Answer product queries** regarding specs, warranties, and store policies
 - **Recommend products** based on customer preferences and context
-- **Display product visuals** in high-definition 3D spatial graphics
+- **Display product visuals** in high-definition 3D spatial graphics on [Spatial Displays](/products/spatial-display)
 - **Assist in purchase decisions** and guide shoppers through promotions
 
 ---
@@ -459,16 +459,17 @@ Offline AI combines several sophisticated local technologies into a unified proc
 - **Local AI models (LLM):** Quantized enterprise neural models running directly on GPU memory.
 - **Speech recognition (ASR):** Converts voice to text locally in milliseconds.
 - **Text-to-speech (TTS):** Synthesizes natural human-like voice audio on-device.
-- **On-device processing engines:** Drives real-time avatar facial expressions via speech and visual gestures.
+- **[On-device document intelligence (RAG)](/products/dihuava/document-intelligence):** Ingests PDFs locally with zero cloud transmission.
+- **[Enterprise persona management](/products/dihuava/persona-management):** Instant zero-code vertical persona swaps.
 
-Platforms like **DIHUAVA by HS Global AI** operate fully on-device, ensuring that all AI interactions happen securely without cloud dependency.
+Platforms like **[DIHUAVA by HS Global AI](/products/dihuava)** operate fully on-device, ensuring that all AI interactions happen securely without cloud dependency.
 
 ---
 
 ## Real-World Enterprise Use Cases
 
 ### Banking
-Secure customer interaction and loan guidance without exposing sensitive account data.
+Secure customer interaction and loan guidance in [banking & financial services](/industries/banking) without exposing sensitive account data.
 
 ### Healthcare
 Patient guidance and intake where patient health data remains private and HIPAA compliant.
@@ -530,12 +531,12 @@ From retail stores to corporate offices and hospitals, AI-powered avatars are ch
 A digital human avatar is an advanced form of virtual assistant AI that delivers real-time, human-like interaction. Unlike traditional chatbots, these avatars can:
 
 ### Key Capabilities:
-- Speak naturally using human-like voices
-- Understand user queries through voice or text
-- Respond intelligently using AI
+- Speak naturally using human-like voices via [zero-shot voice cloning](/products/dihuava/avatar-customization)
+- Understand user queries through voice or text in [29+ global languages](/products/dihuava/multilingual-support)
+- Respond intelligently using AI and local [document intelligence](/products/dihuava/document-intelligence)
 - Display emotions and expressions (in advanced systems)
 
-These avatars are typically deployed on interactive displays such as kiosks, holographic screens, and smart panels, enabling real-time conversations with users.
+These avatars are typically deployed on interactive displays such as kiosks, [3D Hologram Boxes](/products/holographic-display), and [3D Volumetric Spatial Displays](/products/spatial-display), enabling real-time conversations with users.
 
 ---
 
@@ -586,7 +587,7 @@ Engages customers in multiple languages effortlessly.
 | **Visual Engine** | Displays avatar on screen |
 
 ### Advanced Capability
-Platforms like **Dihuava by HS Global AI** offer:
+Platforms like **[DIHUAVA by HS Global AI](/products/dihuava)** offer:
 - 100% on-device processing
 - Zero cloud dependency
 - High data privacy
@@ -597,9 +598,9 @@ Platforms like **Dihuava by HS Global AI** offer:
 ## Real-World Use Cases
 
 ### Retail & Shopping Malls
-- Product recommendations
+- Product recommendations via [AI Product Catalog](/products/dihuava/ai-product-catalog)
 - Customer assistance
-- Promotional engagement
+- Promotional engagement in [retail showrooms](/industries/retail)
 
 ### Healthcare
 - Patient guidance
@@ -609,7 +610,7 @@ Platforms like **Dihuava by HS Global AI** offer:
 ### Corporate Offices
 - Visitor management
 - HR assistance
-- Reception automation
+- Reception automation in [corporate headquarters](/industries/corporate)
 
 ### Events & Exhibitions
 - Interactive brand ambassador
