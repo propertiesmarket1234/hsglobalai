@@ -5,6 +5,8 @@ import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 import Link from "next/link";
 import { industriesData } from "@/data/industriesData";
+import IndustryInfoDepth from "@/components/IndustryInfoDepth";
+import IndustryFAQ from "@/components/IndustryFAQ";
 import {
   ShieldCheck,
   FileText,
@@ -125,12 +127,33 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
     ],
   };
 
+  const faqSchema = industry.faqs
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: industry.faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      }
+    : null;
+
   return (
     <main className="min-h-screen bg-black text-white selection:bg-cyan-500 selection:text-black">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
       <Header />
 
       {/* HERO SECTION */}
@@ -383,6 +406,11 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
         </div>
       </section>
 
+      {/* TOPICAL INFORMATION DEPTH */}
+      {industry.infoDepth && (
+        <IndustryInfoDepth title={industry.title} infoDepth={industry.infoDepth} />
+      )}
+
       {/* TECHNICAL SPECIFICATIONS */}
       <section className="relative overflow-hidden px-6 py-24 border-b border-white/10">
         <div className="mx-auto max-w-5xl">
@@ -414,6 +442,11 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
           </div>
         </div>
       </section>
+
+      {/* INDUSTRY FAQ */}
+      {industry.faqs && (
+        <IndustryFAQ title={industry.title} faqs={industry.faqs} />
+      )}
 
       {/* OTHER INDUSTRIES NAVIGATOR */}
       <section className="relative overflow-hidden bg-neutral-950 px-6 py-24 border-b border-white/10">

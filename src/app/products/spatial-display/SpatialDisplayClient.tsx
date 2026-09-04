@@ -11,6 +11,18 @@ import {
   Eye,
   Target,
   Zap,
+  ShoppingBag,
+  Building2,
+  Stethoscope,
+  GraduationCap,
+  Castle,
+  HelpCircle,
+  CheckCircle2,
+  Monitor,
+  Sparkles,
+  Layers,
+  ShieldCheck,
+  ArrowRight,
 } from "lucide-react";
 
 const spatialFeatures = [
@@ -44,18 +56,160 @@ const spatialFeatures = [
   },
 ];
 
+const definitionPoints = [
+  {
+    title: "Immersive Visual Display",
+    description:
+      "Delivers realistic 3D volumetric visual depth perception directly to viewer eyes without requiring specialized glasses or AR/VR headsets.",
+    icon: Eye,
+  },
+  {
+    title: "3D & Spatial Presentation",
+    description:
+      "Presents products, architectural models, and graphics with true spatial depth, turning 2D visual media into engaging stereoscopic assets.",
+    icon: Layers,
+  },
+  {
+    title: "Interactive Experience",
+    description:
+      "Combines a responsive multi-touch glass panel with real-time optical eye-tracking sensors to adapt perspective as viewers move.",
+    icon: Target,
+  },
+  {
+    title: "AI Digital Human Integration",
+    description:
+      "Serves as an immersive physical stage for DIHUAVA AI Digital Human avatars to converse with visitors in real-time.",
+    icon: Zap,
+  },
+  {
+    title: "Enterprise & Visitor Engagement",
+    description:
+      "Engineered for high-traffic physical customer environments to transform passive signage into active engagement touchpoints.",
+    icon: Building2,
+  },
+];
 
+const spatialIndustries = [
+  {
+    title: "Retail & Shopping",
+    category: "Commercial Showcase",
+    description:
+      "Interactive product visualization, guided shopping experiences, and 3D luxury product demonstrations.",
+    link: "/industries/retail",
+    icon: ShoppingBag,
+  },
+  {
+    title: "Corporate & Enterprise",
+    category: "Lobby & Reception",
+    description:
+      "Interactive reception desks, building directory assistance, executive presentations, and visitor onboarding.",
+    link: "/industries/corporate",
+    icon: Building2,
+  },
+  {
+    title: "Healthcare & Clinics",
+    category: "Patient Guidance",
+    description:
+      "Patient information assistance, hospital department wayfinding, and interactive medical education.",
+    link: "/industries/healthcare",
+    icon: Stethoscope,
+  },
+  {
+    title: "Education & Training",
+    category: "Interactive Learning",
+    description:
+      "STEM learning demonstrations, complex 3D model exploration, and immersive training environments.",
+    link: "/industries/education",
+    icon: GraduationCap,
+  },
+  {
+    title: "Hospitality & Tourism",
+    category: "Visitor Services",
+    description:
+      "Hotel concierge assistance, regional destination exploration, and interactive cultural storytelling.",
+    link: "/industries/tourism",
+    icon: Castle,
+  },
+  {
+    title: "Museums & Public Spaces",
+    category: "Exhibition Docent",
+    description:
+      "Interactive exhibit storytelling, public information kiosks, and high-impact visitor engagement.",
+    link: "/industries/tourism",
+    icon: HelpCircle,
+  },
+];
+
+const businessValues = [
+  {
+    title: "Attract Foot Traffic & Visitor Attention",
+    description:
+      "Captures visual attention in busy retail stores, trade shows, and lobbies using glasses-free 3D spatial visual impact.",
+    icon: Sparkles,
+  },
+  {
+    title: "Present Complex Products Visually",
+    description:
+      "Showcases intricate 3D product designs, internal component breakdowns, and architectural layouts in volumetric detail.",
+    icon: Layers,
+  },
+  {
+    title: "Explain Information Interactively",
+    description:
+      "Replaces static display screens with touch-responsive and voice-guided conversational information delivery.",
+    icon: Zap,
+  },
+  {
+    title: "Elevate Visitor Engagement",
+    description:
+      "Creates memorable physical interactions that increase visitor dwell time and strengthen brand confidence.",
+    icon: CheckCircle2,
+  },
+  {
+    title: "Connect AI Digital Humans to Physical Spaces",
+    description:
+      "Provides a physical volumetric stage for DIHUAVA AI Digital Humans to greet visitors, answer questions, and guide customers.",
+    icon: Monitor,
+  },
+];
+
+const comparisonData = [
+  {
+    feature: "Visual Depth & Presentation",
+    conventional: "Flat 2D image output; single focal plane view",
+    spatial: "Volumetric 3D spatial depth perception without specialized glasses",
+  },
+  {
+    feature: "Viewer Interaction",
+    conventional: "Passive viewing or basic 2D touch menu navigation",
+    spatial: "Multi-touch glass surface paired with real-time optical eye-tracking perspective shifts",
+  },
+  {
+    feature: "AI Avatar Integration",
+    conventional: "Standard 2D flat video avatar overlay",
+    spatial: "Immersive 3D visual stage rendering for lifelike DIHUAVA AI Digital Humans",
+  },
+  {
+    feature: "Deployment Environments",
+    conventional: "Standard digital signage, broadcast screens, and basic video loops",
+    spatial: "High-impact retail showcases, corporate lobbies, healthcare guidance, and exhibition centers",
+  },
+  {
+    feature: "Perspective Adaptation",
+    conventional: "Static viewing angle; visual perspective distorts off-center",
+    spatial: "Dynamic eye-tracking sensor adjusts 3D perspective to match viewer position",
+  },
+];
 
 const spatialSpecs = [
-  { label: "Thickness & Profile", value: "Ultra-Slim 6 cm Body Thickness" },
-  { label: "Display & Touch", value: "Spatial Display Touch Screen with 4K Ultra HD Resolution" },
-  { label: "Screen Sizes", value: "55-inch, 65-inch, 75-inch, 86-inch" },
+  { label: "Available Sizes", value: '55-inch, 65-inch, 75-inch, 86-inch' },
+  { label: "Profile Thickness", value: "Ultra-Slim 6 cm Body Thickness" },
+  { label: "Display & Touch Panel", value: "Spatial Display Touch Screen with 4K Ultra HD Resolution" },
   { label: "3D Display Technology", value: "Light-Field Spatial Optical Panel" },
-  { label: "Tracking Sensor", value: "High-Speed Real-Time Optical Eye & Head Motion Camera" },
-  { label: "Viewing Angle & Depth", value: "160° Ultra-Wide Viewing Angle with 3D Depth Field" },
-  { label: "Brightness & Contrast", value: "800 nits Commercial Grade / 5000:1 Dynamic Contrast Ratio" },
-  { label: "Content Compatibility", value: "DIHUAVA 3D Digital Humans, OBJ/FBX 3D Models, Real-Time Unity/Unreal Engine" },
-  { label: "Available Documentation", value: "Spatial Display Data Sheet, Product Specifications" },
+  { label: "Optical Tracking Sensor", value: "High-Speed Real-Time Optical Eye & Motion Camera" },
+  { label: "AI Software Compatibility", value: "DIHUAVA AI Platform (Runs 100% offline on-device by default)" },
+  { label: "3D Asset Compatibility", value: "DIHUAVA 3D Avatars, OBJ/FBX 3D Models, Real-Time Unity/Unreal Engine" },
+  { label: "Documentation", value: "Spatial Display Data Sheet, Product Specifications PDF" },
 ];
 
 export default function SpatialDisplayClient() {
@@ -103,7 +257,7 @@ export default function SpatialDisplayClient() {
               </h1>
 
               <p className="mt-6 text-base leading-8 text-gray-300 sm:text-lg max-w-2xl">
-                Transform standard digital signage into immersive 3D spatial experiences. Featuring an ultra-slim <strong>6 cm body thickness</strong> and <strong>4K Ultra HD touch screen</strong> panel for luxury product showcases, retail storefronts, and interactive <Link href="/products/dihuava" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">DIHUAVA AI Digital Humans</Link>. Also explore our life-size <Link href="/products/holographic-display" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">AI Hologram Box enclosures</Link>.
+                An immersive display platform designed for interactive visual experiences and seamless integration with <Link href="/products/dihuava" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">DIHUAVA AI Digital Humans</Link>. Featuring an ultra-slim <strong>6 cm body thickness</strong> and <strong>4K Ultra HD touch screen panel</strong>, available in <strong>55&quot;, 65&quot;, 75&quot;, and 86&quot;</strong> display sizes. Also explore our life-size <Link href="/products/holographic-display" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">AI Hologram Box enclosures</Link>.
               </p>
 
               {/* Action Buttons */}
@@ -126,7 +280,6 @@ export default function SpatialDisplayClient() {
             {/* Right Visual Image Showcase */}
             <div className="lg:col-span-5 flex justify-center">
               <div className="relative w-full max-w-[380px] overflow-hidden rounded-3xl border border-cyan-500/35 bg-neutral-950/90 p-3.5 backdrop-blur-xl shadow-[0_0_60px_rgba(6,182,212,0.25)]">
-                {/* Ambient glow backdrop */}
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/15 via-sky-500/5 to-transparent pointer-events-none" />
 
                 <div className="relative aspect-[9/16] w-full overflow-hidden rounded-2xl bg-black border border-white/10 shadow-2xl">
@@ -139,21 +292,18 @@ export default function SpatialDisplayClient() {
                     className="object-contain bg-neutral-950"
                   />
 
-                  {/* Gradient vignette for contrast */}
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30" />
 
-                  {/* Top Live Tech Badge Overlay */}
                   <div className="absolute top-4 left-4 z-10 flex items-center gap-2 rounded-full border border-white/20 bg-black/70 px-3.5 py-1.5 backdrop-blur-md">
                     <span className="relative flex h-2 w-2">
                       <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75" />
                       <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-500" />
                     </span>
                     <span className="text-[11px] font-mono font-medium tracking-wider text-cyan-300 uppercase">
-                      6 cm Profile • 4K Touch
+                      6 cm Profile • 55&quot;–86&quot;
                     </span>
                   </div>
 
-                  {/* Bottom System Overlay Status */}
                   <div className="absolute bottom-4 left-4 right-4 z-10 rounded-xl border border-white/15 bg-black/80 p-3.5 backdrop-blur-md">
                     <div className="flex items-center justify-between text-xs font-mono">
                       <span className="text-cyan-400 font-semibold">● 6 CM THICKNESS</span>
@@ -170,34 +320,27 @@ export default function SpatialDisplayClient() {
         </div>
       </section>
 
-      {/* KEY HIGHLIGHT FEATURE SECTION - 6 cm SPATIAL DISPLAY TOUCH SCREEN WITH 4K ULTRA HD */}
+      {/* KEY HARDWARE HIGHLIGHT SECTION */}
       <section className="relative overflow-hidden bg-neutral-950 px-6 py-20 border-b border-cyan-500/30">
-        {/* Glowing Background Orbs */}
         <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[350px] w-[700px] rounded-full bg-gradient-to-r from-purple-600/20 via-cyan-500/20 to-amber-500/10 blur-[130px]" />
 
         <div className="relative mx-auto max-w-5xl text-center">
-          {/* Badge */}
           <div className="inline-flex items-center gap-2 rounded-full border border-purple-500/40 bg-purple-950/60 px-4 py-1.5 backdrop-blur-md mb-6 shadow-[0_0_20px_rgba(168,85,247,0.3)]">
             <span className="text-xs font-bold tracking-widest text-purple-300 uppercase">
-              ★ Key Hardware Highlight
+              ★ Confirmed Hardware Specifications
             </span>
           </div>
 
-          {/* Laser Light-Bar Accent + 6 cm Big Title */}
           <div className="flex items-center justify-center gap-4 sm:gap-8 my-4">
-            {/* Left Flare Line */}
             <div className="flex-1 max-w-[120px] sm:max-w-[220px] h-[3px] bg-gradient-to-r from-transparent via-cyan-400 to-indigo-500 shadow-[0_0_12px_#06b6d4]" />
 
-            {/* Glowing 6 cm Text */}
             <h2 className="text-6xl sm:text-8xl md:text-9xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-400 via-purple-300 to-cyan-300 bg-clip-text text-transparent drop-shadow-[0_0_40px_rgba(168,85,247,0.6)] font-mono">
               6 cm
             </h2>
 
-            {/* Right Flare Line */}
             <div className="flex-1 max-w-[120px] sm:max-w-[220px] h-[3px] bg-gradient-to-l from-transparent via-cyan-400 to-indigo-500 shadow-[0_0_12px_#06b6d4]" />
           </div>
 
-          {/* Feature Heading matching exact requested image banner */}
           <h3 className="mt-6 text-2xl sm:text-4xl md:text-5xl font-black uppercase tracking-wider text-white leading-tight">
             Spatial Display Touch Screen
             <br />
@@ -208,32 +351,160 @@ export default function SpatialDisplayClient() {
           </h3>
 
           <p className="mt-6 mx-auto max-w-2xl text-base sm:text-lg leading-8 text-gray-300">
-            Featuring an ultra-thin <strong>6 cm body thickness</strong>, responsive multi-touch interactive glass surface, and ultra-crisp <strong>4K Ultra HD resolution</strong> for true-to-life 3D spatial depth rendering.
+            Featuring an ultra-thin <strong>6 cm body thickness</strong>, responsive multi-touch interactive glass surface, and ultra-crisp <strong>4K Ultra HD resolution</strong> across <strong>55&quot;, 65&quot;, 75&quot;, and 86&quot;</strong> screen sizes.
           </p>
 
-          {/* Highlights Grid Pills */}
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <div className="rounded-2xl border border-purple-500/30 bg-purple-950/40 px-6 py-3.5 backdrop-blur-md">
-              <p className="text-xs font-mono text-purple-300 uppercase">Profile Thickness</p>
-              <p className="text-xl font-bold text-white mt-0.5">Ultra-Slim 6 cm</p>
+              <p className="text-xs font-mono text-purple-300 uppercase">Body Profile</p>
+              <p className="text-xl font-bold text-white mt-0.5">6 cm Depth</p>
             </div>
             <div className="rounded-2xl border border-cyan-500/30 bg-cyan-950/40 px-6 py-3.5 backdrop-blur-md">
-              <p className="text-xs font-mono text-cyan-300 uppercase">Interactive Panel</p>
-              <p className="text-xl font-bold text-white mt-0.5">Touch Screen Glass</p>
+              <p className="text-xs font-mono text-cyan-300 uppercase">Available Sizes</p>
+              <p className="text-xl font-bold text-white mt-0.5">55&quot;, 65&quot;, 75&quot;, 86&quot;</p>
             </div>
             <div className="rounded-2xl border border-amber-500/30 bg-amber-950/40 px-6 py-3.5 backdrop-blur-md">
-              <p className="text-xs font-mono text-amber-300 uppercase">Resolution</p>
-              <p className="text-xl font-bold text-amber-400 mt-0.5">4K Ultra HD</p>
+              <p className="text-xs font-mono text-amber-300 uppercase">Interactive Panel</p>
+              <p className="text-xl font-bold text-amber-400 mt-0.5">4K Touch Screen</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SPATIAL DISPLAY FEATURES */}
+      {/* PRODUCT DEFINITION SECTION — WHAT IS SPATIAL DISPLAY? */}
+      <section className="relative overflow-hidden bg-black px-6 py-24 border-b border-white/10">
+        <div className="relative mx-auto max-w-7xl">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-xs font-bold tracking-[0.3em] text-cyan-400 font-mono uppercase">
+              Product Definition
+            </span>
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
+              What is Spatial Display?
+            </h2>
+            <p className="mt-4 text-base leading-8 text-gray-300">
+              Spatial Display is an immersive hardware display platform engineered to present stereoscopic 3D visuals and host interactive AI Digital Humans directly in physical spaces without specialized headsets.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {definitionPoints.map((pt, idx) => {
+              const IconComp = pt.icon;
+              return (
+                <motion.div
+                  key={pt.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.08 }}
+                  className="rounded-3xl border border-white/15 bg-neutral-950/80 p-8 backdrop-blur-xl transition-all hover:border-cyan-500/40 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)]"
+                >
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-500/40 bg-cyan-950/50 text-cyan-300 mb-6 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
+                    <IconComp className="w-6 h-6" />
+                  </span>
+                  <h3 className="text-xl font-bold text-white mb-2">{pt.title}</h3>
+                  <p className="text-sm leading-7 text-gray-300">{pt.description}</p>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* DIHUAVA AI INTEGRATION SECTION */}
+      <section className="relative overflow-hidden bg-neutral-950 px-6 py-24 border-b border-cyan-500/30">
+        <div className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 h-[450px] w-[600px] rounded-full bg-cyan-600/10 blur-[160px]" />
+
+        <div className="relative mx-auto max-w-7xl">
+          <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
+            {/* Left Box */}
+            <div className="lg:col-span-7">
+              <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/40 bg-cyan-950/80 px-4 py-1.5 backdrop-blur-md mb-6">
+                <ShieldCheck className="w-4 h-4 text-cyan-400" />
+                <span className="text-xs font-bold tracking-widest text-cyan-300 uppercase font-mono">
+                  Hardware & Software Partnership
+                </span>
+              </div>
+
+              <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
+                Integrating Spatial Display with{" "}
+                <span className="bg-gradient-to-r from-cyan-400 via-sky-300 to-cyan-500 bg-clip-text text-transparent">
+                  DIHUAVA AI Digital Humans
+                </span>
+              </h2>
+
+              <p className="mt-6 text-base leading-8 text-gray-300 sm:text-lg">
+                Spatial Display serves as the <strong>physical immersive visual environment</strong> for DIHUAVA AI Digital Humans. While Spatial Display provides the 6 cm 4K light-field display panel and optical sensors, DIHUAVA acts as the AI software intelligence layer powering speech recognition, avatar animation, and local document RAG.
+              </p>
+
+              <div className="mt-6 rounded-2xl border border-cyan-500/40 bg-cyan-950/60 p-5 backdrop-blur-md">
+                <span className="text-xs font-mono font-bold text-cyan-300 uppercase tracking-wider block mb-1">
+                  Canonical AI Architecture
+                </span>
+                <p className="text-sm font-semibold text-white leading-relaxed">
+                  &quot;DIHUAVA runs 100% offline on-device by default, with optional cloud-management configurations available.&quot;
+                </p>
+              </div>
+
+              <p className="mt-6 text-sm text-gray-400 leading-relaxed">
+                Spatial Display itself is high-performance 3D display hardware, not an AI system. When paired with DIHUAVA, it provides a physical volumetric stage where interactive AI avatars interact with visitors smoothly in real-time.
+              </p>
+
+              <div className="mt-8">
+                <Link
+                  href="/products/dihuava"
+                  className="inline-flex items-center gap-2 text-sm font-bold text-cyan-400 hover:text-cyan-300 underline"
+                >
+                  <span>Learn more about DIHUAVA AI Platform</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Card */}
+            <div className="lg:col-span-5">
+              <div className="rounded-3xl border border-white/15 bg-black/80 p-8 backdrop-blur-xl shadow-2xl">
+                <h3 className="text-xl font-bold text-white mb-6 border-b border-white/10 pb-4 font-mono">
+                  System Architecture Division
+                </h3>
+
+                <div className="space-y-6">
+                  <div className="rounded-2xl border border-cyan-500/30 bg-cyan-950/30 p-5">
+                    <span className="text-xs font-mono font-bold text-cyan-400 uppercase">
+                      Physical Layer (Hardware)
+                    </span>
+                    <h4 className="text-lg font-bold text-white mt-1">Spatial Display</h4>
+                    <ul className="mt-2 text-xs text-gray-300 space-y-1.5 font-mono">
+                      <li>• 6 cm Ultra-Slim Body Thickness</li>
+                      <li>• 55&quot;, 65&quot;, 75&quot;, 86&quot; 4K Touch Panels</li>
+                      <li>• Light-Field Spatial Optics</li>
+                      <li>• Real-Time Eye Tracking Sensors</li>
+                    </ul>
+                  </div>
+
+                  <div className="rounded-2xl border border-sky-500/30 bg-sky-950/30 p-5">
+                    <span className="text-xs font-mono font-bold text-sky-400 uppercase">
+                      Intelligence Layer (Software)
+                    </span>
+                    <h4 className="text-lg font-bold text-white mt-1">DIHUAVA Platform</h4>
+                    <ul className="mt-2 text-xs text-gray-300 space-y-1.5 font-mono">
+                      <li>• AI Digital Human Avatars</li>
+                      <li>• On-Device Speech & Local RAG</li>
+                      <li>• 29+ Global Languages</li>
+                      <li>• 100% Offline GPU Processing</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SPATIAL FEATURES */}
       <section className="relative overflow-hidden bg-black px-6 py-24 text-white">
         <div className="mx-auto max-w-7xl">
           <div className="text-center">
-            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400">
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400 font-mono">
               Technology Overview
             </span>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-5xl">
@@ -273,8 +544,155 @@ export default function SpatialDisplayClient() {
         </div>
       </section>
 
+      {/* INDUSTRY USE CASES — IMMERSIVE SPATIAL EXPERIENCES FOR EVERY INDUSTRY */}
+      <section className="relative overflow-hidden bg-neutral-950 px-6 py-24 text-white border-t border-b border-white/10">
+        <div className="mx-auto max-w-7xl">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-xs font-bold tracking-[0.3em] text-cyan-400 font-mono uppercase">
+              Commercial Applications
+            </span>
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
+              Immersive Spatial Experiences Across Industries
+            </h2>
+            <p className="mt-4 text-base text-gray-300">
+              Discover how Spatial Display elevates customer engagement across core commercial sectors.
+            </p>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {spatialIndustries.map((ind, idx) => {
+              const IndIcon = ind.icon;
+              return (
+                <motion.div
+                  key={ind.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.08 }}
+                  className="group relative flex flex-col justify-between rounded-3xl border border-white/15 bg-black/60 p-8 backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/40 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)]"
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-6">
+                      <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-500/40 bg-cyan-950/50 text-cyan-300">
+                        <IndIcon className="w-6 h-6" />
+                      </span>
+                      <span className="text-xs font-mono font-semibold text-cyan-400 border border-cyan-500/30 bg-cyan-950/40 px-3 py-1 rounded-full">
+                        {ind.category}
+                      </span>
+                    </div>
+
+                    <h3 className="text-2xl font-bold text-white group-hover:text-cyan-300 transition-colors mb-3">
+                      {ind.title}
+                    </h3>
+
+                    <p className="text-sm leading-7 text-gray-300 mb-6">
+                      {ind.description}
+                    </p>
+                  </div>
+
+                  <div className="pt-4 border-t border-white/10">
+                    <Link
+                      href={ind.link}
+                      className="inline-flex items-center gap-2 text-xs font-mono font-bold text-cyan-400 hover:text-white transition-colors uppercase tracking-wider"
+                    >
+                      <span>Explore Industry Solution</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* BUSINESS PROBLEM / VALUE SECTION */}
+      <section className="relative overflow-hidden bg-black px-6 py-24 text-white border-b border-white/10">
+        <div className="mx-auto max-w-7xl">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-xs font-bold tracking-[0.3em] text-cyan-400 font-mono uppercase">
+              Commercial Intent & Value
+            </span>
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
+              What Business Problems Does Spatial Display Solve?
+            </h2>
+            <p className="mt-4 text-base text-gray-300">
+              Address key physical customer environment challenges with high-impact 3D visual presentation and interactive avatar integration.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {businessValues.map((val, idx) => {
+              const ValIcon = val.icon;
+              return (
+                <motion.div
+                  key={val.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.08 }}
+                  className="rounded-3xl border border-cyan-500/20 bg-neutral-950/80 p-8 backdrop-blur-xl shadow-lg"
+                >
+                  <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-cyan-500/40 bg-cyan-950/50 text-cyan-300 mb-5">
+                    <ValIcon className="w-5 h-5" />
+                  </span>
+                  <h3 className="text-lg font-bold text-white mb-2">{val.title}</h3>
+                  <p className="text-sm leading-7 text-gray-300">{val.description}</p>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* SPATIAL DISPLAY VS CONVENTIONAL DISPLAY COMPARISON TABLE */}
+      <section className="relative overflow-hidden bg-neutral-950 px-6 py-24 text-white border-b border-white/10">
+        <div className="mx-auto max-w-5xl">
+          <div className="text-center mb-16">
+            <span className="text-xs font-bold tracking-[0.3em] text-cyan-400 font-mono uppercase">
+              Technology Comparison
+            </span>
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
+              Spatial Display vs. Conventional Display
+            </h2>
+            <p className="mt-4 text-base text-gray-300">
+              A factual category-based comparison highlighting visual depth, interactive optics, and AI Digital Human compatibility.
+            </p>
+          </div>
+
+          <div className="overflow-hidden rounded-3xl border border-cyan-500/30 bg-black/80 shadow-2xl backdrop-blur-xl">
+            <div className="grid grid-cols-12 bg-cyan-950/80 px-6 py-4 border-b border-cyan-500/30 font-mono text-xs font-bold uppercase tracking-wider text-cyan-300">
+              <div className="col-span-4 sm:col-span-3">Feature Category</div>
+              <div className="col-span-4 sm:col-span-4 text-gray-400">Conventional Display</div>
+              <div className="col-span-4 sm:col-span-5 text-cyan-300">Spatial Display</div>
+            </div>
+
+            <div className="divide-y divide-white/10">
+              {comparisonData.map((row, idx) => (
+                <div
+                  key={row.feature}
+                  className={`grid grid-cols-12 px-6 py-5 text-sm ${
+                    idx % 2 === 0 ? "bg-white/[0.02]" : ""
+                  }`}
+                >
+                  <div className="col-span-12 sm:col-span-3 font-semibold text-white font-mono mb-2 sm:mb-0">
+                    {row.feature}
+                  </div>
+                  <div className="col-span-12 sm:col-span-4 text-gray-400 pr-4 mb-2 sm:mb-0">
+                    {row.conventional}
+                  </div>
+                  <div className="col-span-12 sm:col-span-5 font-semibold text-cyan-200">
+                    {row.spatial}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* TECHNICAL SPECIFICATIONS TABLE */}
-      <section className="relative overflow-hidden bg-neutral-950 px-6 py-24 text-white border-t border-white/10">
+      <section className="relative overflow-hidden bg-black px-6 py-24 text-white border-b border-white/10">
         <div className="mx-auto max-w-5xl">
           <div className="text-center mb-12">
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400 font-mono">
@@ -285,7 +703,7 @@ export default function SpatialDisplayClient() {
             </h2>
           </div>
 
-          <div className="overflow-hidden rounded-2xl border border-cyan-500/30 bg-black/60 shadow-2xl backdrop-blur-xl">
+          <div className="overflow-hidden rounded-2xl border border-cyan-500/30 bg-neutral-950/90 shadow-2xl backdrop-blur-xl">
             <div className="divide-y divide-white/10">
               {spatialSpecs.map((spec, i) => (
                 <div
