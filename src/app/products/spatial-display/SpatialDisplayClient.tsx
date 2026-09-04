@@ -15,11 +15,11 @@ import {
 
 const spatialFeatures = [
   {
-    title: "Ultra-Slim 6cm Profile & 4K Ultra HD",
+    title: "Ultra-Slim 6 cm Profile & 4K Ultra HD",
     description:
-      "Engineered with an ultra-thin 6cm depth profile featuring a high-precision 4K Ultra HD touch screen panel for true volumetric spatial depth.",
+      "Engineered with an ultra-thin 6 cm depth profile featuring a high-precision 4K Ultra HD touch screen panel for true volumetric spatial depth.",
     icon: Maximize,
-    badge: "6cm Ultra-Slim 4K",
+    badge: "6 cm Ultra-Slim 4K",
   },
   {
     title: "Volumetric 3D Visuals",
@@ -47,9 +47,9 @@ const spatialFeatures = [
 
 
 const spatialSpecs = [
-  { label: "Thickness & Profile", value: "Ultra-Slim 6CM Body Thickness" },
+  { label: "Thickness & Profile", value: "Ultra-Slim 6 cm Body Thickness" },
   { label: "Display & Touch", value: "Spatial Display Touch Screen with 4K Ultra HD Resolution" },
-  { label: "Screen Sizes", value: "55-Inch, 65-Inch" },
+  { label: "Screen Sizes", value: "55-inch, 65-inch, 75-inch, 86-inch" },
   { label: "3D Display Technology", value: "Light-Field Spatial Optical Panel" },
   { label: "Tracking Sensor", value: "High-Speed Real-Time Optical Eye & Head Motion Camera" },
   { label: "Viewing Angle & Depth", value: "160° Ultra-Wide Viewing Angle with 3D Depth Field" },
@@ -91,7 +91,7 @@ export default function SpatialDisplayClient() {
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-500" />
                 </span>
                 <span className="text-xs font-semibold tracking-widest text-cyan-300 uppercase">
-                  6cm Ultra-Slim 4K Touch Screen
+                  6 cm Ultra-Slim 4K Touch Screen
                 </span>
               </div>
 
@@ -103,7 +103,7 @@ export default function SpatialDisplayClient() {
               </h1>
 
               <p className="mt-6 text-base leading-8 text-gray-300 sm:text-lg max-w-2xl">
-                Transform standard digital signage into immersive 3D spatial experiences. Featuring an ultra-slim <strong>6cm body thickness</strong> and <strong>4K Ultra HD touch screen</strong> panel for luxury product showcases, retail storefronts, and interactive <Link href="/products/dihuava" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">DIHUAVA AI Digital Humans</Link>. Also explore our life-size <Link href="/products/holographic-display" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">AI Hologram Box enclosures</Link>.
+                Transform standard digital signage into immersive 3D spatial experiences. Featuring an ultra-slim <strong>6 cm body thickness</strong> and <strong>4K Ultra HD touch screen</strong> panel for luxury product showcases, retail storefronts, and interactive <Link href="/products/dihuava" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">DIHUAVA AI Digital Humans</Link>. Also explore our life-size <Link href="/products/holographic-display" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">AI Hologram Box enclosures</Link>.
               </p>
 
               {/* Action Buttons */}
@@ -149,14 +149,14 @@ export default function SpatialDisplayClient() {
                       <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-500" />
                     </span>
                     <span className="text-[11px] font-mono font-medium tracking-wider text-cyan-300 uppercase">
-                      6cm Profile • 4K Touch
+                      6 cm Profile • 4K Touch
                     </span>
                   </div>
 
                   {/* Bottom System Overlay Status */}
                   <div className="absolute bottom-4 left-4 right-4 z-10 rounded-xl border border-white/15 bg-black/80 p-3.5 backdrop-blur-md">
                     <div className="flex items-center justify-between text-xs font-mono">
-                      <span className="text-cyan-400 font-semibold">● 6CM THICKNESS</span>
+                      <span className="text-cyan-400 font-semibold">● 6 CM THICKNESS</span>
                       <span className="text-amber-400 font-bold">4K ULTRA HD</span>
                     </div>
                     <p className="mt-1 text-[11px] leading-snug text-gray-300">
@@ -170,7 +170,7 @@ export default function SpatialDisplayClient() {
         </div>
       </section>
 
-      {/* KEY HIGHLIGHT FEATURE SECTION - 6cm SPATIAL DISPLAY TOUCH SCREEN WITH 4K ULTRA HD */}
+      {/* KEY HIGHLIGHT FEATURE SECTION - 6 cm SPATIAL DISPLAY TOUCH SCREEN WITH 4K ULTRA HD */}
       <section className="relative overflow-hidden bg-neutral-950 px-6 py-20 border-b border-cyan-500/30">
         {/* Glowing Background Orbs */}
         <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[350px] w-[700px] rounded-full bg-gradient-to-r from-purple-600/20 via-cyan-500/20 to-amber-500/10 blur-[130px]" />
@@ -183,14 +183,14 @@ export default function SpatialDisplayClient() {
             </span>
           </div>
 
-          {/* Laser Light-Bar Accent + 6cm Big Title */}
+          {/* Laser Light-Bar Accent + 6 cm Big Title */}
           <div className="flex items-center justify-center gap-4 sm:gap-8 my-4">
             {/* Left Flare Line */}
             <div className="flex-1 max-w-[120px] sm:max-w-[220px] h-[3px] bg-gradient-to-r from-transparent via-cyan-400 to-indigo-500 shadow-[0_0_12px_#06b6d4]" />
 
-            {/* Glowing 6cm Text */}
+            {/* Glowing 6 cm Text */}
             <h2 className="text-6xl sm:text-8xl md:text-9xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-400 via-purple-300 to-cyan-300 bg-clip-text text-transparent drop-shadow-[0_0_40px_rgba(168,85,247,0.6)] font-mono">
-              6cm
+              6 cm
             </h2>
 
             {/* Right Flare Line */}
@@ -208,14 +208,14 @@ export default function SpatialDisplayClient() {
           </h3>
 
           <p className="mt-6 mx-auto max-w-2xl text-base sm:text-lg leading-8 text-gray-300">
-            Featuring an ultra-thin <strong>6cm body thickness</strong>, responsive multi-touch interactive glass surface, and ultra-crisp <strong>4K Ultra HD resolution</strong> for true-to-life 3D spatial depth rendering.
+            Featuring an ultra-thin <strong>6 cm body thickness</strong>, responsive multi-touch interactive glass surface, and ultra-crisp <strong>4K Ultra HD resolution</strong> for true-to-life 3D spatial depth rendering.
           </p>
 
           {/* Highlights Grid Pills */}
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <div className="rounded-2xl border border-purple-500/30 bg-purple-950/40 px-6 py-3.5 backdrop-blur-md">
               <p className="text-xs font-mono text-purple-300 uppercase">Profile Thickness</p>
-              <p className="text-xl font-bold text-white mt-0.5">Ultra-Slim 6cm</p>
+              <p className="text-xl font-bold text-white mt-0.5">Ultra-Slim 6 cm</p>
             </div>
             <div className="rounded-2xl border border-cyan-500/30 bg-cyan-950/40 px-6 py-3.5 backdrop-blur-md">
               <p className="text-xs font-mono text-cyan-300 uppercase">Interactive Panel</p>

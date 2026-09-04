@@ -4,7 +4,7 @@ import DihuavaClient from "./DihuavaClient";
 export const metadata: Metadata = {
   title: "DIHUAVA | AI Digital Human Platform | HS Global AI",
   description:
-    "DIHUAVA is an interactive AI Digital Human platform featuring sub-300ms latency, on-device data privacy, multilingual speech, and offline document intelligence.",
+    "DIHUAVA is an interactive AI Digital Human platform featuring Low Latency, on-device data privacy, multilingual speech, and offline document intelligence.",
   alternates: {
     canonical: "/products/dihuava",
   },

@@ -95,7 +95,7 @@ export const platformData: Record<string, PlatformPageData> = {
       "The voice engine uses zero-shot neural cloning. By uploading a single 5 to 30 second clean audio clip (WAV or MP3), the system normalizes the audio to 24kHz mono and pre-encodes the voice profile once at upload. From then on, the avatar speaks any sentence in any of our 29+ supported languages in your authentic voice synthesized 100% on-device with zero per-hour API fees.",
     ],
     specs: [
-      { label: "Lip-Sync Latency", value: "<30ms On-Device" },
+      { label: "Lip-Sync Latency", value: "Low Latency On-Device" },
       { label: "Voice Sample Needed", value: "5–30s Audio Clip" },
       { label: "Neural Output", value: "24kHz Mono" },
       { label: "Data Confidentiality", value: "100% Air-Gapped" },
@@ -112,7 +112,7 @@ export const platformData: Record<string, PlatformPageData> = {
         id: "lipsync-closeup",
         title: "60 FPS Real-Time Lipsync Close-Up",
         duration: "0:15",
-        description: "High-resolution facial crop demonstrating sub-30ms phoneme mapping and mouth blendshape movements during natural speech.",
+        description: "High-resolution facial crop demonstrating real-time phoneme mapping and mouth blendshape movements during natural speech.",
         videoSrc: "/videos/features/avatar_lipsync_closeup.mp4",
       },
       {
@@ -183,7 +183,7 @@ export const platformData: Record<string, PlatformPageData> = {
       {
         step: "04",
         title: "Real-Time On-Device Execution",
-        desc: "The avatar listens, thinks, speaks, and switches languages on-device with sub-30ms lip-sync latency and 0ms cloud dependency.",
+        desc: "The avatar listens, thinks, speaks, and switches languages on-device with Low-Latency lip-sync and 0ms cloud dependency.",
       },
     ],
     inputChecklist: [
@@ -373,7 +373,7 @@ export const platformData: Record<string, PlatformPageData> = {
     title: "Multilingual Support & Speech Synthesis",
     subtitle: "29+ Spoken Global Languages Running 100% On-Device",
     description:
-      "Full offline ASR, translation, and neural speech synthesis across 29+ global languages including 7 specialized Indian languages, processed with sub-200ms language switching and zero cloud API charges.",
+      "Full offline ASR, translation, and neural speech synthesis across 29+ global languages including 7 specialized Indian languages, processed with instant language switching and zero cloud API charges.",
     icon: Globe,
     overviewHeading: "29+ Shipping Languages with Purpose-Built Regional Speech Models",
     overviewParagraphs: [
@@ -383,7 +383,7 @@ export const platformData: Record<string, PlatformPageData> = {
     specs: [
       { label: "Languages Supported", value: "29+ Global Languages" },
       { label: "Regional Models", value: "7 Indian Languages" },
-      { label: "Auto-Switch Latency", value: "<200ms Detection" },
+      { label: "Auto-Switch Latency", value: "Instant Detection" },
       { label: "Cloud API Fees", value: "$0 Per Minute" },
     ],
     demoVideos: [
@@ -424,7 +424,7 @@ export const platformData: Record<string, PlatformPageData> = {
       },
       {
         title: "Real-Time Automatic Language Switching",
-        desc: "Detects the visitor's spoken language upon their first sentence, automatically switching dialogue language in under 200ms.",
+        desc: "Detects the visitor's spoken language upon their first sentence, automatically switching dialogue language instantly.",
       },
       {
         title: "Voice Clone Accent Preservation",
@@ -452,7 +452,7 @@ export const platformData: Record<string, PlatformPageData> = {
       {
         step: "02",
         title: "Local ASR & Language Identification",
-        desc: "On-device ASR recognizes speech and identifies the language in under 200ms, mapping vocabulary against client document terms.",
+        desc: "On-device ASR recognizes speech and identifies the language instantly, mapping vocabulary against client document terms.",
       },
       {
         step: "03",
@@ -491,7 +491,7 @@ export const platformData: Record<string, PlatformPageData> = {
       {
         question: "How fast does the avatar switch languages?",
         answer:
-          "Language detection and switching happen in under 200ms as soon as the visitor speaks their first sentence.",
+          "Language detection and switching happen instantly as soon as the visitor speaks their first sentence.",
       },
       {
         question: "Can we lock the avatar to only speak English and Arabic?",
@@ -960,7 +960,7 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-cyan-400 font-bold">✓</span>
-                    <span>Deterministic Lip-Sync Latency Under 30ms</span>
+                    <span>Deterministic Low-Latency Lip-Sync</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-cyan-400 font-bold">✓</span>

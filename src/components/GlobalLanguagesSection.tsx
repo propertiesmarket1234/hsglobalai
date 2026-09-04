@@ -45,7 +45,7 @@ const featuredLanguages: LanguageItem[] = [
 const languageFeatures = [
   {
     icon: Zap,
-    title: "Sub-200ms Auto Language Detection",
+    title: "Instant Auto Language Detection",
     description:
       "Instantly identifies the speaker's language and seamlessly switches response generation without needing manual language selection.",
   },

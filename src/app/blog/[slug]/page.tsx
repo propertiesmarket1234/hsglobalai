@@ -306,7 +306,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
                     </h3>
 
                     <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-gray-300">
-                      Experience sub-300ms voice dialogue and 100% data privacy on your physical hardware. Book a live walkthrough with our enterprise AI engineering team.
+                      Experience Low Latency voice dialogue and 100% data privacy on your physical hardware. Book a live walkthrough with our enterprise AI engineering team.
                     </p>
 
                     <div className="mt-8 flex flex-wrap items-center justify-center gap-4">

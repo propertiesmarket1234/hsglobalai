@@ -71,7 +71,7 @@ const capabilities: CapabilityItem[] = [
     highlights: [
       { label: "29+ Global Languages", detail: "Native offline speech processing across English, Spanish, Mandarin, Russian, Arabic, and 24+ more." },
       { label: "7 Specialized Indian Languages", detail: "Purpose-built edge models for Hindi, Tamil, Telugu, Kannada, Bengali, Marathi, and Gujarati." },
-      { label: "Sub-200ms Auto Language Switch", detail: "Instantly detects incoming visitor language and adapts speech synthesis dynamically." },
+      { label: "Instant Auto Language Switch", detail: "Instantly detects incoming visitor language and adapts speech synthesis dynamically." },
     ],
   },
   {

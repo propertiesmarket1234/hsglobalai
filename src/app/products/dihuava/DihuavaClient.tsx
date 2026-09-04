@@ -27,12 +27,12 @@ const coreModules = [
     title: "Selfie With Avatar",
     subtitle: "Instant On-Device Photo Compositing",
     description:
-      "Visitors tap Selfie on the display to capture a photo standing beside the AI Avatar. Features deterministic sub-second face-scale matching, 6 creative filters (Realistic, Original, B&W, Vivid, Warm, Cool), and optional QR phone sharing with 24-hour auto-expiring links.",
+      "Visitors tap Selfie on the display to capture a photo standing beside the AI Avatar. Features deterministic real-time face-scale matching, 6 creative filters (Realistic, Original, B&W, Vivid, Warm, Cool), and optional QR phone sharing with 24-hour auto-expiring links.",
     icon: Camera,
     badge: "Interactive Photo Experience",
     featureUrl: "/products/dihuava/avatar-customization",
     highlights: [
-      "Sub-second (~300–400ms) local compositing",
+      "Real-time local compositing",
       "Scale & height face alignment matching",
       "6 instant photographic filters",
       "24-Hour auto-expiring QR share links",
@@ -48,7 +48,7 @@ const coreModules = [
     badge: "Real-Time Face Tracking",
     featureUrl: "/products/dihuava/avatar-customization",
     highlights: [
-      "50–100ms real-time camera face tracking",
+      "Real-time camera face tracking",
       "Live expression & blink deformation",
       "No-code character library expansion",
       "High-engagement exhibition draw",
@@ -134,7 +134,7 @@ const archPillars = [
   },
   {
     title: "29+ Multilingual Speech Engine",
-    desc: "Real-time speech recognition & synthesis across 29+ global languages and 7+ Indian languages with instant auto-switch (<200ms).",
+    desc: "Real-time speech recognition & synthesis across 29+ global languages and 7+ Indian languages with instant auto-switch.",
     icon: Globe,
   },
   {
@@ -144,7 +144,7 @@ const archPillars = [
   },
   {
     title: "Low-Latency Edge Pipeline",
-    desc: "High-speed local stream architecture delivering end-to-end conversational response times under 500ms for fluid dialogue.",
+    desc: "High-speed local stream architecture delivering end-to-end conversational response times with Low Latency for fluid dialogue.",
     icon: Zap,
   },
   {
@@ -262,7 +262,7 @@ const comparisonTable = [
   { feature: "Voice Processing", dihuava: "Local Processing", cloud: "May Use Remote Processing" },
   { feature: "Languages", dihuava: "29+ Local Languages", cloud: "Depends on Provider" },
   { feature: "Selfie Experience", dihuava: "Local Compositing", cloud: "Cloud-Dependent Workflows" },
-  { feature: "Live Character", dihuava: "50–100ms Face Tracking", cloud: "Depends on Implementation" },
+  { feature: "Live Character", dihuava: "Real-Time Face Tracking", cloud: "Depends on Implementation" },
   { feature: "Data Architecture", dihuava: "Edge / Air-Gapped Deployment", cloud: "Cloud Infrastructure" },
 ];
 
@@ -280,7 +280,7 @@ const productSpecs = [
 const faqs = [
   {
     q: "Does DIHUAVA require internet connectivity?",
-    a: "No. The full 29-language voice pipeline, document RAG, product catalog, Selfie compositing, and Live Character rendering run completely offline on local hardware. Internet is only optionally used if an administrator enables Selfie QR cloud sharing.",
+    a: "No. DIHUAVA runs 100% offline on-device by default, with optional cloud-management configurations available. The full 29-language voice pipeline, document RAG, product catalog, Selfie compositing, and Live Character rendering run completely offline on local hardware.",
   },
   {
     q: "How many languages are supported on-device?",
@@ -296,11 +296,11 @@ const faqs = [
   },
   {
     q: "What is Selfie With Avatar?",
-    a: "Selfie With Avatar allows visitors to tap Selfie on screen and instantly capture a photo standing next to the avatar. Sub-second compositing matches face size and vertical height, applies creative filters, and generates a 24-hour QR share link.",
+    a: "Selfie With Avatar allows visitors to tap Selfie on screen and instantly capture a photo standing next to the avatar. Real-time compositing matches face size and vertical height, applies creative filters, and generates a 24-hour QR share link.",
   },
   {
     q: "What is Live Character Experience?",
-    a: "Live Character Experience is a real-time cartoon face mode. The camera tracks visitor facial movements (smiles, blinks, head turns) and warps a stylized character skin directly onto their face at 50–100ms ultra-low latency.",
+    a: "Live Character Experience is a real-time cartoon face mode. The camera tracks visitor facial movements (smiles, blinks, head turns) and warps a stylized character skin directly onto their face with ultra-low latency.",
   },
 ];
 
@@ -669,7 +669,7 @@ export default function DihuavaClient() {
                 </div>
 
                 <p className="text-sm leading-7 text-gray-300">
-                  A real-time cartoon/character rendering mode where the camera tracks a visitor's face and warps a stylized character design directly onto their live reflection at <strong className="text-white">50–100ms ultra-low latency</strong>.
+                  A real-time cartoon/character rendering mode where the camera tracks a visitor's face and warps a stylized character design directly onto their live reflection at <strong className="text-white">ultra-low latency</strong>.
                 </p>
 
                 <div className="mt-6 space-y-3">

@@ -35,7 +35,7 @@ export const industriesData: Record<string, IndustryDetail> = {
       { label: "On-Device Processing", value: "100%" },
       { label: "Branch Engagement Lift", value: "3.2x" },
       { label: "Queue Wait Time Reduction", value: "40%" },
-      { label: "Supported Languages", value: "29" },
+      { label: "Supported Languages", value: "29+" },
     ],
     capabilities: [
       {
@@ -53,7 +53,7 @@ export const industriesData: Record<string, IndustryDetail> = {
       {
         title: "Multilingual Financial Advisory",
         description:
-          "Automatic real-time language detection supporting 29 spoken languages and regional dialects with natural pitch modulation.",
+          "Automatic real-time language detection supporting 29+ Global Languages and regional dialects with natural pitch modulation.",
         icon: "🌐",
       },
       {
@@ -128,7 +128,7 @@ export const industriesData: Record<string, IndustryDetail> = {
     description:
       "Engage shoppers with holographic brand ambassadors, smart product explainers, Virtual Try-On mirrors, and interactive promotional displays designed to boost in-store footfall and checkout conversion rates.",
     heroOverview:
-      "Transform static storefront displays and luxury retail floors into interactive 3D shopping experiences. Holographic brand avatars greet shoppers, demonstrate high-end watches, jewellery, apparel, and electronics, answer specs in 29+ languages, and feature instant Virtual Try-On.",
+      "Transform static storefront displays and luxury retail floors into interactive 3D shopping experiences. Holographic brand avatars greet shoppers, demonstrate high-end watches, jewellery, apparel, and electronics, answer specs in 29+ Global Languages, and feature instant Virtual Try-On.",
     accentColor: "from-cyan-500/20 via-sky-500/10 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.3)",
     metrics: [
@@ -196,8 +196,8 @@ export const industriesData: Record<string, IndustryDetail> = {
         title: "Multilingual Mall Concierge",
         category: "Mall Guidance",
         description:
-          "Greet international tourists in 29 global languages, provide store location maps, and assist with mall directory navigation.",
-        highlight: "29 Spoken Languages",
+          "Greet international tourists in 29+ Global Languages, provide store location maps, and assist with mall directory navigation.",
+        highlight: "29+ Global Languages",
       },
       {
         title: "Selfie With Brand Avatar Kiosk",
@@ -259,7 +259,7 @@ export const industriesData: Record<string, IndustryDetail> = {
       {
         title: "Multilingual Corporate Directory",
         description:
-          "Connect global office visitors with regional department heads across 29 languages.",
+          "Connect global office visitors with regional department heads across 29+ Global Languages.",
         icon: "🌐",
       },
     ],
@@ -303,8 +303,8 @@ export const industriesData: Record<string, IndustryDetail> = {
         title: "Multilingual Corporate Directory",
         category: "Global Directory",
         description:
-          "Assist international clients and visiting partners across 29 languages with real-time employee directory lookups.",
-        highlight: "29 Spoken Languages",
+          "Assist international clients and visiting partners across 29+ Global Languages with real-time employee directory lookups.",
+        highlight: "29+ Global Languages",
       },
     ],
     techSpecs: [
@@ -334,7 +334,7 @@ export const industriesData: Record<string, IndustryDetail> = {
     metrics: [
       { label: "Patient Data Privacy", value: "100%" },
       { label: "Desk Waiting Time Reduction", value: "50%" },
-      { label: "Multilingual Patient Support", value: "29" },
+      { label: "Multilingual Patient Support", value: "29+" },
       { label: "System Availability", value: "24/7" },
     ],
     capabilities: [
@@ -396,14 +396,14 @@ export const industriesData: Record<string, IndustryDetail> = {
         title: "Pharmacy & Medication Schedule Assistant",
         category: "Pharmacy Guidance",
         description:
-          "Explain medication dosages, dietary rules, and prescription refills to patients across 29 languages.",
+          "Explain medication dosages, dietary rules, and prescription refills to patients across 29+ Global Languages.",
         highlight: "Clear Multilingual Guidance",
       },
       {
         title: "Multilingual Patient Care Assistant",
         category: "Global Health",
         description:
-          "Support international medical tourists and non-native patients with 29 spoken languages and HIPAA-friendly local AI.",
+          "Support international medical tourists and non-native patients with 29+ Global Languages and HIPAA-friendly local AI.",
         highlight: "100% HIPAA-Friendly Privacy",
       },
     ],
@@ -509,7 +509,7 @@ export const industriesData: Record<string, IndustryDetail> = {
     ],
     techSpecs: [
       { label: "Optics Technology", value: "High-Transmittance 3D Holographic Display Glass" },
-      { label: "Speech Engine", value: "29 Multilingual Speech Synthesis with Accent Adaptation" },
+      { label: "Speech Engine", value: "29+ Multilingual Speech Synthesis with Accent Adaptation" },
       { label: "Asset Pipeline", value: "Volumetric 3D Avatar Rendering & Lip-Sync Animation Engine" },
       { label: "Environment Rating", value: "High Ambient Light & Noise Resistant Commercial Hardware" },
     ],
@@ -535,7 +535,7 @@ export const industriesData: Record<string, IndustryDetail> = {
       { label: "Student Engagement Lift", value: "3.5x" },
       { label: "Positive Learning Feedback", value: "92%" },
       { label: "Study Assistance Hours", value: "24/7" },
-      { label: "Languages Supported", value: "29" },
+      { label: "Languages Supported", value: "29+" },
     ],
     capabilities: [
       {
@@ -547,7 +547,7 @@ export const industriesData: Record<string, IndustryDetail> = {
       {
         title: "Multilingual Language Practice",
         description:
-          "Provide students with infinite conversational practice in English, Spanish, Mandarin, Arabic, and 26+ other languages.",
+          "Provide students with infinite conversational practice in English, Spanish, Mandarin, Arabic, and 26+ additional global languages.",
         icon: "💬",
       },
       {
@@ -589,8 +589,8 @@ export const industriesData: Record<string, IndustryDetail> = {
         title: "Multilingual Language Practice Avatar",
         category: "Language Learning",
         description:
-          "Offer students unlimited conversational speech practice across 29 languages with instant feedback on pronunciation.",
-        highlight: "29 Language Speech Practice",
+          "Offer students unlimited conversational speech practice across 29+ Global Languages with instant feedback on pronunciation.",
+        highlight: "29+ Global Languages Speech Practice",
       },
       {
         title: "Corporate Academy Skills Training Kiosk",

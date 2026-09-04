@@ -83,7 +83,7 @@ const faqJsonLd = {
       "acceptedAnswer": {
         "@type": "Answer",
         "text":
-          "Security is enterprise-grade. We implement role-based access controls, encrypted data storage, and strict privacy guidelines. Deployments can be configured 100% on-device (air-gapped) or cloud-managed depending on your compliance requirements.",
+          "Security is enterprise-grade. We implement role-based access controls, encrypted data storage, and strict privacy guidelines. DIHUAVA runs 100% offline on-device by default, with optional cloud-management configurations available.",
       },
     },
     {
@@ -92,7 +92,7 @@ const faqJsonLd = {
       "acceptedAnswer": {
         "@type": "Answer",
         "text":
-          "No. While internet connectivity enables remote updates and cloud analytics, our DIHUAVA engine supports 100% offline / on-device AI processing for high-security, air-gapped environments.",
+          "No. DIHUAVA runs 100% offline on-device by default, with optional cloud-management configurations available.",
       },
     },
     {
