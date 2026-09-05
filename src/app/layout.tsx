@@ -70,6 +70,17 @@ export const metadata: Metadata = {
     description:
       "Enterprise AI digital humans, holographic AI assistants, spatial displays and intelligent customer experiences powered by on-device AI.",
   },
+
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/logo/hs-global-ai-logo.png", type: "image/png", sizes: "500x500" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      { url: "/logo/hs-global-ai-logo.png", type: "image/png", sizes: "500x500" },
+    ],
+  },
 };
 
 const organizationJsonLd = {
