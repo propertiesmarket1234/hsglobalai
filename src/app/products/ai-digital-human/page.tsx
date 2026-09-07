@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import DihuavaClient from "./DihuavaClient";
 
 export const metadata: Metadata = {
-  title: "AI Digital Human Software Platform | DIHUAVA | HS Global AI",
+  title: "AI Digital Human Software Platform | DIHUAVA",
   description:
     "DIHUAVA by HS Global AI is an enterprise AI Digital Human software platform featuring 100% offline edge processing, 29+ languages, and document intelligence.",
   alternates: {
