@@ -19,6 +19,7 @@ interface ProductItem {
   accentGlow: string;
   badge: string;
   linkHref: string;
+  linkText?: string;
   reverseLayout?: boolean;
 }
 
@@ -32,11 +33,12 @@ const products: ProductItem[] = [
       "Intelligent, human-like AI avatars designed to communicate naturally with customers across 29+ global languages, industries, and real-world environments with hyper-realistic facial expressions and custom voice cloning.",
     tags: ["29+ Global Languages", "Voice Cloning", "Custom Avatars", "Real-Time Interaction"],
     imageSrc: "/products/digital-humans/digital-human-dashboard.jpg",
-    imageAlt: "AI Digital Human Avatar",
+    imageAlt: "DIHUAVA AI Digital Human Platform",
     accentColor: "from-cyan-500/20 via-sky-500/10 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.25)",
     badge: "Interactive Stream",
     linkHref: "/products/dihuava",
+    linkText: "Explore DIHUAVA AI Digital Human Platform",
   },
   {
     id: "hologram-box",
@@ -51,11 +53,12 @@ const products: ProductItem[] = [
       "/products/digital-humans/digital-human-new.png",
       "/products/hologram-box/hologram-box-saree.jpg",
     ],
-    imageAlt: "AI Hologram Box Showcase",
+    imageAlt: "3D AI Holographic Display Unit",
     accentColor: "from-cyan-500/20 via-sky-500/10 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.25)",
     badge: "3D Holographic",
     linkHref: "/products/holographic-display",
+    linkText: "Explore 3D Holographic Display Hardware",
     reverseLayout: true,
   },
   {
@@ -67,11 +70,12 @@ const products: ProductItem[] = [
       "Transform digital content into immersive visual experiences supporting 29+ global languages, designed to capture attention and create engaging interactive experiences in physical spaces.",
     tags: ["29+ Global Languages", "Immersive 3D Visuals", "Digital Signage", "Interactive Display"],
     imageSrc: "/products/spatial-display/spatial-display.png",
-    imageAlt: "Spatial Volumetric Display Showcase",
+    imageAlt: "Glasses-Free 3D Spatial Display",
     accentColor: "from-cyan-500/20 via-sky-500/10 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.25)",
     badge: "Volumetric 3D",
     linkHref: "/products/spatial-display",
+    linkText: "Explore Glasses-Free 3D Spatial Display",
   },
   {
     id: "virtual-try-on",
@@ -82,11 +86,12 @@ const products: ProductItem[] = [
       "Enable customers to visualize products digitally before making a purchase, creating interactive shopping experiences with instant real-time outfit previewing and 29+ global language voice guidance.",
     tags: ["29+ Global Languages", "AI Smart Mirror", "Real-Time Fitting", "Retail Experience"],
     imageSrc: "/products/virtual-try-on/virtual-try-on.png",
-    imageAlt: "Virtual Try-On Smart Mirror",
+    imageAlt: "Virtual Try-On Smart Mirror Interactive Kiosk (Active R&D)",
     accentColor: "from-cyan-500/20 via-sky-500/10 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.25)",
-    badge: "Real-Time Fitting",
-    linkHref: "/contact",
+    badge: "Active R&D Capability",
+    linkHref: "/blog/what-is-virtual-try-on-technology",
+    linkText: "Learn About Virtual Try-On R&D Technology",
     reverseLayout: true,
   },
 ];
@@ -270,7 +275,7 @@ export default function ProductShowcase() {
                       href={product.linkHref}
                       className="group inline-flex items-center gap-3 text-sm font-semibold tracking-wide text-white transition-colors hover:text-cyan-400"
                     >
-                      <span>Explore {product.title}</span>
+                      <span>{product.linkText || `Explore ${product.title}`}</span>
                       <motion.span
                         animate={{ x: [0, 4, 0] }}
                         transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}

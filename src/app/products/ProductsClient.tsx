@@ -7,6 +7,7 @@ import GlobalLanguagesSection from "@/components/GlobalLanguagesSection";
 import DihuavaPlatform from "@/components/DihuavaPlatform";
 import ChatbotVsAvatar from "@/components/ChatbotVsAvatar";
 import CTA from "@/components/CTA";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function ProductsClient() {
@@ -68,6 +69,9 @@ export default function ProductsClient() {
                 <p className="text-base leading-8 text-gray-200 sm:text-lg drop-shadow">
                   Explore intelligent AI solutions supporting <strong>29+ Global Languages</strong> — from AI Digital Humans and holographic avatars to spatial displays and Virtual Try-On.
                 </p>
+                <p className="mt-3 text-sm leading-relaxed text-cyan-200/90 font-medium">
+                  DIHUAVA provides the AI Digital Human software layer that can power HS Global AI&apos;s holographic and spatial display experiences.
+                </p>
 
                 {/* Capability Pills */}
                 <div className="mt-6 flex flex-wrap gap-2">
@@ -87,8 +91,28 @@ export default function ProductsClient() {
               </div>
             </div>
 
+            {/* Product Ecosystem Taxonomy */}
+            <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-4 border-t border-white/10 pt-8">
+              <div className="rounded-xl border border-white/10 bg-white/5 p-3.5 backdrop-blur-md">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-400 block">Software Platform</span>
+                <span className="text-xs font-semibold text-white">DIHUAVA AI Platform</span>
+              </div>
+              <div className="rounded-xl border border-white/10 bg-white/5 p-3.5 backdrop-blur-md">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-400 block">3D Hardware Enclosure</span>
+                <span className="text-xs font-semibold text-white">Holographic Display</span>
+              </div>
+              <div className="rounded-xl border border-white/10 bg-white/5 p-3.5 backdrop-blur-md">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-400 block">Glasses-Free 3D Display</span>
+                <span className="text-xs font-semibold text-white">Spatial Display</span>
+              </div>
+              <div className="rounded-xl border border-white/10 bg-white/5 p-3.5 backdrop-blur-md">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-400 block">Active R&D Capability</span>
+                <span className="text-xs font-semibold text-white">Virtual Try-On Mirror</span>
+              </div>
+            </div>
+
             {/* Bottom Divider Accent */}
-            <div className="mt-16 h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+            <div className="mt-12 h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
           </motion.div>
         </div>
       </section>
@@ -104,6 +128,35 @@ export default function ProductsClient() {
 
       {/* CHATBOT VS DIGITAL HUMAN AVATAR COMPARISON */}
       <ChatbotVsAvatar />
+
+      {/* ENTERPRISE INDUSTRY SOLUTIONS LINKS */}
+      <section className="relative overflow-hidden bg-black px-6 py-16 text-white border-t border-white/10">
+        <div className="mx-auto max-w-7xl text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-cyan-400">
+            Industry Deployment Solutions
+          </p>
+          <h3 className="mt-2 text-2xl font-bold text-white sm:text-3xl">
+            Engineered for Vertical Enterprise Environments
+          </h3>
+          <p className="mt-3 text-sm text-gray-300 max-w-2xl mx-auto">
+            Discover how HS Global AI digital humans and holographic displays are deployed across enterprise sector workflows.
+          </p>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs font-medium">
+            <Link href="/industries" className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-gray-200 hover:border-cyan-400 hover:text-white transition-colors">
+              All Industry Solutions →
+            </Link>
+            <Link href="/industries/healthcare" className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-gray-200 hover:border-cyan-400 hover:text-white transition-colors">
+              Healthcare & Patient Experience →
+            </Link>
+            <Link href="/industries/retail" className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-gray-200 hover:border-cyan-400 hover:text-white transition-colors">
+              Retail & Smart Mirror Kiosks →
+            </Link>
+            <Link href="/industries/banking" className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-gray-200 hover:border-cyan-400 hover:text-white transition-colors">
+              Banking & Air-Gapped Concierge →
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* CALL TO ACTION SECTION */}
       <CTA />
