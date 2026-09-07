@@ -13,12 +13,12 @@ export const metadata: Metadata = {
 const dihuavaSoftwareSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "@id": "https://www.hsglobalai.com/products/dihuava#software",
+  "@id": "https://www.hsglobalai.com/products/ai-digital-human#software",
   name: "DIHUAVA",
   alternateName: "DIHUAVA AI Digital Human Platform",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Cross-platform",
-  url: "https://www.hsglobalai.com/products/dihuava",
+  url: "https://www.hsglobalai.com/products/ai-digital-human",
   description:
     "DIHUAVA is a proprietary AI Digital Human software platform running 100% offline on-device by default, featuring real-time talking avatars, multilingual speech synthesis across 29+ global languages and 7 Indian regional languages, and local document intelligence RAG.",
   publisher: {

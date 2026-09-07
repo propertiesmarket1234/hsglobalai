@@ -111,7 +111,7 @@ export default function Header() {
                     <div className="my-1.5 border-t border-white/10" />
 
                     <Link
-                      href="/products/dihuava"
+                      href="/products/ai-digital-human"
                       className="block rounded-xl px-4 py-2.5 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
                     >
                       <span className="text-cyan-400 font-bold">DIHUAVA</span> AI Avatar Platform
@@ -502,10 +502,10 @@ export default function Header() {
                 {/* Subpages links in mobile drawer */}
                 <div className="ml-4 mt-1 border-l border-cyan-500/20 pl-3 space-y-1">
                   <Link
-                    href="/products/dihuava"
+                    href="/products/ai-digital-human"
                     onClick={() => setMobileMenuOpen(false)}
                     className={`block rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
-                      pathname === "/products/dihuava"
+                      pathname === "/products/ai-digital-human"
                         ? "text-cyan-400 font-semibold"
                         : "text-gray-400 hover:text-white"
                     }`}

@@ -30,7 +30,7 @@ const coreModules = [
       "Visitors tap Selfie on the display to capture a photo standing beside the AI Avatar. Features deterministic real-time face-scale matching, 6 creative filters (Realistic, Original, B&W, Vivid, Warm, Cool), and optional QR phone sharing with 24-hour auto-expiring links.",
     icon: Camera,
     badge: "Interactive Photo Experience",
-    featureUrl: "/products/dihuava/avatar-customization",
+    featureUrl: "/products/ai-digital-human/avatar-customization",
     highlights: [
       "Real-time local compositing",
       "Scale & height face alignment matching",
@@ -46,7 +46,7 @@ const coreModules = [
       "A real-time camera-driven cartoon rendering mode where a visitor's live facial expressions (smiles, blinks, head turns) deform a stylized character skin directly onto their face in real time with ultra-low latency.",
     icon: Sparkles,
     badge: "Real-Time Face Tracking",
-    featureUrl: "/products/dihuava/avatar-customization",
+    featureUrl: "/products/ai-digital-human/avatar-customization",
     highlights: [
       "Real-time camera face tracking",
       "Live expression & blink deformation",
@@ -62,7 +62,7 @@ const coreModules = [
       "Converts product catalog CSVs into an intelligent spoken recommendation system. Displays interactive product cards, price filtering, and automatic audio-visual synchronization so the avatar only discusses products currently on screen.",
     icon: ShoppingBag,
     badge: "Smart Recommendation",
-    featureUrl: "/products/dihuava/ai-product-catalog",
+    featureUrl: "/products/ai-digital-human/ai-product-catalog",
     highlights: [
       "Structured 9-column catalog schema",
       "Audio-visual sync with screen cards",
@@ -78,7 +78,7 @@ const coreModules = [
       "Ingest custom corporate PDFs, CSVs, TXT, and Markdown files directly onto the local device. An on-device relevance reranker scores passages before generating grounded responses with zero data leaving your premises.",
     icon: Zap,
     badge: "100% Offline RAG",
-    featureUrl: "/products/dihuava/document-intelligence",
+    featureUrl: "/products/ai-digital-human/document-intelligence",
     highlights: [
       "Local PDF, CSV, TXT & Markdown RAG",
       "On-device relevance reranking",
@@ -94,7 +94,7 @@ const coreModules = [
       "Full on-device speech recognition, voice synthesis, and translation across 29+ global languages, including regional accents and automatic per-persona voice cloning.",
     icon: Globe,
     badge: "29+ Global Languages",
-    featureUrl: "/products/dihuava/multilingual-support",
+    featureUrl: "/products/ai-digital-human/multilingual-support",
     highlights: [
       "100% local speech recognition & TTS",
       "Real-time 29+ global languages engine",
@@ -110,7 +110,7 @@ const coreModules = [
       "Engineered for highly regulated enterprise environments (banking, defense, healthcare). All voice computations, LLM dialogues, document searches, and photo compositing occur locally on physical edge hardware.",
     icon: ShieldCheck,
     badge: "Air-Gap Compliance",
-    featureUrl: "/products/dihuava/persona-management",
+    featureUrl: "/products/ai-digital-human/persona-management",
     highlights: [
       "100% local hardware processing",
       "GDPR, PDPA & HIPAA-friendly",

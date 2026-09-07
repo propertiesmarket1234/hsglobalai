@@ -123,7 +123,7 @@ export default function HolographicDisplayClient() {
               </h1>
 
               <p className="mt-6 text-base leading-8 text-gray-300 sm:text-lg max-w-2xl">
-                Bring intelligent <Link href="/products/dihuava" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">DIHUAVA AI Digital Humans</Link> into physical environments. Available in <strong className="text-cyan-300">55-inch, 65-inch, 75-inch, and 86-inch 4K Ultra-HD</strong> 3D holographic enclosures engineered for high-impact retail showcases, VIP bank lounges, corporate headquarters, and museum exhibits. Also compare with our ultra-slim <Link href="/products/spatial-display" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">3D Spatial Displays</Link>.
+                Bring intelligent <Link href="/products/ai-digital-human" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">DIHUAVA AI Digital Humans</Link> into physical environments. Available in <strong className="text-cyan-300">55-inch, 65-inch, 75-inch, and 86-inch 4K Ultra-HD</strong> 3D holographic enclosures engineered for high-impact retail showcases, VIP bank lounges, corporate headquarters, and museum exhibits. Also compare with our ultra-slim <Link href="/products/spatial-display" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">3D Spatial Displays</Link>.
               </p>
 
               {/* Size Badge Selector Pills */}

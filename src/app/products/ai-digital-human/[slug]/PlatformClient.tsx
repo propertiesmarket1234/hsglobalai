@@ -828,7 +828,7 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
           <h1 className="text-4xl font-extrabold text-cyan-400 sm:text-5xl">Feature Page Not Found</h1>
           <p className="mt-4 text-gray-400">The platform capability page you are looking for does not exist.</p>
           <Link
-            href="/products/dihuava"
+            href="/products/ai-digital-human"
             className="mt-8 rounded-full border border-cyan-400/50 bg-cyan-950/80 px-8 py-3.5 text-sm font-bold text-cyan-300 transition-all hover:bg-cyan-400 hover:text-black"
           >
             ← Return to DIHUAVA Platform Overview
@@ -852,13 +852,13 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
         <div className="relative mx-auto max-w-6xl">
           <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
             <Link
-              href="/products/dihuava"
+              href="/products/ai-digital-human"
               className="inline-flex items-center gap-2 text-xs font-medium text-cyan-400 hover:text-white transition-colors"
             >
               <ChevronLeft className="w-4 h-4" /> Return to DIHUAVA Platform Overview
             </Link>
             <Link
-              href={`/products/dihuava/${data.slug}`}
+              href={`/products/ai-digital-human/${data.slug}`}
               className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-cyan-300 hover:text-white border border-cyan-500/30 bg-cyan-950/60 px-3 py-1 rounded-lg transition-colors"
             >
               <span>View DIHUAVA Product Specs</span>
@@ -1189,7 +1189,7 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
             {data.nextFeatureName}
           </h3>
           <Link
-            href={`/products/dihuava/${data.nextFeatureSlug}`}
+            href={`/products/ai-digital-human/${data.nextFeatureSlug}`}
             className="mt-6 inline-flex items-center gap-2 rounded-full bg-cyan-500 px-8 py-3 text-sm font-bold text-black hover:bg-cyan-400 transition-all shadow-[0_0_20px_rgba(6,182,212,0.4)]"
           >
             Explore Next Feature <ArrowRight className="w-4 h-4" />

@@ -6,19 +6,34 @@ export const metadata: Metadata = {
   description:
     "DIHUAVA is an interactive AI Digital Human platform featuring Low Latency, on-device data privacy, multilingual speech, and offline document intelligence.",
   alternates: {
-    canonical: "/products/dihuava",
+    canonical: "/products/ai-digital-human",
+  },
+  openGraph: {
+    title: "DIHUAVA | AI Digital Human Platform | HS Global AI",
+    description:
+      "DIHUAVA is an interactive AI Digital Human platform featuring Low Latency, on-device data privacy, multilingual speech, and offline document intelligence.",
+    url: "https://www.hsglobalai.com/products/ai-digital-human",
+    siteName: "HS Global AI",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DIHUAVA | AI Digital Human Platform | HS Global AI",
+    description:
+      "DIHUAVA is an interactive AI Digital Human platform featuring Low Latency, on-device data privacy, multilingual speech, and offline document intelligence.",
   },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "@id": "https://www.hsglobalai.com/products/dihuava#software",
+  "@id": "https://www.hsglobalai.com/products/ai-digital-human#software",
   "name": "DIHUAVA",
   "alternateName": "DIHUAVA AI Digital Human Platform",
   "applicationCategory": "BusinessApplication",
-  "operatingSystem": "Cross-platform (On-Device Edge GPU Hardware)",
-  "url": "https://www.hsglobalai.com/products/dihuava",
+  "operatingSystem": "Cross-platform",
+  "url": "https://www.hsglobalai.com/products/ai-digital-human",
   "description":
     "DIHUAVA is an interactive AI Digital Human platform featuring real-time talking avatars, on-device data privacy, multilingual speech synthesis, and offline document intelligence.",
   "publisher": {
@@ -59,7 +74,7 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       "position": 3,
       "name": "DIHUAVA",
-      "item": "https://www.hsglobalai.com/products/dihuava",
+      "item": "https://www.hsglobalai.com/products/ai-digital-human",
     },
   ],
 };

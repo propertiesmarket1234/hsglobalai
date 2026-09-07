@@ -37,7 +37,7 @@ const products: ProductItem[] = [
     accentColor: "from-cyan-500/20 via-sky-500/10 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.25)",
     badge: "Interactive Stream",
-    linkHref: "/products/dihuava",
+    linkHref: "/products/ai-digital-human",
     linkText: "Explore DIHUAVA AI Digital Human Platform",
   },
   {

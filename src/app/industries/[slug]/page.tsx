@@ -250,7 +250,7 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
                       Core AI Architecture
                     </span>
                     <p className="mt-1 text-sm font-semibold text-cyan-200">
-                      100% Offline GPU Inference & <Link href="/products/dihuava/document-intelligence" className="underline hover:text-white">Local Document Intelligence RAG</Link>
+                      100% Offline GPU Inference & <Link href="/products/ai-digital-human/document-intelligence" className="underline hover:text-white">Local Document Intelligence RAG</Link>
                     </p>
                   </div>
                 </div>
@@ -356,7 +356,7 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
             </h2>
 
             <p className="mt-5 text-base text-gray-300 sm:text-lg leading-8">
-              Explore how our <Link href="/products/holographic-display" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">AI Hologram Box</Link> and <Link href="/products/dihuava" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">DIHUAVA Digital Human AI platform</Link> are deployed across core operational workflows in {industry.title}.
+              Explore how our <Link href="/products/holographic-display" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">AI Hologram Box</Link> and <Link href="/products/ai-digital-human" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">DIHUAVA Digital Human AI platform</Link> are deployed across core operational workflows in {industry.title}.
             </p>
           </div>
 

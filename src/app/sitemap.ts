@@ -28,7 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/products/dihuava`,
+      url: `${baseUrl}/products/ai-digital-human`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.9,
@@ -122,7 +122,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Dynamic DIHUAVA Product Feature URLs
   const dihuavaFeatureRoutes: MetadataRoute.Sitemap = platformFeatureSlugs.map(
     (slug) => ({
-      url: `${baseUrl}/products/dihuava/${slug}`,
+      url: `${baseUrl}/products/ai-digital-human/${slug}`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,

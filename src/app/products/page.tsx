@@ -54,7 +54,7 @@ const itemListJsonLd = {
       "@type": "ListItem",
       "position": 1,
       "name": "DIHUAVA AI Digital Human Platform",
-      "url": "https://www.hsglobalai.com/products/dihuava",
+      "url": "https://www.hsglobalai.com/products/ai-digital-human",
     },
     {
       "@type": "ListItem",

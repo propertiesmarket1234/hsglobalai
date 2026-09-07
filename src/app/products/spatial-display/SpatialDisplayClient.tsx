@@ -257,7 +257,7 @@ export default function SpatialDisplayClient() {
               </h1>
 
               <p className="mt-6 text-base leading-8 text-gray-300 sm:text-lg max-w-2xl">
-                An immersive display platform designed for interactive visual experiences and seamless integration with <Link href="/products/dihuava" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">DIHUAVA AI Digital Humans</Link>. Featuring an ultra-slim <strong>6 cm body thickness</strong> and <strong>4K Ultra HD touch screen panel</strong>, available in <strong>55&quot;, 65&quot;, 75&quot;, and 86&quot;</strong> display sizes. Also explore our life-size <Link href="/products/holographic-display" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">AI Hologram Box enclosures</Link>.
+                An immersive display platform designed for interactive visual experiences and seamless integration with <Link href="/products/ai-digital-human" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">DIHUAVA AI Digital Humans</Link>. Featuring an ultra-slim <strong>6 cm body thickness</strong> and <strong>4K Ultra HD touch screen panel</strong>, available in <strong>55&quot;, 65&quot;, 75&quot;, and 86&quot;</strong> display sizes. Also explore our life-size <Link href="/products/holographic-display" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">AI Hologram Box enclosures</Link>.
               </p>
 
               {/* Action Buttons */}
@@ -451,7 +451,7 @@ export default function SpatialDisplayClient() {
 
               <div className="mt-8">
                 <Link
-                  href="/products/dihuava"
+                  href="/products/ai-digital-human"
                   className="inline-flex items-center gap-2 text-sm font-bold text-cyan-400 hover:text-cyan-300 underline"
                 >
                   <span>Learn more about DIHUAVA AI Platform</span>

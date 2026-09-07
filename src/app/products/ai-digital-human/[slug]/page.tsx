@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: data ? `${data.title} | DIHUAVA | HS Global AI` : "DIHUAVA Capability | HS Global AI",
     description: data ? data.description : "Explore interactive capabilities and AI features of the DIHUAVA Digital Human platform.",
     alternates: {
-      canonical: `/products/dihuava/${slug}`,
+      canonical: `/products/ai-digital-human/${slug}`,
     },
   };
 }
@@ -54,13 +54,13 @@ export default async function DihuavaCapabilityPage({ params }: PageProps) {
         "@type": "ListItem",
         position: 3,
         name: "DIHUAVA",
-        item: "https://www.hsglobalai.com/products/dihuava",
+        item: "https://www.hsglobalai.com/products/ai-digital-human",
       },
       {
         "@type": "ListItem",
         position: 4,
         name: data?.title || slug,
-        item: `https://www.hsglobalai.com/products/dihuava/${slug}`,
+        item: `https://www.hsglobalai.com/products/ai-digital-human/${slug}`,
       },
     ],
   };

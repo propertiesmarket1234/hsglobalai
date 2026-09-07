@@ -16,7 +16,7 @@ const products = [
     imageAlt: "DIHUAVA AI Digital Human Platform",
     tags: ["Multilingual", "Voice AI", "Digital Avatars"],
     accentGlow: "rgba(6, 182, 212, 0.25)",
-    href: "/products/dihuava",
+    href: "/products/ai-digital-human",
   },
   {
     id: "02",
