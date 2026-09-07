@@ -351,7 +351,7 @@ export default function DihuavaClient() {
               </h1>
 
               <p className="mt-6 text-base leading-8 text-gray-300 sm:text-lg max-w-2xl">
-                Enterprise-grade digital humans that communicate naturally, understand your business knowledge, speak multiple languages, and run locally across interactive kiosks, <Link href="/products/holographic-display" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">AI Hologram Boxes</Link>, and <Link href="/products/spatial-display" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">3D Spatial Displays</Link>.
+                DIHUAVA is an enterprise AI Digital Human software platform powering interactive digital humans that communicate naturally, understand your business knowledge, speak multiple languages, and run locally across interactive kiosks, <Link href="/products/holographic-display" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">AI Hologram Boxes</Link>, and <Link href="/products/spatial-display" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">3D Spatial Displays</Link>.
               </p>
 
               {/* Action Buttons */}

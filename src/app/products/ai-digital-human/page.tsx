@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 import DihuavaClient from "./DihuavaClient";
 
 export const metadata: Metadata = {
-  title: "DIHUAVA | AI Digital Human Platform | HS Global AI",
+  title: "AI Digital Human Software Platform | DIHUAVA | HS Global AI",
   description:
-    "DIHUAVA is an interactive AI Digital Human platform featuring Low Latency, on-device data privacy, multilingual speech, and offline document intelligence.",
+    "DIHUAVA by HS Global AI is an enterprise AI Digital Human software platform featuring 100% offline edge processing, 29+ languages, and document intelligence.",
   alternates: {
     canonical: "/products/ai-digital-human",
   },
   openGraph: {
-    title: "DIHUAVA | AI Digital Human Platform | HS Global AI",
+    title: "AI Digital Human Software Platform | DIHUAVA | HS Global AI",
     description:
-      "DIHUAVA is an interactive AI Digital Human platform featuring Low Latency, on-device data privacy, multilingual speech, and offline document intelligence.",
+      "DIHUAVA by HS Global AI is an enterprise AI Digital Human software platform featuring 100% offline edge processing, 29+ languages, and document intelligence.",
     url: "https://www.hsglobalai.com/products/ai-digital-human",
     siteName: "HS Global AI",
     locale: "en_US",
@@ -19,9 +19,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "DIHUAVA | AI Digital Human Platform | HS Global AI",
+    title: "AI Digital Human Software Platform | DIHUAVA | HS Global AI",
     description:
-      "DIHUAVA is an interactive AI Digital Human platform featuring Low Latency, on-device data privacy, multilingual speech, and offline document intelligence.",
+      "DIHUAVA by HS Global AI is an enterprise AI Digital Human software platform featuring 100% offline edge processing, 29+ languages, and document intelligence.",
   },
 };
 
