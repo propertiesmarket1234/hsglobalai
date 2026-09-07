@@ -1189,8 +1189,8 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
             {data.nextFeatureName}
           </h3>
           <Link
-            href={`/platform/${data.nextFeatureSlug}`}
-            className="mt-6 inline-flex items-center gap-2 rounded-full bg-cyan-500 px-8 py-3 text.sm font-bold text-black hover:bg-cyan-400 transition-all shadow-[0_0_20px_rgba(6,182,212,0.4)]"
+            href={`/products/dihuava/${data.nextFeatureSlug}`}
+            className="mt-6 inline-flex items-center gap-2 rounded-full bg-cyan-500 px-8 py-3 text-sm font-bold text-black hover:bg-cyan-400 transition-all shadow-[0_0_20px_rgba(6,182,212,0.4)]"
           >
             Explore Next Feature <ArrowRight className="w-4 h-4" />
           </Link>

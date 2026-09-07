@@ -32,7 +32,7 @@ const capabilities: CapabilityItem[] = [
     icon: UserCheck,
     tags: ["Photoreal Persona", "Zero-Shot Voice Clone", "State Transitions", "On-Device 60 FPS"],
     stat: "100% Brand Voice",
-    linkUrl: "/platform/avatar-customization",
+    linkUrl: "/products/dihuava/avatar-customization",
     linkText: "Learn More About Avatar & Voice Cloning →",
     highlights: [
       { label: "Zero-Shot Voice Cloning", detail: "Single 5 to 30 second WAV/MP3 clip pre-encoded at 24kHz mono with no per-hour API fees." },
@@ -49,7 +49,7 @@ const capabilities: CapabilityItem[] = [
     icon: FileText,
     tags: ["100% Air-Gapped RAG", "Cross-Encoder Reranker", "Multi-Format Data Import", "Grounding Guard"],
     stat: "No Cloud Dependency",
-    linkUrl: "/platform/document-intelligence",
+    linkUrl: "/products/dihuava/document-intelligence",
     linkText: "Learn More About Document Intelligence →",
     highlights: [
       { label: "100% Air-Gapped Local Search", detail: "Embedding, vector search, re-ranking, and response generation run entirely locally." },
@@ -66,7 +66,7 @@ const capabilities: CapabilityItem[] = [
     icon: Globe,
     tags: ["29+ Global Languages", "7 Indian Languages", "Auto Language Switch", "100% Offline STT/TTS"],
     stat: "29+ Languages Offline",
-    linkUrl: "/platform/multilingual-support",
+    linkUrl: "/products/dihuava/multilingual-support",
     linkText: "Learn More About Multilingual Capabilities →",
     highlights: [
       { label: "29+ Global Languages", detail: "Native offline speech processing across English, Spanish, Mandarin, Russian, Arabic, and 24+ more." },
@@ -83,7 +83,7 @@ const capabilities: CapabilityItem[] = [
     icon: Sparkles,
     tags: ["Zero-Code Swaps", "Pre-Generated Greetings", "Intent Classification", "Barge-In Support"],
     stat: "0 Code Changes",
-    linkUrl: "/platform/persona-management",
+    linkUrl: "/products/dihuava/persona-management",
     linkText: "Learn More About Persona Management →",
     highlights: [
       { label: "Zero-Code Vertical Swaps", detail: "Drop in a package (.zip) to instantly swap avatar, voice, knowledge base, and vertical UI skin." },
@@ -100,7 +100,7 @@ const capabilities: CapabilityItem[] = [
     icon: ShoppingBag,
     tags: ["9-Column CSV Import", "Show While Speaking", "MP4 Demo Videos", "Price Grounding"],
     stat: "Picture-in-Picture",
-    linkUrl: "/platform/ai-product-catalog",
+    linkUrl: "/products/dihuava/ai-product-catalog",
     linkText: "Explore AI Product Catalogue Solutions →",
     highlights: [
       { label: "9-Column CSV Schema", detail: "One product spans multiple feature rows, enabling spoken feature Q&A without dialogue scripting." },

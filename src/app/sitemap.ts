@@ -129,21 +129,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
-  // Dynamic Platform Feature URLs
-  const platformFeatureRoutes: MetadataRoute.Sitemap = platformFeatureSlugs.map(
-    (slug) => ({
-      url: `${baseUrl}/platform/${slug}`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    })
-  );
-
   return [
     ...staticRoutes,
     ...blogRoutes,
     ...industryRoutes,
     ...dihuavaFeatureRoutes,
-    ...platformFeatureRoutes,
   ];
 }

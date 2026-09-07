@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import PlatformClient, { platformData } from "@/app/platform/[slug]/PlatformClient";
+import PlatformClient, { platformData } from "./PlatformClient";
 
 interface PageProps {
   params: Promise<{
