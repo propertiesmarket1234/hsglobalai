@@ -13,7 +13,7 @@ const products = [
     description:
       "Intelligent, human-like AI avatars designed for natural real-time customer interactions across languages.",
     imageSrc: "/products/digital-humans/digital-human-dashboard.jpg",
-    imageAlt: "AI Digital Human Avatar",
+    imageAlt: "DIHUAVA AI Digital Human Platform",
     tags: ["Multilingual", "Voice AI", "Digital Avatars"],
     accentGlow: "rgba(6, 182, 212, 0.25)",
     href: "/products/dihuava",
@@ -29,7 +29,7 @@ const products = [
       "/products/digital-humans/digital-human-new.png",
       "/products/hologram-box/hologram-box-saree.jpg",
     ],
-    imageAlt: "AI Hologram Box",
+    imageAlt: "3D AI Hologram Box Display Unit",
     tags: ["3D Hologram", "Offline AI", "Interactive"],
     accentGlow: "rgba(6, 182, 212, 0.25)",
     href: "/products/holographic-display",
@@ -41,7 +41,7 @@ const products = [
     description:
       "Immersive visual experiences that transform how digital content is presented in retail and public spaces.",
     imageSrc: "/products/spatial-display/spatial-display.png",
-    imageAlt: "Spatial Volumetric Display",
+    imageAlt: "Glasses-Free 3D Spatial Display Volumetric Screen",
     tags: ["Volumetric", "Glasses-Free", "3D Signage"],
     accentGlow: "rgba(6, 182, 212, 0.25)",
     href: "/products/spatial-display",
@@ -49,14 +49,14 @@ const products = [
   {
     id: "04",
     title: "Virtual Try-On",
-    category: "Smart Mirror Tech",
+    category: "Active R&D Capability",
     description:
-      "AI-powered virtual experiences that enable customers to visualize products and apparel digitally in real time.",
+      "AI-powered virtual fitting experiences enabling shoppers to visualize apparel digitally in real time.",
     imageSrc: "/products/virtual-try-on/virtual-try-on.png",
-    imageAlt: "Virtual Try-On Smart Mirror",
-    tags: ["Real-Time Fitting", "Virtual Fitting", "Retail Tech"],
+    imageAlt: "Virtual Try-On Smart Mirror Interactive Kiosk (Active R&D)",
+    tags: ["Active R&D", "Virtual Fitting", "Retail Tech"],
     accentGlow: "rgba(6, 182, 212, 0.25)",
-    href: "/contact",
+    href: "/blog/what-is-virtual-try-on-technology",
   },
 ];
 
@@ -97,13 +97,22 @@ export default function Products() {
               </span>
             </h2>
 
-            <Link
-              href="/products"
-              className="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold backdrop-blur-md transition-all hover:border-cyan-400 hover:bg-white/10 hover:scale-105"
-            >
-              <span>View All Products</span>
-              <span className="transition-transform group-hover:translate-x-1">→</span>
-            </Link>
+            <div className="flex flex-wrap items-center gap-4">
+              <Link
+                href="/contact/download-center"
+                className="group inline-flex items-center gap-2 rounded-full border border-cyan-400/40 bg-cyan-950/40 px-6 py-3 text-sm font-semibold text-cyan-300 backdrop-blur-md transition-all hover:border-cyan-400 hover:bg-cyan-500/10 hover:scale-105"
+              >
+                <span>Explore Product Downloads</span>
+                <span className="transition-transform group-hover:translate-x-1">→</span>
+              </Link>
+              <Link
+                href="/products"
+                className="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold backdrop-blur-md transition-all hover:border-cyan-400 hover:bg-white/10 hover:scale-105"
+              >
+                <span>View All Products</span>
+                <span className="transition-transform group-hover:translate-x-1">→</span>
+              </Link>
+            </div>
           </div>
         </motion.div>
 

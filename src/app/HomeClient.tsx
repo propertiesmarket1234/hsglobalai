@@ -7,6 +7,7 @@ import ImmersiveUseCases from "@/components/ImmersiveUseCases";
 import RealtimeTalkingAvatars from "@/components/RealtimeTalkingAvatars";
 import ChatbotVsAvatar from "@/components/ChatbotVsAvatar";
 import Industries from "@/components/Industries";
+import LatestInsights from "@/components/LatestInsights";
 import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
@@ -57,7 +58,7 @@ export default function HomeClient() {
               <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-500" />
             </span>
             <span className="text-xs font-semibold tracking-widest text-cyan-300 uppercase">
-              Enterprise Digital Human Platform Powered by On-Device AI
+              ENTERPRISE AI DIGITAL HUMAN PLATFORM & 3D HOLOGRAM DISPLAYS
             </span>
           </motion.div>
 
@@ -72,11 +73,11 @@ export default function HomeClient() {
           </h1>
 
           <p className="mx-auto mt-8 max-w-3xl text-lg text-gray-200 sm:text-xl leading-relaxed drop-shadow-md">
-            HS Global AI delivers lifelike holographic avatars, multilingual voice conversations, document intelligence, and on-device AI customer engagement running{" "}
+            HS Global AI powers physical kiosks and smart displays with DIHUAVA—our proprietary AI Digital Human software platform, running{" "}
             <span className="font-bold text-cyan-300 bg-cyan-950/80 px-2.5 py-0.5 rounded-md border border-cyan-500/40 shadow-[0_0_15px_rgba(6,182,212,0.35)] inline-block">
               100% Offline AI
             </span>{" "}
-            Runs fully on-device without relying on cloud services.
+            on-device by default for zero data leakage, low latency, and 3D holographic customer engagement.
           </p>
 
           {/* Action Buttons */}
@@ -108,15 +109,15 @@ export default function HomeClient() {
             </div>
             <div>
               <p className="text-3xl font-bold text-cyan-400 drop-shadow">29+</p>
-              <p className="text-xs text-gray-300 uppercase tracking-wider mt-1 font-medium font-mono">Global Languages</p>
+              <p className="text-xs text-gray-300 uppercase tracking-wider mt-1 font-medium font-mono font-semibold">Global Languages</p>
             </div>
             <div>
               <p className="text-3xl font-bold text-cyan-400 drop-shadow">Low Latency</p>
               <p className="text-xs text-gray-300 uppercase tracking-wider mt-1 font-medium font-mono">On-Device Processing</p>
             </div>
             <div>
-              <p className="text-3xl font-bold text-cyan-400 drop-shadow">10x</p>
-              <p className="text-xs text-gray-300 uppercase tracking-wider mt-1 font-medium font-mono">Customer Engagement</p>
+              <p className="text-3xl font-bold text-cyan-400 drop-shadow">100%</p>
+              <p className="text-xs text-gray-300 uppercase tracking-wider mt-1 font-medium font-mono">Air-Gapped Data Privacy</p>
             </div>
           </motion.div>
         </motion.div>
@@ -139,6 +140,9 @@ export default function HomeClient() {
 
       {/* INDUSTRIES SECTION */}
       <Industries />
+
+      {/* LATEST AI INSIGHTS & ARTICLES */}
+      <LatestInsights />
 
       {/* FAQ SECTION */}
       <FAQ />
