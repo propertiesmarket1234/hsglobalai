@@ -1,17 +1,34 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import { Locale, locales, LOCAL_STORAGE_LANG_KEY, supportedLocales } from "@/i18n/config";
+import LanguageBanner from "@/components/LanguageBanner";
 
 export default function Header() {
   const pathname = usePathname();
   const [productsDropdownOpen, setProductsDropdownOpen] = useState(false);
   const [industriesDropdownOpen, setIndustriesDropdownOpen] = useState(false);
   const [contactDropdownOpen, setContactDropdownOpen] = useState(false);
+  const [langDropdownOpen, setLangDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [currentLocale, setCurrentLocale] = useState<Locale>("en");
+
+  useEffect(() => {
+    const savedPref = localStorage.getItem(LOCAL_STORAGE_LANG_KEY) as Locale;
+    if (savedPref && supportedLocales.includes(savedPref)) {
+      setCurrentLocale(savedPref);
+    }
+  }, []);
+
+  const handleSelectLanguage = (locale: Locale) => {
+    setCurrentLocale(locale);
+    localStorage.setItem(LOCAL_STORAGE_LANG_KEY, locale);
+    setLangDropdownOpen(false);
+  };
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
@@ -19,7 +36,10 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-black/85 backdrop-blur-2xl border-b border-white/10 transition-all duration-300">
+    <>
+      <LanguageBanner />
+      <header className="sticky top-0 z-50 w-full bg-black/75 backdrop-blur-2xl border-b border-cyan-500/20 shadow-[0_4px_30px_rgba(0,0,0,0.8)] transition-all duration-300">
+
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5">
         {/* LOGO */}
         <Link href="/" className="flex flex-col items-center group relative">
@@ -355,17 +375,79 @@ export default function Header() {
           </div>
         </nav>
 
-        {/* CTA & DESKTOP SOCIAL ICONS */}
-        <div className="hidden md:flex items-center gap-6">
+        {/* CTA & DESKTOP SOCIAL ICONS & LANGUAGE SELECTOR */}
+        <div className="hidden md:flex items-center gap-4 lg:gap-5">
+          {/* DESKTOP LANGUAGE SELECTOR */}
+          <div
+            className="relative"
+            onMouseEnter={() => setLangDropdownOpen(true)}
+            onMouseLeave={() => setLangDropdownOpen(false)}
+          >
+            <button
+              onClick={() => setLangDropdownOpen(!langDropdownOpen)}
+              className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-neutral-900/80 px-3.5 py-1.5 text-xs font-semibold text-gray-200 backdrop-blur-md transition-all hover:border-cyan-400 hover:text-white"
+              aria-label="Select Language"
+            >
+              <span>{locales[currentLocale].flag}</span>
+              <span>{locales[currentLocale].nativeName}</span>
+              <svg
+                className={`h-3 w-3 transition-transform duration-300 ${
+                  langDropdownOpen ? "rotate-180 text-cyan-400" : "text-gray-400"
+                }`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            <AnimatePresence>
+              {langDropdownOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 8, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 8, scale: 0.95 }}
+                  transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                  className="absolute right-0 top-full pt-2 w-44 z-50"
+                >
+                  <div className="rounded-2xl border border-cyan-500/30 bg-neutral-950/95 p-2 shadow-2xl backdrop-blur-2xl">
+                    {supportedLocales.map((loc) => {
+                      const info = locales[loc];
+                      const isSelected = loc === currentLocale;
+                      return (
+                        <button
+                          key={loc}
+                          onClick={() => handleSelectLanguage(loc)}
+                          className={`flex w-full items-center justify-between rounded-xl px-3.5 py-2 text-xs font-semibold transition-all ${
+                            isSelected
+                              ? "bg-cyan-500/15 text-cyan-300 border border-cyan-500/30"
+                              : "text-gray-300 hover:bg-white/5 hover:text-white"
+                          }`}
+                        >
+                          <div className="flex items-center gap-2">
+                            <span>{info.flag}</span>
+                            <span>{info.nativeName}</span>
+                          </div>
+                          {isSelected && <span className="text-cyan-400 font-bold">✓</span>}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
           <Link
             href="/contact"
-            className="rounded-full bg-white px-5 py-2.5 text-xs font-semibold text-black transition-all duration-300 hover:bg-cyan-400 hover:scale-105 hover:shadow-[0_0_25px_rgba(6,182,212,0.5)]"
+            className="rounded-full bg-gradient-to-r from-cyan-400 via-sky-400 to-cyan-500 px-5 py-2.5 text-xs font-bold text-black shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(6,182,212,0.7)]"
           >
             Book a Demo
           </Link>
 
           {/* Social Icons */}
-          <div className="hidden lg:flex items-center gap-4 border-l border-white/15 pl-6">
+          <div className="hidden lg:flex items-center gap-3.5 border-l border-white/15 pl-5">
             <a
               href="https://www.facebook.com/hsglobalai/"
               target="_blank"
@@ -474,6 +556,33 @@ export default function Header() {
             className="md:hidden overflow-hidden border-t border-white/10 bg-neutral-950/98 backdrop-blur-2xl px-6 py-6"
           >
             <div className="space-y-4">
+              {/* MOBILE LANGUAGE SELECTOR */}
+              <div className="pb-3 border-b border-white/10">
+                <span className="block text-[11px] font-mono text-cyan-400 uppercase tracking-widest px-1 mb-2">
+                  Select Language / 语言 / Язык / Idioma
+                </span>
+                <div className="grid grid-cols-2 gap-2">
+                  {supportedLocales.map((loc) => {
+                    const info = locales[loc];
+                    const isSelected = loc === currentLocale;
+                    return (
+                      <button
+                        key={loc}
+                        onClick={() => handleSelectLanguage(loc)}
+                        className={`flex items-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold transition-all ${
+                          isSelected
+                            ? "bg-cyan-500/20 text-cyan-300 border border-cyan-500/40"
+                            : "border border-white/10 bg-white/5 text-gray-300 hover:border-white/20 hover:text-white"
+                        }`}
+                      >
+                        <span>{info.flag}</span>
+                        <span>{info.nativeName}</span>
+                        {isSelected && <span className="ml-auto text-cyan-400 font-bold">✓</span>}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
               <Link
                 href="/"
                 onClick={() => setMobileMenuOpen(false)}
@@ -708,5 +817,6 @@ export default function Header() {
         )}
       </AnimatePresence>
     </header>
+    </>
   );
 }
