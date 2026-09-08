@@ -2,11 +2,32 @@ import type { Metadata } from "next";
 import HolographicDisplayClient from "./HolographicDisplayClient";
 
 export const metadata: Metadata = {
-  title: "AI Hologram Box & Holographic Display | HS Global AI",
+  title: "3D Hologram Display Box & AI Hologram | HS Global AI",
   description:
-    "3D Hologram Box display unit integrating DIHUAVA AI Digital Humans for life-sized, interactive 3D holographic experiences in retail, banking, and public spaces.",
+    "Explore HS Global AI's 3D Hologram Display Box in 55\", 65\", 75\", and 86\" sizes, with 4K Ultra-HD optical glass, AI computing, sensors, and DIHUAVA integration.",
   alternates: {
     canonical: "/products/holographic-display",
+  },
+  openGraph: {
+    title: "3D Hologram Display Box & AI Hologram | HS Global AI",
+    description:
+      "Explore HS Global AI's 3D Hologram Display Box in 55\", 65\", 75\", and 86\" sizes, with 4K Ultra-HD optical glass, AI computing, sensors, and DIHUAVA integration.",
+    url: "https://www.hsglobalai.com/products/holographic-display",
+    images: [
+      {
+        url: "https://www.hsglobalai.com/products/digital-humans/digital-human-new.png",
+        width: 1200,
+        height: 630,
+        alt: "3D Hologram Display Box with DIHUAVA AI Digital Human",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "3D Hologram Display Box & AI Hologram | HS Global AI",
+    description:
+      "Explore HS Global AI's 3D Hologram Display Box in 55\", 65\", 75\", and 86\" sizes, with 4K Ultra-HD optical glass, AI computing, sensors, and DIHUAVA integration.",
+    images: ["https://www.hsglobalai.com/products/digital-humans/digital-human-new.png"],
   },
 };
 

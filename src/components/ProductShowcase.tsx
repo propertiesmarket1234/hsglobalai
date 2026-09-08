@@ -58,7 +58,7 @@ const products: ProductItem[] = [
     accentGlow: "rgba(6, 182, 212, 0.25)",
     badge: "3D Holographic",
     linkHref: "/products/holographic-display",
-    linkText: "Explore 3D Holographic Display Hardware",
+    linkText: "Explore 3D Hologram Display Box",
     reverseLayout: true,
   },
   {
