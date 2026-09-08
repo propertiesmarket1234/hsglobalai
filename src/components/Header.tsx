@@ -14,6 +14,7 @@ import {
   getLocalizedPath,
   stripLocalePrefix,
 } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 import LanguageBanner from "@/components/LanguageBanner";
 
 export default function Header() {
@@ -25,6 +26,10 @@ export default function Header() {
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [currentLocale, setCurrentLocale] = useState<Locale>("en");
+
+  const dict = getDictionary(currentLocale);
+
+  const lPath = (path: string) => getLocalizedPath(path, currentLocale);
 
   useEffect(() => {
     const seg = pathname.split("/")[1];
@@ -64,7 +69,7 @@ export default function Header() {
 
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5">
         {/* LOGO */}
-        <Link href="/" className="flex flex-col items-center group relative">
+        <Link href={lPath("/")} className="flex flex-col items-center group relative">
           <Image
             src="/logo/hs-global-ai-logo.png"
             alt="HS Global AI"
@@ -82,14 +87,14 @@ export default function Header() {
         <nav className="hidden items-center gap-8 md:flex">
           {/* HOME LINK */}
           <Link
-            href="/"
+            href={lPath("/")}
             className={`relative py-1 text-sm transition-colors ${
               isActive("/")
                 ? "font-semibold text-cyan-400"
                 : "text-gray-300 hover:text-white"
             }`}
           >
-            <span>Home</span>
+            <span>{dict.nav.home}</span>
             {isActive("/") && (
               <motion.div
                 layoutId="activeNavIndicator"
@@ -106,14 +111,14 @@ export default function Header() {
             onMouseLeave={() => setProductsDropdownOpen(false)}
           >
             <Link
-              href="/products"
+              href={lPath("/products")}
               className={`relative inline-flex items-center gap-1.5 py-1 text-sm transition-colors ${
                 isActive("/products")
                   ? "font-semibold text-cyan-400"
                   : "text-gray-300 hover:text-white"
               }`}
             >
-              <span>Products</span>
+              <span>{dict.nav.products}</span>
               <svg
                 className={`h-3.5 w-3.5 transition-transform duration-300 ${productsDropdownOpen ? "rotate-180 text-cyan-400" : ""}`}
                 fill="none"
@@ -144,33 +149,33 @@ export default function Header() {
                 >
                   <div className="rounded-2xl border border-cyan-500/30 bg-neutral-950/95 p-2.5 shadow-2xl backdrop-blur-2xl">
                     <Link
-                      href="/products"
+                      href={lPath("/products")}
                       className="block rounded-xl px-4 py-2.5 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
                     >
-                      All Products Overview
+                      {dict.nav.allProductsOverview}
                     </Link>
 
                     <div className="my-1.5 border-t border-white/10" />
 
                     <Link
-                      href="/products/ai-digital-human"
+                      href={lPath("/products/ai-digital-human")}
                       className="block rounded-xl px-4 py-2.5 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
                     >
-                      <span className="text-cyan-400 font-bold">DIHUAVA</span> AI Avatar Platform
+                      {dict.nav.dihuavaAvatarPlatform}
                     </Link>
 
                     <Link
-                      href="/products/holographic-display"
+                      href={lPath("/products/holographic-display")}
                       className="block rounded-xl px-4 py-2.5 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
                     >
-                      <span className="text-cyan-400 font-bold">Holographic Display</span> (Hologram Box)
+                      {dict.nav.holographicDisplay}
                     </Link>
 
                     <Link
-                      href="/products/spatial-display"
+                      href={lPath("/products/spatial-display")}
                       className="block rounded-xl px-4 py-2.5 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
                     >
-                      <span className="text-cyan-400 font-bold">Spatial Display</span> (3D Volumetric)
+                      {dict.nav.spatialDisplay}
                     </Link>
                   </div>
                 </motion.div>
@@ -185,14 +190,14 @@ export default function Header() {
             onMouseLeave={() => setIndustriesDropdownOpen(false)}
           >
             <Link
-              href="/industries"
+              href={lPath("/industries")}
               className={`relative inline-flex items-center gap-1.5 py-1 text-sm transition-colors ${
                 isActive("/industries")
                   ? "font-semibold text-cyan-400"
                   : "text-gray-300 hover:text-white"
               }`}
             >
-              <span>Industries</span>
+              <span>{dict.nav.industries}</span>
               <svg
                 className={`h-3.5 w-3.5 transition-transform duration-200 ${
                   industriesDropdownOpen ? "rotate-180 text-cyan-400" : "text-gray-400"
@@ -224,54 +229,54 @@ export default function Header() {
                 >
                   <div className="rounded-2xl border border-cyan-500/30 bg-neutral-950/95 p-2.5 shadow-2xl backdrop-blur-2xl">
                     <Link
-                      href="/industries"
+                      href={lPath("/industries")}
                       className="block rounded-xl px-4 py-2.5 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
                     >
-                      All Industry Deployments
+                      {dict.nav.allIndustryDeployments}
                     </Link>
 
                     <div className="my-1.5 border-t border-white/10" />
 
                     <Link
-                      href="/industries/banking"
+                      href={lPath("/industries/banking")}
                       className="block rounded-xl px-4 py-2 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
                     >
-                      <span className="text-cyan-400 font-bold">Banking & Financial</span> Services
+                      {dict.nav.bankingServices}
                     </Link>
 
                     <Link
-                      href="/industries/retail"
+                      href={lPath("/industries/retail")}
                       className="block rounded-xl px-4 py-2 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
                     >
-                      <span className="text-cyan-400 font-bold">Retail & Advertising</span> Malls
+                      {dict.nav.retailAdvertising}
                     </Link>
 
                     <Link
-                      href="/industries/corporate"
+                      href={lPath("/industries/corporate")}
                       className="block rounded-xl px-4 py-2 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
                     >
-                      <span className="text-cyan-400 font-bold">Corporate Services</span> & HR
+                      {dict.nav.corporateServices}
                     </Link>
 
                     <Link
-                      href="/industries/healthcare"
+                      href={lPath("/industries/healthcare")}
                       className="block rounded-xl px-4 py-2 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
                     >
-                      <span className="text-cyan-400 font-bold">Healthcare</span> & Hospitals
+                      {dict.nav.healthcareHospitals}
                     </Link>
 
                     <Link
-                      href="/industries/tourism"
+                      href={lPath("/industries/tourism")}
                       className="block rounded-xl px-4 py-2 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
                     >
-                      <span className="text-cyan-400 font-bold">Tourism & Museums</span> Expos
+                      {dict.nav.tourismMuseums}
                     </Link>
 
                     <Link
-                      href="/industries/education"
+                      href={lPath("/industries/education")}
                       className="block rounded-xl px-4 py-2 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
                     >
-                      <span className="text-cyan-400 font-bold">Education & Training</span> Academies
+                      {dict.nav.educationAcademies}
                     </Link>
                   </div>
                 </motion.div>
@@ -280,14 +285,14 @@ export default function Header() {
           </div>
 
           <Link
-            href="/about"
+            href={lPath("/about")}
             className={`relative py-1 text-sm transition-colors ${
               isActive("/about")
                 ? "font-semibold text-cyan-400"
                 : "text-gray-300 hover:text-white"
             }`}
           >
-            <span>About</span>
+            <span>{dict.footer.aboutUs}</span>
             {isActive("/about") && (
               <motion.div
                 layoutId="activeNavIndicator"
@@ -298,14 +303,14 @@ export default function Header() {
           </Link>
 
           <Link
-            href="/events"
+            href={lPath("/events")}
             className={`relative py-1 text-sm transition-colors ${
               isActive("/events")
                 ? "font-semibold text-cyan-400"
                 : "text-gray-300 hover:text-white"
             }`}
           >
-            <span>Events</span>
+            <span>{dict.nav.events}</span>
             {isActive("/events") && (
               <motion.div
                 layoutId="activeNavIndicator"
@@ -316,14 +321,14 @@ export default function Header() {
           </Link>
 
           <Link
-            href="/blog"
+            href={lPath("/blog")}
             className={`relative py-1 text-sm transition-colors ${
               isActive("/blog")
                 ? "font-semibold text-cyan-400"
                 : "text-gray-300 hover:text-white"
             }`}
           >
-            <span>Blog</span>
+            <span>{dict.nav.blog}</span>
             {isActive("/blog") && (
               <motion.div
                 layoutId="activeNavIndicator"
@@ -340,14 +345,14 @@ export default function Header() {
             onMouseLeave={() => setContactDropdownOpen(false)}
           >
             <Link
-              href="/contact"
+              href={lPath("/contact")}
               className={`relative inline-flex items-center gap-1.5 py-1 text-sm transition-colors ${
                 isActive("/contact")
                   ? "font-semibold text-cyan-400"
                   : "text-gray-300 hover:text-white"
               }`}
             >
-              <span>Contact Us</span>
+              <span>{dict.nav.contactUs}</span>
               <svg
                 className={`h-3.5 w-3.5 transition-transform duration-300 ${contactDropdownOpen ? "rotate-180 text-cyan-400" : ""}`}
                 fill="none"
@@ -378,17 +383,17 @@ export default function Header() {
                 >
                   <div className="rounded-2xl border border-cyan-500/30 bg-neutral-950/95 p-2.5 shadow-2xl backdrop-blur-2xl">
                     <Link
-                      href="/contact"
+                      href={lPath("/contact")}
                       className="block rounded-xl px-4 py-2.5 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
                     >
-                      Contact Us
+                      {dict.nav.contactUs}
                     </Link>
 
                     <Link
-                      href="/contact/download-center"
+                      href={lPath("/contact/download-center")}
                       className="block rounded-xl px-4 py-2.5 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all border-t border-white/10 mt-1.5 pt-2.5"
                     >
-                      Download Center
+                      {dict.nav.downloadCenter}
                     </Link>
                   </div>
                 </motion.div>
@@ -462,10 +467,10 @@ export default function Header() {
           </div>
 
           <Link
-            href="/contact"
+            href={lPath("/contact")}
             className="rounded-full bg-gradient-to-r from-cyan-400 via-sky-400 to-cyan-500 px-5 py-2.5 text-xs font-bold text-black shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(6,182,212,0.7)]"
           >
-            Book a Demo
+            {dict.common.bookDemo}
           </Link>
 
           {/* Social Icons */}
@@ -542,10 +547,10 @@ export default function Header() {
         {/* MOBILE RIGHT CONTROLS (DEMO BUTTON & HAMBURGER TOGGLE) */}
         <div className="flex md:hidden items-center gap-3">
           <Link
-            href="/contact"
+            href={lPath("/contact")}
             className="rounded-full bg-white px-4 py-2 text-xs font-bold text-black shadow-md hover:bg-cyan-400 transition-colors"
           >
-            Book a Demo
+            {dict.common.bookDemo}
           </Link>
 
           {/* HAMBURGER BUTTON */}
@@ -581,7 +586,7 @@ export default function Header() {
               {/* MOBILE LANGUAGE SELECTOR */}
               <div className="pb-3 border-b border-white/10">
                 <span className="block text-[11px] font-mono text-cyan-400 uppercase tracking-widest px-1 mb-2">
-                  Select Language / 语言 / Язык / Idioma
+                  {dict.nav.selectLanguage}
                 </span>
                 <div className="grid grid-cols-2 gap-2">
                   {supportedLocales.map((loc) => {
@@ -606,7 +611,7 @@ export default function Header() {
                 </div>
               </div>
               <Link
-                href="/"
+                href={lPath("/")}
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block rounded-xl px-4 py-3 text-base font-semibold transition-colors ${
                   isActive("/")
@@ -614,12 +619,12 @@ export default function Header() {
                     : "text-gray-200 hover:bg-white/5 hover:text-white"
                 }`}
               >
-                Home
+                {dict.nav.home}
               </Link>
 
               <div>
                 <Link
-                  href="/products"
+                  href={lPath("/products")}
                   onClick={() => setMobileMenuOpen(false)}
                   className={`block rounded-xl px-4 py-3 text-base font-semibold transition-colors ${
                     isActive("/products") && !pathname.includes("/products/")
@@ -627,51 +632,51 @@ export default function Header() {
                       : "text-gray-200 hover:bg-white/5 hover:text-white"
                   }`}
                 >
-                  Products Overview
+                  {dict.nav.allProductsOverview}
                 </Link>
 
                 {/* Subpages links in mobile drawer */}
                 <div className="ml-4 mt-1 border-l border-cyan-500/20 pl-3 space-y-1">
                   <Link
-                    href="/products/ai-digital-human"
+                    href={lPath("/products/ai-digital-human")}
                     onClick={() => setMobileMenuOpen(false)}
                     className={`block rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
-                      pathname === "/products/ai-digital-human"
+                      pathname.includes("/products/ai-digital-human")
                         ? "text-cyan-400 font-semibold"
                         : "text-gray-400 hover:text-white"
                     }`}
                   >
-                    ● DIHUAVA AI Avatar Platform
+                    ● {dict.nav.dihuavaAvatarPlatform}
                   </Link>
 
                   <Link
-                    href="/products/holographic-display"
+                    href={lPath("/products/holographic-display")}
                     onClick={() => setMobileMenuOpen(false)}
                     className={`block rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
-                      pathname === "/products/holographic-display"
+                      pathname.includes("/products/holographic-display")
                         ? "text-cyan-400 font-semibold"
                         : "text-gray-400 hover:text-white"
                     }`}
                   >
-                    ● AI Hologram Box (Holographic)
+                    ● {dict.nav.holographicDisplay}
                   </Link>
 
                   <Link
-                    href="/products/spatial-display"
+                    href={lPath("/products/spatial-display")}
                     onClick={() => setMobileMenuOpen(false)}
                     className={`block rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
-                      pathname === "/products/spatial-display"
+                      pathname.includes("/products/spatial-display")
                         ? "text-cyan-400 font-semibold"
                         : "text-gray-400 hover:text-white"
                     }`}
                   >
-                    ● Spatial Display (3D Volumetric)
+                    ● {dict.nav.spatialDisplay}
                   </Link>
                 </div>
               </div>
 
               <Link
-                href="/industries"
+                href={lPath("/industries")}
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block rounded-xl px-4 py-3 text-base font-semibold transition-colors ${
                   isActive("/industries")
@@ -679,11 +684,11 @@ export default function Header() {
                     : "text-gray-200 hover:bg-white/5 hover:text-white"
                 }`}
               >
-                Industries
+                {dict.nav.industries}
               </Link>
 
               <Link
-                href="/about"
+                href={lPath("/about")}
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block rounded-xl px-4 py-3 text-base font-semibold transition-colors ${
                   isActive("/about")
@@ -691,11 +696,11 @@ export default function Header() {
                     : "text-gray-200 hover:bg-white/5 hover:text-white"
                 }`}
               >
-                About Us
+                {dict.footer.aboutUs}
               </Link>
 
               <Link
-                href="/events"
+                href={lPath("/events")}
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block rounded-xl px-4 py-3 text-base font-semibold transition-colors ${
                   isActive("/events")
@@ -703,11 +708,11 @@ export default function Header() {
                     : "text-gray-200 hover:bg-white/5 hover:text-white"
                 }`}
               >
-                Events & Exhibitions
+                {dict.nav.events}
               </Link>
 
               <Link
-                href="/blog"
+                href={lPath("/blog")}
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block rounded-xl px-4 py-3 text-base font-semibold transition-colors ${
                   isActive("/blog")
@@ -715,16 +720,16 @@ export default function Header() {
                     : "text-gray-200 hover:bg-white/5 hover:text-white"
                 }`}
               >
-                Blog & Insights
+                {dict.nav.blog}
               </Link>
 
               <div className="pt-2 border-t border-white/10">
                 <span className="block text-[11px] font-mono text-cyan-400 uppercase tracking-widest px-4 mb-2">
-                  Contact & Resources
+                  {dict.nav.contactUs} & {dict.footer.usefulLinksHeader}
                 </span>
 
                 <Link
-                  href="/contact"
+                  href={lPath("/contact")}
                   onClick={() => setMobileMenuOpen(false)}
                   className={`block rounded-xl px-4 py-3 text-base font-semibold transition-colors ${
                     isActive("/contact") && !pathname.includes("download-center")
@@ -732,11 +737,11 @@ export default function Header() {
                       : "text-gray-200 hover:bg-white/5 hover:text-white"
                   }`}
                 >
-                  📍 Contact Us
+                  📍 {dict.nav.contactUs}
                 </Link>
 
                 <Link
-                  href="/contact/download-center"
+                  href={lPath("/contact/download-center")}
                   onClick={() => setMobileMenuOpen(false)}
                   className={`block rounded-xl px-4 py-3 text-base font-semibold transition-colors mt-1 ${
                     pathname.includes("download-center")
@@ -744,7 +749,7 @@ export default function Header() {
                       : "text-gray-200 hover:bg-white/5 hover:text-white"
                   }`}
                 >
-                  📥 Download Center & Datasheets
+                  📥 {dict.nav.downloadCenter}
                 </Link>
               </div>
 

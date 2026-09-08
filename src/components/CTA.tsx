@@ -1,7 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
+import { Locale, nonDefaultLocales, getLocalizedPath } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 
 interface CTAProps {
   badgeText?: string;
@@ -15,15 +18,30 @@ interface CTAProps {
 }
 
 export default function CTA({
-  badgeText = "Build the Future with AI",
-  title = "Bring intelligent AI",
-  highlightTitle = "experiences to your business.",
-  description = "Discover how HS Global AI can transform customer engagement with AI Digital Humans, holographic experiences, spatial displays, and intelligent on-device solutions.",
-  primaryButtonText = "Book a Demo",
+  badgeText,
+  title,
+  highlightTitle,
+  description,
+  primaryButtonText,
   primaryButtonHref = "/contact",
-  secondaryButtonText = "Download Datasheets (PDF)",
+  secondaryButtonText,
   secondaryButtonHref = "/contact/download-center",
 }: CTAProps) {
+  const pathname = usePathname();
+  const seg = pathname ? pathname.split("/")[1] : "";
+  const currentLocale: Locale =
+    seg && (nonDefaultLocales as readonly string[]).includes(seg) ? (seg as Locale) : "en";
+  const dict = getDictionary(currentLocale);
+
+  const lPath = (path: string) => getLocalizedPath(path, currentLocale);
+
+  const finalBadgeText = badgeText || dict.cta.defaultBadge;
+  const finalTitle = title || dict.cta.defaultTitle;
+  const finalHighlightTitle = highlightTitle || dict.cta.defaultHighlight;
+  const finalDescription = description || dict.cta.defaultDescription;
+  const finalPrimaryButtonText = primaryButtonText || dict.cta.defaultPrimaryBtn;
+  const finalSecondaryButtonText = secondaryButtonText || dict.cta.defaultSecondaryBtn;
+
   return (
     <section className="relative overflow-hidden bg-black px-6 py-28 md:py-36 text-white">
       <div className="mx-auto max-w-7xl">
@@ -41,35 +59,35 @@ export default function CTA({
             <span className="inline-flex items-center gap-2 rounded-full border border-cyan-500/40 bg-cyan-950/60 px-4 py-1.5 backdrop-blur-md mb-6 shadow-[0_0_20px_rgba(6,182,212,0.3)]">
               <span className="h-2 w-2 rounded-full bg-cyan-400 animate-pulse" />
               <span className="text-xs font-semibold uppercase tracking-[0.25em] text-cyan-300">
-                {badgeText}
+                {finalBadgeText}
               </span>
             </span>
 
             <h2 className="mx-auto max-w-4xl text-3xl font-extrabold leading-tight sm:text-5xl md:text-6xl tracking-tight text-white">
-              {title}
+              {finalTitle}
               <br />
               <span className="bg-gradient-to-r from-cyan-300 via-sky-200 to-cyan-400 bg-clip-text text-transparent">
-                {highlightTitle}
+                {finalHighlightTitle}
               </span>
             </h2>
 
             <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg leading-8 text-gray-300">
-              {description}
+              {finalDescription}
             </p>
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <Link
-                href={primaryButtonHref}
-                className="inline-flex items-center gap-2 rounded-full bg-white px-9 py-4 text-sm font-bold text-black shadow-xl transition-all duration-300 hover:scale-105 hover:bg-cyan-400 hover:shadow-[0_0_35px_rgba(6,182,212,0.6)]"
+                href={lPath(primaryButtonHref)}
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 via-sky-400 to-cyan-500 px-9 py-4 text-sm font-bold text-black shadow-[0_0_25px_rgba(6,182,212,0.45)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(6,182,212,0.7)]"
               >
-                {primaryButtonText}
+                {finalPrimaryButtonText}
                 <span>→</span>
               </Link>
               <Link
-                href={secondaryButtonHref}
-                className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-8 py-4 text-sm font-semibold text-gray-200 backdrop-blur-md transition-all hover:border-cyan-400 hover:text-white"
+                href={lPath(secondaryButtonHref)}
+                className="inline-flex items-center gap-2 rounded-full border border-cyan-500/40 bg-neutral-950/80 px-8 py-4 text-sm font-semibold text-cyan-300 backdrop-blur-xl transition-all duration-300 hover:border-cyan-400 hover:bg-cyan-500/15 hover:scale-105 shadow-[0_0_25px_rgba(6,182,212,0.25)]"
               >
-                {secondaryButtonText}
+                {finalSecondaryButtonText}
               </Link>
             </div>
           </div>

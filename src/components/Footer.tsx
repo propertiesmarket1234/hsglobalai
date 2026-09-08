@@ -2,11 +2,22 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
+import { Locale, nonDefaultLocales, getLocalizedPath } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 
 export default function Footer() {
+  const pathname = usePathname();
+  const seg = pathname ? pathname.split("/")[1] : "";
+  const currentLocale: Locale =
+    seg && (nonDefaultLocales as readonly string[]).includes(seg) ? (seg as Locale) : "en";
+  const dict = getDictionary(currentLocale);
+
+  const lPath = (path: string) => getLocalizedPath(path, currentLocale);
+
   return (
-    <footer className="relative overflow-hidden border-t border-white/10 bg-black px-6 text-white">
+    <footer className="relative overflow-hidden border-t border-cyan-500/20 bg-neutral-950/95 backdrop-blur-2xl px-6 text-white shadow-[0_-10px_40px_rgba(0,0,0,0.9)]">
       {/* Ambient Glow Orb */}
       <div className="pointer-events-none absolute left-1/2 bottom-0 -translate-x-1/2 h-[300px] w-[700px] rounded-full bg-cyan-600/10 blur-[160px]" />
 
@@ -21,7 +32,7 @@ export default function Footer() {
         >
           {/* BRAND & HQ ADDRESS (2 COLS) */}
           <div className="lg:col-span-2">
-            <Link href="/" className="inline-flex flex-col items-center group">
+            <Link href={lPath("/")} className="inline-flex flex-col items-center group">
               <Image
                 src="/logo/hs-global-ai-logo.png"
                 alt="HS Global AI"
@@ -36,20 +47,20 @@ export default function Footer() {
             </Link>
 
             <p className="mt-6 max-w-sm leading-7 text-gray-400 text-sm">
-              HS Global AI is an advanced AI digital human platform delivering lifelike holographic avatars for banking, retail, healthcare, education and enterprise automation.
+              {dict.footer.description}
             </p>
 
             <div className="mt-6 space-y-2 text-xs text-gray-400">
               <p className="flex items-start gap-2">
-                <span className="text-cyan-400 shrink-0 font-mono">📍 Singapore HQ:</span>
-                <span>20 COLLYER QUAY, #09-01, SINGAPORE – 049319</span>
+                <span className="text-cyan-400 shrink-0 font-mono">{dict.footer.singaporeHQLabel}</span>
+                <span>{dict.footer.singaporeHQAddress}</span>
               </p>
               <p className="flex items-start gap-2">
-                <span className="text-cyan-400 shrink-0 font-mono">🏢 India Office:</span>
-                <span>49-4-1, 17/3E, Prasanth Colony, 1st line, Gunadala, Kanuru, Andhra Pradesh 520004, India</span>
+                <span className="text-cyan-400 shrink-0 font-mono">{dict.footer.indiaOfficeLabel}</span>
+                <span>{dict.footer.indiaOfficeAddress}</span>
               </p>
               <p className="flex items-center gap-2 pt-1">
-                <span className="text-cyan-400 shrink-0 font-mono">✉️ Email:</span>
+                <span className="text-cyan-400 shrink-0 font-mono">{dict.footer.emailLabel}</span>
                 <a href="mailto:sales@hsglobalai.com" className="hover:text-white transition-colors">
                   sales@hsglobalai.com
                 </a>
@@ -60,30 +71,30 @@ export default function Footer() {
           {/* PRODUCTS */}
           <div>
             <h3 className="mb-6 text-xs font-semibold uppercase tracking-wider text-cyan-400 font-mono">
-              Products & Features
+              {dict.footer.productsHeader}
             </h3>
 
             <div className="flex flex-col gap-2.5 text-sm text-gray-400">
-              <Link href="/products/ai-digital-human" className="transition-all hover:text-white hover:translate-x-1 font-semibold text-gray-300">
-                DIHUAVA AI Digital Humans
+              <Link href={lPath("/products/ai-digital-human")} className="transition-all hover:text-white hover:translate-x-1 font-semibold text-gray-300">
+                {dict.footer.dihuavaDigitalHumans}
               </Link>
-              <Link href="/products/ai-digital-human/avatar-customization" className="transition-all hover:text-cyan-300 hover:translate-x-1 text-xs text-gray-400 pl-2">
-                • Avatar & Voice Cloning
+              <Link href={lPath("/products/ai-digital-human/avatar-customization")} className="transition-all hover:text-cyan-300 hover:translate-x-1 text-xs text-gray-400 pl-2">
+                • {dict.footer.avatarVoiceCloning}
               </Link>
-              <Link href="/products/ai-digital-human/document-intelligence" className="transition-all hover:text-cyan-300 hover:translate-x-1 text-xs text-gray-400 pl-2">
-                • Document Intelligence (RAG)
+              <Link href={lPath("/products/ai-digital-human/document-intelligence")} className="transition-all hover:text-cyan-300 hover:translate-x-1 text-xs text-gray-400 pl-2">
+                • {dict.footer.documentIntelligence}
               </Link>
-              <Link href="/products/ai-digital-human/multilingual-support" className="transition-all hover:text-cyan-300 hover:translate-x-1 text-xs text-gray-400 pl-2">
-                • Multilingual AI Engine
+              <Link href={lPath("/products/ai-digital-human/multilingual-support")} className="transition-all hover:text-cyan-300 hover:translate-x-1 text-xs text-gray-400 pl-2">
+                • {dict.footer.multilingualEngine}
               </Link>
-              <Link href="/products/holographic-display" className="transition-all hover:text-white hover:translate-x-1 font-semibold text-gray-300 pt-1">
-                AI Hologram Box
+              <Link href={lPath("/products/holographic-display")} className="transition-all hover:text-white hover:translate-x-1 font-semibold text-gray-300 pt-1">
+                {dict.footer.hologramBox}
               </Link>
-              <Link href="/products/spatial-display" className="transition-all hover:text-white hover:translate-x-1 font-semibold text-gray-300">
-                Spatial Display
+              <Link href={lPath("/products/spatial-display")} className="transition-all hover:text-white hover:translate-x-1 font-semibold text-gray-300">
+                {dict.footer.spatialDisplay}
               </Link>
-              <Link href="/products" className="transition-all hover:text-white hover:translate-x-1 text-xs text-cyan-400 pt-1">
-                All Products Overview →
+              <Link href={lPath("/products")} className="transition-all hover:text-white hover:translate-x-1 text-xs text-cyan-400 pt-1">
+                {dict.footer.allProductsOverviewLink}
               </Link>
             </div>
           </div>
@@ -91,27 +102,27 @@ export default function Footer() {
           {/* INDUSTRIES */}
           <div>
             <h3 className="mb-6 text-xs font-semibold uppercase tracking-wider text-cyan-400 font-mono">
-              Industries
+              {dict.footer.industriesHeader}
             </h3>
 
             <div className="flex flex-col gap-3 text-sm text-gray-400">
-              <Link href="/industries/banking" className="transition-all hover:text-white hover:translate-x-1">
-                Banking & Financial
+              <Link href={lPath("/industries/banking")} className="transition-all hover:text-white hover:translate-x-1">
+                {dict.footer.bankingFinancial}
               </Link>
-              <Link href="/industries/retail" className="transition-all hover:text-white hover:translate-x-1">
-                Retail & Advertising
+              <Link href={lPath("/industries/retail")} className="transition-all hover:text-white hover:translate-x-1">
+                {dict.footer.retailAdvertising}
               </Link>
-              <Link href="/industries/corporate" className="transition-all hover:text-white hover:translate-x-1">
-                Corporate Services
+              <Link href={lPath("/industries/corporate")} className="transition-all hover:text-white hover:translate-x-1">
+                {dict.footer.corporateServices}
               </Link>
-              <Link href="/industries/tourism" className="transition-all hover:text-white hover:translate-x-1">
-                Tourism & Exhibitions
+              <Link href={lPath("/industries/tourism")} className="transition-all hover:text-white hover:translate-x-1">
+                {dict.footer.tourismExhibitions}
               </Link>
-              <Link href="/industries/healthcare" className="transition-all hover:text-white hover:translate-x-1">
-                Healthcare
+              <Link href={lPath("/industries/healthcare")} className="transition-all hover:text-white hover:translate-x-1">
+                {dict.footer.healthcare}
               </Link>
-              <Link href="/industries/education" className="transition-all hover:text-white hover:translate-x-1">
-                Education
+              <Link href={lPath("/industries/education")} className="transition-all hover:text-white hover:translate-x-1">
+                {dict.footer.education}
               </Link>
             </div>
           </div>
@@ -119,24 +130,24 @@ export default function Footer() {
           {/* COMPANY */}
           <div>
             <h3 className="mb-6 text-xs font-semibold uppercase tracking-wider text-cyan-400 font-mono">
-              Company
+              {dict.footer.companyHeader}
             </h3>
 
             <div className="flex flex-col gap-3 text-sm text-gray-400">
-              <Link href="/about" className="transition-all hover:text-white hover:translate-x-1">
-                About Us
+              <Link href={lPath("/about")} className="transition-all hover:text-white hover:translate-x-1">
+                {dict.footer.aboutUs}
               </Link>
-              <Link href="/events" className="transition-all hover:text-white hover:translate-x-1">
-                Events & Exhibitions
+              <Link href={lPath("/events")} className="transition-all hover:text-white hover:translate-x-1">
+                {dict.footer.eventsExhibitions}
               </Link>
-              <Link href="/contact" className="transition-all hover:text-white hover:translate-x-1">
-                Contact Us
+              <Link href={lPath("/contact")} className="transition-all hover:text-white hover:translate-x-1">
+                {dict.footer.contactUs}
               </Link>
-              <Link href="/contact/download-center" className="transition-all hover:text-white hover:translate-x-1">
-                Download Center
+              <Link href={lPath("/contact/download-center")} className="transition-all hover:text-white hover:translate-x-1">
+                {dict.footer.downloadCenter}
               </Link>
-              <Link href="/contact" className="transition-all hover:text-white hover:translate-x-1">
-                Book a Demo
+              <Link href={lPath("/contact")} className="transition-all hover:text-white hover:translate-x-1">
+                {dict.footer.bookDemo}
               </Link>
             </div>
           </div>
@@ -144,21 +155,21 @@ export default function Footer() {
           {/* USEFUL LINKS */}
           <div>
             <h3 className="mb-6 text-xs font-semibold uppercase tracking-wider text-cyan-400 font-mono">
-              Useful Links
+              {dict.footer.usefulLinksHeader}
             </h3>
 
             <div className="flex flex-col gap-3 text-sm text-gray-400">
-              <Link href="/contact/download-center" className="transition-all hover:text-white hover:translate-x-1">
-                Datasheets & Specs
+              <Link href={lPath("/contact/download-center")} className="transition-all hover:text-white hover:translate-x-1">
+                {dict.footer.datasheetsSpecs}
               </Link>
-              <Link href="/faq" className="transition-all hover:text-white hover:translate-x-1">
-                FAQs
+              <Link href={lPath("/faq")} className="transition-all hover:text-white hover:translate-x-1">
+                {dict.footer.faqs}
               </Link>
-              <Link href="/privacy" className="transition-all hover:text-white hover:translate-x-1">
-                Privacy Policy
+              <Link href={lPath("/privacy")} className="transition-all hover:text-white hover:translate-x-1">
+                {dict.footer.privacyPolicy}
               </Link>
-              <Link href="/terms" className="transition-all hover:text-white hover:translate-x-1">
-                Terms & Conditions
+              <Link href={lPath("/terms")} className="transition-all hover:text-white hover:translate-x-1">
+                {dict.footer.termsConditions}
               </Link>
             </div>
           </div>
@@ -166,20 +177,20 @@ export default function Footer() {
 
         {/* BOTTOM FOOTER */}
         <div className="mt-16 flex flex-col gap-6 border-t border-white/10 pt-8 text-xs text-gray-400 md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} HS Global AI. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} {dict.footer.copyrightNotice}</p>
 
           <div className="flex flex-wrap items-center gap-6">
-            <Link href="/contact/download-center" className="transition-colors hover:text-cyan-400">
-              Download Center
+            <Link href={lPath("/contact/download-center")} className="transition-colors hover:text-cyan-400">
+              {dict.footer.downloadCenter}
             </Link>
-            <Link href="/faq" className="transition-colors hover:text-cyan-400">
-              FAQs
+            <Link href={lPath("/faq")} className="transition-colors hover:text-cyan-400">
+              {dict.footer.faqs}
             </Link>
-            <Link href="/privacy" className="transition-colors hover:text-cyan-400">
-              Privacy Policy
+            <Link href={lPath("/privacy")} className="transition-colors hover:text-cyan-400">
+              {dict.footer.privacyPolicy}
             </Link>
-            <Link href="/terms" className="transition-colors hover:text-cyan-400">
-              Terms & Conditions
+            <Link href={lPath("/terms")} className="transition-colors hover:text-cyan-400">
+              {dict.footer.termsConditions}
             </Link>
 
             {/* OFFICIAL SOCIAL LINKS */}
