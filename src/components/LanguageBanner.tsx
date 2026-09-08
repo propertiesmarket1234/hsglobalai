@@ -1,10 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Locale, locales, LOCAL_STORAGE_LANG_KEY } from "@/i18n/config";
+import { Locale, locales, LOCAL_STORAGE_LANG_KEY, getLocalizedPath } from "@/i18n/config";
 
 export default function LanguageBanner() {
+  const pathname = usePathname();
+  const router = useRouter();
   const [suggestedLocale, setSuggestedLocale] = useState<Locale | null>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -51,6 +54,10 @@ export default function LanguageBanner() {
   const handleSwitch = (locale: Locale) => {
     localStorage.setItem(LOCAL_STORAGE_LANG_KEY, locale);
     setIsVisible(false);
+    const targetPath = getLocalizedPath(pathname, locale);
+    if (targetPath !== pathname) {
+      router.push(targetPath);
+    }
   };
 
   if (!isVisible || !suggestedLocale) return null;

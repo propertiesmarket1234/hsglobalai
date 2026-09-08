@@ -3,13 +3,22 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Locale, locales, LOCAL_STORAGE_LANG_KEY, supportedLocales } from "@/i18n/config";
+import {
+  Locale,
+  locales,
+  LOCAL_STORAGE_LANG_KEY,
+  supportedLocales,
+  nonDefaultLocales,
+  getLocalizedPath,
+  stripLocalePrefix,
+} from "@/i18n/config";
 import LanguageBanner from "@/components/LanguageBanner";
 
 export default function Header() {
   const pathname = usePathname();
+  const router = useRouter();
   const [productsDropdownOpen, setProductsDropdownOpen] = useState(false);
   const [industriesDropdownOpen, setIndustriesDropdownOpen] = useState(false);
   const [contactDropdownOpen, setContactDropdownOpen] = useState(false);
@@ -18,21 +27,34 @@ export default function Header() {
   const [currentLocale, setCurrentLocale] = useState<Locale>("en");
 
   useEffect(() => {
-    const savedPref = localStorage.getItem(LOCAL_STORAGE_LANG_KEY) as Locale;
-    if (savedPref && supportedLocales.includes(savedPref)) {
-      setCurrentLocale(savedPref);
+    const seg = pathname.split("/")[1];
+    if (seg && (nonDefaultLocales as readonly string[]).includes(seg)) {
+      setCurrentLocale(seg as Locale);
+    } else {
+      const savedPref = localStorage.getItem(LOCAL_STORAGE_LANG_KEY) as Locale;
+      if (savedPref && (supportedLocales as readonly string[]).includes(savedPref)) {
+        setCurrentLocale(savedPref);
+      } else {
+        setCurrentLocale("en");
+      }
     }
-  }, []);
+  }, [pathname]);
 
   const handleSelectLanguage = (locale: Locale) => {
     setCurrentLocale(locale);
     localStorage.setItem(LOCAL_STORAGE_LANG_KEY, locale);
     setLangDropdownOpen(false);
+
+    const targetPath = getLocalizedPath(pathname, locale);
+    if (targetPath !== pathname) {
+      router.push(targetPath);
+    }
   };
 
   const isActive = (href: string) => {
-    if (href === "/") return pathname === "/";
-    return pathname === href || pathname.startsWith(`${href}/`);
+    const cleanPath = stripLocalePrefix(pathname);
+    if (href === "/") return cleanPath === "/";
+    return cleanPath === href || cleanPath.startsWith(`${href}/`);
   };
 
   return (
