@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import HolographicDisplayClient from "./HolographicDisplayClient";
 
 export const metadata: Metadata = {
-  title: "3D Hologram Display Box & AI Hologram | HS Global AI",
+  title: "3D Hologram Display Box & AI Hologram",
   description:
     "Explore HS Global AI's 3D Hologram Display Box in 55\", 65\", 75\", and 86\" sizes, with 4K Ultra-HD optical glass, AI computing, sensors, and DIHUAVA integration.",
   alternates: {
