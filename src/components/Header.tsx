@@ -69,7 +69,7 @@ export default function Header() {
 
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5">
         {/* LOGO */}
-        <Link href={lPath("/")} className="flex flex-col items-center group relative">
+        <Link href={lPath("/")} className="flex flex-col items-center group relative shrink-0">
           <Image
             src="/logo/hs-global-ai-logo.png"
             alt="HS Global AI"
@@ -78,23 +78,23 @@ export default function Header() {
             priority
             className="h-auto w-[85px] transition-transform duration-300 group-hover:scale-105 group-hover:drop-shadow-[0_0_12px_rgba(6,182,212,0.6)]"
           />
-          <span className="mt-1 text-[11px] font-bold tracking-widest text-white uppercase group-hover:text-cyan-400 transition-colors">
+          <span className="mt-1 text-[11px] font-bold tracking-widest text-white uppercase group-hover:text-cyan-400 transition-colors whitespace-nowrap">
             HS GLOBAL AI
           </span>
         </Link>
 
         {/* DESKTOP NAVIGATION LINKS */}
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-3.5 lg:gap-6 xl:gap-8 md:flex shrink-0">
           {/* HOME LINK */}
           <Link
             href={lPath("/")}
-            className={`relative py-1 text-sm transition-colors ${
+            className={`relative py-1 text-sm whitespace-nowrap transition-colors ${
               isActive("/")
                 ? "font-semibold text-cyan-400"
                 : "text-gray-300 hover:text-white"
             }`}
           >
-            <span>{dict.nav.home}</span>
+            <span className="whitespace-nowrap">{dict.nav.home}</span>
             {isActive("/") && (
               <motion.div
                 layoutId="activeNavIndicator"
@@ -112,15 +112,15 @@ export default function Header() {
           >
             <Link
               href={lPath("/products")}
-              className={`relative inline-flex items-center gap-1.5 py-1 text-sm transition-colors ${
+              className={`relative inline-flex items-center gap-1.5 py-1 text-sm whitespace-nowrap transition-colors ${
                 isActive("/products")
                   ? "font-semibold text-cyan-400"
                   : "text-gray-300 hover:text-white"
               }`}
             >
-              <span>{dict.nav.products}</span>
+              <span className="whitespace-nowrap">{dict.nav.products}</span>
               <svg
-                className={`h-3.5 w-3.5 transition-transform duration-300 ${productsDropdownOpen ? "rotate-180 text-cyan-400" : ""}`}
+                className={`h-3.5 w-3.5 shrink-0 transition-transform duration-300 ${productsDropdownOpen ? "rotate-180 text-cyan-400" : ""}`}
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -191,15 +191,15 @@ export default function Header() {
           >
             <Link
               href={lPath("/industries")}
-              className={`relative inline-flex items-center gap-1.5 py-1 text-sm transition-colors ${
+              className={`relative inline-flex items-center gap-1.5 py-1 text-sm whitespace-nowrap transition-colors ${
                 isActive("/industries")
                   ? "font-semibold text-cyan-400"
                   : "text-gray-300 hover:text-white"
               }`}
             >
-              <span>{dict.nav.industries}</span>
+              <span className="whitespace-nowrap">{dict.nav.industries}</span>
               <svg
-                className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                className={`h-3.5 w-3.5 shrink-0 transition-transform duration-200 ${
                   industriesDropdownOpen ? "rotate-180 text-cyan-400" : "text-gray-400"
                 }`}
                 fill="none"
@@ -286,13 +286,13 @@ export default function Header() {
 
           <Link
             href={lPath("/about")}
-            className={`relative py-1 text-sm transition-colors ${
+            className={`relative py-1 text-sm whitespace-nowrap transition-colors ${
               isActive("/about")
                 ? "font-semibold text-cyan-400"
                 : "text-gray-300 hover:text-white"
             }`}
           >
-            <span>{dict.footer.aboutUs}</span>
+            <span className="whitespace-nowrap">{dict.footer.aboutUs}</span>
             {isActive("/about") && (
               <motion.div
                 layoutId="activeNavIndicator"
@@ -304,13 +304,13 @@ export default function Header() {
 
           <Link
             href={lPath("/events")}
-            className={`relative py-1 text-sm transition-colors ${
+            className={`relative py-1 text-sm whitespace-nowrap transition-colors ${
               isActive("/events")
                 ? "font-semibold text-cyan-400"
                 : "text-gray-300 hover:text-white"
             }`}
           >
-            <span>{dict.nav.events}</span>
+            <span className="whitespace-nowrap">{dict.nav.events}</span>
             {isActive("/events") && (
               <motion.div
                 layoutId="activeNavIndicator"
@@ -322,13 +322,13 @@ export default function Header() {
 
           <Link
             href={lPath("/blog")}
-            className={`relative py-1 text-sm transition-colors ${
+            className={`relative py-1 text-sm whitespace-nowrap transition-colors ${
               isActive("/blog")
                 ? "font-semibold text-cyan-400"
                 : "text-gray-300 hover:text-white"
             }`}
           >
-            <span>{dict.nav.blog}</span>
+            <span className="whitespace-nowrap">{dict.nav.blog}</span>
             {isActive("/blog") && (
               <motion.div
                 layoutId="activeNavIndicator"
@@ -346,15 +346,15 @@ export default function Header() {
           >
             <Link
               href={lPath("/contact")}
-              className={`relative inline-flex items-center gap-1.5 py-1 text-sm transition-colors ${
+              className={`relative inline-flex items-center gap-1.5 py-1 text-sm whitespace-nowrap transition-colors ${
                 isActive("/contact")
                   ? "font-semibold text-cyan-400"
                   : "text-gray-300 hover:text-white"
               }`}
             >
-              <span>{dict.nav.contactUs}</span>
+              <span className="whitespace-nowrap">{dict.nav.contactUs}</span>
               <svg
-                className={`h-3.5 w-3.5 transition-transform duration-300 ${contactDropdownOpen ? "rotate-180 text-cyan-400" : ""}`}
+                className={`h-3.5 w-3.5 shrink-0 transition-transform duration-300 ${contactDropdownOpen ? "rotate-180 text-cyan-400" : ""}`}
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -403,7 +403,7 @@ export default function Header() {
         </nav>
 
         {/* CTA & DESKTOP SOCIAL ICONS & LANGUAGE SELECTOR */}
-        <div className="hidden md:flex items-center gap-4 lg:gap-5">
+        <div className="hidden md:flex items-center gap-3 lg:gap-5 shrink-0">
           {/* DESKTOP LANGUAGE SELECTOR */}
           <div
             className="relative"
@@ -412,13 +412,13 @@ export default function Header() {
           >
             <button
               onClick={() => setLangDropdownOpen(!langDropdownOpen)}
-              className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-neutral-900/80 px-3.5 py-1.5 text-xs font-semibold text-gray-200 backdrop-blur-md transition-all hover:border-cyan-400 hover:text-white"
+              className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-neutral-900/80 px-3.5 py-1.5 text-xs font-semibold text-gray-200 backdrop-blur-md transition-all hover:border-cyan-400 hover:text-white whitespace-nowrap shrink-0"
               aria-label="Select Language"
             >
               <span>{locales[currentLocale].flag}</span>
               <span>{locales[currentLocale].nativeName}</span>
               <svg
-                className={`h-3 w-3 transition-transform duration-300 ${
+                className={`h-3 w-3 shrink-0 transition-transform duration-300 ${
                   langDropdownOpen ? "rotate-180 text-cyan-400" : "text-gray-400"
                 }`}
                 fill="none"
@@ -468,7 +468,7 @@ export default function Header() {
 
           <Link
             href={lPath("/contact")}
-            className="rounded-full bg-gradient-to-r from-cyan-400 via-sky-400 to-cyan-500 px-5 py-2.5 text-xs font-bold text-black shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(6,182,212,0.7)]"
+            className="rounded-full bg-gradient-to-r from-cyan-400 via-sky-400 to-cyan-500 px-5 py-2.5 text-xs font-bold text-black shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(6,182,212,0.7)] whitespace-nowrap shrink-0"
           >
             {dict.common.bookDemo}
           </Link>
