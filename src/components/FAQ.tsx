@@ -2,6 +2,9 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { getDictionary } from "@/i18n/getDictionary";
+import { Locale, nonDefaultLocales } from "@/i18n/config";
 
 interface FAQItem {
   question: string;
@@ -9,132 +12,21 @@ interface FAQItem {
   category: string;
 }
 
-const faqData: FAQItem[] = [
-  {
-    category: "General & Overview",
-    question: "What is a Digital Human AI Assistant?",
-    answer:
-      "A Digital Human AI Assistant is a lifelike AI avatar capable of natural conversation, facial expressions, gestures, and multilingual voice interaction. It can represent your brand, answer customer queries, guide users, and operate continuously 24/7 without human intervention.",
-  },
-  {
-    category: "General & Overview",
-    question: "How does the AI Hologram display system work?",
-    answer:
-      "Our hologram display system uses high-clarity optical projection hardware combined with DIHUAVA AI software to present 3D digital humans and interactive content inside a physical hologram box. The system supports real-time voice interaction, visual gestures, and industry-specific workflows.",
-  },
-  {
-    category: "General & Overview",
-    question: "Which industries benefit most from HS Global AI solutions?",
-    answer:
-      "Our solutions are custom-built for Banking & Financial Services, Retail & Advertising, Corporate Offices, Healthcare & Telemedicine, Education & Training, Tourism & Exhibitions, and Enterprise Automation.",
-  },
-  {
-    category: "General & Overview",
-    question: "How does HS Global AI reduce operational costs?",
-    answer:
-      "By automating front-desk reception, customer onboarding, product demonstrations, and routine information delivery, HS Global AI significantly reduces staffing requirements, eliminates queue times, and ensures consistent 24/7 service quality.",
-  },
-  {
-    category: "Customization & AI Training",
-    question: "Can we customize the avatar's appearance, attire, and voice?",
-    answer:
-      "Absolutely. Digital humans can be fully customized in facial appearance, corporate attire/uniform with company logo, voice tone, speaking speed, language capabilities, and behavioral personality to match your brand identity.",
-  },
-  {
-    category: "Customization & AI Training",
-    question: "Can the AI be trained on our internal company documents and catalogs?",
-    answer:
-      "Yes. The AI incorporates a local RAG (Retrieval-Augmented Generation) document intelligence engine trained on your PDFs, manuals, FAQs, product catalogs, and corporate workflows to provide 100% accurate, brand-safe responses.",
-  },
-  {
-    category: "Customization & AI Training",
-    question: "How easily can we update avatar knowledge base and content?",
-    answer:
-      "Content and AI knowledge bases can be updated anytime through our central DIHUAVA dashboard without disrupting active operations. Updates push remotely across all deployed devices in real time.",
-  },
-  {
-    category: "Security & Deployment",
-    question: "How secure is the platform and customer interaction data?",
-    answer:
-      "Security is enterprise-grade. We implement role-based access controls, encrypted data storage, and strict privacy guidelines. DIHUAVA runs 100% offline on-device by default, with optional cloud-management configurations available.",
-  },
-  {
-    category: "Security & Deployment",
-    question: "Does the system require continuous internet connectivity?",
-    answer:
-      "No. DIHUAVA runs 100% offline on-device by default, with optional cloud-management configurations available.",
-  },
-  {
-    category: "Security & Deployment",
-    question: "What hardware components are included with deployment?",
-    answer:
-      "Standard deployments include the 3D Hologram Box display unit, edge AI GPU processing hardware, directional microphones, speakers, optical cameras, and optional touch interfaces.",
-  },
-  {
-    category: "Capabilities & Features",
-    question: "How many languages and dialects are supported?",
-    answer:
-      "HS Global AI supports 29+ global languages (including English, Spanish, Mandarin, Arabic, Japanese, French, German, and Hindi), custom voice cloning, and over 100 regional accents with automatic language detection.",
-  },
-  {
-    category: "Capabilities & Features",
-    question: "Does the platform support face recognition and gesture detection?",
-    answer:
-      "Yes. Optional computer vision modules support visitor presence detection, facial recognition for personalized greetings, gesture control, and proximity-based interaction.",
-  },
-  {
-    category: "Capabilities & Features",
-    question: "Can we track interaction metrics and analytics?",
-    answer:
-      "Yes. The platform includes real-time dashboards for monitoring conversation topics, visitor engagement duration, peak usage hours, and system health status across all deployed kiosks.",
-  },
-  {
-    category: "Capabilities & Features",
-    question: "Can HS Global AI integrate with our existing CRM or databases?",
-    answer:
-      "Yes. Our platform offers RESTful APIs and pre-built connectors to integrate with enterprise CRMs, ERPs, ticketing tools, and appointment booking databases.",
-  },
-  {
-    category: "Deployment & Support",
-    question: "Can we manage multiple hologram units across different locations?",
-    answer:
-      "Yes. DIHUAVA features centralized multi-location management, allowing administrators to control, update, and monitor hundreds of hologram units across global branches from one dashboard.",
-  },
-  {
-    category: "Deployment & Support",
-    question: "How long does a standard deployment take?",
-    answer:
-      "Standard deployments can be completed in 2 to 4 weeks, including avatar customization, knowledge base setup, and hardware installation. Phased enterprise rollouts are tailored to project scope.",
-  },
-  {
-    category: "Deployment & Support",
-    question: "Can we run a pilot deployment before full rollout?",
-    answer:
-      "Yes! We offer proof-of-concept (POC) and pilot programs so businesses can validate customer engagement and operational performance prior to enterprise-wide rollout.",
-  },
-  {
-    category: "Deployment & Support",
-    question: "What technical support and maintenance do you provide?",
-    answer:
-      "We provide 24/7 technical support, remote system diagnostics, regular AI model retraining, hardware maintenance, and continuous software upgrades.",
-  },
-];
-
-const categories = [
-  "All Questions",
-  "General & Overview",
-  "Customization & AI Training",
-  "Security & Deployment",
-  "Capabilities & Features",
-  "Deployment & Support",
-];
-
 export default function FAQ() {
-  const [selectedCategory, setSelectedCategory] = useState("All Questions");
+  const pathname = usePathname();
+  const seg = pathname ? pathname.split("/")[1] : "";
+  const currentLocale: Locale = seg && (nonDefaultLocales as readonly string[]).includes(seg) ? (seg as Locale) : "en";
+  const dict = getDictionary(currentLocale);
+  const faqSec = dict.home.faqSection;
+
+  const categories = faqSec.categories;
+  const faqData: FAQItem[] = faqSec.items;
+
+  const [selectedCategory, setSelectedCategory] = useState(faqSec.categories[0]);
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const filteredFaqs =
-    selectedCategory === "All Questions"
+    selectedCategory === faqSec.categories[0]
       ? faqData
       : faqData.filter((f) => f.category === selectedCategory);
 
@@ -158,16 +50,16 @@ export default function FAQ() {
           <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 backdrop-blur-md mb-6 shadow-[0_0_20px_rgba(6,182,212,0.25)]">
             <span className="h-2 w-2 rounded-full bg-cyan-400 animate-pulse" />
             <span className="text-xs font-semibold uppercase tracking-[0.25em] text-cyan-300">
-              Official Knowledge Center
+              {faqSec.badge}
             </span>
           </div>
 
           <h2 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl">
-            Frequently Asked Questions
+            {faqSec.heading}
           </h2>
 
           <p className="mx-auto mt-4 max-w-xl text-base leading-8 text-gray-300 sm:text-lg">
-            Everything you need to know about DIHUAVA Digital Humans, 3D Hologram Box hardware, security compliance, and enterprise rollouts.
+            {faqSec.subheading}
           </p>
         </motion.div>
 
@@ -233,8 +125,8 @@ export default function FAQ() {
                     >
                       <p>{faq.answer}</p>
                       <div className="mt-4 flex items-center justify-between text-xs text-gray-500 font-mono">
-                        <span>CATEGORY // {faq.category.toUpperCase()}</span>
-                        <span className="text-cyan-400 font-semibold">● DIHUAVA VERIFIED</span>
+                        <span>{faqSec.categoryLabel} {faq.category.toUpperCase()}</span>
+                        <span className="text-cyan-400 font-semibold">{faqSec.verified}</span>
                       </div>
                     </motion.div>
                   )}

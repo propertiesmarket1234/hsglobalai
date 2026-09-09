@@ -4,6 +4,9 @@ import { useState, useMemo, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { usePathname } from "next/navigation";
+import { getDictionary } from "@/i18n/getDictionary";
+import { Locale, nonDefaultLocales } from "@/i18n/config";
 
 export interface UseCaseStory {
   id: string;
@@ -22,88 +25,69 @@ export interface UseCaseStory {
   metrics: { label: string; value: string }[];
 }
 
-const useCases: UseCaseStory[] = [
-  {
-    id: "museums",
-    badge: "MUSEUMS & EXHIBITIONS USE CASE",
-    titlePrefix: "Portraits & Holograms That ",
-    titleHighlight: "Speak.",
-    highlightColor: "from-cyan-400 via-sky-300 to-cyan-500",
-    description:
-      "Imagine a portrait framed on a gallery wall or inside a 3D Hologram Box. When a visitor steps close, the historical figure begins to speak. Not a pre-recorded video loop—a real conversation. A full-presence conversational avatar with custom voice cloning that looks, sounds, and reacts in real-time, available every hour the museum is open, in 29+ global languages, without staff or volunteers.",
-    ctaPrimaryText: "Build Your Exhibition Character",
-    ctaSecondaryText: "Explore Museum Solutions",
-    ctaPrimaryHref: "/contact",
-    ctaSecondaryHref: "/industries#tourism",
-    imageSrc: "/images/use-cases/museum_hologram_avatar.png",
-    imageAlt: "Interactive Museum Hologram Avatar Exhibit",
-    capabilities: [
-      "Low Latency Voice Response",
-      "Historical Document RAG",
-      "29+ Spoken Languages",
-      "Avatar & Voice Cloning AI",
-    ],
-    metrics: [
-      { label: "More Time Spent Engaging", value: "+65%" },
-      { label: "Languages Supported", value: "29+" },
-      { label: "Operating Uptime", value: "24/7" },
-    ],
-  },
-  {
-    id: "retail",
-    badge: "SMART RETAIL & LUXURY USE CASE",
-    titlePrefix: "Holographic Assistants That ",
-    titleHighlight: "Sell.",
-    highlightColor: "from-cyan-400 via-sky-300 to-cyan-500",
-    description:
-      "Transform static storefront displays into interactive 3D sales floors. As shoppers explore products, a 3D hologram avatar greets them, recommends complementary luxury items, answers technical specs in their native language, and guides them directly to instant purchase.",
-    ctaPrimaryText: "Deploy Retail Hologram Kiosk",
-    ctaSecondaryText: "Explore Retail Solutions",
-    ctaPrimaryHref: "/contact",
-    ctaSecondaryHref: "/industries#retail",
-    imageSrc: "/images/use-cases/jewellery_hologram_kiosk.png",
-    imageAlt: "Actual 3D Holographic Jewellery Product Kiosk with Live Digital Human Presenter",
-    capabilities: [
-      "Real-Time 3D Product Catalog",
-      "AI Recommendation Engine",
-      "Multilingual Voice Sales",
-      "POS & Inventory Integration",
-    ],
-    metrics: [
-      { label: "Sales Conversion Lift", value: "2.8x" },
-      { label: "Shopper Engagement", value: "3x" },
-      { label: "Cloud Dependency", value: "0%" },
-    ],
-  },
-  {
-    id: "banking",
-    badge: "BANKING & WEALTH MANAGEMENT USE CASE",
-    titlePrefix: "Private Wealth Advisors That ",
-    titleHighlight: "Protect.",
-    highlightColor: "from-cyan-400 via-sky-300 to-cyan-500",
-    description:
-      "Deploy 100% offline, air-gapped digital human avatars in bank VIP lounges and customer service branches. Avatars execute instant loan lookups, explain policy terms, and qualify clients while keeping all personal financial records air-gapped locally on local GPU hardware.",
-    ctaPrimaryText: "Request Private Wealth Demo",
-    ctaSecondaryText: "Explore Banking Solutions",
-    ctaPrimaryHref: "/contact",
-    ctaSecondaryHref: "/industries#banking",
-    imageSrc: "/images/use-cases/banking_hologram_kiosk.png",
-    imageAlt: "3D Hologram Kiosk display featuring Lady Corporate Wealth Advisor for Bank VIP Lounges",
-    capabilities: [
-      "100% Air-Gapped Storage",
-      "Local Enterprise PDF RAG",
-      "Low Latency",
-      "Bank-Grade Compliance",
-    ],
-    metrics: [
-      { label: "Data Leakage Risk", value: "0%" },
-      { label: "On-Device Processing", value: "Low Latency" },
-      { label: "Handling Reduction", value: "35%" },
-    ],
-  },
-];
-
 export default function ImmersiveUseCases() {
+  const pathname = usePathname();
+  const seg = pathname ? pathname.split("/")[1] : "";
+  const currentLocale: Locale = seg && (nonDefaultLocales as readonly string[]).includes(seg) ? (seg as Locale) : "en";
+  const dict = getDictionary(currentLocale);
+  const uc = dict.home.useCases;
+
+  const lPath = (path: string) => {
+    if (currentLocale === "en") return path;
+    return `/${currentLocale}${path === "/" ? "" : path}`;
+  };
+
+  const useCases: UseCaseStory[] = [
+    {
+      id: "museums",
+      badge: uc.museums.badge,
+      titlePrefix: uc.museums.titlePrefix,
+      titleHighlight: uc.museums.titleHighlight,
+      highlightColor: "from-cyan-400 via-sky-300 to-cyan-500",
+      description: uc.museums.description,
+      ctaPrimaryText: uc.museums.ctaPrimaryText,
+      ctaSecondaryText: uc.museums.ctaSecondaryText,
+      ctaPrimaryHref: lPath("/contact"),
+      ctaSecondaryHref: lPath("/industries#tourism"),
+      imageSrc: "/images/use-cases/museum_hologram_avatar.png",
+      imageAlt: "Interactive Museum Hologram Avatar Exhibit",
+      capabilities: uc.museums.capabilities,
+      metrics: uc.museums.metrics,
+    },
+    {
+      id: "retail",
+      badge: uc.retail.badge,
+      titlePrefix: uc.retail.titlePrefix,
+      titleHighlight: uc.retail.titleHighlight,
+      highlightColor: "from-cyan-400 via-sky-300 to-cyan-500",
+      description: uc.retail.description,
+      ctaPrimaryText: uc.retail.ctaPrimaryText,
+      ctaSecondaryText: uc.retail.ctaSecondaryText,
+      ctaPrimaryHref: lPath("/contact"),
+      ctaSecondaryHref: lPath("/industries#retail"),
+      imageSrc: "/images/use-cases/jewellery_hologram_kiosk.png",
+      imageAlt: "Actual 3D Holographic Jewellery Product Kiosk with Live Digital Human Presenter",
+      capabilities: uc.retail.capabilities,
+      metrics: uc.retail.metrics,
+    },
+    {
+      id: "banking",
+      badge: uc.banking.badge,
+      titlePrefix: uc.banking.titlePrefix,
+      titleHighlight: uc.banking.titleHighlight,
+      highlightColor: "from-cyan-400 via-sky-300 to-cyan-500",
+      description: uc.banking.description,
+      ctaPrimaryText: uc.banking.ctaPrimaryText,
+      ctaSecondaryText: uc.banking.ctaSecondaryText,
+      ctaPrimaryHref: lPath("/contact"),
+      ctaSecondaryHref: lPath("/industries#banking"),
+      imageSrc: "/images/use-cases/banking_hologram_kiosk.png",
+      imageAlt: "3D Hologram Kiosk display featuring Lady Corporate Wealth Advisor for Bank VIP Lounges",
+      capabilities: uc.banking.capabilities,
+      metrics: uc.banking.metrics,
+    },
+  ];
+
   const [activeTab, setActiveTab] = useState<string>("museums");
 
   // Unconditional automatic slide show: advances slide every 4 seconds continuously without user interaction
@@ -117,11 +101,11 @@ export default function ImmersiveUseCases() {
     }, 4000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [useCases]);
 
   const activeStory = useMemo(
     () => useCases.find((u) => u.id === activeTab) || useCases[0],
-    [activeTab]
+    [activeTab, useCases]
   );
 
   return (
@@ -136,14 +120,14 @@ export default function ImmersiveUseCases() {
           <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 backdrop-blur-md mb-4">
             <span className="h-2 w-2 rounded-full bg-cyan-400 animate-pulse" />
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">
-              Immersive Real-World Stories
+              {uc.badge}
             </span>
           </div>
 
           <h2 className="text-3xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-            Bringing Digital Humans to{" "}
+            {uc.titlePrefix}{" "}
             <span className="bg-gradient-to-r from-white via-neutral-100 to-cyan-400 bg-clip-text text-transparent">
-              Physical Spaces.
+              {uc.titleHighlight}
             </span>
           </h2>
         </div>
@@ -267,7 +251,7 @@ export default function ImmersiveUseCases() {
 
                   <div className="absolute bottom-4 right-4 z-20 rounded-full border border-cyan-500/50 bg-black/85 px-4 py-1.5 text-xs font-bold text-cyan-300 backdrop-blur-md flex items-center gap-2 shadow-lg">
                     <span className="flex h-2 w-2 rounded-full bg-cyan-400 animate-ping" />
-                    <span>Real-Time 3D Hologram Kiosk</span>
+                    <span>{uc.hologramKioskBadge}</span>
                   </div>
                 </motion.div>
               </motion.div>

@@ -4,6 +4,9 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Brain, Eye, Sparkles, Mic, Globe, Film } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { getDictionary } from "@/i18n/getDictionary";
+import { Locale, nonDefaultLocales } from "@/i18n/config";
 
 interface VoiceProfile {
   lang: string;
@@ -25,78 +28,84 @@ interface LadyOption {
   botReply: string;
 }
 
-const ladyOptions: LadyOption[] = [
-  {
-    id: "full-presenter",
-    name: "Elena Rostova",
-    role: "AI Chief Presenter",
-    videoSrc: "/videos/avatars/elena-rostova.mp4",
-    imageSrc: "/images/avatars/full_digital_human_presenter.png",
-    greeting: "Hello, I am Elena Rostova, AI Chief Presenter. How may I assist your enterprise vision today?",
-    voiceProfile: {
-      lang: "en-GB",
-      accentName: "British Executive",
-      description: "British Executive Lady Voice (Authoritative & Formal)",
-    },
-    capabilityTitle: "Knowledge & RAG Intelligence",
-    capabilityIcon: Brain,
-    userPrompt: "How does it connect to our enterprise knowledge base?",
-    botReply: "I ingest PDFs, internal documentation, and APIs via built-in RAG with 100% offline, air-gapped security.",
-  },
-  {
-    id: "modern-presenter",
-    name: "Sophia Vance",
-    role: "Digital Executive Host",
-    videoSrc: "/videos/avatars/sophia-vance.mp4",
-    imageSrc: "/images/avatars/modern_digital_human_presenter.png",
-    greeting: "Hi there! I'm Sophia Vance, your Digital Executive Host. Welcome to our real-time interactive platform.",
-    voiceProfile: {
-      lang: "en-US",
-      accentName: "American Tech Host",
-      description: "American Corporate Host Lady Voice (Articulate & Dynamic)",
-    },
-    capabilityTitle: "Hyper-Realistic Appearance",
-    capabilityIcon: Eye,
-    userPrompt: "Can we customize the avatar's face and wardrobe?",
-    botReply: "Yes! Hair, facial structure, brand uniforms, accessories, and 3D environments are fully customizable.",
-  },
-  {
-    id: "mei-lin",
-    name: "Mei Lin",
-    role: "Global Concierge Lead",
-    videoSrc: "/videos/avatars/mei-lin.mp4",
-    imageSrc: "/images/avatars/asian_lady.png",
-    greeting: "Welcome! I am Mei Lin, Global Concierge Lead. I am here to guide your personalized journey.",
-    voiceProfile: {
-      lang: "en-SG",
-      accentName: "Asian Concierge",
-      description: "Asian Concierge Lady Voice (Serene & Gentle)",
-    },
-    capabilityTitle: "Brand Aligned Personality",
-    capabilityIcon: Sparkles,
-    userPrompt: "How do you ensure brand consistency across interactions?",
-    botReply: "Custom neural system prompts enforce exact brand tone, empathetic responses, and strict guardrails.",
-  },
-  {
-    id: "victoria",
-    name: "Victoria Vance",
-    role: "Corporate Wealth Advisor",
-    videoSrc: "/videos/avatars/victoria-vance.mp4",
-    imageSrc: "/images/avatars/executive_lady.png",
-    greeting: "Good day. I am Victoria Vance, Corporate Wealth Advisor. Let us optimize your AI strategy and investment portfolio.",
-    voiceProfile: {
-      lang: "en-AU",
-      accentName: "Australian Wealth Advisor",
-      description: "Australian Wealth Advisor Lady Voice (Refined & Crisp)",
-    },
-    capabilityTitle: "Multilingual Low Latency Voice",
-    capabilityIcon: Mic,
-    userPrompt: "What is the voice latency and language coverage?",
-    botReply: "Low Latency voice synthesis supporting 29+ spoken languages and custom per-persona voice cloning.",
-  },
-];
-
 export default function RealtimeTalkingAvatars() {
+  const pathname = usePathname();
+  const seg = pathname ? pathname.split("/")[1] : "";
+  const currentLocale: Locale = seg && (nonDefaultLocales as readonly string[]).includes(seg) ? (seg as Locale) : "en";
+  const dict = getDictionary(currentLocale);
+  const av = dict.home.avatars;
+
+  const ladyOptions: LadyOption[] = [
+    {
+      id: "full-presenter",
+      name: "Elena Rostova",
+      role: "AI Chief Presenter",
+      videoSrc: "/videos/avatars/elena-rostova.mp4",
+      imageSrc: "/images/avatars/full_digital_human_presenter.png",
+      greeting: av.elena.greeting,
+      voiceProfile: {
+        lang: "en-GB",
+        accentName: "British Executive",
+        description: av.elena.voiceProfileDesc,
+      },
+      capabilityTitle: av.elena.capabilityTitle,
+      capabilityIcon: Brain,
+      userPrompt: av.elena.userPrompt,
+      botReply: av.elena.botReply,
+    },
+    {
+      id: "modern-presenter",
+      name: "Sophia Vance",
+      role: "Digital Executive Host",
+      videoSrc: "/videos/avatars/sophia-vance.mp4",
+      imageSrc: "/images/avatars/modern_digital_human_presenter.png",
+      greeting: av.sophia.greeting,
+      voiceProfile: {
+        lang: "en-US",
+        accentName: "American Tech Host",
+        description: av.sophia.voiceProfileDesc,
+      },
+      capabilityTitle: av.sophia.capabilityTitle,
+      capabilityIcon: Eye,
+      userPrompt: av.sophia.userPrompt,
+      botReply: av.sophia.botReply,
+    },
+    {
+      id: "mei-lin",
+      name: "Mei Lin",
+      role: "Global Concierge Lead",
+      videoSrc: "/videos/avatars/mei-lin.mp4",
+      imageSrc: "/images/avatars/asian_lady.png",
+      greeting: av.meiLin.greeting,
+      voiceProfile: {
+        lang: "en-SG",
+        accentName: "Asian Concierge",
+        description: av.meiLin.voiceProfileDesc,
+      },
+      capabilityTitle: av.meiLin.capabilityTitle,
+      capabilityIcon: Sparkles,
+      userPrompt: av.meiLin.userPrompt,
+      botReply: av.meiLin.botReply,
+    },
+    {
+      id: "victoria",
+      name: "Victoria Vance",
+      role: "Corporate Wealth Advisor",
+      videoSrc: "/videos/avatars/victoria-vance.mp4",
+      imageSrc: "/images/avatars/executive_lady.png",
+      greeting: av.victoria.greeting,
+      voiceProfile: {
+        lang: "en-AU",
+        accentName: "Australian Wealth Advisor",
+        description: av.victoria.voiceProfileDesc,
+      },
+      capabilityTitle: av.victoria.capabilityTitle,
+      capabilityIcon: Mic,
+      userPrompt: av.victoria.userPrompt,
+      botReply: av.victoria.botReply,
+    },
+  ];
+
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Automatic Carousel Rotation every 4.5 seconds
@@ -105,7 +114,7 @@ export default function RealtimeTalkingAvatars() {
       setCurrentIndex((prev) => (prev + 1) % ladyOptions.length);
     }, 4500);
     return () => clearInterval(timer);
-  }, []);
+  }, [ladyOptions.length]);
 
   const activeLady = ladyOptions[currentIndex];
   const CapabilityIcon = activeLady.capabilityIcon;
@@ -121,20 +130,20 @@ export default function RealtimeTalkingAvatars() {
           <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-950/60 px-4 py-1.5 backdrop-blur-md mb-4 shadow-[0_0_20px_rgba(6,182,212,0.25)]">
             <span className="h-2 w-2 rounded-full bg-cyan-400 animate-ping" />
             <span className="text-xs font-semibold uppercase tracking-widest text-cyan-300">
-              Digital Human Showcase
+              {av.badge}
             </span>
           </div>
 
           <h2 className="text-4xl font-extrabold tracking-tight text-white md:text-6xl lg:text-7xl">
-            Real-time{" "}
+            {av.titlePrefix}{" "}
             <span className="bg-gradient-to-r from-cyan-400 via-sky-300 to-cyan-500 bg-clip-text text-transparent">
-              talking avatars
+              {av.titleHighlight}
             </span>{" "}
-            with memory
+            {av.titleSuffix}
           </h2>
 
           <p className="mt-4 text-base leading-8 text-gray-300 sm:text-lg">
-            Autonomous conversational digital humans operating in real-time with memory, brand alignment, and multilingual voice cloning.
+            {av.subtitle}
           </p>
         </div>
 
@@ -142,7 +151,7 @@ export default function RealtimeTalkingAvatars() {
         <div className="mb-8 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-white/10 bg-neutral-950/80 p-3.5 backdrop-blur-md pointer-events-none select-none">
           <div className="flex items-center gap-2">
             <span className="text-xs font-mono font-bold uppercase text-cyan-300 tracking-wider">
-              Avatar Presenter:
+              {av.avatarPresenter}
             </span>
           </div>
 
@@ -240,7 +249,7 @@ export default function RealtimeTalkingAvatars() {
                   <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-cyan-500" />
                 </span>
                 <span className="text-xs font-mono font-bold tracking-widest text-cyan-300 uppercase">
-                  LIVE AI DIGITAL HUMAN STREAM
+                  {av.liveStreamBadge}
                 </span>
               </div>
 
@@ -265,12 +274,12 @@ export default function RealtimeTalkingAvatars() {
                 </div>
 
                 <div className="rounded-full border border-cyan-500/40 bg-black/85 px-4 py-2 font-mono text-xs font-bold text-cyan-300 backdrop-blur-md shadow-lg">
-                  AUTONOMOUS NEURAL VIDEO STREAM
+                  {av.autonomousStream}
                 </div>
               </div>
 
               <div className="rounded-full border border-white/20 bg-black/80 px-3.5 py-2 font-mono text-xs text-gray-300 backdrop-blur-md">
-                🔊 29+ Languages Enabled
+                🔊 {av.languagesEnabled}
               </div>
             </div>
 
@@ -282,7 +291,7 @@ export default function RealtimeTalkingAvatars() {
             {/* Top Capability Indicator Card */}
             <div>
               <span className="block text-[11px] font-mono font-bold uppercase tracking-wider text-cyan-400 mb-3">
-                AVATAR CAPABILITY:
+                {av.avatarCapability}
               </span>
               <AnimatePresence mode="wait">
                 <motion.div
@@ -314,10 +323,10 @@ export default function RealtimeTalkingAvatars() {
             <div className="flex items-center justify-between border-b border-white/15 pb-3 pt-2">
               <div className="flex items-center gap-2">
                 <span className="font-mono text-xs font-bold tracking-wider text-cyan-400 uppercase">
-                  CHAT INTERFACE
+                  {av.chatInterface}
                 </span>
                 <span className="rounded-full bg-cyan-500/20 px-2.5 py-0.5 text-[10px] font-mono font-semibold text-cyan-300">
-                  ONLINE
+                  {av.online}
                 </span>
               </div>
               <div className="h-2.5 w-2.5 rounded-full bg-cyan-300 animate-ping" />
@@ -357,7 +366,7 @@ export default function RealtimeTalkingAvatars() {
                 <Globe className="h-4 w-4 text-cyan-400" />
                 <span className="text-gray-300">29+ Global Languages</span>
               </div>
-              <span className="text-cyan-400 font-semibold">● Auto Video Carousel</span>
+              <span className="text-cyan-400 font-semibold">● {av.autoCarousel}</span>
             </div>
 
           </div>

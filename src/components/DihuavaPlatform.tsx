@@ -3,6 +3,9 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { UserCheck, FileText, Globe, Sparkles, ShoppingBag } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { getDictionary } from "@/i18n/getDictionary";
+import { Locale, nonDefaultLocales } from "@/i18n/config";
 
 interface HighlightItem {
   label: string;
@@ -22,95 +25,81 @@ interface CapabilityItem {
   linkText: string;
 }
 
-const capabilities: CapabilityItem[] = [
-  {
-    id: "avatar",
-    title: "Avatar & Zero-Shot Voice Cloning",
-    subtitle: "Photoreal Persona & Zero-Shot Voice Synth",
-    description:
-      "Your brand's face and voice generated once, running in real time on your kiosk with 60 FPS lip-sync, state transitions, and zero-shot voice cloning from a single 5–30 second audio clip.",
-    icon: UserCheck,
-    tags: ["Photoreal Persona", "Zero-Shot Voice Clone", "State Transitions", "On-Device 60 FPS"],
-    stat: "100% Brand Voice",
-    linkUrl: "/products/ai-digital-human/avatar-customization",
-    linkText: "Learn More About Avatar & Voice Cloning →",
-    highlights: [
-      { label: "Zero-Shot Voice Cloning", detail: "Single 5 to 30 second WAV/MP3 clip pre-encoded at 24kHz mono with no per-hour API fees." },
-      { label: "State-Driven Presence", detail: "Visually listens, thinks, and speaks with smooth cross-fades between state video clips." },
-      { label: "Real-Time Lipsync", detail: "Phonemes generated on-device as speech plays—faster than real time so speech never lags." },
-    ],
-  },
-  {
-    id: "document",
-    title: "Document Intelligence (On-Device RAG)",
-    subtitle: "On-Device RAG with Cross-Encoder Re-Ranking",
-    description:
-      "Upload enterprise PDFs, Word files, and Markdown documents locally. Our cross-encoder re-ranker retrieves grounded answers on-device with zero data leaving your building.",
-    icon: FileText,
-    tags: ["100% Air-Gapped RAG", "Cross-Encoder Reranker", "Multi-Format Data Import", "Grounding Guard"],
-    stat: "No Cloud Dependency",
-    linkUrl: "/products/ai-digital-human/document-intelligence",
-    linkText: "Learn More About Document Intelligence →",
-    highlights: [
-      { label: "100% Air-Gapped Local Search", detail: "Embedding, vector search, re-ranking, and response generation run entirely locally." },
-      { label: "Cross-Encoder Re-Ranking", detail: "Two-stage retrieval delivers maximum factual accuracy, especially across languages." },
-      { label: "Post-Generation Grounding Guard", detail: "Suppresses hallucinated prices or IDs if they do not trace back to retrieved source text." },
-    ],
-  },
-  {
-    id: "language",
-    title: "Multilingual Support (29+ Languages)",
-    subtitle: "29+ Global Languages & 7 Indian Languages",
-    description:
-      "Full offline ASR, translation, and neural speech synthesis across 29+ global languages including 7 specialized Indian languages (Hindi, Tamil, Telugu, Kannada, Bengali, Marathi, Gujarati) running 100% on-device.",
-    icon: Globe,
-    tags: ["29+ Global Languages", "7 Indian Languages", "Auto Language Switch", "100% Offline STT/TTS"],
-    stat: "29+ Languages Offline",
-    linkUrl: "/products/ai-digital-human/multilingual-support",
-    linkText: "Learn More About Multilingual Capabilities →",
-    highlights: [
-      { label: "29+ Global Languages", detail: "Native offline speech processing across English, Spanish, Mandarin, Russian, Arabic, and 24+ more." },
-      { label: "7 Specialized Indian Languages", detail: "Purpose-built edge models for Hindi, Tamil, Telugu, Kannada, Bengali, Marathi, and Gujarati." },
-      { label: "Instant Auto Language Switch", detail: "Instantly detects incoming visitor language and adapts speech synthesis dynamically." },
-    ],
-  },
-  {
-    id: "persona",
-    title: "Persona Management & Brand Safety",
-    subtitle: "Zero-Code Vertical Drop-In Packages",
-    description:
-      "Drop a persona package into your kiosk dashboard to instantly transform software roles from a luxury jeweller into a hospital receptionist or bank concierge with no code required.",
-    icon: Sparkles,
-    tags: ["Zero-Code Swaps", "Pre-Generated Greetings", "Intent Classification", "Barge-In Support"],
-    stat: "0 Code Changes",
-    linkUrl: "/products/ai-digital-human/persona-management",
-    linkText: "Learn More About Persona Management →",
-    highlights: [
-      { label: "Zero-Code Vertical Swaps", detail: "Drop in a package (.zip) to instantly swap avatar, voice, knowledge base, and vertical UI skin." },
-      { label: "Pre-Generated Greetings", detail: "Greetings generated at upload for instant speech playback with 0ms initial thinking pause." },
-      { label: "Real-Time Visitor Barge-In", detail: "Visitor can interrupt mid-sentence; avatar stops speaking immediately and listens." },
-    ],
-  },
-  {
-    id: "catalog",
-    title: "AI Product Catalogue & Sales Engine",
-    subtitle: "Spreadsheet-Driven Picture-in-Picture Sales",
-    description:
-      "Upload a 9-column CSV spreadsheet and asset bundle. The avatar sells directly from your product catalogue, presenting picture-in-picture cards and MP4 demo clips while speaking.",
-    icon: ShoppingBag,
-    tags: ["9-Column CSV Import", "Show While Speaking", "MP4 Demo Videos", "Price Grounding"],
-    stat: "Picture-in-Picture",
-    linkUrl: "/products/ai-digital-human/ai-product-catalog",
-    linkText: "Explore AI Product Catalogue Solutions →",
-    highlights: [
-      { label: "9-Column CSV Schema", detail: "One product spans multiple feature rows, enabling spoken feature Q&A without dialogue scripting." },
-      { label: "Picture-in-Picture Card Display", detail: "Matching product cards and MP4 demo video clips appear dynamically on screen as avatar speaks." },
-      { label: "Strict Price & ID Grounding", detail: "Post-generation verification prevents avatar from quoting incorrect prices or unlisted items." },
-    ],
-  },
-];
-
 export default function DihuavaPlatform() {
+  const pathname = usePathname();
+  const seg = pathname ? pathname.split("/")[1] : "";
+  const currentLocale: Locale = seg && (nonDefaultLocales as readonly string[]).includes(seg) ? (seg as Locale) : "en";
+  const dict = getDictionary(currentLocale);
+  const hp = dict.home.platform;
+
+  const lPath = (path: string) => {
+    if (currentLocale === "en") return path;
+    return `/${currentLocale}${path === "/" ? "" : path}`;
+  };
+
+  const capabilities: CapabilityItem[] = [
+    {
+      id: "avatar",
+      title: hp.capabilities.avatar.title,
+      subtitle: hp.capabilities.avatar.subtitle,
+      description: hp.capabilities.avatar.description,
+      icon: UserCheck,
+      tags: hp.capabilities.avatar.tags,
+      stat: hp.capabilities.avatar.stat,
+      linkUrl: "/products/ai-digital-human/avatar-customization",
+      linkText: hp.capabilities.avatar.linkText,
+      highlights: hp.capabilities.avatar.highlights,
+    },
+    {
+      id: "document",
+      title: hp.capabilities.document.title,
+      subtitle: hp.capabilities.document.subtitle,
+      description: hp.capabilities.document.description,
+      icon: FileText,
+      tags: hp.capabilities.document.tags,
+      stat: hp.capabilities.document.stat,
+      linkUrl: "/products/ai-digital-human/document-intelligence",
+      linkText: hp.capabilities.document.linkText,
+      highlights: hp.capabilities.document.highlights,
+    },
+    {
+      id: "language",
+      title: hp.capabilities.language.title,
+      subtitle: hp.capabilities.language.subtitle,
+      description: hp.capabilities.language.description,
+      icon: Globe,
+      tags: hp.capabilities.language.tags,
+      stat: hp.capabilities.language.stat,
+      linkUrl: "/products/ai-digital-human/multilingual-support",
+      linkText: hp.capabilities.language.linkText,
+      highlights: hp.capabilities.language.highlights,
+    },
+    {
+      id: "persona",
+      title: hp.capabilities.persona.title,
+      subtitle: hp.capabilities.persona.subtitle,
+      description: hp.capabilities.persona.description,
+      icon: Sparkles,
+      tags: hp.capabilities.persona.tags,
+      stat: hp.capabilities.persona.stat,
+      linkUrl: "/products/ai-digital-human/persona-management",
+      linkText: hp.capabilities.persona.linkText,
+      highlights: hp.capabilities.persona.highlights,
+    },
+    {
+      id: "catalog",
+      title: hp.capabilities.catalog.title,
+      subtitle: hp.capabilities.catalog.subtitle,
+      description: hp.capabilities.catalog.description,
+      icon: ShoppingBag,
+      tags: hp.capabilities.catalog.tags,
+      stat: hp.capabilities.catalog.stat,
+      linkUrl: "/products/ai-digital-human/ai-product-catalog",
+      linkText: hp.capabilities.catalog.linkText,
+      highlights: hp.capabilities.catalog.highlights,
+    },
+  ];
+
   const [activeTab, setActiveTab] = useState(capabilities[0].id);
   const activeCapability = capabilities.find((c) => c.id === activeTab) || capabilities[0];
 
@@ -129,20 +118,20 @@ export default function DihuavaPlatform() {
           <div className="flex items-center gap-3">
             <span className="h-2 w-2 rounded-full bg-cyan-400 animate-pulse" />
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400">
-              The DIHUAVA Architecture
+              {hp.badge}
             </p>
           </div>
 
           <div className="mt-4 flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
             <h2 className="max-w-3xl text-4xl font-bold tracking-tight md:text-6xl lg:text-7xl">
-              Core platform{" "}
+              {hp.title}{" "}
               <span className="bg-gradient-to-r from-white via-cyan-100 to-cyan-400 bg-clip-text text-transparent">
-                capabilities.
+                {hp.titleHighlight}
               </span>
             </h2>
 
             <p className="max-w-md text-base leading-7 text-gray-400">
-              Everything required to deploy, manage, and scale intelligent digital humans across on-device kiosks, holograms, and spatial displays.
+              {hp.subtitle}
             </p>
           </div>
         </motion.div>
@@ -208,7 +197,7 @@ export default function DihuavaPlatform() {
                   </span>
                   <div>
                     <span className="text-xs font-semibold uppercase tracking-wider text-cyan-400">
-                      Feature Deep Dive
+                      {hp.deepDive}
                     </span>
                     <h3 className="text-2xl font-bold text-white sm:text-3xl">
                       {activeCapability.title}
@@ -246,12 +235,12 @@ export default function DihuavaPlatform() {
                   <div className="flex items-center gap-2">
                     <span className="h-2 w-2 rounded-full bg-cyan-400 animate-pulse" />
                     <span className="text-xs font-semibold uppercase tracking-wider text-cyan-400">
-                      Platform Highlights
+                      {hp.highlightsTitle}
                     </span>
                   </div>
                   <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-emerald-300 bg-emerald-950/70 border border-emerald-500/30 px-2.5 py-0.5 rounded-full">
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" />
-                    Active System
+                    {hp.activeSystem}
                   </span>
                 </div>
 
@@ -273,10 +262,10 @@ export default function DihuavaPlatform() {
               {/* Slide Redirection Page CTA Button */}
               <div className="mt-6 flex flex-wrap items-center justify-between gap-4 pt-5 border-t border-white/10">
                 <span className="text-xs text-gray-400 font-medium">
-                  Want more technical details & live deployment specs?
+                  {hp.footerQuestion}
                 </span>
                 <a
-                  href={activeCapability.linkUrl}
+                  href={lPath(activeCapability.linkUrl)}
                   className="inline-flex items-center gap-2 rounded-full border border-cyan-400/50 bg-cyan-950/80 px-5 py-2.5 text-xs font-bold text-cyan-300 shadow-[0_0_20px_rgba(6,182,212,0.3)] backdrop-blur-md transition-all duration-300 hover:border-cyan-400 hover:bg-cyan-500 hover:text-black hover:scale-105"
                 >
                   <span>{activeCapability.linkText}</span>

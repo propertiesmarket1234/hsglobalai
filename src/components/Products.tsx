@@ -3,64 +3,74 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
-
-const products = [
-  {
-    id: "01",
-    title: "AI Digital Humans",
-    category: "Conversational Avatars",
-    description:
-      "Intelligent, human-like AI avatars designed for natural real-time customer interactions across languages.",
-    imageSrc: "/products/digital-humans/digital-human-dashboard.jpg",
-    imageAlt: "DIHUAVA AI Digital Human Platform",
-    tags: ["Multilingual", "Voice AI", "Digital Avatars"],
-    accentGlow: "rgba(6, 182, 212, 0.25)",
-    href: "/products/ai-digital-human",
-  },
-  {
-    id: "02",
-    title: "AI Hologram Box",
-    category: "3D Holographic Display",
-    description:
-      "Bring interactive AI-powered digital humans into real-world physical environments via 3D glass enclosures.",
-    imageSrc: "/products/digital-humans/digital-human-new.png",
-    images: [
-      "/products/digital-humans/digital-human-new.png",
-      "/products/hologram-box/hologram-box-saree.jpg",
-    ],
-    imageAlt: "3D AI Hologram Box Display Unit",
-    tags: ["3D Hologram", "Offline AI", "Interactive"],
-    accentGlow: "rgba(6, 182, 212, 0.25)",
-    href: "/products/holographic-display",
-  },
-  {
-    id: "03",
-    title: "Spatial Display",
-    category: "Volumetric Visuals",
-    description:
-      "Immersive visual experiences that transform how digital content is presented in retail and public spaces.",
-    imageSrc: "/products/spatial-display/spatial-display.png",
-    imageAlt: "Glasses-Free 3D Spatial Display Volumetric Screen",
-    tags: ["Volumetric", "Glasses-Free", "3D Signage"],
-    accentGlow: "rgba(6, 182, 212, 0.25)",
-    href: "/products/spatial-display",
-  },
-  {
-    id: "04",
-    title: "Virtual Try-On",
-    category: "Active R&D Capability",
-    description:
-      "AI-powered virtual fitting experiences enabling shoppers to visualize apparel digitally in real time.",
-    imageSrc: "/products/virtual-try-on/virtual-try-on.png",
-    imageAlt: "Virtual Try-On Smart Mirror Interactive Kiosk (Active R&D)",
-    tags: ["Active R&D", "Virtual Fitting", "Retail Tech"],
-    accentGlow: "rgba(6, 182, 212, 0.25)",
-    href: "/blog/what-is-virtual-try-on-technology",
-  },
-];
+import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
+import { getDictionary } from "@/i18n/getDictionary";
+import { Locale, nonDefaultLocales } from "@/i18n/config";
 
 export default function Products() {
+  const pathname = usePathname();
+  const seg = pathname ? pathname.split("/")[1] : "";
+  const currentLocale: Locale = seg && (nonDefaultLocales as readonly string[]).includes(seg) ? (seg as Locale) : "en";
+  const dict = getDictionary(currentLocale);
+  const fp = dict.home.featuredProducts;
+
+  const lPath = (path: string) => {
+    if (currentLocale === "en") return path;
+    return `/${currentLocale}${path === "/" ? "" : path}`;
+  };
+
+  const products = [
+    {
+      id: "01",
+      title: fp.items.dihuava.title,
+      category: fp.items.dihuava.category,
+      description: fp.items.dihuava.description,
+      imageSrc: "/products/digital-humans/digital-human-dashboard.jpg",
+      imageAlt: "DIHUAVA AI Digital Human Platform",
+      tags: fp.items.dihuava.tags,
+      accentGlow: "rgba(6, 182, 212, 0.25)",
+      href: lPath("/products/ai-digital-human"),
+    },
+    {
+      id: "02",
+      title: fp.items.hologramBox.title,
+      category: fp.items.hologramBox.category,
+      description: fp.items.hologramBox.description,
+      imageSrc: "/products/digital-humans/digital-human-new.png",
+      images: [
+        "/products/digital-humans/digital-human-new.png",
+        "/products/hologram-box/hologram-box-saree.jpg",
+      ],
+      imageAlt: "3D AI Hologram Box Display Unit",
+      tags: fp.items.hologramBox.tags,
+      accentGlow: "rgba(6, 182, 212, 0.25)",
+      href: lPath("/products/holographic-display"),
+    },
+    {
+      id: "03",
+      title: fp.items.spatialDisplay.title,
+      category: fp.items.spatialDisplay.category,
+      description: fp.items.spatialDisplay.description,
+      imageSrc: "/products/spatial-display/spatial-display.png",
+      imageAlt: "Glasses-Free 3D Spatial Display Volumetric Screen",
+      tags: fp.items.spatialDisplay.tags,
+      accentGlow: "rgba(6, 182, 212, 0.25)",
+      href: lPath("/products/spatial-display"),
+    },
+    {
+      id: "04",
+      title: fp.items.virtualTryOn.title,
+      category: fp.items.virtualTryOn.category,
+      description: fp.items.virtualTryOn.description,
+      imageSrc: "/products/virtual-try-on/virtual-try-on.png",
+      imageAlt: "Virtual Try-On Smart Mirror Interactive Kiosk (Active R&D)",
+      tags: fp.items.virtualTryOn.tags,
+      accentGlow: "rgba(6, 182, 212, 0.25)",
+      href: lPath("/blog/what-is-virtual-try-on-technology"),
+    },
+  ];
+
   const [hologramIndex, setHologramIndex] = useState(0);
 
   useEffect(() => {
@@ -85,31 +95,31 @@ export default function Products() {
           <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 backdrop-blur-md mb-6 shadow-[0_0_20px_rgba(6,182,212,0.25)]">
             <span className="h-2 w-2 rounded-full bg-cyan-400 animate-pulse" />
             <span className="text-xs font-semibold uppercase tracking-[0.25em] text-cyan-300">
-              Featured Products
+              {fp.badge}
             </span>
           </div>
 
           <div className="mt-4 flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
             <h2 className="max-w-3xl text-4xl font-extrabold tracking-tight md:text-6xl lg:text-7xl">
-              AI products designed for{" "}
+              {fp.titlePrefix}{" "}
               <span className="bg-gradient-to-r from-white via-cyan-100 to-cyan-400 bg-clip-text text-transparent">
-                real-world experiences.
+                {fp.titleHighlight}
               </span>
             </h2>
 
             <div className="flex flex-wrap items-center gap-4">
               <Link
-                href="/contact/download-center"
+                href={lPath("/contact/download-center")}
                 className="group inline-flex items-center gap-2 rounded-full border border-cyan-400/40 bg-cyan-950/40 px-6 py-3 text-sm font-semibold text-cyan-300 backdrop-blur-md transition-all hover:border-cyan-400 hover:bg-cyan-500/10 hover:scale-105"
               >
-                <span>Explore Product Downloads</span>
+                <span>{fp.exploreDownloads}</span>
                 <span className="transition-transform group-hover:translate-x-1">→</span>
               </Link>
               <Link
-                href="/products"
+                href={lPath("/products")}
                 className="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold backdrop-blur-md transition-all hover:border-cyan-400 hover:bg-white/10 hover:scale-105"
               >
-                <span>View All Products</span>
+                <span>{fp.viewAllProducts}</span>
                 <span className="transition-transform group-hover:translate-x-1">→</span>
               </Link>
             </div>
@@ -196,7 +206,7 @@ export default function Products() {
                     href={product.href}
                     className="inline-flex items-center gap-2 text-sm font-semibold tracking-wide text-white transition-colors group-hover:text-cyan-400"
                   >
-                    <span>Explore {product.title}</span>
+                    <span>{fp.explorePrefix} {product.title}</span>
                     <span className="transition-transform group-hover:translate-x-1">→</span>
                   </Link>
                 </div>

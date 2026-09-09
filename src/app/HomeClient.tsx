@@ -12,8 +12,22 @@ import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
+import { getDictionary } from "@/i18n/getDictionary";
+import { Locale, nonDefaultLocales } from "@/i18n/config";
 
 export default function HomeClient() {
+  const pathname = usePathname();
+  const seg = pathname ? pathname.split("/")[1] : "";
+  const currentLocale: Locale = seg && (nonDefaultLocales as readonly string[]).includes(seg) ? (seg as Locale) : "en";
+  const dict = getDictionary(currentLocale);
+  const hero = dict.home.hero;
+
+  const lPath = (path: string) => {
+    if (currentLocale === "en") return path;
+    return `/${currentLocale}${path === "/" ? "" : path}`;
+  };
+
   return (
     <main className="min-h-screen bg-black text-white selection:bg-cyan-500 selection:text-black">
       <Header />
@@ -58,41 +72,41 @@ export default function HomeClient() {
               <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-500" />
             </span>
             <span className="text-xs font-semibold tracking-widest text-cyan-300 uppercase">
-              ENTERPRISE AI DIGITAL HUMAN PLATFORM & 3D HOLOGRAM DISPLAYS
+              {hero.badge}
             </span>
           </motion.div>
 
           {/* Main Headline */}
           <h1 className="text-5xl font-extrabold tracking-tight md:text-7xl lg:text-8xl drop-shadow-2xl">
-            AI Experiences
+            {hero.titleLine1}
             <br />
-            Built for the{" "}
+            {hero.titleLine2Prefix}
             <span className="bg-gradient-to-r from-white via-cyan-100 to-cyan-400 bg-clip-text text-transparent">
-              Real World.
+              {hero.titleLine2Highlight}
             </span>
           </h1>
 
           <p className="mx-auto mt-8 max-w-3xl text-lg text-gray-200 sm:text-xl leading-relaxed drop-shadow-md">
-            HS Global AI powers physical kiosks and smart displays with DIHUAVA—our proprietary AI Digital Human software platform, running{" "}
+            {hero.descriptionPrefix}
             <span className="font-bold text-cyan-300 bg-cyan-950/80 px-2.5 py-0.5 rounded-md border border-cyan-500/40 shadow-[0_0_15px_rgba(6,182,212,0.35)] inline-block">
-              100% Offline AI
+              {hero.descriptionHighlight}
             </span>{" "}
-            on-device by default for zero data leakage, low latency, and 3D holographic customer engagement.
+            {hero.descriptionSuffix}
           </p>
 
           {/* Action Buttons */}
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <a
-              href="/contact"
+              href={lPath("/contact")}
               className="rounded-full bg-white px-9 py-4 text-sm font-bold text-black transition-all duration-300 hover:scale-105 hover:bg-cyan-400 hover:shadow-[0_0_35px_rgba(6,182,212,0.6)]"
             >
-              Book a Demo
+              {hero.bookDemo}
             </a>
             <a
-              href="/products"
+              href={lPath("/products")}
               className="rounded-full border border-cyan-400/40 bg-black/60 px-8 py-4 text-sm font-semibold text-cyan-300 backdrop-blur-md transition-all duration-300 hover:border-cyan-400 hover:bg-cyan-500/10 hover:scale-105 shadow-[0_0_20px_rgba(6,182,212,0.2)]"
             >
-              Explore Products →
+              {hero.exploreProducts}
             </a>
           </div>
 
@@ -104,20 +118,20 @@ export default function HomeClient() {
             className="mt-16 grid grid-cols-2 gap-4 border-t border-white/15 pt-10 sm:grid-cols-4 backdrop-blur-md rounded-2xl bg-black/50 p-6 shadow-2xl border border-cyan-500/20"
           >
             <div>
-              <p className="text-3xl font-bold text-cyan-400 drop-shadow">100%</p>
-              <p className="text-xs text-gray-300 uppercase tracking-wider mt-1 font-medium font-mono">Offline / On-Device AI</p>
+              <p className="text-3xl font-bold text-cyan-400 drop-shadow">{hero.metrics.offlineTitle}</p>
+              <p className="text-xs text-gray-300 uppercase tracking-wider mt-1 font-medium font-mono">{hero.metrics.offlineDesc}</p>
             </div>
             <div>
-              <p className="text-3xl font-bold text-cyan-400 drop-shadow">29+</p>
-              <p className="text-xs text-gray-300 uppercase tracking-wider mt-1 font-medium font-mono font-semibold">Global Languages</p>
+              <p className="text-3xl font-bold text-cyan-400 drop-shadow">{hero.metrics.languagesTitle}</p>
+              <p className="text-xs text-gray-300 uppercase tracking-wider mt-1 font-medium font-mono font-semibold">{hero.metrics.languagesDesc}</p>
             </div>
             <div>
-              <p className="text-3xl font-bold text-cyan-400 drop-shadow">Low Latency</p>
-              <p className="text-xs text-gray-300 uppercase tracking-wider mt-1 font-medium font-mono">On-Device Processing</p>
+              <p className="text-3xl font-bold text-cyan-400 drop-shadow">{hero.metrics.latencyTitle}</p>
+              <p className="text-xs text-gray-300 uppercase tracking-wider mt-1 font-medium font-mono">{hero.metrics.latencyDesc}</p>
             </div>
             <div>
-              <p className="text-3xl font-bold text-cyan-400 drop-shadow">100%</p>
-              <p className="text-xs text-gray-300 uppercase tracking-wider mt-1 font-medium font-mono">Air-Gapped Data Privacy</p>
+              <p className="text-3xl font-bold text-cyan-400 drop-shadow">{hero.metrics.privacyTitle}</p>
+              <p className="text-xs text-gray-300 uppercase tracking-wider mt-1 font-medium font-mono">{hero.metrics.privacyDesc}</p>
             </div>
           </motion.div>
         </motion.div>
