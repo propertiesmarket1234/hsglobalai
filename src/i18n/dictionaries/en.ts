@@ -193,6 +193,20 @@ export const en = {
             { label: "Picture-in-Picture Card Display", detail: "Matching product cards and MP4 demo video clips appear dynamically on screen as avatar speaks." },
             { label: "Strict Price & ID Grounding", detail: "Post-generation verification prevents avatar from quoting incorrect prices or unlisted items." },
           ]
+        },
+        brainClone: {
+          title: "Brain Clone",
+          subtitle: "Source-Grounded Personal Knowledge Engine",
+          description: "Turn a person's recorded talks and teachings into a source-grounded digital human that answers from what they actually said.",
+          stat: "IN DEVELOPMENT",
+          linkText: "Explore DIHUAVA Platform Architecture →",
+          tags: ["Source-Grounded Answers", "On-Device Hardware", "Rights Approval Required", "No Invention Guard"],
+          highlights: [
+            { label: "Source-Grounded Answers", detail: "Answers from the person's recorded words, with source passages available on demand." },
+            { label: "On-Device Hardware", detail: "Processing runs on customer-owned hardware with zero cloud data transmission." },
+            { label: "Rights Approval Required", detail: "Requires signed release from the individual, estate, or institution before setup." },
+            { label: "Grounded Response Guard", detail: "When the recorded material does not contain the answer, Brain Clone does not invent one." },
+          ]
         }
       }
     },
@@ -617,4 +631,13 @@ export const en = {
   }
 };
 
-export type Dictionary = typeof en;
+type EnType = typeof en;
+export type Dictionary = Omit<EnType, 'home'> & {
+  home: Omit<EnType['home'], 'platform'> & {
+    platform: Omit<EnType['home']['platform'], 'capabilities'> & {
+      capabilities: Omit<EnType['home']['platform']['capabilities'], 'brainClone'> & {
+        brainClone?: EnType['home']['platform']['capabilities']['catalog'];
+      };
+    };
+  };
+};

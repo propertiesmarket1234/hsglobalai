@@ -18,6 +18,7 @@ import {
   Cpu,
   User,
   BookOpen,
+  Brain,
 } from "lucide-react";
 
 // CORE PLATFORM SUBSYSTEMS
@@ -100,6 +101,22 @@ const coreModules = [
       "Real-time 29+ global languages engine",
       "Automatic per-persona voice cloning",
       "Localized currency & number speech",
+    ],
+  },
+  {
+    id: "brain-clone",
+    title: "Brain Clone",
+    subtitle: "Source-Grounded Personal Knowledge Engine",
+    description:
+      "Turn a person's recorded talks and teachings into a source-grounded digital human that answers from what they actually said.",
+    icon: Brain,
+    badge: "IN DEVELOPMENT",
+    featureUrl: "/products/ai-digital-human",
+    highlights: [
+      "Answers from recorded words with source passages on demand",
+      "Processing runs on customer-owned hardware",
+      "Rights approval required before setup",
+      "Does not invent answers when unrecorded",
     ],
   },
   {
@@ -384,6 +401,9 @@ export default function DihuavaClient() {
                 <span className="rounded-full border border-cyan-500/30 bg-black/60 px-3.5 py-1 text-xs font-mono text-cyan-300">
                   🎭 Live Cartoon Mode
                 </span>
+                <span className="rounded-full border border-cyan-500/30 bg-black/60 px-3.5 py-1 text-xs font-mono text-cyan-300">
+                  🧠 Brain Clone (In Dev)
+                </span>
               </div>
             </div>
 
@@ -526,7 +546,7 @@ export default function DihuavaClient() {
         </div>
       </section>
 
-      {/* CORE PLATFORM SUBSYSTEMS GRID (6 MODULES) */}
+      {/* CORE PLATFORM SUBSYSTEMS GRID (7 MODULES) */}
       <section className="relative overflow-hidden bg-neutral-950 px-6 py-24 border-b border-white/10">
         <div className="mx-auto max-w-7xl">
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -534,7 +554,7 @@ export default function DihuavaClient() {
               Core Platform Subsystems
             </span>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-5xl">
-              6 Intelligent Modules. 1 Integrated Local AI.
+              7 Intelligent Modules. 1 Integrated Local AI.
             </h2>
             <p className="mt-4 text-base text-gray-400">
               Everything your digital human needs to understand, communicate, recommend, and interact — running locally on the edge.

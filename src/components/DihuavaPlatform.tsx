@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { UserCheck, FileText, Globe, Sparkles, ShoppingBag } from "lucide-react";
+import { UserCheck, FileText, Globe, Sparkles, ShoppingBag, Brain } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { getDictionary } from "@/i18n/getDictionary";
 import { Locale, nonDefaultLocales } from "@/i18n/config";
@@ -97,6 +97,23 @@ export default function DihuavaPlatform() {
       linkUrl: "/products/ai-digital-human/ai-product-catalog",
       linkText: hp.capabilities.catalog.linkText,
       highlights: hp.capabilities.catalog.highlights,
+    },
+    {
+      id: "brain-clone",
+      title: (hp.capabilities as any).brainClone?.title || "Brain Clone",
+      subtitle: (hp.capabilities as any).brainClone?.subtitle || "Source-Grounded Personal Knowledge Engine",
+      description: (hp.capabilities as any).brainClone?.description || "Turn a person's recorded talks and teachings into a source-grounded digital human that answers from what they actually said.",
+      icon: Brain,
+      tags: (hp.capabilities as any).brainClone?.tags || ["Source-Grounded Answers", "On-Device Hardware", "Rights Approval Required", "No Invention Guard"],
+      stat: (hp.capabilities as any).brainClone?.stat || "IN DEVELOPMENT",
+      linkUrl: "/products/ai-digital-human",
+      linkText: (hp.capabilities as any).brainClone?.linkText || "Explore DIHUAVA Platform Architecture →",
+      highlights: (hp.capabilities as any).brainClone?.highlights || [
+        { label: "Source-Grounded Answers", detail: "Answers from the person's recorded words, with source passages available on demand." },
+        { label: "On-Device Hardware", detail: "Processing runs on customer-owned hardware with zero cloud data transmission." },
+        { label: "Rights Approval Required", detail: "Requires signed release from the individual, estate, or institution before setup." },
+        { label: "Grounded Response Guard", detail: "When the recorded material does not contain the answer, Brain Clone does not invent one." },
+      ],
     },
   ];
 
