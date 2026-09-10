@@ -265,6 +265,37 @@ export const es: Dictionary = {
             "detail": "La verificación posterior evita que el avatar mencione precios o códigos erróneos."
           }
         ]
+      },
+      "brainClone": {
+        "title": "Brain Clone",
+        "subtitle": "Motor de conocimiento personal fundamentado en fuentes",
+        "description": "Convierte las grabaciones de ponencias y enseñanzas de una persona en un humano digital fundamentado en fuentes que responde a partir de lo que realmente dijo.",
+        "stat": "EN DESARROLLO",
+        "linkText": "Explorar la arquitectura de la plataforma DIHUAVA →",
+        "tags": [
+          "Respuestas fundamentadas",
+          "Hardware del cliente",
+          "Aprobación de derechos requerida",
+          "Protección antialucinaciones"
+        ],
+        "highlights": [
+          {
+            "label": "Respuestas fundamentadas",
+            "detail": "Respuestas basadas en las palabras grabadas de la persona, con fragmentos fuente disponibles a petición."
+          },
+          {
+            "label": "Hardware del cliente",
+            "detail": "El procesamiento se ejecuta en hardware propiedad del cliente con cero transmisión de datos a la nube."
+          },
+          {
+            "label": "Aprobación de derechos requerida",
+            "detail": "Requiere autorización firmada de la persona, herederos o institución antes de la configuración."
+          },
+          {
+            "label": "Protección antialucinaciones",
+            "detail": "Cuando el material grabado no contiene la respuesta, Brain Clone no la inventa."
+          }
+        ]
       }
     }
   },

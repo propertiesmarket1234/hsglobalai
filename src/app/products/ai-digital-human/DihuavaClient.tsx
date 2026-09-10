@@ -7,6 +7,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { getDictionary } from "@/i18n/getDictionary";
+import { Locale, nonDefaultLocales } from "@/i18n/config";
 
 import {
   Camera,
@@ -323,6 +326,29 @@ const faqs = [
 
 export default function DihuavaClient() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const pathname = usePathname();
+  const seg = pathname ? pathname.split("/")[1] : "";
+  const currentLocale: Locale = seg && (nonDefaultLocales as readonly string[]).includes(seg) ? (seg as Locale) : "en";
+  const dict = getDictionary(currentLocale);
+  const hp = dict.home.platform;
+  const brainCloneData = (hp.capabilities as any)?.brainClone;
+
+  const localizedModules = coreModules.map((module) => {
+    if (module.id === "brain-clone" && brainCloneData) {
+      const highlightsList: string[] = brainCloneData.highlights
+        ? brainCloneData.highlights.map((h: any) => (typeof h === "string" ? h : h.detail))
+        : module.highlights;
+      return {
+        ...module,
+        title: (brainCloneData.title as string) || module.title,
+        subtitle: (brainCloneData.subtitle as string) || module.subtitle,
+        description: (brainCloneData.description as string) || module.description,
+        badge: (brainCloneData.stat as string) || module.badge,
+        highlights: highlightsList,
+      };
+    }
+    return module;
+  });
 
   return (
     <main className="min-h-screen bg-black text-white selection:bg-cyan-500 selection:text-black">
@@ -562,7 +588,7 @@ export default function DihuavaClient() {
           </div>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {coreModules.map((module) => (
+            {localizedModules.map((module) => (
               <motion.div
                 key={module.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -594,7 +620,7 @@ export default function DihuavaClient() {
                 </div>
 
                 <div className="mt-8 space-y-2 border-t border-white/10 pt-6">
-                  {module.highlights.map((h, i) => (
+                  {module.highlights.map((h: string, i: number) => (
                     <div key={i} className="flex items-center gap-2 text-xs text-gray-300">
                       <span className="text-cyan-400">✓</span>
                       <span>{h}</span>
