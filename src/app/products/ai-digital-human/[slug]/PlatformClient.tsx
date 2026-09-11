@@ -5,8 +5,9 @@ import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { useParams } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import { useState } from "react";
+import { Locale, nonDefaultLocales, getLocalizedPath } from "@/i18n/config";
 import {
   UserCheck,
   FileText,
@@ -800,6 +801,10 @@ export const platformData: Record<string, PlatformPageData> = {
 
 export default function PlatformClient({ initialSlug }: { initialSlug?: string }) {
   const params = useParams();
+  const pathname = usePathname();
+  const seg = pathname ? pathname.split("/")[1] : "";
+  const currentLocale: Locale = seg && (nonDefaultLocales as readonly string[]).includes(seg) ? (seg as Locale) : "en";
+  const lPath = (path: string) => getLocalizedPath(path, currentLocale);
   const rawSlug = (params?.slug as string) || initialSlug || "";
 
   // Map legacy / alternative slugs to canonical platform data keys
@@ -828,7 +833,7 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
           <h1 className="text-4xl font-extrabold text-cyan-400 sm:text-5xl">Feature Page Not Found</h1>
           <p className="mt-4 text-gray-400">The platform capability page you are looking for does not exist.</p>
           <Link
-            href="/products/ai-digital-human"
+            href={lPath("/products/ai-digital-human")}
             className="mt-8 rounded-full border border-cyan-400/50 bg-cyan-950/80 px-8 py-3.5 text-sm font-bold text-cyan-300 transition-all hover:bg-cyan-400 hover:text-black"
           >
             ← Return to DIHUAVA Platform Overview
@@ -852,13 +857,13 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
         <div className="relative mx-auto max-w-6xl">
           <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
             <Link
-              href="/products/ai-digital-human"
+              href={lPath("/products/ai-digital-human")}
               className="inline-flex items-center gap-2 text-xs font-medium text-cyan-400 hover:text-white transition-colors"
             >
               <ChevronLeft className="w-4 h-4" /> Return to DIHUAVA Platform Overview
             </Link>
             <Link
-              href={`/products/ai-digital-human/${data.slug}`}
+              href={lPath(`/products/ai-digital-human/${data.slug}`)}
               className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-cyan-300 hover:text-white border border-cyan-500/30 bg-cyan-950/60 px-3 py-1 rounded-lg transition-colors"
             >
               <span>View DIHUAVA Product Specs</span>
@@ -895,13 +900,13 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
 
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <Link
-                href="/contact"
+                href={lPath("/contact")}
                 className="rounded-full bg-gradient-to-r from-cyan-500 via-sky-500 to-cyan-600 px-8 py-3.5 text-sm font-bold text-white shadow-xl transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(6,182,212,0.4)]"
               >
                 Request Architecture Demo →
               </Link>
               <Link
-                href="/contact/download-center"
+                href={lPath("/contact/download-center")}
                 className="rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-semibold text-gray-200 backdrop-blur-md transition-colors hover:border-cyan-400 hover:text-white"
               >
                 Download Whitepaper (PDF)

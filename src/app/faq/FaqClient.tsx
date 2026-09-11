@@ -26,7 +26,7 @@ export default function FaqClient() {
 
         <div className="relative mx-auto max-w-5xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-cyan-300 backdrop-blur-md mb-6">
-            {faqSec.badge || "Frequently Asked Questions — FAQs"}
+            {faqSec.badge}
           </span>
 
           <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl">

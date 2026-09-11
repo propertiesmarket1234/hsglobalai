@@ -214,7 +214,7 @@ const spatialSpecs = [
 
 import { usePathname } from "next/navigation";
 import { getDictionary } from "@/i18n/getDictionary";
-import { Locale, nonDefaultLocales } from "@/i18n/config";
+import { Locale, nonDefaultLocales, getLocalizedPath } from "@/i18n/config";
 
 export default function SpatialDisplayClient() {
   const pathname = usePathname();
@@ -222,6 +222,13 @@ export default function SpatialDisplayClient() {
   const currentLocale: Locale = seg && (nonDefaultLocales as readonly string[]).includes(seg) ? (seg as Locale) : "en";
   const dict = getDictionary(currentLocale);
   const sPage = (dict as any).spatialPage || {};
+  const lPath = (path: string) => getLocalizedPath(path, currentLocale);
+
+  const localizedSpecs = sPage.specs || spatialSpecs;
+  const localizedDefPoints = definitionPoints.map((pt, idx) => {
+    const dictPt = sPage.definitionPoints && sPage.definitionPoints[idx];
+    return dictPt ? { ...pt, title: dictPt.title || pt.title, description: dictPt.description || pt.description } : pt;
+  });
 
   return (
     <main className="min-h-screen bg-black text-white selection:bg-cyan-500 selection:text-black">
@@ -234,7 +241,7 @@ export default function SpatialDisplayClient() {
         <div className="relative mx-auto max-w-7xl">
           {/* Breadcrumb Navigation */}
           <div className="flex items-center gap-2 text-xs text-gray-400 mb-6 font-mono">
-            <Link href="/products" className="hover:text-cyan-400 transition-colors">
+            <Link href={lPath("/products")} className="hover:text-cyan-400 transition-colors">
               Products
             </Link>
             <span>/</span>
@@ -267,19 +274,19 @@ export default function SpatialDisplayClient() {
               </h1>
 
               <p className="mt-6 text-base leading-8 text-gray-300 sm:text-lg max-w-2xl">
-                {sPage.heroDescription || "Naked-eye 3D spatial AI displays delivering glasses-free immersive visual experiences and real-time interactive avatars for high-impact commercial environments."} Featuring an ultra-slim <strong>6 cm body thickness</strong> and <strong>4K Ultra HD touch screen panel</strong>, available in <strong>55&quot;, 65&quot;, 75&quot;, and 86&quot;</strong> display sizes. Also explore our life-size <Link href="/products/holographic-display" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">AI Hologram Box enclosures</Link>.
+                {sPage.heroDescription || "Naked-eye 3D spatial AI displays delivering glasses-free immersive visual experiences and real-time interactive avatars for high-impact commercial environments."} Featuring an ultra-slim <strong>6 cm body thickness</strong> and <strong>4K Ultra HD touch screen panel</strong>, available in <strong>55&quot;, 65&quot;, 75&quot;, and 86&quot;</strong> display sizes. Also explore our life-size <Link href={lPath("/products/holographic-display")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">AI Hologram Box enclosures</Link>.
               </p>
 
               {/* Action Buttons */}
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <Link
-                  href="/contact"
+                  href={lPath("/contact")}
                   className="rounded-full bg-gradient-to-r from-cyan-500 via-sky-500 to-cyan-600 px-8 py-3.5 text-sm font-bold text-white shadow-xl transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(6,182,212,0.4)]"
                 >
                   Book Spatial Display Demo →
                 </Link>
                 <Link
-                  href="/contact/download-center"
+                  href={lPath("/contact/download-center")}
                   className="rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-semibold text-gray-200 backdrop-blur-md transition-colors hover:border-cyan-400 hover:text-white"
                 >
                   Download Spatial Datasheet (PDF)
@@ -461,7 +468,7 @@ export default function SpatialDisplayClient() {
 
               <div className="mt-8">
                 <Link
-                  href="/products/ai-digital-human"
+                  href={lPath("/products/ai-digital-human")}
                   className="inline-flex items-center gap-2 text-sm font-bold text-cyan-400 hover:text-cyan-300 underline"
                 >
                   <span>Learn more about DIHUAVA AI Platform</span>
@@ -554,22 +561,22 @@ export default function SpatialDisplayClient() {
         </div>
       </section>
 
-      {/* INDUSTRY USE CASES — IMMERSIVE SPATIAL EXPERIENCES FOR EVERY INDUSTRY */}
-      <section className="relative overflow-hidden bg-neutral-950 px-6 py-24 text-white border-t border-b border-white/10">
+      {/* SPATIAL DISPLAY INDUSTRY APPLICATIONS */}
+      <section className="relative overflow-hidden bg-black px-6 py-24 text-white border-b border-white/10">
         <div className="mx-auto max-w-7xl">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-xs font-bold tracking-[0.3em] text-cyan-400 font-mono uppercase">
-              Commercial Applications
+              Target Deployments
             </span>
             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
-              Immersive Spatial Experiences Across Industries
+              Spatial Display Across Commercial Sectors
             </h2>
             <p className="mt-4 text-base text-gray-300">
-              Discover how Spatial Display elevates customer engagement across core commercial sectors.
+              Discover how naked-eye 3D spatial displays and AI Digital Humans enhance customer environments.
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {spatialIndustries.map((ind, idx) => {
               const IndIcon = ind.icon;
               return (
@@ -579,30 +586,30 @@ export default function SpatialDisplayClient() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: idx * 0.08 }}
-                  className="group relative flex flex-col justify-between rounded-3xl border border-white/15 bg-black/60 p-8 backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/40 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)]"
+                  className="group flex flex-col justify-between rounded-3xl border border-white/15 bg-neutral-950/80 p-8 backdrop-blur-xl transition-all hover:border-cyan-500/40 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)]"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-6">
-                      <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-500/40 bg-cyan-950/50 text-cyan-300">
+                      <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-500/40 bg-cyan-950/50 text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
                         <IndIcon className="w-6 h-6" />
                       </span>
-                      <span className="text-xs font-mono font-semibold text-cyan-400 border border-cyan-500/30 bg-cyan-950/40 px-3 py-1 rounded-full">
+                      <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-medium tracking-wide text-cyan-300 backdrop-blur-sm">
                         {ind.category}
                       </span>
                     </div>
 
-                    <h3 className="text-2xl font-bold text-white group-hover:text-cyan-300 transition-colors mb-3">
+                    <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors mb-2">
                       {ind.title}
                     </h3>
 
-                    <p className="text-sm leading-7 text-gray-300 mb-6">
+                    <p className="text-xs leading-6 text-gray-300 mb-6">
                       {ind.description}
                     </p>
                   </div>
 
                   <div className="pt-4 border-t border-white/10">
                     <Link
-                      href={ind.link}
+                      href={lPath(ind.link)}
                       className="inline-flex items-center gap-2 text-xs font-mono font-bold text-cyan-400 hover:text-white transition-colors uppercase tracking-wider"
                     >
                       <span>Explore Industry Solution</span>
@@ -715,7 +722,7 @@ export default function SpatialDisplayClient() {
 
           <div className="overflow-hidden rounded-2xl border border-cyan-500/30 bg-neutral-950/90 shadow-2xl backdrop-blur-xl">
             <div className="divide-y divide-white/10">
-              {spatialSpecs.map((spec, i) => (
+              {localizedSpecs.map((spec: any, i: number) => (
                 <div
                   key={spec.label}
                   className={`grid grid-cols-1 gap-2 px-6 py-4.5 sm:grid-cols-3 sm:gap-4 ${
@@ -741,7 +748,7 @@ export default function SpatialDisplayClient() {
         description="Experience volumetric light-field displays for retail showcases, corporate lobbies, exhibitions, interactive kiosks, and 3D digital human presentations."
         primaryButtonText="Book a Demo"
         secondaryButtonText="Download Datasheets (PDF)"
-        secondaryButtonHref="/contact/download-center"
+        secondaryButtonHref={lPath("/contact/download-center")}
       />
       <Footer />
     </main>

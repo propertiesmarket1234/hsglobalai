@@ -69,7 +69,29 @@ const languageFeatures = [
   },
 ];
 
+import { usePathname } from "next/navigation";
+import { getDictionary } from "@/i18n/getDictionary";
+import { Locale, nonDefaultLocales } from "@/i18n/config";
+
 export default function GlobalLanguagesSection() {
+  const pathname = usePathname();
+  const seg = pathname ? pathname.split("/")[1] : "";
+  const currentLocale: Locale = seg && (nonDefaultLocales as readonly string[]).includes(seg) ? (seg as Locale) : "en";
+  const dict = getDictionary(currentLocale);
+  const gSec = (dict as any).globalLanguagesSection || {};
+
+  const localizedFeatures = languageFeatures.map((feat, idx) => {
+    const dictFeat = gSec.features && gSec.features[idx];
+    if (dictFeat) {
+      return {
+        ...feat,
+        title: dictFeat.title || feat.title,
+        description: dictFeat.description || feat.description,
+      };
+    }
+    return feat;
+  });
+
   return (
     <section className="relative overflow-hidden bg-black px-6 py-24 text-white border-t border-b border-white/10">
       {/* Background Glow Accents */}
@@ -83,19 +105,19 @@ export default function GlobalLanguagesSection() {
           <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-950/60 px-4 py-1.5 backdrop-blur-md">
             <Globe className="h-4 w-4 text-cyan-400" />
             <span className="text-xs font-semibold tracking-wider text-cyan-300 uppercase">
-              29+ Global Languages & Neural Speech Engine
+              {gSec.badge || "29+ Global Languages & Neural Speech Engine"}
             </span>
           </div>
 
           <h2 className="mt-6 text-3xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-            Communicate naturally in{" "}
+            {gSec.titlePrefix || "Communicate naturally in "}{" "}
             <span className="bg-gradient-to-r from-cyan-300 via-sky-200 to-cyan-400 bg-clip-text text-transparent">
-              29+ Global Languages
+              {gSec.titleHighlight || "29+ Global Languages"}
             </span>
           </h2>
 
           <p className="mt-6 text-base text-gray-300 sm:text-lg leading-relaxed">
-            Every HS Global AI product—from Digital Humans and Hologram Boxes to Spatial Displays—is equipped with real-time multilingual speech recognition, voice cloning, and instant language switching.
+            {gSec.description || "Every HS Global AI product—from Digital Humans and Hologram Boxes to Spatial Displays—is equipped with real-time multilingual speech recognition, voice cloning, and instant language switching."}
           </p>
         </div>
 
@@ -104,25 +126,25 @@ export default function GlobalLanguagesSection() {
           <div className="rounded-2xl border border-white/10 bg-neutral-900/60 p-6 text-center backdrop-blur-md">
             <div className="text-3xl font-extrabold text-cyan-400 sm:text-4xl">29+</div>
             <div className="mt-1 text-xs font-medium text-gray-300 uppercase tracking-wider">
-              Global Languages
+              {gSec.metricGlobalLanguages || "Global Languages"}
             </div>
           </div>
           <div className="rounded-2xl border border-white/10 bg-neutral-900/60 p-6 text-center backdrop-blur-md">
             <div className="text-3xl font-extrabold text-cyan-400 sm:text-4xl">7+</div>
             <div className="mt-1 text-xs font-medium text-gray-300 uppercase tracking-wider">
-              Indian Languages
+              {gSec.metricIndianLanguages || "Indian Languages"}
             </div>
           </div>
           <div className="rounded-2xl border border-white/10 bg-neutral-900/60 p-6 text-center backdrop-blur-md">
             <div className="text-3xl font-extrabold text-cyan-400 sm:text-4xl">100+</div>
             <div className="mt-1 text-xs font-medium text-gray-300 uppercase tracking-wider">
-              Regional Accents
+              {gSec.metricRegionalAccents || "Regional Accents"}
             </div>
           </div>
           <div className="rounded-2xl border border-white/10 bg-neutral-900/60 p-6 text-center backdrop-blur-md">
             <div className="text-3xl font-extrabold text-cyan-400 sm:text-4xl">100%</div>
             <div className="mt-1 text-xs font-medium text-gray-300 uppercase tracking-wider">
-              On-Device & Offline
+              {gSec.metricOnDeviceOffline || "On-Device & Offline"}
             </div>
           </div>
         </div>
@@ -133,11 +155,11 @@ export default function GlobalLanguagesSection() {
             <div className="flex items-center gap-3">
               <Languages className="h-5 w-5 text-cyan-400" />
               <h3 className="text-lg font-semibold text-white">
-                Supported Languages & Regional Dialects
+                {gSec.supportedLanguagesHeading || "Supported Languages & Regional Dialects"}
               </h3>
             </div>
             <span className="text-xs font-mono text-cyan-400 bg-cyan-950/80 border border-cyan-500/30 px-3 py-1 rounded-full">
-              29+ Languages Pre-Built
+              {gSec.supportedLanguagesBadge || "29+ Languages Pre-Built"}
             </span>
           </div>
 
@@ -163,14 +185,14 @@ export default function GlobalLanguagesSection() {
                 <div className="text-xs text-gray-300 truncate font-sans">
                   {lang.native}
                 </div>
-              </motion.div>
+                </motion.div>
             ))}
           </div>
         </div>
 
         {/* Multilingual Capability Cards */}
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {languageFeatures.map((feat) => {
+          {localizedFeatures.map((feat) => {
             const Icon = feat.icon;
             return (
               <div

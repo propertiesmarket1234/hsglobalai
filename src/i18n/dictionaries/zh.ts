@@ -646,7 +646,59 @@ export const zh: Dictionary = {
       "ctaPrimary": "预约演示",
       "ctaSecondary": "下载技术白皮书 (PDF)",
       "featuresTitle": "光学玻璃与AI功能",
-      "specsTitle": "硬件技术规格"
+      "specsTitle": "硬件技术规格",
+      hardwareSpecs: [
+        {
+                "label": "显示尺寸",
+                "value": "55 英寸, 65 英寸, 75 英寸, 86 英寸"
+        },
+        {
+                "label": "显示分辨率与技术",
+                "value": "Ultra-HD 4K (3840 x 2160) 高透光 3D 全息光学玻璃"
+        },
+        {
+                "label": "亮度与对比度",
+                "value": "700 nits / 4000:1 动态对比度"
+        },
+        {
+                "label": "AI 计算单元",
+                "value": "内置工业级 AI 工作站 (Edge GPU/NPU) 100% 离线运行"
+        },
+        {
+                "label": "触摸与摄像头系统",
+                "value": "10 点电容触控玻璃 + 广角追踪摄像头"
+        },
+        {
+                "label": "音频硬件",
+                "value": "集成定向音响 + 波束成形麦克风阵列"
+        },
+        {
+                "label": "运行环境",
+                "value": "专为 24/7 连续商业运行设计"
+        }
+],
+      hologramFeatures: [
+        {
+                "title": "真人 1:1 比例 4K 3D 全息胶囊",
+                "description": "提供 55 英寸、65 英寸、75 英寸和 86 英寸垂直 4K Ultra-HD 全息玻璃展柜，呈现 1:1 比例数字人阿凡达，具备超逼真深度感知与真实存在感。",
+                "badge": "4K Ultra-HD | 55\" - 86\""
+        },
+        {
+                "title": "内置 AI 工作站",
+                "description": "内置高性能工业级 AI 计算单元，运行 DIHUAVA 100% 离线 AI 引擎，提供低延迟实时性能、零云端依赖及企业级数据隐私。",
+                "badge": "端侧本地处理"
+        },
+        {
+                "title": "多模态交互传感器",
+                "description": "配备广角高清摄像头追踪、定向麦克风阵列、电容触控玻璃和距离感应器，实现自然的人机互动。",
+                "badge": "摄像头与传感器阵列"
+        },
+        {
+                "title": "定向声学音响",
+                "description": "专为喧闹的展览馆、银行大堂和购物中心设计的定向空间音频系统，确保语音清晰易懂。",
+                "badge": "空间音频"
+        }
+]
   },
   spatialPage: {
       "heroBadge": "裸眼3D AI显示屏",
@@ -657,7 +709,63 @@ export const zh: Dictionary = {
       "ctaPrimary": "预约演示",
       "ctaSecondary": "下载技术白皮书 (PDF)",
       "featuresTitle": "空间显示技术",
-      "specsTitle": "显示屏规格"
+      "specsTitle": "显示屏规格",
+      specs: [
+        {
+                "label": "支持尺寸",
+                "value": "55 英寸, 65 英寸, 75 英寸, 86 英寸"
+        },
+        {
+                "label": "机身厚度",
+                "value": "6 cm 超薄机身厚度"
+        },
+        {
+                "label": "显示与触摸屏",
+                "value": "4K Ultra HD 高清空间屏触摸面板"
+        },
+        {
+                "label": "3D 显示技术",
+                "value": "光场空间光学面板"
+        },
+        {
+                "label": "光学追踪传感器",
+                "value": "高速实时光学人眼与运动追踪摄像头"
+        },
+        {
+                "label": "AI 软件兼容性",
+                "value": "DIHUAVA AI 平台（默认 100% 端侧离线运行）"
+        },
+        {
+                "label": "3D 资产兼容性",
+                "value": "DIHUAVA 3D 阿凡达, OBJ/FBX 3D 模型, 实时 Unity/Unreal 引擎"
+        },
+        {
+                "label": "文档",
+                "value": "Spatial Display 数据表、产品规格 PDF"
+        }
+],
+      definitionPoints: [
+        {
+                "title": "沉浸式视觉显示",
+                "description": "无需佩戴专用眼镜或 AR/VR 头显，直接向观者双眼呈现逼真的 3D 体积视觉深度感知。"
+        },
+        {
+                "title": "3D 与空间展示",
+                "description": "以真实的空间深度展示产品、建筑模型和图形，将 2D 视觉媒体转化为吸引人的立显资产。"
+        },
+        {
+                "title": "交互式体验",
+                "description": "将响应式多点触控玻璃面板与实时光学人眼追踪传感器相结合，随观者移动实时调整视角。"
+        },
+        {
+                "title": "AI 数字人集成",
+                "description": "作为 DIHUAVA AI 数字人阿凡达的沉浸式物理舞台，与访客进行实时对话。"
+        },
+        {
+                "title": "企业与访客参与",
+                "description": "专为高流量实体客户环境设计，将被动标牌转化为主动互动触点。"
+        }
+]
   },
   industriesPage: {
       "heroBadge": "企业行业解决方案",
@@ -678,7 +786,89 @@ export const zh: Dictionary = {
       "visionDesc": "成为全球领先的数字人与全息AI平台。",
       "valuesTitle": "核心价值观",
       "valuesTagline": "负责任的AI与数据隐私",
-      "valuesDesc": "以创新、信任与伦理AI为驱动，坚持物理隔离的数据隐私保护。"
+      "valuesDesc": "以创新、信任与伦理AI为驱动，坚持物理隔离的数据隐私保护。",
+      enterprisePillars: [
+        {
+                "title": "数字人 AI 助手",
+                "description": "创建逼真的 AI 助手，通过语音、面部表情和智能多轮对话自然地吸引客户。"
+        },
+        {
+                "title": "多语言语音 AI 与声音克隆",
+                "description": "通过实时神经语音合成与声音克隆，以 29+ 种语言与全球客户交流。"
+        },
+        {
+                "title": "交互式体验解决方案",
+                "description": "通过 3D 全息胶囊、空间屏和交互式零售终端提供引人入胜的客户体验。"
+        },
+        {
+                "title": "阿凡达定制与声音克隆",
+                "description": "使用定制 3D 面部渲染、声音克隆、语气及定制 3D 服装，打造针对您行业定制的品牌数字人。"
+        },
+        {
+                "title": "业务分析控制台",
+                "description": "通过实时分析跟踪客户互动、参与度指标、对话趋势和终端性能。"
+        },
+        {
+                "title": "企业级可扩展性",
+                "description": "在多地点分行、部门、Web 应用和实体终端无缝部署数字人 AI 解决方案。"
+        },
+        {
+                "title": "安全的企业架构",
+                "description": "通过 100% 端侧本地执行、物理隔离安全和基于角色的访问控制保护敏感客户数据。"
+        },
+        {
+                "title": "持续创新",
+                "description": "凭借不断演进的 LLM 架构、增强的 RAG 文档智能和面向未来的平台升级保持领先。"
+        }
+],
+      approachItems: [
+        {
+                "number": "01",
+                "title": "离线优先 AI 架构",
+                "description": "旨在 100% 本地运行在 GPU 边缘硬件上，不依赖外部云服务器或网络连接。"
+        },
+        {
+                "number": "02",
+                "title": "隐私设计",
+                "description": "将敏感的客户互动、生物特征数据和专有知识库安全地保留在物理隔离系统中。"
+        },
+        {
+                "number": "03",
+                "title": "多语言智能与声音克隆",
+                "description": "自然 AI 互动，旨在支持跨 29+ 种语言、声音克隆和区域方言的全球客户。"
+        },
+        {
+                "number": "04",
+                "title": "专为物理空间打造",
+                "description": "专为零售店、银行大厅、医疗诊所和高管大堂的实际落地部署而设计。"
+        }
+],
+      targetSectors: [
+        {
+                "name": "银行业与金融服务",
+                "count": "分行阿凡达与贷款咨询"
+        },
+        {
+                "name": "零售与购物中心",
+                "count": "3D 全息产品导购"
+        },
+        {
+                "name": "企业与高管大堂",
+                "count": "虚拟前台与路线引导"
+        },
+        {
+                "name": "文旅、博物馆与展览",
+                "count": "多语言导览员"
+        },
+        {
+                "name": "医疗与远程医疗",
+                "count": "患者分诊与接待 AI"
+        },
+        {
+                "name": "教育与企业培训",
+                "count": "交互式 3D AI 讲师"
+        }
+]
   },
   contactPage: {
       "heroBadge": "联系我们",
@@ -690,7 +880,8 @@ export const zh: Dictionary = {
       "companyLabel": "公司 / 机构 *",
       "messageLabel": "留言内容 *",
       "submitBtn": "发送留言",
-      "sending": "发送中..."
+      "sending": "发送中...",
+      downloadsBadge: "数据表和技术规格"
   },
   whyHsGlobalComponent: {
       "badge": "为什么选择 HS Global AI",
@@ -702,4 +893,104 @@ export const zh: Dictionary = {
       "multilingualTitle": "29+ 全球语言",
       "multilingualDesc": "支持29+种全球语言的实时语音识别与合成。"
   },
+  globalLanguagesSection: {
+    "badge": "29+ 种全球语言与神经语音引擎",
+    "titlePrefix": "用 ",
+    "titleHighlight": "29+ 种全球语言自然交流",
+    "description": "每个 HS Global AI 产品——从数字人到全息胶囊以及空间屏——都配备了实时多语言语音识别、声音克隆和即时语言切换功能。",
+    "metricGlobalLanguages": "全球语言",
+    "metricIndianLanguages": "印度语言",
+    "metricRegionalAccents": "地方口音",
+    "metricOnDeviceOffline": "端侧与离线运行",
+    "supportedLanguagesHeading": "支持的语言和区域方言",
+    "supportedLanguagesBadge": "预装 29+ 种语言",
+    "features": [
+        {
+            "title": "即时自动语言识别",
+            "description": "即时识别说话者的语言，无需手动选择语言即可无缝切换响应生成。"
+        },
+        {
+            "title": "100% 端侧与离线 STT / TTS",
+            "description": "所有 29+ 种全球语音识别与合成模型均在边缘硬件上本地运行，零互联网依赖。"
+        },
+        {
+            "title": "单角色声音克隆",
+            "description": "复制目标高管或品牌声音风格，同时跨所有语言保留自然发音和情感语调。"
+        },
+        {
+            "title": "100+ 区域口音与音调调制",
+            "description": "支持细致的区域方言、本地口音以及针对医疗、零售和企业接待的上下文感知发音。"
+        }
+    ]
+},
+  industryImpactComponent: {
+    "badge": "可衡量的业务成果",
+    "headingPrefix": "跨行业的 ",
+    "headingHighlight": "卓越成效。",
+    "subheading": "我们的平台帮助企业提高运营效率、提供即时客户服务并增强品牌认知。",
+    "items": [
+        {
+            "title": "降低运营成本",
+            "description": "自动化处理重复性客户咨询和前台工作流程，同时让员工专注于高价值咨询服务。",
+            "stat": "支持成本降低 45%"
+        },
+        {
+            "title": "提高客户参与度",
+            "description": "交互式 3D 数字人 AI 体验可增加访客注意力、停留时间及整体品牌满意度。",
+            "stat": "停留时间提升 4 倍"
+        },
+        {
+            "title": "更快速的信息传递",
+            "description": "为客户问题提供即时、准确的解答，无需排队或等待员工有空。",
+            "stat": "极低延迟响应"
+        },
+        {
+            "title": "24/7 服务可用性",
+            "description": "跨所有实体分行、自助终端和时区提供一致、高质量的客户协助。",
+            "stat": "99.9% 正常运行时间"
+        },
+        {
+            "title": "多语言沟通",
+            "description": "通过自动语言检测和声音克隆，以 29+ 种全球语言吸引访客。",
+            "stat": "29+ 种全球语言"
+        },
+        {
+            "title": "提升品牌形象",
+            "description": "打造未来感十足、令人难忘的全息互动，将您的企业定位为创新市场领导者。",
+            "stat": "98% 客户满意度"
+        },
+        {
+            "title": "企业级安全与隐私",
+            "description": "专为严格的企业合规而构建，具备 100% 本地端侧处理、物理隔离安全且零数据传输。",
+            "stat": "100% 物理隔离"
+        },
+        {
+            "title": "跨地点可扩展",
+            "description": "通过一个控制面板在数百个分行终端、医院、零售店和园区部署和管理数字人。",
+            "stat": "无限终端部署"
+        }
+    ]
+},
+  industryInfoDepthComponent: {
+    "badge": "专题深度与架构",
+    "headingPrefix": "深入了解 AI 数字人在 ",
+    "subheading": "全方位解析技术用途、运营工作流程、目标环境和安全边界。",
+    "cardLabels": {
+        "what": "这是什么？",
+        "why": "为何部署？",
+        "how": "如何工作？",
+        "where": "部署地点？",
+        "who": "适用对象？",
+        "limitations": "运营边界"
+    },
+    "cardTitles": {
+        "what": "AI 数字人在 ",
+        "why": "价值与运营影响",
+        "how": "核心系统协助",
+        "where": "物理目标地点",
+        "who": "目标设施与机构",
+        "limitations": "范围与专业局限"
+    }
+}
 };
+

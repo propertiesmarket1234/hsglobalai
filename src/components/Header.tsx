@@ -25,7 +25,15 @@ export default function Header() {
   const [contactDropdownOpen, setContactDropdownOpen] = useState(false);
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [currentLocale, setCurrentLocale] = useState<Locale>("en");
+  const getInitialLocale = (): Locale => {
+    const seg = pathname ? pathname.split("/")[1] : "";
+    if (seg && (nonDefaultLocales as readonly string[]).includes(seg)) {
+      return seg as Locale;
+    }
+    return "en";
+  };
+
+  const [currentLocale, setCurrentLocale] = useState<Locale>(getInitialLocale);
 
   const dict = getDictionary(currentLocale);
 

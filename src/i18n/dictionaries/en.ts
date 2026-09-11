@@ -644,7 +644,59 @@ export const en = {
       "ctaPrimary": "Book a Demo",
       "ctaSecondary": "Download Datasheet (PDF)",
       "featuresTitle": "Optical Glass & AI Capabilities",
-      "specsTitle": "Technical Hardware Specifications"
+      "specsTitle": "Technical Hardware Specifications",
+      hardwareSpecs: [
+        {
+                "label": "Display Sizes",
+                "value": "55-inch, 65-inch, 75-inch, 86-inch"
+        },
+        {
+                "label": "Display Resolution & Technology",
+                "value": "Ultra-HD 4K (3840 x 2160) high-transmission 3D holographic optical glass"
+        },
+        {
+                "label": "Brightness & Contrast",
+                "value": "700 nits / 4000:1 dynamic contrast ratio"
+        },
+        {
+                "label": "AI Computing Unit",
+                "value": "Built-in industrial-grade AI workstation (Edge GPU/NPU) running 100% offline"
+        },
+        {
+                "label": "Touch & Camera System",
+                "value": "10-point capacitive touch glass + wide-angle tracking camera"
+        },
+        {
+                "label": "Audio Hardware",
+                "value": "Integrated directional soundbar + beamforming microphone array"
+        },
+        {
+                "label": "Operating Environment",
+                "value": "Designed for continuous 24/7 commercial operation"
+        }
+],
+      hologramFeatures: [
+        {
+                "title": "Life-Size 4K 3D Volumetric Enclosure",
+                "description": "Available in 55-inch, 65-inch, 75-inch, and 86-inch vertical 4K Ultra-HD holographic glass showcases displaying 1:1 scale digital human avatars with hyper-realistic depth perception and lifelike presence.",
+                "badge": "4K Ultra-HD | 55\" - 86\""
+        },
+        {
+                "title": "Integrated AI Workstation",
+                "description": "Built-in high-performance industrial AI computing unit running the DIHUAVA 100% offline AI engine delivering Low Latency real-time performance, zero cloud dependency, and enterprise-grade data privacy.",
+                "badge": "On-Device Processing"
+        },
+        {
+                "title": "Multimodal Interaction Sensors",
+                "description": "Equipped with wide-angle HD camera tracking, directional microphone array, capacitive touch glass, and distance proximity sensors for natural human interaction.",
+                "badge": "Camera & Sensor Array"
+        },
+        {
+                "title": "Directional Acoustic Sound Bar",
+                "description": "Focused spatial audio system designed for noisy exhibition halls, bank lobbies, and shopping malls, ensuring crystal-clear speech intelligibility.",
+                "badge": "Spatial Audio"
+        }
+]
   },
   spatialPage: {
       "heroBadge": "Naked-Eye 3D AI Display",
@@ -655,7 +707,63 @@ export const en = {
       "ctaPrimary": "Book a Demo",
       "ctaSecondary": "Download Datasheet (PDF)",
       "featuresTitle": "Spatial Display Technology",
-      "specsTitle": "Display Specifications"
+      "specsTitle": "Display Specifications",
+      specs: [
+        {
+                "label": "Available Sizes",
+                "value": "55-inch, 65-inch, 75-inch, 86-inch"
+        },
+        {
+                "label": "Profile Thickness",
+                "value": "Ultra-Slim 6 cm Body Thickness"
+        },
+        {
+                "label": "Display & Touch Panel",
+                "value": "Spatial Display Touch Screen with 4K Ultra HD Resolution"
+        },
+        {
+                "label": "3D Display Technology",
+                "value": "Light-Field Spatial Optical Panel"
+        },
+        {
+                "label": "Optical Tracking Sensor",
+                "value": "High-Speed Real-Time Optical Eye & Motion Camera"
+        },
+        {
+                "label": "AI Software Compatibility",
+                "value": "DIHUAVA AI Platform (Runs 100% offline on-device by default)"
+        },
+        {
+                "label": "3D Asset Compatibility",
+                "value": "DIHUAVA 3D Avatars, OBJ/FBX 3D Models, Real-Time Unity/Unreal Engine"
+        },
+        {
+                "label": "Documentation",
+                "value": "Spatial Display Data Sheet, Product Specifications PDF"
+        }
+],
+      definitionPoints: [
+        {
+                "title": "Immersive Visual Display",
+                "description": "Delivers realistic 3D volumetric visual depth perception directly to viewer eyes without requiring specialized glasses or AR/VR headsets."
+        },
+        {
+                "title": "3D & Spatial Presentation",
+                "description": "Presents products, architectural models, and graphics with true spatial depth, turning 2D visual media into engaging stereoscopic assets."
+        },
+        {
+                "title": "Interactive Experience",
+                "description": "Combines a responsive multi-touch glass panel with real-time optical eye-tracking sensors to adapt perspective as viewers move."
+        },
+        {
+                "title": "AI Digital Human Integration",
+                "description": "Serves as an immersive physical stage for DIHUAVA AI Digital Human avatars to converse with visitors in real-time."
+        },
+        {
+                "title": "Enterprise & Visitor Engagement",
+                "description": "Engineered for high-traffic physical customer environments to transform passive signage into active engagement touchpoints."
+        }
+]
   },
   industriesPage: {
       "heroBadge": "Enterprise Industry Solutions",
@@ -676,7 +784,89 @@ export const en = {
       "visionDesc": "To become the global leader in Digital Human and Holographic AI platforms.",
       "valuesTitle": "Our Core Values",
       "valuesTagline": "Ethical AI & Data Privacy",
-      "valuesDesc": "Driven by innovation, trust, and ethical AI development with air-gapped data privacy."
+      "valuesDesc": "Driven by innovation, trust, and ethical AI development with air-gapped data privacy.",
+      enterprisePillars: [
+        {
+                "title": "Digital Human AI Assistant",
+                "description": "Create lifelike AI assistants that engage customers naturally through voice, visual expressions, and intelligent multi-turn conversations."
+        },
+        {
+                "title": "Multilingual Voice AI & Voice Cloning",
+                "description": "Communicate with global customers across 29+ languages with real-time neural speech synthesis & voice cloning."
+        },
+        {
+                "title": "Interactive Experience Solutions",
+                "description": "Deliver engaging customer experiences through 3D Hologram Boxes, spatial displays, and interactive retail kiosks."
+        },
+        {
+                "title": "Avatar Customization & Voice Cloning",
+                "description": "Build branded digital humans tailored to your industry with custom 3D facial rendering, voice cloning, tone of voice, and custom 3D attire."
+        },
+        {
+                "title": "Business Analytics Dashboard",
+                "description": "Track customer interactions, engagement metrics, conversation trends, and kiosk performance through real-time analytics."
+        },
+        {
+                "title": "Enterprise Scalability",
+                "description": "Deploy Digital Human AI solutions seamlessly across multi-location branches, departments, web apps, and physical kiosks."
+        },
+        {
+                "title": "Secure Enterprise Architecture",
+                "description": "Protect sensitive customer data with 100% on-device local execution, air-gapped security, and role-based access controls."
+        },
+        {
+                "title": "Continuous Innovation",
+                "description": "Stay ahead with evolving LLM architectures, enhanced RAG document intelligence, and future-ready platform upgrades."
+        }
+],
+      approachItems: [
+        {
+                "number": "01",
+                "title": "Offline-First AI Architecture",
+                "description": "Designed to operate 100% locally on GPU edge hardware without depending on external cloud servers or internet pings."
+        },
+        {
+                "number": "02",
+                "title": "Privacy by Design",
+                "description": "Keep sensitive customer interactions, biometric data, and proprietary knowledge bases safely secured within air-gapped systems."
+        },
+        {
+                "number": "03",
+                "title": "Multilingual Intelligence & Voice Cloning",
+                "description": "Natural AI interactions designed to support global customers across 29+ languages, voice cloning, and regional dialects."
+        },
+        {
+                "number": "04",
+                "title": "Built for Physical Spaces",
+                "description": "Engineered for practical real-world deployment across retail stores, banking halls, healthcare clinics, and executive lobbies."
+        }
+],
+      targetSectors: [
+        {
+                "name": "Banking & Financial Services",
+                "count": "Branch Avatars & Loan Advisory"
+        },
+        {
+                "name": "Retail & Shopping Malls",
+                "count": "3D Holographic Product Guides"
+        },
+        {
+                "name": "Corporate & Executive Lobbies",
+                "count": "Virtual Receptionists & Wayfinding"
+        },
+        {
+                "name": "Tourism, Museums & Exhibitions",
+                "count": "Multilingual Tour Docents"
+        },
+        {
+                "name": "Healthcare & Telemedicine",
+                "count": "Patient Intake & Triage AI"
+        },
+        {
+                "name": "Education & Corporate Training",
+                "count": "Interactive 3D AI Instructors"
+        }
+]
   },
   contactPage: {
       "heroBadge": "Get in Touch",
@@ -688,7 +878,8 @@ export const en = {
       "companyLabel": "Company / Organization *",
       "messageLabel": "Message *",
       "submitBtn": "Send Message",
-      "sending": "Sending..."
+      "sending": "Sending...",
+      downloadsBadge: "Data Sheets & Specifications"
   },
   whyHsGlobalComponent: {
       "badge": "Why HS Global AI",
@@ -700,7 +891,107 @@ export const en = {
       "multilingualTitle": "29+ Global Languages",
       "multilingualDesc": "Real-time speech recognition and synthesis across 29+ languages."
   },
+  globalLanguagesSection: {
+    "badge": "29+ Global Languages & Neural Speech Engine",
+    "titlePrefix": "Communicate naturally in ",
+    "titleHighlight": "29+ Global Languages",
+    "description": "Every HS Global AI product—from Digital Humans and Hologram Boxes to Spatial Displays—is equipped with real-time multilingual speech recognition, voice cloning, and instant language switching.",
+    "metricGlobalLanguages": "Global Languages",
+    "metricIndianLanguages": "Indian Languages",
+    "metricRegionalAccents": "Regional Accents",
+    "metricOnDeviceOffline": "On-Device & Offline",
+    "supportedLanguagesHeading": "Supported Languages & Regional Dialects",
+    "supportedLanguagesBadge": "29+ Languages Pre-Built",
+    "features": [
+        {
+            "title": "Instant Auto Language Detection",
+            "description": "Instantly identifies the speaker's language and seamlessly switches response generation without needing manual language selection."
+        },
+        {
+            "title": "100% On-Device & Offline STT / TTS",
+            "description": "All 29+ global speech recognition and synthesis models run locally on edge hardware with zero internet dependency."
+        },
+        {
+            "title": "Per-Persona Voice Cloning",
+            "description": "Replicate target executive or brand voice styles while preserving natural pronunciation and emotional tone across all languages."
+        },
+        {
+            "title": "100+ Regional Accents & Pitch Modulation",
+            "description": "Supports nuanced regional dialects, local accents, and context-aware pronunciation for healthcare, retail, and corporate concierges."
+        }
+    ]
+},
+  industryImpactComponent: {
+    "badge": "Measurable Business Results",
+    "headingPrefix": "Proven Impact Across ",
+    "headingHighlight": "Industries.",
+    "subheading": "Our platform helps organizations increase operational efficiency, deliver instant customer service, and strengthen brand perception.",
+    "items": [
+        {
+            "title": "Reduced Operational Costs",
+            "description": "Automate repetitive customer inquiries and front-desk workflows while allowing human staff to focus on high-value advisory tasks.",
+            "stat": "-45% Support Costs"
+        },
+        {
+            "title": "Higher Customer Engagement",
+            "description": "Interactive 3D Digital Human AI experiences increase visitor attention, dwell time, and overall brand satisfaction.",
+            "stat": "4x Higher Dwell Time"
+        },
+        {
+            "title": "Faster Information Delivery",
+            "description": "Provide instant, accurate responses to customer questions without queues or waiting for staff availability.",
+            "stat": "Low Latency Answer Time"
+        },
+        {
+            "title": "24/7 Service Availability",
+            "description": "Deliver consistent, high-quality customer assistance across all physical branches, kiosks, and time zones.",
+            "stat": "99.9% Uptime"
+        },
+        {
+            "title": "Multilingual Communication",
+            "description": "Engage visitors in 29+ global languages with automatic language detection & voice cloning.",
+            "stat": "29+ Global Languages"
+        },
+        {
+            "title": "Improved Brand Perception",
+            "description": "Create futuristic, memorable holographic interactions that position your organization as an innovative market leader.",
+            "stat": "98% Customer Satisfaction"
+        },
+        {
+            "title": "Enterprise Security & Privacy",
+            "description": "Built for strict corporate compliance with 100% local on-device processing, air-gapped security, and zero data pings.",
+            "stat": "100% Air-Gapped"
+        },
+        {
+            "title": "Scalable Across Locations",
+            "description": "Deploy and manage digital humans across hundreds of branch kiosks, hospitals, retail stores, and campuses from one dashboard.",
+            "stat": "Unlimited Kiosks"
+        }
+    ]
+},
+  industryInfoDepthComponent: {
+    "badge": "Topical Depth & Architecture",
+    "headingPrefix": "Understanding AI Digital Humans in ",
+    "subheading": "A comprehensive breakdown of technology purpose, operational workflows, target environments, and safety boundaries.",
+    "cardLabels": {
+        "what": "WHAT IS IT?",
+        "why": "WHY DEPLOY IT?",
+        "how": "HOW DOES IT WORK?",
+        "where": "WHERE DEPLOYED?",
+        "who": "WHO IS IT FOR?",
+        "limitations": "OPERATIONAL BOUNDARIES"
+    },
+    "cardTitles": {
+        "what": "AI Digital Humans in ",
+        "why": "Value & Operational Impact",
+        "how": "Core System Assistance",
+        "where": "Physical Target Locations",
+        "who": "Target Facilities & Organizations",
+        "limitations": "Scope & Professional Limitations"
+    }
+}
 };
+
 
 type EnType = typeof en;
 export type Dictionary = Omit<EnType, 'home'> & {

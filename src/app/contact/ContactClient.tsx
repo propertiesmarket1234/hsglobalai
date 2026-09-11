@@ -566,7 +566,7 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
             <div>
               <div className="text-center mb-10">
                 <span className="inline-block rounded-full border border-cyan-400/40 bg-cyan-500/15 px-6 py-2 text-sm font-bold text-cyan-300 shadow-[0_0_20px_rgba(6,182,212,0.3)]">
-                  Data Sheets & Specifications
+                  {(dict as any).contactPage?.downloadsBadge || "Data Sheets & Specifications"}
                 </span>
               </div>
 

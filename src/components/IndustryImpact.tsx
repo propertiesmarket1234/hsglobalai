@@ -61,7 +61,30 @@ const impacts = [
   },
 ];
 
+import { usePathname } from "next/navigation";
+import { getDictionary } from "@/i18n/getDictionary";
+import { Locale, nonDefaultLocales } from "@/i18n/config";
+
 export default function IndustryImpact() {
+  const pathname = usePathname();
+  const seg = pathname ? pathname.split("/")[1] : "";
+  const currentLocale: Locale = seg && (nonDefaultLocales as readonly string[]).includes(seg) ? (seg as Locale) : "en";
+  const dict = getDictionary(currentLocale);
+  const impSec = (dict as any).industryImpactComponent || {};
+
+  const localizedImpacts = impacts.map((item, idx) => {
+    const dictItem = impSec.items && impSec.items[idx];
+    if (dictItem) {
+      return {
+        ...item,
+        title: dictItem.title || item.title,
+        description: dictItem.description || item.description,
+        stat: dictItem.stat || item.stat,
+      };
+    }
+    return item;
+  });
+
   return (
     <section className="relative overflow-hidden bg-black px-6 py-28 border-t border-white/10">
       {/* Ambient background glow */}
@@ -76,24 +99,24 @@ export default function IndustryImpact() {
           className="text-center"
         >
           <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400">
-            Measurable Business Results
+            {impSec.badge || "Measurable Business Results"}
           </span>
 
           <h2 className="mt-3 text-4xl font-bold tracking-tight text-white md:text-6xl lg:text-7xl">
-            Proven Impact Across{" "}
+            {impSec.headingPrefix || "Proven Impact Across "}{" "}
             <span className="bg-gradient-to-r from-white via-cyan-100 to-cyan-400 bg-clip-text text-transparent">
-              Industries.
+              {impSec.headingHighlight || "Industries."}
             </span>
           </h2>
 
           <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-gray-400 sm:text-lg">
-            Our platform helps organizations increase operational efficiency, deliver instant customer service, and strengthen brand perception.
+            {impSec.subheading || "Our platform helps organizations increase operational efficiency, deliver instant customer service, and strengthen brand perception."}
           </p>
         </motion.div>
 
         {/* 8 IMPACT CARDS GRID */}
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {impacts.map((item, idx) => (
+          {localizedImpacts.map((item, idx) => (
             <motion.div
               key={item.title}
               initial={{ opacity: 0, y: 24 }}

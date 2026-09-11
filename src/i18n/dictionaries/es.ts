@@ -776,7 +776,59 @@ export const es: Dictionary = {
       "ctaPrimary": "Solicitar una demo",
       "ctaSecondary": "Descargar ficha técnica (PDF)",
       "featuresTitle": "Cristal óptico y capacidades de IA",
-      "specsTitle": "Especificaciones técnicas de hardware"
+      "specsTitle": "Especificaciones técnicas de hardware",
+      hardwareSpecs: [
+        {
+                "label": "Tamaños de pantalla",
+                "value": "55 pulgadas, 65 pulgadas, 75 pulgadas, 86 pulgadas"
+        },
+        {
+                "label": "Resolución y tecnología",
+                "value": "Vidrio óptico holográfico 3D de alta transmisión Ultra-HD 4K (3840 x 2160)"
+        },
+        {
+                "label": "Brillo y contraste",
+                "value": "700 nits / relación de contraste dinámico 4000:1"
+        },
+        {
+                "label": "Unidad de cómputo IA",
+                "value": "Estación de trabajo de IA industrial integrada (Edge GPU/NPU) 100% sin conexión"
+        },
+        {
+                "label": "Sistema táctil y cámara",
+                "value": "Vidrio táctil capacitivo de 10 puntos + cámara de seguimiento gran angular"
+        },
+        {
+                "label": "Hardware de audio",
+                "value": "Barra de sonido direccional integrada + matriz de micrófonos"
+        },
+        {
+                "label": "Entorno de funcionamiento",
+                "value": "Diseñado para funcionamiento comercial continuo 24/7"
+        }
+],
+      hologramFeatures: [
+        {
+                "title": "Cabina volumétrica 3D 4K a tamaño real",
+                "description": "Vitrinas de cristal holográfico 4K Ultra-HD de 55, 65, 75 y 86 pulgadas que muestran avatares digitales a escala 1:1.",
+                "badge": "4K Ultra-HD | 55\" - 86\""
+        },
+        {
+                "title": "Estación de trabajo de IA integrada",
+                "description": "Unidad de cómputo de IA industrial de alto rendimiento que ejecuta el motor de IA 100% sin conexión de DIHUAVA.",
+                "badge": "Procesamiento en el dispositivo"
+        },
+        {
+                "title": "Sensores de interacción multimodal",
+                "description": "Equipado con cámara HD gran angular, matriz de micrófonos direccionales, cristal táctil y sensores de proximidad.",
+                "badge": "Matriz de cámara y sensores"
+        },
+        {
+                "title": "Barra de sonido acústico direccional",
+                "description": "Sistema de audio espacial enfocado para salas de exposiciones, vestíbulos bancarios y centros comerciales.",
+                "badge": "Audio espacial"
+        }
+]
   },
   spatialPage: {
       "heroBadge": "Pantalla IA 3D sin gafas",
@@ -787,7 +839,63 @@ export const es: Dictionary = {
       "ctaPrimary": "Solicitar una demo",
       "ctaSecondary": "Descargar ficha técnica (PDF)",
       "featuresTitle": "Tecnología de pantalla espacial",
-      "specsTitle": "Especificaciones de pantalla"
+      "specsTitle": "Especificaciones de pantalla",
+      specs: [
+        {
+                "label": "Tamaños disponibles",
+                "value": "55 pulgadas, 65 pulgadas, 75 pulgadas, 86 pulgadas"
+        },
+        {
+                "label": "Grosor del perfil",
+                "value": "Cuerpo ultradelgado de 6 cm"
+        },
+        {
+                "label": "Pantalla y táctil",
+                "value": "Pantalla táctil Spatial Display con resolución 4K Ultra HD"
+        },
+        {
+                "label": "Tecnología de pantalla 3D",
+                "value": "Panel óptico espacial de campo de luz"
+        },
+        {
+                "label": "Sensor de seguimiento óptico",
+                "value": "Cámara de seguimiento ocular y de movimiento en tiempo real"
+        },
+        {
+                "label": "Compatibilidad con IA",
+                "value": "Plataforma DIHUAVA AI (funciona 100% sin conexión en el dispositivo)"
+        },
+        {
+                "label": "Compatibilidad de activos 3D",
+                "value": "Avatares 3D DIHUAVA, modelos 3D OBJ/FBX, Unity/Unreal Engine"
+        },
+        {
+                "label": "Documentación",
+                "value": "Ficha técnica de Spatial Display, especificaciones en PDF"
+        }
+],
+      definitionPoints: [
+        {
+                "title": "Pantalla visual inmersiva",
+                "description": "Ofrece percepción de profundidad visual 3D volumétrica realista directamente a los ojos del espectador sin necesidad de gafas especiales."
+        },
+        {
+                "title": "Presentación 3D y espacial",
+                "description": "Muestra productos, modelos arquitectónicos y gráficos con auténtica profundidad espacial."
+        },
+        {
+                "title": "Experiencia interactiva",
+                "description": "Combina un panel de cristal multitáctil con sensores ópticos de seguimiento ocular en tiempo real."
+        },
+        {
+                "title": "Integración de Humanos Digitales IA",
+                "description": "Sirve como escenario físico inmersivo para que los avatares de DIHUAVA conversen con los visitantes."
+        },
+        {
+                "title": "Interacción empresarial",
+                "description": "Diseñado para entornos comerciales de alto tráfico para transformar la señalización pasiva."
+        }
+]
   },
   industriesPage: {
       "heroBadge": "Soluciones para industrias",
@@ -808,7 +916,89 @@ export const es: Dictionary = {
       "visionDesc": "Ser el líder global en plataformas de humanos digitales y IA holográfica.",
       "valuesTitle": "Nuestros Valores",
       "valuesTagline": "IA ética y privacidad de datos",
-      "valuesDesc": "Impulsados por la innovación, confianza y desarrollo ético de IA con privacidad 100% local."
+      "valuesDesc": "Impulsados por la innovación, confianza y desarrollo ético de IA con privacidad 100% local.",
+      enterprisePillars: [
+        {
+                "title": "Asistente de IA Humano Digital",
+                "description": "Cree asistentes de IA realistas que interactúen de forma natural mediante voz, expresiones faciales y conversaciones inteligentes."
+        },
+        {
+                "title": "Voz multilingüe con IA y clonación",
+                "description": "Comuníquese con clientes globales en 29+ idiomas con síntesis de voz neuronal y clonación de voz."
+        },
+        {
+                "title": "Soluciones de experiencia interactiva",
+                "description": "Ofrezca experiencias a través de cajas holográficas 3D, pantallas espaciales y kioscos interactivos."
+        },
+        {
+                "title": "Personalización de avatares",
+                "description": "Construya humanos digitales adaptados a su industria con renderizado facial 3D y vestimenta corporativa personalizada."
+        },
+        {
+                "title": "Panel de analítica empresarial",
+                "description": "Siga las interacciones de los clientes, métricas de participación y rendimiento de los kioscos."
+        },
+        {
+                "title": "Escalabilidad empresarial",
+                "description": "Implemente soluciones de Humanos Digitales en sucursales, departamentos y kioscos físicos."
+        },
+        {
+                "title": "Arquitectura empresarial segura",
+                "description": "Proteja datos confidenciales con ejecución 100% local en el dispositivo y seguridad aislada."
+        },
+        {
+                "title": "Innovación continua",
+                "description": "Manténgase a la vanguardia con arquitecturas LLM en evolución y procesamiento de documentos RAG."
+        }
+],
+      approachItems: [
+        {
+                "number": "01",
+                "title": "Arquitectura de IA autónoma",
+                "description": "Diseñada para funcionar 100% localmente en hardware GPU Edge sin depender de servidores en la nube."
+        },
+        {
+                "number": "02",
+                "title": "Privacidad por diseño",
+                "description": "Mantenga las interacciones y bases de conocimientos seguras dentro de sistemas aislados."
+        },
+        {
+                "number": "03",
+                "title": "Inteligencia multilingüe y clonación",
+                "description": "Interacciones naturales diseñadas para dar soporte a clientes en 29+ idiomas y clonación de voz."
+        },
+        {
+                "number": "04",
+                "title": "Diseñado para espacios físicos",
+                "description": "Diseñado para un despliegue práctico en tiendas, bancos, clínicas y vestíbulos corporativos."
+        }
+],
+      targetSectors: [
+        {
+                "name": "Servicios bancarios y financieros",
+                "count": "Avatares en sucursales y asesoramiento"
+        },
+        {
+                "name": "Comercio y centros comerciales",
+                "count": "Guías de productos holográficos 3D"
+        },
+        {
+                "name": "Vestíbulos corporativos",
+                "count": "Recepcionistas virtuales y orientación"
+        },
+        {
+                "name": "Turismo, museos y exposiciones",
+                "count": "Guías turísticos multilingües"
+        },
+        {
+                "name": "Salud y telemedicina",
+                "count": "Triafe y recepción de pacientes"
+        },
+        {
+                "name": "Educación y capacitación",
+                "count": "Instructores 3D interactivos"
+        }
+]
   },
   contactPage: {
       "heroBadge": "Contacto",
@@ -820,7 +1010,8 @@ export const es: Dictionary = {
       "companyLabel": "Empresa / Organización *",
       "messageLabel": "Mensaje *",
       "submitBtn": "Enviar mensaje",
-      "sending": "Enviando..."
+      "sending": "Enviando...",
+      downloadsBadge: "Fichas Técnicas y Especificaciones"
   },
   whyHsGlobalComponent: {
       "badge": "Por qué elegir HS Global AI",
@@ -832,4 +1023,104 @@ export const es: Dictionary = {
       "multilingualTitle": "29+ Idiomas globales",
       "multilingualDesc": "Reconocimiento y síntesis de voz en tiempo real en más de 29 idiomas."
   },
+  globalLanguagesSection: {
+    "badge": "29+ idiomas globales y motor de voz neuronal",
+    "titlePrefix": "Comunícate de forma natural en ",
+    "titleHighlight": "29+ idiomas globales",
+    "description": "Cada producto de HS Global AI está equipado con reconocimiento de voz multilingüe en tiempo real, clonación de voz y cambio instantáneo de idioma.",
+    "metricGlobalLanguages": "Idiomas globales",
+    "metricIndianLanguages": "Idiomas de la India",
+    "metricRegionalAccents": "Acentos regionales",
+    "metricOnDeviceOffline": "En el dispositivo y sin conexión",
+    "supportedLanguagesHeading": "Idiomas y dialectos regionales compatibles",
+    "supportedLanguagesBadge": "29+ idiomas preinstalados",
+    "features": [
+        {
+            "title": "Detección automática de idioma",
+            "description": "Identifica al instante el idioma del interlocutor y cambia las respuestas sin necesidad de selección manual."
+        },
+        {
+            "title": "100% En el dispositivo y sin conexión STT / TTS",
+            "description": "Todos los modelos de reconocimiento y síntesis de voz funcionan localmente en hardware Edge sin internet."
+        },
+        {
+            "title": "Clonación de voz personalizada",
+            "description": "Replica tonos de voz corporativos o ejecutivos manteniendo una pronunciación natural en todos los idiomas."
+        },
+        {
+            "title": "100+ acentos regionales",
+            "description": "Admite dialectos regionales y pronunciación adaptada para atención médica, comercio y empresas."
+        }
+    ]
+},
+  industryImpactComponent: {
+    "badge": "Resultados comerciales medibles",
+    "headingPrefix": "Impacto comprobado en ",
+    "headingHighlight": "diferentes industrias.",
+    "subheading": "Nuestra plataforma ayuda a las organizaciones a aumentar la eficiencia operativa y fortalecer la percepción de marca.",
+    "items": [
+        {
+            "title": "Reducción de costos operativos",
+            "description": "Automatice consultas repetitivas de clientes y flujos de recepción para que el personal se enfoque en tareas de mayor valor.",
+            "stat": "-45% en costos de soporte"
+        },
+        {
+            "title": "Mayor interacción con clientes",
+            "description": "Las experiencias de Humanos Digitales IA 3D aumentan la atención del visitante y el tiempo de permanencia.",
+            "stat": "4x mayor tiempo de permanencia"
+        },
+        {
+            "title": "Entrega de información más rápida",
+            "description": "Proporcione respuestas instantáneas y precisas a las preguntas de los clientes sin colas de espera.",
+            "stat": "Baja latencia de respuesta"
+        },
+        {
+            "title": "Disponibilidad de servicio 24/7",
+            "description": "Ofrezca asistencia constante de alta calidad en todas las sucursales físicas, kioscos y zonas horarias.",
+            "stat": "99.9% tiempo de actividad"
+        },
+        {
+            "title": "Comunicación multilingüe",
+            "description": "Interactúe con los visitantes en 29+ idiomas globales con detección automática de idioma y clonación de voz.",
+            "stat": "29+ idiomas globales"
+        },
+        {
+            "title": "Mejor percepción de marca",
+            "description": "Cree interacciones holográficas memorables que posicionen a su empresa como líder en innovación.",
+            "stat": "98% satisfacción del cliente"
+        },
+        {
+            "title": "Seguridad y privacidad empresarial",
+            "description": "Diseñado para un estricto cumplimiento corporativo con procesamiento 100% local en el dispositivo.",
+            "stat": "100% autónomo y aislado"
+        },
+        {
+            "title": "Escalable en múltiples ubicaciones",
+            "description": "Despliegue y gestione humanos digitales en cientos de kioscos en bancos, hospitales y tiendas.",
+            "stat": "Kioscos ilimitados"
+        }
+    ]
+},
+  industryInfoDepthComponent: {
+    "badge": "Profundidad temática y arquitectura",
+    "headingPrefix": "Comprensión de los Humanos Digitales de IA en ",
+    "subheading": "Un desglose completo del propósito tecnológico, flujos de trabajo, entornos objetivo y límites de seguridad.",
+    "cardLabels": {
+        "what": "¿QUÉ ES?",
+        "why": "¿POR QUÉ IMPLEMENTARLO?",
+        "how": "¿CÓMO FUNCIONA?",
+        "where": "¿DÓNDE SE IMPLEMENTA?",
+        "who": "¿PARA QUÉ ORGANIZACIONES?",
+        "limitations": "LÍMITES OPERATIVOS"
+    },
+    "cardTitles": {
+        "what": "Humanos Digitales de IA en ",
+        "why": "Valor e impacto operativo",
+        "how": "Asistencia principal del sistema",
+        "where": "Ubicaciones físicas de destino",
+        "who": "Instalaciones y organizaciones objetivo",
+        "limitations": "Alcance y limitaciones profesionales"
+    }
+}
 };
+

@@ -149,6 +149,21 @@ export default function AboutClient() {
   const dict = getDictionary(currentLocale);
   const aPage = (dict as any).aboutPage || {};
 
+  const localizedPillars = enterprisePillars.map((p, idx) => {
+    const dictP = aPage.enterprisePillars && aPage.enterprisePillars[idx];
+    return dictP ? { ...p, title: dictP.title || p.title, description: dictP.description || p.description } : p;
+  });
+
+  const localizedApproach = approachItems.map((item, idx) => {
+    const dictItem = aPage.approachItems && aPage.approachItems[idx];
+    return dictItem ? { ...item, title: dictItem.title || item.title, description: dictItem.description || item.description } : item;
+  });
+
+  const localizedTargetSectors = industries.map((ind, idx) => {
+    const dictInd = aPage.targetSectors && aPage.targetSectors[idx];
+    return dictInd ? { ...ind, name: dictInd.name || ind.name, count: dictInd.count || ind.count } : ind;
+  });
+
   const localizedMVV = [
     {
       title: aPage.missionTitle || "Our Mission",
@@ -309,7 +324,7 @@ export default function AboutClient() {
           </motion.div>
 
           <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {enterprisePillars.map((pillar, idx) => (
+            {localizedPillars.map((pillar, idx) => (
               <motion.div
                 key={pillar.title}
                 initial={{ opacity: 0, y: 20 }}
@@ -356,7 +371,7 @@ export default function AboutClient() {
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
-            {approachItems.map((item) => (
+            {localizedApproach.map((item) => (
               <div
                 key={item.number}
                 className="group rounded-2xl border border-white/10 bg-neutral-950/60 p-8 backdrop-blur-md transition-colors hover:border-white/20 hover:bg-neutral-900/50"
@@ -389,7 +404,7 @@ export default function AboutClient() {
           </div>
 
           <div className="divide-y divide-white/10 border-t border-b border-white/10">
-            {industries.map((ind, i) => (
+            {localizedTargetSectors.map((ind, i) => (
               <div
                 key={ind.name}
                 className="group flex flex-col justify-between py-6 sm:flex-row sm:items-center transition-colors hover:bg-white/[0.02]"

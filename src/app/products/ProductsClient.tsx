@@ -12,13 +12,14 @@ import { motion } from "framer-motion";
 
 import { usePathname } from "next/navigation";
 import { getDictionary } from "@/i18n/getDictionary";
-import { Locale, nonDefaultLocales } from "@/i18n/config";
+import { Locale, nonDefaultLocales, getLocalizedPath } from "@/i18n/config";
 
 export default function ProductsClient() {
   const pathname = usePathname();
   const seg = pathname ? pathname.split("/")[1] : "";
   const currentLocale: Locale = seg && (nonDefaultLocales as readonly string[]).includes(seg) ? (seg as Locale) : "en";
   const dict = getDictionary(currentLocale);
+  const lPath = (path: string) => getLocalizedPath(path, currentLocale);
   const pPage = (dict as any).productsPage || {};
 
   return (
@@ -152,16 +153,16 @@ export default function ProductsClient() {
             Discover how HS Global AI digital humans and holographic displays are deployed across enterprise sector workflows.
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs font-medium">
-            <Link href="/industries" className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-gray-200 hover:border-cyan-400 hover:text-white transition-colors">
+            <Link href={lPath("/industries")} className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-gray-200 hover:border-cyan-400 hover:text-white transition-colors">
               All Industry Solutions →
             </Link>
-            <Link href="/industries/healthcare" className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-gray-200 hover:border-cyan-400 hover:text-white transition-colors">
+            <Link href={lPath("/industries/healthcare")} className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-gray-200 hover:border-cyan-400 hover:text-white transition-colors">
               Healthcare & Patient Experience →
             </Link>
-            <Link href="/industries/retail" className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-gray-200 hover:border-cyan-400 hover:text-white transition-colors">
+            <Link href={lPath("/industries/retail")} className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-gray-200 hover:border-cyan-400 hover:text-white transition-colors">
               Retail & Smart Mirror Kiosks →
             </Link>
-            <Link href="/industries/banking" className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-gray-200 hover:border-cyan-400 hover:text-white transition-colors">
+            <Link href={lPath("/industries/banking")} className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-gray-200 hover:border-cyan-400 hover:text-white transition-colors">
               Banking & Air-Gapped Concierge →
             </Link>
           </div>

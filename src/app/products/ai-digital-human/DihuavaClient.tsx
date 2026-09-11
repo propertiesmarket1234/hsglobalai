@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { getDictionary } from "@/i18n/getDictionary";
-import { Locale, nonDefaultLocales } from "@/i18n/config";
+import { Locale, nonDefaultLocales, getLocalizedPath } from "@/i18n/config";
 
 import {
   Camera,
@@ -330,6 +330,7 @@ export default function DihuavaClient() {
   const seg = pathname ? pathname.split("/")[1] : "";
   const currentLocale: Locale = seg && (nonDefaultLocales as readonly string[]).includes(seg) ? (seg as Locale) : "en";
   const dict = getDictionary(currentLocale);
+  const lPath = (path: string) => getLocalizedPath(path, currentLocale);
   const hp = dict.home.platform;
   const brainCloneData = (hp.capabilities as any)?.brainClone;
 
@@ -500,7 +501,7 @@ export default function DihuavaClient() {
         <div className="relative mx-auto max-w-7xl">
           {/* Breadcrumb Navigation */}
           <div className="flex items-center gap-2 text-xs text-gray-400 mb-6 font-mono">
-            <Link href="/products" className="hover:text-cyan-400 transition-colors">
+            <Link href={lPath("/products")} className="hover:text-cyan-400 transition-colors">
               Products
             </Link>
             <span>/</span>
@@ -533,19 +534,19 @@ export default function DihuavaClient() {
               </h1>
 
               <p className="mt-6 text-base leading-8 text-gray-300 sm:text-lg max-w-2xl">
-                DIHUAVA is an enterprise AI Digital Human software platform powering interactive digital humans that communicate naturally, understand your business knowledge, speak multiple languages, and run locally across interactive kiosks, <Link href="/products/holographic-display" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">AI Hologram Boxes</Link>, and <Link href="/products/spatial-display" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">3D Spatial Displays</Link>.
+                DIHUAVA is an enterprise AI Digital Human software platform powering interactive digital humans that communicate naturally, understand your business knowledge, speak multiple languages, and run locally across interactive kiosks, <Link href={lPath("/products/holographic-display")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">AI Hologram Boxes</Link>, and <Link href={lPath("/products/spatial-display")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">3D Spatial Displays</Link>.
               </p>
 
               {/* Action Buttons */}
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <Link
-                  href="/contact"
+                  href={lPath("/contact")}
                   className="rounded-full bg-gradient-to-r from-cyan-500 via-sky-500 to-cyan-600 px-8 py-3.5 text-sm font-bold text-white shadow-xl transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(6,182,212,0.4)]"
                 >
                   Request DIHUAVA Demo →
                 </Link>
                 <Link
-                  href="/contact/download-center"
+                  href={lPath("/contact/download-center")}
                   className="rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-semibold text-gray-200 backdrop-blur-md transition-colors hover:border-cyan-400 hover:text-white"
                 >
                   Download Documentation (PDF)
@@ -770,7 +771,7 @@ export default function DihuavaClient() {
                 {module.featureUrl && (
                   <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
                     <Link
-                      href={module.featureUrl}
+                      href={lPath(module.featureUrl)}
                       className="text-xs font-semibold text-cyan-400 hover:text-cyan-300 inline-flex items-center gap-1 group-hover:underline font-mono"
                     >
                       <span>View Deep Dive Specs</span>
@@ -986,7 +987,7 @@ export default function DihuavaClient() {
               </p>
             </div>
             <Link
-              href="/contact"
+              href={lPath("/contact")}
               className="shrink-0 rounded-full bg-cyan-500 px-6 py-3 text-xs font-bold text-black hover:bg-cyan-400 transition-colors uppercase tracking-wider"
             >
               Inquire Roadmap →

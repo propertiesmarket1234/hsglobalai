@@ -98,7 +98,7 @@ const products: ProductItem[] = [
 
 import { usePathname } from "next/navigation";
 import { getDictionary } from "@/i18n/getDictionary";
-import { Locale, nonDefaultLocales } from "@/i18n/config";
+import { Locale, nonDefaultLocales, getLocalizedPath } from "@/i18n/config";
 
 export default function ProductShowcase() {
   const [hologramIndex, setHologramIndex] = useState(0);
@@ -107,6 +107,7 @@ export default function ProductShowcase() {
   const currentLocale: Locale = seg && (nonDefaultLocales as readonly string[]).includes(seg) ? (seg as Locale) : "en";
   const dict = getDictionary(currentLocale);
   const fp = dict.home.featuredProducts.items;
+  const lPath = (path: string) => getLocalizedPath(path, currentLocale);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -317,7 +318,7 @@ export default function ProductShowcase() {
 
                   <div className="mt-10">
                     <Link
-                      href={product.linkHref}
+                      href={lPath(product.linkHref)}
                       className="group inline-flex items-center gap-3 text-sm font-semibold tracking-wide text-white transition-colors hover:text-cyan-400"
                     >
                       <span>{product.linkText || `Explore ${product.title}`}</span>

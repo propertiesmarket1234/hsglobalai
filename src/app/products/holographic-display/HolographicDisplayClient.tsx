@@ -71,7 +71,7 @@ const hardwareSpecs = [
 
 import { usePathname } from "next/navigation";
 import { getDictionary } from "@/i18n/getDictionary";
-import { Locale, nonDefaultLocales } from "@/i18n/config";
+import { Locale, nonDefaultLocales, getLocalizedPath } from "@/i18n/config";
 
 export default function HolographicDisplayClient() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -80,6 +80,15 @@ export default function HolographicDisplayClient() {
   const currentLocale: Locale = seg && (nonDefaultLocales as readonly string[]).includes(seg) ? (seg as Locale) : "en";
   const dict = getDictionary(currentLocale);
   const hPage = (dict as any).holographicPage || {};
+  const lPath = (path: string) => getLocalizedPath(path, currentLocale);
+
+  const localizedSpecs = hPage.hardwareSpecs || hardwareSpecs;
+  const localizedFeatures = hologramFeatures.map((feat, idx) => {
+    const dictFeat = hPage.hologramFeatures && hPage.hologramFeatures[idx];
+    return dictFeat
+      ? { ...feat, title: dictFeat.title || feat.title, description: dictFeat.description || feat.description, badge: dictFeat.badge || feat.badge }
+      : feat;
+  });
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -99,7 +108,7 @@ export default function HolographicDisplayClient() {
         <div className="relative mx-auto max-w-7xl">
           {/* Breadcrumb Navigation */}
           <div className="flex items-center gap-2 text-xs text-gray-400 mb-6 font-mono">
-            <Link href="/products" className="hover:text-cyan-400 transition-colors">
+            <Link href={lPath("/products")} className="hover:text-cyan-400 transition-colors">
               Products
             </Link>
             <span>/</span>
@@ -160,13 +169,13 @@ export default function HolographicDisplayClient() {
               {/* Action Buttons */}
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <Link
-                  href="/contact"
+                  href={lPath("/contact")}
                   className="rounded-full bg-gradient-to-r from-cyan-500 via-sky-500 to-cyan-600 px-8 py-3.5 text-sm font-bold text-white shadow-xl transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(6,182,212,0.4)]"
                 >
                   Book Hologram Box Demo →
                 </Link>
                 <Link
-                  href="/contact/download-center"
+                  href={lPath("/contact/download-center")}
                   className="rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-semibold text-gray-200 backdrop-blur-md transition-colors hover:border-cyan-400 hover:text-white"
                 >
                   Download Spec Sheets (PDF)
@@ -252,7 +261,7 @@ export default function HolographicDisplayClient() {
           </div>
 
           <div className="mt-16 grid gap-8 md:grid-cols-2">
-            {hologramFeatures.map((feature) => (
+            {localizedFeatures.map((feature) => (
               <motion.div
                 key={feature.title}
                 initial={{ opacity: 0, y: 20 }}
@@ -301,7 +310,7 @@ export default function HolographicDisplayClient() {
               <span className="sm:col-span-2">Details</span>
             </div>
             <div className="divide-y divide-white/10">
-              {hardwareSpecs.map((spec, i) => (
+              {localizedSpecs.map((spec: any, i: number) => (
                 <div
                   key={spec.label}
                   className={`grid grid-cols-1 gap-2 px-6 py-4.5 sm:grid-cols-3 sm:gap-4 ${
@@ -327,7 +336,7 @@ export default function HolographicDisplayClient() {
         description="Explore holographic display hardware designed for immersive customer engagement across retail, banking, corporate, healthcare, museums, and exhibitions."
         primaryButtonText="Book a Demo"
         secondaryButtonText="Download Datasheets (PDF)"
-        secondaryButtonHref="/contact/download-center"
+        secondaryButtonHref={lPath("/contact/download-center")}
       />
       <Footer />
     </main>

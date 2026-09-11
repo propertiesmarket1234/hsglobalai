@@ -15,48 +15,60 @@ interface InfoDepthProps {
   };
 }
 
+import { usePathname } from "next/navigation";
+import { getDictionary } from "@/i18n/getDictionary";
+import { Locale, nonDefaultLocales } from "@/i18n/config";
+
 export default function IndustryInfoDepth({ title, infoDepth }: InfoDepthProps) {
+  const pathname = usePathname();
+  const seg = pathname ? pathname.split("/")[1] : "";
+  const currentLocale: Locale = seg && (nonDefaultLocales as readonly string[]).includes(seg) ? (seg as Locale) : "en";
+  const dict = getDictionary(currentLocale);
+  const depthSec = (dict as any).industryInfoDepthComponent || {};
+  const cLabels = depthSec.cardLabels || {};
+  const cTitles = depthSec.cardTitles || {};
+
   if (!infoDepth) return null;
 
   const cards = [
     {
-      label: "WHAT IS IT?",
-      title: `AI Digital Humans in ${title}`,
+      label: cLabels.what || "WHAT IS IT?",
+      title: `${cTitles.what || "AI Digital Humans in "}${title}`,
       content: infoDepth.what,
       icon: Info,
       color: "border-cyan-500/40 bg-cyan-950/40 text-cyan-300",
     },
     {
-      label: "WHY DEPLOY IT?",
-      title: "Value & Operational Impact",
+      label: cLabels.why || "WHY DEPLOY IT?",
+      title: cTitles.why || "Value & Operational Impact",
       content: infoDepth.why,
       icon: Lightbulb,
       color: "border-sky-500/40 bg-sky-950/40 text-sky-300",
     },
     {
-      label: "HOW DOES IT WORK?",
-      title: "Core System Assistance",
+      label: cLabels.how || "HOW DOES IT WORK?",
+      title: cTitles.how || "Core System Assistance",
       content: infoDepth.how,
       icon: HelpCircle,
       color: "border-indigo-500/40 bg-indigo-950/40 text-indigo-300",
     },
     {
-      label: "WHERE DEPLOYED?",
-      title: "Physical Target Locations",
+      label: cLabels.where || "WHERE DEPLOYED?",
+      title: cTitles.where || "Physical Target Locations",
       content: infoDepth.where,
       icon: Compass,
       color: "border-teal-500/40 bg-teal-950/40 text-teal-300",
     },
     {
-      label: "WHO IS IT FOR?",
-      title: "Target Facilities & Organizations",
+      label: cLabels.who || "WHO IS IT FOR?",
+      title: cTitles.who || "Target Facilities & Organizations",
       content: infoDepth.who,
       icon: Users,
       color: "border-blue-500/40 bg-blue-950/40 text-blue-300",
     },
     {
-      label: "OPERATIONAL BOUNDARIES",
-      title: "Scope & Professional Limitations",
+      label: cLabels.limitations || "OPERATIONAL BOUNDARIES",
+      title: cTitles.limitations || "Scope & Professional Limitations",
       content: infoDepth.limitations,
       icon: AlertTriangle,
       color: "border-amber-500/40 bg-amber-950/40 text-amber-300",
@@ -69,13 +81,13 @@ export default function IndustryInfoDepth({ title, infoDepth }: InfoDepthProps) 
       <div className="mx-auto max-w-7xl">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-bold tracking-[0.3em] text-cyan-400 font-mono uppercase">
-            Topical Depth & Architecture
+            {depthSec.badge || "Topical Depth & Architecture"}
           </span>
           <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
-            Understanding AI Digital Humans in {title}
+            {depthSec.headingPrefix || "Understanding AI Digital Humans in "}{title}
           </h2>
           <p className="mt-4 text-base text-gray-300">
-            A comprehensive breakdown of technology purpose, operational workflows, target environments, and safety boundaries.
+            {depthSec.subheading || "A comprehensive breakdown of technology purpose, operational workflows, target environments, and safety boundaries."}
           </p>
         </div>
 

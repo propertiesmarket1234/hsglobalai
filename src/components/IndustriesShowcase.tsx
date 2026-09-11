@@ -124,7 +124,7 @@ const industries = [
 
 import { usePathname } from "next/navigation";
 import { getDictionary } from "@/i18n/getDictionary";
-import { Locale, nonDefaultLocales } from "@/i18n/config";
+import { Locale, nonDefaultLocales, getLocalizedPath } from "@/i18n/config";
 
 export default function IndustriesShowcase() {
   const pathname = usePathname();
@@ -132,6 +132,7 @@ export default function IndustriesShowcase() {
   const currentLocale: Locale = seg && (nonDefaultLocales as readonly string[]).includes(seg) ? (seg as Locale) : "en";
   const dict = getDictionary(currentLocale);
   const indItems = dict.home.industriesSection.items;
+  const lPath = (path: string) => getLocalizedPath(path, currentLocale);
 
   const localizedIndustries = industries.map((ind, idx) => {
     const dictItem = indItems && indItems[idx];
@@ -215,7 +216,7 @@ export default function IndustriesShowcase() {
 
                   <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
                     <Link
-                      href={`/industries/${industry.slug}`}
+                      href={lPath(`/industries/${industry.slug}`)}
                       className="group inline-flex items-center gap-2 text-sm font-semibold tracking-wide text-white transition-colors hover:text-cyan-400"
                     >
                       <span>Explore {industry.title} Solutions</span>
