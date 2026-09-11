@@ -68,3 +68,22 @@ export function getLocalizedPath(currentPathname: string, targetLocale: Locale):
   }
   return basePath === "/" ? `/${targetLocale}` : `/${targetLocale}${basePath}`;
 }
+
+/** Gets full SEO alternates (canonical and hreflang annotations) for a path and language */
+export function getLocalizedAlternates(path: string, lang?: string) {
+  const baseUrl = "https://www.hsglobalai.com";
+  const cleanPath = stripLocalePrefix(path);
+  const pathSuffix = cleanPath === "/" ? "" : cleanPath;
+  const canonicalUrl = lang ? `${baseUrl}/${lang}${pathSuffix}` : `${baseUrl}${pathSuffix}`;
+
+  return {
+    canonical: canonicalUrl,
+    languages: {
+      en: `${baseUrl}${pathSuffix}`,
+      zh: `${baseUrl}/zh${pathSuffix}`,
+      ru: `${baseUrl}/ru${pathSuffix}`,
+      es: `${baseUrl}/es${pathSuffix}`,
+      "x-default": `${baseUrl}${pathSuffix}`,
+    },
+  };
+}

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getLocalizedAlternates } from "@/i18n/config";
 import Script from "next/script";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import ScrollProgressAndGlow from "@/components/ScrollProgressAndGlow";
@@ -53,6 +54,8 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
+
+  alternates: getLocalizedAlternates("/"),
 
   openGraph: {
     type: "website",

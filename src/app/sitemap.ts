@@ -129,10 +129,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
-  return [
+  const englishEntries = [
     ...staticRoutes,
     ...blogRoutes,
     ...industryRoutes,
     ...dihuavaFeatureRoutes,
   ];
+
+  const nonDefaultLocales = ["zh", "ru", "es"] as const;
+  const localizedEntries: MetadataRoute.Sitemap = [];
+
+  for (const entry of englishEntries) {
+    const relativePath = entry.url.replace(baseUrl, "");
+    for (const locale of nonDefaultLocales) {
+      localizedEntries.push({
+        ...entry,
+        url: `${baseUrl}/${locale}${relativePath}`,
+      });
+    }
+  }
+
+  return [...englishEntries, ...localizedEntries];
 }
