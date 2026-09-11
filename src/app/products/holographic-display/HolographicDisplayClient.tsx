@@ -69,8 +69,17 @@ const hardwareSpecs = [
   { label: "Operating Environment", value: "Designed for continuous 24/7 commercial operation" },
 ];
 
+import { usePathname } from "next/navigation";
+import { getDictionary } from "@/i18n/getDictionary";
+import { Locale, nonDefaultLocales } from "@/i18n/config";
+
 export default function HolographicDisplayClient() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const pathname = usePathname();
+  const seg = pathname ? pathname.split("/")[1] : "";
+  const currentLocale: Locale = seg && (nonDefaultLocales as readonly string[]).includes(seg) ? (seg as Locale) : "en";
+  const dict = getDictionary(currentLocale);
+  const hPage = (dict as any).holographicPage || {};
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -111,19 +120,19 @@ export default function HolographicDisplayClient() {
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-500" />
                 </span>
                 <span className="text-xs font-semibold tracking-widest text-cyan-300 uppercase">
-                  3D Volumetric Enclosure
+                  {hPage.heroBadge || "3D Optical Glass Hardware"}
                 </span>
               </div>
 
               <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl lg:leading-[1.1]">
-                AI Holographic Display{" "}
+                {hPage.heroTitle || "Holographic Display "}{" "}
                 <span className="bg-gradient-to-r from-cyan-400 via-sky-300 to-cyan-500 bg-clip-text text-transparent">
-                  Hologram Box.
+                  {hPage.heroTitleHighlight || "(Hologram Box)"}
                 </span>
               </h1>
 
               <p className="mt-6 text-base leading-8 text-gray-300 sm:text-lg max-w-2xl">
-                Bring intelligent <Link href="/products/ai-digital-human" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">DIHUAVA AI Digital Humans</Link> into physical environments with our <strong className="text-white font-semibold">3D Hologram Display Box</strong>, available in <strong className="text-cyan-300">55-inch, 65-inch, 75-inch, and 86-inch 4K Ultra-HD</strong> 3D holographic enclosures engineered for high-impact retail showcases, VIP bank lounges, corporate headquarters, and museum exhibits. Also compare with our ultra-slim <Link href="/products/spatial-display" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">3D Spatial Displays</Link>.
+                {hPage.heroDescription || "Bring intelligent AI Digital Humans into physical environments through 3D holographic experiences supporting 29+ global languages, interactive speech recognition, and custom voice cloning."}
               </p>
 
               {/* Size Badge Selector Pills */}

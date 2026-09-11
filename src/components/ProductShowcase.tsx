@@ -96,8 +96,17 @@ const products: ProductItem[] = [
   },
 ];
 
+import { usePathname } from "next/navigation";
+import { getDictionary } from "@/i18n/getDictionary";
+import { Locale, nonDefaultLocales } from "@/i18n/config";
+
 export default function ProductShowcase() {
   const [hologramIndex, setHologramIndex] = useState(0);
+  const pathname = usePathname();
+  const seg = pathname ? pathname.split("/")[1] : "";
+  const currentLocale: Locale = seg && (nonDefaultLocales as readonly string[]).includes(seg) ? (seg as Locale) : "en";
+  const dict = getDictionary(currentLocale);
+  const fp = dict.home.featuredProducts.items;
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -106,6 +115,42 @@ export default function ProductShowcase() {
     return () => clearInterval(timer);
   }, []);
 
+  const localizedProducts = products.map((item) => {
+    if (item.id === "digital-humans" && fp.dihuava) {
+      return {
+        ...item,
+        title: fp.dihuava.title || item.title,
+        subtitle: fp.dihuava.category || item.subtitle,
+        description: fp.dihuava.description || item.description,
+      };
+    }
+    if (item.id === "hologram-box" && fp.hologramBox) {
+      return {
+        ...item,
+        title: fp.hologramBox.title || item.title,
+        subtitle: fp.hologramBox.category || item.subtitle,
+        description: fp.hologramBox.description || item.description,
+      };
+    }
+    if (item.id === "spatial-display" && fp.spatialDisplay) {
+      return {
+        ...item,
+        title: fp.spatialDisplay.title || item.title,
+        subtitle: fp.spatialDisplay.category || item.subtitle,
+        description: fp.spatialDisplay.description || item.description,
+      };
+    }
+    if (item.id === "virtual-try-on" && fp.virtualTryOn) {
+      return {
+        ...item,
+        title: fp.virtualTryOn.title || item.title,
+        subtitle: fp.virtualTryOn.category || item.subtitle,
+        description: fp.virtualTryOn.description || item.description,
+      };
+    }
+    return item;
+  });
+
   return (
     <section className="relative overflow-hidden bg-black px-6 py-24 text-white">
       {/* Background ambient lighting */}
@@ -113,7 +158,7 @@ export default function ProductShowcase() {
 
       <div className="relative mx-auto max-w-7xl">
         <div className="divide-y divide-white/10">
-          {products.map((product, index) => {
+          {localizedProducts.map((product, index) => {
             const activeImg = product.images ? product.images[hologramIndex] : product.imageSrc;
             return (
               <div key={product.id} className="py-24 first:pt-0 last:pb-0">

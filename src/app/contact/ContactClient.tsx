@@ -2,6 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { getDictionary } from "@/i18n/getDictionary";
+import { Locale, nonDefaultLocales } from "@/i18n/config";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
@@ -78,16 +81,24 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
 
   const [formData, setFormData] = useState({
     name: "",
+    fullName: "",
     email: "",
     countryCode: "+65",
     phone: "",
     company: "",
-    industry: "Retail",
+    designation: "",
+    industry: "",
     message: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+
+  const pathname = usePathname();
+  const seg = pathname ? pathname.split("/")[1] : "";
+  const currentLocale: Locale = seg && (nonDefaultLocales as readonly string[]).includes(seg) ? (seg as Locale) : "en";
+  const dict = getDictionary(currentLocale);
+  const cPage = (dict as any).contactPage || {};
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -141,18 +152,18 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
             transition={{ duration: 0.8 }}
           >
             <span className="inline-flex items-center gap-2 rounded-full border border-cyan-500/40 bg-cyan-950/80 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-cyan-300 backdrop-blur-md mb-6 shadow-[0_0_20px_rgba(6,182,212,0.3)]">
-              Contact & Resource Center — HS Global AI
+              {cPage.heroBadge || "Get in Touch — HS Global AI"}
             </span>
 
             <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl drop-shadow-2xl">
-              Get in Touch or Download{" "}
+              {cPage.heroTitle || "Start your AI journey with "}{" "}
               <span className="bg-gradient-to-r from-white via-cyan-100 to-cyan-400 bg-clip-text text-transparent">
-                Datasheets.
+                {cPage.heroTitleHighlight || "HS Global AI."}
               </span>
             </h1>
 
             <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-gray-200 sm:text-lg drop-shadow">
-              Connect with our enterprise team in Singapore and India, request a live DIHUAVA demo, or download hardware spec sheets.
+              {cPage.heroDescription || "Reach out to our global team in Singapore HQ or India Office to book a live demo, request datasheets, or discuss custom enterprise deployments."}
             </p>
 
             {/* TAB SELECTOR BUTTONS MATCHING USER DESIGN REQUIREMENT */}

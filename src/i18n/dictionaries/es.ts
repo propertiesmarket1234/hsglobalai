@@ -28,7 +28,7 @@ export const es: Dictionary = {
     educationAcademies: "Educación y academias",
     about: "Nosotros",
     events: "Eventos",
-    blog: "Blogs",
+    blog: "Blog",
     contactUs: "Contacto",
     downloadCenter: "Centro de descargas y fichas",
     selectLanguage: "Seleccionar idioma / Select Language / 语言 / Язык",
@@ -62,8 +62,8 @@ export const es: Dictionary = {
     avatarVoiceCloning: "Avatares y clonación de voz",
     documentIntelligence: "Inteligencia documental (RAG)",
     multilingualEngine: "Motor de IA multilingüe",
-    hologramBox: "AI Hologram Box",
-    spatialDisplay: "Spatial Display",
+    hologramBox: "Caja Holográfica AI",
+    spatialDisplay: "Pantalla Espacial 3D",
     allProductsOverviewLink: "Visión general de productos →",
     industriesHeader: "Industrias",
     bankingFinancial: "Banca y finanzas",
@@ -243,7 +243,7 @@ export const es: Dictionary = {
         "title": "Catálogo de productos e IA de ventas",
         "subtitle": "Ventas picture-in-picture desde hojas de cálculo",
         "description": "Cargue una hoja CSV de 9 columnas. El avatar vende directamente desde su catálogo, mostrando tarjetas e imágenes mientras habla.",
-        "stat": "Picture-in-Picture",
+        "stat": "Imagen en Imagen (PiP)",
         "linkText": "Explorar soluciones de catálogo con IA →",
         "tags": [
           "Importación CSV 9 columnas",
@@ -441,7 +441,7 @@ export const es: Dictionary = {
     "explorePrefix": "Explorar",
     "items": {
       "dihuava": {
-        "title": "AI Digital Humans",
+        "title": "Humanos Digitales IA",
         "category": "Avatares conversacionales",
         "description": "Avatares de IA hiperrealistas diseñados para interacciones naturales con clientes en múltiples idiomas.",
         "tags": [
@@ -451,7 +451,7 @@ export const es: Dictionary = {
         ]
       },
       "hologramBox": {
-        "title": "AI Hologram Box",
+        "title": "Caja Holográfica IA",
         "category": "Pantalla holográfica 3D",
         "description": "Lleve humanos digitales interactivos con IA a espacios físicos mediante vitrinas holográficas 3D.",
         "tags": [
@@ -461,7 +461,7 @@ export const es: Dictionary = {
         ]
       },
       "spatialDisplay": {
-        "title": "Spatial Display",
+        "title": "Pantalla Espacial IA",
         "category": "Visuales volumétricos",
         "description": "Experiencias visuales inmersivas que transforman la presentación de contenidos en comercio y espacios públicos.",
         "tags": [
@@ -471,7 +471,7 @@ export const es: Dictionary = {
         ]
       },
       "virtualTryOn": {
-        "title": "Virtual Try-On",
+        "title": "Pruébatelo Virtual",
         "category": "Capacidad de I+D activa",
         "description": "Prueba virtual con IA que permite a los compradores visualizar prendas digitalmente en tiempo real.",
         "tags": [
@@ -760,5 +760,76 @@ export const es: Dictionary = {
       }
     ]
   }
-}
+},
+  productsPage: {
+      "heroBadge": "Gama de productos HS Global AI",
+      "heroTitle": "Productos de IA diseñados para ",
+      "heroTitleHighlight": "experiencias reales.",
+      "heroDescription": "Explore los productos de HS Global AI: la plataforma de humanos digitales DIHUAVA, vitrinas holográficas 3D y pantallas espaciales para despliegue 100% offline."
+  },
+  holographicPage: {
+      "heroBadge": "Hardware de cristal óptico 3D",
+      "heroTitle": "Holographic Display ",
+      "heroTitleHighlight": "(Caja Holográfica)",
+      "heroSubtitle": "Humanos Digitales 3D interactivos en vitrina holográfica",
+      "heroDescription": "Lleve humanos digitales interactivos con IA a espacios físicos mediante vitrinas holográficas 3D compatibles con 29+ idiomas y clonación de voz.",
+      "ctaPrimary": "Solicitar una demo",
+      "ctaSecondary": "Descargar ficha técnica (PDF)",
+      "featuresTitle": "Cristal óptico y capacidades de IA",
+      "specsTitle": "Especificaciones técnicas de hardware"
+  },
+  spatialPage: {
+      "heroBadge": "Pantalla IA 3D sin gafas",
+      "heroTitle": "Spatial Display ",
+      "heroTitleHighlight": "(Pantalla Espacial 3D)",
+      "heroSubtitle": "Panel de experiencia IA 3D sin gafas",
+      "heroDescription": "Pantallas espaciales 3D sin gafas que ofrecen visuales inmersivos y avatares interactivos en tiempo real para entornos comerciales.",
+      "ctaPrimary": "Solicitar una demo",
+      "ctaSecondary": "Descargar ficha técnica (PDF)",
+      "featuresTitle": "Tecnología de pantalla espacial",
+      "specsTitle": "Especificaciones de pantalla"
+  },
+  industriesPage: {
+      "heroBadge": "Soluciones para industrias",
+      "heroTitle": "Humanos Digitales con IA para ",
+      "heroTitleHighlight": "todos los sectores.",
+      "heroDescription": "Desde sucursales bancarias hasta tiendas, RR. HH. corporativo, hospitales y museos, HS Global AI ofrece soluciones de avatares 3D a medida."
+  },
+  aboutPage: {
+      "heroBadge": "Sobre nosotros",
+      "heroTitle": "Construyendo el futuro de la ",
+      "heroTitleHighlight": "interacción humano-IA.",
+      "heroDescription": "HS Global AI es pionera en humanos digitales con IA, pantallas holográficas 3D e inteligencia artificial 100% offline.",
+      "missionTitle": "Nuestra Misión",
+      "missionTagline": "Mejorar la interacción Humano-IA",
+      "missionDesc": "Crear experiencias holográficas con IA hiperrealistas que mejoren la interacción y aporten valor comercial tangible.",
+      "visionTitle": "Nuestra Visión",
+      "visionTagline": "Redefinir el compromiso con el cliente",
+      "visionDesc": "Ser el líder global en plataformas de humanos digitales y IA holográfica.",
+      "valuesTitle": "Nuestros Valores",
+      "valuesTagline": "IA ética y privacidad de datos",
+      "valuesDesc": "Impulsados por la innovación, confianza y desarrollo ético de IA con privacidad 100% local."
+  },
+  contactPage: {
+      "heroBadge": "Contacto",
+      "heroTitle": "Comience su viaje con la IA junto a ",
+      "heroTitleHighlight": "HS Global AI.",
+      "heroDescription": "Póngase en contacto con nuestro equipo en la sede de Singapur o en la oficina de India para solicitar una demo o fichas técnicas.",
+      "nameLabel": "Nombre completo *",
+      "emailLabel": "Correo de trabajo *",
+      "companyLabel": "Empresa / Organización *",
+      "messageLabel": "Mensaje *",
+      "submitBtn": "Enviar mensaje",
+      "sending": "Enviando..."
+  },
+  whyHsGlobalComponent: {
+      "badge": "Por qué elegir HS Global AI",
+      "titlePrefix": "Diseñado para la ",
+      "titleHighlight": "excelencia empresarial.",
+      "subtitle": "Descubra por qué las principales organizaciones confían en HS Global AI para implementar avatares 3D sin conexión.",
+      "secureOnDeviceTitle": "IA segura en el dispositivo",
+      "secureOnDeviceDesc": "Procesamiento 100% local con cero transmisión de datos a la nube.",
+      "multilingualTitle": "29+ Idiomas globales",
+      "multilingualDesc": "Reconocimiento y síntesis de voz en tiempo real en más de 29 idiomas."
+  },
 };

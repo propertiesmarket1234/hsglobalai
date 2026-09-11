@@ -628,7 +628,78 @@ export const en = {
         },
       ]
     }
-  }
+  },
+  productsPage: {
+      "heroBadge": "HS Global AI Suite — Products",
+      "heroTitle": "AI products built for ",
+      "heroTitleHighlight": "real-world customer engagement.",
+      "heroDescription": "Explore HS Global AI products: DIHUAVA AI Digital Human platform, 3D Hologram Box displays, and naked-eye spatial AI displays for 100% offline enterprise deployment."
+  },
+  holographicPage: {
+      "heroBadge": "3D Optical Glass Hardware",
+      "heroTitle": "Holographic Display ",
+      "heroTitleHighlight": "(Hologram Box)",
+      "heroSubtitle": "Interactive 3D AI Digital Humans in Glass Showcase",
+      "heroDescription": "Bring intelligent AI Digital Humans into physical environments through 3D holographic experiences supporting 29+ global languages, interactive speech recognition, and custom voice cloning.",
+      "ctaPrimary": "Book a Demo",
+      "ctaSecondary": "Download Datasheet (PDF)",
+      "featuresTitle": "Optical Glass & AI Capabilities",
+      "specsTitle": "Technical Hardware Specifications"
+  },
+  spatialPage: {
+      "heroBadge": "Naked-Eye 3D AI Display",
+      "heroTitle": "Spatial Display ",
+      "heroTitleHighlight": "(3D Volumetric)",
+      "heroSubtitle": "Glasses-Free 3D AI Experience Panel",
+      "heroDescription": "Naked-eye 3D spatial AI displays delivering glasses-free immersive visual experiences and real-time interactive avatars for high-impact commercial environments.",
+      "ctaPrimary": "Book a Demo",
+      "ctaSecondary": "Download Datasheet (PDF)",
+      "featuresTitle": "Spatial Display Technology",
+      "specsTitle": "Display Specifications"
+  },
+  industriesPage: {
+      "heroBadge": "Enterprise Industry Solutions",
+      "heroTitle": "AI Digital Humans across ",
+      "heroTitleHighlight": "every major sector.",
+      "heroDescription": "From banking branches to retail showcases, corporate HR, healthcare clinics, and museum exhibitions, HS Global AI delivers tailored 3D avatar solutions."
+  },
+  aboutPage: {
+      "heroBadge": "Company Overview",
+      "heroTitle": "Building the future of ",
+      "heroTitleHighlight": "human-AI interaction.",
+      "heroDescription": "HS Global AI is a pioneer in AI Digital Humans, 3D Holographic displays, and 100% offline on-device artificial intelligence for enterprise customer engagement.",
+      "missionTitle": "Our Mission",
+      "missionTagline": "Enhancing Human-AI Interaction",
+      "missionDesc": "To create lifelike AI-driven hologram experiences that enhance human-machine interaction and deliver meaningful business value.",
+      "visionTitle": "Our Vision",
+      "visionTagline": "Redefining Customer Engagement",
+      "visionDesc": "To become the global leader in Digital Human and Holographic AI platforms.",
+      "valuesTitle": "Our Core Values",
+      "valuesTagline": "Ethical AI & Data Privacy",
+      "valuesDesc": "Driven by innovation, trust, and ethical AI development with air-gapped data privacy."
+  },
+  contactPage: {
+      "heroBadge": "Get in Touch",
+      "heroTitle": "Start your AI journey with ",
+      "heroTitleHighlight": "HS Global AI.",
+      "heroDescription": "Reach out to our global team in Singapore HQ or India Office to book a live demo, request datasheets, or discuss custom enterprise deployments.",
+      "nameLabel": "Full Name *",
+      "emailLabel": "Work Email *",
+      "companyLabel": "Company / Organization *",
+      "messageLabel": "Message *",
+      "submitBtn": "Send Message",
+      "sending": "Sending..."
+  },
+  whyHsGlobalComponent: {
+      "badge": "Why HS Global AI",
+      "titlePrefix": "Engineered for ",
+      "titleHighlight": "Enterprise Excellence.",
+      "subtitle": "Discover why leading organizations trust HS Global AI for air-gapped 3D avatar deployments.",
+      "secureOnDeviceTitle": "Secure On-Device AI",
+      "secureOnDeviceDesc": "100% local processing with zero cloud data transmission.",
+      "multilingualTitle": "29+ Global Languages",
+      "multilingualDesc": "Real-time speech recognition and synthesis across 29+ languages."
+  },
 };
 
 type EnType = typeof en;

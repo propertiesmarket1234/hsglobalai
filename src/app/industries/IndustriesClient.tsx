@@ -8,7 +8,18 @@ import IndustryImpact from "@/components/IndustryImpact";
 import ImmersiveUseCases from "@/components/ImmersiveUseCases";
 import { motion } from "framer-motion";
 
+import { usePathname } from "next/navigation";
+import { getDictionary } from "@/i18n/getDictionary";
+import { Locale, nonDefaultLocales } from "@/i18n/config";
+
 export default function IndustriesClient() {
+  const pathname = usePathname();
+  const seg = pathname ? pathname.split("/")[1] : "";
+  const currentLocale: Locale = seg && (nonDefaultLocales as readonly string[]).includes(seg) ? (seg as Locale) : "en";
+  const dict = getDictionary(currentLocale);
+  const indPage = (dict as any).industriesPage || {};
+  const indSec = dict.home.industriesSection;
+
   return (
     <main className="min-h-screen bg-black text-white selection:bg-cyan-500 selection:text-black">
       <Header />
@@ -31,7 +42,7 @@ export default function IndustriesClient() {
               <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-500" />
             </span>
             <span className="text-xs font-semibold tracking-widest text-cyan-300 uppercase font-mono">
-              Industry-Specific AI Deployments
+              {indPage.heroBadge || "Enterprise Industry Solutions"}
             </span>
           </motion.div>
 
@@ -45,9 +56,9 @@ export default function IndustriesClient() {
               className="lg:col-span-7"
             >
               <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl lg:leading-[1.1]">
-                Digital Human AI built for{" "}
+                {indPage.heroTitle || indSec.headingLine1 || "AI Digital Humans across "}{" "}
                 <span className="bg-gradient-to-r from-white via-cyan-100 to-cyan-400 bg-clip-text text-transparent">
-                  every industry.
+                  {indPage.heroTitleHighlight || indSec.headingLine2 || "every major sector."}
                 </span>
               </h1>
             </motion.div>

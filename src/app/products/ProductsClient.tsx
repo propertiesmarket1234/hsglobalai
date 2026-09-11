@@ -10,7 +10,17 @@ import CTA from "@/components/CTA";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
+import { usePathname } from "next/navigation";
+import { getDictionary } from "@/i18n/getDictionary";
+import { Locale, nonDefaultLocales } from "@/i18n/config";
+
 export default function ProductsClient() {
+  const pathname = usePathname();
+  const seg = pathname ? pathname.split("/")[1] : "";
+  const currentLocale: Locale = seg && (nonDefaultLocales as readonly string[]).includes(seg) ? (seg as Locale) : "en";
+  const dict = getDictionary(currentLocale);
+  const pPage = (dict as any).productsPage || {};
+
   return (
     <main className="min-h-screen bg-black text-white selection:bg-cyan-500 selection:text-black">
       <Header />
@@ -48,7 +58,7 @@ export default function ProductsClient() {
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-500" />
               </span>
               <span className="text-xs font-semibold tracking-widest text-cyan-300 uppercase">
-                HS Global AI Suite — Products
+                {pPage.heroBadge || "HS Global AI Suite — Products"}
               </span>
             </div>
 
@@ -57,9 +67,9 @@ export default function ProductsClient() {
               {/* Heading Column */}
               <div className="lg:col-span-7">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl lg:leading-[1.1] drop-shadow-2xl">
-                  AI products built for{" "}
+                  {pPage.heroTitle || "AI products built for "}{" "}
                   <span className="bg-gradient-to-r from-white via-cyan-100 to-cyan-400 bg-clip-text text-transparent">
-                    real-world experiences.
+                    {pPage.heroTitleHighlight || "real-world experiences."}
                   </span>
                 </h1>
               </div>
@@ -67,7 +77,7 @@ export default function ProductsClient() {
               {/* Description Column */}
               <div className="lg:col-span-5 lg:pb-2">
                 <p className="text-base leading-8 text-gray-200 sm:text-lg drop-shadow">
-                  Explore intelligent AI solutions supporting <strong>29+ Global Languages</strong> — from AI Digital Humans and holographic avatars to spatial displays and Virtual Try-On.
+                  {pPage.heroDescription || "Explore HS Global AI products: DIHUAVA AI Digital Human platform, 3D Hologram Box displays, and naked-eye spatial AI displays for 100% offline enterprise deployment."}
                 </p>
                 <p className="mt-3 text-sm leading-relaxed text-cyan-200/90 font-medium">
                   DIHUAVA provides the AI Digital Human software layer that can power HS Global AI&apos;s holographic and spatial display experiences.

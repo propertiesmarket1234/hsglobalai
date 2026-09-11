@@ -62,8 +62,8 @@ export const ru: Dictionary = {
     avatarVoiceCloning: "Аватары и клонирование голоса",
     documentIntelligence: "Анализ документов (RAG)",
     multilingualEngine: "Многоязычный AI-модуль",
-    hologramBox: "AI Hologram Box",
-    spatialDisplay: "Spatial Display",
+    hologramBox: "AI Голографический Куб",
+    spatialDisplay: "3D Дисплей Стереоизображения",
     allProductsOverviewLink: "Обзор всех продуктов →",
     industriesHeader: "Отрасли",
     bankingFinancial: "Банки и финансы",
@@ -441,7 +441,7 @@ export const ru: Dictionary = {
     "explorePrefix": "Изучить",
     "items": {
       "dihuava": {
-        "title": "AI Digital Humans",
+        "title": "AI Цифровые Люди",
         "category": "Диалоговые аватары",
         "description": "Интерактивные AI-аватары для естественного общения с клиентами на разных языках.",
         "tags": [
@@ -451,7 +451,7 @@ export const ru: Dictionary = {
         ]
       },
       "hologramBox": {
-        "title": "AI Hologram Box",
+        "title": "AI Голографический Куб",
         "category": "3D-голографический дисплей",
         "description": "Интерактивные AI-аватары в 3D-голографических кубах для физических пространств.",
         "tags": [
@@ -461,7 +461,7 @@ export const ru: Dictionary = {
         ]
       },
       "spatialDisplay": {
-        "title": "Spatial Display",
+        "title": "3D Дисплей Стереоизображения",
         "category": "Объемная визуализация",
         "description": "Объемные визуальные решения, меняющие презентацию контента в ритейле.",
         "tags": [
@@ -471,7 +471,7 @@ export const ru: Dictionary = {
         ]
       },
       "virtualTryOn": {
-        "title": "Virtual Try-On",
+        "title": "Виртуальная Примерка",
         "category": "Активные R&D разработки",
         "description": "Виртуальная примерка одежды с помощью AI в реальном времени.",
         "tags": [
@@ -658,7 +658,7 @@ export const ru: Dictionary = {
     "heading": "Вопросы и ответы",
     "subheading": "Всё о цифровых аватарах DIHUAVA, 3D-голографических кубах, безопасности и внедрении.",
     "categoryLabel": "КАТЕГОРИЯ //",
-    "verified": "● DIHUAVA VERIFIED",
+    "verified": "● DIHUAVA ПРОВЕРЕНО",
     "categories": [
       "Все вопросы",
       "Общие вопросы",
@@ -760,5 +760,76 @@ export const ru: Dictionary = {
       }
     ]
   }
-}
+},
+  productsPage: {
+      "heroBadge": "Продукты HS Global AI",
+      "heroTitle": "AI-продукты для ",
+      "heroTitleHighlight": "реального взаимодействия с клиентами.",
+      "heroDescription": "Изучите продукты HS Global AI: платформу цифровых людей DIHUAVA, 3D-голографические кубы и объемные 3D-дисплеи для 100% офлайн-внедрения."
+  },
+  holographicPage: {
+      "heroBadge": "3D Оптическое Стекло",
+      "heroTitle": "Holographic Display ",
+      "heroTitleHighlight": "(Голографический Куб)",
+      "heroSubtitle": "Интерактивные 3D AI Цифровые Люди в голографической витрине",
+      "heroDescription": "Интерактивные AI-аватары в 3D-голографических кубах для физических пространств с поддержкой 29+ языков, распознаванием речи и клонированием голоса.",
+      "ctaPrimary": "Запросить демо",
+      "ctaSecondary": "Скачать спецификацию (PDF)",
+      "featuresTitle": "Оптическое стекло и возможности AI",
+      "specsTitle": "Технические характеристики оборудования"
+  },
+  spatialPage: {
+      "heroBadge": "3D Дисплей Без Очков",
+      "heroTitle": "Spatial Display ",
+      "heroTitleHighlight": "(3D Объемный Дисплей)",
+      "heroSubtitle": "3D Стереоскопический Экран без использования очков",
+      "heroDescription": "Объемные визуальные решения и 3D-дисплеи без очков для создания высокоэффективных интерактивных пространств.",
+      "ctaPrimary": "Запросить демо",
+      "ctaSecondary": "Скачать спецификацию (PDF)",
+      "featuresTitle": "Технологии объемного отображения",
+      "specsTitle": "Характеристики экрана"
+  },
+  industriesPage: {
+      "heroBadge": "Отраслевые решения",
+      "heroTitle": "AI Цифровые Люди для ",
+      "heroTitleHighlight": "ключевых сфер бизнеса.",
+      "heroDescription": "От банковских отделений и ритейла до корпоративных HR, клиник и музеев — HS Global AI предоставляет специализированные 3D-аватары."
+  },
+  aboutPage: {
+      "heroBadge": "О компании",
+      "heroTitle": "Создаем будущее ",
+      "heroTitleHighlight": "взаимодействия человека и AI.",
+      "heroDescription": "HS Global AI — передовая платформа цифровых аватаров, 3D-голограмм и 100% автономного искусственного интеллекта.",
+      "missionTitle": "Наша миссия",
+      "missionTagline": "Развитие человеко-машинного взаимодействия",
+      "missionDesc": "Создавать реалистичные AI-голограммы, повышающие качество обслуживания и приносящие реальную пользу бизнесу.",
+      "visionTitle": "Наше видение",
+      "visionTagline": "Переосмысление работы с клиентами",
+      "visionDesc": "Стать мировым лидером в области цифровых людей и голографических AI-платформ.",
+      "valuesTitle": "Наши ценности",
+      "valuesTagline": "Этичный AI и конфиденциальность данных",
+      "valuesDesc": "Инновации, доверие и защита данных клиентов с помощью 100% офлайн-обработки."
+  },
+  contactPage: {
+      "heroBadge": "Связаться с нами",
+      "heroTitle": "Начните работу с AI вместе с ",
+      "heroTitleHighlight": "HS Global AI.",
+      "heroDescription": "Свяжитесь с нашей командой в штаб-квартире в Сингапуре или офисе в Индии для бронирования демонстрации или запроса спецификаций.",
+      "nameLabel": "Имя и фамилия *",
+      "emailLabel": "Рабочая эл. почта *",
+      "companyLabel": "Компания / Организация *",
+      "messageLabel": "Сообщение *",
+      "submitBtn": "Отправить сообщение",
+      "sending": "Отправка..."
+  },
+  whyHsGlobalComponent: {
+      "badge": "Почему HS Global AI",
+      "titlePrefix": "Создано для ",
+      "titleHighlight": "корпоративного совершенства.",
+      "subtitle": "Узнайте, почему ведущие компании выбирают офлайн 3D-аватаров HS Global AI.",
+      "secureOnDeviceTitle": "Защищенный локальный AI",
+      "secureOnDeviceDesc": "100% локальная обработка данных без передачи в облако.",
+      "multilingualTitle": "29+ Языков мира",
+      "multilingualDesc": "Распознавание и синтез речи в реальном времени на 29+ языках."
+  },
 };

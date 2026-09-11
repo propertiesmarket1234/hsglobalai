@@ -138,7 +138,47 @@ const industries = [
   { name: "Education & Corporate Training", count: "Interactive 3D AI Instructors" },
 ];
 
+import { usePathname } from "next/navigation";
+import { getDictionary } from "@/i18n/getDictionary";
+import { Locale, nonDefaultLocales } from "@/i18n/config";
+
 export default function AboutClient() {
+  const pathname = usePathname();
+  const seg = pathname ? pathname.split("/")[1] : "";
+  const currentLocale: Locale = seg && (nonDefaultLocales as readonly string[]).includes(seg) ? (seg as Locale) : "en";
+  const dict = getDictionary(currentLocale);
+  const aPage = (dict as any).aboutPage || {};
+
+  const localizedMVV = [
+    {
+      title: aPage.missionTitle || "Our Mission",
+      tagline: aPage.missionTagline || "Enhancing Human-AI Interaction",
+      description: aPage.missionDesc || missionVisionValues[0].description,
+      icon: Target,
+      accentColor: "from-cyan-500/20 via-blue-500/5 to-transparent",
+      accentGlow: "rgba(6, 182, 212, 0.3)",
+      badge: "Mission Statement",
+    },
+    {
+      title: aPage.visionTitle || "Our Vision",
+      tagline: aPage.visionTagline || "Redefining Customer Engagement",
+      description: aPage.visionDesc || missionVisionValues[1].description,
+      icon: Eye,
+      accentColor: "from-purple-500/20 via-indigo-500/5 to-transparent",
+      accentGlow: "rgba(168, 85, 247, 0.3)",
+      badge: "Global Vision",
+    },
+    {
+      title: aPage.valuesTitle || "Our Core Values",
+      tagline: aPage.valuesTagline || "Ethical AI & Data Privacy",
+      description: aPage.valuesDesc || missionVisionValues[2].description,
+      icon: ShieldCheck,
+      accentColor: "from-emerald-500/20 via-teal-500/5 to-transparent",
+      accentGlow: "rgba(16, 185, 129, 0.3)",
+      badge: "Ethics & Security",
+    },
+  ];
+
   return (
     <main className="min-h-screen bg-black text-white selection:bg-cyan-500 selection:text-black">
       <Header />
@@ -161,23 +201,23 @@ export default function AboutClient() {
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-500" />
               </span>
               <span className="text-xs font-semibold tracking-widest text-cyan-300 uppercase">
-                About HS Global AI — The Digital Human Company
+                {aPage.heroBadge || "About HS Global AI — The Digital Human Company"}
               </span>
             </div>
 
             <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
               <div className="lg:col-span-7">
                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl lg:leading-[1.1]">
-                  Building the future of{" "}
+                  {aPage.heroTitle || "Building the future of "}{" "}
                   <span className="bg-gradient-to-r from-white via-cyan-100 to-cyan-400 bg-clip-text text-transparent">
-                    AI-powered customer engagement.
+                    {aPage.heroTitleHighlight || "AI-powered customer engagement."}
                   </span>
                 </h1>
               </div>
 
               <div className="lg:col-span-5 lg:pb-2">
                 <p className="text-base leading-8 text-gray-300 sm:text-lg">
-                  HS Global AI is a technology company specializing in Digital Human AI, Voice AI, and intelligent customer engagement solutions designed to connect digital experiences with physical environments.
+                  {aPage.heroDescription || "HS Global AI is a technology company specializing in Digital Human AI, Voice AI, and intelligent customer engagement solutions designed to connect digital experiences with physical environments."}
                 </p>
 
                 <div className="mt-6 flex flex-wrap items-center gap-4 text-xs font-medium text-cyan-400 font-mono">
@@ -206,7 +246,7 @@ export default function AboutClient() {
           </div>
 
           <div className="grid gap-8 md:grid-cols-3">
-            {missionVisionValues.map((item, index) => (
+            {localizedMVV.map((item, index) => (
               <motion.div
                 key={item.title}
                 initial={{ opacity: 0, y: 30 }}

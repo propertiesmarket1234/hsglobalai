@@ -630,5 +630,76 @@ export const zh: Dictionary = {
         },
       ]
     }
-  }
+  },
+  productsPage: {
+      "heroBadge": "HS Global AI 产品系列",
+      "heroTitle": "为",
+      "heroTitleHighlight": "真实企业体验打造的AI产品。",
+      "heroDescription": "探索 HS Global AI 产品系列：DIHUAVA AI数字人平台、3D全息显示屏和裸眼空间AI显示屏，支持100%离线本地部署。"
+  },
+  holographicPage: {
+      "heroBadge": "3D光学玻璃硬件",
+      "heroTitle": "Holographic Display ",
+      "heroTitleHighlight": "全息显示屏 (Hologram Box)",
+      "heroSubtitle": "全息玻璃柜中的交互式3D AI数字人",
+      "heroDescription": "通过3D全息显示屏将智能AI数字人引入物理空间，支持29+种全球语言、实时语音识别与自定义声音克隆。",
+      "ctaPrimary": "预约演示",
+      "ctaSecondary": "下载技术白皮书 (PDF)",
+      "featuresTitle": "光学玻璃与AI功能",
+      "specsTitle": "硬件技术规格"
+  },
+  spatialPage: {
+      "heroBadge": "裸眼3D AI显示屏",
+      "heroTitle": "Spatial Display ",
+      "heroTitleHighlight": "空间显示屏 (3D立体显示)",
+      "heroSubtitle": "无需佩戴眼镜的3D AI体验面板",
+      "heroDescription": "裸眼3D空间显示屏，为商业场所提供无佩戴感的高沉浸度视觉体验与实时交互数字人。",
+      "ctaPrimary": "预约演示",
+      "ctaSecondary": "下载技术白皮书 (PDF)",
+      "featuresTitle": "空间显示技术",
+      "specsTitle": "显示屏规格"
+  },
+  industriesPage: {
+      "heroBadge": "企业行业解决方案",
+      "heroTitle": "AI数字人赋能",
+      "heroTitleHighlight": "各大主流行业。",
+      "heroDescription": "从银行网点、零售展厅到企业人力资源、医疗诊所及博物馆展览，HS Global AI 提供定制化3D数字人解决方案。"
+  },
+  aboutPage: {
+      "heroBadge": "公司概览",
+      "heroTitle": "打造",
+      "heroTitleHighlight": "人机交互的未来。",
+      "heroDescription": "HS Global AI 是AI数字人、3D全息显示屏及100%离线端侧人工智能领域的先行者。",
+      "missionTitle": "我们的使命",
+      "missionTagline": "提升人机交互体验",
+      "missionDesc": "打造栩栩如生的AI全息体验，提升人机互动并创造显著商业价值。",
+      "visionTitle": "我们的愿景",
+      "visionTagline": "重塑客户互动模式",
+      "visionDesc": "成为全球领先的数字人与全息AI平台。",
+      "valuesTitle": "核心价值观",
+      "valuesTagline": "负责任的AI与数据隐私",
+      "valuesDesc": "以创新、信任与伦理AI为驱动，坚持物理隔离的数据隐私保护。"
+  },
+  contactPage: {
+      "heroBadge": "联系我们",
+      "heroTitle": "开启您的AI之旅与",
+      "heroTitleHighlight": "HS Global AI。",
+      "heroDescription": "与我们位于新加坡总部或印度办公室的团队取得联系，预约现场演示、获取产品白皮书或洽谈企业部署方案。",
+      "nameLabel": "姓名 *",
+      "emailLabel": "工作邮箱 *",
+      "companyLabel": "公司 / 机构 *",
+      "messageLabel": "留言内容 *",
+      "submitBtn": "发送留言",
+      "sending": "发送中..."
+  },
+  whyHsGlobalComponent: {
+      "badge": "为什么选择 HS Global AI",
+      "titlePrefix": "专为 ",
+      "titleHighlight": "企业级卓越体验倾力打造。",
+      "subtitle": "了解为什么众多领先企业信任 HS Global AI 部署离线3D数字人。",
+      "secureOnDeviceTitle": "安全端侧 AI",
+      "secureOnDeviceDesc": "100%本地计算，零云端数据传输。",
+      "multilingualTitle": "29+ 全球语言",
+      "multilingualDesc": "支持29+种全球语言的实时语音识别与合成。"
+  },
 };

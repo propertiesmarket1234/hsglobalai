@@ -1,6 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
+import { getDictionary } from "@/i18n/getDictionary";
+import { Locale, nonDefaultLocales } from "@/i18n/config";
 
 const features = [
   {
@@ -110,12 +113,19 @@ const features = [
 ];
 
 export default function WhyHSGlobal() {
+  const pathname = usePathname();
+  const seg = pathname ? pathname.split("/")[1] : "";
+  const currentLocale: Locale = seg && (nonDefaultLocales as readonly string[]).includes(seg) ? (seg as Locale) : "en";
+  const dict = getDictionary(currentLocale);
+  const wComp = (dict as any).whyHsGlobalComponent || {};
+
   return (
-    <section className="relative overflow-hidden bg-black px-6 py-32 text-white">
-      {/* Subtle radial ambient background glow */}
-      <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[800px] rounded-full bg-cyan-900/10 blur-[140px]" />
+    <section className="relative overflow-hidden bg-black px-6 py-28 text-white border-t border-white/10">
+      {/* Background glow effects */}
+      <div className="pointer-events-none absolute right-1/4 top-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-cyan-950/20 blur-[160px]" />
 
       <div className="relative mx-auto max-w-7xl">
+        {/* SECTION HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -125,20 +135,20 @@ export default function WhyHSGlobal() {
           <div className="flex items-center gap-3">
             <span className="h-2 w-2 rounded-full bg-cyan-400 animate-pulse" />
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400">
-              Why HS Global AI
+              {wComp.badge || "Why HS Global AI"}
             </p>
           </div>
 
           <div className="mt-4 flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
             <h2 className="max-w-3xl text-4xl font-bold tracking-tight md:text-6xl lg:text-7xl">
-              AI built for the{" "}
+              {wComp.titlePrefix || "AI built for the "}{" "}
               <span className="bg-gradient-to-r from-white via-neutral-200 to-cyan-400 bg-clip-text text-transparent">
-                real world.
+                {wComp.titleHighlight || "real world."}
               </span>
             </h2>
 
             <p className="max-w-md text-base leading-7 text-gray-400 md:text-lg">
-              Engineered to operate securely, intelligently, and reliably across physical environments with Low Latency and zero cloud dependency.
+              {wComp.subtitle || "Engineered to operate securely, intelligently, and reliably across physical environments with Low Latency and zero cloud dependency."}
             </p>
           </div>
         </motion.div>

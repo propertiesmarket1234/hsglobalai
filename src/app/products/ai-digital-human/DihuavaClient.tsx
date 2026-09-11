@@ -347,6 +347,145 @@ export default function DihuavaClient() {
         highlights: highlightsList,
       };
     }
+    if (currentLocale === "zh") {
+      const zhMap: Record<string, any> = {
+        "selfie-engine": {
+          title: "与数字人合影 (Selfie With Avatar)",
+          subtitle: "端侧实时照片合成引擎",
+          description: "观众点击屏幕上的'合影'，即可与AI数字人并排拍照。具备确定性实时面部比例匹配、6种滤镜以及24小时自动过期的QR分享链接。",
+          badge: "交互式拍照体验",
+          highlights: ["实时本地图像合成", "面部尺寸与身高对齐", "6款相片滤镜", "24小时自动过期二维码"],
+        },
+        "live-character": {
+          title: "实时卡通角色体验",
+          subtitle: "实时摄像头驱动卡通变脸模式",
+          description: "基于摄像头的实时卡通渲染模式，观众的微表情（微笑、眨眼、摇头）实时驱动卡通皮肤，超低延迟。",
+          badge: "实时面部追踪",
+          highlights: ["摄像头实时面部追踪", "实时表情与眨眼变形", "零代码角色库扩展", "展会现场高吸引力"],
+        },
+        "product-catalog": {
+          title: "AI 产品目录",
+          subtitle: "CSV 驱动智能推荐引擎",
+          description: "将产品目录 CSV 转化为智能语音推荐系统。展示画中画产品卡片与音视频同步，数字人仅讲解当前屏幕展示的商品。",
+          badge: "智能推荐引擎",
+          highlights: ["结构化 9 列目录 schema", "屏幕卡片音视频同步", "自动搜索词汇 AI", "多语言目录翻译"],
+        },
+        "offline-rag": {
+          title: "企业知识库 RAG",
+          subtitle: "端侧 PDF RAG 与重排序引擎",
+          description: "将企业 PDF、CSV、TXT 和 Markdown 文件直接导入本地设备。端侧相关性重排序器在生成回答前进行评分，数据完全不出本地。",
+          badge: "100% 离线 RAG",
+          highlights: ["本地 PDF, CSV, TXT & Markdown RAG", "端侧相关性重排序", "零云端数据传输", "诊断级检索验证"],
+        },
+        "multilingual-voice": {
+          title: "多语言引擎与声音克隆",
+          subtitle: "29+ 全球语言与品牌声音匹配",
+          description: "100% 本地语音识别、语音合成与翻译，覆盖 29+ 全球语言，包含区域口音与角色声音克隆。",
+          badge: "29+ 全球语言",
+          highlights: ["100% 本地语音识别与 TTS", "实时 29+ 全球语言引擎", "自动角色声音克隆", "本地化货币与数字朗读"],
+        },
+        "airgap-privacy": {
+          title: "企业级物理隔离隐私",
+          subtitle: "100% 端侧数据安全",
+          description: "专为高监管企业环境（金融、国防、医疗）设计。所有语音计算、LLM 对话、文档检索与照片合成均在本地硬件完成。",
+          badge: "物理隔离合规",
+          highlights: ["100% 本地硬件处理", "符合 GDPR, PDPA & HIPAA", "零语音数据传输", "设备加密授权"],
+        },
+      };
+      if (zhMap[module.id]) return { ...module, ...zhMap[module.id] };
+    } else if (currentLocale === "ru") {
+      const ruMap: Record<string, any> = {
+        "selfie-engine": {
+          title: "Селфи с аватаром (Selfie With Avatar)",
+          subtitle: "Локальный фотокомпозитинг на устройстве",
+          description: "Посетители нажимают 'Селфи', чтобы сфотографироваться рядом с AI-аватором. Точное масштабирование лица, 6 фильтров и мгновенный QR-код с автоудалением через 24 часа.",
+          badge: "Интерактивное фото",
+          highlights: ["Локальный композитинг кадров", "Масштабирование по высоте и лицу", "6 фотофильтров", "QR-код с автоудалением (24 ч)"],
+        },
+        "live-character": {
+          title: "Режим мультперсонажа",
+          subtitle: "Анимация персонажа по мимике в реальном времени",
+          description: "Режим рендеринга мультяшной кожи, управляемый камерой. Мимика посетителя (улыбка, моргание, повороты) передается на 3D-персонажа с ультранизкой задержкой.",
+          badge: "Трекинг лица в реальном времени",
+          highlights: ["Трекинг лица через камеру", "Анимация улыбок и моргания", "Расширение библиотеки без кода", "Высокая вовлеченность на стенде"],
+        },
+        "product-catalog": {
+          title: "AI Каталог товаров",
+          subtitle: "Рекомендации товаров из CSV-таблицы",
+          description: "Превращает CSV-каталог в интеллектуальную голосовую систему продаж. Отображает карточки товаров 'картинка-в-картинке' и синхронизирует речь с экраном.",
+          badge: "Умные рекомендации",
+          highlights: ["9-колоночный формат CSV", "Синхронизация карточек с речью", "Автопоиск по ключевым словам", "Мультиязычный каталог"],
+        },
+        "offline-rag": {
+          title: "Корпоративная база знаний RAG",
+          subtitle: "Локальный RAG по PDF с ранжированием",
+          description: "Загрузка документов PDF, CSV, TXT и Markdown непосредственно на устройство. Локальный модуль ранжирования обеспечивает точные ответы без выхода в сеть.",
+          badge: "100% Офлайн RAG",
+          highlights: ["Локальный RAG (PDF, CSV, TXT, MD)", "Ранжирование контекста на устройстве", "Нулевая передача данных в облако", "Проверка источника ответа"],
+        },
+        "multilingual-voice": {
+          title: "Многоязычный модуль и клонирование голоса",
+          subtitle: "29+ языков мира и синтез тона бренда",
+          description: "Локальное распознавание и синтез речи на 29+ языках мира с поддержкой региональных акцентов и автоматического клонирования голоса.",
+          badge: "29+ Языков мира",
+          highlights: ["100% Локальные STT и TTS", "Реальное время (29+ языков)", "Клонирование голоса персонажа", "Локализованные валюты и числа"],
+        },
+        "airgap-privacy": {
+          title: "Полная изоляция данных (Air-Gap)",
+          subtitle: "100% Безопасность на устройстве",
+          description: "Создано для банков, госструктур и медицины. Все процессы речи, LLM-диалоги, поиск в документах и фото вычисляются строго локально.",
+          badge: "Соответствие Air-Gap",
+          highlights: ["100% Локальная обработка на GPU", "Совместимость с GDPR, PDPA, HIPAA", "Нулевая передача голоса", "Криптографическое лицензирование"],
+        },
+      };
+      if (ruMap[module.id]) return { ...module, ...ruMap[module.id] };
+    } else if (currentLocale === "es") {
+      const esMap: Record<string, any> = {
+        "selfie-engine": {
+          title: "Selfie con el Avatar (Selfie With Avatar)",
+          subtitle: "Composición fotográfica instantánea en el dispositivo",
+          description: "Los visitantes tocan 'Selfie' para tomarse una foto junto al avatar de IA. Coincidencia facial en tiempo real, 6 filtros y enlace QR con caducidad en 24 horas.",
+          badge: "Experiencia fotográfica interactiva",
+          highlights: ["Composición local en tiempo real", "Alineación de escala y rostro", "6 filtros fotográficos", "Enlace QR caducable en 24 horas"],
+        },
+        "live-character": {
+          title: "Modo Personaje Animado",
+          subtitle: "Modo de cara caricaturizada impulsado por cámara",
+          description: "Modo de renderizado que deforma una piel de personaje estilizada sobre el rostro del visitante en tiempo real mediante seguimiento de cámara.",
+          badge: "Seguimiento facial en tiempo real",
+          highlights: ["Seguimiento facial con cámara", "Deformación de expresiones y parpadeo", "Biblioteca de personajes sin código", "Gran atracción en exposiciones"],
+        },
+        "product-catalog": {
+          title: "Catálogo de Productos con IA",
+          subtitle: "Motor de recomendación mediante archivos CSV",
+          description: "Convierte su catálogo CSV en un sistema de recomendación hablado. Muestra tarjetas picture-in-picture y sincronización de voz con la pantalla.",
+          badge: "Recomendador inteligente",
+          highlights: ["Esquema CSV de 9 columnas", "Sincronización de audio y tarjetas", "IA de búsqueda automática de términos", "Traducción de catálogos"],
+        },
+        "offline-rag": {
+          title: "Base de Conocimiento RAG",
+          subtitle: "RAG sobre PDF local con reordenamiento",
+          description: "Cargue PDF, CSV, TXT y Markdown directamente en el dispositivo local. Un reordenador de relevancia local evalúa pasajes sin salir a internet.",
+          badge: "100% RAG sin conexión",
+          highlights: ["RAG local para PDF, CSV, TXT y MD", "Reordenamiento de relevancia local", "Cero transmisión a la nube", "Verificación de respuestas"],
+        },
+        "multilingual-voice": {
+          title: "Motor Multilingüe y Clonación de Voz",
+          subtitle: "29+ idiomas globales y clonación de tono de marca",
+          description: "Reconocimiento y síntesis de voz 100% local en 29+ idiomas globales, incluidos acentos regionales y clonación automática de voz por personaje.",
+          badge: "29+ Idiomas globales",
+          highlights: ["STT y TTS 100% locales", "Motor en tiempo real para 29+ idiomas", "Clonación de voz por personaje", "Monedas y números localizados"],
+        },
+        "airgap-privacy": {
+          title: "Privacidad y Seguridad Local (Air-Gap)",
+          subtitle: "Seguridad de datos 100% en el dispositivo",
+          description: "Diseñado para banca, defensa y salud. Todo el procesamiento de voz, LLM, RAG y fotografía se ejecuta localmente en hardware físico.",
+          badge: "Cumplimiento Air-Gap",
+          highlights: ["Procesamiento 100% en hardware local", "Compatible con GDPR, PDPA y HIPAA", "Cero transmisión de voz", "Licencia criptográfica de dispositivo"],
+        },
+      };
+      if (esMap[module.id]) return { ...module, ...esMap[module.id] };
+    }
     return module;
   });
 

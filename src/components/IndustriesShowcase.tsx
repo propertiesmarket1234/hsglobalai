@@ -122,11 +122,33 @@ const industries = [
   },
 ];
 
+import { usePathname } from "next/navigation";
+import { getDictionary } from "@/i18n/getDictionary";
+import { Locale, nonDefaultLocales } from "@/i18n/config";
+
 export default function IndustriesShowcase() {
+  const pathname = usePathname();
+  const seg = pathname ? pathname.split("/")[1] : "";
+  const currentLocale: Locale = seg && (nonDefaultLocales as readonly string[]).includes(seg) ? (seg as Locale) : "en";
+  const dict = getDictionary(currentLocale);
+  const indItems = dict.home.industriesSection.items;
+
+  const localizedIndustries = industries.map((ind, idx) => {
+    const dictItem = indItems && indItems[idx];
+    if (dictItem) {
+      return {
+        ...ind,
+        title: dictItem.title || ind.title,
+        description: dictItem.description || ind.description,
+      };
+    }
+    return ind;
+  });
+
   return (
     <section className="relative overflow-hidden bg-black px-6 py-24 text-white">
       <div className="relative mx-auto max-w-7xl divide-y divide-white/10">
-        {industries.map((industry) => (
+        {localizedIndustries.map((industry) => (
           <div key={industry.number} className="py-20 first:pt-0 last:pb-0 overflow-hidden">
             <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
               {/* LEFT HEADER & ICON */}
