@@ -123,9 +123,19 @@ export default function ProductShowcase() {
         title: (fp.dihuava && fp.dihuava.title) || item.title,
         subtitle: (fp.dihuava && fp.dihuava.category) || item.subtitle,
         description: (fp.dihuava && fp.dihuava.description) || item.description,
-        badge: currentLocale === "zh" ? "实时交互流" : item.badge,
-        tags: currentLocale === "zh" ? ["29+ 种全球语言", "声音克隆", "定制数字人", "实时交互"] : item.tags,
-        linkText: currentLocale === "zh" ? "探索 DIHUAVA AI 数字人平台" : item.linkText,
+        badge: currentLocale === "zh" ? "实时交互流" : currentLocale === "ru" ? "Интерактивный поток" : item.badge,
+        tags:
+          currentLocale === "zh"
+            ? ["29+ 种全球语言", "声音克隆", "定制数字人", "实时交互"]
+            : currentLocale === "ru"
+            ? ["29+ Мировых языков", "Клонирование голоса", "Персональные аватары", "Интерактивность в реальном времени"]
+            : item.tags,
+        linkText:
+          currentLocale === "zh"
+            ? "探索 DIHUAVA AI 数字人平台"
+            : currentLocale === "ru"
+            ? "Обзор платформы AI цифровых людей DIHUAVA →"
+            : item.linkText,
       };
     }
     if (item.id === "hologram-box") {
@@ -134,9 +144,19 @@ export default function ProductShowcase() {
         title: (fp.hologramBox && fp.hologramBox.title) || item.title,
         subtitle: (fp.hologramBox && fp.hologramBox.category) || item.subtitle,
         description: (fp.hologramBox && fp.hologramBox.description) || item.description,
-        badge: currentLocale === "zh" ? "3D 全息" : item.badge,
-        tags: currentLocale === "zh" ? ["29+ 种全球语言", "3D 全息", "离线 AI 引擎", "多种尺寸"] : item.tags,
-        linkText: currentLocale === "zh" ? "探索 3D AI 全息显示盒" : item.linkText,
+        badge: currentLocale === "zh" ? "3D 全息" : currentLocale === "ru" ? "3D-Голографический куб" : item.badge,
+        tags:
+          currentLocale === "zh"
+            ? ["29+ 种全球语言", "3D 全息", "离线 AI 引擎", "多种尺寸"]
+            : currentLocale === "ru"
+            ? ["29+ Мировых языков", "3D-Голограмма", "Автономный AI-движок", "Различные размеры"]
+            : item.tags,
+        linkText:
+          currentLocale === "zh"
+            ? "探索 3D AI 全息显示盒"
+            : currentLocale === "ru"
+            ? "Обзор 3D AI голографического куба →"
+            : item.linkText,
       };
     }
     if (item.id === "spatial-display") {
@@ -145,9 +165,19 @@ export default function ProductShowcase() {
         title: (fp.spatialDisplay && fp.spatialDisplay.title) || item.title,
         subtitle: (fp.spatialDisplay && fp.spatialDisplay.category) || item.subtitle,
         description: (fp.spatialDisplay && fp.spatialDisplay.description) || item.description,
-        badge: currentLocale === "zh" ? "裸眼 3D 体积显示" : item.badge,
-        tags: currentLocale === "zh" ? ["29+ 种全球语言", "沉浸式 3D 视觉", "数字标牌", "交互式显示屏"] : item.tags,
-        linkText: currentLocale === "zh" ? "探索裸眼 3D 空间显示屏" : item.linkText,
+        badge: currentLocale === "zh" ? "裸眼 3D 体积显示" : currentLocale === "ru" ? "Объемный 3D-дисплей" : item.badge,
+        tags:
+          currentLocale === "zh"
+            ? ["29+ 种全球语言", "沉浸式 3D 视觉", "数字标牌", "交互式显示屏"]
+            : currentLocale === "ru"
+            ? ["29+ Мировых языков", "Захватывающая 3D-графика", "Цифровые вывески", "Интерактивный экран"]
+            : item.tags,
+        linkText:
+          currentLocale === "zh"
+            ? "探索裸眼 3D 空间显示屏"
+            : currentLocale === "ru"
+            ? "Обзор 3D объемного дисплея без очков →"
+            : item.linkText,
       };
     }
     if (item.id === "virtual-try-on") {
@@ -156,9 +186,19 @@ export default function ProductShowcase() {
         title: (fp.virtualTryOn && fp.virtualTryOn.title) || item.title,
         subtitle: (fp.virtualTryOn && fp.virtualTryOn.category) || item.subtitle,
         description: (fp.virtualTryOn && fp.virtualTryOn.description) || item.description,
-        badge: currentLocale === "zh" ? "前沿研发能力" : item.badge,
-        tags: currentLocale === "zh" ? ["29+ 种全球语言", "AI 试穿镜", "实时试穿", "智慧零售体验"] : item.tags,
-        linkText: currentLocale === "zh" ? "了解 Virtual Try-On 虚拟试穿技术" : item.linkText,
+        badge: currentLocale === "zh" ? "前沿研发能力" : currentLocale === "ru" ? "Активные R&D разработки" : item.badge,
+        tags:
+          currentLocale === "zh"
+            ? ["29+ 种全球语言", "AI 试穿镜", "实时试穿", "智慧零售体验"]
+            : currentLocale === "ru"
+            ? ["29+ Мировых языков", "AI Умное зеркало", "Примерка в реальном времени", "Интерактивный ритейл"]
+            : item.tags,
+        linkText:
+          currentLocale === "zh"
+            ? "了解 Virtual Try-On 虚拟试穿技术"
+            : currentLocale === "ru"
+            ? "Подробнее о технологии виртуальной примерки →"
+            : item.linkText,
       };
     }
     return item;

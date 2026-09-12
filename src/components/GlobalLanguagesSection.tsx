@@ -89,6 +89,22 @@ const zhRegionMap: Record<string, string> = {
   "Southeast Asia": "东南亚",
 };
 
+const ruRegionMap: Record<string, string> = {
+  "Global": "Весь мир",
+  "Europe & Americas": "Европа и Америка",
+  "East Asia": "Восточная Азия",
+  "Middle East & N. Africa": "Ближний Восток и Сев. Африка",
+  "Europe & Africa": "Европа и Африка",
+  "Europe": "Европа",
+  "India": "Индия",
+  "India & SE Asia": "Юго-Восточная Азия",
+  "India & Bangladesh": "Индия и Бангладеш",
+  "Eurasia": "Евразия",
+  "Europe & LatAm": "Европа и Латинская Америка",
+  "Middle East": "Ближний Восток",
+  "Southeast Asia": "Юго-Восточная Азия",
+};
+
 const zhNameMap: Record<string, string> = {
   "English": "英语",
   "Spanish": "西班牙语",
@@ -119,6 +135,38 @@ const zhNameMap: Record<string, string> = {
   "Hebrew": "希伯来语",
   "Czech": "捷克语",
   "Ukrainian": "乌克兰语",
+};
+
+const ruNameMap: Record<string, string> = {
+  "English": "Английский",
+  "Spanish": "Испанский",
+  "Mandarin Chinese": "Китайский (Путунхуа)",
+  "Arabic": "Арабский",
+  "Japanese": "Японский",
+  "Korean": "Корейский",
+  "French": "Французский",
+  "German": "Немецкий",
+  "Hindi": "Хинди",
+  "Tamil": "Тамильский",
+  "Telugu": "Телугу",
+  "Kannada": "Каннада",
+  "Bengali": "Бенгальский",
+  "Marathi": "Маратхи",
+  "Gujarati": "Гуджарати",
+  "Russian": "Русский",
+  "Portuguese": "Португальский",
+  "Italian": "Итальянский",
+  "Dutch": "Нидерландский",
+  "Turkish": "Турецкий",
+  "Vietnamese": "Вьетнамский",
+  "Thai": "Тайский",
+  "Indonesian": "Индонезийский",
+  "Polish": "Польский",
+  "Swedish": "Шведский",
+  "Greek": "Греческий",
+  "Hebrew": "Иврит",
+  "Czech": "Чешский",
+  "Ukrainian": "Украинский",
 };
 
 export default function GlobalLanguagesSection() {
@@ -224,11 +272,19 @@ export default function GlobalLanguagesSection() {
                 <div className="flex items-center justify-between">
                   <span className="text-base">{lang.flag}</span>
                   <span className="text-[10px] font-mono text-gray-300 group-hover:text-cyan-300">
-                    {currentLocale === "zh" ? zhRegionMap[lang.region] || lang.region : lang.region}
+                    {currentLocale === "zh"
+                      ? zhRegionMap[lang.region] || lang.region
+                      : currentLocale === "ru"
+                      ? ruRegionMap[lang.region] || lang.region
+                      : lang.region}
                   </span>
                 </div>
                 <div className="mt-2 text-sm font-semibold text-white group-hover:text-cyan-200">
-                  {currentLocale === "zh" ? zhNameMap[lang.name] || lang.name : lang.name}
+                  {currentLocale === "zh"
+                    ? zhNameMap[lang.name] || lang.name
+                    : currentLocale === "ru"
+                    ? ruNameMap[lang.name] || lang.name
+                    : lang.name}
                 </div>
                 <div className="text-xs text-gray-300 truncate font-sans">
                   {lang.native}
