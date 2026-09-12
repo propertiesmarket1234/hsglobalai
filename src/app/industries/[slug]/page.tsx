@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 import Link from "next/link";
 import { industriesData } from "@/data/industriesData";
+import { getLocalizedIndustryData, getLocalizedUIStrings } from "@/data/localizedIndustriesData";
 import IndustryInfoDepth from "@/components/IndustryInfoDepth";
 import IndustryFAQ from "@/components/IndustryFAQ";
 import {
@@ -54,6 +55,7 @@ const getIconComponent = (iconStr: string) => {
 interface IndustryPageProps {
   params: Promise<{
     slug: string;
+    lang?: string;
   }>;
 }
 
@@ -64,24 +66,26 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: IndustryPageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const industry = industriesData[slug];
+  const { slug, lang = "en" } = await params;
+  const industry = getLocalizedIndustryData(slug, lang);
 
   if (!industry) {
     return {
       title: "Industry Solutions | HS Global AI",
       description: "AI Digital Human and 3D Hologram Box solutions tailored for global enterprise industries.",
       alternates: {
-        canonical: `/industries/${slug}`,
+        canonical: lang === "en" ? `/industries/${slug}` : `/${lang}/industries/${slug}`,
       },
     };
   }
+
+  const canonicalPath = lang === "en" ? `/industries/${slug}` : `/${lang}/industries/${slug}`;
 
   return {
     title: industry.metaTitle,
     description: industry.metaDescription,
     alternates: {
-      canonical: `/industries/${slug}`,
+      canonical: canonicalPath,
     },
     openGraph: {
       title: industry.metaTitle,
@@ -92,15 +96,27 @@ export async function generateMetadata({ params }: IndustryPageProps): Promise<M
 }
 
 export default async function IndustrySubPage({ params }: IndustryPageProps) {
-  const { slug } = await params;
-  const industry = industriesData[slug];
+  const { slug, lang = "en" } = await params;
+  const industry = getLocalizedIndustryData(slug, lang);
+  const ui = getLocalizedUIStrings(lang);
 
   if (!industry) {
     notFound();
   }
 
-  const allIndustries = Object.values(industriesData);
+  const allIndustries = Object.keys(industriesData).map((s) => getLocalizedIndustryData(s, lang));
   const MainIcon = getIconComponent(industry.icon);
+
+  const homeHref = lang === "en" ? "/" : `/${lang}`;
+  const industriesHref = lang === "en" ? "/industries" : `/${lang}/industries`;
+  const contactHref = lang === "en" ? "/contact" : `/${lang}/contact`;
+  const downloadHref = lang === "en" ? "/contact/download-center" : `/${lang}/contact/download-center`;
+  const holoHref = lang === "en" ? "/products/holographic-display" : `/${lang}/products/holographic-display`;
+  const avatarHref = lang === "en" ? "/products/ai-digital-human" : `/${lang}/products/ai-digital-human`;
+  const docIntelHref = lang === "en" ? "/products/ai-digital-human/document-intelligence" : `/${lang}/products/ai-digital-human/document-intelligence`;
+
+  const baseUrl = "https://www.hsglobalai.com";
+  const currentPath = lang === "en" ? `/industries/${industry.slug}` : `/${lang}/industries/${industry.slug}`;
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -109,20 +125,20 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
       {
         "@type": "ListItem",
         position: 1,
-        name: "Home",
-        item: "https://www.hsglobalai.com",
+        name: ui.home,
+        item: `${baseUrl}${homeHref}`,
       },
       {
         "@type": "ListItem",
         position: 2,
-        name: "Industries",
-        item: "https://www.hsglobalai.com/industries",
+        name: ui.industries,
+        item: `${baseUrl}${industriesHref}`,
       },
       {
         "@type": "ListItem",
         position: 3,
         name: industry.title,
-        item: `https://www.hsglobalai.com/industries/${industry.slug}`,
+        item: `${baseUrl}${currentPath}`,
       },
     ],
   };
@@ -164,12 +180,12 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
         <div className="relative mx-auto max-w-7xl">
           {/* Breadcrumb Navigation */}
           <div className="flex items-center gap-2 text-xs text-gray-400 mb-6 font-mono">
-            <Link href="/" className="hover:text-cyan-400 transition-colors">
-              Home
+            <Link href={homeHref} className="hover:text-cyan-400 transition-colors">
+              {ui.home}
             </Link>
             <span>/</span>
-            <Link href="/industries" className="hover:text-cyan-400 transition-colors">
-              Industries
+            <Link href={industriesHref} className="hover:text-cyan-400 transition-colors">
+              {ui.industries}
             </Link>
             <span>/</span>
             <span className="text-cyan-300 font-semibold">{industry.title}</span>
@@ -206,16 +222,16 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
               {/* Action Buttons */}
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <Link
-                  href="/contact"
+                  href={contactHref}
                   className="rounded-full bg-gradient-to-r from-cyan-500 via-sky-500 to-cyan-600 px-8 py-3.5 text-sm font-bold text-white shadow-xl transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(6,182,212,0.4)]"
                 >
-                  Request {industry.title} Demo →
+                  {ui.requestDemo.replace("{title}", industry.title)}
                 </Link>
                 <Link
-                  href="/contact/download-center"
+                  href={downloadHref}
                   className="rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-semibold text-gray-200 backdrop-blur-md transition-colors hover:border-cyan-400 hover:text-white"
                 >
-                  Download Solution Brief (PDF)
+                  {ui.downloadPdf}
                 </Link>
               </div>
             </div>
@@ -238,26 +254,26 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
                 <div className="mt-6 space-y-4">
                   <div className="rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-md">
                     <span className="text-xs font-mono text-gray-400 uppercase tracking-wider">
-                      Target Environment
+                      {ui.targetEnvironment}
                     </span>
                     <p className="mt-1 text-sm font-semibold text-white">
-                      Physical Locations, Retail Stores, VIP Lounges & Public Enclosures
+                      {ui.targetEnvValue}
                     </p>
                   </div>
 
                   <div className="rounded-xl border border-cyan-500/30 bg-cyan-950/40 p-4 backdrop-blur-md">
                     <span className="text-xs font-mono text-cyan-400 uppercase tracking-wider">
-                      Core AI Architecture
+                      {ui.coreAiArch}
                     </span>
                     <p className="mt-1 text-sm font-semibold text-cyan-200">
-                      100% Offline GPU Inference & <Link href="/products/ai-digital-human/document-intelligence" className="underline hover:text-white">Local Document Intelligence RAG</Link>
+                      {ui.coreAiArchValue}
                     </p>
                   </div>
                 </div>
 
                 <div className="mt-6 pt-6 border-t border-white/10 flex items-center justify-between text-xs font-mono text-gray-400">
-                  <span>STATUS: READY TO DEPLOY</span>
-                  <span className="text-emerald-400">29+ LANGUAGES</span>
+                  <span>{ui.statusReady}</span>
+                  <span className="text-emerald-400">{ui.languages29}</span>
                 </div>
               </div>
             </div>
@@ -291,13 +307,13 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
         <div className="mx-auto max-w-7xl">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400 font-mono">
-              Tailored Capabilities
+              {ui.tailoredCapabilitiesBadge}
             </span>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-5xl">
-              Engineered specifically for {industry.title}.
+              {ui.tailoredCapabilitiesTitle.replace("{title}", industry.title)}
             </h2>
             <p className="mt-4 text-base text-gray-400 leading-7">
-              Our digital human platform integrates with existing enterprise systems to automate operations while preserving data privacy.
+              {ui.tailoredCapabilitiesDesc}
             </p>
           </div>
 
@@ -313,29 +329,27 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
                     <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-500/40 bg-cyan-950/50 text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.2)] mb-5">
                       <CapIcon className="w-6 h-6 text-cyan-300" strokeWidth={1.75} />
                     </span>
-                  <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors">
-                    {cap.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-6 text-gray-300">
-                    {cap.description}
-                  </p>
+                    <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors">
+                      {cap.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-6 text-gray-300">
+                      {cap.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* REAL-WORLD DEPLOYMENT USE CASES - HIGH VISIBILITY & STUNNING DESIGN */}
+      {/* REAL-WORLD DEPLOYMENT USE CASES */}
       <section className="relative overflow-hidden bg-black px-6 py-28 md:py-36 border-b border-cyan-500/30">
-        {/* Ambient Radial Background Light Orbs */}
         <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[700px] w-[1000px] rounded-full bg-gradient-to-r from-cyan-500/20 via-sky-600/10 to-transparent blur-[180px]" />
         <div className="pointer-events-none absolute right-0 top-1/4 h-96 w-96 rounded-full bg-cyan-600/15 blur-[140px]" />
         <div className="pointer-events-none absolute left-0 bottom-1/4 h-96 w-96 rounded-full bg-sky-500/10 blur-[140px]" />
 
         <div className="relative mx-auto max-w-7xl">
-          {/* Header Block with Glowing Badge and Gradient Typography */}
           <div className="text-center max-w-3xl mx-auto mb-20">
             <div className="inline-flex items-center gap-2.5 rounded-full border border-cyan-400/40 bg-cyan-950/90 px-5 py-2 backdrop-blur-md shadow-[0_0_30px_rgba(6,182,212,0.4)] mb-6">
               <span className="relative flex h-2.5 w-2.5">
@@ -343,35 +357,28 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
                 <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-cyan-400" />
               </span>
               <span className="text-xs font-extrabold tracking-[0.25em] text-cyan-300 uppercase font-mono">
-                DEPLOYMENT USE CASES
+                {ui.useCasesBadge}
               </span>
             </div>
 
             <h2 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl lg:leading-tight">
-              Real-world{" "}
-              <span className="bg-gradient-to-r from-cyan-300 via-sky-200 to-cyan-400 bg-clip-text text-transparent">
-                {industry.slug === "banking" ? "banking" : industry.title.toLowerCase()}
-              </span>{" "}
-              applications.
+              {ui.useCasesTitle.replace("{title}", industry.title)}
             </h2>
 
             <p className="mt-5 text-base text-gray-300 sm:text-lg leading-8">
-              Explore how our <Link href="/products/holographic-display" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">AI Hologram Box</Link> and <Link href="/products/ai-digital-human" className="text-cyan-400 hover:text-cyan-300 underline font-semibold">DIHUAVA Digital Human AI platform</Link> are deployed across core operational workflows in {industry.title}.
+              {ui.useCasesDesc.replace("{title}", industry.title)}
             </p>
           </div>
 
-          {/* 6 High-Impact Glowing Cards Grid */}
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {industry.useCases.map((useCase, idx) => (
               <div
                 key={idx}
                 className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-cyan-500/35 bg-neutral-950/90 p-8 backdrop-blur-2xl shadow-[0_0_35px_rgba(6,182,212,0.15)] transition-all duration-500 hover:-translate-y-2.5 hover:scale-[1.02] hover:border-cyan-400 hover:shadow-[0_0_55px_rgba(6,182,212,0.4)]"
               >
-                {/* Top Accent Gradient Line */}
                 <div className="absolute left-0 top-0 h-1.5 w-full bg-gradient-to-r from-cyan-500 via-sky-400 to-cyan-600 opacity-80 group-hover:opacity-100 transition-opacity" />
 
                 <div>
-                  {/* Category Pill & Number Badge */}
                   <div className="flex items-center justify-between gap-3 mb-6">
                     <span className="rounded-full border border-cyan-500/40 bg-cyan-500/10 px-3.5 py-1 text-xs font-semibold text-cyan-300 font-mono tracking-wide">
                       {useCase.category}
@@ -381,22 +388,19 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
                     </span>
                   </div>
 
-                  {/* Title */}
                   <h3 className="text-2xl font-bold tracking-tight text-white group-hover:text-cyan-300 transition-colors mb-3">
                     {useCase.title}
                   </h3>
 
-                  {/* Description */}
                   <p className="text-sm leading-7 text-gray-300">
                     {useCase.description}
                   </p>
                 </div>
 
-                {/* Key Advantage Footer Box */}
                 <div className="mt-8 pt-6 border-t border-white/15">
                   <div className="rounded-xl border border-cyan-500/40 bg-cyan-950/70 p-3.5 backdrop-blur-md shadow-[0_0_20px_rgba(6,182,212,0.2)] group-hover:border-cyan-400/70 transition-colors">
                     <span className="text-xs font-mono font-bold text-cyan-300 flex items-center gap-2">
-                      <span className="text-amber-400 text-sm">⚡</span> Key Advantage: {useCase.highlight}
+                      <span className="text-amber-400 text-sm">⚡</span> {ui.keyAdvantage} {useCase.highlight}
                     </span>
                   </div>
                 </div>
@@ -416,10 +420,10 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
         <div className="mx-auto max-w-5xl">
           <div className="text-center mb-12">
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400 font-mono">
-              Enterprise Specs
+              {ui.enterpriseSpecsBadge}
             </span>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-4xl">
-              Technical Architecture & Standards
+              {ui.enterpriseSpecsTitle}
             </h2>
           </div>
 
@@ -454,28 +458,28 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end mb-12">
             <div>
               <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400 font-mono">
-                Explore Other Industries
+                {ui.exploreOtherBadge}
               </span>
               <h2 className="mt-2 text-3xl font-bold text-white md:text-4xl">
-                AI solutions for every sector
+                {ui.exploreOtherTitle}
               </h2>
             </div>
             <Link
-              href="/industries"
+              href={industriesHref}
               className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-400 hover:underline"
             >
-              <span>View All Industries</span>
-              <span>→</span>
+              <span>{ui.viewAllIndustries}</span>
             </Link>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {allIndustries.map((ind) => {
               const isCurrent = ind.slug === industry.slug;
+              const indHref = lang === "en" ? `/industries/${ind.slug}` : `/${lang}/industries/${ind.slug}`;
               return (
                 <Link
                   key={ind.slug}
-                  href={`/industries/${ind.slug}`}
+                  href={indHref}
                   className={`group relative flex items-center justify-between rounded-2xl border p-5 backdrop-blur-md transition-all duration-300 ${
                     isCurrent
                       ? "border-cyan-400 bg-cyan-950/60 shadow-[0_0_25px_rgba(6,182,212,0.3)]"

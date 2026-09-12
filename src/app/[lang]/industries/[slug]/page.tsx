@@ -2,7 +2,7 @@ import IndustryDetailPage from "@/app/industries/[slug]/page";
 import { industriesData } from "@/data/industriesData";
 
 export async function generateStaticParams() {
-  const langs = ["zh", "ru", "es"];
+  const langs = ["zh", "ru", "es", "fr"];
   const slugs = Object.keys(industriesData);
   const params: { lang: string; slug: string }[] = [];
 
