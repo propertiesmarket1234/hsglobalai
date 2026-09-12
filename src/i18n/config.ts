@@ -1,5 +1,5 @@
-export type Locale = "en" | "zh" | "ru" | "es";
-export type NonDefaultLocale = "zh" | "ru" | "es";
+export type Locale = "en" | "zh" | "ru" | "es" | "fr";
+export type NonDefaultLocale = "zh" | "ru" | "es" | "fr";
 
 export interface LocaleInfo {
   code: Locale;
@@ -9,8 +9,8 @@ export interface LocaleInfo {
 }
 
 export const defaultLocale: Locale = "en";
-export const supportedLocales: readonly Locale[] = ["en", "zh", "ru", "es"];
-export const nonDefaultLocales: readonly NonDefaultLocale[] = ["zh", "ru", "es"];
+export const supportedLocales: readonly Locale[] = ["en", "zh", "ru", "es", "fr"];
+export const nonDefaultLocales: readonly NonDefaultLocale[] = ["zh", "ru", "es", "fr"];
 
 export const locales: Record<Locale, LocaleInfo> = {
   en: {
@@ -37,6 +37,12 @@ export const locales: Record<Locale, LocaleInfo> = {
     nativeName: "Español",
     flag: "🇪🇸",
   },
+  fr: {
+    code: "fr",
+    name: "French",
+    nativeName: "Français",
+    flag: "🇫🇷",
+  },
 };
 
 export const LOCAL_STORAGE_LANG_KEY = "hsglobalai_lang_pref";
@@ -49,7 +55,7 @@ export function isValidNonDefaultLocale(locale: string): locale is NonDefaultLoc
   return (nonDefaultLocales as readonly string[]).includes(locale);
 }
 
-/** Strips any leading locale prefix (/zh, /ru, /es) from the pathname */
+/** Strips any leading locale prefix (/zh, /ru, /es, /fr) from the pathname */
 export function stripLocalePrefix(pathname: string): string {
   if (!pathname) return "/";
   const segments = pathname.split("/").filter(Boolean);
@@ -83,6 +89,7 @@ export function getLocalizedAlternates(path: string, lang?: string) {
       zh: `${baseUrl}/zh${pathSuffix}`,
       ru: `${baseUrl}/ru${pathSuffix}`,
       es: `${baseUrl}/es${pathSuffix}`,
+      fr: `${baseUrl}/fr${pathSuffix}`,
       "x-default": `${baseUrl}${pathSuffix}`,
     },
   };

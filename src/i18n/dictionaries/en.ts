@@ -95,6 +95,7 @@ export const en = {
       zh: "中文",
       ru: "Русский",
       es: "Español",
+      fr: "Français",
     },
   },
   home: {

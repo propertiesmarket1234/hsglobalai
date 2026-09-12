@@ -217,6 +217,54 @@ const esNameMap: Record<string, string> = {
   "Ukrainian": "Ucraniano",
 };
 
+const frRegionMap: Record<string, string> = {
+  "Global": "Mondial",
+  "Europe & Americas": "Europe & Amériques",
+  "East Asia": "Asie de l'Est",
+  "Middle East & N. Africa": "Moyen-Orient & Afrique du Nord",
+  "Europe & Africa": "Europe & Afrique",
+  "Europe": "Europe",
+  "India": "Inde",
+  "India & SE Asia": "Inde & Asie du Sud-Est",
+  "India & Bangladesh": "Inde & Bangladesh",
+  "Eurasia": "Eurasie",
+  "Europe & LatAm": "Europe & Amérique Latine",
+  "Middle East": "Moyen-Orient",
+  "Southeast Asia": "Asie du Sud-Est",
+};
+
+const frNameMap: Record<string, string> = {
+  "English": "Anglais",
+  "Spanish": "Espagnol",
+  "Mandarin Chinese": "Chinois Mandarin",
+  "Arabic": "Arabe",
+  "Japanese": "Japonais",
+  "Korean": "Coréen",
+  "French": "Français",
+  "German": "Allemand",
+  "Hindi": "Hindi",
+  "Tamil": "Tamoul",
+  "Telugu": "Télougou",
+  "Kannada": "Kannada",
+  "Bengali": "Bengali",
+  "Marathi": "Marathi",
+  "Gujarati": "Goudjarati",
+  "Russian": "Russe",
+  "Portuguese": "Portugais",
+  "Italian": "Italien",
+  "Dutch": "Néerlandais",
+  "Turkish": "Turc",
+  "Vietnamese": "Vietnamien",
+  "Thai": "Thaï",
+  "Indonesian": "Indonésien",
+  "Polish": "Polonais",
+  "Swedish": "Suédois",
+  "Greek": "Grec",
+  "Hebrew": "Hébreu",
+  "Czech": "Tchèque",
+  "Ukrainian": "Ukrainien",
+};
+
 export default function GlobalLanguagesSection() {
   const pathname = usePathname();
   const seg = pathname ? pathname.split("/")[1] : "";
@@ -326,6 +374,8 @@ export default function GlobalLanguagesSection() {
                       ? ruRegionMap[lang.region] || lang.region
                       : currentLocale === "es"
                       ? esRegionMap[lang.region] || lang.region
+                      : currentLocale === "fr"
+                      ? frRegionMap[lang.region] || lang.region
                       : lang.region}
                   </span>
                 </div>
@@ -336,6 +386,8 @@ export default function GlobalLanguagesSection() {
                     ? ruNameMap[lang.name] || lang.name
                     : currentLocale === "es"
                     ? esNameMap[lang.name] || lang.name
+                    : currentLocale === "fr"
+                    ? frNameMap[lang.name] || lang.name
                     : lang.name}
                 </div>
                 <div className="text-xs text-gray-300 truncate font-sans">
