@@ -236,9 +236,9 @@ export default function AboutClient() {
                 </p>
 
                 <div className="mt-6 flex flex-wrap items-center gap-4 text-xs font-medium text-cyan-400 font-mono">
-                  <span>📍 Global HQ: Singapore (20 Collyer Quay, #09-01)</span>
+                  <span>{aPage.hqLabel || "📍 Global HQ: Singapore (20 Collyer Quay, #09-01)"}</span>
                   <span className="text-gray-600">|</span>
-                  <span>🏢 India Office: Andhra Pradesh (Kanuru, Vijayawada)</span>
+                  <span>{aPage.indiaOfficeLabel || "🏢 India Office: Andhra Pradesh (Kanuru, Vijayawada)"}</span>
                 </div>
               </div>
             </div>
@@ -253,10 +253,10 @@ export default function AboutClient() {
         <div className="relative mx-auto max-w-7xl">
           <div className="text-center mb-16">
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400">
-              Our Core Foundation
+              {aPage.coreFoundationBadge || "Our Core Foundation"}
             </span>
             <h2 className="mt-3 text-4xl font-bold tracking-tight text-white md:text-5xl">
-              Mission, Vision & Values
+              {aPage.coreFoundationHeading || "Mission, Vision & Values"}
             </h2>
           </div>
 
@@ -313,13 +313,13 @@ export default function AboutClient() {
             transition={{ duration: 0.6 }}
           >
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400">
-              Why Choose HS Global AI
+              {aPage.whyChooseBadge || "Why Choose HS Global AI"}
             </span>
             <h2 className="mt-3 text-4xl font-bold tracking-tight text-white md:text-5xl">
-              Enterprise AI Solutions Built For Real Results
+              {aPage.whyChooseHeading || "Enterprise AI Solutions Built For Real Results"}
             </h2>
             <p className="mt-4 max-w-2xl text-base text-gray-400">
-              Our platform combines advanced AI technologies with practical business applications, helping organizations improve customer experiences, reduce operational costs, and scale efficiently.
+              {aPage.whyChooseDesc || "Our platform combines advanced AI technologies with practical business applications, helping organizations improve customer experiences, reduce operational costs, and scale efficiently."}
             </p>
           </motion.div>
 
@@ -359,14 +359,14 @@ export default function AboutClient() {
           <div className="mb-16 grid gap-8 lg:grid-cols-2 lg:items-end">
             <div>
               <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400">
-                Our Approach
+                {aPage.approachBadge || "Our Approach"}
               </span>
               <h2 className="mt-3 text-4xl font-bold tracking-tight text-white md:text-5xl">
-                Intelligent by design. Practical by nature.
+                {aPage.approachHeading || "Intelligent by design. Practical by nature."}
               </h2>
             </div>
             <p className="text-base text-gray-400 leading-7">
-              We design AI experiences around the realities of physical environments, business operations, customer interactions, privacy, and accessibility.
+              {aPage.approachDesc || "We design AI experiences around the realities of physical environments, business operations, customer interactions, privacy, and accessibility."}
             </p>
           </div>
 
@@ -396,10 +396,10 @@ export default function AboutClient() {
         <div className="relative mx-auto max-w-7xl">
           <div className="mb-12">
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400">
-              Target Sectors
+              {aPage.targetSectorsBadge || "Target Sectors"}
             </span>
             <h2 className="mt-3 text-4xl font-bold tracking-tight text-white md:text-5xl">
-              Industries We Serve
+              {aPage.targetSectorsHeading || "Industries We Serve"}
             </h2>
           </div>
 
