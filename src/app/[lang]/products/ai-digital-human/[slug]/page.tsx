@@ -1,7 +1,7 @@
 import DihuavaCapabilityPage from "@/app/products/ai-digital-human/[slug]/page";
 
 export async function generateStaticParams() {
-  const langs = ["zh", "ru", "es"];
+  const langs = ["zh", "ru", "es", "fr"];
   const slugs = [
     "avatar-customization",
     "document-intelligence",
