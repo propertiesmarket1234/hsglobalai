@@ -82,6 +82,181 @@ export default function HolographicDisplayClient() {
   const hPage = (dict as any).holographicPage || {};
   const lPath = (path: string) => getLocalizedPath(path, currentLocale);
 
+  const localizedContent: Record<string, {
+    breadcrumbProducts: string;
+    breadcrumbCurrent: string;
+    availableSpecs: string;
+    size55: string;
+    size65: string;
+    size75: string;
+    size86: string;
+    ctaPrimaryBtn: string;
+    ctaSecondaryBtn: string;
+    sizesLabel: string;
+    statusBadge: string;
+    slideText: string;
+    slideCaptions: string[];
+    featuresBadge: string;
+    featuresHeading: string;
+    specsBadge: string;
+    specsHeading: string;
+    tableHeaderSpec: string;
+    tableHeaderDetails: string;
+    ctaTitle: string;
+    ctaHighlight: string;
+    ctaDesc: string;
+    ctaPrimaryText: string;
+    ctaSecondaryText: string;
+  }> = {
+    zh: {
+      breadcrumbProducts: "产品中心",
+      breadcrumbCurrent: "3D全息显示柜",
+      availableSpecs: "可选规格：",
+      size55: "55 英寸",
+      size65: "65 英寸",
+      size75: "75 英寸",
+      size86: "86 英寸",
+      ctaPrimaryBtn: "预约全息柜演示 →",
+      ctaSecondaryBtn: "下载规格参数表 (PDF)",
+      sizesLabel: "尺寸：",
+      statusBadge: "● 3D全息显示柜",
+      slideText: "幻灯片",
+      slideCaptions: [
+        "商务西装高阶全息真人1:1数字人胶囊展柜",
+        "传统服饰全息文化展示真人1:1数字人展柜",
+      ],
+      featuresBadge: "硬件亮点",
+      featuresHeading: "专为物理实体空间打造的即插即用全息硬件",
+      specsBadge: "硬件技术参数",
+      specsHeading: "3D全息显示柜详细技术指标",
+      tableHeaderSpec: "规格项目",
+      tableHeaderDetails: "详细参数",
+      ctaTitle: "让 AI 数字人走入",
+      ctaHighlight: "您的物理实体空间",
+      ctaDesc: "探索专为零售、银行、企业、医疗、博物馆和展厅打造的全息沉浸式交互显示硬件。",
+      ctaPrimaryText: "预约演示",
+      ctaSecondaryText: "下载技术白皮书 (PDF)",
+    },
+    ru: {
+      breadcrumbProducts: "Продукты",
+      breadcrumbCurrent: "3D Голографический Куб",
+      availableSpecs: "Доступные размеры:",
+      size55: "55 дюймов",
+      size65: "65 дюймов",
+      size75: "75 дюймов",
+      size86: "86 дюймов",
+      ctaPrimaryBtn: "Запросить демо Hologram Box →",
+      ctaSecondaryBtn: "Скачать спецификацию (PDF)",
+      sizesLabel: "РАЗМЕРЫ:",
+      statusBadge: "● 3D ГОЛОГРАФИЧЕСКИЙ КУБ",
+      slideText: "СЛАЙД",
+      slideCaptions: [
+        "Витрина с цифровым аватаром 1:1 в деловом костюме",
+        "Витрина с цифровым аватаром 1:1 в традиционном костюме",
+      ],
+      featuresBadge: "Основные характеристики",
+      featuresHeading: "Готовое голографическое оборудование для физических пространств.",
+      specsBadge: "Технические характеристики",
+      specsHeading: "Технические параметры 3D Голографического Куба",
+      tableHeaderSpec: "Характеристика",
+      tableHeaderDetails: "Детали",
+      ctaTitle: "Внедрите ИИ Цифровых Людей",
+      ctaHighlight: "В ваше физическое пространство",
+      ctaDesc: "Откройте для себя голографическое оборудование для ритейла, банков, офисов, здравоохранения и музеев.",
+      ctaPrimaryText: "Запросить демо",
+      ctaSecondaryText: "Скачать спецификацию (PDF)",
+    },
+    es: {
+      breadcrumbProducts: "Productos",
+      breadcrumbCurrent: "Caja Holográfica 3D",
+      availableSpecs: "Especificaciones disponibles:",
+      size55: "55 pulgadas",
+      size65: "65 pulgadas",
+      size75: "75 pulgadas",
+      size86: "86 pulgadas",
+      ctaPrimaryBtn: "Solicitar demo de Caja Holográfica →",
+      ctaSecondaryBtn: "Descargar ficha técnica (PDF)",
+      sizesLabel: "TAMAÑOS:",
+      statusBadge: "● CAJA HOLOGRÁFICA 3D",
+      slideText: "DIAPOSITIVA",
+      slideCaptions: [
+        "Vitrina de avatar digital a escala 1:1 en traje ejecutivo",
+        "Vitrina de avatar digital a escala 1:1 en atuendo tradicional",
+      ],
+      featuresBadge: "Aspectos destacados",
+      featuresHeading: "Hardware holográfico listo para usar en espacios físicos.",
+      specsBadge: "Especificaciones de hardware",
+      specsHeading: "Parámetros técnicos de Caja Holográfica 3D",
+      tableHeaderSpec: "Especificación",
+      tableHeaderDetails: "Detalles",
+      ctaTitle: "Lleve Humanos Digitales con IA",
+      ctaHighlight: "A su espacio físico",
+      ctaDesc: "Explore hardware de pantalla holográfica diseñado para comercio, banca, empresas, salud y museos.",
+      ctaPrimaryText: "Solicitar una demo",
+      ctaSecondaryText: "Descargar ficha técnica (PDF)",
+    },
+    fr: {
+      breadcrumbProducts: "Produits",
+      breadcrumbCurrent: "Boîte Hologramme 3D",
+      availableSpecs: "Spécifications disponibles :",
+      size55: "55 pouces",
+      size65: "65 pouces",
+      size75: "75 pouces",
+      size86: "86 pouces",
+      ctaPrimaryBtn: "Réserver une démo Boîte Hologramme →",
+      ctaSecondaryBtn: "Télécharger la fiche technique (PDF)",
+      sizesLabel: "TAILLES :",
+      statusBadge: "● BOÎTE HOLOGRAMME 3D",
+      slideText: "DIAPOSITIVE",
+      slideCaptions: [
+        "Enceinte d'avatar numérique à l'échelle 1:1 en costume exécutif",
+        "Enceinte d'avatar numérique à l'échelle 1:1 en tenue traditionnelle",
+      ],
+      featuresBadge: "Points forts du matériel",
+      featuresHeading: "Matériel holographique clé en main conçu pour les espaces physiques.",
+      specsBadge: "Spécifications du matériel",
+      specsHeading: "Paramètres techniques de la Boîte Hologramme 3D",
+      tableHeaderSpec: "Spécification",
+      tableHeaderDetails: "Détails",
+      ctaTitle: "Intégrez des Humains Virtuels IA",
+      ctaHighlight: "Dans votre espace physique",
+      ctaDesc: "Découvrez du matériel d'affichage holographique conçu pour le commerce, la banque, les entreprises, la santé et les musées.",
+      ctaPrimaryText: "Réserver une démo",
+      ctaSecondaryText: "Télécharger la fiche technique (PDF)",
+    },
+    en: {
+      breadcrumbProducts: "Products",
+      breadcrumbCurrent: "AI Hologram Box",
+      availableSpecs: "Available Specs:",
+      size55: '55" Inch',
+      size65: '65" Inch',
+      size75: '75" Inch',
+      size86: '86" Inch',
+      ctaPrimaryBtn: "Book Hologram Box Demo →",
+      ctaSecondaryBtn: "Download Spec Sheets (PDF)",
+      sizesLabel: "SIZES:",
+      statusBadge: "● AI HOLOGRAM BOX",
+      slideText: "SLIDE",
+      slideCaptions: [
+        "Life-size 1:1 scale digital avatar enclosure in executive silver suit",
+        "Life-size 1:1 scale digital avatar enclosure in traditional attire",
+      ],
+      featuresBadge: "Hardware Highlights",
+      featuresHeading: "Turnkey holographic hardware built for physical spaces.",
+      specsBadge: "Hardware Specifications",
+      specsHeading: "AI Hologram Box Technical Parameters",
+      tableHeaderSpec: "Specification",
+      tableHeaderDetails: "Details",
+      ctaTitle: "Bring AI Digital Humans",
+      ctaHighlight: "Into Your Physical Space",
+      ctaDesc: "Explore holographic display hardware designed for immersive customer engagement across retail, banking, corporate, healthcare, museums, and exhibitions.",
+      ctaPrimaryText: "Book a Demo",
+      ctaSecondaryText: "Download Datasheets (PDF)",
+    },
+  };
+
+  const t = localizedContent[currentLocale] || localizedContent.en;
+
   const localizedSpecs = hPage.hardwareSpecs || hardwareSpecs;
   const localizedFeatures = hologramFeatures.map((feat, idx) => {
     const dictFeat = hPage.hologramFeatures && hPage.hologramFeatures[idx];
@@ -109,10 +284,10 @@ export default function HolographicDisplayClient() {
           {/* Breadcrumb Navigation */}
           <div className="flex items-center gap-2 text-xs text-gray-400 mb-6 font-mono">
             <Link href={lPath("/products")} className="hover:text-cyan-400 transition-colors">
-              Products
+              {t.breadcrumbProducts}
             </Link>
             <span>/</span>
-            <span className="text-cyan-300 font-semibold">AI Hologram Box</span>
+            <span className="text-cyan-300 font-semibold">{t.breadcrumbCurrent}</span>
           </div>
 
           <motion.div
@@ -147,22 +322,22 @@ export default function HolographicDisplayClient() {
               {/* Size Badge Selector Pills */}
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 <span className="text-xs font-mono font-semibold uppercase tracking-wider text-gray-400">
-                  Available Specs:
+                  {t.availableSpecs}
                 </span>
                 <span className="rounded-full border border-cyan-500/40 bg-cyan-950/80 px-3.5 py-1 text-xs font-bold text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
                   4K Ultra-HD
                 </span>
                 <span className="rounded-full border border-cyan-500/40 bg-cyan-950/80 px-3.5 py-1 text-xs font-bold text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
-                  55" Inch
+                  {t.size55}
                 </span>
                 <span className="rounded-full border border-cyan-500/40 bg-cyan-950/80 px-3.5 py-1 text-xs font-bold text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
-                  65" Inch
+                  {t.size65}
                 </span>
                 <span className="rounded-full border border-cyan-500/40 bg-cyan-950/80 px-3.5 py-1 text-xs font-bold text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
-                  75" Inch
+                  {t.size75}
                 </span>
                 <span className="rounded-full border border-cyan-500/40 bg-cyan-950/80 px-3.5 py-1 text-xs font-bold text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
-                  86" Inch
+                  {t.size86}
                 </span>
               </div>
 
@@ -172,13 +347,13 @@ export default function HolographicDisplayClient() {
                   href={lPath("/contact")}
                   className="rounded-full bg-gradient-to-r from-cyan-500 via-sky-500 to-cyan-600 px-8 py-3.5 text-sm font-bold text-white shadow-xl transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(6,182,212,0.4)]"
                 >
-                  Book Hologram Box Demo →
+                  {hPage.ctaPrimary ? `${hPage.ctaPrimary} →` : t.ctaPrimaryBtn}
                 </Link>
                 <Link
                   href={lPath("/contact/download-center")}
                   className="rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-semibold text-gray-200 backdrop-blur-md transition-colors hover:border-cyan-400 hover:text-white"
                 >
-                  Download Spec Sheets (PDF)
+                  {hPage.ctaSecondary || t.ctaSecondaryBtn}
                 </Link>
               </div>
             </div>
@@ -224,7 +399,7 @@ export default function HolographicDisplayClient() {
 
                   {/* Top Right Size Badge Floating Pill on Image */}
                   <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 rounded-full border border-cyan-400/40 bg-black/85 px-3.5 py-1.5 backdrop-blur-md shadow-[0_0_20px_rgba(6,182,212,0.3)]">
-                    <span className="text-[11px] font-semibold text-cyan-300 font-mono">SIZES:</span>
+                    <span className="text-[11px] font-semibold text-cyan-300 font-mono">{t.sizesLabel}</span>
                     <span className="rounded-md bg-cyan-500/20 px-2 py-0.5 text-xs font-extrabold text-white border border-cyan-400/40">55"</span>
                     <span className="rounded-md bg-cyan-500/20 px-2 py-0.5 text-xs font-extrabold text-white border border-cyan-400/40">65"</span>
                     <span className="rounded-md bg-cyan-500/20 px-2 py-0.5 text-xs font-extrabold text-white border border-cyan-400/40">75"</span>
@@ -234,11 +409,11 @@ export default function HolographicDisplayClient() {
                   {/* System Overlay Status */}
                   <div className="absolute bottom-4 left-4 right-4 z-20 rounded-xl border border-white/15 bg-black/85 p-4 backdrop-blur-md">
                     <div className="flex items-center justify-between text-xs font-mono">
-                      <span className="text-cyan-400 font-bold">● AI HOLOGRAM BOX</span>
-                      <span className="text-emerald-400 font-bold">SLIDE {currentImageIndex + 1}/{hologramHeroImages.length}</span>
+                      <span className="text-cyan-400 font-bold">{t.statusBadge}</span>
+                      <span className="text-emerald-400 font-bold">{t.slideText} {currentImageIndex + 1}/{hologramHeroImages.length}</span>
                     </div>
                     <p className="mt-1 text-xs text-gray-300">
-                      {hologramHeroImages[currentImageIndex].caption}
+                      {t.slideCaptions[currentImageIndex]}
                     </p>
                   </div>
                 </div>
@@ -253,10 +428,10 @@ export default function HolographicDisplayClient() {
         <div className="mx-auto max-w-7xl">
           <div className="text-center">
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400">
-              Hardware Highlights
+              {hPage.featuresTitle || t.featuresBadge}
             </span>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-5xl">
-              Turnkey holographic hardware built for physical spaces.
+              {t.featuresHeading}
             </h2>
           </div>
 
@@ -297,17 +472,17 @@ export default function HolographicDisplayClient() {
         <div className="mx-auto max-w-5xl">
           <div className="text-center mb-12">
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400 font-mono">
-              Hardware Specifications
+              {hPage.specsTitle || t.specsBadge}
             </span>
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              AI Hologram Box Technical Parameters
+              {t.specsHeading}
             </h2>
           </div>
 
           <div className="overflow-hidden rounded-2xl border border-cyan-500/30 bg-black/60 shadow-2xl backdrop-blur-xl">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 px-6 py-4 bg-cyan-950/60 font-mono text-xs uppercase text-cyan-300 border-b border-white/10">
-              <span>Specification</span>
-              <span className="sm:col-span-2">Details</span>
+              <span>{t.tableHeaderSpec}</span>
+              <span className="sm:col-span-2">{t.tableHeaderDetails}</span>
             </div>
             <div className="divide-y divide-white/10">
               {localizedSpecs.map((spec: any, i: number) => (
@@ -331,11 +506,11 @@ export default function HolographicDisplayClient() {
       </section>
 
       <CTA
-        title="Bring AI Digital Humans"
-        highlightTitle="Into Your Physical Space"
-        description="Explore holographic display hardware designed for immersive customer engagement across retail, banking, corporate, healthcare, museums, and exhibitions."
-        primaryButtonText="Book a Demo"
-        secondaryButtonText="Download Datasheets (PDF)"
+        title={t.ctaTitle}
+        highlightTitle={t.ctaHighlight}
+        description={t.ctaDesc}
+        primaryButtonText={t.ctaPrimaryText}
+        secondaryButtonText={t.ctaSecondaryText}
         secondaryButtonHref={lPath("/contact/download-center")}
       />
       <Footer />

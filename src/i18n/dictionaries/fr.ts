@@ -637,6 +637,8 @@ export const fr: Dictionary = {
       { label: "Tailles d'Écran", value: "55 pouces, 65 pouces, 75 pouces, 86 pouces" },
       { label: "Résolution & Technologie", value: "Verre optique holographique 3D Haute Transmission Ultra-HD 4K (3840 x 2160)" },
       { label: "Luminosité & Contraste", value: "700 nits / 4000:1 ratio de contraste dynamique" },
+      { label: "Unité de calcul IA", value: "Station de travail IA industrielle intégrée (Edge GPU/NPU) 100% hors ligne" },
+      { label: "Système tactile & Caméra", value: "Verre tactile capacitif 10 points + caméra de suivi grand angle" },
       { label: "Hardware Audio", value: "Barre de son directionnelle intégrée + réseau de microphones" },
       { label: "Environnement d'exploitation", value: "Conçu pour un fonctionnement commercial continu 24/7" },
     ],
