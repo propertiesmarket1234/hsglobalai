@@ -73,6 +73,54 @@ import { usePathname } from "next/navigation";
 import { getDictionary } from "@/i18n/getDictionary";
 import { Locale, nonDefaultLocales } from "@/i18n/config";
 
+const zhRegionMap: Record<string, string> = {
+  "Global": "全球",
+  "Europe & Americas": "欧洲及美洲",
+  "East Asia": "东亚",
+  "Middle East & N. Africa": "中东和北非",
+  "Europe & Africa": "欧洲和非洲",
+  "Europe": "欧洲",
+  "India": "印度",
+  "India & SE Asia": "东南亚",
+  "India & Bangladesh": "印度与孟加拉国",
+  "Eurasia": "欧亚地区",
+  "Europe & LatAm": "欧洲与拉丁美洲",
+  "Middle East": "中东",
+  "Southeast Asia": "东南亚",
+};
+
+const zhNameMap: Record<string, string> = {
+  "English": "英语",
+  "Spanish": "西班牙语",
+  "Mandarin Chinese": "普通话",
+  "Arabic": "阿拉伯语",
+  "Japanese": "日语",
+  "Korean": "韩语",
+  "French": "法语",
+  "German": "德语",
+  "Hindi": "印地语",
+  "Tamil": "泰米尔语",
+  "Telugu": "泰卢固语",
+  "Kannada": "卡纳达语",
+  "Bengali": "孟加拉语",
+  "Marathi": "马拉地语",
+  "Gujarati": "古吉拉特语",
+  "Russian": "俄语",
+  "Portuguese": "葡萄牙语",
+  "Italian": "意大利语",
+  "Dutch": "荷兰语",
+  "Turkish": "土耳其语",
+  "Vietnamese": "越南语",
+  "Thai": "泰语",
+  "Indonesian": "印度尼西亚语",
+  "Polish": "波兰语",
+  "Swedish": "瑞典语",
+  "Greek": "希腊语",
+  "Hebrew": "希伯来语",
+  "Czech": "捷克语",
+  "Ukrainian": "乌克兰语",
+};
+
 export default function GlobalLanguagesSection() {
   const pathname = usePathname();
   const seg = pathname ? pathname.split("/")[1] : "";
@@ -176,11 +224,11 @@ export default function GlobalLanguagesSection() {
                 <div className="flex items-center justify-between">
                   <span className="text-base">{lang.flag}</span>
                   <span className="text-[10px] font-mono text-gray-300 group-hover:text-cyan-300">
-                    {lang.region}
+                    {currentLocale === "zh" ? zhRegionMap[lang.region] || lang.region : lang.region}
                   </span>
                 </div>
                 <div className="mt-2 text-sm font-semibold text-white group-hover:text-cyan-200">
-                  {lang.name}
+                  {currentLocale === "zh" ? zhNameMap[lang.name] || lang.name : lang.name}
                 </div>
                 <div className="text-xs text-gray-300 truncate font-sans">
                   {lang.native}

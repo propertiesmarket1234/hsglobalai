@@ -117,36 +117,48 @@ export default function ProductShowcase() {
   }, []);
 
   const localizedProducts = products.map((item) => {
-    if (item.id === "digital-humans" && fp.dihuava) {
+    if (item.id === "digital-humans") {
       return {
         ...item,
-        title: fp.dihuava.title || item.title,
-        subtitle: fp.dihuava.category || item.subtitle,
-        description: fp.dihuava.description || item.description,
+        title: (fp.dihuava && fp.dihuava.title) || item.title,
+        subtitle: (fp.dihuava && fp.dihuava.category) || item.subtitle,
+        description: (fp.dihuava && fp.dihuava.description) || item.description,
+        badge: currentLocale === "zh" ? "实时交互流" : item.badge,
+        tags: currentLocale === "zh" ? ["29+ 种全球语言", "声音克隆", "定制数字人", "实时交互"] : item.tags,
+        linkText: currentLocale === "zh" ? "探索 DIHUAVA AI 数字人平台" : item.linkText,
       };
     }
-    if (item.id === "hologram-box" && fp.hologramBox) {
+    if (item.id === "hologram-box") {
       return {
         ...item,
-        title: fp.hologramBox.title || item.title,
-        subtitle: fp.hologramBox.category || item.subtitle,
-        description: fp.hologramBox.description || item.description,
+        title: (fp.hologramBox && fp.hologramBox.title) || item.title,
+        subtitle: (fp.hologramBox && fp.hologramBox.category) || item.subtitle,
+        description: (fp.hologramBox && fp.hologramBox.description) || item.description,
+        badge: currentLocale === "zh" ? "3D 全息" : item.badge,
+        tags: currentLocale === "zh" ? ["29+ 种全球语言", "3D 全息", "离线 AI 引擎", "多种尺寸"] : item.tags,
+        linkText: currentLocale === "zh" ? "探索 3D AI 全息显示盒" : item.linkText,
       };
     }
-    if (item.id === "spatial-display" && fp.spatialDisplay) {
+    if (item.id === "spatial-display") {
       return {
         ...item,
-        title: fp.spatialDisplay.title || item.title,
-        subtitle: fp.spatialDisplay.category || item.subtitle,
-        description: fp.spatialDisplay.description || item.description,
+        title: (fp.spatialDisplay && fp.spatialDisplay.title) || item.title,
+        subtitle: (fp.spatialDisplay && fp.spatialDisplay.category) || item.subtitle,
+        description: (fp.spatialDisplay && fp.spatialDisplay.description) || item.description,
+        badge: currentLocale === "zh" ? "裸眼 3D 体积显示" : item.badge,
+        tags: currentLocale === "zh" ? ["29+ 种全球语言", "沉浸式 3D 视觉", "数字标牌", "交互式显示屏"] : item.tags,
+        linkText: currentLocale === "zh" ? "探索裸眼 3D 空间显示屏" : item.linkText,
       };
     }
-    if (item.id === "virtual-try-on" && fp.virtualTryOn) {
+    if (item.id === "virtual-try-on") {
       return {
         ...item,
-        title: fp.virtualTryOn.title || item.title,
-        subtitle: fp.virtualTryOn.category || item.subtitle,
-        description: fp.virtualTryOn.description || item.description,
+        title: (fp.virtualTryOn && fp.virtualTryOn.title) || item.title,
+        subtitle: (fp.virtualTryOn && fp.virtualTryOn.category) || item.subtitle,
+        description: (fp.virtualTryOn && fp.virtualTryOn.description) || item.description,
+        badge: currentLocale === "zh" ? "前沿研发能力" : item.badge,
+        tags: currentLocale === "zh" ? ["29+ 种全球语言", "AI 试穿镜", "实时试穿", "智慧零售体验"] : item.tags,
+        linkText: currentLocale === "zh" ? "了解 Virtual Try-On 虚拟试穿技术" : item.linkText,
       };
     }
     return item;

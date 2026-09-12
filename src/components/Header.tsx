@@ -421,7 +421,7 @@ export default function Header() {
             <button
               onClick={() => setLangDropdownOpen(!langDropdownOpen)}
               className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-neutral-900/80 px-3.5 py-1.5 text-xs font-semibold text-gray-200 backdrop-blur-md transition-all hover:border-cyan-400 hover:text-white whitespace-nowrap shrink-0"
-              aria-label="Select Language"
+              aria-label={dict.nav.selectLanguage || "Select Language"}
             >
               <span>{locales[currentLocale].flag}</span>
               <span>{locales[currentLocale].nativeName}</span>

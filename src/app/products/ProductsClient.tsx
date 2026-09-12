@@ -81,22 +81,24 @@ export default function ProductsClient() {
                   {pPage.heroDescription || "Explore HS Global AI products: DIHUAVA AI Digital Human platform, 3D Hologram Box displays, and naked-eye spatial AI displays for 100% offline enterprise deployment."}
                 </p>
                 <p className="mt-3 text-sm leading-relaxed text-cyan-200/90 font-medium">
-                  DIHUAVA provides the AI Digital Human software layer that can power HS Global AI&apos;s holographic and spatial display experiences.
+                  {currentLocale === "zh"
+                    ? "DIHUAVA 提供 AI 数字人软件层，为 HS Global AI 的全息与空间显示体验提供动力。"
+                    : "DIHUAVA provides the AI Digital Human software layer that can power HS Global AI's holographic and spatial display experiences."}
                 </p>
 
                 {/* Capability Pills */}
                 <div className="mt-6 flex flex-wrap gap-2">
                   <span className="rounded-full border border-cyan-500/40 bg-cyan-950/60 px-3.5 py-1 text-xs font-semibold text-cyan-300 backdrop-blur-md shadow-[0_0_12px_rgba(6,182,212,0.2)]">
-                    🌍 29+ Global Languages
+                    {currentLocale === "zh" ? "🌍 29+ 种全球语言" : "🌍 29+ Global Languages"}
                   </span>
                   <span className="rounded-full border border-cyan-500/30 bg-black/60 px-3.5 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md">
-                    Avatar Customization & Voice Cloning
+                    {currentLocale === "zh" ? "数字人形象定制与声音克隆" : "Avatar Customization & Voice Cloning"}
                   </span>
                   <span className="rounded-full border border-cyan-500/30 bg-black/60 px-3.5 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md">
-                    100% Offline AI Engine
+                    {currentLocale === "zh" ? "100% 离线 AI 引擎" : "100% Offline AI Engine"}
                   </span>
                   <span className="rounded-full border border-cyan-500/30 bg-black/60 px-3.5 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md">
-                    3D Holographics
+                    {currentLocale === "zh" ? "3D 全息技术" : "3D Holographics"}
                   </span>
                 </div>
               </div>
@@ -105,20 +107,36 @@ export default function ProductsClient() {
             {/* Product Ecosystem Taxonomy */}
             <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-4 border-t border-white/10 pt-8">
               <div className="rounded-xl border border-white/10 bg-white/5 p-3.5 backdrop-blur-md">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-400 block">Software Platform</span>
-                <span className="text-xs font-semibold text-white">DIHUAVA AI Platform</span>
+                <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-400 block">
+                  {currentLocale === "zh" ? "软件平台" : "Software Platform"}
+                </span>
+                <span className="text-xs font-semibold text-white">
+                  {currentLocale === "zh" ? "DIHUAVA AI 平台" : "DIHUAVA AI Platform"}
+                </span>
               </div>
               <div className="rounded-xl border border-white/10 bg-white/5 p-3.5 backdrop-blur-md">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-400 block">3D Hardware Enclosure</span>
-                <span className="text-xs font-semibold text-white">Holographic Display</span>
+                <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-400 block">
+                  {currentLocale === "zh" ? "3D 硬件舱体" : "3D Hardware Enclosure"}
+                </span>
+                <span className="text-xs font-semibold text-white">
+                  {currentLocale === "zh" ? "全息显示" : "Holographic Display"}
+                </span>
               </div>
               <div className="rounded-xl border border-white/10 bg-white/5 p-3.5 backdrop-blur-md">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-400 block">Glasses-Free 3D Display</span>
-                <span className="text-xs font-semibold text-white">Spatial Display</span>
+                <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-400 block">
+                  {currentLocale === "zh" ? "裸眼 3D 显示屏" : "Glasses-Free 3D Display"}
+                </span>
+                <span className="text-xs font-semibold text-white">
+                  {currentLocale === "zh" ? "Spatial Display 3D空间显示" : "Spatial Display"}
+                </span>
               </div>
               <div className="rounded-xl border border-white/10 bg-white/5 p-3.5 backdrop-blur-md">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-400 block">Active R&D Capability</span>
-                <span className="text-xs font-semibold text-white">Virtual Try-On Mirror</span>
+                <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-400 block">
+                  {currentLocale === "zh" ? "前沿研发能力" : "Active R&D Capability"}
+                </span>
+                <span className="text-xs font-semibold text-white">
+                  {currentLocale === "zh" ? "Virtual Try-On 虚拟试穿" : "Virtual Try-On Mirror"}
+                </span>
               </div>
             </div>
 
@@ -144,26 +162,28 @@ export default function ProductsClient() {
       <section className="relative overflow-hidden bg-black px-6 py-16 text-white border-t border-white/10">
         <div className="mx-auto max-w-7xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-cyan-400">
-            Industry Deployment Solutions
+            {currentLocale === "zh" ? "行业部署解决方案" : "Industry Deployment Solutions"}
           </p>
           <h3 className="mt-2 text-2xl font-bold text-white sm:text-3xl">
-            Engineered for Vertical Enterprise Environments
+            {currentLocale === "zh" ? "专为垂直企业环境打造" : "Engineered for Vertical Enterprise Environments"}
           </h3>
           <p className="mt-3 text-sm text-gray-300 max-w-2xl mx-auto">
-            Discover how HS Global AI digital humans and holographic displays are deployed across enterprise sector workflows.
+            {currentLocale === "zh"
+              ? "了解 HS Global AI 数字人与全息显示屏如何部署于企业各行业的工作流程中。"
+              : "Discover how HS Global AI digital humans and holographic displays are deployed across enterprise sector workflows."}
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs font-medium">
             <Link href={lPath("/industries")} className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-gray-200 hover:border-cyan-400 hover:text-white transition-colors">
-              All Industry Solutions →
+              {currentLocale === "zh" ? "所有行业解决方案 →" : "All Industry Solutions →"}
             </Link>
             <Link href={lPath("/industries/healthcare")} className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-gray-200 hover:border-cyan-400 hover:text-white transition-colors">
-              Healthcare & Patient Experience →
+              {currentLocale === "zh" ? "医疗与就医体验 →" : "Healthcare & Patient Experience →"}
             </Link>
             <Link href={lPath("/industries/retail")} className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-gray-200 hover:border-cyan-400 hover:text-white transition-colors">
-              Retail & Smart Mirror Kiosks →
+              {currentLocale === "zh" ? "零售与智能试穿终端 →" : "Retail & Smart Mirror Kiosks →"}
             </Link>
             <Link href={lPath("/industries/banking")} className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-gray-200 hover:border-cyan-400 hover:text-white transition-colors">
-              Banking & Air-Gapped Concierge →
+              {currentLocale === "zh" ? "金融与物理隔离智能礼宾 →" : "Banking & Air-Gapped Concierge →"}
             </Link>
           </div>
         </div>
