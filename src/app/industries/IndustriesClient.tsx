@@ -20,6 +20,34 @@ export default function IndustriesClient() {
   const indPage = (dict as any).industriesPage || {};
   const indSec = dict.home.industriesSection;
 
+  const localizedContent: Record<string, {
+    heroDescription: string;
+    pills: string[];
+  }> = {
+    zh: {
+      heroDescription: "我们的数字人 AI 平台助力企业与机构自动化客户服务、提升服务品质、降低运营成本，并凭借逼真的 AI 阿凡达与 3D 全息显示屏打造高吸引力的沉浸式体验。",
+      pills: ["金融与银行", "零售与商场", "医疗健康"],
+    },
+    ru: {
+      heroDescription: "Наша платформа ИИ Цифровых Людей помогает организациям автоматизировать обслуживание клиентов, повышать качество сервиса, снижать операционные расходы и создавать незабываемый опыт.",
+      pills: ["Банки и Финансы", "Ритейл и Моллы", "Здравоохранение"],
+    },
+    es: {
+      heroDescription: "Nuestra plataforma de IA de Humanos Digitales ayuda a las organizaciones a automatizar las interacciones con los clientes, mejorar la calidad del servicio, reducir los costos operativos y ofrecer experiencias atractivas.",
+      pills: ["Banca y Finanzas", "Comercio y Centros Comerciales", "Salud"],
+    },
+    fr: {
+      heroDescription: "Notre plateforme d'Humains Virtuels IA aide les organisations à automatiser les interactions clients, améliorer la qualité de service, réduire les coûts opérationnels et offrir des expériences captivantes.",
+      pills: ["Banque & Finance", "Vente au Détail & Centres Commerciaux", "Santé"],
+    },
+    en: {
+      heroDescription: "Our Digital Human AI platform helps organizations automate customer interactions, improve service quality, reduce operational costs, and deliver engaging experiences through lifelike AI avatars and 3D holograms.",
+      pills: ["Banking & Finance", "Retail & Malls", "Healthcare"],
+    },
+  };
+
+  const t = localizedContent[currentLocale] || localizedContent.en;
+
   return (
     <main className="min-h-screen bg-black text-white selection:bg-cyan-500 selection:text-black">
       <Header />
@@ -71,19 +99,18 @@ export default function IndustriesClient() {
               className="lg:col-span-5 lg:pb-2"
             >
               <p className="text-base leading-8 text-gray-300 sm:text-lg">
-                Our Digital Human AI platform helps organizations automate customer interactions, improve service quality, reduce operational costs, and deliver engaging experiences through lifelike AI avatars and 3D holograms.
+                {indPage.heroDescription || t.heroDescription}
               </p>
 
               <div className="mt-6 flex flex-wrap gap-2">
-                <span className="rounded-full border border-cyan-500/30 bg-black/60 px-3.5 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md">
-                  Banking & Finance
-                </span>
-                <span className="rounded-full border border-cyan-500/30 bg-black/60 px-3.5 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md">
-                  Retail & Malls
-                </span>
-                <span className="rounded-full border border-cyan-500/30 bg-black/60 px-3.5 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md">
-                  Healthcare
-                </span>
+                {t.pills.map((pill) => (
+                  <span
+                    key={pill}
+                    className="rounded-full border border-cyan-500/30 bg-black/60 px-3.5 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md"
+                  >
+                    {pill}
+                  </span>
+                ))}
               </div>
             </motion.div>
           </div>
