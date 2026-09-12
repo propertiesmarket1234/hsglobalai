@@ -85,22 +85,24 @@ export default function ProductsClient() {
                     ? "DIHUAVA 提供 AI 数字人软件层，为 HS Global AI 的全息与空间显示体验提供动力。"
                     : currentLocale === "ru"
                     ? "DIHUAVA обеспечивает программный слой AI цифровых людей для работы голографических и объемных 3D-дисплеев HS Global AI."
+                    : currentLocale === "es"
+                    ? "DIHUAVA proporciona la capa de software de Humanos Digitales con IA que impulsa las experiencias holográficas y de pantallas espaciales de HS Global AI."
                     : "DIHUAVA provides the AI Digital Human software layer that can power HS Global AI's holographic and spatial display experiences."}
                 </p>
 
                 {/* Capability Pills */}
                 <div className="mt-6 flex flex-wrap gap-2">
                   <span className="rounded-full border border-cyan-500/40 bg-cyan-950/60 px-3.5 py-1 text-xs font-semibold text-cyan-300 backdrop-blur-md shadow-[0_0_12px_rgba(6,182,212,0.2)]">
-                    {currentLocale === "zh" ? "🌍 29+ 种全球语言" : currentLocale === "ru" ? "🌍 29+ Мировых языков" : "🌍 29+ Global Languages"}
+                    {currentLocale === "zh" ? "🌍 29+ 种全球语言" : currentLocale === "ru" ? "🌍 29+ Мировых языков" : currentLocale === "es" ? "🌍 29+ Idiomas globales" : "🌍 29+ Global Languages"}
                   </span>
                   <span className="rounded-full border border-cyan-500/30 bg-black/60 px-3.5 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md">
-                    {currentLocale === "zh" ? "数字人形象定制与声音克隆" : currentLocale === "ru" ? "Кастомизация аватаров и клонирование голоса" : "Avatar Customization & Voice Cloning"}
+                    {currentLocale === "zh" ? "数字人形象定制与声音克隆" : currentLocale === "ru" ? "Кастомизация аватаров и клонирование голоса" : currentLocale === "es" ? "Personalización de avatares y clonación de voz" : "Avatar Customization & Voice Cloning"}
                   </span>
                   <span className="rounded-full border border-cyan-500/30 bg-black/60 px-3.5 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md">
-                    {currentLocale === "zh" ? "100% 离线 AI 引擎" : currentLocale === "ru" ? "100% Автономный AI-движок" : "100% Offline AI Engine"}
+                    {currentLocale === "zh" ? "100% 离线 AI 引擎" : currentLocale === "ru" ? "100% Автономный AI-движок" : currentLocale === "es" ? "Motor de IA 100% sin conexión" : "100% Offline AI Engine"}
                   </span>
                   <span className="rounded-full border border-cyan-500/30 bg-black/60 px-3.5 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md">
-                    {currentLocale === "zh" ? "3D 全息技术" : currentLocale === "ru" ? "3D-Голография" : "3D Holographics"}
+                    {currentLocale === "zh" ? "3D 全息技术" : currentLocale === "ru" ? "3D-Голография" : currentLocale === "es" ? "Holografía 3D" : "3D Holographics"}
                   </span>
                 </div>
               </div>
@@ -110,34 +112,34 @@ export default function ProductsClient() {
             <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-4 border-t border-white/10 pt-8">
               <div className="rounded-xl border border-white/10 bg-white/5 p-3.5 backdrop-blur-md">
                 <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-400 block">
-                  {currentLocale === "zh" ? "软件平台" : currentLocale === "ru" ? "Программная платформа" : "Software Platform"}
+                  {currentLocale === "zh" ? "软件平台" : currentLocale === "ru" ? "Программная платформа" : currentLocale === "es" ? "Plataforma de software" : "Software Platform"}
                 </span>
                 <span className="text-xs font-semibold text-white">
-                  {currentLocale === "zh" ? "DIHUAVA AI 平台" : currentLocale === "ru" ? "Платформа DIHUAVA AI" : "DIHUAVA AI Platform"}
+                  {currentLocale === "zh" ? "DIHUAVA AI 平台" : currentLocale === "ru" ? "Платформа DIHUAVA AI" : currentLocale === "es" ? "Plataforma DIHUAVA AI" : "DIHUAVA AI Platform"}
                 </span>
               </div>
               <div className="rounded-xl border border-white/10 bg-white/5 p-3.5 backdrop-blur-md">
                 <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-400 block">
-                  {currentLocale === "zh" ? "3D 硬件舱体" : currentLocale === "ru" ? "3D-Аппаратный куб" : "3D Hardware Enclosure"}
+                  {currentLocale === "zh" ? "3D 硬件舱体" : currentLocale === "ru" ? "3D-Аппаратный куб" : currentLocale === "es" ? "Cabina de hardware 3D" : "3D Hardware Enclosure"}
                 </span>
                 <span className="text-xs font-semibold text-white">
-                  {currentLocale === "zh" ? "全息显示" : currentLocale === "ru" ? "Голографический дисплей" : "Holographic Display"}
+                  {currentLocale === "zh" ? "全息显示" : currentLocale === "ru" ? "Голографический дисплей" : currentLocale === "es" ? "Pantalla Holográfica" : "Holographic Display"}
                 </span>
               </div>
               <div className="rounded-xl border border-white/10 bg-white/5 p-3.5 backdrop-blur-md">
                 <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-400 block">
-                  {currentLocale === "zh" ? "裸眼 3D 显示屏" : currentLocale === "ru" ? "3D-Дисплей без очков" : "Glasses-Free 3D Display"}
+                  {currentLocale === "zh" ? "裸眼 3D 显示屏" : currentLocale === "ru" ? "3D-Дисплей без очков" : currentLocale === "es" ? "Pantalla 3D sin gafas" : "Glasses-Free 3D Display"}
                 </span>
                 <span className="text-xs font-semibold text-white">
-                  {currentLocale === "zh" ? "Spatial Display 3D空间显示" : currentLocale === "ru" ? "Spatial Display (Объемный дисплей)" : "Spatial Display"}
+                  {currentLocale === "zh" ? "Spatial Display 3D空间显示" : currentLocale === "ru" ? "Spatial Display (Объемный дисплей)" : currentLocale === "es" ? "Spatial Display (Pantalla Espacial)" : "Spatial Display"}
                 </span>
               </div>
               <div className="rounded-xl border border-white/10 bg-white/5 p-3.5 backdrop-blur-md">
                 <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-400 block">
-                  {currentLocale === "zh" ? "前沿研发能力" : currentLocale === "ru" ? "Активные R&D разработки" : "Active R&D Capability"}
+                  {currentLocale === "zh" ? "前沿研发能力" : currentLocale === "ru" ? "Активные R&D разработки" : currentLocale === "es" ? "Capacidad de I+D activa" : "Active R&D Capability"}
                 </span>
                 <span className="text-xs font-semibold text-white">
-                  {currentLocale === "zh" ? "Virtual Try-On 虚拟试穿" : currentLocale === "ru" ? "Виртуальная примерка (Virtual Try-On)" : "Virtual Try-On Mirror"}
+                  {currentLocale === "zh" ? "Virtual Try-On 虚拟试穿" : currentLocale === "ru" ? "Виртуальная примерка (Virtual Try-On)" : currentLocale === "es" ? "Espejo Virtual Try-On (Prueba Virtual)" : "Virtual Try-On Mirror"}
                 </span>
               </div>
             </div>
@@ -164,30 +166,32 @@ export default function ProductsClient() {
       <section className="relative overflow-hidden bg-black px-6 py-16 text-white border-t border-white/10">
         <div className="mx-auto max-w-7xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-cyan-400">
-            {currentLocale === "zh" ? "行业部署解决方案" : currentLocale === "ru" ? "Отраслевые решения для внедрения" : "Industry Deployment Solutions"}
+            {currentLocale === "zh" ? "行业部署解决方案" : currentLocale === "ru" ? "Отраслевые решения для внедрения" : currentLocale === "es" ? "Soluciones de despliegue industrial" : "Industry Deployment Solutions"}
           </p>
           <h3 className="mt-2 text-2xl font-bold text-white sm:text-3xl">
-            {currentLocale === "zh" ? "专为垂直企业环境打造" : currentLocale === "ru" ? "Разработано для специфических корпоративных задач" : "Engineered for Vertical Enterprise Environments"}
+            {currentLocale === "zh" ? "专为垂直企业环境打造" : currentLocale === "ru" ? "Разработано для специфических корпоративных задач" : currentLocale === "es" ? "Diseñado para entornos empresariales verticales" : "Engineered for Vertical Enterprise Environments"}
           </h3>
           <p className="mt-3 text-sm text-gray-300 max-w-2xl mx-auto">
             {currentLocale === "zh"
               ? "了解 HS Global AI 数字人与全息显示屏如何部署于企业各行业的工作流程中。"
               : currentLocale === "ru"
               ? "Узнайте, как цифровые люди и голографические дисплеи HS Global AI внедряются в рабочие процессы предприятий различных отраслей."
+              : currentLocale === "es"
+              ? "Descubra cómo se despliegan los humanos digitales y vitrinas holográficas de HS Global AI en los flujos de trabajo de diversos sectores empresariales."
               : "Discover how HS Global AI digital humans and holographic displays are deployed across enterprise sector workflows."}
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs font-medium">
             <Link href={lPath("/industries")} className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-gray-200 hover:border-cyan-400 hover:text-white transition-colors">
-              {currentLocale === "zh" ? "所有行业解决方案 →" : currentLocale === "ru" ? "Все отраслевые решения →" : "All Industry Solutions →"}
+              {currentLocale === "zh" ? "所有行业解决方案 →" : currentLocale === "ru" ? "Все отраслевые решения →" : currentLocale === "es" ? "Todas las soluciones industriales →" : "All Industry Solutions →"}
             </Link>
             <Link href={lPath("/industries/healthcare")} className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-gray-200 hover:border-cyan-400 hover:text-white transition-colors">
-              {currentLocale === "zh" ? "医疗与就医体验 →" : currentLocale === "ru" ? "Здравоохранение и забота о пациентах →" : "Healthcare & Patient Experience →"}
+              {currentLocale === "zh" ? "医疗与就医体验 →" : currentLocale === "ru" ? "Здравоохранение и забота о пациентах →" : currentLocale === "es" ? "Salud y experiencia del paciente →" : "Healthcare & Patient Experience →"}
             </Link>
             <Link href={lPath("/industries/retail")} className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-gray-200 hover:border-cyan-400 hover:text-white transition-colors">
-              {currentLocale === "zh" ? "零售与智能试穿终端 →" : currentLocale === "ru" ? "Ритейл и умные примеряющие киоски →" : "Retail & Smart Mirror Kiosks →"}
+              {currentLocale === "zh" ? "零售与智能试穿终端 →" : currentLocale === "ru" ? "Ритейл и умные примеряющие киоски →" : currentLocale === "es" ? "Comercio y quioscos con espejo inteligente →" : "Retail & Smart Mirror Kiosks →"}
             </Link>
             <Link href={lPath("/industries/banking")} className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-gray-200 hover:border-cyan-400 hover:text-white transition-colors">
-              {currentLocale === "zh" ? "金融与物理隔离智能礼宾 →" : currentLocale === "ru" ? "Банки и автономный консьерж-сервис →" : "Banking & Air-Gapped Concierge →"}
+              {currentLocale === "zh" ? "金融与物理隔离智能礼宾 →" : currentLocale === "ru" ? "Банки и автономный консьерж-сервис →" : currentLocale === "es" ? "Banca y conserjería aislada sin conexión →" : "Banking & Air-Gapped Concierge →"}
             </Link>
           </div>
         </div>
