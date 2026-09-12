@@ -31,26 +31,6 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "@id": "https://www.hsglobalai.com/products/holographic-display#product",
-  "name": "AI Hologram Box",
-  "alternateName": "AI Holographic Display Showcase",
-  "url": "https://www.hsglobalai.com/products/holographic-display",
-  "image": "https://www.hsglobalai.com/products/digital-humans/digital-human-new.png",
-  "description":
-    "3D Hologram Box volumetric enclosure available in 55\", 65\", 75\", and 86\" sizes, featuring 4K holographic glass and integrated industrial AI computing unit for life-sized interactive digital avatars.",
-  "brand": {
-    "@type": "Organization",
-    "@id": "https://www.hsglobalai.com/#organization",
-  },
-  "manufacturer": {
-    "@type": "Organization",
-    "@id": "https://www.hsglobalai.com/#organization",
-  },
-};
-
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -79,10 +59,6 @@ const breadcrumbJsonLd = {
 export default function HolographicDisplayPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

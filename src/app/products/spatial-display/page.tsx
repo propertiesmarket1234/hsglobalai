@@ -10,26 +10,6 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "@id": "https://www.hsglobalai.com/products/spatial-display#product",
-  "name": "Spatial Display",
-  "alternateName": "AI Spatial Display Volumetric Screen",
-  "url": "https://www.hsglobalai.com/products/spatial-display",
-  "image": "https://www.hsglobalai.com/products/spatial-display/spatial-display.png",
-  "description":
-    "Naked-eye 3D spatial AI display available in 55\", 65\", 75\", and 86\" sizes, featuring an ultra-slim 6 cm body profile and 4K Ultra HD touch screen for immersive volumetric visual experiences.",
-  "brand": {
-    "@type": "Organization",
-    "@id": "https://www.hsglobalai.com/#organization",
-  },
-  "manufacturer": {
-    "@type": "Organization",
-    "@id": "https://www.hsglobalai.com/#organization",
-  },
-};
-
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -58,10 +38,6 @@ const breadcrumbJsonLd = {
 export default function SpatialDisplayPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
