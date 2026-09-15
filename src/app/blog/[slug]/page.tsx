@@ -5,11 +5,14 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 import { blogPosts } from "@/data/blogPosts";
+import { getDictionary } from "@/i18n/getDictionary";
+import { Locale, nonDefaultLocales, getLocalizedPath } from "@/i18n/config";
 
 export const dynamicParams = true;
 
 interface BlogPageProps {
   params: Promise<{
+    lang?: string;
     slug: string;
   }>;
 }
@@ -65,7 +68,7 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
 }
 
 /** Helper function to parse bold markdown text (**text**) and inline links ([text](url)) */
-function renderFormattedText(text: string) {
+function renderFormattedText(text: string, lPath: (p: string) => string) {
   const parts = text.split(/(\*\*.*?\*\*|\[.*?\]\(.*?\))/g);
   return parts.map((part, index) => {
     if (part.startsWith("**") && part.endsWith("**")) {
@@ -81,7 +84,7 @@ function renderFormattedText(text: string) {
       return (
         <Link
           key={index}
-          href={linkHref}
+          href={lPath(linkHref)}
           className="text-cyan-400 hover:text-cyan-300 underline underline-offset-4 font-semibold transition-colors"
         >
           {linkText}
@@ -93,7 +96,16 @@ function renderFormattedText(text: string) {
 }
 
 export default async function BlogPostPage({ params }: BlogPageProps) {
-  const { slug } = await params;
+  const { lang, slug } = await params;
+  const currentLocale: Locale =
+    lang && (nonDefaultLocales as readonly string[]).includes(lang)
+      ? (lang as Locale)
+      : "en";
+  const dict = getDictionary(currentLocale);
+  const bPage = (dict as any).blogPage || {};
+
+  const lPath = (path: string) => getLocalizedPath(path, currentLocale);
+
   const post = blogPosts.find(
     (item) => String(item.slug).trim() === String(slug).trim()
   );
@@ -103,15 +115,15 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
       <main className="min-h-screen bg-black text-white flex flex-col items-center justify-center p-6">
         <div className="text-center max-w-md border border-cyan-500/30 rounded-3xl p-10 bg-neutral-950/80 backdrop-blur-xl">
           <span className="text-5xl">🔍</span>
-          <h1 className="mt-4 text-3xl font-bold">Article Not Found</h1>
+          <h1 className="mt-4 text-3xl font-bold">{bPage.notFoundTitle || "Article Not Found"}</h1>
           <p className="mt-2 text-sm text-gray-400">
-            No article matches the requested URL: <code className="text-cyan-400">{slug}</code>
+            {bPage.notFoundDesc || "No article matches the requested URL:"} <code className="text-cyan-400">{slug}</code>
           </p>
           <Link
-            href="/blog"
+            href={lPath("/blog")}
             className="mt-6 inline-flex items-center gap-2 rounded-full bg-cyan-500 px-6 py-2.5 text-xs font-bold text-black transition hover:bg-cyan-400"
           >
-            ← Back to Blog Hub
+            {bPage.backToHub || "← Back to Blog Hub"}
           </Link>
         </div>
       </main>
@@ -195,8 +207,8 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
         <div className="relative mx-auto max-w-4xl">
           {/* Breadcrumb Navigation */}
           <div className="flex items-center gap-2 text-xs font-mono text-gray-400 mb-6">
-            <Link href="/blog" className="hover:text-cyan-400 transition-colors">
-              Blog Hub
+            <Link href={lPath("/blog")} className="hover:text-cyan-400 transition-colors">
+              {bPage.breadcrumbHub || "Blog Hub"}
             </Link>
             <span>/</span>
             <span className="text-cyan-300">{post.category}</span>
@@ -268,14 +280,14 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
                     <svg className="w-5 h-5 fill-cyan-400" viewBox="0 0 24 24">
                       <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
                     </svg>
-                    <span>Key Takeaways & Executive Summary</span>
+                    <span>{bPage.keyTakeawaysTitle || "Key Takeaways & Executive Summary"}</span>
                   </div>
                   <ul className="space-y-3 text-sm md:text-base text-gray-200">
                     {lines.map((line, lIdx) => {
                       return (
                         <li key={lIdx} className="flex items-start gap-3">
                           <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(6,182,212,0.8)]" />
-                          <span>{renderFormattedText(line.replace(/^-\s*/, ""))}</span>
+                          <span>{renderFormattedText(line.replace(/^-\s*/, ""), lPath)}</span>
                         </li>
                       );
                     })}
@@ -298,37 +310,38 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
                       <svg className="w-3.5 h-3.5 fill-cyan-300" viewBox="0 0 24 24">
                         <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" />
                       </svg>
-                      Live Interactive Avatar Demo
+                      {bPage.inlineCtaBadge || "Live Interactive Avatar Demo"}
                     </span>
 
                     <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
-                      Elevate Your Enterprise with On-Device Digital Humans
+                      {bPage.inlineCtaHeading || "Elevate Your Enterprise with On-Device Digital Humans"}
                     </h3>
 
                     <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-gray-300">
-                      Experience Low Latency voice dialogue and 100% data privacy on your physical hardware. Book a live walkthrough with our enterprise AI engineering team.
+                      {bPage.inlineCtaDesc ||
+                        "Experience Low Latency voice dialogue and 100% data privacy on your physical hardware. Book a live walkthrough with our enterprise AI engineering team."}
                     </p>
 
                     <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
                       <Link
-                        href="/contact"
+                        href={lPath("/contact")}
                         className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 px-8 py-3.5 text-xs font-bold text-black shadow-[0_0_25px_rgba(6,182,212,0.4)] transition-all hover:scale-105 hover:from-cyan-300 hover:to-blue-400"
                       >
                         <svg className="w-4 h-4 fill-black" viewBox="0 0 24 24">
                           <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" />
                         </svg>
-                        Schedule Live Hologram Demo
+                        {bPage.inlineCtaBtn1 || "Schedule Live Hologram Demo"}
                         <span>→</span>
                       </Link>
 
                       <Link
-                        href="/contact"
+                        href={lPath("/contact")}
                         className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-neutral-900/80 px-6 py-3.5 text-xs font-semibold text-gray-200 transition-all hover:border-white/40 hover:text-white"
                       >
                         <svg className="w-4 h-4 fill-current text-gray-400" viewBox="0 0 24 24">
                           <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2ZM16 18H8V16H16V18ZM16 14H8V12H16V14ZM13 9V3.5L18.5 9H13Z" />
                         </svg>
-                        Request Technical Specs
+                        {bPage.inlineCtaBtn2 || "Request Technical Specs"}
                       </Link>
                     </div>
                   </div>
@@ -347,32 +360,33 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
 
                   <div className="relative z-10">
                     <h3 className="text-2xl md:text-4xl font-bold text-white tracking-tight">
-                      Ready to Transform Your Enterprise Operations?
+                      {bPage.bottomCtaHeading || "Ready to Transform Your Enterprise Operations?"}
                     </h3>
 
                     <p className="mx-auto mt-4 max-w-2xl text-base text-gray-300 leading-7">
-                      Join industry leaders deploying DIHUAVA AI Digital Humans for 24/7 autonomous customer reception, knowledge access, and interactive retail.
+                      {bPage.bottomCtaDesc ||
+                        "Join industry leaders deploying DIHUAVA AI Digital Humans for 24/7 autonomous customer reception, knowledge access, and interactive retail."}
                     </p>
 
                     <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
                       <Link
-                        href="/contact"
+                        href={lPath("/contact")}
                         className="inline-flex items-center gap-2.5 rounded-full bg-cyan-400 px-8 py-4 text-xs font-bold uppercase tracking-wider text-black shadow-[0_0_30px_rgba(6,182,212,0.5)] transition-all hover:scale-105 hover:bg-cyan-300"
                       >
                         <svg className="w-4 h-4 fill-black" viewBox="0 0 24 24">
                           <path d="M19 4H18V2H16V4H8V2H6V4H5C3.89 4 3 4.9 3 6V20C3 21.1 3.89 22 5 22H19C20.1 22 21 21.1 21 20V6C21 4.9 20.1 4 19 4ZM19 20H5V10H19V20ZM19 8H5V6H19V8Z" />
                         </svg>
-                        Book a 1-on-1 Strategy Call
+                        {bPage.bottomCtaBtn1 || "Book a 1-on-1 Strategy Call"}
                       </Link>
 
                       <Link
-                        href="/contact"
+                        href={lPath("/contact")}
                         className="inline-flex items-center gap-2.5 rounded-full border border-cyan-500/40 bg-cyan-500/10 px-8 py-4 text-xs font-bold uppercase tracking-wider text-cyan-300 transition-all hover:bg-cyan-500/20 hover:border-cyan-400"
                       >
                         <svg className="w-4 h-4 fill-cyan-300" viewBox="0 0 24 24">
                           <path d="M7 2v11h3v9l7-12h-4l4-8z" />
                         </svg>
-                        Explore DIHUAVA Hardware
+                        {bPage.bottomCtaBtn2 || "Explore DIHUAVA Hardware"}
                       </Link>
                     </div>
                   </div>
@@ -410,10 +424,10 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
                   >
                     <h3 className="text-lg md:text-xl font-bold text-cyan-400 tracking-wide mb-2 flex items-start gap-2">
                       <span className="text-cyan-400 shrink-0 font-mono">Q:</span>
-                      <span>{renderFormattedText(question)}</span>
+                      <span>{renderFormattedText(question, lPath)}</span>
                     </h3>
                     <p className="text-base md:text-lg text-white leading-8 font-normal pl-6 border-l-2 border-cyan-500/30 mt-3">
-                      {renderFormattedText(answer)}
+                      {renderFormattedText(answer, lPath)}
                     </p>
                   </div>
                 );
@@ -424,7 +438,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
                   key={idx}
                   className="mt-10 mb-3 text-xl md:text-2xl font-bold text-cyan-400 tracking-wide"
                 >
-                  {renderFormattedText(fullContent)}
+                  {renderFormattedText(fullContent, lPath)}
                 </h3>
               );
             }
@@ -437,7 +451,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
                   key={idx}
                   className="mt-6 mb-3 text-lg font-semibold text-cyan-300"
                 >
-                  {renderFormattedText(titleText)}
+                  {renderFormattedText(titleText, lPath)}
                 </h4>
               );
             }
@@ -474,7 +488,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
                           <tr key={rIdx} className="hover:bg-white/[0.03] transition-colors">
                             {cols.map((col, cIdx) => (
                               <td key={cIdx} className="py-4 px-5 text-gray-200">
-                                {renderFormattedText(col.trim())}
+                                {renderFormattedText(col.trim(), lPath)}
                               </td>
                             ))}
                           </tr>
@@ -497,13 +511,13 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
                       return (
                         <li key={lIdx} className="flex items-start gap-3 text-gray-200 text-base md:text-lg">
                           <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(6,182,212,0.8)]" />
-                          <span>{renderFormattedText(cleanText)}</span>
+                          <span>{renderFormattedText(cleanText, lPath)}</span>
                         </li>
                       );
                     }
                     return (
                       <p key={lIdx} className="text-white mb-2 text-base md:text-lg">
-                        {renderFormattedText(line)}
+                        {renderFormattedText(line, lPath)}
                       </p>
                     );
                   })}
@@ -519,7 +533,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
               return (
                 <div key={idx} className="my-8 rounded-2xl border border-cyan-500/30 bg-neutral-950 p-6 text-center shadow-lg">
                   <Link
-                    href={linkHref}
+                    href={lPath(linkHref)}
                     className="inline-flex items-center gap-2 rounded-full bg-cyan-500 px-8 py-3 text-xs font-bold text-black shadow-lg transition hover:bg-cyan-400 hover:scale-105"
                   >
                     {linkText} →
@@ -531,7 +545,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
             // 11. REGULAR PARAGRAPHS
             return (
               <p key={idx} className="mb-6 text-base md:text-lg leading-8 text-white font-normal">
-                {renderFormattedText(trimmed)}
+                {renderFormattedText(trimmed, lPath)}
               </p>
             );
           })}
@@ -539,7 +553,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
           {/* TAGS FOOTER */}
           <div className="mt-16 pt-8 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="text-xs text-gray-400 mr-2">Tags:</span>
+              <span className="text-xs text-gray-400 mr-2">{bPage.tagsLabel || "Tags:"}</span>
               {post.tags.map((t) => (
                 <span
                   key={t}
@@ -551,10 +565,10 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
             </div>
 
             <Link
-              href="/blog"
+              href={lPath("/blog")}
               className="text-xs font-semibold text-cyan-400 hover:underline inline-flex items-center gap-1"
             >
-              ← Back to Knowledge Hub
+              {bPage.backToKnowledgeHub || "← Back to Knowledge Hub"}
             </Link>
           </div>
         </article>
@@ -563,9 +577,11 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
         {relatedPosts.length > 0 && (
           <div className="mx-auto max-w-7xl mt-24 pt-16 border-t border-white/10">
             <div className="flex items-center justify-between mb-8">
-              <h3 className="text-2xl font-bold text-white">Related Articles</h3>
-              <Link href="/blog" className="text-xs font-semibold text-cyan-400 hover:underline">
-                View All Articles →
+              <h3 className="text-2xl font-bold text-white">
+                {bPage.relatedArticlesTitle || "Related Articles"}
+              </h3>
+              <Link href={lPath("/blog")} className="text-xs font-semibold text-cyan-400 hover:underline">
+                {bPage.viewAllArticles || "View All Articles →"}
               </Link>
             </div>
 
@@ -573,7 +589,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
               {relatedPosts.map((rel) => (
                 <Link
                   key={rel.id}
-                  href={`/blog/${rel.slug}`}
+                  href={lPath(`/blog/${rel.slug}`)}
                   className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/15 bg-neutral-950 p-6 transition-all hover:border-cyan-500/50 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)]"
                 >
                   <div>
@@ -590,7 +606,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
                   <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-gray-500">
                     <span>{rel.readTime}</span>
                     <span className="text-cyan-400 font-semibold group-hover:translate-x-1 transition-transform">
-                      Read →
+                      {bPage.readShort || "Read →"}
                     </span>
                   </div>
                 </Link>

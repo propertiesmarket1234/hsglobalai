@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,8 +9,10 @@ import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 import { motion, AnimatePresence } from "framer-motion";
 import { blogPosts, type BlogPost } from "@/data/blogPosts";
+import { getDictionary } from "@/i18n/getDictionary";
+import { Locale, nonDefaultLocales, getLocalizedPath } from "@/i18n/config";
 
-const categories = [
+const englishCategories = [
   "All",
   "Digital Humans",
   "Business Automation",
@@ -23,9 +25,22 @@ const categories = [
 
 export default function BlogClient() {
   const router = useRouter();
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const pathname = usePathname();
+  const seg = pathname ? pathname.split("/")[1] : "";
+  const currentLocale: Locale =
+    seg && (nonDefaultLocales as readonly string[]).includes(seg)
+      ? (seg as Locale)
+      : "en";
+  const dict = getDictionary(currentLocale);
+  const bPage = (dict as any).blogPage || {};
+
+  const lPath = (path: string) => getLocalizedPath(path, currentLocale);
+
+  const [selectedCategoryIdx, setSelectedCategoryIdx] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
   const [activePost, setActivePost] = useState<BlogPost | null>(null);
+
+  const categories: string[] = bPage.categories || englishCategories;
 
   const featuredPost = useMemo(
     () => blogPosts.find((p) => p.featured) ?? blogPosts[0],
@@ -35,7 +50,8 @@ export default function BlogClient() {
   const filteredPosts = useMemo(() => {
     return blogPosts.filter((post) => {
       const matchesCategory =
-        selectedCategory === "All" || post.category === selectedCategory;
+        selectedCategoryIdx === 0 ||
+        post.category === englishCategories[selectedCategoryIdx];
       const matchesSearch =
         searchQuery.trim() === "" ||
         post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -44,7 +60,7 @@ export default function BlogClient() {
 
       return matchesCategory && matchesSearch;
     });
-  }, [selectedCategory, searchQuery]);
+  }, [selectedCategoryIdx, searchQuery]);
 
   return (
     <main className="min-h-screen bg-black text-white selection:bg-cyan-500 selection:text-black">
@@ -67,19 +83,20 @@ export default function BlogClient() {
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-500" />
               </span>
               <span className="text-xs font-semibold tracking-widest text-cyan-300 uppercase">
-                HS Global AI Knowledge Hub & Insights
+                {bPage.heroBadge || "HS Global AI Knowledge Hub & Insights"}
               </span>
             </div>
 
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl">
-              AI Insights &{" "}
+              {bPage.heroTitle || "AI Insights &"}{" "}
               <span className="bg-gradient-to-r from-white via-cyan-100 to-cyan-400 bg-clip-text text-transparent">
-                Holographic Tech.
+                {bPage.heroTitleHighlight || "Holographic Tech."}
               </span>
             </h1>
 
             <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-gray-300 sm:text-lg">
-              Explore in-depth articles, architectural guides, and research on Digital Human Avatars, On-Device AI models, Enterprise RAG, and 3D Holographic displays.
+              {bPage.heroSubtitle ||
+                "Explore in-depth articles, architectural guides, and research on Digital Human Avatars, On-Device AI models, Enterprise RAG, and 3D Holographic displays."}
             </p>
 
             {/* LIVE SEARCH BAR */}
@@ -90,7 +107,7 @@ export default function BlogClient() {
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search articles by title, topic, or keyword..."
+                  placeholder={bPage.searchPlaceholder || "Search articles by title, topic, or keyword..."}
                   className="w-full rounded-2xl border border-white/20 bg-neutral-950/80 py-4 pl-12 pr-12 text-sm text-white placeholder-gray-400 backdrop-blur-xl transition-all focus:border-cyan-400 focus:outline-none focus:ring-1 focus:ring-cyan-400"
                 />
                 {searchQuery && (
@@ -98,7 +115,7 @@ export default function BlogClient() {
                     onClick={() => setSearchQuery("")}
                     className="absolute right-4 text-xs font-semibold text-gray-400 hover:text-white"
                   >
-                    Clear
+                    {bPage.searchClear || "Clear"}
                   </button>
                 )}
               </div>
@@ -108,7 +125,7 @@ export default function BlogClient() {
       </section>
 
       {/* FEATURED POST BANNER */}
-      {!searchQuery && selectedCategory === "All" && (
+      {!searchQuery && selectedCategoryIdx === 0 && (
         <section className="relative px-6 pb-16">
           <div className="mx-auto max-w-7xl">
             <motion.div
@@ -117,7 +134,7 @@ export default function BlogClient() {
               transition={{ duration: 0.6, delay: 0.2 }}
               onClick={() => {
                 if (featuredPost?.slug) {
-                  router.push(`/blog/${featuredPost.slug}`);
+                  router.push(lPath(`/blog/${featuredPost.slug}`));
                 }
               }} className="group relative cursor-pointer overflow-hidden rounded-3xl border border-cyan-500/30 bg-neutral-950 p-6 md:p-10 backdrop-blur-2xl transition-all duration-500 hover:border-cyan-400/60 hover:shadow-[0_0_50px_rgba(6,182,212,0.25)]"
             >
@@ -133,7 +150,7 @@ export default function BlogClient() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                   <span className="absolute top-4 left-4 rounded-full bg-cyan-500/90 px-3 py-1 text-xs font-bold text-black backdrop-blur-md shadow-lg">
-                    ★ Featured Article
+                    {bPage.featuredBadge || "★ Featured Article"}
                   </span>
                 </div>
 
@@ -158,10 +175,10 @@ export default function BlogClient() {
 
                   <div className="mt-8 flex items-center justify-between pt-6 border-t border-white/10">
                     <span className="text-xs font-medium text-gray-400">
-                      By {featuredPost.author}
+                      {bPage.byAuthor ? `${bPage.byAuthor} ${featuredPost.author}` : `By ${featuredPost.author}`}
                     </span>
                     <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-cyan-400 group-hover:translate-x-2 transition-transform">
-                      Read Full Article →
+                      {bPage.readFullArticle || "Read Full Article →"}
                     </span>
                   </div>
                 </div>
@@ -176,11 +193,11 @@ export default function BlogClient() {
         <div className="relative mx-auto max-w-7xl pt-12">
           {/* CATEGORY NAV BUTTONS */}
           <div className="flex flex-wrap items-center justify-center gap-2.5 mb-14">
-            {categories.map((cat) => (
+            {categories.map((cat, catIdx) => (
               <button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
-                className={`rounded-full px-5 py-2 text-xs font-semibold transition-all ${selectedCategory === cat
+                key={catIdx}
+                onClick={() => setSelectedCategoryIdx(catIdx)}
+                className={`rounded-full px-5 py-2 text-xs font-semibold transition-all ${selectedCategoryIdx === catIdx
                   ? "bg-cyan-500 text-black shadow-[0_0_20px_rgba(6,182,212,0.4)]"
                   : "border border-white/15 bg-neutral-950/70 text-gray-300 hover:border-white/30 hover:text-white"
                   }`}
@@ -194,9 +211,11 @@ export default function BlogClient() {
           {filteredPosts.length === 0 ? (
             <div className="rounded-3xl border border-white/10 bg-neutral-950/60 p-12 text-center">
               <span className="text-4xl">🔍</span>
-              <h3 className="mt-4 text-xl font-bold text-white">No articles found</h3>
+              <h3 className="mt-4 text-xl font-bold text-white">
+                {bPage.noArticlesTitle || "No articles found"}
+              </h3>
               <p className="mt-2 text-sm text-gray-400">
-                Try adjusting your search query or category filter.
+                {bPage.noArticlesSub || "Try adjusting your search query or category filter."}
               </p>
             </div>
           ) : (
@@ -211,7 +230,7 @@ export default function BlogClient() {
                   whileHover={{ y: -6 }}
                   onClick={() => {
                     if (post.slug) {
-                      router.push(`/blog/${post.slug}`);
+                      router.push(lPath(`/blog/${post.slug}`));
                     }
                   }} className="group cursor-pointer relative flex flex-col justify-between overflow-hidden rounded-3xl border border-white/15 bg-neutral-950/80 backdrop-blur-xl transition-all duration-500 hover:border-cyan-500/50 hover:shadow-[0_0_35px_rgba(6,182,212,0.2)]"
                 >
@@ -263,9 +282,9 @@ export default function BlogClient() {
                     {/* CARD FOOTER */}
                     <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-gray-400">
                       <Link
-                        href={post.slug ? `/blog/${post.slug}` : "#"} className="font-semibold text-cyan-400 group-hover:translate-x-1 transition-transform inline-flex items-center"
+                        href={post.slug ? lPath(`/blog/${post.slug}`) : "#"} className="font-semibold text-cyan-400 group-hover:translate-x-1 transition-transform inline-flex items-center"
                       >
-                        Read Article →
+                        {bPage.readArticle || "Read Article →"}
                       </Link>
                     </div>
                   </div>
@@ -325,7 +344,7 @@ export default function BlogClient() {
                 <div className="flex items-center gap-3 text-xs text-cyan-400 font-semibold border-b border-white/10 pb-4">
                   <span>Author: {activePost.author}</span>
                   <span>•</span>
-                  <span>HS Global AI Enterprise Hub</span>
+                  <span>{bPage.enterpriseHubLabel || "HS Global AI Enterprise Hub"}</span>
                 </div>
 
                 {activePost.content.split("\n\n").map((paragraph, i) => {
@@ -410,7 +429,7 @@ export default function BlogClient() {
                       <div key={i} className="my-8 rounded-2xl border border-cyan-500/40 bg-gradient-to-r from-cyan-950/60 to-black p-6 text-center shadow-lg">
                         <p className="text-base font-bold text-white mb-4">Ready to Transform Your Customer Engagement?</p>
                         <Link
-                          href={linkHref}
+                          href={lPath(linkHref)}
                           onClick={() => setActivePost(null)}
                           className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 px-8 py-3 text-xs font-bold text-black shadow-lg transition-all hover:scale-105 hover:from-cyan-300 hover:to-blue-400"
                         >
@@ -426,6 +445,7 @@ export default function BlogClient() {
                 {/* Tags & Footer Close */}
                 <div className="mt-10 pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
                   <div className="flex flex-wrap gap-2">
+                    <span className="text-xs text-gray-400 self-center">{bPage.tagsLabel || "Tags:"}</span>
                     {activePost.tags.map((t) => (
                       <span
                         key={t}
@@ -440,7 +460,7 @@ export default function BlogClient() {
                     onClick={() => setActivePost(null)}
                     className="rounded-full bg-cyan-500 px-6 py-2.5 text-xs font-bold text-black transition-all hover:bg-cyan-400 shadow-[0_0_20px_rgba(6,182,212,0.4)]"
                   >
-                    Close Article
+                    {bPage.modalClose || "Close Article"}
                   </button>
                 </div>
               </div>
