@@ -990,7 +990,112 @@ export const en = {
         "who": "Target Facilities & Organizations",
         "limitations": "Scope & Professional Limitations"
     }
-}
+  },
+  eventsPage: {
+    heroBadge: "GLOBAL EXHIBITIONS & LIVE DEMONSTRATIONS",
+    heroTitle: "HS Global AI",
+    heroTitleHighlight: "Events & Exhibitions",
+    heroSubtitle: "HS Global AI actively participates in global exhibitions to showcase our AI-powered hologram technology and digital human solutions across industries worldwide.",
+    metrics: {
+      visitorsVal: "5,000+",
+      visitorsLabel: "Booth Visitors",
+      demosVal: "120+",
+      demosLabel: "Live Demos Conducted",
+      mediaVal: "25+",
+      mediaLabel: "Global Media Highlights",
+      offlineVal: "100%",
+      offlineLabel: "On-Device Local AI",
+    },
+    recentSectionBadge: "OUR PROJECT & SHOWCASE",
+    recentSectionHeading: "Recent Events & Exhibitions",
+    recentSectionDesc: "Discover where we have demonstrated our photorealistic digital humans and 3D hologram box technology to enterprise leaders.",
+    recentEvents: [
+      {
+        id: "led-china-2026",
+        title: "LED China 2026",
+        dates: "March 1-3, 2026",
+        location: "Shenzhen Convention & Exhibition Center, China",
+        tagline: "Showcasing AI-powered hologram and digital human technology.",
+        description: "HS Global AI demonstrated advanced hologram displays and lifelike digital human avatars at LED China 2026, attracting global visitors and industry professionals.",
+        badge: "Completed Exhibition",
+        galleryPrompt: "📸 Live Exhibition Photos (Click to View):",
+        galleryCaptions: [
+          "Main Venue Entrance",
+          "3D Hologram Pendant Demo",
+          "Live Exhibition Handshake Demo",
+        ],
+        highlightsHeading: "EXHIBITION KEY HIGHLIGHTS",
+        highlights: [
+          "Live 3D Hologram Box AI Avatar interaction",
+          "Neural speech synthesis in multi-languages",
+          "Real-time customer engagement analytics",
+          "100% air-gapped local GPU processing showcase",
+        ],
+      },
+      {
+        id: "isle-china-2026",
+        title: "ISLE China 2026",
+        dates: "March 5-7, 2026",
+        location: "Shenzhen International Convention & Exhibition Center, China",
+        tagline: "Live demonstrations of hologram AI assistants.",
+        description: "At ISLE China 2026, HS Global AI presented immersive hologram solutions designed for retail showrooms, exhibitions, and interactive customer engagement.",
+        badge: "Completed Exhibition",
+        galleryCaptions: [
+          "Main Exhibition Venue",
+        ],
+        highlightsHeading: "EXHIBITION KEY HIGHLIGHTS",
+        highlights: [
+          "Interactive Hologram Box AI Kiosks",
+          "Autonomous digital human host & guide",
+          "Custom branded 3D avatar personalities",
+          "Enterprise knowledge base integration",
+        ],
+      },
+    ],
+    momentsSectionBadge: "EXHIBITION MOMENTS",
+    momentsSectionHeading: "Event Highlights & Key Moments",
+    momentsSectionSub: "Moments from HS Global AI's participation at international exhibitions.",
+    categories: ["All", "Exhibitions", "Live Demos", "Keynote Talks"],
+    highlights: [
+      {
+        id: 1,
+        title: "Interactive 3D Hologram Box Demos",
+        category: "Live Demos",
+        categoryIdx: 2,
+        event: "LED China 2026",
+        description: "Attendees engaged with real-time AI avatars inside 3D hologram boxes, testing natural speech recognition and 3D product visualizations.",
+        stat: "3,200+ Interactions",
+      },
+      {
+        id: 2,
+        title: "Global Partner Engagement & Handshake Demos",
+        category: "Live Demos",
+        categoryIdx: 2,
+        event: "LED China 2026",
+        description: "Demonstrating live 3D hologram box interaction and enterprise AI avatar integration to international trade visitors.",
+        stat: "500+ Booth Demos",
+      },
+      {
+        id: 3,
+        title: "Retail & Exhibition Kiosk Showcase",
+        category: "Exhibitions",
+        categoryIdx: 1,
+        event: "ISLE China 2026",
+        description: "Demonstrating 3D Hologram Boxes configured for automated retail product advice and multilingual attendee assistance.",
+        stat: "120+ Partner Inquiries",
+      },
+      {
+        id: 4,
+        title: "Air-Gapped Offline AI Privacy Workshop",
+        category: "Keynote Talks",
+        categoryIdx: 3,
+        event: "Tech Briefing Series",
+        description: "Technical deep dive into how HS Global AI runs enterprise LLMs and digital humans locally on edge hardware with zero data leaks.",
+        stat: "100% Data Privacy",
+      },
+    ],
+    highlightLabel: "Highlight:",
+  }
 };
 
 

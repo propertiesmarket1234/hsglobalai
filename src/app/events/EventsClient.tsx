@@ -3,10 +3,13 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
+import { getDictionary } from "@/i18n/getDictionary";
+import { Locale, nonDefaultLocales } from "@/i18n/config";
 
 // Featured Recent Events (Using exact real photos from user requests)
 const recentEvents = [
@@ -78,6 +81,7 @@ const eventHighlights = [
     id: 1,
     title: "Interactive 3D Hologram Box Demos",
     category: "Live Demos",
+    categoryIdx: 2,
     event: "LED China 2026",
     image: "/images/events/led-china-demo-1.jpg",
     description:
@@ -88,6 +92,7 @@ const eventHighlights = [
     id: 2,
     title: "Global Partner Engagement & Handshake Demos",
     category: "Live Demos",
+    categoryIdx: 2,
     event: "LED China 2026",
     image: "/images/events/led-china-demo-2.jpg",
     description:
@@ -98,6 +103,7 @@ const eventHighlights = [
     id: 3,
     title: "Retail & Exhibition Kiosk Showcase",
     category: "Exhibitions",
+    categoryIdx: 1,
     event: "ISLE China 2026",
     image: "/images/events/isle-china-2026.jpg",
     description:
@@ -108,6 +114,7 @@ const eventHighlights = [
     id: 4,
     title: "Air-Gapped Offline AI Privacy Workshop",
     category: "Keynote Talks",
+    categoryIdx: 3,
     event: "Tech Briefing Series",
     image: "/images/events/led-china-2026.jpg",
     description:
@@ -117,15 +124,66 @@ const eventHighlights = [
 ];
 
 export default function EventsClient() {
-  const [activeTab, setActiveTab] = useState("All");
+  const pathname = usePathname();
+  const seg = pathname ? pathname.split("/")[1] : "";
+  const currentLocale: Locale =
+    seg && (nonDefaultLocales as readonly string[]).includes(seg)
+      ? (seg as Locale)
+      : "en";
+  const dict = getDictionary(currentLocale);
+  const ePage = (dict as any).eventsPage || {};
+
+  const [activeTabIdx, setActiveTabIdx] = useState(0);
   const [selectedLedImageIndex, setSelectedLedImageIndex] = useState(0);
 
-  const categories = ["All", "Exhibitions", "Live Demos", "Keynote Talks"];
+  const categories: string[] = ePage.categories || [
+    "All",
+    "Exhibitions",
+    "Live Demos",
+    "Keynote Talks",
+  ];
+
+  const localizedRecentEvents = recentEvents.map((evt, idx) => {
+    const dictEvt = ePage.recentEvents && ePage.recentEvents[idx];
+    if (!dictEvt) return evt;
+    return {
+      ...evt,
+      dates: dictEvt.dates || evt.dates,
+      location: dictEvt.location || evt.location,
+      tagline: dictEvt.tagline || evt.tagline,
+      description: dictEvt.description || evt.description,
+      badge: dictEvt.badge || evt.badge,
+      galleryPrompt:
+        dictEvt.galleryPrompt || "📸 Live Exhibition Photos (Click to View):",
+      gallery: evt.gallery.map((gItem, gIdx) => {
+        const caption =
+          dictEvt.galleryCaptions && dictEvt.galleryCaptions[gIdx];
+        return caption ? { ...gItem, caption } : gItem;
+      }),
+      highlightsHeading:
+        dictEvt.highlightsHeading || "EXHIBITION KEY HIGHLIGHTS",
+      highlights: dictEvt.highlights || evt.highlights,
+    };
+  });
+
+  const localizedHighlights = eventHighlights.map((item, idx) => {
+    const dictH = ePage.highlights && ePage.highlights[idx];
+    if (!dictH) return item;
+    const catIdx = dictH.categoryIdx !== undefined ? dictH.categoryIdx : item.categoryIdx;
+    return {
+      ...item,
+      title: dictH.title || item.title,
+      category: categories[catIdx] || dictH.category || item.category,
+      categoryIdx: catIdx,
+      description: dictH.description || item.description,
+      stat: dictH.stat || item.stat,
+    };
+  });
 
   const filteredHighlights =
-    activeTab === "All"
-      ? eventHighlights
-      : eventHighlights.filter((item) => item.category === activeTab);
+    activeTabIdx === 0
+      ? localizedHighlights
+      : localizedHighlights.filter((item) => item.categoryIdx === activeTabIdx);
 
   return (
     <div className="min-h-screen bg-black text-white selection:bg-cyan-500 selection:text-black">
@@ -151,7 +209,7 @@ export default function EventsClient() {
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-400" />
               </span>
               <span className="text-xs font-semibold tracking-widest text-cyan-300 uppercase">
-                GLOBAL EXHIBITIONS & LIVE DEMONSTRATIONS
+                {ePage.heroBadge || "GLOBAL EXHIBITIONS & LIVE DEMONSTRATIONS"}
               </span>
             </motion.div>
 
@@ -162,9 +220,9 @@ export default function EventsClient() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-4xl font-extrabold tracking-tight md:text-6xl lg:text-7xl"
             >
-              HS Global AI <br className="hidden sm:inline" />
+              {ePage.heroTitle || "HS Global AI"} <br className="hidden sm:inline" />
               <span className="bg-gradient-to-r from-cyan-400 via-teal-300 to-blue-500 bg-clip-text text-transparent">
-                Events & Exhibitions
+                {ePage.heroTitleHighlight || "Events & Exhibitions"}
               </span>
             </motion.h1>
 
@@ -175,7 +233,8 @@ export default function EventsClient() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mx-auto mt-6 max-w-3xl text-base md:text-xl text-gray-300 leading-relaxed"
             >
-              HS Global AI actively participates in global exhibitions to showcase our AI-powered hologram technology and digital human solutions across industries worldwide.
+              {ePage.heroSubtitle ||
+                "HS Global AI actively participates in global exhibitions to showcase our AI-powered hologram technology and digital human solutions across industries worldwide."}
             </motion.p>
 
             {/* Key Metrics Strip */}
@@ -186,23 +245,39 @@ export default function EventsClient() {
               className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4 max-w-4xl mx-auto"
             >
               <div className="rounded-2xl border border-white/10 bg-neutral-900/60 p-5 backdrop-blur-xl hover:border-cyan-500/30 transition-colors">
-                <div className="text-3xl font-black text-cyan-400">5,000+</div>
-                <div className="mt-1 text-xs text-gray-400 font-medium">Booth Visitors</div>
+                <div className="text-3xl font-black text-cyan-400">
+                  {ePage.metrics?.visitorsVal || "5,000+"}
+                </div>
+                <div className="mt-1 text-xs text-gray-400 font-medium">
+                  {ePage.metrics?.visitorsLabel || "Booth Visitors"}
+                </div>
               </div>
 
               <div className="rounded-2xl border border-white/10 bg-neutral-900/60 p-5 backdrop-blur-xl hover:border-cyan-500/30 transition-colors">
-                <div className="text-3xl font-black text-cyan-300">120+</div>
-                <div className="mt-1 text-xs text-gray-400 font-medium">Live Demos Conducted</div>
+                <div className="text-3xl font-black text-cyan-300">
+                  {ePage.metrics?.demosVal || "120+"}
+                </div>
+                <div className="mt-1 text-xs text-gray-400 font-medium">
+                  {ePage.metrics?.demosLabel || "Live Demos Conducted"}
+                </div>
               </div>
 
               <div className="rounded-2xl border border-white/10 bg-neutral-900/60 p-5 backdrop-blur-xl hover:border-cyan-500/30 transition-colors">
-                <div className="text-3xl font-black text-teal-300">25+</div>
-                <div className="mt-1 text-xs text-gray-400 font-medium">Global Media Highlights</div>
+                <div className="text-3xl font-black text-teal-300">
+                  {ePage.metrics?.mediaVal || "25+"}
+                </div>
+                <div className="mt-1 text-xs text-gray-400 font-medium">
+                  {ePage.metrics?.mediaLabel || "Global Media Highlights"}
+                </div>
               </div>
 
               <div className="rounded-2xl border border-white/10 bg-neutral-900/60 p-5 backdrop-blur-xl hover:border-cyan-500/30 transition-colors">
-                <div className="text-3xl font-black text-cyan-400">100%</div>
-                <div className="mt-1 text-xs text-gray-400 font-medium">On-Device Local AI</div>
+                <div className="text-3xl font-black text-cyan-400">
+                  {ePage.metrics?.offlineVal || "100%"}
+                </div>
+                <div className="mt-1 text-xs text-gray-400 font-medium">
+                  {ePage.metrics?.offlineLabel || "On-Device Local AI"}
+                </div>
               </div>
             </motion.div>
           </div>
@@ -213,19 +288,20 @@ export default function EventsClient() {
           <div className="mx-auto max-w-7xl">
             <div className="mb-14 text-center md:text-left">
               <span className="text-xs font-mono uppercase tracking-widest text-cyan-400">
-                OUR PROJECT & SHOWCASE
+                {ePage.recentSectionBadge || "OUR PROJECT & SHOWCASE"}
               </span>
               <h2 className="mt-2 text-3xl font-bold tracking-tight text-white md:text-5xl">
-                Recent Events & Exhibitions
+                {ePage.recentSectionHeading || "Recent Events & Exhibitions"}
               </h2>
               <p className="mt-4 max-w-2xl text-gray-400 text-base">
-                Discover where we have demonstrated our photorealistic digital humans and 3D hologram box technology to enterprise leaders.
+                {ePage.recentSectionDesc ||
+                  "Discover where we have demonstrated our photorealistic digital humans and 3D hologram box technology to enterprise leaders."}
               </p>
             </div>
 
             {/* EVENT CARDS GRID */}
             <div className="grid gap-10 md:grid-cols-2">
-              {recentEvents.map((event, idx) => {
+              {localizedRecentEvents.map((event, idx) => {
                 const currentImgSrc =
                   event.id === "led-china-2026"
                     ? event.gallery[selectedLedImageIndex].src
@@ -302,7 +378,7 @@ export default function EventsClient() {
                         {event.id === "led-china-2026" && (
                           <div className="mb-5 rounded-2xl border border-white/10 bg-neutral-900/80 p-2.5 backdrop-blur-md">
                             <span className="block text-[11px] font-mono uppercase tracking-wider text-cyan-400 mb-2 px-1">
-                              📸 Live Exhibition Photos (Click to View):
+                              {(event as any).galleryPrompt || "📸 Live Exhibition Photos (Click to View):"}
                             </span>
                             <div className="grid grid-cols-3 gap-2">
                               {event.gallery.map((gItem, gIdx) => (
@@ -341,10 +417,10 @@ export default function EventsClient() {
                       {/* Highlights checklist */}
                       <div className="pt-4 border-t border-white/10">
                         <h4 className="text-xs font-mono uppercase tracking-wider text-cyan-400 mb-3">
-                          EXHIBITION KEY HIGHLIGHTS
+                          {(event as any).highlightsHeading || "EXHIBITION KEY HIGHLIGHTS"}
                         </h4>
                         <ul className="grid grid-cols-1 gap-2.5">
-                          {event.highlights.map((item, i) => (
+                          {event.highlights.map((item: string, i: number) => (
                             <li
                               key={i}
                               className="flex items-center gap-2.5 text-xs text-gray-300"
@@ -370,24 +446,25 @@ export default function EventsClient() {
           <div className="mx-auto max-w-7xl">
             <div className="mb-10 text-center">
               <span className="text-xs font-mono uppercase tracking-widest text-cyan-400">
-                EXHIBITION MOMENTS
+                {ePage.momentsSectionBadge || "EXHIBITION MOMENTS"}
               </span>
               <h2 className="mt-2 text-3xl font-bold tracking-tight text-white md:text-4xl">
-                Event Highlights & Key Moments
+                {ePage.momentsSectionHeading || "Event Highlights & Key Moments"}
               </h2>
               <p className="mt-3 text-gray-400 text-sm max-w-xl mx-auto">
-                Moments from HS Global AI&apos;s participation at international exhibitions.
+                {ePage.momentsSectionSub ||
+                  "Moments from HS Global AI's participation at international exhibitions."}
               </p>
             </div>
 
             {/* Category Filter Tabs */}
             <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
-              {categories.map((cat) => (
+              {categories.map((cat, catIndex) => (
                 <button
-                  key={cat}
-                  onClick={() => setActiveTab(cat)}
+                  key={catIndex}
+                  onClick={() => setActiveTabIdx(catIndex)}
                   className={`rounded-full px-5 py-2 text-xs font-semibold transition-all ${
-                    activeTab === cat
+                    activeTabIdx === catIndex
                       ? "bg-cyan-500 text-black shadow-[0_0_20px_rgba(6,182,212,0.4)]"
                       : "border border-white/10 bg-neutral-900/80 text-gray-300 hover:border-cyan-500/40 hover:text-white"
                   }`}
@@ -437,7 +514,9 @@ export default function EventsClient() {
                       </div>
 
                       <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs">
-                        <span className="text-gray-400 font-medium">Highlight:</span>
+                        <span className="text-gray-400 font-medium">
+                          {ePage.highlightLabel || "Highlight:"}
+                        </span>
                         <span className="font-bold text-cyan-300 bg-cyan-500/10 px-2.5 py-1 rounded-md border border-cyan-500/20">
                           {item.stat}
                         </span>
