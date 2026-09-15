@@ -176,7 +176,7 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
                     : "border border-white/20 bg-black/60 text-gray-300 hover:border-cyan-400 hover:text-white"
                 }`}
               >
-                📬 Contact & Demo Inquiry
+                {cPage.tabContact || "📬 Contact & Demo Inquiry"}
               </button>
 
               <button
@@ -187,7 +187,7 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
                     : "border border-white/20 bg-black/60 text-gray-300 hover:border-cyan-400 hover:text-white"
                 }`}
               >
-                📥 Download Spec Sheets (PDF)
+                {cPage.tabDownloads || "📥 Download Spec Sheets (PDF)"}
               </button>
             </div>
           </motion.div>
@@ -204,11 +204,11 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
                 <div className="lg:col-span-5 space-y-8">
                   <div>
                     <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400 font-mono">
-                      Global Infrastructure
+                      {cPage.globalInfraBadge || "Global Infrastructure"}
                     </span>
-                    <h2 className="mt-2 text-3xl font-bold text-white">Our Global Offices</h2>
+                    <h2 className="mt-2 text-3xl font-bold text-white">{cPage.officesTitle || "Our Global Offices"}</h2>
                     <p className="mt-3 text-sm leading-6 text-gray-400">
-                      HS Global AI serves enterprise clients worldwide with main headquarters in Singapore and regional development in India.
+                      {cPage.officesDescription || "HS Global AI serves enterprise clients worldwide with main headquarters in Singapore and regional development in India."}
                     </p>
                   </div>
 
@@ -216,25 +216,25 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
                   <div className="group relative overflow-hidden rounded-3xl border border-cyan-500/40 bg-neutral-950 p-7 backdrop-blur-xl shadow-[0_0_30px_rgba(6,182,212,0.15)] transition-all hover:border-cyan-400">
                     <div className="flex items-center justify-between">
                       <span className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3 py-1 text-xs font-bold text-cyan-300 font-mono">
-                        🇸🇬 GLOBAL HEADQUARTERS
+                        {cPage.sgHqBadge || "🇸🇬 GLOBAL HEADQUARTERS"}
                       </span>
-                      <span className="text-xs text-gray-400 font-mono">SINGAPORE</span>
+                      <span className="text-xs text-gray-400 font-mono">{cPage.sgHqCountry || "SINGAPORE"}</span>
                     </div>
 
-                    <h3 className="mt-4 text-xl font-bold text-white">HS GLOBAL SG PTE LTD</h3>
+                    <h3 className="mt-4 text-xl font-bold text-white">{cPage.sgHqName || "HS GLOBAL SG PTE LTD"}</h3>
                     <p className="mt-2 text-xs leading-6 text-gray-300">
-                      20 COLLYER QUAY, #09-01, SINGAPORE – 049319
+                      {cPage.sgHqAddress || "20 COLLYER QUAY, #09-01, SINGAPORE – 049319"}
                     </p>
 
                     <div className="mt-5 space-y-2 border-t border-white/10 pt-4 text-xs">
                       <div className="flex items-center justify-between text-gray-300">
-                        <span className="font-semibold text-cyan-300">Official Email:</span>
+                        <span className="font-semibold text-cyan-300">{cPage.officialEmailLabel || "Official Email:"}</span>
                         <a href="mailto:info@hsglobalai.com" className="hover:underline font-mono text-cyan-400">
                           info@hsglobalai.com
                         </a>
                       </div>
                       <div className="flex items-center justify-between text-gray-300">
-                        <span className="font-semibold text-cyan-300">Website:</span>
+                        <span className="font-semibold text-cyan-300">{cPage.websiteLabel || "Website:"}</span>
                         <span className="font-mono text-gray-300">hsglobalai.com</span>
                       </div>
                     </div>
@@ -244,26 +244,26 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
                   <div className="group relative overflow-hidden rounded-3xl border border-white/15 bg-neutral-950 p-7 backdrop-blur-xl transition-all hover:border-cyan-500/40">
                     <div className="flex items-center justify-between">
                       <span className="inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-3 py-1 text-xs font-bold text-orange-300 font-mono">
-                        🇮🇳 INDIA REGIONAL OFFICE
+                        {cPage.indiaOfficeBadge || "🇮🇳 INDIA REGIONAL OFFICE"}
                       </span>
-                      <span className="text-xs text-gray-400 font-mono">ANDHRA PRADESH</span>
+                      <span className="text-xs text-gray-400 font-mono">{cPage.indiaOfficeState || "ANDHRA PRADESH"}</span>
                     </div>
 
-                    <h3 className="mt-4 text-xl font-bold text-white">HS GLOBAL AI INDIA</h3>
+                    <h3 className="mt-4 text-xl font-bold text-white">{cPage.indiaOfficeName || "HS GLOBAL AI INDIA"}</h3>
                     <p className="mt-2 text-xs leading-6 text-gray-300">
-                      49-4-1, 17/3E, Prasanth Colony, 1st line, Gunadala, Kanuru, Andhra Pradesh 520004, India
+                      {cPage.indiaOfficeAddress || "49-4-1, 17/3E, Prasanth Colony, 1st line, Gunadala, Kanuru, Andhra Pradesh 520004, India"}
                     </p>
 
                     <div className="mt-5 space-y-2 border-t border-white/10 pt-4 text-xs">
                       <div className="flex items-center justify-between text-gray-300">
-                        <span className="font-semibold text-cyan-300">Phone Support:</span>
+                        <span className="font-semibold text-cyan-300">{cPage.phoneSupportLabel || "Phone Support:"}</span>
                         <a href="tel:+919959666699" className="hover:underline font-mono text-cyan-400">
                           +91 99596 66699
                         </a>
                       </div>
                       <div className="flex items-center justify-between text-gray-300">
-                        <span className="font-semibold text-cyan-300">Office Hours:</span>
-                        <span className="font-mono text-gray-300">Mon–Sat: 9:30 AM – 6:30 PM (IST)</span>
+                        <span className="font-semibold text-cyan-300">{cPage.officeHoursLabel || "Office Hours:"}</span>
+                        <span className="font-mono text-gray-300">{cPage.officeHoursValue || "Mon–Sat: 9:30 AM – 6:30 PM (IST)"}</span>
                       </div>
                     </div>
                   </div>
@@ -272,9 +272,9 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
                 {/* RIGHT COLUMN: INTERACTIVE INQUIRY & DEMO REQUEST FORM */}
                 <div className="lg:col-span-7">
                   <div className="rounded-3xl border border-cyan-500/30 bg-neutral-950 p-8 md:p-10 backdrop-blur-2xl shadow-2xl">
-                    <h3 className="text-2xl font-bold text-white">Request a Live DIHUAVA Demo</h3>
+                    <h3 className="text-2xl font-bold text-white">{cPage.formTitle || "Request a Live DIHUAVA Demo"}</h3>
                     <p className="mt-2 text-xs text-gray-400">
-                      Fill out the form below to connect with our technical solution architects.
+                      {cPage.formSubtitle || "Fill out the form below to connect with our technical solution architects."}
                     </p>
 
                     {submitted ? (
@@ -282,15 +282,15 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
                         <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-cyan-500 text-black text-2xl font-bold mb-4 shadow-[0_0_25px_rgba(6,182,212,0.5)]">
                           ✓
                         </div>
-                        <h4 className="text-2xl font-bold text-white">Inquiry Received Successfully</h4>
+                        <h4 className="text-2xl font-bold text-white">{cPage.successTitle || "Inquiry Received Successfully"}</h4>
                         <p className="mt-2 text-sm text-gray-300">
-                          Thank you, <strong className="text-cyan-300">{formData.name}</strong>. Our enterprise AI specialist will review your project requirements and respond within 24 hours.
+                          {cPage.successMessagePrefix || "Thank you, "}<strong className="text-cyan-300">{formData.name}</strong>{cPage.successMessageSuffix || ". Our enterprise AI specialist will review your project requirements and respond within 24 hours."}
                         </p>
                         <button
                           onClick={() => setSubmitted(false)}
                           className="mt-6 rounded-full border border-cyan-400/40 bg-black px-6 py-2 text-xs font-semibold text-cyan-300 hover:bg-cyan-500/10"
                         >
-                          Submit Another Request
+                          {cPage.submitAnother || "Submit Another Request"}
                         </button>
                       </div>
                     ) : (
@@ -298,28 +298,28 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
                         <div className="grid gap-6 sm:grid-cols-2">
                           <div>
                             <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
-                              Full Name *
+                              {cPage.fullNameLabel || "Full Name *"}
                             </label>
                             <input
                               type="text"
                               required
                               value={formData.name}
                               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                              placeholder="Subbarao Motupalli"
+                              placeholder={cPage.fullNamePlaceholder || "Subbarao Motupalli"}
                               className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-3.5 text-sm text-white placeholder-gray-500 focus:border-cyan-400 focus:outline-none"
                             />
                           </div>
 
                           <div>
                             <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
-                              Work Email *
+                              {cPage.emailLabel || "Work Email *"}
                             </label>
                             <input
                               type="email"
                               required
                               value={formData.email}
                               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                              placeholder="info@hsglobalai.com"
+                              placeholder={cPage.emailPlaceholder || "info@hsglobalai.com"}
                               className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-3.5 text-sm text-white placeholder-gray-500 focus:border-cyan-400 focus:outline-none"
                             />
                           </div>
@@ -328,7 +328,7 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
                         <div className="grid gap-6 sm:grid-cols-2">
                           <div>
                             <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
-                              Phone Number (With Country Code) *
+                              {cPage.phoneLabel || "Phone Number (With Country Code) *"}
                             </label>
                             <div className="flex items-center rounded-xl border border-white/15 bg-black/60 overflow-hidden focus-within:border-cyan-400">
                               <select
@@ -347,7 +347,7 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
                                 required
                                 value={formData.phone}
                                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                                placeholder="6000 0000"
+                                placeholder={cPage.phonePlaceholder || "6000 0000"}
                                 className="w-full bg-transparent px-4 py-3.5 text-sm text-white placeholder-gray-500 focus:outline-none"
                               />
                             </div>
@@ -355,13 +355,13 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
 
                           <div>
                             <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
-                              Company / Organization
+                              {cPage.companyLabel || "Company / Organization"}
                             </label>
                             <input
                               type="text"
                               value={formData.company}
                               onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                              placeholder="Global Retail Inc."
+                              placeholder={cPage.companyPlaceholder || "Global Retail Inc."}
                               className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-3.5 text-sm text-white placeholder-gray-500 focus:border-cyan-400 focus:outline-none"
                             />
                           </div>
@@ -369,33 +369,33 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
 
                         <div>
                           <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
-                            Industry
+                            {cPage.industryLabel || "Industry"}
                           </label>
                           <select
                             value={formData.industry}
                             onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
                             className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-3.5 text-sm text-white focus:border-cyan-400 focus:outline-none"
                           >
-                            <option value="Banking">Banking</option>
-                            <option value="Retail">Retail</option>
-                            <option value="Healthcare">Healthcare</option>
-                            <option value="Tourism">Tourism</option>
-                            <option value="Education">Education</option>
-                            <option value="Corporate">Corporate</option>
-                            <option value="Advertising">Advertising</option>
+                            <option value="Banking">{cPage.industryOptions?.banking || "Banking"}</option>
+                            <option value="Retail">{cPage.industryOptions?.retail || "Retail"}</option>
+                            <option value="Healthcare">{cPage.industryOptions?.healthcare || "Healthcare"}</option>
+                            <option value="Tourism">{cPage.industryOptions?.tourism || "Tourism"}</option>
+                            <option value="Education">{cPage.industryOptions?.education || "Education"}</option>
+                            <option value="Corporate">{cPage.industryOptions?.corporate || "Corporate"}</option>
+                            <option value="Advertising">{cPage.industryOptions?.advertising || "Advertising"}</option>
                           </select>
                         </div>
 
                         <div>
                           <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
-                            Project Details & Message *
+                            {cPage.messageLabel || "Project Details & Message *"}
                           </label>
                           <textarea
                             required
                             rows={4}
                             value={formData.message}
                             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                            placeholder="Describe your target deployment environment or specific AI requirements..."
+                            placeholder={cPage.messagePlaceholder || "Describe your target deployment environment or specific AI requirements..."}
                             className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-3.5 text-sm text-white placeholder-gray-500 focus:border-cyan-400 focus:outline-none"
                           />
                         </div>
@@ -411,10 +411,10 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
                                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                               </svg>
-                              <span>Sending Inquiry...</span>
+                              <span>{cPage.submitting || "Sending Inquiry..."}</span>
                             </>
                           ) : (
-                            <span>Submit Inquiry & Request Live Demo</span>
+                            <span>{cPage.submitBtn || "Submit Inquiry & Request Live Demo"}</span>
                           )}
                         </button>
                       </form>
@@ -431,17 +431,17 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
               <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
                 <div>
                   <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400 font-mono">
-                    Interactive Location Maps
+                    {cPage.mapsBadge || "Interactive Location Maps"}
                   </span>
                   <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-5xl">
                     {activeLocationMap === "singapore"
-                      ? "Visit Our Singapore Headquarters"
-                      : "Visit Our India Regional Office"}
+                      ? (cPage.mapTitleSg || "Visit Our Singapore Headquarters")
+                      : (cPage.mapTitleIndia || "Visit Our India Regional Office")}
                   </h2>
                   <p className="mt-2 text-sm text-gray-400">
                     {activeLocationMap === "singapore"
-                      ? "Located at HS GLOBAL SG PTE LTD, 20 COLLYER QUAY, #09-01, SINGAPORE – 049319."
-                      : "Located at 49-4-1, 17/3E, Prasanth Colony, 1st line, Gunadala, Kanuru, Andhra Pradesh 520004, India."}
+                      ? (cPage.mapDescSg || "Located at HS GLOBAL SG PTE LTD, 20 COLLYER QUAY, #09-01, SINGAPORE – 049319.")
+                      : (cPage.mapDescIndia || "Located at 49-4-1, 17/3E, Prasanth Colony, 1st line, Gunadala, Kanuru, Andhra Pradesh 520004, India.")}
                   </p>
                 </div>
 
@@ -456,7 +456,7 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
                           : "text-gray-300 hover:text-white"
                       }`}
                     >
-                      <span>🇸🇬 Singapore HQ</span>
+                      <span>{cPage.btnSgHq || "🇸🇬 Singapore HQ"}</span>
                     </button>
                     <button
                       onClick={() => setActiveLocationMap("india")}
@@ -466,7 +466,7 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
                           : "text-gray-300 hover:text-white"
                       }`}
                     >
-                      <span>🇮🇳 India Office</span>
+                      <span>{cPage.btnIndiaOffice || "🇮🇳 India Office"}</span>
                     </button>
                   </div>
 
@@ -481,7 +481,7 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 rounded-full border border-cyan-500/40 bg-cyan-500/10 px-6 py-3 text-xs font-bold text-cyan-300 backdrop-blur-md transition-all hover:bg-cyan-500/20 shadow-[0_0_20px_rgba(6,182,212,0.2)]"
                   >
-                    <span>Get Directions</span>
+                    <span>{cPage.getDirections || "Get Directions"}</span>
                     <span>↗</span>
                   </a>
                 </div>
@@ -519,16 +519,16 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
                   <div>
                     <div className="flex items-center gap-2">
                       <h4 className="text-sm font-bold text-white tracking-wide">
-                        {activeLocationMap === "singapore" ? "HS GLOBAL SG PTE LTD" : "HS GLOBAL AI INDIA"}
+                        {activeLocationMap === "singapore" ? (cPage.pinTitleSg || "HS GLOBAL SG PTE LTD") : (cPage.pinTitleIndia || "HS GLOBAL AI INDIA")}
                       </h4>
                       <span className="rounded bg-red-500/20 px-1.5 py-0.5 text-[9px] font-bold text-red-400 border border-red-500/40">
-                        {activeLocationMap === "singapore" ? "HQ PIN" : "INDIA OFFICE PIN"}
+                        {activeLocationMap === "singapore" ? (cPage.pinBadgeSg || "HQ PIN") : (cPage.pinBadgeIndia || "INDIA OFFICE PIN")}
                       </span>
                     </div>
                     <p className="text-[11px] font-mono text-gray-300 mt-0.5">
                       {activeLocationMap === "singapore"
-                        ? "20 COLLYER QUAY, #09-01, SINGAPORE – 049319"
-                        : "49-4-1, 17/3E, PRASANTH COLONY, KANURU, AP 520004"}
+                        ? (cPage.pinAddressSg || "20 COLLYER QUAY, #09-01, SINGAPORE – 049319")
+                        : (cPage.pinAddressIndia || "49-4-1, 17/3E, PRASANTH COLONY, KANURU, AP 520004")}
                     </p>
                   </div>
                 </div>
@@ -538,17 +538,17 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
                   <div className="flex items-center gap-3">
                     <span className="flex h-3 w-3 rounded-full bg-cyan-400 animate-pulse" />
                     <h4 className="text-sm font-bold text-white">
-                      {activeLocationMap === "singapore" ? "Singapore Global HQ" : "India Regional Office"}
+                      {activeLocationMap === "singapore" ? (cPage.cardHeaderSg || "Singapore Global HQ") : (cPage.cardHeaderIndia || "India Regional Office")}
                     </h4>
                   </div>
                   <p className="mt-2 text-xs leading-5 text-gray-300">
                     {activeLocationMap === "singapore"
-                      ? "20 COLLYER QUAY, #09-01, SINGAPORE – 049319"
-                      : "49-4-1, 17/3E, Prasanth Colony, 1st line, Gunadala, Kanuru, Andhra Pradesh 520004, India"}
+                      ? (cPage.sgHqAddress || "20 COLLYER QUAY, #09-01, SINGAPORE – 049319")
+                      : (cPage.indiaOfficeAddress || "49-4-1, 17/3E, Prasanth Colony, 1st line, Gunadala, Kanuru, Andhra Pradesh 520004, India")}
                   </p>
                   <div className="mt-3 flex items-center justify-between text-[11px] font-mono text-cyan-400 border-t border-white/10 pt-3">
-                    <span>{activeLocationMap === "singapore" ? "Raffles Place MRT (Exit B)" : "Vijayawada Region"}</span>
-                    <span>Mon-Sat: 9:30am - 6:30pm (IST)</span>
+                    <span>{activeLocationMap === "singapore" ? (cPage.mrtStationSg || "Raffles Place MRT (Exit B)") : (cPage.mrtStationIndia || "Vijayawada Region")}</span>
+                    <span>{cPage.officeHoursValue || "Mon-Sat: 9:30am - 6:30pm (IST)"}</span>
                   </div>
                 </div>
               </div>
@@ -566,7 +566,7 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
             <div>
               <div className="text-center mb-10">
                 <span className="inline-block rounded-full border border-cyan-400/40 bg-cyan-500/15 px-6 py-2 text-sm font-bold text-cyan-300 shadow-[0_0_20px_rgba(6,182,212,0.3)]">
-                  {(dict as any).contactPage?.downloadsBadge || "Data Sheets & Specifications"}
+                  {cPage.downloadsBadge || "Data Sheets & Specifications"}
                 </span>
               </div>
 
@@ -593,7 +593,7 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
                         disabled={downloadingTitle === item.title}
                         className="rounded-full bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-500 px-8 py-2.5 text-xs font-bold text-white shadow-lg transition-all hover:brightness-110 active:scale-95 disabled:opacity-50"
                       >
-                        {downloadingTitle === item.title ? "DOWNLOADING..." : "DOWNLOAD"}
+                        {downloadingTitle === item.title ? (cPage.downloadingBtn || "DOWNLOADING...") : (cPage.downloadBtn || "DOWNLOAD")}
                       </button>
                     </div>
                   </div>
@@ -605,7 +605,7 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
             <div>
               <div className="text-center mb-10">
                 <span className="inline-block rounded-full border border-cyan-400/40 bg-cyan-500/15 px-6 py-2 text-sm font-bold text-cyan-300 shadow-[0_0_20px_rgba(6,182,212,0.3)]">
-                  Dihuava Brochure
+                  {cPage.dihuavaBrochureBadge || "Dihuava Brochure"}
                 </span>
               </div>
 
@@ -625,7 +625,7 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
                         disabled={downloadingTitle === item.title}
                         className="rounded-full bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-500 px-8 py-2.5 text-xs font-bold text-white shadow-lg transition-all hover:brightness-110 active:scale-95 disabled:opacity-50"
                       >
-                        {downloadingTitle === item.title ? "DOWNLOADING..." : "DOWNLOAD"}
+                        {downloadingTitle === item.title ? (cPage.downloadingBtn || "DOWNLOADING...") : (cPage.downloadBtn || "DOWNLOAD")}
                       </button>
                     </div>
                   </div>
@@ -637,7 +637,7 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
             <div>
               <div className="text-center mb-10">
                 <span className="inline-block rounded-full border border-cyan-400/40 bg-cyan-500/15 px-6 py-2 text-sm font-bold text-cyan-300 shadow-[0_0_20px_rgba(6,182,212,0.3)]">
-                  Dihuava Templates
+                  {cPage.dihuavaTemplatesBadge || "Dihuava Templates"}
                 </span>
               </div>
 
@@ -657,7 +657,7 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
                         disabled={downloadingTitle === item.title}
                         className="rounded-full bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-500 px-8 py-2.5 text-xs font-bold text-white shadow-lg transition-all hover:brightness-110 active:scale-95 disabled:opacity-50"
                       >
-                        {downloadingTitle === item.title ? "DOWNLOADING..." : "DOWNLOAD"}
+                        {downloadingTitle === item.title ? (cPage.downloadingBtn || "DOWNLOADING...") : (cPage.downloadBtn || "DOWNLOAD")}
                       </button>
                     </div>
                   </div>

@@ -3,7 +3,7 @@ import { getLocalizedAlternates } from "@/i18n/config";
 import type { Metadata } from "next";
 
 export async function generateStaticParams() {
-  return [{ lang: "zh" }, { lang: "ru" }, { lang: "es" }];
+  return [{ lang: "zh" }, { lang: "ru" }, { lang: "es" }, { lang: "fr" }];
 }
 
 export async function generateMetadata({
