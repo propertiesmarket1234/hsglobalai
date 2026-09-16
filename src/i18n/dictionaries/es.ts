@@ -763,10 +763,40 @@ export const es: Dictionary = {
   }
 },
   productsPage: {
-      "heroBadge": "Gama de productos HS Global AI",
-      "heroTitle": "Productos de IA diseñados para ",
-      "heroTitleHighlight": "experiencias reales.",
-      "heroDescription": "Explore los productos de HS Global AI: la plataforma de humanos digitales DIHUAVA, vitrinas holográficas 3D y pantallas espaciales para despliegue 100% offline."
+    heroBadge: "Gama de productos HS Global AI",
+    heroTitle: "Productos de IA para ",
+    heroTitleHighlight: "experiencias reales.",
+    heroDescription: "Explore los productos de HS Global AI: plataforma de Humanos Digitales DIHUAVA AI, vitrinas holográficas 3D y pantallas espaciales 3D sin gafas para despliegue 100% sin conexión.",
+    heroSubDescription: "DIHUAVA proporciona la capa de software de Humanos Digitales con IA que impulsa las experiencias holográficas y de pantallas espaciales de HS Global AI.",
+    pills: {
+      languages: "🌍 29+ Idiomas globales",
+      avatars: "Personalización de avatares y clonación de voz",
+      offline: "Motor de IA 100% sin conexión",
+      holographics: "Holografía 3D",
+    },
+    taxonomy: {
+      softwareLabel: "Plataforma de software",
+      softwareValue: "Plataforma DIHUAVA AI",
+      hologramLabel: "Cabina de hardware 3D",
+      hologramValue: "Pantalla Holográfica",
+      spatialLabel: "Pantalla 3D sin gafas",
+      spatialValue: "Spatial Display (Pantalla Espacial)",
+      rndLabel: "Capacidad de I+D activa",
+      rndValue: "Espejo Virtual Try-On (Prueba Virtual)",
+    },
+    industrySolutions: {
+      badge: "Soluciones de despliegue industrial",
+      title: "Diseñado para entornos empresariales verticales",
+      desc: "Descubra cómo se despliegan los humanos digitales y vitrinas holográficas de HS Global AI en los flujos de trabajo de diversos sectores empresariales.",
+      allSolutions: "Todas las soluciones industriales →",
+      healthcare: "Salud y experiencia del paciente →",
+      retail: "Comercio y quioscos con espejo inteligente →",
+      banking: "Banca y conserjería aislada sin conexión →",
+    },
+    metadata: {
+      title: "Humanos Digitales IA, Hologramas y Pantallas Espaciales | HS Global AI",
+      description: "Explore los productos de HS Global AI: la plataforma de Humanos Digitales DIHUAVA AI, vitrinas holográficas 3D y pantallas espaciales sin gafas para despliegue empresarial sin conexión.",
+    },
   },
   holographicPage: {
       "heroBadge": "Hardware de cristal óptico 3D",

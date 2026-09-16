@@ -633,10 +633,40 @@ export const zh: Dictionary = {
     }
   },
   productsPage: {
-      "heroBadge": "HS Global AI 产品系列",
-      "heroTitle": "为",
-      "heroTitleHighlight": "真实企业体验打造的AI产品。",
-      "heroDescription": "探索 HS Global AI 产品系列：DIHUAVA AI数字人平台、3D全息显示屏和裸眼空间AI显示屏，支持100%离线本地部署。"
+    heroBadge: "HS Global AI 产品矩阵",
+    heroTitle: "为真实场景打造的 ",
+    heroTitleHighlight: "AI 智能体验。",
+    heroDescription: "探索 HS Global AI 产品：DIHUAVA AI 数字人平台、3D 全息显示盒与裸眼 3D 空间显示屏，专为 100% 离线企业部署打造。",
+    heroSubDescription: "DIHUAVA 提供 AI 数字人软件层，为 HS Global AI 的全息与空间显示体验提供动力。",
+    pills: {
+      languages: "🌍 29+ 种全球语言",
+      avatars: "数字人形象定制与声音克隆",
+      offline: "100% 离线 AI 引擎",
+      holographics: "3D 全息技术",
+    },
+    taxonomy: {
+      softwareLabel: "软件平台",
+      softwareValue: "DIHUAVA AI 平台",
+      hologramLabel: "3D 硬件舱体",
+      hologramValue: "全息显示",
+      spatialLabel: "裸眼 3D 显示屏",
+      spatialValue: "Spatial Display 3D空间显示",
+      rndLabel: "前沿研发能力",
+      rndValue: "Virtual Try-On 虚拟试穿",
+    },
+    industrySolutions: {
+      badge: "行业部署解决方案",
+      title: "专为垂直企业环境打造",
+      desc: "了解 HS Global AI 数字人与全息显示屏如何部署于企业各行业的工作流程中。",
+      allSolutions: "所有行业解决方案 →",
+      healthcare: "医疗与就医体验 →",
+      retail: "零售与智能试穿终端 →",
+      banking: "金融与物理隔离智能礼宾 →",
+    },
+    metadata: {
+      title: "AI 数字人、全息与空间显示产品 | HS Global AI",
+      description: "探索 HS Global AI 产品：DIHUAVA AI 数字人平台、3D 全息显示盒与裸眼 3D 空间显示屏，支持企业级离线部署。",
+    },
   },
   holographicPage: {
       "heroBadge": "3D光学玻璃硬件",

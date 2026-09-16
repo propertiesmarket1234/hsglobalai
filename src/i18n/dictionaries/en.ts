@@ -631,10 +631,40 @@ export const en = {
     }
   },
   productsPage: {
-      "heroBadge": "HS Global AI Suite — Products",
-      "heroTitle": "AI products built for ",
-      "heroTitleHighlight": "real-world customer engagement.",
-      "heroDescription": "Explore HS Global AI products: DIHUAVA AI Digital Human platform, 3D Hologram Box displays, and naked-eye spatial AI displays for 100% offline enterprise deployment."
+    heroBadge: "HS Global AI Suite — Products",
+    heroTitle: "AI products built for ",
+    heroTitleHighlight: "real-world experiences.",
+    heroDescription: "Explore HS Global AI products: DIHUAVA AI Digital Human platform, 3D Hologram Box displays, and naked-eye spatial AI displays for 100% offline enterprise deployment.",
+    heroSubDescription: "DIHUAVA provides the AI Digital Human software layer that can power HS Global AI's holographic and spatial display experiences.",
+    pills: {
+      languages: "🌍 29+ Global Languages",
+      avatars: "Avatar Customization & Voice Cloning",
+      offline: "100% Offline AI Engine",
+      holographics: "3D Holographics",
+    },
+    taxonomy: {
+      softwareLabel: "Software Platform",
+      softwareValue: "DIHUAVA AI Platform",
+      hologramLabel: "3D Hardware Enclosure",
+      hologramValue: "Holographic Display",
+      spatialLabel: "Glasses-Free 3D Display",
+      spatialValue: "Spatial Display",
+      rndLabel: "Active R&D Capability",
+      rndValue: "Virtual Try-On Mirror",
+    },
+    industrySolutions: {
+      badge: "Industry Deployment Solutions",
+      title: "Engineered for Vertical Enterprise Environments",
+      desc: "Discover how HS Global AI digital humans and holographic displays are deployed across enterprise sector workflows.",
+      allSolutions: "All Industry Solutions →",
+      healthcare: "Healthcare & Patient Experience →",
+      retail: "Retail & Smart Mirror Kiosks →",
+      banking: "Banking & Air-Gapped Concierge →",
+    },
+    metadata: {
+      title: "AI Digital Humans, Hologram & Spatial Display Products | HS Global AI",
+      description: "Explore HS Global AI products: DIHUAVA AI Digital Human platform, 3D Hologram Box displays, and naked-eye spatial AI displays for enterprise deployment.",
+    },
   },
   holographicPage: {
       "heroBadge": "3D Optical Glass Hardware",

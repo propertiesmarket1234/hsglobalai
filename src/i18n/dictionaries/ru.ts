@@ -763,10 +763,40 @@ export const ru: Dictionary = {
   }
 },
   productsPage: {
-      "heroBadge": "Продукты HS Global AI",
-      "heroTitle": "AI-продукты для ",
-      "heroTitleHighlight": "реального взаимодействия с клиентами.",
-      "heroDescription": "Изучите продукты HS Global AI: платформу цифровых людей DIHUAVA, 3D-голографические кубы и объемные 3D-дисплеи для 100% офлайн-внедрения."
+    heroBadge: "Продуктовая линейка HS Global AI",
+    heroTitle: "AI-продукты для ",
+    heroTitleHighlight: "реального мира.",
+    heroDescription: "Исследуйте продукты HS Global AI: платформу AI цифровых людей DIHUAVA, 3D-голографические кубы и объемные 3D-дисплеи без очков для 100% автономного внедрения.",
+    heroSubDescription: "DIHUAVA обеспечивает программный слой AI цифровых людей для работы голографических и объемных 3D-дисплеев HS Global AI.",
+    pills: {
+      languages: "🌍 29+ Мировых языков",
+      avatars: "Кастомизация аватаров и клонирование голоса",
+      offline: "100% Автономный AI-движок",
+      holographics: "3D-Голография",
+    },
+    taxonomy: {
+      softwareLabel: "Программная платформа",
+      softwareValue: "Платформа DIHUAVA AI",
+      hologramLabel: "3D-Аппаратный куб",
+      hologramValue: "Голографический дисплей",
+      spatialLabel: "3D-Дисплей без очков",
+      spatialValue: "Spatial Display (Объемный дисплей)",
+      rndLabel: "Активные R&D разработки",
+      rndValue: "Виртуальная примерка (Virtual Try-On)",
+    },
+    industrySolutions: {
+      badge: "Отраслевые решения для внедрения",
+      title: "Разработано для специфических корпоративных задач",
+      desc: "Узнайте, как цифровые люди и голографические дисплеи HS Global AI внедряются в рабочие процессы предприятий различных отраслей.",
+      allSolutions: "Все отраслевые решения →",
+      healthcare: "Здравоохранение и забота о пациентах →",
+      retail: "Ритейл и умные примеряющие киоски →",
+      banking: "Банки и автономный консьерж-сервис →",
+    },
+    metadata: {
+      title: "AI Цифровые люди, Голограммы и Объемные 3D Дисплеи | HS Global AI",
+      description: "Исследуйте продукты HS Global AI: платформу AI цифровых людей DIHUAVA, 3D-голографические кубы и объемные 3D-дисплеи без очков для автономного корпоративного внедрения.",
+    },
   },
   holographicPage: {
       "heroBadge": "3D Оптическое Стекло",
