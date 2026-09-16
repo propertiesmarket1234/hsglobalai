@@ -755,67 +755,98 @@ export const zh: Dictionary = {
     },
   },
   holographicPage: {
-      "heroBadge": "3D光学玻璃硬件",
-      "heroTitle": "Holographic Display ",
-      "heroTitleHighlight": "全息显示屏 (Hologram Box)",
-      "heroSubtitle": "全息玻璃柜中的交互式3D AI数字人",
-      "heroDescription": "通过3D全息显示屏将智能AI数字人引入物理空间，支持29+种全球语言、实时语音识别与自定义声音克隆。",
-      "ctaPrimary": "预约演示",
-      "ctaSecondary": "下载技术白皮书 (PDF)",
-      "featuresTitle": "光学玻璃与AI功能",
-      "specsTitle": "硬件技术规格",
-      hardwareSpecs: [
-        {
-                "label": "显示尺寸",
-                "value": "55 英寸, 65 英寸, 75 英寸, 86 英寸"
-        },
-        {
-                "label": "显示分辨率与技术",
-                "value": "Ultra-HD 4K (3840 x 2160) 高透光 3D 全息光学玻璃"
-        },
-        {
-                "label": "亮度与对比度",
-                "value": "700 nits / 4000:1 动态对比度"
-        },
-        {
-                "label": "AI 计算单元",
-                "value": "内置工业级 AI 工作站 (Edge GPU/NPU) 100% 离线运行"
-        },
-        {
-                "label": "触摸与摄像头系统",
-                "value": "10 点电容触控玻璃 + 广角追踪摄像头"
-        },
-        {
-                "label": "音频硬件",
-                "value": "集成定向音响 + 波束成形麦克风阵列"
-        },
-        {
-                "label": "运行环境",
-                "value": "专为 24/7 连续商业运行设计"
-        }
-],
-      hologramFeatures: [
-        {
-                "title": "真人 1:1 比例 4K 3D 全息胶囊",
-                "description": "提供 55 英寸、65 英寸、75 英寸和 86 英寸垂直 4K Ultra-HD 全息玻璃展柜，呈现 1:1 比例数字人阿凡达，具备超逼真深度感知与真实存在感。",
-                "badge": "4K Ultra-HD | 55\" - 86\""
-        },
-        {
-                "title": "内置 AI 工作站",
-                "description": "内置高性能工业级 AI 计算单元，运行 DIHUAVA 100% 离线 AI 引擎，提供低延迟实时性能、零云端依赖及企业级数据隐私。",
-                "badge": "端侧本地处理"
-        },
-        {
-                "title": "多模态交互传感器",
-                "description": "配备广角高清摄像头追踪、定向麦克风阵列、电容触控玻璃和距离感应器，实现自然的人机互动。",
-                "badge": "摄像头与传感器阵列"
-        },
-        {
-                "title": "定向声学音响",
-                "description": "专为喧闹的展览馆、银行大堂和购物中心设计的定向空间音频系统，确保语音清晰易懂。",
-                "badge": "空间音频"
-        }
-]
+    metadata: {
+      title: "3D全息显示柜与AI全息 | HS Global AI",
+      description: "探索 HS Global AI 3D全息显示柜，涵盖 55、65、75 和 86 英寸规格，配备 4K Ultra-HD 光学玻璃、AI 计算单元、传感器与 DIHUAVA 引擎集成。",
+    },
+    breadcrumbProducts: "产品中心",
+    breadcrumbCurrent: "3D全息显示柜",
+    availableSpecs: "可选规格：",
+    size55: "55 英寸",
+    size65: "65 英寸",
+    size75: "75 英寸",
+    size86: "86 英寸",
+    ctaPrimaryBtn: "预约全息柜演示 →",
+    ctaSecondaryBtn: "下载规格参数表 (PDF)",
+    sizesLabel: "尺寸：",
+    statusBadge: "● 3D全息显示柜",
+    slideText: "幻灯片",
+    slideCaptions: [
+      "商务西装高阶全息真人1:1数字人胶囊展柜",
+      "传统服饰全息文化展示真人1:1数字人展柜",
+    ],
+    featuresBadge: "硬件亮点",
+    featuresHeading: "专为物理实体空间打造的即插即用全息硬件",
+    specsBadge: "硬件技术参数",
+    specsHeading: "3D全息显示柜详细技术指标",
+    tableHeaderSpec: "规格项目",
+    tableHeaderDetails: "详细参数",
+    ctaTitle: "让 AI 数字人走入",
+    ctaHighlight: "您的物理实体空间",
+    ctaDesc: "探索专为零售、银行、企业、医疗、博物馆和展厅打造的全息沉浸式交互显示硬件。",
+    ctaPrimaryText: "预约演示",
+    ctaSecondaryText: "下载技术白皮书 (PDF)",
+    heroBadge: "3D光学玻璃硬件",
+    heroTitle: "Holographic Display ",
+    heroTitleHighlight: "全息显示屏 (Hologram Box)",
+    heroSubtitle: "全息玻璃柜中的交互式3D AI数字人",
+    heroDescription: "通过3D全息显示屏将智能AI数字人引入物理空间，支持29+种全球语言、实时语音识别与自定义声音克隆。",
+    ctaPrimary: "预约演示",
+    ctaSecondary: "下载技术白皮书 (PDF)",
+    featuresTitle: "光学玻璃与AI功能",
+    specsTitle: "硬件技术规格",
+    hardwareSpecs: [
+      {
+        label: "显示尺寸",
+        value: "55 英寸, 65 英寸, 75 英寸, 86 英寸"
+      },
+      {
+        label: "显示分辨率与技术",
+        value: "Ultra-HD 4K (3840 x 2160) 高透光 3D 全息光学玻璃"
+      },
+      {
+        label: "亮度与对比度",
+        value: "700 nits / 4000:1 动态对比度"
+      },
+      {
+        label: "AI 计算单元",
+        value: "内置工业级 AI 工作站 (Edge GPU/NPU) 100% 离线运行"
+      },
+      {
+        label: "触摸与摄像头系统",
+        value: "10 点电容触控玻璃 + 广角追踪摄像头"
+      },
+      {
+        label: "音频硬件",
+        value: "集成定向音响 + 波束成形麦克风阵列"
+      },
+      {
+        label: "运行环境",
+        value: "专为 24/7 连续商业运行设计"
+      }
+    ],
+    hologramFeatures: [
+      {
+        title: "真人 1:1 比例 4K 3D 全息胶囊",
+        description: "提供 55 英寸、65 英寸、75 英寸和 86 英寸垂直 4K Ultra-HD 全息玻璃展柜，呈现 1:1 比例数字人阿凡达，具备超逼真深度感知与真实存在感。",
+        badge: "4K Ultra-HD | 55\" - 86\""
+      },
+      {
+        title: "内置 AI 工作站",
+        description: "内置高性能工业级 AI 计算单元，运行 DIHUAVA 100% 离线 AI 引擎，提供低延迟实时性能、零云端依赖及企业级数据隐私。",
+        badge: "端侧本地处理"
+      },
+      {
+        title: "多模态交互传感器",
+        description: "配备广角高清摄像头追踪、定向麦克风阵列、电容触控玻璃和距离感应器，实现自然的人机互动。",
+        badge: "摄像头与传感器阵列"
+      },
+      {
+        title: "定向声学音响",
+        description: "专为喧闹的展览馆、银行大堂和购物中心设计的定向空间音频系统，确保语音清晰易懂。",
+        badge: "空间音频"
+      }
+    ]
   },
   spatialPage: {
       "heroBadge": "裸眼3D AI显示屏",

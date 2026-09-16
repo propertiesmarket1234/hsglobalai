@@ -753,67 +753,98 @@ export const en = {
     },
   },
   holographicPage: {
-      "heroBadge": "3D Optical Glass Hardware",
-      "heroTitle": "Holographic Display ",
-      "heroTitleHighlight": "(Hologram Box)",
-      "heroSubtitle": "Interactive 3D AI Digital Humans in Glass Showcase",
-      "heroDescription": "Bring intelligent AI Digital Humans into physical environments through 3D holographic experiences supporting 29+ global languages, interactive speech recognition, and custom voice cloning.",
-      "ctaPrimary": "Book a Demo",
-      "ctaSecondary": "Download Datasheet (PDF)",
-      "featuresTitle": "Optical Glass & AI Capabilities",
-      "specsTitle": "Technical Hardware Specifications",
-      hardwareSpecs: [
-        {
-                "label": "Display Sizes",
-                "value": "55-inch, 65-inch, 75-inch, 86-inch"
-        },
-        {
-                "label": "Display Resolution & Technology",
-                "value": "Ultra-HD 4K (3840 x 2160) high-transmission 3D holographic optical glass"
-        },
-        {
-                "label": "Brightness & Contrast",
-                "value": "700 nits / 4000:1 dynamic contrast ratio"
-        },
-        {
-                "label": "AI Computing Unit",
-                "value": "Built-in industrial-grade AI workstation (Edge GPU/NPU) running 100% offline"
-        },
-        {
-                "label": "Touch & Camera System",
-                "value": "10-point capacitive touch glass + wide-angle tracking camera"
-        },
-        {
-                "label": "Audio Hardware",
-                "value": "Integrated directional soundbar + beamforming microphone array"
-        },
-        {
-                "label": "Operating Environment",
-                "value": "Designed for continuous 24/7 commercial operation"
-        }
-],
-      hologramFeatures: [
-        {
-                "title": "Life-Size 4K 3D Volumetric Enclosure",
-                "description": "Available in 55-inch, 65-inch, 75-inch, and 86-inch vertical 4K Ultra-HD holographic glass showcases displaying 1:1 scale digital human avatars with hyper-realistic depth perception and lifelike presence.",
-                "badge": "4K Ultra-HD | 55\" - 86\""
-        },
-        {
-                "title": "Integrated AI Workstation",
-                "description": "Built-in high-performance industrial AI computing unit running the DIHUAVA 100% offline AI engine delivering Low Latency real-time performance, zero cloud dependency, and enterprise-grade data privacy.",
-                "badge": "On-Device Processing"
-        },
-        {
-                "title": "Multimodal Interaction Sensors",
-                "description": "Equipped with wide-angle HD camera tracking, directional microphone array, capacitive touch glass, and distance proximity sensors for natural human interaction.",
-                "badge": "Camera & Sensor Array"
-        },
-        {
-                "title": "Directional Acoustic Sound Bar",
-                "description": "Focused spatial audio system designed for noisy exhibition halls, bank lobbies, and shopping malls, ensuring crystal-clear speech intelligibility.",
-                "badge": "Spatial Audio"
-        }
-]
+    metadata: {
+      title: "3D Hologram Display Box & AI Hologram | HS Global AI",
+      description: "Explore HS Global AI's 3D Hologram Display Box in 55\", 65\", 75\", and 86\" sizes, with 4K Ultra-HD optical glass, AI computing, sensors, and DIHUAVA integration.",
+    },
+    breadcrumbProducts: "Products",
+    breadcrumbCurrent: "AI Hologram Box",
+    availableSpecs: "Available Specs:",
+    size55: '55" Inch',
+    size65: '65" Inch',
+    size75: '75" Inch',
+    size86: '86" Inch',
+    ctaPrimaryBtn: "Book Hologram Box Demo →",
+    ctaSecondaryBtn: "Download Spec Sheets (PDF)",
+    sizesLabel: "SIZES:",
+    statusBadge: "● AI HOLOGRAM BOX",
+    slideText: "SLIDE",
+    slideCaptions: [
+      "Life-size 1:1 scale digital avatar enclosure in executive silver suit",
+      "Life-size 1:1 scale digital avatar enclosure in traditional attire",
+    ],
+    featuresBadge: "Hardware Highlights",
+    featuresHeading: "Turnkey holographic hardware built for physical spaces.",
+    specsBadge: "Hardware Specifications",
+    specsHeading: "AI Hologram Box Technical Parameters",
+    tableHeaderSpec: "Specification",
+    tableHeaderDetails: "Details",
+    ctaTitle: "Bring AI Digital Humans",
+    ctaHighlight: "Into Your Physical Space",
+    ctaDesc: "Explore holographic display hardware designed for immersive customer engagement across retail, banking, corporate, healthcare, museums, and exhibitions.",
+    ctaPrimaryText: "Book a Demo",
+    ctaSecondaryText: "Download Datasheets (PDF)",
+    heroBadge: "3D Optical Glass Hardware",
+    heroTitle: "Holographic Display ",
+    heroTitleHighlight: "(Hologram Box)",
+    heroSubtitle: "Interactive 3D AI Digital Humans in Glass Showcase",
+    heroDescription: "Bring intelligent AI Digital Humans into physical environments through 3D holographic experiences supporting 29+ global languages, interactive speech recognition, and custom voice cloning.",
+    ctaPrimary: "Book a Demo",
+    ctaSecondary: "Download Datasheet (PDF)",
+    featuresTitle: "Optical Glass & AI Capabilities",
+    specsTitle: "Technical Hardware Specifications",
+    hardwareSpecs: [
+      {
+        label: "Display Sizes",
+        value: "55-inch, 65-inch, 75-inch, 86-inch"
+      },
+      {
+        label: "Display Resolution & Technology",
+        value: "Ultra-HD 4K (3840 x 2160) high-transmission 3D holographic optical glass"
+      },
+      {
+        label: "Brightness & Contrast",
+        value: "700 nits / 4000:1 dynamic contrast ratio"
+      },
+      {
+        label: "AI Computing Unit",
+        value: "Built-in industrial-grade AI workstation (Edge GPU/NPU) running 100% offline"
+      },
+      {
+        label: "Touch & Camera System",
+        value: "10-point capacitive touch glass + wide-angle tracking camera"
+      },
+      {
+        label: "Audio Hardware",
+        value: "Integrated directional soundbar + beamforming microphone array"
+      },
+      {
+        label: "Operating Environment",
+        value: "Designed for continuous 24/7 commercial operation"
+      }
+    ],
+    hologramFeatures: [
+      {
+        title: "Life-Size 4K 3D Volumetric Enclosure",
+        description: "Available in 55-inch, 65-inch, 75-inch, and 86-inch vertical 4K Ultra-HD holographic glass showcases displaying 1:1 scale digital human avatars with hyper-realistic depth perception and lifelike presence.",
+        badge: "4K Ultra-HD | 55\" - 86\""
+      },
+      {
+        title: "Integrated AI Workstation",
+        description: "Built-in high-performance industrial AI computing unit running the DIHUAVA 100% offline AI engine delivering Low Latency real-time performance, zero cloud dependency, and enterprise-grade data privacy.",
+        badge: "On-Device Processing"
+      },
+      {
+        title: "Multimodal Interaction Sensors",
+        description: "Equipped with wide-angle HD camera tracking, directional microphone array, capacitive touch glass, and distance proximity sensors for natural human interaction.",
+        badge: "Camera & Sensor Array"
+      },
+      {
+        title: "Directional Acoustic Sound Bar",
+        description: "Focused spatial audio system designed for noisy exhibition halls, bank lobbies, and shopping malls, ensuring crystal-clear speech intelligibility.",
+        badge: "Spatial Audio"
+      }
+    ]
   },
   spatialPage: {
       "heroBadge": "Naked-Eye 3D AI Display",

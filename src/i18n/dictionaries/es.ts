@@ -885,67 +885,98 @@ export const es: Dictionary = {
     },
   },
   holographicPage: {
-      "heroBadge": "Hardware de cristal óptico 3D",
-      "heroTitle": "Holographic Display ",
-      "heroTitleHighlight": "(Caja Holográfica)",
-      "heroSubtitle": "Humanos Digitales 3D interactivos en vitrina holográfica",
-      "heroDescription": "Lleve humanos digitales interactivos con IA a espacios físicos mediante vitrinas holográficas 3D compatibles con 29+ idiomas y clonación de voz.",
-      "ctaPrimary": "Solicitar una demo",
-      "ctaSecondary": "Descargar ficha técnica (PDF)",
-      "featuresTitle": "Cristal óptico y capacidades de IA",
-      "specsTitle": "Especificaciones técnicas de hardware",
-      hardwareSpecs: [
-        {
-                "label": "Tamaños de pantalla",
-                "value": "55 pulgadas, 65 pulgadas, 75 pulgadas, 86 pulgadas"
-        },
-        {
-                "label": "Resolución y tecnología",
-                "value": "Vidrio óptico holográfico 3D de alta transmisión Ultra-HD 4K (3840 x 2160)"
-        },
-        {
-                "label": "Brillo y contraste",
-                "value": "700 nits / relación de contraste dinámico 4000:1"
-        },
-        {
-                "label": "Unidad de cómputo IA",
-                "value": "Estación de trabajo de IA industrial integrada (Edge GPU/NPU) 100% sin conexión"
-        },
-        {
-                "label": "Sistema táctil y cámara",
-                "value": "Vidrio táctil capacitivo de 10 puntos + cámara de seguimiento gran angular"
-        },
-        {
-                "label": "Hardware de audio",
-                "value": "Barra de sonido direccional integrada + matriz de micrófonos"
-        },
-        {
-                "label": "Entorno de funcionamiento",
-                "value": "Diseñado para funcionamiento comercial continuo 24/7"
-        }
-],
-      hologramFeatures: [
-        {
-                "title": "Cabina volumétrica 3D 4K a tamaño real",
-                "description": "Vitrinas de cristal holográfico 4K Ultra-HD de 55, 65, 75 y 86 pulgadas que muestran avatares digitales a escala 1:1.",
-                "badge": "4K Ultra-HD | 55\" - 86\""
-        },
-        {
-                "title": "Estación de trabajo de IA integrada",
-                "description": "Unidad de cómputo de IA industrial de alto rendimiento que ejecuta el motor de IA 100% sin conexión de DIHUAVA.",
-                "badge": "Procesamiento en el dispositivo"
-        },
-        {
-                "title": "Sensores de interacción multimodal",
-                "description": "Equipado con cámara HD gran angular, matriz de micrófonos direccionales, cristal táctil y sensores de proximidad.",
-                "badge": "Matriz de cámara y sensores"
-        },
-        {
-                "title": "Barra de sonido acústico direccional",
-                "description": "Sistema de audio espacial enfocado para salas de exposiciones, vestíbulos bancarios y centros comerciales.",
-                "badge": "Audio espacial"
-        }
-]
+    metadata: {
+      title: "Caja Holográfica 3D e Holograma IA | HS Global AI",
+      description: "Explore la Caja Holográfica 3D de HS Global AI en tamaños de 55\", 65\", 75\" y 86\", con cristal óptico 4K Ultra-HD, cómputo de IA, sensores e integración con DIHUAVA.",
+    },
+    breadcrumbProducts: "Productos",
+    breadcrumbCurrent: "Caja Holográfica 3D",
+    availableSpecs: "Especificaciones disponibles:",
+    size55: "55 pulgadas",
+    size65: "65 pulgadas",
+    size75: "75 pulgadas",
+    size86: "86 pulgadas",
+    ctaPrimaryBtn: "Solicitar demo de Caja Holográfica →",
+    ctaSecondaryBtn: "Descargar ficha técnica (PDF)",
+    sizesLabel: "TAMAÑOS:",
+    statusBadge: "● CAJA HOLOGRÁFICA 3D",
+    slideText: "DIAPOSITIVA",
+    slideCaptions: [
+      "Vitrina de avatar digital a escala 1:1 en traje ejecutivo",
+      "Vitrina de avatar digital a escala 1:1 en atuendo tradicional",
+    ],
+    featuresBadge: "Aspectos destacados",
+    featuresHeading: "Hardware holográfico listo para usar en espacios físicos.",
+    specsBadge: "Especificaciones de hardware",
+    specsHeading: "Parámetros técnicos de Caja Holográfica 3D",
+    tableHeaderSpec: "Especificación",
+    tableHeaderDetails: "Detalles",
+    ctaTitle: "Lleve Humanos Digitales con IA",
+    ctaHighlight: "A su espacio físico",
+    ctaDesc: "Explore hardware de pantalla holográfica diseñado para comercio, banca, empresas, salud y museos.",
+    ctaPrimaryText: "Solicitar una demo",
+    ctaSecondaryText: "Descargar ficha técnica (PDF)",
+    heroBadge: "Hardware de cristal óptico 3D",
+    heroTitle: "Holographic Display ",
+    heroTitleHighlight: "(Caja Holográfica)",
+    heroSubtitle: "Humanos Digitales 3D interactivos en vitrina holográfica",
+    heroDescription: "Lleve humanos digitales interactivos con IA a espacios físicos mediante vitrinas holográficas 3D compatibles con 29+ idiomas y clonación de voz.",
+    ctaPrimary: "Solicitar una demo",
+    ctaSecondary: "Descargar ficha técnica (PDF)",
+    featuresTitle: "Cristal óptico y capacidades de IA",
+    specsTitle: "Especificaciones técnicas de hardware",
+    hardwareSpecs: [
+      {
+        label: "Tamaños de pantalla",
+        value: "55 pulgadas, 65 pulgadas, 75 pulgadas, 86 pulgadas"
+      },
+      {
+        label: "Resolución y tecnología",
+        value: "Vidrio óptico holográfico 3D de alta transmisión Ultra-HD 4K (3840 x 2160)"
+      },
+      {
+        label: "Brillo y contraste",
+        value: "700 nits / relación de contraste dinámico 4000:1"
+      },
+      {
+        label: "Unidad de cómputo IA",
+        value: "Estación de trabajo de IA industrial integrada (Edge GPU/NPU) 100% sin conexión"
+      },
+      {
+        label: "Sistema táctil y cámara",
+        value: "Vidrio táctil capacitivo de 10 puntos + cámara de seguimiento gran angular"
+      },
+      {
+        label: "Hardware de audio",
+        value: "Barra de sonido direccional integrada + matriz de micrófonos"
+      },
+      {
+        label: "Entorno de funcionamiento",
+        value: "Diseñado para funcionamiento comercial continuo 24/7"
+      }
+    ],
+    hologramFeatures: [
+      {
+        title: "Cabina volumétrica 3D 4K a tamaño real",
+        description: "Vitrinas de cristal holográfico 4K Ultra-HD de 55, 65, 75 y 86 pulgadas que muestran avatares digitales a escala 1:1.",
+        badge: "4K Ultra-HD | 55\" - 86\""
+      },
+      {
+        title: "Estación de trabajo de IA integrada",
+        description: "Unidad de cómputo de IA industrial de alto rendimiento que ejecuta el motor de IA 100% sin conexión de DIHUAVA.",
+        badge: "Procesamiento en el dispositivo"
+      },
+      {
+        title: "Sensores de interacción multimodal",
+        description: "Equipado con cámara HD gran angular, matriz de micrófonos direccionales, cristal táctil y sensores de proximidad.",
+        badge: "Matriz de cámara y sensores"
+      },
+      {
+        title: "Barra de sonido acústico direccional",
+        description: "Sistema de audio espacial enfocado para salas de exposiciones, vestíbulos bancarios y centros comerciales.",
+        badge: "Audio espacial"
+      }
+    ]
   },
   spatialPage: {
       "heroBadge": "Pantalla IA 3D sin gafas",
