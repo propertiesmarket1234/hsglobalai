@@ -800,7 +800,7 @@ export const en = {
   },
   holographicPage: {
     metadata: {
-      title: "3D Hologram Display Box & AI Hologram | HS Global AI",
+      title: "3D Hologram Display Box & AI Hologram",
       description: "Explore HS Global AI's 3D Hologram Display Box in 55\", 65\", 75\", and 86\" sizes, with 4K Ultra-HD optical glass, AI computing, sensors, and DIHUAVA integration.",
     },
     breadcrumbProducts: "Products",
@@ -815,6 +815,11 @@ export const en = {
     sizesLabel: "SIZES:",
     statusBadge: "● AI HOLOGRAM BOX",
     slideText: "SLIDE",
+    goToSlide: "Go to slide",
+    imageAlts: [
+      "Life-size 3D hologram display box with executive AI digital human",
+      "Life-size 3D hologram display box with cultural AI digital avatar",
+    ],
     slideCaptions: [
       "Life-size 1:1 scale digital avatar enclosure in executive silver suit",
       "Life-size 1:1 scale digital avatar enclosure in traditional attire",

@@ -802,7 +802,7 @@ export const zh: Dictionary = {
   },
   holographicPage: {
     metadata: {
-      title: "3D全息显示柜与AI全息 | HS Global AI",
+      title: "3D全息显示柜与AI全息",
       description: "探索 HS Global AI 3D全息显示柜，涵盖 55、65、75 和 86 英寸规格，配备 4K Ultra-HD 光学玻璃、AI 计算单元、传感器与 DIHUAVA 引擎集成。",
     },
     breadcrumbProducts: "产品中心",
@@ -817,6 +817,11 @@ export const zh: Dictionary = {
     sizesLabel: "尺寸：",
     statusBadge: "● 3D全息显示柜",
     slideText: "幻灯片",
+    goToSlide: "跳转至幻灯片",
+    imageAlts: [
+      "商务西装高阶全息真人1:1数字人展柜",
+      "传统服饰全息文化展示真人1:1数字人展柜",
+    ],
     slideCaptions: [
       "商务西装高阶全息真人1:1数字人胶囊展柜",
       "传统服饰全息文化展示真人1:1数字人展柜",

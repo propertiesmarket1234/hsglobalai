@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 import HolographicDisplayClient from "./HolographicDisplayClient";
+import { getLocalizedAlternates } from "@/i18n/config";
 
 export const metadata: Metadata = {
   title: "3D Hologram Display Box & AI Hologram",
   description:
     "Explore HS Global AI's 3D Hologram Display Box in 55\", 65\", 75\", and 86\" sizes, with 4K Ultra-HD optical glass, AI computing, sensors, and DIHUAVA integration.",
-  alternates: {
-    canonical: "/products/holographic-display",
-  },
+  alternates: getLocalizedAlternates("/products/holographic-display"),
   openGraph: {
     title: "3D Hologram Display Box & AI Hologram | HS Global AI",
     description:
@@ -31,39 +30,6 @@ export const metadata: Metadata = {
   },
 };
 
-const breadcrumbJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://www.hsglobalai.com",
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Products",
-      "item": "https://www.hsglobalai.com/products",
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "AI Hologram Box",
-      "item": "https://www.hsglobalai.com/products/holographic-display",
-    },
-  ],
-};
-
 export default function HolographicDisplayPage() {
-  return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-      <HolographicDisplayClient />
-    </>
-  );
+  return <HolographicDisplayClient />;
 }

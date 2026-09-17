@@ -95,6 +95,11 @@ export default function HolographicDisplayClient() {
     sizesLabel: hPage.sizesLabel || "SIZES:",
     statusBadge: hPage.statusBadge || "● AI HOLOGRAM BOX",
     slideText: hPage.slideText || "SLIDE",
+    goToSlide: hPage.goToSlide || "Go to slide",
+    imageAlts: hPage.imageAlts || [
+      "Life-size 3D hologram display box with executive AI digital human",
+      "Life-size 3D hologram display box with cultural AI digital avatar",
+    ],
     slideCaptions: hPage.slideCaptions || [
       "Life-size 1:1 scale digital avatar enclosure in executive silver suit",
       "Life-size 1:1 scale digital avatar enclosure in traditional attire",
@@ -120,6 +125,31 @@ export default function HolographicDisplayClient() {
       : feat;
   });
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": (dict as any).common?.navHome || "Home",
+        "item": `https://www.hsglobalai.com${lPath("/")}`,
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": t.breadcrumbProducts,
+        "item": `https://www.hsglobalai.com${lPath("/products")}`,
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": t.breadcrumbCurrent,
+        "item": `https://www.hsglobalai.com${lPath("/products/holographic-display")}`,
+      },
+    ],
+  };
+
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % hologramHeroImages.length);
@@ -129,6 +159,10 @@ export default function HolographicDisplayClient() {
 
   return (
     <main className="min-h-screen bg-black text-white selection:bg-cyan-500 selection:text-black">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <Header />
 
       {/* HERO SECTION */}
@@ -202,13 +236,13 @@ export default function HolographicDisplayClient() {
                   href={lPath("/contact")}
                   className="rounded-full bg-gradient-to-r from-cyan-500 via-sky-500 to-cyan-600 px-8 py-3.5 text-sm font-bold text-white shadow-xl transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(6,182,212,0.4)]"
                 >
-                  {hPage.ctaPrimary ? `${hPage.ctaPrimary} →` : t.ctaPrimaryBtn}
+                  {t.ctaPrimaryBtn}
                 </Link>
                 <Link
                   href={lPath("/contact/download-center")}
                   className="rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-semibold text-gray-200 backdrop-blur-md transition-colors hover:border-cyan-400 hover:text-white"
                 >
-                  {hPage.ctaSecondary || t.ctaSecondaryBtn}
+                  {t.ctaSecondaryBtn}
                 </Link>
               </div>
             </div>
@@ -228,7 +262,10 @@ export default function HolographicDisplayClient() {
                     >
                       <Image
                         src={hologramHeroImages[currentImageIndex].src}
-                        alt={hologramHeroImages[currentImageIndex].alt}
+                        alt={
+                          (t.imageAlts && t.imageAlts[currentImageIndex]) ||
+                          hologramHeroImages[currentImageIndex].alt
+                        }
                         fill
                         priority
                         className="object-cover"
@@ -244,7 +281,7 @@ export default function HolographicDisplayClient() {
                       <button
                         key={idx}
                         onClick={() => setCurrentImageIndex(idx)}
-                        aria-label={`Go to slide ${idx + 1}`}
+                        aria-label={`${t.goToSlide} ${idx + 1}`}
                         className={`h-2 rounded-full transition-all duration-500 ${
                           idx === currentImageIndex ? "w-6 bg-cyan-400" : "w-2 bg-white/40 hover:bg-white/70"
                         }`}
@@ -283,7 +320,7 @@ export default function HolographicDisplayClient() {
         <div className="mx-auto max-w-7xl">
           <div className="text-center">
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400">
-              {hPage.featuresTitle || t.featuresBadge}
+              {t.featuresBadge}
             </span>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-5xl">
               {t.featuresHeading}
@@ -327,7 +364,7 @@ export default function HolographicDisplayClient() {
         <div className="mx-auto max-w-5xl">
           <div className="text-center mb-12">
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400 font-mono">
-              {hPage.specsTitle || t.specsBadge}
+              {t.specsBadge}
             </span>
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
               {t.specsHeading}

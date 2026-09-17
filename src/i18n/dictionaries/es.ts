@@ -932,7 +932,7 @@ export const es: Dictionary = {
   },
   holographicPage: {
     metadata: {
-      title: "Caja Holográfica 3D e Holograma IA | HS Global AI",
+      title: "Caja Holográfica 3D e Holograma IA",
       description: "Explore la Caja Holográfica 3D de HS Global AI en tamaños de 55\", 65\", 75\" y 86\", con cristal óptico 4K Ultra-HD, cómputo de IA, sensores e integración con DIHUAVA.",
     },
     breadcrumbProducts: "Productos",
@@ -947,6 +947,11 @@ export const es: Dictionary = {
     sizesLabel: "TAMAÑOS:",
     statusBadge: "● CAJA HOLOGRÁFICA 3D",
     slideText: "DIAPOSITIVA",
+    goToSlide: "Ir a la diapositiva",
+    imageAlts: [
+      "Caja de visualización de holograma 3D a tamaño real con humano digital ejecutivo",
+      "Caja de visualización de holograma 3D a tamaño real con avatar cultural",
+    ],
     slideCaptions: [
       "Vitrina de avatar digital a escala 1:1 en traje ejecutivo",
       "Vitrina de avatar digital a escala 1:1 en atuendo tradicional",

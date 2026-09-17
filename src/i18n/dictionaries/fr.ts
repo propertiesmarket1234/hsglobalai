@@ -787,7 +787,7 @@ export const fr: Dictionary = {
   },
   holographicPage: {
     metadata: {
-      title: "Boîte Hologramme 3D & Hologramme IA | HS Global AI",
+      title: "Boîte Hologramme 3D & Hologramme IA",
       description: "Découvrez la Boîte Hologramme 3D de HS Global AI en tailles 55\", 65\", 75\" et 86\", avec verre optique 4K Ultra-HD, calcul IA, capteurs et intégration DIHUAVA.",
     },
     breadcrumbProducts: "Produits",
@@ -802,6 +802,11 @@ export const fr: Dictionary = {
     sizesLabel: "TAILLES :",
     statusBadge: "● BOÎTE HOLOGRAMME 3D",
     slideText: "DIAPOSITIVE",
+    goToSlide: "Aller à la diapositive",
+    imageAlts: [
+      "Boîte d'affichage hologramme 3D grandeur nature avec humain virtuel exécutif",
+      "Boîte d'affichage hologramme 3D grandeur nature avec avatar culturel",
+    ],
     slideCaptions: [
       "Enceinte d'avatar numérique à l'échelle 1:1 en costume exécutif",
       "Enceinte d'avatar numérique à l'échelle 1:1 en tenue traditionnelle",
@@ -852,7 +857,7 @@ export const fr: Dictionary = {
         badge: "Réseau de caméras & capteurs",
       },
       {
-        title: "Barra de son acoustique directionnelle",
+        title: "Barre de son acoustique directionnelle",
         description: "Système audio spatial orienté conçu pour les halls d'exposition bruyants et les halls de banque.",
         badge: "Audio spatial",
       },
