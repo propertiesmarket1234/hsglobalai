@@ -205,7 +205,17 @@ export default function HolographicDisplayClient() {
               </h1>
 
               <p className="mt-6 text-base leading-8 text-gray-300 sm:text-lg max-w-2xl">
-                {hPage.heroDescription || "Bring intelligent AI Digital Humans into physical environments through 3D holographic experiences supporting 29+ global languages, interactive speech recognition, and custom voice cloning."}
+                {currentLocale === "zh" ? (
+                  <>通过 3D 全息显示柜将智能 <Link href={lPath("/products/ai-digital-human")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">DIHUAVA AI 数字人</Link> 引入物理空间，支持 29+ 全球语言、文档 RAG，并与 <Link href={lPath("/products/spatial-display")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">3D 空间显示器</Link> 形成协同硬件阵列。</>
+                ) : currentLocale === "ru" ? (
+                  <>Интегрируйте умных <Link href={lPath("/products/ai-digital-human")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">DIHUAVA AI Digital Human</Link> в физические пространства с помощью 3D-голографических кубов, с поддержкой 29+ языков и совместным использованием с <Link href={lPath("/products/spatial-display")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">3D Spatial Display</Link>.</>
+                ) : currentLocale === "es" ? (
+                  <>Lleve <Link href={lPath("/products/ai-digital-human")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">DIHUAVA AI Digital Humans</Link> interactivos a espacios físicos mediante vitrinas holográficas 3D compatibles con 29+ idiomas y despliegues junto a <Link href={lPath("/products/spatial-display")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">3D Spatial Displays</Link>.</>
+                ) : currentLocale === "fr" ? (
+                  <>Intégrez des <Link href={lPath("/products/ai-digital-human")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">DIHUAVA AI Digital Humans</Link> interactifs dans les espaces physiques via des caissons holographiques 3D compatibles avec 29+ langues et des installations <Link href={lPath("/products/spatial-display")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">3D Spatial Display</Link>.</>
+                ) : (
+                  <>Bring intelligent <Link href={lPath("/products/ai-digital-human")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">DIHUAVA AI Digital Human</Link> software into physical environments through 3D holographic experiences supporting 29+ global languages, interactive speech recognition, custom voice cloning, and complementary <Link href={lPath("/products/spatial-display")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">3D Spatial Displays</Link>.</>
+                )}
               </p>
 
               {/* Size Badge Selector Pills */}

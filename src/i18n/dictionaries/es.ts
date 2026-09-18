@@ -1147,7 +1147,7 @@ export const es: Dictionary = {
     ctaPrimaryText: "Solicitar una demo",
     ctaSecondaryText: "Descargar ficha técnica (PDF)",
     heroBadge: "Hardware de cristal óptico 3D",
-    heroTitle: "Holographic Display ",
+    heroTitle: "Pantalla Holográfica 3D ",
     heroTitleHighlight: "(Caja Holográfica)",
     heroSubtitle: "Humanos Digitales 3D interactivos en vitrina holográfica",
     heroDescription: "Lleve humanos digitales interactivos con IA a espacios físicos mediante vitrinas holográficas 3D compatibles con 29+ idiomas y clonación de voz.",
