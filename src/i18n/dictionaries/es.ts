@@ -1030,71 +1030,285 @@ export const es: Dictionary = {
     ]
   },
   spatialPage: {
-      "heroBadge": "Pantalla IA 3D sin gafas",
-      "heroTitle": "Spatial Display ",
-      "heroTitleHighlight": "(Pantalla Espacial 3D)",
-      "heroSubtitle": "Panel de experiencia IA 3D sin gafas",
-      "heroDescription": "Pantallas espaciales 3D sin gafas que ofrecen visuales inmersivos y avatares interactivos en tiempo real para entornos comerciales.",
-      "ctaPrimary": "Solicitar una demo",
-      "ctaSecondary": "Descargar ficha técnica (PDF)",
-      "featuresTitle": "Tecnología de pantalla espacial",
-      "specsTitle": "Especificaciones de pantalla",
-      specs: [
-        {
-                "label": "Tamaños disponibles",
-                "value": "55 pulgadas, 65 pulgadas, 75 pulgadas, 86 pulgadas"
-        },
-        {
-                "label": "Grosor del perfil",
-                "value": "Cuerpo ultradelgado de 6 cm"
-        },
-        {
-                "label": "Pantalla y táctil",
-                "value": "Pantalla táctil Spatial Display con resolución 4K Ultra HD"
-        },
-        {
-                "label": "Tecnología de pantalla 3D",
-                "value": "Panel óptico espacial de campo de luz"
-        },
-        {
-                "label": "Sensor de seguimiento óptico",
-                "value": "Cámara de seguimiento ocular y de movimiento en tiempo real"
-        },
-        {
-                "label": "Compatibilidad con IA",
-                "value": "Plataforma DIHUAVA AI (funciona 100% sin conexión en el dispositivo)"
-        },
-        {
-                "label": "Compatibilidad de activos 3D",
-                "value": "Avatares 3D DIHUAVA, modelos 3D OBJ/FBX, Unity/Unreal Engine"
-        },
-        {
-                "label": "Documentación",
-                "value": "Ficha técnica de Spatial Display, especificaciones en PDF"
-        }
-],
-      definitionPoints: [
-        {
-                "title": "Pantalla visual inmersiva",
-                "description": "Ofrece percepción de profundidad visual 3D volumétrica realista directamente a los ojos del espectador sin necesidad de gafas especiales."
-        },
-        {
-                "title": "Presentación 3D y espacial",
-                "description": "Muestra productos, modelos arquitectónicos y gráficos con auténtica profundidad espacial."
-        },
-        {
-                "title": "Experiencia interactiva",
-                "description": "Combina un panel de cristal multitáctil con sensores ópticos de seguimiento ocular en tiempo real."
-        },
-        {
-                "title": "Integración de Humanos Digitales IA",
-                "description": "Sirve como escenario físico inmersivo para que los avatares de DIHUAVA conversen con los visitantes."
-        },
-        {
-                "title": "Interacción empresarial",
-                "description": "Diseñado para entornos comerciales de alto tráfico para transformar la señalización pasiva."
-        }
-]
+    metadata: {
+      title: "Spatial Display — Pantallas 3D sin Gafas e IA",
+      description:
+        "Pantallas 3D Spatial Display sin gafas que ofrecen experiencias visuales inmersivas y avatares interactivos con IA en tiempo real para entornos comerciales.",
+    },
+    breadcrumbProducts: "Productos",
+    breadcrumbCurrent: "Spatial Display (Pantalla 3D)",
+    heroBadge: "Pantalla IA 3D sin gafas",
+    heroTitle: "Spatial Display ",
+    heroTitleHighlight: "(Pantalla Espacial 3D)",
+    heroSubtitle: "Panel de experiencia IA 3D sin gafas",
+    heroDescription:
+      "Pantallas espaciales 3D sin gafas que ofrecen visuales inmersivos y avatares interactivos en tiempo real para entornos comerciales.",
+    heroInlineDesc1: " con un perfil ultradelgado de ",
+    heroInlineThick: "6 cm de grosor",
+    heroInlineDesc2: " y panel táctil ",
+    heroInlinePanel: "4K Ultra HD",
+    heroInlineDesc3: ", disponible en tamaños de ",
+    heroInlineSizes: "55\", 65\", 75\" y 86\"",
+    heroInlineDesc4: ". También explore nuestras cabinas holográficas ",
+    heroHologramLinkText: "AI Hologram Box a tamaño real",
+    ctaPrimaryBtn: "Reservar demo de Spatial Display →",
+    ctaSecondaryBtn: "Descargar ficha técnica (PDF)",
+    heroPillProfile: "Perfil 6 cm • 55\"–86\"",
+    heroOverlayThickness: "● GROSOR DE 6 CM",
+    heroOverlayCaption: "Pantalla táctil Spatial Display con percepción de profundidad volumétrica 4K Ultra HD",
+    imageAlt: "Exhibición de pantalla volumétrica AI Spatial Display",
+    hardwareHighlightBadge: "★ ESPECIFICACIONES DE HARDWARE CONFIRMADAS",
+    hardwareHighlightTitle1: "Pantalla táctil Spatial Display",
+    hardwareHighlightTitle2: "Con resolución ",
+    hardwareHighlightDesc:
+      "Diseñada con un cuerpo ultradelgado de 6 cm de grosor, superficie de cristal multitáctil y resolución 4K Ultra HD en tamaños de 55\", 65\", 75\" y 86\".",
+    cardProfileLabel: "Perfil del cuerpo",
+    cardProfileVal: "6 cm de grosor",
+    cardSizesLabel: "Tamaños disponibles",
+    cardSizesVal: "55\", 65\", 75\", 86\"",
+    cardPanelLabel: "Panel interactivo",
+    cardPanelVal: "Pantalla táctil 4K",
+    defSectionBadge: "Definición del producto",
+    defSectionTitle: "¿Qué es Spatial Display?",
+    defSectionDesc:
+      "Spatial Display es una plataforma de pantalla inmersiva diseñada para presentar imágenes 3D estereoscópicas y albergar Humanos Digitales con IA interactivos sin necesidad de gafas especiales.",
+    definitionPoints: [
+      {
+        title: "Pantalla visual inmersiva",
+        description:
+          "Ofrece una percepción realista de profundidad visual 3D directamente a los ojos del espectador sin gafas o cascos AR/VR.",
+      },
+      {
+        title: "Presentación 3D y espacial",
+        description:
+          "Muestra productos, modelos arquitectónicos y gráficos con profundidad espacial real, convirtiendo medios 2D en activos estereoscópicos.",
+      },
+      {
+        title: "Experiencia interactiva",
+        description:
+          "Combina un panel táctil de cristal receptivo con sensores de seguimiento ocular en tiempo real para adaptar la perspectiva al movimiento.",
+      },
+      {
+        title: "Integración de Humanos Digitales con IA",
+        description:
+          "Sirve como un escenario físico inmersivo para que los avatares de DIHUAVA AI conversen con los visitantes en tiempo real.",
+      },
+      {
+        title: "Compromiso empresarial y del visitante",
+        description:
+          "Diseñado para entornos comerciales de alto tráfico con el fin de transformar la señalización pasiva en puntos de interacción activos.",
+      },
+    ],
+    partnershipBadge: "Integración de Hardware y Software",
+    partnershipTitlePrefix: "Integrando Spatial Display con ",
+    partnershipTitleHighlight: "Humanos Digitales con IA de DIHUAVA",
+    partnershipDesc1:
+      "Spatial Display sirve como el entorno visual inmersivo físico para los Humanos Digitales de DIHUAVA AI. Mientras Spatial Display aporta el panel óptico 4K de 6 cm y sensores, DIHUAVA actúa como el motor de inteligencia de IA (reconocimiento de voz, animación y RAG local).",
+    canonicalArchBadge: "Arquitectura canónica de IA",
+    canonicalArchQuote:
+      "«DIHUAVA funciona 100% sin conexión en el dispositivo de forma predeterminada, con configuraciones de gestión en la nube opcionales.»",
+    partnershipDesc2:
+      "Spatial Display es un hardware de visualización 3D de alto rendimiento. Al combinarse con DIHUAVA, proporciona un escenario volumétrico físico donde los avatares de IA interactúan con fluidez en tiempo real.",
+    learnDihuavaLink: "Más información sobre la plataforma DIHUAVA AI",
+    sysArchCardTitle: "División de la arquitectura del sistema",
+    physLayerBadge: "Capa Física (Hardware)",
+    physLayerName: "Spatial Display",
+    physBullets: [
+      "• Cuerpo ultradelgado de 6 cm",
+      "• Paneles táctiles 4K de 55\", 65\", 75\", 86\"",
+      "• Óptica espacial de campo de luz",
+      "• Sensores de seguimiento ocular en tiempo real",
+    ],
+    intelLayerBadge: "Capa de Inteligencia (Software)",
+    intelLayerName: "Plataforma DIHUAVA",
+    intelBullets: [
+      "• Avatares Humanos Digitales con IA",
+      "• Reconocimiento de voz local y RAG",
+      "• 29+ idiomas globales",
+      "• Procesamiento 100% sin conexión en GPU",
+    ],
+    techOverviewBadge: "Visión general de la tecnología",
+    techOverviewHeading: "Visuales espaciales de próxima generación para espacios comerciales.",
+    featuresTitle: "Tecnología de pantalla espacial",
+    features: [
+      {
+        title: "Perfil ultradelgado de 6 cm y 4K Ultra HD",
+        description:
+          "Diseñado con un grosor de solo 6 cm y un panel táctil 4K Ultra HD para una profundidad espacial volumétrica real.",
+        badge: "6 cm Ultradelgado 4K",
+      },
+      {
+        title: "Visuales 3D volumétricos",
+        description:
+          "Óptica espacial de campo de luz para una percepción de profundidad 3D natural sin necesidad de gafas.",
+        badge: "Óptica espacial 3D",
+      },
+      {
+        title: "Seguimiento ocular óptico en tiempo real",
+        description:
+          "Sensores de cámara de alta velocidad rastrean la mirada para ajustar la perspectiva y mantener una nitidez 3D impecable.",
+        badge: "IA de seguimiento ocular",
+      },
+      {
+        title: "Integración con DIHUAVA AI",
+        description:
+          "Se conecta sin problemas con la plataforma DIHUAVA para ofrecer avatares interactivos y contenido 3D en profundidad real.",
+        badge: "Avatares interactivos",
+      },
+    ],
+    targetDeploymentsBadge: "Despliegues objetivo",
+    targetDeploymentsTitle: "Spatial Display en sectores comerciales",
+    targetDeploymentsSubtitle:
+      "Descubra cómo las pantallas 3D sin gafas y los Humanos Digitales con IA mejoran la experiencia del cliente.",
+    industries: [
+      {
+        title: "Comercio minorista",
+        category: "Expositor comercial",
+        description:
+          "Visualización interactiva de productos, compras guiadas y demostraciones 3D de lujo.",
+      },
+      {
+        title: "Empresas y Corporaciones",
+        category: "Recepción y vestíbulo",
+        description:
+          "Mostradores de recepción interactivos, directorio del edificio y presentaciones ejecutivas.",
+      },
+      {
+        title: "Salud y Clínicas",
+        category: "Orientación al paciente",
+        description:
+          "Asistencia de información al paciente, orientación en hospitales y educación médica.",
+      },
+      {
+        title: "Educación y Formación",
+        category: "Aprendizaje interactivo",
+        description:
+          "Demostraciones STEM, exploración de modelos 3D complejos y entornos de capacitación.",
+      },
+      {
+        title: "Hostelería y Turismo",
+        category: "Servicios al visitante",
+        description:
+          "Asistencia de conserjería, exploración de destinos regionales e historias culturales.",
+      },
+      {
+        title: "Museos y Espacios Públicos",
+        category: "Guía de exposiciones",
+        description:
+          "Narración de exposiciones, quioscos de información pública y alta participación.",
+      },
+    ],
+    exploreIndustryBtn: "Explorar solución industrial",
+    valueSectionBadge: "Valor comercial",
+    valueSectionTitle: "¿Qué problemas comerciales resuelve Spatial Display?",
+    valueSectionSubtitle:
+      "Aborde los desafíos clave en espacios físicos con una potente presentación visual 3D e integración de avatares.",
+    businessValues: [
+      {
+        title: "Atraer tráfico y atención",
+        description:
+          "Capte la atención visual en tiendas, ferias y vestíbulos con un gran impacto 3D sin gafas.",
+      },
+      {
+        title: "Presentar productos complejos visualmente",
+        description:
+          "Muestre diseños 3D detallados, desglose de componentes internos y maquetas arquitectónicas.",
+      },
+      {
+        title: "Explicar información de forma interactiva",
+        description:
+          "Sustituya pantallas estáticas por una entrega de información conversacional táctil y por voz.",
+      },
+      {
+        title: "Aumentar el compromiso del visitante",
+        description:
+          "Cree interacciones memorables que aumenten el tiempo de permanencia del cliente.",
+      },
+      {
+        title: "Conectar Humanos Digitales con IA a espacios físicos",
+        description:
+          "Proporcione un escenario físico para que los avatares de DIHUAVA AI orienten a los clientes.",
+      },
+    ],
+    compSectionBadge: "Comparativa tecnológica",
+    compSectionTitle: "Spatial Display frente a pantallas convencionales",
+    compSectionSubtitle:
+      "Comparativa objetiva basada en profundidad visual, óptica interactiva y compatibilidad con IA.",
+    tableHeaderCategory: "Categoría",
+    tableHeaderConventional: "Pantalla 2D convencional",
+    tableHeaderSpatial: "Spatial Display 3D",
+    comparisonRows: [
+      {
+        feature: "Profundidad visual",
+        conventional: "Salida de imagen 2D plana; plano focal único",
+        spatial: "Profundidad 3D espacial volumétrica sin gafas",
+      },
+      {
+        feature: "Interacción del espectador",
+        conventional: "Visualización pasiva o menú táctil 2D básico",
+        spatial: "Cristal multitáctil con ajuste de perspectiva por seguimiento ocular",
+      },
+      {
+        feature: "Integración de avatares IA",
+        conventional: "Superposición de vídeo 2D plano",
+        spatial: "Escenario 3D inmersivo para avatares de DIHUAVA AI",
+      },
+      {
+        feature: "Entornos de despliegue",
+        conventional: "Señalisación digital estándar y bucles de vídeo",
+        spatial: "Tiendas exclusivas, vestíbulos corporativos y centros de exposición",
+      },
+      {
+        feature: "Adaptación de perspectiva",
+        conventional: "Ángulo estático; distorsión al mirar desde un lateral",
+        spatial: "Ajuste dinámico de la perspectiva 3D según la posición del espectador",
+      },
+    ],
+    specsSectionBadge: "Especificaciones técnicas",
+    specsSectionTitle: "Especificaciones de Spatial Display",
+    specsTitle: "Especificaciones de pantalla",
+    specs: [
+      {
+        label: "Tamaños disponibles",
+        value: "55 pulgadas, 65 pulgadas, 75 pulgadas, 86 pulgadas",
+      },
+      {
+        label: "Grosor del perfil",
+        value: "Cuerpo ultradelgado de 6 cm",
+      },
+      {
+        label: "Pantalla y táctil",
+        value: "Pantalla táctil Spatial Display con resolución 4K Ultra HD",
+      },
+      {
+        label: "Tecnología de pantalla 3D",
+        value: "Panel óptico espacial de campo de luz",
+      },
+      {
+        label: "Sensor de seguimiento óptico",
+        value: "Cámara de seguimiento ocular y de movimiento en tiempo real",
+      },
+      {
+        label: "Compatibilidad con IA",
+        value: "Plataforma DIHUAVA AI (funciona 100% sin conexión en el dispositivo)",
+      },
+      {
+        label: "Compatibilidad de activos 3D",
+        value: "Avatares 3D DIHUAVA, modelos 3D OBJ/FBX, Unity/Unreal Engine",
+      },
+      {
+        label: "Documentación",
+        value: "Ficha técnica de Spatial Display, especificaciones en PDF",
+      },
+    ],
+    ctaTitle: "Lleve pantallas 3D Spatial Display",
+    ctaHighlight: "A su entorno comercial",
+    ctaDesc:
+      "Experimente pantallas ópticas volumétricas para expositores, vestíbulos corporativos, ferias y presentaciones de avatares 3D.",
+    ctaPrimaryText: "Solicitar una demo",
+    ctaSecondaryText: "Descargar ficha técnica (PDF)",
+    ctaPrimary: "Solicitar una demo",
+    ctaSecondary: "Descargar ficha técnica (PDF)",
   },
   industriesPage: {
       "heroBadge": "Soluciones para industrias",

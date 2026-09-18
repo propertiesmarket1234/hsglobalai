@@ -1,5 +1,6 @@
 import SpatialDisplayPage, { metadata as baseMetadata } from "@/app/products/spatial-display/page";
-import { getLocalizedAlternates } from "@/i18n/config";
+import { getLocalizedAlternates, isValidLocale, Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 import type { Metadata } from "next";
 
 export async function generateStaticParams() {
@@ -12,10 +13,41 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
   const { lang } = await params;
+  const locale: Locale = isValidLocale(lang) ? (lang as Locale) : "en";
+  const dict = getDictionary(locale);
+  const sMeta = (dict as any).spatialPage?.metadata || {};
+
+  const title = sMeta.title || (baseMetadata.title as string);
+  const description = sMeta.description || (baseMetadata.description as string);
+
   return {
     ...baseMetadata,
+    title,
+    description,
     alternates: getLocalizedAlternates("/products/spatial-display", lang),
+    openGraph: {
+      ...baseMetadata.openGraph,
+      title,
+      description,
+      url: `https://www.hsglobalai.com/${lang}/products/spatial-display`,
+      locale:
+        lang === "zh"
+          ? "zh_CN"
+          : lang === "ru"
+          ? "ru_RU"
+          : lang === "es"
+          ? "es_ES"
+          : lang === "fr"
+          ? "fr_FR"
+          : "en_US",
+    },
+    twitter: {
+      ...baseMetadata.twitter,
+      title,
+      description,
+    },
   };
 }
 
 export default SpatialDisplayPage;
+

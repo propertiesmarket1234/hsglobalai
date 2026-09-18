@@ -900,71 +900,285 @@ export const zh: Dictionary = {
     ]
   },
   spatialPage: {
-      "heroBadge": "裸眼3D AI显示屏",
-      "heroTitle": "Spatial Display ",
-      "heroTitleHighlight": "空间显示屏 (3D立体显示)",
-      "heroSubtitle": "无需佩戴眼镜的3D AI体验面板",
-      "heroDescription": "裸眼3D空间显示屏，为商业场所提供无佩戴感的高沉浸度视觉体验与实时交互数字人。",
-      "ctaPrimary": "预约演示",
-      "ctaSecondary": "下载技术白皮书 (PDF)",
-      "featuresTitle": "空间显示技术",
-      "specsTitle": "显示屏规格",
-      specs: [
-        {
-                "label": "支持尺寸",
-                "value": "55 英寸, 65 英寸, 75 英寸, 86 英寸"
-        },
-        {
-                "label": "机身厚度",
-                "value": "6 cm 超薄机身厚度"
-        },
-        {
-                "label": "显示与触摸屏",
-                "value": "4K Ultra HD 高清空间屏触摸面板"
-        },
-        {
-                "label": "3D 显示技术",
-                "value": "光场空间光学面板"
-        },
-        {
-                "label": "光学追踪传感器",
-                "value": "高速实时光学人眼与运动追踪摄像头"
-        },
-        {
-                "label": "AI 软件兼容性",
-                "value": "DIHUAVA AI 平台（默认 100% 端侧离线运行）"
-        },
-        {
-                "label": "3D 资产兼容性",
-                "value": "DIHUAVA 3D 阿凡达, OBJ/FBX 3D 模型, 实时 Unity/Unreal 引擎"
-        },
-        {
-                "label": "文档",
-                "value": "Spatial Display 数据表、产品规格 PDF"
-        }
-],
-      definitionPoints: [
-        {
-                "title": "沉浸式视觉显示",
-                "description": "无需佩戴专用眼镜或 AR/VR 头显，直接向观者双眼呈现逼真的 3D 体积视觉深度感知。"
-        },
-        {
-                "title": "3D 与空间展示",
-                "description": "以真实的空间深度展示产品、建筑模型和图形，将 2D 视觉媒体转化为吸引人的立显资产。"
-        },
-        {
-                "title": "交互式体验",
-                "description": "将响应式多点触控玻璃面板与实时光学人眼追踪传感器相结合，随观者移动实时调整视角。"
-        },
-        {
-                "title": "AI 数字人集成",
-                "description": "作为 DIHUAVA AI 数字人阿凡达的沉浸式物理舞台，与访客进行实时对话。"
-        },
-        {
-                "title": "企业与访客参与",
-                "description": "专为高流量实体客户环境设计，将被动标牌转化为主动互动触点。"
-        }
-]
+    metadata: {
+      title: "3D裸眼空间显示屏与AI数字人沉浸式交互",
+      description:
+        "裸眼3D AI空间显示屏，在物理商业环境中提供无需佩戴眼镜的沉浸式3D视觉体验与实时交互式AI数字人。",
+    },
+    breadcrumbProducts: "产品中心",
+    breadcrumbCurrent: "3D裸眼空间显示屏",
+    heroBadge: "裸眼3D AI显示屏",
+    heroTitle: "Spatial Display ",
+    heroTitleHighlight: "空间显示屏 (3D立体显示)",
+    heroSubtitle: "无需佩戴眼镜的3D AI体验面板",
+    heroDescription:
+      "裸眼3D空间显示屏，为商业场所提供无佩戴感的高沉浸度视觉体验与实时交互数字人。",
+    heroInlineDesc1: "，拥有超薄 ",
+    heroInlineThick: "6 cm 机身厚度",
+    heroInlineDesc2: " 与 ",
+    heroInlinePanel: "4K Ultra HD 触控面板",
+    heroInlineDesc3: "，提供 ",
+    heroInlineSizes: "55\"、65\"、75\" 和 86\"",
+    heroInlineDesc4: " 显示尺寸。同时可了解我们真人等比例的 ",
+    heroHologramLinkText: "AI 3D全息显示柜产品",
+    ctaPrimaryBtn: "预约裸眼空间屏演示 →",
+    ctaSecondaryBtn: "下载空间显示屏白皮书 (PDF)",
+    heroPillProfile: "6 cm 机身厚度 • 55\"–86\"",
+    heroOverlayThickness: "● 6 CM 机身厚度",
+    heroOverlayCaption: "具备 4K Ultra HD 体积视觉感知的 Spatial Display 空间显示触控屏",
+    imageAlt: "AI Spatial Display 空间显示屏体积光场展示",
+    hardwareHighlightBadge: "★ 确认硬件技术规格",
+    hardwareHighlightTitle1: "Spatial Display 空间显示触控屏",
+    hardwareHighlightTitle2: "搭载 ",
+    hardwareHighlightDesc:
+      "采用 6 cm 超薄机身设计，支持高灵敏多点触控与超高清 4K Ultra HD 分辨率，覆盖 55 英寸、65 英寸、75 英寸和 86 英寸全系显示尺寸。",
+    cardProfileLabel: "机身轮廓",
+    cardProfileVal: "6 cm 厚度",
+    cardSizesLabel: "可选尺寸",
+    cardSizesVal: "55\", 65\", 75\", 86\"",
+    cardPanelLabel: "交互面板",
+    cardPanelVal: "4K 触控屏",
+    defSectionBadge: "产品定义",
+    defSectionTitle: "什么是 Spatial Display 裸眼空间显示屏？",
+    defSectionDesc:
+      "Spatial Display 是一种沉浸式硬件显示平台，专为在物理实体空间中呈现立体 3D 视觉并承载交互式 AI 数字人而设计，无需佩戴任何特殊头显设备。",
+    definitionPoints: [
+      {
+        title: "沉浸式视觉显示",
+        description:
+          "无需佩戴特殊眼镜或 AR/VR 头显，直接为观众双眼呈现逼真的 3D 体积视觉深度感。",
+      },
+      {
+        title: "3D与空间立体呈现",
+        description:
+          "以真实的空间深度展示产品、建筑模型和图形，将传统 2D 视觉媒体转变为引人入胜的立体资产。",
+      },
+      {
+        title: "实时交互体验",
+        description:
+          "结合响应迅速的多点触控玻璃面板与实时光学人眼追踪传感器，随观众移动动态调整视觉视角。",
+      },
+      {
+        title: "AI 数字人深度融合",
+        description:
+          "作为 DIHUAVA AI 数字人阿凡达的沉浸式物理舞台，与现场访客进行实时智能对话。",
+      },
+      {
+        title: "企业与访客交互增强",
+        description:
+          "专为高流量物理商业环境打造，将被动显示屏转变为主动互动式触控服务节点。",
+      },
+    ],
+    partnershipBadge: "硬件与软件生态融合",
+    partnershipTitlePrefix: "将 Spatial Display 空间显示屏与 ",
+    partnershipTitleHighlight: "DIHUAVA AI 数字人深度结合",
+    partnershipDesc1:
+      "Spatial Display 作为 DIHUAVA AI 数字人的物理沉浸式视觉载体。Spatial Display 提供 6 cm 厚度 4K 光场显示面板与光学传感器，而 DIHUAVA 则作为 AI 软件智慧大脑，驱动实时语音识别、数字人动作渲染与本地文档 RAG。",
+    canonicalArchBadge: "标准 AI 架构规范",
+    canonicalArchQuote:
+      "“DIHUAVA 默认 100% 离线在端侧设备运行，同时提供可选的云端管理配置模式。”",
+    partnershipDesc2:
+      "Spatial Display 本身为高性能 3D 显示硬件，而非独立的 AI 软件系统。当与 DIHUAVA 配合使用时，它能提供立体物理舞台，使交互式 AI 数字人与访客实时流畅对话。",
+    learnDihuavaLink: "了解更多关于 DIHUAVA AI 平台的信息",
+    sysArchCardTitle: "系统架构分工",
+    physLayerBadge: "物理层 (硬件)",
+    physLayerName: "Spatial Display",
+    physBullets: [
+      "• 6 cm 超薄机身厚度",
+      "• 55\", 65\", 75\", 86\" 4K 触控面板",
+      "• 光场空间光学器件",
+      "• 实时人眼追踪传感器",
+    ],
+    intelLayerBadge: "智能层 (软件)",
+    intelLayerName: "DIHUAVA 平台",
+    intelBullets: [
+      "• AI 数字人阿凡达",
+      "• 端侧语音识别与本地 RAG",
+      "• 29+ 全球多语言支持",
+      "• 100% 离线 GPU 计算",
+    ],
+    techOverviewBadge: "技术概览",
+    techOverviewHeading: "面向现实商业空间的下一代空间视觉技术。",
+    featuresTitle: "空间显示技术",
+    features: [
+      {
+        title: "6 cm 超薄机身与 4K Ultra HD",
+        description:
+          "采用 6 cm 极窄机身设计，配备高精度 4K Ultra HD 触控玻璃面板，呈现真实的体积空间深度感。",
+        badge: "6 cm 超薄 4K",
+      },
+      {
+        title: "体积 3D 裸眼视觉",
+        description:
+          "先进的透镜光场空间光学技术，无需佩戴任何穿戴设备或头显即可实现自然 3D 深度感知。",
+        badge: "3D 空间光学",
+      },
+      {
+        title: "实时光学人眼追踪",
+        description:
+          "高速精准摄像头传感器持续追踪观看者的眼睛位置，根据角度实时渲染视差变换，保持高清晰度立体 3D。",
+        badge: "人眼追踪 AI",
+      },
+      {
+        title: "DIHUAVA AI 深度集成",
+        description:
+          "无缝连接 DIHUAVA 平台，以真实空间深度呈现交互式 AI 数字人、对话式交互体验与 3D 内容。",
+        badge: "交互式数字人",
+      },
+    ],
+    targetDeploymentsBadge: "目标部署场景",
+    targetDeploymentsTitle: "Spatial Display 商业行业应用",
+    targetDeploymentsSubtitle:
+      "探索裸眼 3D 空间显示屏与 AI 数字人如何提升商业客户环境体验。",
+    industries: [
+      {
+        title: "零售与商业购物",
+        category: "商业展示",
+        description:
+          "交互式产品可视化、导购购物体验以及 3D 奢侈品展示。",
+      },
+      {
+        title: "企业大楼与接待",
+        category: "大堂前台",
+        description:
+          "交互式接待前台、楼层导览服务、高管演示与访客迎宾。",
+      },
+      {
+        title: "医疗与诊所门诊",
+        category: "患者导诊",
+        description:
+          "患者信息咨询、医院科室导航以及交互式医学科普展示。",
+      },
+      {
+        title: "教育与培训研讨",
+        category: "交互式学习",
+        description:
+          "STEM 教学演示、复杂 3D 模型探索以及沉浸式培训环境。",
+      },
+      {
+        title: "酒店与文旅景区",
+        category: "访客服务",
+        description:
+          "酒店礼宾服务、区域景点介绍以及交互式文化历史讲解。",
+      },
+      {
+        title: "博物馆与公共展馆",
+        category: "展厅讲解",
+        description:
+          "交互式展品讲解、公共信息查询终端与高吸引力访客互动。",
+      },
+    ],
+    exploreIndustryBtn: "探索行业解决方案",
+    valueSectionBadge: "商业价值",
+    valueSectionTitle: "Spatial Display 解决哪些商业痛点？",
+    valueSectionSubtitle:
+      "通过高视觉冲击力的 3D 呈现与交互式数字人集成，解决实体客户环境中的关键挑战。",
+    businessValues: [
+      {
+        title: "吸引客流与访客注意力",
+        description:
+          "利用无须佩戴眼镜的 3D 空间视觉冲击力，在繁忙的零售店、展会和大堂中迅速吸引视觉关注。",
+      },
+      {
+        title: "直观展示复杂产品结构",
+        description:
+          "以立体体积细节展示精密的 3D 产品设计、内部组件拆解图与建筑结构布局。",
+      },
+      {
+        title: "交互式讲解复杂信息",
+        description:
+          "用支持触控与语音引导的对话式信息交付替代静态平面显示屏。",
+      },
+      {
+        title: "提升访客参与度与停留时长",
+        description:
+          "打造令人难忘的物理空间互动体验，增加访客停留时间并强化品牌信任。",
+      },
+      {
+        title: "将 AI 数字人引入实体空间",
+        description:
+          "为 DIHUAVA AI 数字人提供物理空间舞台，迎接访客、解答疑问并引导客户。",
+      },
+    ],
+    compSectionBadge: "技术对比",
+    compSectionTitle: "Spatial Display vs. 传统显示屏",
+    compSectionSubtitle:
+      "基于视觉深度、交互光学及 AI 数字人兼容性的客观对比。",
+    tableHeaderCategory: "功能类别",
+    tableHeaderConventional: "传统平面显示屏",
+    tableHeaderSpatial: "Spatial Display 裸眼空间屏",
+    comparisonRows: [
+      {
+        feature: "视觉深度与呈现",
+        conventional: "平面 2D 图像输出；单一焦平面视角",
+        spatial: "无需佩戴特殊眼镜的立体 3D 空间深度感知",
+      },
+      {
+        feature: "观众交互模式",
+        conventional: "被动观看或基础 2D 触控菜单导航",
+        spatial: "多点触控玻璃表面结合实时光学人眼追踪视差调整",
+      },
+      {
+        feature: "AI 数字人集成",
+        conventional: "标准 2D 平面视频数字人覆盖层",
+        spatial: "为 DIHUAVA AI 数字人提供沉浸式 3D 物理舞台渲染",
+      },
+      {
+        feature: "部署应用环境",
+        conventional: "标准数字标牌、播控屏幕与基础视频循环",
+        spatial: "高冲击力零售展柜、企业大堂、医疗导诊与展馆中心",
+      },
+      {
+        feature: "视角动态适应",
+        conventional: "静态视角；偏离中心时视觉透视扭曲",
+        spatial: "动态人眼追踪传感器根据观众位置实时调整 3D 视差",
+      },
+    ],
+    specsSectionBadge: "技术参数",
+    specsSectionTitle: "Spatial Display 详细规格参数",
+    specsTitle: "显示屏规格",
+    specs: [
+      {
+        label: "支持尺寸",
+        value: "55 英寸, 65 英寸, 75 英寸, 86 英寸",
+      },
+      {
+        label: "机身厚度",
+        value: "6 cm 超薄机身厚度",
+      },
+      {
+        label: "显示与触摸屏",
+        value: "4K Ultra HD 高清空间屏触摸面板",
+      },
+      {
+        label: "3D 显示技术",
+        value: "光场空间光学面板",
+      },
+      {
+        label: "光学追踪传感器",
+        value: "高速实时光学人眼与运动追踪摄像头",
+      },
+      {
+        label: "AI 软件兼容性",
+        value: "DIHUAVA AI 平台（默认 100% 端侧离线运行）",
+      },
+      {
+        label: "3D 资产兼容性",
+        value: "DIHUAVA 3D 阿凡达, OBJ/FBX 3D 模型, 实时 Unity/Unreal 引擎",
+      },
+      {
+        label: "文档",
+        value: "Spatial Display 数据表、产品规格 PDF",
+      },
+    ],
+    ctaTitle: "将 3D 裸眼空间显示屏",
+    ctaHighlight: "引入您的商业客户环境",
+    ctaDesc:
+      "体验专为零售展柜、企业大堂、展览展厅、交互终端与 3D 数字人演示打造的光场体积显示硬件。",
+    ctaPrimaryText: "预约演示",
+    ctaSecondaryText: "下载技术白皮书 (PDF)",
+    ctaPrimary: "预约演示",
+    ctaSecondary: "下载技术白皮书 (PDF)",
   },
   industriesPage: {
       "heroBadge": "企业行业解决方案",

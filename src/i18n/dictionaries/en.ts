@@ -898,71 +898,286 @@ export const en = {
     ]
   },
   spatialPage: {
-      "heroBadge": "Naked-Eye 3D AI Display",
-      "heroTitle": "Spatial Display ",
-      "heroTitleHighlight": "(3D Volumetric)",
-      "heroSubtitle": "Glasses-Free 3D AI Experience Panel",
-      "heroDescription": "Naked-eye 3D spatial AI displays delivering glasses-free immersive visual experiences and real-time interactive avatars for high-impact commercial environments.",
-      "ctaPrimary": "Book a Demo",
-      "ctaSecondary": "Download Datasheet (PDF)",
-      "featuresTitle": "Spatial Display Technology",
-      "specsTitle": "Display Specifications",
-      specs: [
-        {
-                "label": "Available Sizes",
-                "value": "55-inch, 65-inch, 75-inch, 86-inch"
-        },
-        {
-                "label": "Profile Thickness",
-                "value": "Ultra-Slim 6 cm Body Thickness"
-        },
-        {
-                "label": "Display & Touch Panel",
-                "value": "Spatial Display Touch Screen with 4K Ultra HD Resolution"
-        },
-        {
-                "label": "3D Display Technology",
-                "value": "Light-Field Spatial Optical Panel"
-        },
-        {
-                "label": "Optical Tracking Sensor",
-                "value": "High-Speed Real-Time Optical Eye & Motion Camera"
-        },
-        {
-                "label": "AI Software Compatibility",
-                "value": "DIHUAVA AI Platform (Runs 100% offline on-device by default)"
-        },
-        {
-                "label": "3D Asset Compatibility",
-                "value": "DIHUAVA 3D Avatars, OBJ/FBX 3D Models, Real-Time Unity/Unreal Engine"
-        },
-        {
-                "label": "Documentation",
-                "value": "Spatial Display Data Sheet, Product Specifications PDF"
-        }
-],
-      definitionPoints: [
-        {
-                "title": "Immersive Visual Display",
-                "description": "Delivers realistic 3D volumetric visual depth perception directly to viewer eyes without requiring specialized glasses or AR/VR headsets."
-        },
-        {
-                "title": "3D & Spatial Presentation",
-                "description": "Presents products, architectural models, and graphics with true spatial depth, turning 2D visual media into engaging stereoscopic assets."
-        },
-        {
-                "title": "Interactive Experience",
-                "description": "Combines a responsive multi-touch glass panel with real-time optical eye-tracking sensors to adapt perspective as viewers move."
-        },
-        {
-                "title": "AI Digital Human Integration",
-                "description": "Serves as an immersive physical stage for DIHUAVA AI Digital Human avatars to converse with visitors in real-time."
-        },
-        {
-                "title": "Enterprise & Visitor Engagement",
-                "description": "Engineered for high-traffic physical customer environments to transform passive signage into active engagement touchpoints."
-        }
-]
+    metadata: {
+      title: "Spatial Display for Immersive AI Experiences",
+      description:
+        "Naked-eye 3D spatial AI displays delivering glasses-free immersive visual experiences and real-time interactive avatars for high-impact commercial environments.",
+    },
+    breadcrumbProducts: "Products",
+    breadcrumbCurrent: "Spatial Display",
+    heroBadge: "Naked-Eye 3D AI Display",
+    heroTitle: "Spatial Display ",
+    heroTitleHighlight: "(3D Volumetric)",
+    heroSubtitle: "Glasses-Free 3D AI Experience Panel",
+    heroDescription:
+      "Naked-eye 3D spatial AI displays delivering glasses-free immersive visual experiences and real-time interactive avatars for high-impact commercial environments.",
+    heroInlineDesc1: " Featuring an ultra-slim ",
+    heroInlineThick: "6 cm body thickness",
+    heroInlineDesc2: " and ",
+    heroInlinePanel: "4K Ultra HD touch screen panel",
+    heroInlineDesc3: ", available in ",
+    heroInlineSizes: "55\", 65\", 75\", and 86\"",
+    heroInlineDesc4: " display sizes. Also explore our life-size ",
+    heroHologramLinkText: "AI Hologram Box enclosures",
+    ctaPrimaryBtn: "Book Spatial Display Demo →",
+    ctaSecondaryBtn: "Download Spatial Datasheet (PDF)",
+    heroPillProfile: "6 cm Profile • 55\"–86\"",
+    heroOverlayThickness: "● 6 CM THICKNESS",
+    heroOverlayCaption: "Spatial Display Touch Screen with 4K Ultra HD volumetric depth perception",
+    imageAlt: "AI Spatial Display Volumetric Screen Showcase",
+    hardwareHighlightBadge: "★ Confirmed Hardware Specifications",
+    hardwareHighlightTitle1: "Spatial Display Touch Screen",
+    hardwareHighlightTitle2: "With ",
+    hardwareHighlightDesc:
+      "Featuring an ultra-thin 6 cm body thickness, responsive multi-touch interactive glass surface, and ultra-crisp 4K Ultra HD resolution across 55\", 65\", 75\", and 86\" screen sizes.",
+    cardProfileLabel: "Body Profile",
+    cardProfileVal: "6 cm Depth",
+    cardSizesLabel: "Available Sizes",
+    cardSizesVal: "55\", 65\", 75\", 86\"",
+    cardPanelLabel: "Interactive Panel",
+    cardPanelVal: "4K Touch Screen",
+    defSectionBadge: "Product Definition",
+    defSectionTitle: "What is Spatial Display?",
+    defSectionDesc:
+      "Spatial Display is an immersive hardware display platform engineered to present stereoscopic 3D visuals and host interactive AI Digital Humans directly in physical spaces without specialized headsets.",
+    definitionPoints: [
+      {
+        title: "Immersive Visual Display",
+        description:
+          "Delivers realistic 3D volumetric visual depth perception directly to viewer eyes without requiring specialized glasses or AR/VR headsets.",
+      },
+      {
+        title: "3D & Spatial Presentation",
+        description:
+          "Presents products, architectural models, and graphics with true spatial depth, turning 2D visual media into engaging stereoscopic assets.",
+      },
+      {
+        title: "Interactive Experience",
+        description:
+          "Combines a responsive multi-touch glass panel with real-time optical eye-tracking sensors to adapt perspective as viewers move.",
+      },
+      {
+        title: "AI Digital Human Integration",
+        description:
+          "Serves as an immersive physical stage for DIHUAVA AI Digital Human avatars to converse with visitors in real-time.",
+      },
+      {
+        title: "Enterprise & Visitor Engagement",
+        description:
+          "Engineered for high-traffic physical customer environments to transform passive signage into active engagement touchpoints.",
+      },
+    ],
+    partnershipBadge: "Hardware & Software Partnership",
+    partnershipTitlePrefix: "Integrating Spatial Display with ",
+    partnershipTitleHighlight: "DIHUAVA AI Digital Humans",
+    partnershipDesc1:
+      "Spatial Display serves as the physical immersive visual environment for DIHUAVA AI Digital Humans. While Spatial Display provides the 6 cm 4K light-field display panel and optical sensors, DIHUAVA acts as the AI software intelligence layer powering speech recognition, avatar animation, and local document RAG.",
+    canonicalArchBadge: "Canonical AI Architecture",
+    canonicalArchQuote:
+      "\"DIHUAVA runs 100% offline on-device by default, with optional cloud-management configurations available.\"",
+    partnershipDesc2:
+      "Spatial Display itself is high-performance 3D display hardware, not an AI system. When paired with DIHUAVA, it provides a physical volumetric stage where interactive AI avatars interact with visitors smoothly in real-time.",
+    learnDihuavaLink: "Learn more about DIHUAVA AI Platform",
+    sysArchCardTitle: "System Architecture Division",
+    physLayerBadge: "Physical Layer (Hardware)",
+    physLayerName: "Spatial Display",
+    physBullets: [
+      "• 6 cm Ultra-Slim Body Thickness",
+      "• 55\", 65\", 75\", 86\" 4K Touch Panels",
+      "• Light-Field Spatial Optics",
+      "• Real-Time Eye Tracking Sensors",
+    ],
+    intelLayerBadge: "Intelligence Layer (Software)",
+    intelLayerName: "DIHUAVA Platform",
+    intelBullets: [
+      "• AI Digital Human Avatars",
+      "• On-Device Speech & Local RAG",
+      "• 29+ Global Languages",
+      "• 100% Offline GPU Processing",
+    ],
+    techOverviewBadge: "Technology Overview",
+    techOverviewHeading: "Next-generation spatial visuals for real-world spaces.",
+    featuresTitle: "Spatial Display Technology",
+    features: [
+      {
+        title: "Ultra-Slim 6 cm Profile & 4K Ultra HD",
+        description:
+          "Engineered with an ultra-thin 6 cm depth profile featuring a high-precision 4K Ultra HD touch screen panel for true volumetric spatial depth.",
+        badge: "6 cm Ultra-Slim 4K",
+      },
+      {
+        title: "Volumetric 3D Visuals",
+        description:
+          "Advanced lenticular light-field spatial optics enabling natural 3D depth perception without requiring specialized wearables or headsets.",
+        badge: "3D Spatial Optics",
+      },
+      {
+        title: "Real-Time Optical Eye Tracking",
+        description:
+          "High-speed precision camera sensors continuously track viewer eye position, dynamically rendering perspective shifts for crisp, stereoscopic 3D clarity from any angle.",
+        badge: "Eye Tracking AI",
+      },
+      {
+        title: "DIHUAVA AI Integration",
+        description:
+          "Seamlessly connects with the DIHUAVA platform to deliver interactive AI Digital Humans, conversational experiences, and 3D content in true spatial depth.",
+        badge: "Interactive Avatars",
+      },
+    ],
+    targetDeploymentsBadge: "Target Deployments",
+    targetDeploymentsTitle: "Spatial Display Across Commercial Sectors",
+    targetDeploymentsSubtitle:
+      "Discover how naked-eye 3D spatial displays and AI Digital Humans enhance customer environments.",
+    industries: [
+      {
+        title: "Retail & Shopping",
+        category: "Commercial Showcase",
+        description:
+          "Interactive product visualization, guided shopping experiences, and 3D luxury product demonstrations.",
+      },
+      {
+        title: "Corporate & Enterprise",
+        category: "Lobby & Reception",
+        description:
+          "Interactive reception desks, building directory assistance, executive presentations, and visitor onboarding.",
+      },
+      {
+        title: "Healthcare & Clinics",
+        category: "Patient Guidance",
+        description:
+          "Patient information assistance, hospital department wayfinding, and interactive medical education.",
+      },
+      {
+        title: "Education & Training",
+        category: "Interactive Learning",
+        description:
+          "STEM learning demonstrations, complex 3D model exploration, and immersive training environments.",
+      },
+      {
+        title: "Hospitality & Tourism",
+        category: "Visitor Services",
+        description:
+          "Hotel concierge assistance, regional destination exploration, and interactive cultural storytelling.",
+      },
+      {
+        title: "Museums & Public Spaces",
+        category: "Exhibition Docent",
+        description:
+          "Interactive exhibit storytelling, public information kiosks, and high-impact visitor engagement.",
+      },
+    ],
+    exploreIndustryBtn: "Explore Industry Solution",
+    valueSectionBadge: "Commercial Intent & Value",
+    valueSectionTitle: "What Business Problems Does Spatial Display Solve?",
+    valueSectionSubtitle:
+      "Address key physical customer environment challenges with high-impact 3D visual presentation and interactive avatar integration.",
+    businessValues: [
+      {
+        title: "Attract Foot Traffic & Visitor Attention",
+        description:
+          "Captures visual attention in busy retail stores, trade shows, and lobbies using glasses-free 3D spatial visual impact.",
+      },
+      {
+        title: "Present Complex Products Visually",
+        description:
+          "Showcases intricate 3D product designs, internal component breakdowns, and architectural layouts in volumetric detail.",
+      },
+      {
+        title: "Explain Information Interactively",
+        description:
+          "Replaces static display screens with touch-responsive and voice-guided conversational information delivery.",
+      },
+      {
+        title: "Elevate Visitor Engagement",
+        description:
+          "Creates memorable physical interactions that increase visitor dwell time and strengthen brand confidence.",
+      },
+      {
+        title: "Connect AI Digital Humans to Physical Spaces",
+        description:
+          "Provides a physical volumetric stage for DIHUAVA AI Digital Humans to greet visitors, answer questions, and guide customers.",
+      },
+    ],
+    compSectionBadge: "Technology Comparison",
+    compSectionTitle: "Spatial Display vs. Conventional Display",
+    compSectionSubtitle:
+      "A factual category-based comparison highlighting visual depth, interactive optics, and AI Digital Human compatibility.",
+    tableHeaderCategory: "Feature Category",
+    tableHeaderConventional: "Conventional Display",
+    tableHeaderSpatial: "Spatial Display",
+    comparisonRows: [
+      {
+        feature: "Visual Depth & Presentation",
+        conventional: "Flat 2D image output; single focal plane view",
+        spatial: "Volumetric 3D spatial depth perception without specialized glasses",
+      },
+      {
+        feature: "Viewer Interaction",
+        conventional: "Passive viewing or basic 2D touch menu navigation",
+        spatial: "Multi-touch glass surface paired with real-time optical eye-tracking perspective shifts",
+      },
+      {
+        feature: "AI Avatar Integration",
+        conventional: "Standard 2D flat video avatar overlay",
+        spatial: "Immersive 3D visual stage rendering for lifelike DIHUAVA AI Digital Humans",
+      },
+      {
+        feature: "Deployment Environments",
+        conventional: "Standard digital signage, broadcast screens, and basic video loops",
+        spatial:
+          "High-impact retail showcases, corporate lobbies, healthcare guidance, and exhibition centers",
+      },
+      {
+        feature: "Perspective Adaptation",
+        conventional: "Static viewing angle; visual perspective distorts off-center",
+        spatial: "Dynamic eye-tracking sensor adjusts 3D perspective to match viewer position",
+      },
+    ],
+    specsSectionBadge: "Technical Specifications",
+    specsSectionTitle: "Spatial Display Specifications",
+    specsTitle: "Display Specifications",
+    specs: [
+      {
+        label: "Available Sizes",
+        value: "55-inch, 65-inch, 75-inch, 86-inch",
+      },
+      {
+        label: "Profile Thickness",
+        value: "Ultra-Slim 6 cm Body Thickness",
+      },
+      {
+        label: "Display & Touch Panel",
+        value: "Spatial Display Touch Screen with 4K Ultra HD Resolution",
+      },
+      {
+        label: "3D Display Technology",
+        value: "Light-Field Spatial Optical Panel",
+      },
+      {
+        label: "Optical Tracking Sensor",
+        value: "High-Speed Real-Time Optical Eye & Motion Camera",
+      },
+      {
+        label: "AI Software Compatibility",
+        value: "DIHUAVA AI Platform (Runs 100% offline on-device by default)",
+      },
+      {
+        label: "3D Asset Compatibility",
+        value: "DIHUAVA 3D Avatars, OBJ/FBX 3D Models, Real-Time Unity/Unreal Engine",
+      },
+      {
+        label: "Documentation",
+        value: "Spatial Display Data Sheet, Product Specifications PDF",
+      },
+    ],
+    ctaTitle: "Bring 3D Spatial Displays",
+    ctaHighlight: "To Your Customer Environment",
+    ctaDesc:
+      "Experience volumetric light-field displays for retail showcases, corporate lobbies, exhibitions, interactive kiosks, and 3D digital human presentations.",
+    ctaPrimaryText: "Book a Demo",
+    ctaSecondaryText: "Download Datasheets (PDF)",
+    ctaPrimary: "Book a Demo",
+    ctaSecondary: "Download Datasheet (PDF)",
   },
   industriesPage: {
       "heroBadge": "Enterprise Industry Solutions",
