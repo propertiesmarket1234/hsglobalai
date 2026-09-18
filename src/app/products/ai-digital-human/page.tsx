@@ -48,6 +48,7 @@ const jsonLd = {
     "Interactive Real-Time Talking Avatars",
     "On-Device Document Intelligence RAG Engine",
     "Multilingual Speech Recognition & Synthesis across 29+ Global Languages",
+    "7 Specialized Indian Languages (Hindi, Tamil, Telugu, Kannada, Bengali, Marathi, Gujarati)",
     "CSV-Driven AI Product Catalogue & Interactive Cards",
     "Selfie With Avatar Photo Experience & QR Sharing",
     "Live Character Real-Time Camera Face Tracking",

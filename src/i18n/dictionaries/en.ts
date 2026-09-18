@@ -694,6 +694,266 @@ export const en = {
     comparisonSubtitle: "Why enterprise leaders choose DIHUAVA on-device stack over standard cloud avatar services.",
     specsTitle: "Technical Platform Specifications",
     faqTitle: "Frequently Asked Questions",
+    coreModules: [
+      {
+        id: "selfie-engine",
+        title: "Selfie With Avatar",
+        subtitle: "Instant On-Device Photo Compositing",
+        description: "Visitors tap Selfie on the display to capture a photo standing beside the AI Avatar. Features deterministic real-time face-scale matching, 6 creative filters (Realistic, Original, B&W, Vivid, Warm, Cool), and optional QR phone sharing with 24-hour auto-expiring links.",
+        badge: "Interactive Photo Experience",
+        featureUrl: "/products/ai-digital-human/avatar-customization",
+        highlights: [
+          "Real-time local compositing",
+          "Scale & height face alignment matching",
+          "6 instant photographic filters",
+          "24-Hour auto-expiring QR share links",
+        ],
+      },
+      {
+        id: "live-character",
+        title: "Live Character Experience",
+        subtitle: "Real-Time Cartoon Face Mode",
+        description: "A real-time camera-driven cartoon rendering mode where a visitor's live facial expressions (smiles, blinks, head turns) deform a stylized character skin directly onto their face in real time with ultra-low latency.",
+        badge: "Real-Time Face Tracking",
+        featureUrl: "/products/ai-digital-human/avatar-customization",
+        highlights: [
+          "Real-time camera face tracking",
+          "Live expression & blink deformation",
+          "No-code character library expansion",
+          "High-engagement exhibition draw",
+        ],
+      },
+      {
+        id: "product-catalog",
+        title: "AI Product Catalog",
+        subtitle: "CSV-Driven Recommendation Engine",
+        description: "Converts product catalog CSVs into an intelligent spoken recommendation system. Displays interactive product cards, price filtering, and automatic audio-visual synchronization so the avatar only discusses products currently on screen.",
+        badge: "Smart Recommendation",
+        featureUrl: "/products/ai-digital-human/ai-product-catalog",
+        highlights: [
+          "Structured 9-column catalog schema",
+          "Audio-visual sync with screen cards",
+          "Automatic search vocabulary AI",
+          "Multilingual catalog translation",
+        ],
+      },
+      {
+        id: "offline-rag",
+        title: "Enterprise Knowledge RAG",
+        subtitle: "On-Device PDF RAG with Reranking",
+        description: "Ingest custom corporate PDFs, CSVs, TXT, and Markdown files directly onto the local device. An on-device relevance reranker scores passages before generating grounded responses with zero data leaving your premises.",
+        badge: "100% Offline RAG",
+        featureUrl: "/products/ai-digital-human/document-intelligence",
+        highlights: [
+          "Local PDF, CSV, TXT & Markdown RAG",
+          "On-device relevance reranking",
+          "Zero cloud data transmission",
+          "Diagnostic retrieval verification",
+        ],
+      },
+      {
+        id: "multilingual-voice",
+        title: "Multilingual Engine & Voice Cloning",
+        subtitle: "29+ Global Languages & Brand Voice Matching",
+        description: "Full on-device speech recognition, voice synthesis, and translation across 29+ global languages, including regional accents and automatic per-persona voice cloning.",
+        badge: "29+ Global Languages",
+        featureUrl: "/products/ai-digital-human/multilingual-support",
+        highlights: [
+          "100% local speech recognition & TTS",
+          "Real-time 29+ global languages engine",
+          "Automatic per-persona voice cloning",
+          "Localized currency & number speech",
+        ],
+      },
+      {
+        id: "brain-clone",
+        title: "Brain Clone",
+        subtitle: "Source-Grounded Personal Knowledge Engine",
+        description: "Turn a person's recorded talks and teachings into a source-grounded digital human that answers from what they actually said.",
+        badge: "IN DEVELOPMENT",
+        featureUrl: "/products/ai-digital-human",
+        highlights: [
+          "Answers from recorded words with source passages on demand",
+          "Processing runs on customer-owned hardware",
+          "Rights approval required before setup",
+          "Does not invent answers when unrecorded",
+        ],
+      },
+      {
+        id: "airgap-privacy",
+        title: "Enterprise Air-Gap Privacy",
+        subtitle: "100% On-Device Data Security",
+        description: "Engineered for highly regulated enterprise environments (banking, defense, healthcare). All voice computations, LLM dialogues, document searches, and photo compositing occur locally on physical edge hardware.",
+        badge: "Air-Gap Compliance",
+        featureUrl: "/products/ai-digital-human/persona-management",
+        highlights: [
+          "100% local hardware processing",
+          "GDPR, PDPA & HIPAA-friendly",
+          "Zero voice data transmission",
+          "Cryptographic device licensing",
+        ],
+      },
+    ],
+    archPillars: [
+      {
+        title: "AI Engine Subsystems",
+        desc: "Local Conversational LLM, Automatic Speech Recognition (ASR), Machine Translation, and Semantic Reasoning running 100% on-device.",
+      },
+      {
+        title: "Digital Avatar Renderer",
+        desc: "3D facial mesh rendering, real-time lip synchronization, micro-expressions, posture control, and persona identity management.",
+      },
+      {
+        title: "29+ Multilingual Speech Engine",
+        desc: "Real-time speech recognition & synthesis across 29+ global languages and 7+ Indian languages with instant auto-switch.",
+      },
+      {
+        title: "Knowledge & Catalog RAG Engine",
+        desc: "Air-gapped local vector indexer with cross-encoder reranking, multi-column CSV catalog import, and auto vocabulary generation.",
+      },
+      {
+        title: "Low-Latency Edge Pipeline",
+        desc: "High-speed local stream architecture delivering end-to-end conversational response times with Low Latency for fluid dialogue.",
+      },
+      {
+        title: "Computer Vision & Face Tracking",
+        desc: "HD wide-angle camera face tracking, eye-gaze direction sensing, visitor posture tracking, and presence detection array.",
+      },
+      {
+        title: "100% Offline Air-Gapped Security",
+        desc: "Zero cloud internet dependency, enterprise privacy compliance, encrypted local vector storage, and physical edge workstation hosting.",
+      },
+      {
+        title: "Spatial & Hologram Display Controller",
+        desc: "Synchronized output drivers for 3D Hologram Boxes, volumetric optical spatial displays, touch kiosks, and multi-screen arrays.",
+      },
+    ],
+    howItWorksSteps: [
+      {
+        step: "01",
+        title: "Understand",
+        desc: "Voice input, documents, product catalogs, and visitor questions are processed locally.",
+        badge: "Local Data Input",
+      },
+      {
+        step: "02",
+        title: "Think",
+        desc: "The local AI engine retrieves relevant knowledge and generates a grounded response.",
+        badge: "On-Device AI",
+      },
+      {
+        step: "03",
+        title: "Respond",
+        desc: "The digital human responds using natural speech, facial expressions, and personalized behavior.",
+        badge: "Neural Expression",
+      },
+      {
+        step: "04",
+        title: "Interact",
+        desc: "Connect the AI digital human to hologram boxes, kiosks, spatial displays, and other physical environments.",
+        badge: "Hardware Sync",
+      },
+    ],
+    voiceCapabilities: [
+      {
+        name: "Expressive Neural Voice Engine",
+        speed: "Expressive Synthesis",
+        desc: "Optimized for natural speech with expressive audible reactions like laughter, warmth, and fluid conversational cadence.",
+      },
+      {
+        name: "Regional Accent & Dialect Adaptation",
+        speed: "Localized Speech",
+        desc: "Specialized neural models for global and regional accents with localized currency, numbering, and regional speech rhythm.",
+      },
+      {
+        name: "29+ Global Languages Engine",
+        speed: "29+ Global Languages",
+        desc: "Covers English, Mandarin, Hindi, Spanish, Arabic, French, German, Japanese, Korean, Tamil, Telugu, Kannada, Bengali, Marathi, Gujarati, Russian, and major international languages.",
+      },
+    ],
+    personaProfiles: [
+      {
+        title: "Retail Sales Ambassador",
+        desc: "Proactive product recommendations, cross-selling, promotional announcements, and interactive Virtual Try-On assistance.",
+        icon: "🛍️",
+      },
+      {
+        title: "Healthcare Patient Assistant",
+        desc: "Empathetic hospital wayfinding, symptom intake triage, appointment scheduling, and multilingual discharge instructions.",
+        icon: "🏥",
+      },
+      {
+        title: "Corporate Receptionist",
+        desc: "Visitor check-in, guest badge issuance, host notifications, workplace wayfinding, and employee HR policy Q&A.",
+        icon: "🏢",
+      },
+      {
+        title: "Custom Brand Avatar",
+        desc: "Custom 3D character mesh, corporate wardrobe, custom voice cloning reference, and branded interaction style.",
+        icon: "⭐",
+      },
+    ],
+    customPersonaFeatures: [
+      {
+        title: "Appearance",
+        desc: "Create a digital human aligned with your brand identity.",
+      },
+      {
+        title: "Voice",
+        desc: "Use multilingual voices or a customized corporate voice.",
+      },
+      {
+        title: "Personality",
+        desc: "Configure communication style, tone and behavior.",
+      },
+      {
+        title: "Brand Identity",
+        desc: "Apply your organization's visual identity and interaction style.",
+      },
+    ],
+    comparisonTable: [
+      { feature: "AI Processing", dihuava: "Local / On-Device", cloud: "Cloud-Based" },
+      { feature: "Internet Dependency", dihuava: "Designed for Offline Operation", cloud: "Typically Requires Connectivity" },
+      { feature: "Voice Processing", dihuava: "Local Processing", cloud: "May Use Remote Processing" },
+      { feature: "Languages", dihuava: "29+ Local Languages", cloud: "Depends on Provider" },
+      { feature: "Selfie Experience", dihuava: "Local Compositing", cloud: "Cloud-Dependent Workflows" },
+      { feature: "Live Character", dihuava: "Real-Time Face Tracking", cloud: "Depends on Implementation" },
+      { feature: "Data Architecture", dihuava: "Edge / Air-Gapped Deployment", cloud: "Cloud Infrastructure" },
+    ],
+    productSpecs: [
+      { label: "Core AI Architecture", value: "Fully local on-device voice & conversation platform" },
+      { label: "Supported Languages", value: "29+ Global Languages" },
+      { label: "Speech & Voice Engine", value: "Speech recognition, synthesis & voice cloning" },
+      { label: "Document RAG", value: "PDF, TXT, CSV & Markdown" },
+      { label: "Product Catalog", value: "Product recommendation & screen synchronization" },
+      { label: "Photo & Character", value: "Selfie With Avatar + Live Character" },
+    ],
+    faqs: [
+      {
+        q: "Does DIHUAVA require internet connectivity?",
+        a: "No. DIHUAVA runs 100% offline on-device by default, with optional cloud-management configurations available. The full 29-language voice pipeline, document RAG, product catalog, Selfie compositing, and Live Character rendering run completely offline on local hardware.",
+      },
+      {
+        q: "How many languages are supported on-device?",
+        a: "29+ global languages fully local, including English, Mandarin, Hindi, Spanish, Arabic, French, German, Japanese, Korean, Tamil, Telugu, Kannada, Bengali, Marathi, Gujarati, and major international languages.",
+      },
+      {
+        q: "Is visitor voice or conversation data transmitted to the cloud?",
+        a: "Zero voice or conversation data is sent to external servers. All AI processing occurs locally on physical edge hardware, ensuring complete compliance with GDPR, PDPA, and HIPAA privacy standards.",
+      },
+      {
+        q: "Can we clone our own corporate brand voice?",
+        a: "Yes. Custom persona packages can include short reference audio recordings. The platform clones the persona's voice automatically across English and multilingual synthesis tiers with no manual voice-training step.",
+      },
+      {
+        q: "What is Selfie With Avatar?",
+        a: "Selfie With Avatar allows visitors to tap Selfie on screen and instantly capture a photo standing next to the avatar. Real-time compositing matches face size and vertical height, applies creative filters, and generates a 24-hour QR share link.",
+      },
+      {
+        q: "What is Live Character Experience?",
+        a: "Live Character Experience is a real-time cartoon face mode. The camera tracks visitor facial movements (smiles, blinks, head turns) and warps a stylized character skin directly onto their face with ultra-low latency.",
+      },
+    ],
   },
   capabilityPages: {
     general: {

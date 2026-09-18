@@ -333,13 +333,16 @@ export default function DihuavaClient() {
   const lPath = (path: string) => getLocalizedPath(path, currentLocale);
   const hp = dict.home.platform;
   const brainCloneData = (hp.capabilities as any)?.brainClone;
+  const dPage = (dict as any).dihuavaPage || {};
 
-  const localizedModules = coreModules.map((module) => {
+  const localizedModules = (dPage.coreModules || coreModules).map((module: any, idx: number) => {
+    const baseModule = coreModules[idx] || module;
     if (module.id === "brain-clone" && brainCloneData) {
       const highlightsList: string[] = brainCloneData.highlights
         ? brainCloneData.highlights.map((h: any) => (typeof h === "string" ? h : h.detail))
         : module.highlights;
       return {
+        ...baseModule,
         ...module,
         title: (brainCloneData.title as string) || module.title,
         subtitle: (brainCloneData.subtitle as string) || module.subtitle,
@@ -348,625 +351,51 @@ export default function DihuavaClient() {
         highlights: highlightsList,
       };
     }
-    if (currentLocale === "zh") {
-      const zhMap: Record<string, any> = {
-        "selfie-engine": {
-          title: "与数字人合影 (Selfie With Avatar)",
-          subtitle: "端侧实时照片合成引擎",
-          description: "观众点击屏幕上的'合影'，即可与AI数字人并排拍照。具备确定性实时面部比例匹配、6种滤镜以及24小时自动过期的QR分享链接。",
-          badge: "交互式拍照体验",
-          highlights: ["实时本地图像合成", "面部尺寸与身高对齐", "6款相片滤镜", "24小时自动过期二维码"],
-        },
-        "live-character": {
-          title: "实时卡通角色体验",
-          subtitle: "实时摄像头驱动卡通变脸模式",
-          description: "基于摄像头的实时卡通渲染模式，观众的微表情（微笑、眨眼、摇头）实时驱动卡通皮肤，超低延迟。",
-          badge: "实时面部追踪",
-          highlights: ["摄像头实时面部追踪", "实时表情与眨眼变形", "零代码角色库扩展", "展会现场高吸引力"],
-        },
-        "product-catalog": {
-          title: "AI 产品目录",
-          subtitle: "CSV 驱动智能推荐引擎",
-          description: "将产品目录 CSV 转化为智能语音推荐系统。展示画中画产品卡片与音视频同步，数字人仅讲解当前屏幕展示的商品。",
-          badge: "智能推荐引擎",
-          highlights: ["结构化 9 列目录 schema", "屏幕卡片音视频同步", "自动搜索词汇 AI", "多语言目录翻译"],
-        },
-        "offline-rag": {
-          title: "企业知识库 RAG",
-          subtitle: "端侧 PDF RAG 与重排序引擎",
-          description: "将企业 PDF、CSV、TXT 和 Markdown 文件直接导入本地设备。端侧相关性重排序器在生成回答前进行评分，数据完全不出本地。",
-          badge: "100% 离线 RAG",
-          highlights: ["本地 PDF, CSV, TXT & Markdown RAG", "端侧相关性重排序", "零云端数据传输", "诊断级检索验证"],
-        },
-        "multilingual-voice": {
-          title: "多语言引擎与声音克隆",
-          subtitle: "29+ 全球语言与品牌声音匹配",
-          description: "100% 本地语音识别、语音合成与翻译，覆盖 29+ 全球语言，包含区域口音与角色声音克隆。",
-          badge: "29+ 全球语言",
-          highlights: ["100% 本地语音识别与 TTS", "实时 29+ 全球语言引擎", "自动角色声音克隆", "本地化货币与数字朗读"],
-        },
-        "airgap-privacy": {
-          title: "企业级物理隔离隐私",
-          subtitle: "100% 端侧数据安全",
-          description: "专为高监管企业环境（金融、国防、医疗）设计。所有语音计算、LLM 对话、文档检索与照片合成均在本地硬件完成。",
-          badge: "物理隔离合规",
-          highlights: ["100% 本地硬件处理", "符合 GDPR, PDPA & HIPAA", "零语音数据传输", "设备加密授权"],
-        },
-      };
-      if (zhMap[module.id]) return { ...module, ...zhMap[module.id] };
-    } else if (currentLocale === "ru") {
-      const ruMap: Record<string, any> = {
-        "selfie-engine": {
-          title: "Селфи с аватаром (Selfie With Avatar)",
-          subtitle: "Локальный фотокомпозитинг на устройстве",
-          description: "Посетители нажимают 'Селфи', чтобы сфотографироваться рядом с AI-аватором. Точное масштабирование лица, 6 фильтров и мгновенный QR-код с автоудалением через 24 часа.",
-          badge: "Интерактивное фото",
-          highlights: ["Локальный композитинг кадров", "Масштабирование по высоте и лицу", "6 фотофильтров", "QR-код с автоудалением (24 ч)"],
-        },
-        "live-character": {
-          title: "Режим мультперсонажа",
-          subtitle: "Анимация персонажа по мимике в реальном времени",
-          description: "Режим рендеринга мультяшной кожи, управляемый камерой. Мимика посетителя (улыбка, моргание, повороты) передается на 3D-персонажа с ультранизкой задержкой.",
-          badge: "Трекинг лица в реальном времени",
-          highlights: ["Трекинг лица через камеру", "Анимация улыбок и моргания", "Расширение библиотеки без кода", "Высокая вовлеченность на стенде"],
-        },
-        "product-catalog": {
-          title: "AI Каталог товаров",
-          subtitle: "Рекомендации товаров из CSV-таблицы",
-          description: "Превращает CSV-каталог в интеллектуальную голосовую систему продаж. Отображает карточки товаров 'картинка-в-картинке' и синхронизирует речь с экраном.",
-          badge: "Умные рекомендации",
-          highlights: ["9-колоночный формат CSV", "Синхронизация карточек с речью", "Автопоиск по ключевым словам", "Мультиязычный каталог"],
-        },
-        "offline-rag": {
-          title: "Корпоративная база знаний RAG",
-          subtitle: "Локальный RAG по PDF с ранжированием",
-          description: "Загрузка документов PDF, CSV, TXT и Markdown непосредственно на устройство. Локальный модуль ранжирования обеспечивает точные ответы без выхода в сеть.",
-          badge: "100% Офлайн RAG",
-          highlights: ["Локальный RAG (PDF, CSV, TXT, MD)", "Ранжирование контекста на устройстве", "Нулевая передача данных в облако", "Проверка источника ответа"],
-        },
-        "multilingual-voice": {
-          title: "Многоязычный модуль и клонирование голоса",
-          subtitle: "29+ языков мира и синтез тона бренда",
-          description: "Локальное распознавание и синтез речи на 29+ языках мира с поддержкой региональных акцентов и автоматического клонирования голоса.",
-          badge: "29+ Языков мира",
-          highlights: ["100% Локальные STT и TTS", "Реальное время (29+ языков)", "Клонирование голоса персонажа", "Локализованные валюты и числа"],
-        },
-        "airgap-privacy": {
-          title: "Полная изоляция данных (Air-Gap)",
-          subtitle: "100% Безопасность на устройстве",
-          description: "Создано для банков, госструктур и медицины. Все процессы речи, LLM-диалоги, поиск в документах и фото вычисляются строго локально.",
-          badge: "Соответствие Air-Gap",
-          highlights: ["100% Локальная обработка на GPU", "Совместимость с GDPR, PDPA, HIPAA", "Нулевая передача голоса", "Криптографическое лицензирование"],
-        },
-      };
-      if (ruMap[module.id]) return { ...module, ...ruMap[module.id] };
-    } else if (currentLocale === "es") {
-      const esMap: Record<string, any> = {
-        "selfie-engine": {
-          title: "Selfie con el Avatar (Selfie With Avatar)",
-          subtitle: "Composición fotográfica instantánea en el dispositivo",
-          description: "Los visitantes tocan 'Selfie' para tomarse una foto junto al avatar de IA. Coincidencia facial en tiempo real, 6 filtros y enlace QR con caducidad en 24 horas.",
-          badge: "Experiencia fotográfica interactiva",
-          highlights: ["Composición local en tiempo real", "Alineación de escala y rostro", "6 filtros fotográficos", "Enlace QR caducable en 24 horas"],
-        },
-        "live-character": {
-          title: "Modo Personaje Animado",
-          subtitle: "Modo de cara caricaturizada impulsado por cámara",
-          description: "Modo de renderizado que deforma una piel de personaje estilizada sobre el rostro del visitante en tiempo real mediante seguimiento de cámara.",
-          badge: "Seguimiento facial en tiempo real",
-          highlights: ["Seguimiento facial con cámara", "Deformación de expresiones y parpadeo", "Biblioteca de personajes sin código", "Gran atracción en exposiciones"],
-        },
-        "product-catalog": {
-          title: "Catálogo de Productos con IA",
-          subtitle: "Motor de recomendación mediante archivos CSV",
-          description: "Convierte su catálogo CSV en un sistema de recomendación hablado. Muestra tarjetas picture-in-picture y sincronización de voz con la pantalla.",
-          badge: "Recomendador inteligente",
-          highlights: ["Esquema CSV de 9 columnas", "Sincronización de audio y tarjetas", "IA de búsqueda automática de términos", "Traducción de catálogos"],
-        },
-        "offline-rag": {
-          title: "Base de Conocimiento RAG",
-          subtitle: "RAG sobre PDF local con reordenamiento",
-          description: "Cargue PDF, CSV, TXT y Markdown directamente en el dispositivo local. Un reordenador de relevancia local evalúa pasajes sin salir a internet.",
-          badge: "100% RAG sin conexión",
-          highlights: ["RAG local para PDF, CSV, TXT y MD", "Reordenamiento de relevancia local", "Cero transmisión a la nube", "Verificación de respuestas"],
-        },
-        "multilingual-voice": {
-          title: "Motor Multilingüe y Clonación de Voz",
-          subtitle: "29+ idiomas globales y clonación de tono de marca",
-          description: "Reconocimiento y síntesis de voz 100% local en 29+ idiomas globales, incluidos acentos regionales y clonación automática de voz por personaje.",
-          badge: "29+ Idiomas globales",
-          highlights: ["STT y TTS 100% locales", "Motor en tiempo real para 29+ idiomas", "Clonación de voz por personaje", "Monedas y números localizados"],
-        },
-        "airgap-privacy": {
-          title: "Privacidad y Seguridad Local (Air-Gap)",
-          subtitle: "Seguridad de datos 100% en el dispositivo",
-          description: "Diseñado para banca, defensa y salud. Todo el procesamiento de voz, LLM, RAG y fotografía se ejecuta localmente en hardware físico.",
-          badge: "Cumplimiento Air-Gap",
-          highlights: ["Procesamiento 100% en hardware local", "Compatible con GDPR, PDPA y HIPAA", "Cero transmisión de voz", "Licencia criptográfica de dispositivo"],
-        },
-      };
-      if (esMap[module.id]) return { ...module, ...esMap[module.id] };
-    } else if (currentLocale === "fr") {
-      const frMap: Record<string, any> = {
-        "selfie-engine": {
-          title: "Selfie avec l'Avatar (Selfie With Avatar)",
-          subtitle: "Composition photo instantanée sur appareil",
-          description: "Les visiteurs touchent 'Selfie' sur l'écran pour prendre une photo à côté de l'avatar IA. Correspondance faciale en temps réel, 6 filtres et lien QR expirant en 24 heures.",
-          badge: "Expérience photo interactive",
-          highlights: ["Composition locale en temps réel", "Alignement de taille et de visage", "6 filtres photographiques", "Lien QR expirant en 24 heures"],
-        },
-        "live-character": {
-          title: "Mode Personnage Animé",
-          subtitle: "Mode visage cartoon piloté par caméra en temps réel",
-          description: "Un mode de rendu cartoon où les expressions faciales du visiteur en direct déforment un skin de personnage directement sur son visage en temps réel à très faible latence.",
-          badge: "Suivi facial en temps réel",
-          highlights: ["Suivi facial par caméra en temps réel", "Déformation d'expressions et clignements", "Bibliothèque de personnages sans code", "Attraction forte lors d'expositions"],
-        },
-        "product-catalog": {
-          title: "Catalogue de Produits IA",
-          subtitle: "Moteur de recommandation piloté par CSV",
-          description: "Convertit les catalogues CSV en un système de recommandation vocal intelligent. Affiche des cartes interactives et une synchronisation audio-visuelle.",
-          badge: "Recommandation intelligente",
-          highlights: ["Schéma CSV à 9 colonnes", "Synchro audio-visuelle avec cartes", "IA de recherche automatique", "Traduction de catalogue multilingue"],
-        },
-        "offline-rag": {
-          title: "Base de Connaissances Enterprise RAG",
-          subtitle: "RAG PDF sur appareil avec réordonnancement",
-          description: "Incorporez des fichiers PDF, CSV, TXT et Markdown directement sur l'appareil local. Un réordonnanceur de pertinence évalue les passages sans sortie vers le cloud.",
-          badge: "100% RAG hors ligne",
-          highlights: ["RAG local PDF, CSV, TXT et Markdown", "Réordonnancement de pertinence local", "Zéro transmission de données cloud", "Vérification diagnostique de recherche"],
-        },
-        "multilingual-voice": {
-          title: "Moteur Multilingue & Clonage Vocal",
-          subtitle: "Plus de 29 langues mondiales & correspondance de voix",
-          description: "Reconnaissance vocale, synthèse et traduction 100% locales dans plus de 29 langues mondiales, avec accents régionaux et clonage vocal automatique.",
-          badge: "29+ Langues mondiales",
-          highlights: ["Reconnaissance vocale & TTS 100% locaux", "Moteur en temps réel pour 29+ langues", "Clonage vocal automatique par persona", "Discours monétaire et numérique localisé"],
-        },
-        "airgap-privacy": {
-          title: "Confidentialité Air-Gap Entreprise",
-          subtitle: "Sécurité des données 100% sur appareil",
-          description: "Conçu pour les environnements réglementés (banque, défense, santé). Tous les calculs vocaux, dialogues LLM, recherches PDF et photos restent locaux.",
-          badge: "Conformité Air-Gap",
-          highlights: ["Traitement 100% sur matériel local", "Compatible GDPR, PDPA & HIPAA", "Zéro transmission de données vocales", "Licence chiffrée sur appareil"],
-        },
-      };
-      if (frMap[module.id]) return { ...module, ...frMap[module.id] };
-    }
-    return module;
+    return {
+      ...baseModule,
+      ...module,
+    };
   });
 
-  const localizedArchPillars = archPillars.map((pillar, idx) => {
-    if (currentLocale === "zh") {
-      const zhPillars = [
-        { title: "AI 引擎子系统", desc: "端侧对话 LLM、自动语音识别 (ASR)、机器翻译与语义推理 100% 在本地运行。" },
-        { title: "数字人渲染器", desc: "3D 面部网格渲染、实时唇形同步、微表情、姿态控制与角色身份管理。" },
-        { title: "29+ 多语言语音引擎", desc: "覆盖 29+ 全球语言与 7+ 印地语种的实时语音识别与合成，支持即时无缝切换。" },
-        { title: "知识库与目录 RAG 引擎", desc: "物理隔离本地向量索引器，具备交叉编码器重排序、多列 CSV 目录导入与词汇自动生成。" },
-        { title: "低延迟边缘流水线", desc: "高速本地流式架构，提供低延迟的端到端对话响应，确保对话自然流畅。" },
-        { title: "计算机视觉与面部追踪", desc: "高清广角摄像头面部追踪、视线方向感知、访客姿态追踪与人员存在感应。" },
-        { title: "100% 端侧物理隔离安全", desc: "零云端网络依赖、企业隐私合规、加密本地向量存储与物理边缘工作站部署。" },
-        { title: "空间与全息显示控制器", desc: "针对 3D 全息舱、体积光学空间显示器、触摸终端及多屏阵列的同步输出驱动程序。" },
-      ];
-      return { ...pillar, ...zhPillars[idx] };
-    }
-    if (currentLocale === "ru") {
-      const ruPillars = [
-        { title: "Подсистемы AI-движка", desc: "Локальный диалоговый LLM, распознавание речи (ASR), машинный перевод и семантика 100% на устройстве." },
-        { title: "Рендерер цифрового аватара", desc: "Рендеринг 3D-сетки лица, синхронизация губ в реальном времени, микроэкспрессия и управление персонажами." },
-        { title: "Речевой движок 29+ языков", desc: "Распознавание и синтез речи в реальном времени на 29+ языках мира с мгновенным автопереключением." },
-        { title: "Движок RAG и каталога", desc: "Изолированный векторный индексатор с переранжированием, импортом CSV-каталогов и автогенерацией словаря." },
-        { title: "Локальный конвейер низкой задержки", desc: "Высокоскоростная локальная архитектура потоковой передачи, обеспечивающая ультранизкую задержку." },
-        { title: "Компьютерное зрение и трекинг", desc: "Трекинг лица через HD-камеру, определение направления взгляда, отслеживание позы и датчики присутствия." },
-        { title: "100% Изолированная безопасность Air-Gap", desc: "Нулевая зависимость от облака, корпоративная конфиденциальность, зашифрованное векторное хранилище." },
-        { title: "Контроллер 3D и голограмм", desc: "Синхронизированные драйверы для 3D Hologram Box, объемных оптических дисплеев и сенсорных киосков." },
-      ];
-      return { ...pillar, ...ruPillars[idx] };
-    }
-    if (currentLocale === "es") {
-      const esPillars = [
-        { title: "Subsistemas de motor de IA", desc: "LLM conversacional local, reconocimiento de voz (ASR), traducción automática y razonamiento semántico 100% en el dispositivo." },
-        { title: "Renderizador de Avatar Digital", desc: "Renderizado de malla facial 3D, sincronización labial en tiempo real, microexpresiones, control de postura y gestión de personas." },
-        { title: "Motor de voz multilingüe 29+", desc: "Reconocimiento y síntesis de voz en tiempo real en 29+ idiomas globales con cambio automático instantáneo." },
-        { title: "Motor RAG de conocimiento y catálogo", desc: "Indexador vectorial local con reordenamiento cross-encoder, importación CSV multicolumna y generación de vocabulario." },
-        { title: "Canal de borde de baja latencia", desc: "Arquitectura de transmisión local de alta velocidad que ofrece tiempos de respuesta conversacionales con baja latencia." },
-        { title: "Visión por computadora y seguimiento facial", desc: "Seguimiento facial con cámara HD gran angular, detección de mirada, seguimiento de postura y matriz de presencia." },
-        { title: "Seguridad local 100% Air-Gap", desc: "Cero dependencia de internet en la nube, cumplimiento de privacidad empresarial y almacenamiento vectorial cifrado." },
-        { title: "Controlador de pantallas espaciales y hologramas", desc: "Controladores de salida sincronizados para 3D Hologram Boxes, pantallas espaciales ópticas y quioscos táctiles." },
-      ];
-      return { ...pillar, ...esPillars[idx] };
-    }
-    if (currentLocale === "fr") {
-      const frPillars = [
-        { title: "Sous-systèmes du moteur IA", desc: "LLM conversationnel local, reconnaissance vocale (ASR), traduction automatique et raisonnement sémantique 100% sur l'appareil." },
-        { title: "Rendu d'Avatar Numérique", desc: "Rendu de maillage facial 3D, synchronisation labiale en temps réel, micro-expressions, contrôle de posture et gestion des identités." },
-        { title: "Moteur vocal multilingue 29+", desc: "Reconnaissance et synthèse vocale en temps réel dans plus de 29 langues mondiales avec basculement automatique instantané." },
-        { title: "Moteur RAG de connaissances et catalogue", desc: "Indexeur vectoriel local isolé avec réordonnancement cross-encoder, importation CSV multicolonne et génération de vocabulaire." },
-        { title: "Pipeline local à faible latence", desc: "Architecture de flux local à haute vitesse offrant des temps de réponse conversationnels à faible latence." },
-        { title: "Vision par ordinateur et suivi facial", desc: "Suivi facial par caméra HD grand angle, détection du regard, suivi de posture et détection de présence." },
-        { title: "Sécurité 100% hors ligne Air-Gap", desc: "Zéro dépendance au cloud, conformité à la confidentialité d'entreprise et stockage vectoriel chiffré." },
-        { title: "Contrôleur d'affichage spatial & hologramme", desc: "Pilotes de sortie synchronisés pour 3D Hologram Boxes, affichages spatiaux optiques volumétriques et bornes tactiles." },
-      ];
-      return { ...pillar, ...frPillars[idx] };
-    }
-    return pillar;
-  });
+  const localizedArchPillars = (dPage.archPillars || archPillars).map((pillar: any, idx: number) => ({
+    ...(archPillars[idx] || pillar),
+    ...pillar,
+  }));
 
-  const localizedHowItWorks = howItWorksSteps.map((item, idx) => {
-    if (currentLocale === "zh") {
-      const zhSteps = [
-        { title: "理解", desc: "语音输入、文档、产品目录和访客提问均在本地处理。", badge: "本地数据输入" },
-        { title: "思考", desc: "本地 AI 引擎检索相关知识库并生成精准答复。", badge: "端侧 AI 引擎" },
-        { title: "响应", desc: "数字人运用自然语音、面部表情与个性化行为做出回应。", badge: "神经网络表情" },
-        { title: "交互", desc: "将 AI 数字人无缝连接至全息舱、终端、空间显示器及其他物理场景。", badge: "硬件同步驱动" },
-      ];
-      return { ...item, ...zhSteps[idx] };
-    }
-    if (currentLocale === "ru") {
-      const ruSteps = [
-        { title: "Понимание", desc: "Голосовой ввод, документы, каталоги товаров и вопросы посетителей обрабатываются локально.", badge: "Локальный ввод данных" },
-        { title: "Анализ", desc: "Локальный AI-движок извлекает релевантные знания и формирует точный ответ.", badge: "AI на устройстве" },
-        { title: "Ответ", desc: "Цифровой аватар отвечает с использованием естественной речи, мимики и индивидуального поведения.", badge: "Нейросетевая мимика" },
-        { title: "Взаимодействие", desc: "Подключайте цифрового аватара к голографическим боксам, киоскам, 3D-дисплеям и объектам.", badge: "Аппаратная синхронизация" },
-      ];
-      return { ...item, ...ruSteps[idx] };
-    }
-    if (currentLocale === "es") {
-      const esSteps = [
-        { title: "Comprender", desc: "La entrada de voz, los documentos, los catálogos y las preguntas de los visitantes se procesan localmente.", badge: "Entrada de datos local" },
-        { title: "Pensar", desc: "El motor de IA local recupera el conocimiento relevante y genera una respuesta fundamentada.", badge: "IA en el dispositivo" },
-        { title: "Responder", desc: "El humano digital responde utilizando habla natural, expresiones faciales y comportamiento personalizado.", badge: "Expresión neuronal" },
-        { title: "Interactuar", desc: "Conecte el humano digital de IA a cajas holográficas, quioscos, pantallas espaciales y otros entornos físicos.", badge: "Sincronización de hardware" },
-      ];
-      return { ...item, ...esSteps[idx] };
-    }
-    if (currentLocale === "fr") {
-      const frSteps = [
-        { title: "Comprendre", desc: "L'entrée vocale, les documents, les catalogues de produits et les questions des visiteurs sont traités localement.", badge: "Entrée de données locale" },
-        { title: "Penser", desc: "Le moteur d'IA local extrait les connaissances pertinentes et génère une réponse fondée.", badge: "IA sur appareil" },
-        { title: "Répondre", desc: "L'humain numérique répond avec une parole naturelle, des expressions faciales et un comportement personnalisé.", badge: "Expression neuronale" },
-        { title: "Interagir", desc: "Connectez l'humain numérique IA aux boîtes holographiques, bornes, affichages spatiaux et autres environnements physiques.", badge: "Synchronisation matérielle" },
-      ];
-      return { ...item, ...frSteps[idx] };
-    }
-    return item;
-  });
+  const localizedHowItWorks = (dPage.howItWorksSteps || howItWorksSteps).map((step: any, idx: number) => ({
+    ...(howItWorksSteps[idx] || step),
+    ...step,
+  }));
 
-  const localizedVoiceCaps = voiceCapabilities.map((tier, idx) => {
-    if (currentLocale === "zh") {
-      const zhTiers = [
-        { name: "表现力神经网络语音引擎", speed: "表现力合成", desc: "针对自然语音优化，具备笑声、亲和力与流畅对话节奏等表情化音效。" },
-        { name: "区域口音与方言适配", speed: "本地化口音", desc: "针对全球与区域口音的专用神经网络模型，支持本地化货币、数字读法与语调节奏。" },
-        { name: "29+ 全球语言引擎", speed: "29+ 全球语言", desc: "涵盖英语、中文、印地语、西班牙语、阿拉伯语、法语、德语、日语、韩语、俄语及全球主要国际语言。" },
-      ];
-      return { ...tier, ...zhTiers[idx] };
-    }
-    if (currentLocale === "ru") {
-      const ruTiers = [
-        { name: "Нейросетевой движок выразительной речи", speed: "Выразительный синтез", desc: "Оптимизировано для естественной речи с выражением эмоций (смех, теплота, беглость)." },
-        { name: "Адаптация региональных акцентов", speed: "Локализованная речь", desc: "Специализированные модели для акцентов с локализацией валют, чисел и ритма речи." },
-        { name: "Движок 29+ языков мира", speed: "29+ Языков мира", desc: "Включает английский, китайский, хинди, испанский, арабский, французский, немецкий, русский и другие мировые языки." },
-      ];
-      return { ...tier, ...ruTiers[idx] };
-    }
-    if (currentLocale === "es") {
-      const esTiers = [
-        { name: "Motor de voz neuronal expresiva", speed: "Síntesis expresiva", desc: "Optimizado para habla natural con reacciones audibles expresivas como risa, calidez y ritmo conversacional fluido." },
-        { name: "Adaptación de acentos regionales", speed: "Habla localizada", desc: "Modelos neuronales especializados para acentos globales y regionales con monedas y números localizados." },
-        { name: "Motor de 29+ idiomas globales", speed: "29+ Idiomas globales", desc: "Cubre inglés, mandarín, hindi, español, árabe, francés, alemán, japonés, coreano, ruso y los principales idiomas internacionales." },
-      ];
-      return { ...tier, ...esTiers[idx] };
-    }
-    if (currentLocale === "fr") {
-      const frTiers = [
-        { name: "Moteur vocal neuronal expressif", speed: "Synthèse expressive", desc: "Optimisé pour un discours naturel avec des réactions audibles expressives comme le rire, la chaleur et la fluidité." },
-        { name: "Adaptation des accents régionaux", speed: "Parole localisée", desc: "Modèles neuronaux spécialisés pour les accents globaux et régionaux avec prononciation localisée de las monnaies et des nombres." },
-        { name: "Moteur de 29+ langues mondiales", speed: "29+ Langues mondiales", desc: "Couvre l'anglais, le mandarin, l'hindi, l'espagnol, l'arabe, le français, l'allemand, le japonais, le coréen, le russe et les principales langues internationales." },
-      ];
-      return { ...tier, ...frTiers[idx] };
-    }
-    return tier;
-  });
+  const localizedVoiceCaps = (dPage.voiceCapabilities || voiceCapabilities).map((cap: any, idx: number) => ({
+    ...(voiceCapabilities[idx] || cap),
+    ...cap,
+  }));
 
-  const localizedPersonaProfiles = personaProfiles.map((p, idx) => {
-    if (currentLocale === "zh") {
-      const zhPersonas = [
-        { title: "零售销售大使", desc: "主动产品推荐、交叉销售、促销播报以及虚拟试穿辅助。" },
-        { title: "医疗导诊助手", desc: "充满关怀的医院分诊与导航、症状初筛、预约登记及多语言出院指引。" },
-        { title: "企业前台接待", desc: "访客登记签到、通行证发放、员工通知、楼宇导航及 HR 政策解答。" },
-        { title: "定制品牌数字人", desc: "定制 3D 角色网格、专属服装、声音克隆基准及品牌化交互风格。" },
-      ];
-      return { ...p, ...zhPersonas[idx] };
-    }
-    if (currentLocale === "ru") {
-      const ruPersonas = [
-        { title: "Амбассадор розничных продаж", desc: "Проактивные рекомендации товаров, кросс-продажи и виртуальная примерка Virtual Try-On." },
-        { title: "Медицинский ассистент", desc: "Эмпатичная навигация по больнице, триаж симптомов, запись на прием и инструкции." },
-        { title: "Корпоративный ресепшионист", desc: "Регистрация посетителей, выдача пропусков, уведомление сотрудников и ответы на вопросы HR." },
-        { title: "Брендированный аватар", desc: "Индивидуальная 3D-модель, корпоративный гардероб, клонирование голоса и стиль бренда." },
-      ];
-      return { ...p, ...ruPersonas[idx] };
-    }
-    if (currentLocale === "es") {
-      const esPersonas = [
-        { title: "Embajador de ventas minoristas", desc: "Recomendaciones proactivas de productos, venta cruzada y asistencia interactiva de Virtual Try-On." },
-        { title: "Asistente de atención médica", desc: "Orientación empática en hospitales, triaje de síntomas, programación de citas e instrucciones multilingües." },
-        { title: "Recepcionista corporativo", desc: "Registro de visitantes, emisión de credenciales, notificaciones y respuestas a preguntas de RRHH." },
-        { title: "Avatar de marca personalizado", desc: "Malla 3D personalizada, vestuario corporativo, referencia de clonación de voz y estilo de marca." },
-      ];
-      return { ...p, ...esPersonas[idx] };
-    }
-    if (currentLocale === "fr") {
-      const frPersonas = [
-        { title: "Ambassadeur des ventes au détail", desc: "Recommandations proactives de produits, ventes croisées et assistance interactive de Virtual Try-On." },
-        { title: "Assistant de santé pour patients", desc: "Orientation hospitalière empathique, tri des symptômes, prise de rendez-vous et instructions multilingues." },
-        { title: "Réceptionniste d'entreprise", desc: "Enregistrement des visiteurs, émission de badges, notifications et réponses aux questions RH." },
-        { title: "Avatar de marque personnalisé", desc: "Maillage 3D personnalisé, garde-robe d'entreprise, référence de clonage vocal et style de marque." },
-      ];
-      return { ...p, ...frPersonas[idx] };
-    }
-    return p;
-  });
+  const localizedPersonaProfiles = (dPage.personaProfiles || personaProfiles).map((prof: any, idx: number) => ({
+    ...(personaProfiles[idx] || prof),
+    ...prof,
+  }));
 
-  const localizedCustomPersonaFeatures = customPersonaFeatures.map((feature, i) => {
-    if (currentLocale === "zh") {
-      const zhFeatures = [
-        { title: "外形外观", desc: "打造与您的品牌形象高度契合的数字人。" },
-        { title: "语音声音", desc: "使用多语言语音或定制企业专属声音。" },
-        { title: "性格风格", desc: "配置沟通风格、语调与行为习惯。" },
-        { title: "品牌标识", desc: "融入您企业的视觉标识与交互规范。" },
-      ];
-      return { ...feature, ...zhFeatures[i] };
-    }
-    if (currentLocale === "ru") {
-      const ruFeatures = [
-        { title: "Внешний вид", desc: "Создайте цифрового аватара в соответствии с айдентикой бренда." },
-        { title: "Голос", desc: "Используйте многоязычные голоса или фирменный голос." },
-        { title: "Характер", desc: "Настройте стиль общения, тон и поведение." },
-        { title: "Бренд", desc: "Примените визуальный стиль и правила взаимодействия." },
-      ];
-      return { ...feature, ...ruFeatures[i] };
-    }
-    if (currentLocale === "es") {
-      const esFeatures = [
-        { title: "Apariencia", desc: "Cree un humano digital alineado con su identidad de marca." },
-        { title: "Voz", desc: "Utilice voces multilingües o una voz corporativa personalizada." },
-        { title: "Personalidad", desc: "Configure el estilo de comunicación, el tono y el comportamiento." },
-        { title: "Identidad de marca", desc: "Aplique la identidad visual y el estilo de interacción de su empresa." },
-      ];
-      return { ...feature, ...esFeatures[i] };
-    }
-    if (currentLocale === "fr") {
-      const frFeatures = [
-        { title: "Apparence", desc: "Créez un humain numérique aligné avec votre identité de marque." },
-        { title: "Voix", desc: "Utilisez des voix multilingues ou une voix d'entreprise personnalisée." },
-        { title: "Personnalité", desc: "Configurez le style de communication, le ton et le comportement." },
-        { title: "Identité de marque", desc: "Appliquez l'identité visuelle et le style d'interaction de votre entreprise." },
-      ];
-      return { ...feature, ...frFeatures[i] };
-    }
-    return feature;
-  });
+  const localizedCustomPersonaFeatures = (dPage.customPersonaFeatures || customPersonaFeatures).map((feat: any, idx: number) => ({
+    ...(customPersonaFeatures[idx] || feat),
+    ...feat,
+  }));
 
-  const localizedComparisonTable = comparisonTable.map((row, idx) => {
-    if (currentLocale === "zh") {
-      const zhRows = [
-        { feature: "AI 处理", dihuava: "端侧本地处理", cloud: "基于云端" },
-        { feature: "网络依赖", dihuava: "专为离线运行设计", cloud: "通常依赖网络连接" },
-        { feature: "语音处理", dihuava: "端侧本地处理", cloud: "依赖远程服务器处理" },
-        { feature: "语言支持", dihuava: "29+ 端侧本地语言", cloud: "取决于服务商" },
-        { feature: "合影体验", dihuava: "端侧本地照片合成", cloud: "依赖云端处理流程" },
-        { feature: "卡通角色模式", dihuava: "实时面部追踪", cloud: "取决于具体实现方式" },
-        { feature: "数据架构", dihuava: "边缘 / 物理隔离部署", cloud: "云端基础架构" },
-      ];
-      return { ...row, ...zhRows[idx] };
-    }
-    if (currentLocale === "ru") {
-      const ruRows = [
-        { feature: "Обработка AI", dihuava: "Локально / На устройстве", cloud: "Облачная обработка" },
-        { feature: "Зависимость от сети", dihuava: "Создано для работы офлайн", cloud: "Требует постоянного подключения" },
-        { feature: "Обработка речи", dihuava: "Локальная обработка", cloud: "Использует удаленные серверы" },
-        { feature: "Языки", dihuava: "29+ Локальных языков", cloud: "Зависит от провайдера" },
-        { feature: "Селфи", dihuava: "Локальный композитинг", cloud: "Облачные процессы" },
-        { feature: "Мультперсонаж", dihuava: "Трекинг лица в реальном времени", cloud: "Зависит от реализации" },
-        { feature: "Архитектура данных", dihuava: "Edge / Изолированное развертывание", cloud: "Облачная инфраструктура" },
-      ];
-      return { ...row, ...ruRows[idx] };
-    }
-    if (currentLocale === "es") {
-      const esRows = [
-        { feature: "Procesamiento de IA", dihuava: "Local / En dispositivo", cloud: "Basado en la nube" },
-        { feature: "Dependencia de internet", dihuava: "Diseñado para funcionamiento sin conexión", cloud: "Requiere conectividad constante" },
-        { feature: "Procesamiento de voz", dihuava: "Procesamiento local", cloud: "Puede usar procesamiento remoto" },
-        { feature: "Idiomas", dihuava: "29+ Idiomas locales", cloud: "Depende del proveedor" },
-        { feature: "Experiencia Selfie", dihuava: "Composición local", cloud: "Flujos dependientes de la nube" },
-        { feature: "Personaje animado", dihuava: "Seguimiento facial en tiempo real", cloud: "Depende de la implementación" },
-        { feature: "Arquitectura de datos", dihuava: "Despliegue local / Air-Gap", cloud: "Infraestructura en la nube" },
-      ];
-      return { ...row, ...esRows[idx] };
-    }
-    if (currentLocale === "fr") {
-      const frRows = [
-        { feature: "Traitement IA", dihuava: "Local / Sur appareil", cloud: "Basé sur le cloud" },
-        { feature: "Dépendance internet", dihuava: "Conçu pour le fonctionnement hors ligne", cloud: "Nécessite généralement une connexion" },
-        { feature: "Traitement vocal", dihuava: "Traitement local", cloud: "Peut utiliser un traitement distant" },
-        { feature: "Langues", dihuava: "29+ Langues locales", cloud: "Dépend du fournisseur" },
-        { feature: "Expérience Selfie", dihuava: "Composition locale", cloud: "Flux dépendants du cloud" },
-        { feature: "Personnage animé", dihuava: "Suivi facial en temps réel", cloud: "Dépend de l'implémentation" },
-        { feature: "Architecture de données", dihuava: "Déploiement local / Air-Gap", cloud: "Infrastructure cloud" },
-      ];
-      return { ...row, ...frRows[idx] };
-    }
-    return row;
-  });
+  const localizedComparisonTable = (dPage.comparisonTable || comparisonTable).map((item: any, idx: number) => ({
+    ...(comparisonTable[idx] || item),
+    ...item,
+  }));
 
-  const localizedProductSpecs = productSpecs.map((spec, i) => {
-    if (currentLocale === "zh") {
-      const zhSpecs = [
-        { label: "核心 AI 架构", value: "完全本地端侧语音与对话平台" },
-        { label: "支持语言", value: "29+ 全球语言" },
-        { label: "语音与声音引擎", value: "语音识别、语音合成与声音克隆" },
-        { label: "文档知识库 RAG", value: "PDF, TXT, CSV & Markdown" },
-        { label: "产品目录系统", value: "商品推荐与屏幕同步讲解" },
-        { label: "拍照与角色互动", value: "与数字人合影 + 实时卡通角色" },
-      ];
-      return { ...spec, ...zhSpecs[i] };
-    }
-    if (currentLocale === "ru") {
-      const ruSpecs = [
-        { label: "Базовая AI-архитектура", value: "Полностью локальная платформа речи и диалога" },
-        { label: "Поддерживаемые языки", value: "29+ Языков мира" },
-        { label: "Речевой движок", value: "Распознавание речи, синтез и клонирование голоса" },
-        { label: "Локальный RAG", value: "PDF, TXT, CSV и Markdown" },
-        { label: "Каталог товаров", value: "Рекомендации товаров и синхронизация с экраном" },
-        { label: "Фото и персонаж", value: "Селфи с аватаром + Режим мультперсонажа" },
-      ];
-      return { ...spec, ...ruSpecs[i] };
-    }
-    if (currentLocale === "es") {
-      const esSpecs = [
-        { label: "Arquitectura de IA principal", value: "Plataforma de voz y conversación 100% local" },
-        { label: "Idiomas soportados", value: "29+ Idiomas globales" },
-        { label: "Motor de voz", value: "Reconocimiento, síntesis y clonación de voz" },
-        { label: "RAG de documentos", value: "PDF, TXT, CSV y Markdown" },
-        { label: "Catálogo de productos", value: "Recomendación de productos y sincronización con pantalla" },
-        { label: "Foto y personaje", value: "Selfie con el Avatar + Personaje Animado" },
-      ];
-      return { ...spec, ...esSpecs[i] };
-    }
-    if (currentLocale === "fr") {
-      const frSpecs = [
-        { label: "Architecture IA principale", value: "Plateforme vocale et conversationnelle 100% locale sur appareil" },
-        { label: "Langues prises en charge", value: "29+ Langues mondiales" },
-        { label: "Moteur vocal", value: "Reconnaissance vocale, synthèse et clonage vocal" },
-        { label: "RAG documentaire", value: "PDF, TXT, CSV et Markdown" },
-        { label: "Catalogue de produits", value: "Recommandation de produits et synchronisation d'écran" },
-        { label: "Photo et personnage", value: "Selfie avec l'Avatar + Personnage Animé" },
-      ];
-      return { ...spec, ...frSpecs[i] };
-    }
-    return spec;
-  });
+  const localizedProductSpecs = (dPage.productSpecs || productSpecs).map((spec: any, idx: number) => ({
+    ...(productSpecs[idx] || spec),
+    ...spec,
+  }));
 
-  const localizedFaqs = faqs.map((faq, idx) => {
-    if (currentLocale === "zh") {
-      const zhFaqs = [
-        {
-          q: "DIHUAVA 需要互联网连接吗？",
-          a: "不需要。DIHUAVA 默认 100% 在端侧本地离线运行，同时提供可选的云端管理配置。完整的 29 种语言语音流水线、文档 RAG、产品目录、合影拍照与实时卡通渲染均完全在本地硬件上运行。",
-        },
-        {
-          q: "端侧支持多少种语言？",
-          a: "支持 29+ 种全球语言完全本地运行，包括英语、中文、印地语、西班牙语、阿拉伯语、法语、德语、日语、韩语、俄语等主要国际语言。",
-        },
-        {
-          q: "访客的语音或对话数据会被传输到云端吗？",
-          a: "零语音或对话数据传输至外部服务器。所有 AI 计算均在物理边缘硬件上本地完成，完全符合 GDPR、PDPA 及 HIPAA 隐私标准。",
-        },
-        {
-          q: "我们可以克隆自己品牌的专属声音吗？",
-          a: "可以。定制角色包可包含简短的参考音频录音。平台会自动在英文及多语言合成层克隆角色声音，无需人工训练步骤。",
-        },
-        {
-          q: "什么是'与数字人合影 (Selfie With Avatar)'？",
-          a: "访客可在屏幕上点击'合影'，立即与数字人并排拍照。端侧合成引擎可实时匹配面部尺寸与身高，应用相片滤镜，并生成 24 小时有效的二维码分享链接。",
-        },
-        {
-          q: "什么是'实时卡通角色体验 (Live Character Experience)'？",
-          a: "实时卡通角色体验是一种摄像头驱动的卡通变脸模式。摄像头精准追踪访客的面部动作（微笑、眨眼、转头），以超低延迟将卡通造型实时叠加到访客面部。",
-        },
-      ];
-      return { ...faq, ...zhFaqs[idx] };
-    }
-    if (currentLocale === "ru") {
-      const ruFaqs = [
-        {
-          q: "Требует ли DIHUAVA подключение к интернету?",
-          a: "Нет. DIHUAVA по умолчанию работает 100% офлайн на устройстве. Весь речевой конвейер на 29 языках, RAG, каталог товаров и обработка фото выполняются локально.",
-        },
-        {
-          q: "Сколько языков поддерживается локально?",
-          a: "29+ языков мира полностью локально, включая английский, китайский, хинди, испанский, арабский, французский, немецкий, русский и другие международные языки.",
-        },
-        {
-          q: "Передаются ли голосовые данные в облако?",
-          a: "Нулевая передача голосовых данных на внешние серверы. Вся обработка происходит локально, обеспечивая полное соответствие стандартам GDPR, PDPA и HIPAA.",
-        },
-        {
-          q: "Можно ли клонировать фирменный голос компании?",
-          a: "Да. Вы можете загрузить короткие аудиозаписи, и платформа автоматически клонирует голос для использования в синтезе речи.",
-        },
-        {
-          q: "Что такое 'Селфи с аватаром (Selfie With Avatar)'?",
-          a: "Функция позволяет сделать фото рядом с цифровым аватаром. Система автоматически подгоняет размер лица, применяет фильтры и создает QR-код на 24 часа.",
-        },
-        {
-          q: "Что такое 'Режим мультперсонажа (Live Character)'?",
-          a: "Режим реального времени, в котором камера отслеживает движения лица посетителя (улыбка, моргание, повороты) и с ультранизкой задержкой накладывает маску персонажа.",
-        },
-      ];
-      return { ...faq, ...ruFaqs[idx] };
-    }
-    if (currentLocale === "es") {
-      const esFaqs = [
-        {
-          q: "¿DIHUAVA requiere conectividad a internet?",
-          a: "No. DIHUAVA se ejecuta 100% sin conexión en el dispositivo por defecto. Todo el flujo de voz de 29 idiomas, RAG, catálogo y fotos se procesan en hardware local.",
-        },
-        {
-          q: "¿Cuántos idiomas son compatibles en el dispositivo?",
-          a: "29+ idiomas globales totalmente locales, incluidos inglés, mandarín, hindi, español, árabe, francés, alemán, japonés, coreano, ruso y otros idiomas internacionales.",
-        },
-        {
-          q: "¿Se transmiten los datos de voz del visitante a la nube?",
-          a: "Cero datos de voz o conversación se envían a servidores externos. Todo el procesamiento de IA ocurre localmente, garantizando el cumplimiento de GDPR, PDPA y HIPAA.",
-        },
-        {
-          q: "¿Podemos clonar nuestra propia voz corporativa de marca?",
-          a: "Sí. Los paquetes de avatar personalizados pueden incluir breves grabaciones de audio. La plataforma clona automáticamente la voz de la marca.",
-        },
-        {
-          q: "¿Qué es 'Selfie con el Avatar'?",
-          a: "Permite a los visitantes tocar Selfie en pantalla y tomarse una foto al instante junto al avatar. El motor ajusta el tamaño facial, aplica filtros y genera un código QR válido por 24 horas.",
-        },
-        {
-          q: "¿Qué es 'Modo Personaje Animado'?",
-          a: "Es un modo de cara animada en tiempo real. La cámara sigue los movimientos faciales del visitante (sonrisas, parpadeos, giros) y aplica la piel del personaje con ultra baja latencia.",
-        },
-      ];
-      return { ...faq, ...esFaqs[idx] };
-    }
-    if (currentLocale === "fr") {
-      const frFaqs = [
-        {
-          q: "DIHUAVA nécessite-t-il une connexion internet ?",
-          a: "Non. DIHUAVA fonctionne 100% hors ligne sur l'appareil par défaut. Tout le traitement vocal en 29 langues, le RAG documentaire, le catalogue de produits et la composition photo s'exécutent localement.",
-        },
-        {
-          q: "Combien de langues sont prises en charge sur l'appareil ?",
-          a: "Plus de 29 langues mondiales totalement locales, dont l'anglais, le mandarin, l'hindi, l'espagnol, l'arabe, le français, l'alemand, le japonais, le coréen, le russe et les principales langues internationales.",
-        },
-        {
-          q: "Les données vocales des visiteurs sont-elles transmises au cloud ?",
-          a: "Zéro donnée vocale ou de conversation n'est envoyée vers des serveurs externes. Tout le traitement IA s'effectue localement, garantissant la conformité GDPR, PDPA et HIPAA.",
-        },
-        {
-          q: "Pouvons-nous cloner notre propre voix de marque ?",
-          a: "Oui. Les packages de persona personnalisés peuvent inclure de court enregistrements audio. La plateforme clone automatiquement la voix du persona sans étape manuelle.",
-        },
-        {
-          q: "Qu'est-ce que 'Selfie avec l'Avatar' ?",
-          a: "Permet aux visiteurs de toucher Selfie à l'écran et de prendre une photo à côté de l'avatar. Le moteur ajuste la taille du visage, applique des filtres et génère un lien QR de 24h.",
-        },
-        {
-          q: "Qu'est-ce que le 'Mode Personnage Animé' ?",
-          a: "Un mode visage cartoon en temps réel. La caméra suit les mouvements du visage du visiteur (sourires, clignements, mouvements de tête) et applique le skin avec une latence ultra-faible.",
-        },
-      ];
-      return { ...faq, ...frFaqs[idx] };
-    }
-    return faq;
-  });
+  const localizedFaqs = (dPage.faqs || faqs).map((faq: any, idx: number) => ({
+    ...(faqs[idx] || faq),
+    ...faq,
+  }));
 
   return (
     <main className="min-h-screen bg-black text-white selection:bg-cyan-500 selection:text-black">
@@ -1138,7 +567,7 @@ export default function DihuavaClient() {
           </div>
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {localizedArchPillars.map((pillar, idx) => (
+            {localizedArchPillars.map((pillar: any, idx: number) => (
               <div
                 key={idx}
                 className="rounded-3xl border border-white/15 bg-neutral-950/80 p-8 backdrop-blur-xl hover:border-cyan-500/40 transition-all flex flex-col justify-between"
@@ -1177,7 +606,7 @@ export default function DihuavaClient() {
           </div>
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {localizedHowItWorks.map((item, idx) => (
+            {localizedHowItWorks.map((item: any, idx: number) => (
               <motion.div
                 key={item.step}
                 initial={{ opacity: 0, y: 20 }}
@@ -1231,7 +660,7 @@ export default function DihuavaClient() {
           </div>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {localizedModules.map((module) => (
+            {localizedModules.map((module: any) => (
               <motion.div
                 key={module.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -1439,7 +868,7 @@ export default function DihuavaClient() {
           </div>
 
           <div className="grid gap-8 md:grid-cols-3">
-            {localizedVoiceCaps.map((tier, idx) => (
+            {localizedVoiceCaps.map((tier: any, idx: number) => (
               <div
                 key={idx}
                 className="rounded-3xl border border-white/15 bg-black/80 p-8 backdrop-blur-xl hover:border-cyan-400/40 transition-colors flex flex-col justify-between"
@@ -1477,7 +906,7 @@ export default function DihuavaClient() {
               </p>
 
               <div className="mt-8 space-y-4">
-                {localizedPersonaProfiles.map((p, idx) => (
+                {localizedPersonaProfiles.map((p: any, idx: number) => (
                   <div
                     key={idx}
                     className="flex items-start gap-4 rounded-2xl border border-white/10 bg-neutral-950 p-4 backdrop-blur-md"
@@ -1503,7 +932,7 @@ export default function DihuavaClient() {
                 </h3>
 
                 <div className="mt-6 space-y-4">
-                  {localizedCustomPersonaFeatures.map((feature, i) => (
+                  {localizedCustomPersonaFeatures.map((feature: any, i: number) => (
                     <div key={i} className="rounded-xl border border-white/10 bg-white/5 p-4">
                       <h4 className="text-sm font-semibold text-cyan-300 font-mono">{feature.title}</h4>
                       <p className="mt-1 text-xs text-gray-400">{feature.desc}</p>
@@ -1563,7 +992,7 @@ export default function DihuavaClient() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/10 font-sans">
-                {localizedComparisonTable.map((row, idx) => (
+                {localizedComparisonTable.map((row: any, idx: number) => (
                   <tr key={idx} className={idx % 2 === 0 ? "bg-white/[0.02]" : ""}>
                     <td className="px-6 py-4 font-semibold text-white">{row.feature}</td>
                     <td className="px-6 py-4 font-semibold text-cyan-300">{row.dihuava}</td>
@@ -1590,7 +1019,7 @@ export default function DihuavaClient() {
 
           <div className="overflow-hidden rounded-2xl border border-white/15 bg-black/80 backdrop-blur-xl">
             <div className="divide-y divide-white/10">
-              {localizedProductSpecs.map((spec, i) => (
+              {localizedProductSpecs.map((spec: any, i: number) => (
                 <div
                   key={spec.label}
                   className={`grid grid-cols-1 gap-2 px-6 py-4.5 sm:grid-cols-3 sm:gap-4 ${
@@ -1623,7 +1052,7 @@ export default function DihuavaClient() {
           </div>
 
           <div className="space-y-4">
-            {localizedFaqs.map((faq, idx) => {
+            {localizedFaqs.map((faq: any, idx: number) => {
               const isOpen = openFaq === idx;
               return (
                 <div
