@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { blogPosts } from "@/data/blogPosts";
 import { industriesData } from "@/data/industriesData";
+import { nonDefaultLocales } from "@/i18n/config";
 
 const platformFeatureSlugs = [
   "avatar-customization",
@@ -136,7 +137,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...dihuavaFeatureRoutes,
   ];
 
-  const nonDefaultLocales = ["zh", "ru", "es"] as const;
   const localizedEntries: MetadataRoute.Sitemap = [];
 
   for (const entry of englishEntries) {
