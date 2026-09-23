@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import IndustriesClient from "./IndustriesClient";
 
 export const metadata: Metadata = {
-  title: "AI Digital Human Solutions by Industry | HS Global AI",
+  title: "AI Digital Human Solutions by Industry",
   description:
     "Discover AI Digital Human and Hologram Box solutions tailored for banking, retail, healthcare, corporate services, tourism, and education.",
   alternates: {

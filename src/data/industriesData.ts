@@ -125,7 +125,7 @@ export const industriesData: Record<string, IndustryDetail> = {
       { label: "Hardware Support", value: "65\", 75\", 86\" 3D Hologram Enclosures & Interactive Kiosks" },
       { label: "Document Processing", value: "Real-Time Local PDF / DOCX RAG Neural Vector Engine" },
     ],
-    metaTitle: "AI Digital Humans & Holograms for Banking & Financial Services | HS Global AI",
+    metaTitle: "AI Digital Humans & Holograms for Banking & Financial Services",
     metaDescription:
       "Deploy 100% air-gapped, offline AI digital humans and 3D hologram bankers for VIP wealth lounges, retail branch concierges, and multilingual financial advisory.",
   },
@@ -225,7 +225,7 @@ export const industriesData: Record<string, IndustryDetail> = {
       { label: "Try-On Engine", value: "Real-Time Neural Mesh Fitting & Apparel Warping AI" },
       { label: "Content Delivery", value: "Offline High-Fidelity 3D Asset Render Pipeline" },
     ],
-    metaTitle: "AI Digital Humans & Holograms for Retail & Advertising | HS Global AI",
+    metaTitle: "AI Digital Humans & Holograms for Retail & Advertising",
     metaDescription:
       "Transform retail stores with 3D hologram brand ambassadors, virtual try-on smart mirrors, and interactive product display kiosks.",
   },
@@ -325,7 +325,7 @@ export const industriesData: Record<string, IndustryDetail> = {
       { label: "Security Standard", value: "Enterprise Air-Gapped Storage & Local Vector Index" },
       { label: "Operating Mode", value: "24/7 Continuous Reception & Wayfinding Operation" },
     ],
-    metaTitle: "AI Digital Human Receptionists for Corporate Services & HR | HS Global AI",
+    metaTitle: "AI Digital Human Receptionists for Corporate Services & HR",
     metaDescription:
       "Automate corporate front-desk reception, visitor management check-in, and employee HR policy assistance with 3D hologram AI receptionists.",
   },
@@ -440,7 +440,7 @@ export const industriesData: Record<string, IndustryDetail> = {
       { label: "Physical Hardware Enclosure", value: "Life-Size 3D Hologram Box Enclosure or Ultra-Slim 6 cm Spatial Display Kiosk" },
       { label: "Operational Boundaries", value: "Provides administrative, navigational, and informational support only; does not provide medical diagnoses or clinical decisions" },
     ],
-    metaTitle: "AI Digital Humans for Healthcare & Hospital Navigation | HS Global AI",
+    metaTitle: "AI Digital Humans for Healthcare & Hospital Navigation",
     metaDescription:
       "Enhance hospital patient guidance, intake triage support, and department navigation with 100% offline, air-gapped AI digital human healthcare assistants.",
     infoDepth: {
@@ -578,7 +578,7 @@ export const industriesData: Record<string, IndustryDetail> = {
       { label: "Asset Pipeline", value: "Volumetric 3D Avatar Rendering & Lip-Sync Animation Engine" },
       { label: "Environment Rating", value: "High Ambient Light & Noise Resistant Commercial Hardware" },
     ],
-    metaTitle: "3D Hologram Tour Guides & Museum Docents | HS Global AI",
+    metaTitle: "3D Hologram Tour Guides & Museum Docents",
     metaDescription:
       "Engage museum and exhibition visitors with 3D hologram tour guides, multilingual storytelling docents, and interactive heritage kiosks.",
   },
@@ -678,7 +678,7 @@ export const industriesData: Record<string, IndustryDetail> = {
       { label: "Language Practice", value: "Accent-Aware Multilingual Conversational AI" },
       { label: "LMS Integration", value: "Compatible with Canvas, Moodle, and Blackboard APIs" },
     ],
-    metaTitle: "3D Hologram AI Tutors & Lecturers for Education | HS Global AI",
+    metaTitle: "3D Hologram AI Tutors & Lecturers for Education",
     metaDescription:
       "Transform education with 3D hologram AI tutors, virtual science lab docents, campus orientation assistants, and multilingual learning avatars.",
   },

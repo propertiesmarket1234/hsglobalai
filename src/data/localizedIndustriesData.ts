@@ -247,7 +247,7 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         { label: "硬件设备规格", value: "65吋, 75吋, 86吋 3D 全息舱及互动立式终端" },
         { label: "文档解析能力", value: "实时本地 PDF / DOCX RAG 向量检索引擎" },
       ],
-      metaTitle: "金融与银行服务 AI 数字人与全息解决方案 | HS Global AI",
+      metaTitle: "金融与银行服务 AI 数字人与全息解决方案",
       metaDescription: "部署 100% 物理隔离离线 AI 数字人及 3D 全息银行家，赋能 VIP 财富中心、零售网点迎宾及多语言金融咨询。",
     },
 
@@ -332,7 +332,7 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         { label: "试衣算法引擎", value: "实时神经网络网格匹配与衣物贴合变形 AI" },
         { label: "内容渲染流水线", value: "离线高保真 3D 渲染管线" },
       ],
-      metaTitle: "零售与广告营销 AI 数字人及全息解决方案 | HS Global AI",
+      metaTitle: "零售与广告营销 AI 数字人及全息解决方案",
       metaDescription: "部署 3D 全息品牌形象大使、Virtual Try-On 虚拟试衣镜及互动式展厅终端，全面重塑零售体验。",
     },
 
@@ -417,7 +417,7 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         { label: "安全标准", value: "企业级物理隔离存储与本地向量索引" },
         { label: "运行模式", value: "7x24 小时连续稳定运行" },
       ],
-      metaTitle: "企业服务与 HR 智能数字人前台 | HS Global AI",
+      metaTitle: "企业服务与 HR 智能数字人前台",
       metaDescription: "通过 3D 全息 AI 前台接待员自动化办公大堂接待、访客登记与 HR 政策解答。",
     },
 
@@ -515,7 +515,7 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         { label: "硬件终端形态", value: "1:1 比例 3D 全息舱或 6 cm 超薄 Spatial Display" },
         { label: "业务边界声明", value: "仅提供导诊及行政信息指引，不提供医疗诊断与临床决策" },
       ],
-      metaTitle: "医疗健康与医院导诊 AI 数字人解决方案 | HS Global AI",
+      metaTitle: "医疗健康与医院导诊 AI 数字人解决方案",
       metaDescription: "部署 100% 离线物理隔离的 AI 数字人医疗助手，优化导诊分诊、院内导航及患者隐私保护。",
     },
 
@@ -600,7 +600,7 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         { label: "数字人动画管线", value: "立体 3D 渲染与实时口型同步" },
         { label: "环境适应能力", value: "抗强光、防高噪音工业级硬件" },
       ],
-      metaTitle: "文旅文博 3D 全息导游与博物馆数字人 | HS Global AI",
+      metaTitle: "文旅文博 3D 全息导游与博物馆数字人",
       metaDescription: "部署 3D 全息导游、多语言互动讲解员及文旅问答终端，提升博物馆与展览体验。",
     },
 
@@ -685,7 +685,7 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         { label: "语言训练", value: "自适应口音多语言口语对话 AI" },
         { label: "LMS 系统兼容", value: "支持对接 Canvas, Moodle, Blackboard 等平台" },
       ],
-      metaTitle: "3D 全息 AI 教师与教育数字人 | HS Global AI",
+      metaTitle: "3D 全息 AI 教师与教育数字人",
       metaDescription: "通过 3D 全息 AI 导师、虚拟实验助手、校园招生导览及多语言教学数字人革新教育体验。",
     },
   },
@@ -772,7 +772,7 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         { label: "Форм-факторы оборудования", value: "3D-Голографические кубы 65\", 75\", 86\" и киоски" },
         { label: "Обработка документов", value: "Локальный векторный движок RAG для PDF / DOCX" },
       ],
-      metaTitle: "ИИ Цифровые Аватары и Голограммы для Банков | HS Global AI",
+      metaTitle: "ИИ Цифровые Аватары и Голограммы для Банков",
       metaDescription: "Автономные ИИ цифровые аватары и 3D-голографические банкиры для VIP-залов и отделений банков.",
     },
 
@@ -857,7 +857,7 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         { label: "Движок примерки", value: "Нейросетевая примерка одежды Virtual Try-On" },
         { label: "Рендеринг", value: "Локальный пайплайн 3D-рендеринга высокой четкости" },
       ],
-      metaTitle: "ИИ Цифровые Аватары для Ритейла и Рекламы | HS Global AI",
+      metaTitle: "ИИ Цифровые Аватары для Ритейла и Рекламы",
       metaDescription: "3D-Голографические амбассадоры, виртуальная примерка и интерактивные стойки для ритейла.",
     },
 
@@ -942,7 +942,7 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         { label: "Безопасность", value: "Автономное хранение данных и локальные векторы" },
         { label: "Режим работы", value: "Непрерывный режим 24/7" },
       ],
-      metaTitle: "Цифровые Администраторы и HR ИИ-Ассистенты | HS Global AI",
+      metaTitle: "Цифровые Администраторы и HR ИИ-Ассистенты",
       metaDescription: "Автоматизация рецепции, регистрации посетителей и HR-поддержки с помощью 3D-голограмм.",
     },
 
@@ -1040,7 +1040,7 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         { label: "Форм-фактор", value: "3D-Голографический куб или тонкая стойка 6 см" },
         { label: "Ограничения", value: "Только справочные функции; не ставит диагнозов и не лечит" },
       ],
-      metaTitle: "ИИ Цифровые Аватары для Больниц и Навигации | HS Global AI",
+      metaTitle: "ИИ Цифровые Аватары для Больниц и Навигации",
       metaDescription: "Автономные ИИ-ассистенты для навигации в больницах и помощи пациентам.",
     },
 
@@ -1125,7 +1125,7 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         { label: "Анимация", value: "Объемный рендеринг 3D-аватара и синхронизация губ" },
         { label: "Устойчивость", value: "Оборудование защищено от внешнего освещения и шума" },
       ],
-      metaTitle: "3D-Голографические Гиды и Музейные Экскурсоводы | HS Global AI",
+      metaTitle: "3D-Голографические Гиды и Музейные Экскурсоводы",
       metaDescription: "3D-Голографические гиды и многоязычные экскурсоводы для музеев и выставок.",
     },
 
@@ -1210,7 +1210,7 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         { label: "Языковой тренинг", value: "Многоязычный ИИ с учетом акцентов" },
         { label: "LMS Интеграция", value: "Совместимость с Canvas, Moodle и Blackboard" },
       ],
-      metaTitle: "3D-Голографические ИИ-Преподаватели | HS Global AI",
+      metaTitle: "3D-Голографические ИИ-Преподаватели",
       metaDescription: "3D-Голографические преподаватели, ассистенты лабораторий и языковые аватары.",
     },
   },
@@ -1297,7 +1297,7 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         { label: "Hardware", value: "Cajas holográficas 3D de 65\", 75\", 86\" y quioscos" },
         { label: "Documentos", value: "Motor RAG vectorial local para archivos PDF / DOCX" },
       ],
-      metaTitle: "IA y Hologramas para Banca y Servicios Financieros | HS Global AI",
+      metaTitle: "IA y Hologramas para Banca y Servicios Financieros",
       metaDescription: "Despliegue humanos digitales e IA holográfica 3D para banca privada y sucursales.",
     },
 
@@ -1382,7 +1382,7 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         { label: "Motor de prueba", value: "IA de ajuste de malla de prendas en tiempo real" },
         { label: "Renderizado", value: "Pipeline de render 3D offline de alta fidelidad" },
       ],
-      metaTitle: "Humano Digital IA para Retail y Publicidad | HS Global AI",
+      metaTitle: "Humano Digital IA para Retail y Publicidad",
       metaDescription: "Embajadores de marca holográficos 3D y probadores virtuales para tiendas físicas.",
     },
 
@@ -1467,7 +1467,7 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         { label: "Seguridad", value: "Almacenamiento privado local e índice vectorial offline" },
         { label: "Funcionamiento", value: "Operación continuada 24/7" },
       ],
-      metaTitle: "Recepcionistas Digitales IA para RRHH y Empresas | HS Global AI",
+      metaTitle: "Recepcionistas Digitales IA para RRHH y Empresas",
       metaDescription: "Automatice la recepción corporativa y las consultas de RRHH con hologramas 3D.",
     },
 
@@ -1565,7 +1565,7 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         { label: "Hardware", value: "Caja holográfica 3D a tamaño real o pantalla spatial 6 cm" },
         { label: "Límites", value: "Solo asistencia informativa y de orientación; no emite diagnósticos" },
       ],
-      metaTitle: "Humano Digital IA para Hospitales y Navegación | HS Global AI",
+      metaTitle: "Humano Digital IA para Hospitales y Navegación",
       metaDescription: "Humano digital 100% offline para recepción de pacientes y orientación en hospitales.",
     },
 
@@ -1650,7 +1650,7 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         { label: "Animación", value: "Renderizado 3D volumétrico y sincronización labial" },
         { label: "Resistencia", value: "Hardware comercial resistente a luz ambiental y ruido" },
       ],
-      metaTitle: "Guías Holográficos 3D y Docentes de Museos | HS Global AI",
+      metaTitle: "Guías Holográficos 3D y Docentes de Museos",
       metaDescription: "Guías holográficos 3D y docentes multilingües para museos y centros culturales.",
     },
 
@@ -1735,7 +1735,7 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         { label: "Entrenamiento de idiomas", value: "IA de idiomas con adaptación de acentos" },
         { label: "Integración LMS", value: "Compatible con Canvas, Moodle y Blackboard" },
       ],
-      metaTitle: "Tutores Holográficos 3D e IA para Educación | HS Global AI",
+      metaTitle: "Tutores Holográficos 3D e IA para Educación",
       metaDescription: "Tutores holográficos 3D, guías de laboratorio y avatares multilingües para educación.",
     },
   },
@@ -1822,7 +1822,7 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         { label: "Matériel", value: "Boîtiers holographiques 3D 65\", 75\", 86\" et bornes" },
         { label: "Traitement documents", value: "Moteur RAG vectoriel local pour fichiers PDF / DOCX" },
       ],
-      metaTitle: "IA et Hologrammes pour la Banque et les Services Financiers | HS Global AI",
+      metaTitle: "IA et Hologrammes pour la Banque et les Services Financiers",
       metaDescription: "Déployez des humains virtuels et banquiers holographiques 3D pour agences et salons VIP.",
     },
 
@@ -1907,7 +1907,7 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         { label: "Moteur d'essayage", value: "IA d'essayage et déformation de vêtements en temps réel" },
         { label: "Rendu", value: "Pipeline de rendu 3D haute fidélité hors ligne" },
       ],
-      metaTitle: "Humains Virtuels IA pour le Retail et la Publicité | HS Global AI",
+      metaTitle: "Humains Virtuels IA pour le Retail et la Publicité",
       metaDescription: "Ambassadeurs holographiques 3D et miroirs d'essayage virtuel pour magasins.",
     },
 
@@ -1992,7 +1992,7 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         { label: "Sécurité", value: "Stockage local privé et indexation vectorielle hors ligne" },
         { label: "Fonctionnement", value: "Service continu 24h/24 et 7j/7" },
       ],
-      metaTitle: "Réceptionnistes Virtuels IA pour Entreprises et RH | HS Global AI",
+      metaTitle: "Réceptionnistes Virtuels IA pour Entreprises et RH",
       metaDescription: "Automatisez l'accueil en entreprise et les réponses RH avec des hologrammes 3D.",
     },
 
@@ -2090,7 +2090,7 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         { label: "Matériel", value: "Boîtier holographique 3D taille réelle ou borne spatial 6 cm" },
         { label: "Limites", value: "Soutien informatif et d'orientation uniquement ; aucun diagnostic médical" },
       ],
-      metaTitle: "Humains Virtuels IA pour Hopitaux et Navigation | HS Global AI",
+      metaTitle: "Humains Virtuels IA pour Hopitaux et Navigation",
       metaDescription: "Humains virtuels 100% hors ligne pour l'orientation et l'accueil des patients à l'hôpital.",
     },
 
@@ -2175,7 +2175,7 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         { label: "Animation", value: "Rendu 3D volumétrique et synchronisation labiale" },
         { label: "Résistance", value: "Matériel commercial résistant à la lumière et au bruit" },
       ],
-      metaTitle: "Guides Holographiques 3D et Guides de Musée | HS Global AI",
+      metaTitle: "Guides Holographiques 3D et Guides de Musée",
       metaDescription: "Guides holographiques 3D et médiateurs multilingues pour musées et expositions.",
     },
 
@@ -2260,7 +2260,7 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         { label: "Entraînement linguistique", value: "IA conversationnelle adaptée aux accents" },
         { label: "Intégration LMS", value: "Compatible avec Canvas, Moodle et Blackboard" },
       ],
-      metaTitle: "Tuteurs Holographiques 3D et Enseignants IA | HS Global AI",
+      metaTitle: "Tuteurs Holographiques 3D et Enseignants IA",
       metaDescription: "Tuteurs holographiques 3D, guides de laboratoire et avatars multilingues pour l'enseignement.",
     },
   },

@@ -1,5 +1,6 @@
-import IndustryDetailPage from "@/app/industries/[slug]/page";
+import IndustryDetailPage, { generateMetadata as baseGenerateMetadata } from "@/app/industries/[slug]/page";
 import { industriesData } from "@/data/industriesData";
+import type { Metadata } from "next";
 
 export async function generateStaticParams() {
   const langs = ["zh", "ru", "es", "fr"];
@@ -13,6 +14,15 @@ export async function generateStaticParams() {
   }
 
   return params;
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string; slug: string }>;
+}): Promise<Metadata> {
+  const { lang, slug } = await params;
+  return baseGenerateMetadata({ params: Promise.resolve({ slug, lang }) });
 }
 
 export default IndustryDetailPage;

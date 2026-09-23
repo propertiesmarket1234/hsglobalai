@@ -8,6 +8,7 @@ import { industriesData } from "@/data/industriesData";
 import { getLocalizedIndustryData, getLocalizedUIStrings } from "@/data/localizedIndustriesData";
 import IndustryInfoDepth from "@/components/IndustryInfoDepth";
 import IndustryFAQ from "@/components/IndustryFAQ";
+import { getLocalizedAlternates } from "@/i18n/config";
 import {
   ShieldCheck,
   FileText,
@@ -73,22 +74,18 @@ export async function generateMetadata({ params }: IndustryPageProps): Promise<M
     return {
       title: "Industry Solutions | HS Global AI",
       description: "AI Digital Human and 3D Hologram Box solutions tailored for global enterprise industries.",
-      alternates: {
-        canonical: lang === "en" ? `/industries/${slug}` : `/${lang}/industries/${slug}`,
-      },
+      alternates: getLocalizedAlternates(`/industries/${slug}`, lang),
     };
   }
 
-  const canonicalPath = lang === "en" ? `/industries/${slug}` : `/${lang}/industries/${slug}`;
+  const cleanTitle = industry.metaTitle.replace(/ \| HS Global AI$/i, "");
 
   return {
-    title: industry.metaTitle,
+    title: cleanTitle,
     description: industry.metaDescription,
-    alternates: {
-      canonical: canonicalPath,
-    },
+    alternates: getLocalizedAlternates(`/industries/${slug}`, lang),
     openGraph: {
-      title: industry.metaTitle,
+      title: cleanTitle,
       description: industry.metaDescription,
       type: "website",
     },
@@ -113,6 +110,7 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
   const downloadHref = lang === "en" ? "/contact/download-center" : `/${lang}/contact/download-center`;
   const holoHref = lang === "en" ? "/products/holographic-display" : `/${lang}/products/holographic-display`;
   const avatarHref = lang === "en" ? "/products/ai-digital-human" : `/${lang}/products/ai-digital-human`;
+  const spatialHref = lang === "en" ? "/products/spatial-display" : `/${lang}/products/spatial-display`;
   const docIntelHref = lang === "en" ? "/products/ai-digital-human/document-intelligence" : `/${lang}/products/ai-digital-human/document-intelligence`;
 
   const baseUrl = "https://www.hsglobalai.com";
@@ -143,6 +141,23 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
     ],
   };
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${baseUrl}${currentPath}#service`,
+    "name": `${industry.title} AI Solutions`,
+    "serviceType": `${industry.title} AI Digital Human & Hologram Automation`,
+    "description": industry.description,
+    "provider": {
+      "@type": "Organization",
+      "@id": "https://www.hsglobalai.com/#organization",
+      "name": "HS Global AI",
+      "url": "https://www.hsglobalai.com",
+    },
+    "areaServed": "Worldwide",
+    "url": `${baseUrl}${currentPath}`,
+  };
+
   const faqSchema = industry.faqs
     ? {
         "@context": "https://schema.org",
@@ -163,6 +178,10 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
       {faqSchema && (
         <script
@@ -218,6 +237,43 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
               <p className="mt-6 text-base leading-8 text-gray-300 sm:text-lg max-w-2xl">
                 {industry.heroOverview}
               </p>
+
+              <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2 text-xs font-mono text-cyan-300/90 border-l-2 border-cyan-500/50 pl-4 py-1">
+                <span className="text-gray-400">Supported Hardware &amp; Software Platforms:</span>
+                <Link href={avatarHref} className="text-cyan-400 hover:text-cyan-300 underline font-semibold transition-colors">
+                  DIHUAVA AI Digital Human
+                </Link>
+                <span>•</span>
+                <Link href={holoHref} className="text-cyan-400 hover:text-cyan-300 underline font-semibold transition-colors">
+                  AI Holographic Display
+                </Link>
+                <span>•</span>
+                <Link href={spatialHref} className="text-cyan-400 hover:text-cyan-300 underline font-semibold transition-colors">
+                  3D Spatial Display
+                </Link>
+              </div>
+
+              {industry.slug === "healthcare" && (
+                <div className="mt-4 rounded-xl border border-cyan-500/30 bg-cyan-950/40 px-4 py-2.5 text-xs text-gray-300">
+                  <span className="text-cyan-400 font-bold font-mono">Educational Guide: </span>
+                  <span>Read our detailed analysis on </span>
+                  <Link href={lang === "en" ? "/blog/ai-patient-triage-healthcare-guidance" : `/${lang}/blog/ai-patient-triage-healthcare-guidance`} className="text-cyan-400 hover:text-cyan-300 underline font-semibold transition-colors">
+                    AI Patient Triage &amp; Healthcare Guidance
+                  </Link>
+                  .
+                </div>
+              )}
+
+              {industry.slug === "retail" && (
+                <div className="mt-4 rounded-xl border border-cyan-500/30 bg-cyan-950/40 px-4 py-2.5 text-xs text-gray-300">
+                  <span className="text-cyan-400 font-bold font-mono">Technology Guide: </span>
+                  <span>Discover how </span>
+                  <Link href={lang === "en" ? "/blog/what-is-virtual-try-on-technology" : `/${lang}/blog/what-is-virtual-try-on-technology`} className="text-cyan-400 hover:text-cyan-300 underline font-semibold transition-colors">
+                    Virtual Try-On Technology
+                  </Link>
+                  <span> transforms interactive retail.</span>
+                </div>
+              )}
 
               {/* Action Buttons */}
               <div className="mt-8 flex flex-wrap items-center gap-4">
