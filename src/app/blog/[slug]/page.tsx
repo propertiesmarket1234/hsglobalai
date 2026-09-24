@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
 
   if (!post) {
     return {
-      title: "Article Not Found | HS Global AI",
+      title: "Article Not Found",
       description: "The requested blog article could not be found.",
       alternates: {
         canonical: `/blog/${slug}`,
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
   }
 
   return {
-    title: `${post.title} | HS Global AI`,
+    title: post.title,
     description: post.snippet,
     keywords: post.tags,
     alternates: {

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import BlogClient from "./BlogClient";
 
 export const metadata: Metadata = {
-  title: "AI Insights & Resources | HS Global AI",
+  title: "AI Insights & Resources",
   description:
     "Read technical insights, enterprise case studies, and industry guides on AI Digital Humans, on-device LLMs, 3D holographic displays, and spatial AI.",
   alternates: {
