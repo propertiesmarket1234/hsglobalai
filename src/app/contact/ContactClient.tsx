@@ -76,7 +76,7 @@ const countryCodes: CountryCodeItem[] = [
 
 export default function ContactClient({ defaultTab = "contact" }: { defaultTab?: "contact" | "downloads" }) {
   const [activeTab, setActiveTab] = useState<"contact" | "downloads">(defaultTab);
-  const [activeLocationMap, setActiveLocationMap] = useState<"singapore" | "india">("singapore");
+  const [activeLocationMap, setActiveLocationMap] = useState<"singapore" | "india" | "china">("singapore");
   const [downloadingTitle, setDownloadingTitle] = useState<string | null>(null);
 
   const [formData, setFormData] = useState({
@@ -208,7 +208,7 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
                     </span>
                     <h2 className="mt-2 text-3xl font-bold text-white">{cPage.officesTitle || "Our Global Offices"}</h2>
                     <p className="mt-3 text-sm leading-6 text-gray-400">
-                      {cPage.officesDescription || "HS Global AI serves enterprise clients worldwide with main headquarters in Singapore and regional development in India."}
+                      {cPage.officesDescription || "HS Global AI serves enterprise clients worldwide with main headquarters in Singapore, regional development in India, and hardware R&D in China."}
                     </p>
                   </div>
 
@@ -244,26 +244,54 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
                   <div className="group relative overflow-hidden rounded-3xl border border-white/15 bg-neutral-950 p-7 backdrop-blur-xl transition-all hover:border-cyan-500/40">
                     <div className="flex items-center justify-between">
                       <span className="inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-3 py-1 text-xs font-bold text-orange-300 font-mono">
-                        {cPage.indiaOfficeBadge || "🇮🇳 INDIA REGIONAL OFFICE"}
+                        {cPage.indiaOfficeBadge || "🇮🇳 INDIA OFFICE"}
                       </span>
                       <span className="text-xs text-gray-400 font-mono">{cPage.indiaOfficeState || "ANDHRA PRADESH"}</span>
                     </div>
 
                     <h3 className="mt-4 text-xl font-bold text-white">{cPage.indiaOfficeName || "HS GLOBAL AI INDIA"}</h3>
                     <p className="mt-2 text-xs leading-6 text-gray-300">
-                      {cPage.indiaOfficeAddress || "49-4-1, 17/3E, Prasanth Colony, 1st line, Gunadala, Kanuru, Andhra Pradesh 520004, India"}
+                      {cPage.indiaOfficeAddress || "Vijayawada, Andhra Pradesh 520004, India"}
                     </p>
 
                     <div className="mt-5 space-y-2 border-t border-white/10 pt-4 text-xs">
                       <div className="flex items-center justify-between text-gray-300">
                         <span className="font-semibold text-cyan-300">{cPage.phoneSupportLabel || "Phone Support:"}</span>
-                        <a href="tel:+919959666699" className="hover:underline font-mono text-cyan-400">
-                          +91 99596 66699
+                        <a href="tel:+918464977333" className="hover:underline font-mono text-cyan-400">
+                          +91 84649 77333
                         </a>
                       </div>
                       <div className="flex items-center justify-between text-gray-300">
                         <span className="font-semibold text-cyan-300">{cPage.officeHoursLabel || "Office Hours:"}</span>
                         <span className="font-mono text-gray-300">{cPage.officeHoursValue || "Mon–Sat: 9:30 AM – 6:30 PM (IST)"}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* CHINA OFFICE CARD */}
+                  <div className="group relative overflow-hidden rounded-3xl border border-white/15 bg-neutral-950 p-7 backdrop-blur-xl transition-all hover:border-cyan-500/40">
+                    <div className="flex items-center justify-between">
+                      <span className="inline-flex items-center gap-2 rounded-full border border-red-500/30 bg-red-500/10 px-3 py-1 text-xs font-bold text-red-300 font-mono">
+                        {cPage.chinaOfficeBadge || "🇨🇳 CHINA OFFICE"}
+                      </span>
+                      <span className="text-xs text-gray-400 font-mono">{cPage.chinaOfficeProvince || "SHENZHEN"}</span>
+                    </div>
+
+                    <h3 className="mt-4 text-xl font-bold text-white">{cPage.chinaOfficeName || "HS GLOBAL AI CHINA"}</h3>
+                    <p className="mt-2 text-xs leading-6 text-gray-300">
+                      {cPage.chinaOfficeAddress || "Bao'an District, Shenzhen, China"}
+                    </p>
+
+                    <div className="mt-5 space-y-2 border-t border-white/10 pt-4 text-xs">
+                      <div className="flex items-center justify-between text-gray-300">
+                        <span className="font-semibold text-cyan-300">{cPage.officialEmailLabel || "Official Email:"}</span>
+                        <a href="mailto:info@hsglobalai.com" className="hover:underline font-mono text-cyan-400">
+                          info@hsglobalai.com
+                        </a>
+                      </div>
+                      <div className="flex items-center justify-between text-gray-300">
+                        <span className="font-semibold text-cyan-300">{cPage.websiteLabel || "Website:"}</span>
+                        <span className="font-mono text-gray-300">hsglobalai.com</span>
                       </div>
                     </div>
                   </div>
@@ -436,12 +464,16 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
                   <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-5xl">
                     {activeLocationMap === "singapore"
                       ? (cPage.mapTitleSg || "Visit Our Singapore Headquarters")
-                      : (cPage.mapTitleIndia || "Visit Our India Regional Office")}
+                      : activeLocationMap === "india"
+                      ? (cPage.mapTitleIndia || "Visit Our India Office")
+                      : (cPage.mapTitleChina || "Visit Our China Office")}
                   </h2>
                   <p className="mt-2 text-sm text-gray-400">
                     {activeLocationMap === "singapore"
                       ? (cPage.mapDescSg || "Located at HS GLOBAL SG PTE LTD, 20 COLLYER QUAY, #09-01, SINGAPORE – 049319.")
-                      : (cPage.mapDescIndia || "Located at 49-4-1, 17/3E, Prasanth Colony, 1st line, Gunadala, Kanuru, Andhra Pradesh 520004, India.")}
+                      : activeLocationMap === "india"
+                      ? (cPage.mapDescIndia || "Located at Vijayawada, Andhra Pradesh 520004, India.")
+                      : (cPage.mapDescChina || "Located at Bao'an District, Shenzhen, China.")}
                   </p>
                 </div>
 
@@ -468,6 +500,16 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
                     >
                       <span>{cPage.btnIndiaOffice || "🇮🇳 India Office"}</span>
                     </button>
+                    <button
+                      onClick={() => setActiveLocationMap("china")}
+                      className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-bold transition-all ${
+                        activeLocationMap === "china"
+                          ? "bg-cyan-500 text-black shadow-[0_0_20px_rgba(6,182,212,0.4)]"
+                          : "text-gray-300 hover:text-white"
+                      }`}
+                    >
+                      <span>{cPage.btnChinaOffice || "🇨🇳 China Office"}</span>
+                    </button>
                   </div>
 
                   {/* GET DIRECTIONS LINK */}
@@ -475,7 +517,9 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
                     href={
                       activeLocationMap === "singapore"
                         ? "https://www.google.com/maps/search/?api=1&query=HS+GLOBAL+SG+PTE+LTD,+20+COLLYER+QUAY,+#09-01,+SINGAPORE+-+049319"
-                        : "https://www.google.com/maps/search/?api=1&query=49-4-1,+17/3E,+Prasanth+Colony,+1st+line,+Gunadala,+Kanuru,+Andhra+Pradesh+520004,+India"
+                        : activeLocationMap === "india"
+                        ? "https://www.google.com/maps/search/?api=1&query=Vijayawada,+Andhra+Pradesh+520004,+India"
+                        : "https://www.google.com/maps/search/?api=1&query=Baoan+District,+Shenzhen,+China"
                     }
                     target="_blank"
                     rel="noopener noreferrer"
@@ -493,12 +537,16 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
                   title={
                     activeLocationMap === "singapore"
                       ? "HS GLOBAL SG PTE LTD Singapore Headquarters Map"
-                      : "HS Global AI India Office Map"
+                      : activeLocationMap === "india"
+                      ? "HS Global AI India Office Map"
+                      : "HS Global AI China Office Map"
                   }
                   src={
                     activeLocationMap === "singapore"
                       ? "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.81926219468!2d103.85040997576572!3d1.2835154617833075!2m3!1f0!0f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da190875b1c5cd%3A0x6331a690e9d67568!2s20%20Collyer%20Quay%2C%20Singapore%20049319!5e0!3m2!1sen!2ssg!4v1710000000000!5m2!1sen!2ssg"
-                      : "https://maps.google.com/maps?q=49-4-1,+17/3E,+Prasanth+Colony,+1st+line,+Gunadala,+Kanuru,+Andhra+Pradesh+520004,+India&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                      : activeLocationMap === "india"
+                      ? "https://maps.google.com/maps?q=Vijayawada,+Andhra+Pradesh+520004,+India&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                      : "https://maps.google.com/maps?q=Baoan+District,+Shenzhen,+China&t=&z=14&ie=UTF8&iwloc=&output=embed"
                   }
                   width="100%"
                   height="520"
@@ -519,16 +567,26 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
                   <div>
                     <div className="flex items-center gap-2">
                       <h4 className="text-sm font-bold text-white tracking-wide">
-                        {activeLocationMap === "singapore" ? (cPage.pinTitleSg || "HS GLOBAL SG PTE LTD") : (cPage.pinTitleIndia || "HS GLOBAL AI INDIA")}
+                        {activeLocationMap === "singapore"
+                          ? (cPage.pinTitleSg || "HS GLOBAL SG PTE LTD")
+                          : activeLocationMap === "india"
+                          ? (cPage.pinTitleIndia || "HS GLOBAL AI INDIA")
+                          : (cPage.pinTitleChina || "HS GLOBAL AI CHINA")}
                       </h4>
                       <span className="rounded bg-red-500/20 px-1.5 py-0.5 text-[9px] font-bold text-red-400 border border-red-500/40">
-                        {activeLocationMap === "singapore" ? (cPage.pinBadgeSg || "HQ PIN") : (cPage.pinBadgeIndia || "INDIA OFFICE PIN")}
+                        {activeLocationMap === "singapore"
+                          ? (cPage.pinBadgeSg || "HQ PIN")
+                          : activeLocationMap === "india"
+                          ? (cPage.pinBadgeIndia || "INDIA OFFICE PIN")
+                          : (cPage.pinBadgeChina || "CHINA OFFICE PIN")}
                       </span>
                     </div>
                     <p className="text-[11px] font-mono text-gray-300 mt-0.5">
                       {activeLocationMap === "singapore"
                         ? (cPage.pinAddressSg || "20 COLLYER QUAY, #09-01, SINGAPORE – 049319")
-                        : (cPage.pinAddressIndia || "49-4-1, 17/3E, PRASANTH COLONY, KANURU, AP 520004")}
+                        : activeLocationMap === "india"
+                        ? (cPage.pinAddressIndia || "VIJAYAWADA, AP 520004")
+                        : (cPage.pinAddressChina || "BAO'AN DISTRICT, SHENZHEN, CHINA")}
                     </p>
                   </div>
                 </div>
@@ -538,16 +596,28 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
                   <div className="flex items-center gap-3">
                     <span className="flex h-3 w-3 rounded-full bg-cyan-400 animate-pulse" />
                     <h4 className="text-sm font-bold text-white">
-                      {activeLocationMap === "singapore" ? (cPage.cardHeaderSg || "Singapore Global HQ") : (cPage.cardHeaderIndia || "India Regional Office")}
+                      {activeLocationMap === "singapore"
+                        ? (cPage.cardHeaderSg || "Singapore Global HQ")
+                        : activeLocationMap === "india"
+                        ? (cPage.cardHeaderIndia || "India Office")
+                        : (cPage.cardHeaderChina || "China Office")}
                     </h4>
                   </div>
                   <p className="mt-2 text-xs leading-5 text-gray-300">
                     {activeLocationMap === "singapore"
                       ? (cPage.sgHqAddress || "20 COLLYER QUAY, #09-01, SINGAPORE – 049319")
-                      : (cPage.indiaOfficeAddress || "49-4-1, 17/3E, Prasanth Colony, 1st line, Gunadala, Kanuru, Andhra Pradesh 520004, India")}
+                      : activeLocationMap === "india"
+                      ? (cPage.indiaOfficeAddress || "Vijayawada, Andhra Pradesh 520004, India")
+                      : (cPage.chinaOfficeAddress || "Bao'an District, Shenzhen, China")}
                   </p>
                   <div className="mt-3 flex items-center justify-between text-[11px] font-mono text-cyan-400 border-t border-white/10 pt-3">
-                    <span>{activeLocationMap === "singapore" ? (cPage.mrtStationSg || "Raffles Place MRT (Exit B)") : (cPage.mrtStationIndia || "Vijayawada Region")}</span>
+                    <span>
+                      {activeLocationMap === "singapore"
+                        ? (cPage.mrtStationSg || "Raffles Place MRT (Exit B)")
+                        : activeLocationMap === "india"
+                        ? (cPage.mrtStationIndia || "Vijayawada Region")
+                        : (cPage.metroStationChina || "Shenzhen Hardware Hub")}
+                    </span>
                     <span>{cPage.officeHoursValue || "Mon-Sat: 9:30am - 6:30pm (IST)"}</span>
                   </div>
                 </div>

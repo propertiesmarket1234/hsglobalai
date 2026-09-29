@@ -444,7 +444,7 @@ export default function Header() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 8, scale: 0.95 }}
                   transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                  className="absolute right-0 top-full pt-2 w-44 z-50"
+                  className="absolute right-0 top-full pt-2 w-52 z-50"
                 >
                   <div className="rounded-2xl border border-cyan-500/30 bg-neutral-950/95 p-2 shadow-2xl backdrop-blur-2xl">
                     {supportedLocales.map((loc) => {

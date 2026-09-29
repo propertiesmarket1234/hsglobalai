@@ -123,11 +123,21 @@ const organizationJsonLd = {
           "name": "India Office",
           "address": {
             "@type": "PostalAddress",
-            "streetAddress":
-              "49-4-1, 17/3E, Prasanth Colony, 1st line, Gunadala, Kanuru",
+            "streetAddress": "Vijayawada",
             "addressLocality": "Andhra Pradesh",
             "postalCode": "520004",
             "addressCountry": "IN",
+          },
+        },
+        {
+          "@type": "Place",
+          "name": "China Office",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Bao'an District",
+            "addressLocality": "Shenzhen",
+            "addressRegion": "Guangdong",
+            "addressCountry": "CN",
           },
         },
       ],

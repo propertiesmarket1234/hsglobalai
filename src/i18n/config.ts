@@ -22,25 +22,25 @@ export const locales: Record<Locale, LocaleInfo> = {
   zh: {
     code: "zh",
     name: "Chinese",
-    nativeName: "中文",
+    nativeName: "Chinese (中文)",
     flag: "🇨🇳",
   },
   ru: {
     code: "ru",
     name: "Russian",
-    nativeName: "Русский",
+    nativeName: "Russian (Русский)",
     flag: "🇷🇺",
   },
   es: {
     code: "es",
     name: "Spanish",
-    nativeName: "Español",
+    nativeName: "Spanish (Español)",
     flag: "🇪🇸",
   },
   fr: {
     code: "fr",
     name: "French",
-    nativeName: "Français",
+    nativeName: "French (Français)",
     flag: "🇫🇷",
   },
 };

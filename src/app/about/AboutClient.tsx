@@ -238,7 +238,9 @@ export default function AboutClient() {
                 <div className="mt-6 flex flex-wrap items-center gap-4 text-xs font-medium text-cyan-400 font-mono">
                   <span>{aPage.hqLabel || "📍 Global HQ: Singapore (20 Collyer Quay, #09-01)"}</span>
                   <span className="text-gray-600">|</span>
-                  <span>{aPage.indiaOfficeLabel || "🏢 India Office: Andhra Pradesh (Kanuru, Vijayawada)"}</span>
+                  <span>{aPage.indiaOfficeLabel || "🏢 India Office: Andhra Pradesh (Vijayawada)"}</span>
+                  <span className="text-gray-600">|</span>
+                  <span>{aPage.chinaOfficeLabel || "🏬 China Office: Shenzhen (Bao'an District)"}</span>
                 </div>
               </div>
             </div>

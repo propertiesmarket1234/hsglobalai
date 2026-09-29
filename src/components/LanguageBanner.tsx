@@ -81,7 +81,7 @@ export default function LanguageBanner() {
             <p className="font-medium text-gray-200">
               {dict.languageBanner.promptPrefix}{" "}
               <strong className="text-cyan-300 font-semibold">
-                {targetLocaleInfo.nativeName} ({targetLocaleInfo.name})
+                {targetLocaleInfo.nativeName}
               </strong>
               {dict.languageBanner.promptSuffix}
             </p>
