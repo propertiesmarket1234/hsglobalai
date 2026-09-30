@@ -109,9 +109,9 @@ export const fr: Dictionary = {
       titleLine1: "Des Expériences d'IA",
       titleLine2Prefix: "Conçues pour le ",
       titleLine2Highlight: "Monde Réel.",
-      descriptionPrefix: "HS Global AI alimente les bornes physiques et écrans intelligents avec DIHUAVA—notre plateforme logicielle propriétaire d'Humains Virtuels IA, fonctionnant ",
+      descriptionPrefix: "HS Global AI anime les bornes interactives et écrans intelligents grâce à DIHUAVA, notre plateforme d'Humains Virtuels IA réalistes. Propulsée par ",
       descriptionHighlight: "100% Hors Ligne",
-      descriptionSuffix: " sur appareil pour une confidentialité totale, une faible latence et un engagement client en 3D holographique.",
+      descriptionSuffix: " pour offrir des réponses instantanées, une confidentialité totale des données et des expériences clients holographiques 3D inoubliables.",
       bookDemo: "Réserver une démo",
       exploreProducts: "Explorer les produits →",
       metrics: {

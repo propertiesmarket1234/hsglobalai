@@ -107,9 +107,9 @@ export const en = {
       titleLine1: "AI Experiences",
       titleLine2Prefix: "Built for the ",
       titleLine2Highlight: "Real World.",
-      descriptionPrefix: "HS Global AI powers physical kiosks and smart displays with DIHUAVA—our proprietary AI Digital Human software platform, running ",
+      descriptionPrefix: "HS Global AI powers interactive kiosks and smart displays with DIHUAVA, our lifelike AI Digital Human platform. Driven by ",
       descriptionHighlight: "100% Offline AI",
-      descriptionSuffix: " on-device by default for zero data leakage, low latency, and 3D holographic customer engagement.",
+      descriptionSuffix: " to deliver instant responses, total data privacy, and unforgettable 3D holographic customer experiences.",
       bookDemo: "Book a Demo",
       exploreProducts: "Explore Products →",
       metrics: {

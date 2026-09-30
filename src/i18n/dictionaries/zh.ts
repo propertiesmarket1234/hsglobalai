@@ -109,9 +109,9 @@ export const zh: Dictionary = {
       titleLine1: "构建于真实世界的",
       titleLine2Prefix: "",
       titleLine2Highlight: "AI 智能体验。",
-      descriptionPrefix: "HS Global AI 通过 DIHUAVA——我们自主研发的 AI 数字人软件平台，为实体终端和智能显示屏提供动力，默认在设备端运行 ",
+      descriptionPrefix: "HS Global AI 通过 DIHUAVA 这一拟真 AI 数字人平台，为交互式终端与智能显示屏注入活力。全系搭载 ",
       descriptionHighlight: "100% 离线 AI",
-      descriptionSuffix: "，具备零数据泄露、低延迟和 3D 全息客户互动功能。",
+      descriptionSuffix: "，提供即时响应、全面数据隐私保障以及令人难忘的 3D 全息客户互动体验。",
       bookDemo: "预约演示",
       exploreProducts: "探索产品 →",
       metrics: {

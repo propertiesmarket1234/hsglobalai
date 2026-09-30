@@ -109,9 +109,9 @@ export const es: Dictionary = {
     "titleLine1": "Experiencias de IA ",
     "titleLine2Prefix": "para el ",
     "titleLine2Highlight": "mundo real.",
-    "descriptionPrefix": "HS Global AI impulsa quioscos físicos y pantallas inteligentes con DIHUAVA: nuestra plataforma de humanos digitales ejecutada ",
+    "descriptionPrefix": "HS Global AI impulsa quioscos interactivos y pantallas inteligentes con DIHUAVA, nuestra plataforma de Humanos Digitales hiperrealistas. Impulsada por ",
     "descriptionHighlight": "100% sin conexión (Offline AI)",
-    "descriptionSuffix": " en el dispositivo por defecto, sin fuga de datos, baja latencia y experiencias holográficas 3D.",
+    "descriptionSuffix": " para ofrecer respuestas instantáneas, total privacidad de datos y experiencias holográficas 3D inolvidables.",
     "bookDemo": "Solicitar una demo",
     "exploreProducts": "Ver productos →",
     "metrics": {
