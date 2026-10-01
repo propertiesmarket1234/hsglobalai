@@ -59,6 +59,10 @@ export default function Footer() {
                 <span className="text-cyan-400 shrink-0 font-mono">{dict.footer.indiaOfficeLabel}</span>
                 <span>{dict.footer.indiaOfficeAddress}</span>
               </p>
+              <p className="flex items-start gap-2">
+                <span className="text-cyan-400 shrink-0 font-mono">{dict.footer.chinaOfficeLabel}</span>
+                <span>{dict.footer.chinaOfficeAddress}</span>
+              </p>
               <p className="flex items-center gap-2 pt-1">
                 <span className="text-cyan-400 shrink-0 font-mono">{dict.footer.emailLabel}</span>
                 <a href="mailto:sales@hsglobalai.com" className="hover:text-white transition-colors">
