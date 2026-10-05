@@ -46,7 +46,7 @@ export default function Footer() {
               </span>
             </Link>
 
-            <p className="mt-6 max-w-sm leading-7 text-gray-400 text-sm">
+            <p className="mt-6 max-w-sm leading-relaxed text-gray-400 text-sm sm:text-base">
               {dict.footer.description}
             </p>
 

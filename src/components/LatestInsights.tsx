@@ -112,7 +112,7 @@ export default function LatestInsights() {
                     {post.title}
                   </h3>
 
-                  <p className="mt-4 text-sm leading-6 text-gray-300 line-clamp-3">
+                  <p className="mt-4 text-sm sm:text-base leading-relaxed text-gray-300 line-clamp-3">
                     {post.snippet}
                   </p>
                 </div>

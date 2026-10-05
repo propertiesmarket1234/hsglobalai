@@ -165,7 +165,7 @@ export default function ProductsClient() {
           <h3 className="mt-2 text-2xl font-bold text-white sm:text-3xl">
             {pPage.industrySolutions?.title || "Engineered for Vertical Enterprise Environments"}
           </h3>
-          <p className="mt-3 text-sm text-gray-300 max-w-2xl mx-auto">
+          <p className="mt-3 text-sm sm:text-base leading-relaxed text-gray-300 max-w-2xl mx-auto">
             {pPage.industrySolutions?.desc || "Discover how HS Global AI digital humans and holographic displays are deployed across enterprise sector workflows."}
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs font-medium">

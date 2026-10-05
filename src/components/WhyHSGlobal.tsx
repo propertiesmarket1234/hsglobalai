@@ -213,7 +213,7 @@ export default function WhyHSGlobal() {
                 </p>
 
                 {/* Description */}
-                <p className="mt-4 text-sm leading-6 text-gray-400 group-hover:text-gray-300 transition-colors">
+                <p className="mt-4 text-sm sm:text-base leading-relaxed text-gray-400 group-hover:text-gray-300 transition-colors">
                   {feature.description}
                 </p>
               </div>

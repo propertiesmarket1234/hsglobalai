@@ -72,7 +72,7 @@ export default function Industries() {
             {ind.headingLine2}
           </h2>
 
-          <p className="max-w-md text-gray-400">
+          <p className="max-w-md text-base leading-relaxed text-gray-400">
             {ind.description}
           </p>
         </div>
@@ -93,7 +93,7 @@ export default function Industries() {
                 {industry.title}
               </h3>
 
-              <p className="max-w-lg text-sm leading-6 text-gray-400">
+              <p className="max-w-lg text-sm sm:text-base leading-relaxed text-gray-400">
                 {industry.description}
               </p>
 
@@ -106,7 +106,7 @@ export default function Industries() {
 
         {/* Bottom summary banner */}
         <div className="mt-16 text-center">
-          <p className="inline-block rounded-2xl border border-cyan-500/30 bg-cyan-950/40 px-6 py-4 text-sm font-medium text-cyan-200 backdrop-blur-md max-w-3xl">
+          <p className="inline-block rounded-2xl border border-cyan-500/30 bg-cyan-950/40 px-6 py-4 text-sm sm:text-base font-medium text-cyan-200 backdrop-blur-md max-w-3xl">
             {ind.bottomBanner}
           </p>
         </div>
