@@ -133,7 +133,7 @@ const coreModules = [
     featureUrl: "/products/ai-digital-human/persona-management",
     highlights: [
       "100% local hardware processing",
-      "GDPR, PDPA & HIPAA-friendly",
+      "Designed for privacy-focused environments with local, on-device data processing",
       "Zero voice data transmission",
       "Cryptographic device licensing",
     ],
@@ -456,12 +456,20 @@ export default function DihuavaClient() {
                   <>DIHUAVA — это корпоративная программная платформа AI Digital Human для интерактивных цифровых аватаров, которые естественно общаются, понимают вашу бизнес-базу знаний, говорят на многих языках и работают локально на интерактивных киосках, <Link href={lPath("/products/holographic-display")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">AI Hologram Box</Link> и <Link href={lPath("/products/spatial-display")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">3D Spatial Display</Link>.</>
                 ) : currentLocale === "es" ? (
                   <>DIHUAVA es una plataforma de software empresarial de AI Digital Human que impulsa humanos digitales interactivos que se comunican con naturalidad, comprenden su conocimiento empresarial, hablan múltiples idiomas y se ejecutan localmente en quioscos interactivos, <Link href={lPath("/products/holographic-display")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">AI Hologram Boxes</Link> y <Link href={lPath("/products/spatial-display")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">3D Spatial Displays</Link>.</>
-                ) : currentLocale === "fr" ? (
-                  <>DIHUAVA est une plateforme logicielle entreprise d'AI Digital Human alimentant des humains numériques interactifs qui communiquent naturellement, comprennent vos connaissances d'entreprise, parlent plusieurs langues et s'exécutent localement sur des bornes interactives, des <Link href={lPath("/products/holographic-display")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">AI Hologram Boxes</Link> et des <Link href={lPath("/products/spatial-display")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">3D Spatial Displays</Link>.</>
                 ) : (
                   <>DIHUAVA is an enterprise AI Digital Human software platform powering interactive digital humans that communicate naturally, understand your business knowledge, speak multiple languages, and run locally across interactive kiosks, <Link href={lPath("/products/holographic-display")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">AI Hologram Boxes</Link>, and <Link href={lPath("/products/spatial-display")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">3D Spatial Displays</Link>.</>
                 )}
               </p>
+
+              {/* VISIBLE GEO / AI ANSWER SUMMARY */}
+              <div className="mt-8 rounded-2xl border border-cyan-500/30 bg-cyan-950/40 p-6 backdrop-blur-md shadow-lg">
+                <h2 className="text-sm sm:text-base font-bold text-cyan-300 font-mono mb-2 uppercase tracking-wider">
+                  What is an AI Digital Human?
+                </h2>
+                <p className="text-sm leading-relaxed text-gray-200">
+                  An AI Digital Human is an interactive software-based avatar that can understand spoken or written input, generate responses, speak naturally, and support customer-facing tasks. DIHUAVA is HS Global AI&apos;s enterprise AI Digital Human software platform, running 100% offline on-device by default and designed for interactive kiosks, holographic displays, spatial displays, and enterprise customer experiences.
+                </p>
+              </div>
 
               {/* Action Buttons */}
               <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -559,7 +567,7 @@ export default function DihuavaClient() {
               {currentLocale === "zh" ? "系统架构" : currentLocale === "ru" ? "Архитектура системы" : currentLocale === "es" ? "Arquitectura del sistema" : currentLocale === "fr" ? "Architecture système" : "System Architecture"}
             </span>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-5xl">
-              {currentLocale === "zh" ? "驱动 Dihuava 的八大核心技术" : currentLocale === "ru" ? "Восемь ключевых технологий DIHUAVA" : currentLocale === "es" ? "Ocho tecnologías clave que impulsan Dihuava" : currentLocale === "fr" ? "Huit technologies clés alimentant Dihuava" : "Eight Core Technologies Powering Dihuava"}
+              {currentLocale === "zh" ? "驱动 DIHUAVA 的八大核心技术" : currentLocale === "ru" ? "Восемь ключевых технологий DIHUAVA" : currentLocale === "es" ? "Ocho tecnologías clave que impulsan DIHUAVA" : currentLocale === "fr" ? "Huit technologies clés alimentant DIHUAVA" : "Eight Core Technologies Powering DIHUAVA"}
             </h2>
             <p className="mt-4 text-base text-gray-400">
               {currentLocale === "zh" ? "Dihuava 采用集成的本地优先架构，对话 AI、渲染、多语言语音、视觉与硬件交互在物理边缘工作站上高效协同。" : currentLocale === "ru" ? "DIHUAVA работает по интегративной локальной модели, где разговорный AI, рендеринг, многоязычная речь, зрение и аппаратное взаимодействие функционируют локально." : currentLocale === "es" ? "Dihuava opera mediante un modelo integrado local donde la IA conversacional, el renderizado, el habla multilingüe, la visión y la interacción de hardware funcionan localmente." : currentLocale === "fr" ? "Dihuava fonctionne via un modèle intégré axé sur le local où l'IA conversationnelle, le rendu, la parole multilingue, la vision et l'interaction matérielle fonctionnent harmonieusement sur des stations de travail physiques." : "Dihuava operates via an integrated local-first model where conversational AI, rendering, multilingual speech, vision, and hardware interaction function harmoniously on physical edge workstations."}
@@ -598,7 +606,7 @@ export default function DihuavaClient() {
               {currentLocale === "zh" ? "简单 4 步流程" : currentLocale === "ru" ? "Простой 4-шаговый процесс" : currentLocale === "es" ? "Proceso simple de 4 pasos" : currentLocale === "fr" ? "Processus simple en 4 étapes" : "Simple 4-Step Process"}
             </span>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-5xl">
-              {currentLocale === "zh" ? "Dihuava 工作原理" : currentLocale === "ru" ? "Как работает DIHUAVA" : currentLocale === "es" ? "Cómo funciona Dihuava" : currentLocale === "fr" ? "Comment fonctionne Dihuava" : "How Dihuava Works"}
+              {currentLocale === "zh" ? "DIHUAVA 驱动 AI 数字人的工作原理" : currentLocale === "ru" ? "Как DIHUAVA управляет AI Digital Humans" : currentLocale === "es" ? "Cómo DIHUAVA impulsa a los AI Digital Humans" : currentLocale === "fr" ? "Comment DIHUAVA alimente les AI Digital Humans" : "How DIHUAVA Powers AI Digital Humans"}
             </h2>
             <p className="mt-4 text-base text-gray-400">
               {currentLocale === "zh" ? "无缝的端到端边缘流水线，无需云端依赖即可提供拟人化交互。" : currentLocale === "ru" ? "Сквозной локальный конвейер, обеспечивающий естественноподобное взаимодействие без зависимости от облака." : currentLocale === "es" ? "Un flujo continuo de extremo a extremo que impulsa interacciones humanas sin dependencia de la nube." : currentLocale === "fr" ? "Un pipeline d'extrémité à extrémité fluide alimentant des interactions humaines sans dépendance au cloud." : "A seamless end-to-end edge pipeline powering human-like interactions without cloud dependencies."}
@@ -752,15 +760,15 @@ export default function DihuavaClient() {
 
                 <p className="text-sm leading-7 text-gray-300">
                   {currentLocale === "zh" ? (
-                    <>访客在终端上点击 <strong className="text-white">合影</strong>，即可与 AI 数字人并排拍照。系统在不到一秒（约 300–400ms）内进行确定性端侧面部缩放与身高对齐，生成逼真的合影照片。</>
+                    <>访客在终端上点击 <strong className="text-white">合影</strong>，即可与 AI 数字人并排拍照。DIHUAVA 本地端侧实时完成面部缩放与身高对齐，实现流畅的低延迟视觉交互，生成逼真的合影照片。</>
                   ) : currentLocale === "ru" ? (
-                    <>Посетители нажимают <strong className="text-white">Селфи</strong> на киоске, чтобы сфотографироваться рядом с AI-аватором. Менее чем за секунду (~300–400 мс) система выполняет локальное масштабирование лица для создания фото.</>
+                    <>Посетители нажимают <strong className="text-white">Селфи</strong> на киоске, чтобы сфотографироваться рядом с AI-аватором. DIHUAVA выполняет масштабирование лица локально на устройстве для быстрого визуального взаимодействия.</>
                   ) : currentLocale === "es" ? (
-                    <>Los visitantes tocan <strong className="text-white">Selfie</strong> en el quiosco para posar junto al avatar de IA. En menos de un segundo (~300–400 ms), el sistema realiza la coincidencia de escala facial en el dispositivo para producir una foto realista.</>
+                    <>Los visitantes tocan <strong className="text-white">Selfie</strong> en el quiosco para posar junto al avatar de IA. DIHUAVA realiza la coincidencia de escala facial en el dispositivo para una interacción visual fluida y de baja latencia.</>
                   ) : currentLocale === "fr" ? (
-                    <>Les visiteurs touchent <strong className="text-white">Selfie</strong> sur la borne pour poser à côté de l'avatar IA. En moins d'une seconde (~300–400 ms), le système effectue la mise à l'échelle faciale sur l'appareil pour produire une photo réaliste.</>
+                    <>Les visiteurs touchent <strong className="text-white">Selfie</strong> sur la borne pour poser à côté de l'avatar IA. DIHUAVA effectue la mise à l'échelle faciale sur l'appareil pour une interaction visuelle réactive et à faible latence.</>
                   ) : (
-                    <>Visitors tap <strong className="text-white">Selfie</strong> on the kiosk to pose beside the AI avatar. In under a second (~300–400ms), the system performs deterministic on-device face scaling and height matching to produce a realistic composite photo.</>
+                    <>Visitors tap <strong className="text-white">Selfie</strong> on the kiosk to pose beside the AI avatar. DIHUAVA performs face scaling locally on-device for responsive, low-latency visual interaction to produce a realistic composite photo.</>
                   )}
                 </p>
 
@@ -978,7 +986,7 @@ export default function DihuavaClient() {
               {currentLocale === "zh" ? "为什么选择 DIHUAVA" : currentLocale === "ru" ? "Почему DIHUAVA" : currentLocale === "es" ? "Por qué DIHUAVA" : currentLocale === "fr" ? "Pourquoi DIHUAVA" : "Why DIHUAVA"}
             </span>
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              {currentLocale === "zh" ? "为什么企业选择 DIHUAVA" : currentLocale === "ru" ? "Почему компании выбирают DIHUAVA" : currentLocale === "es" ? "Por qué las empresas eligen DIHUAVA" : currentLocale === "fr" ? "Pourquoi les entreprises choisissent DIHUAVA" : "Why Businesses Choose DIHUAVA"}
+              {currentLocale === "zh" ? "为什么企业选择 DIHUAVA AI 数字人平台" : currentLocale === "ru" ? "Почему компании выбирают платформу DIHUAVA AI Digital Human" : currentLocale === "es" ? "Por qué las empresas eligen la plataforma DIHUAVA AI Digital Human" : currentLocale === "fr" ? "Pourquoi les entreprises choisissent la plateforme DIHUAVA AI Digital Human" : "Why Businesses Choose DIHUAVA AI Digital Human Platform"}
             </h2>
           </div>
 
@@ -1013,7 +1021,7 @@ export default function DihuavaClient() {
               {currentLocale === "zh" ? "平台技术规格" : currentLocale === "ru" ? "Технические характеристики" : currentLocale === "es" ? "Especificaciones de la plataforma" : currentLocale === "fr" ? "Spécifications de la plateforme" : "Platform Specifications"}
             </span>
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              {currentLocale === "zh" ? "DIHUAVA 企业级产品规格" : currentLocale === "ru" ? "Характеристики DIHUAVA Enterprise" : currentLocale === "es" ? "Especificaciones de DIHUAVA Enterprise" : currentLocale === "fr" ? "Spécifications produit DIHUAVA Enterprise" : "DIHUAVA Enterprise Product Specs"}
+              {currentLocale === "zh" ? "DIHUAVA 企业级产品规格" : currentLocale === "ru" ? "Спецификации DIHUAVA Enterprise" : currentLocale === "es" ? "Especificaciones de producto DIHUAVA Enterprise" : currentLocale === "fr" ? "Spécifications produit DIHUAVA Enterprise" : "DIHUAVA Enterprise Product Specifications"}
             </h2>
           </div>
 
