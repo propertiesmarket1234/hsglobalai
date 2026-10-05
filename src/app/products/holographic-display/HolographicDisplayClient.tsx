@@ -17,12 +17,12 @@ import {
 const hologramHeroImages = [
   {
     src: "/products/digital-humans/digital-human-new.png",
-    alt: "Life-size 3D hologram display box with executive AI digital human",
+    alt: "AI Hologram Box with DIHUAVA AI Digital Human",
     caption: "Life-size 1:1 scale digital avatar enclosure in executive silver suit",
   },
   {
     src: "/products/hologram-box/hologram-box-saree.jpg",
-    alt: "Life-size 3D hologram display box with cultural AI digital avatar",
+    alt: "3D AI Hologram Box display for enterprise environments",
     caption: "Life-size 1:1 scale digital avatar enclosure in traditional attire",
   },
 ];
@@ -31,7 +31,7 @@ const hologramFeatures = [
   {
     title: "Life-Size 4K 3D Volumetric Enclosure",
     description:
-      "Available in 55-inch, 65-inch, 75-inch, and 86-inch vertical 4K Ultra-HD holographic glass showcases displaying 1:1 scale digital human avatars with hyper-realistic depth perception and lifelike presence.",
+      "Available in 55-inch, 65-inch, 75-inch, and 86-inch vertical 4K Ultra-HD holographic glass showcases displaying 1:1 scale digital human avatars with hyper-realistic depth perception. The four distinct display sizes support diverse physical deployment requirements across retail showrooms, banking branches, corporate lobbies, and exhibition centers.",
     icon: Box,
     badge: "4K Ultra-HD | 55\" - 86\"",
   },
@@ -97,15 +97,15 @@ export default function HolographicDisplayClient() {
     slideText: hPage.slideText || "SLIDE",
     goToSlide: hPage.goToSlide || "Go to slide",
     imageAlts: hPage.imageAlts || [
-      "Life-size 3D hologram display box with executive AI digital human",
-      "Life-size 3D hologram display box with cultural AI digital avatar",
+      "AI Hologram Box with DIHUAVA AI Digital Human",
+      "3D AI Hologram Box display for enterprise environments",
     ],
     slideCaptions: hPage.slideCaptions || [
       "Life-size 1:1 scale digital avatar enclosure in executive silver suit",
       "Life-size 1:1 scale digital avatar enclosure in traditional attire",
     ],
     featuresBadge: hPage.featuresBadge || "Hardware Highlights",
-    featuresHeading: hPage.featuresHeading || "Turnkey holographic hardware built for physical spaces.",
+    featuresHeading: hPage.featuresHeading || "Turnkey AI Hologram Box Hardware for Enterprise Spaces",
     specsBadge: hPage.specsBadge || "Hardware Specifications",
     specsHeading: hPage.specsHeading || "AI Hologram Box Technical Parameters",
     tableHeaderSpec: hPage.tableHeaderSpec || "Specification",
@@ -198,9 +198,9 @@ export default function HolographicDisplayClient() {
               </div>
 
               <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl lg:leading-[1.1]">
-                {hPage.heroTitle || "Holographic Display "}{" "}
+                {hPage.heroTitle || "AI Hologram Box "}{" "}
                 <span className="bg-gradient-to-r from-cyan-400 via-sky-300 to-cyan-500 bg-clip-text text-transparent">
-                  {hPage.heroTitleHighlight || "(Hologram Box)"}
+                  {hPage.heroTitleHighlight || "3D Holographic Display"}
                 </span>
               </h1>
 
@@ -217,6 +217,16 @@ export default function HolographicDisplayClient() {
                   <>Bring intelligent <Link href={lPath("/products/ai-digital-human")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">DIHUAVA AI Digital Human</Link> software into physical environments through 3D holographic experiences supporting 29+ global languages, interactive speech recognition, custom voice cloning, and complementary <Link href={lPath("/products/spatial-display")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">3D Spatial Displays</Link>.</>
                 )}
               </p>
+
+              {/* GEO Answer Summary Block */}
+              <div className="mt-6 rounded-2xl border border-cyan-500/30 bg-cyan-950/40 p-5 backdrop-blur-md shadow-[0_0_20px_rgba(6,182,212,0.15)] max-w-2xl">
+                <h2 className="text-sm font-bold uppercase tracking-wider text-cyan-400 font-mono mb-2">
+                  What is an AI Hologram Box?
+                </h2>
+                <p className="text-sm leading-relaxed text-gray-300">
+                  An AI Hologram Box is a 3D holographic display enclosure that combines immersive visual presentation with interactive AI Digital Humans. HS Global AI&apos;s AI Hologram Box integrates <Link href={lPath("/products/ai-digital-human")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">DIHUAVA AI Digital Human</Link> software with a built-in AI workstation, multimodal sensors, directional audio, and 4K optical display technology for interactive experiences in physical environments.
+                </p>
+              </div>
 
               {/* Size Badge Selector Pills */}
               <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -407,6 +417,79 @@ export default function HolographicDisplayClient() {
         </div>
       </section>
 
+      {/* FAQ SECTION */}
+      <section className="relative overflow-hidden bg-black px-6 py-24 text-white border-t border-white/10">
+        <div className="mx-auto max-w-5xl">
+          <div className="text-center mb-14">
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400 font-mono">
+              Frequently Asked Questions
+            </span>
+            <h2 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              AI Hologram Box FAQ
+            </h2>
+            <p className="mt-3 text-sm text-gray-400 max-w-xl mx-auto">
+              Verified answers to key questions about HS Global AI&apos;s 3D Hologram Box display showcases and <Link href={lPath("/products/ai-digital-human")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">DIHUAVA AI Digital Human</Link> platform integration.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            <div className="rounded-2xl border border-white/10 bg-neutral-950/80 p-6 backdrop-blur-md">
+              <h3 className="text-base font-bold text-cyan-300 mb-2">
+                Q1. What is an AI Hologram Box?
+              </h3>
+              <p className="text-sm leading-relaxed text-gray-300">
+                An AI Hologram Box is a 3D holographic display enclosure that combines high-clarity 4K optical glass presentation with interactive AI Digital Humans. HS Global AI&apos;s AI Hologram Box integrates <Link href={lPath("/products/ai-digital-human")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">DIHUAVA AI Digital Human</Link> software with a built-in AI workstation, multimodal sensors, directional audio, and 4K optical display technology for interactive experiences in physical environments.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-neutral-950/80 p-6 backdrop-blur-md">
+              <h3 className="text-base font-bold text-cyan-300 mb-2">
+                Q2. What sizes are available for the AI Hologram Box?
+              </h3>
+              <p className="text-sm leading-relaxed text-gray-300">
+                The AI Hologram Box is available in four standard commercial sizes: 55-inch, 65-inch, 75-inch, and 86-inch vertical Ultra-HD 4K holographic optical glass showcases to support different physical deployment requirements across retail showrooms, banking branches, corporate lobbies, and exhibition centers.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-neutral-950/80 p-6 backdrop-blur-md">
+              <h3 className="text-base font-bold text-cyan-300 mb-2">
+                Q3. How does the AI Hologram Box work with DIHUAVA?
+              </h3>
+              <p className="text-sm leading-relaxed text-gray-300">
+                The AI Hologram Box features a built-in industrial AI workstation running the 100% offline <Link href={lPath("/products/ai-digital-human")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">DIHUAVA AI Digital Human</Link> engine. This enables real-time natural language interaction, document RAG knowledge retrieval, sub-second dialogue response, and multimodal speech synthesis on-device with zero cloud dependency.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-neutral-950/80 p-6 backdrop-blur-md">
+              <h3 className="text-base font-bold text-cyan-300 mb-2">
+                Q4. Where can an AI Hologram Box be deployed?
+              </h3>
+              <p className="text-sm leading-relaxed text-gray-300">
+                The AI Hologram Box is engineered for continuous 24/7 commercial operation across retail stores, banking branches, corporate reception lobbies, trade show exhibition halls, healthcare facilities, and public customer service hubs.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-neutral-950/80 p-6 backdrop-blur-md">
+              <h3 className="text-base font-bold text-cyan-300 mb-2">
+                Q5. What display technology does the AI Hologram Box use?
+              </h3>
+              <p className="text-sm leading-relaxed text-gray-300">
+                It utilizes high-transmission Ultra-HD 4K (3840 x 2160) 3D holographic optical glass with 700 nits brightness and a 4000:1 dynamic contrast ratio for vivid, life-size 1:1 digital avatar presentation with depth perception, complementary with <Link href={lPath("/products/spatial-display")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">3D Spatial Displays</Link>.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-neutral-950/80 p-6 backdrop-blur-md">
+              <h3 className="text-base font-bold text-cyan-300 mb-2">
+                Q6. Does the AI Hologram Box support AI Digital Humans?
+              </h3>
+              <p className="text-sm leading-relaxed text-gray-300">
+                Yes. The showcase is natively integrated with the <Link href={lPath("/products/ai-digital-human")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">DIHUAVA AI Digital Human Platform</Link>, supporting 1:1 life-size digital avatar rendering, 29+ global languages, custom voice cloning, camera tracking, and interactive touch controls.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <CTA
         title={t.ctaTitle}
         highlightTitle={t.ctaHighlight}
@@ -419,3 +502,4 @@ export default function HolographicDisplayClient() {
     </main>
   );
 }
+

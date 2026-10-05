@@ -1096,7 +1096,7 @@ export const en = {
   },
   holographicPage: {
     metadata: {
-      title: "3D Hologram Display Box & AI Hologram",
+      title: "AI Hologram Box & 3D Hologram Display | HS Global AI",
       description: "Explore HS Global AI's 3D Hologram Display Box in 55\", 65\", 75\", and 86\" sizes, with 4K Ultra-HD optical glass, AI computing, sensors, and DIHUAVA integration.",
     },
     breadcrumbProducts: "Products",
@@ -1113,15 +1113,15 @@ export const en = {
     slideText: "SLIDE",
     goToSlide: "Go to slide",
     imageAlts: [
-      "Life-size 3D hologram display box with executive AI digital human",
-      "Life-size 3D hologram display box with cultural AI digital avatar",
+      "AI Hologram Box with DIHUAVA AI Digital Human",
+      "3D AI Hologram Box display for enterprise environments",
     ],
     slideCaptions: [
       "Life-size 1:1 scale digital avatar enclosure in executive silver suit",
       "Life-size 1:1 scale digital avatar enclosure in traditional attire",
     ],
     featuresBadge: "Hardware Highlights",
-    featuresHeading: "Turnkey holographic hardware built for physical spaces.",
+    featuresHeading: "Turnkey AI Hologram Box Hardware for Enterprise Spaces",
     specsBadge: "Hardware Specifications",
     specsHeading: "AI Hologram Box Technical Parameters",
     tableHeaderSpec: "Specification",
@@ -1132,8 +1132,8 @@ export const en = {
     ctaPrimaryText: "Book a Demo",
     ctaSecondaryText: "Download Datasheets (PDF)",
     heroBadge: "3D Optical Glass Hardware",
-    heroTitle: "Holographic Display ",
-    heroTitleHighlight: "(Hologram Box)",
+    heroTitle: "AI Hologram Box ",
+    heroTitleHighlight: "3D Holographic Display",
     heroSubtitle: "Interactive 3D AI Digital Humans in Glass Showcase",
     heroDescription: "Bring intelligent AI Digital Humans into physical environments through 3D holographic experiences supporting 29+ global languages, interactive speech recognition, and custom voice cloning.",
     ctaPrimary: "Book a Demo",
