@@ -285,6 +285,17 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
                 </div>
               )}
 
+              {industry.slug === "corporate" && (
+                <div className="mt-4 rounded-xl border border-cyan-500/30 bg-cyan-950/40 px-4 py-2.5 text-xs text-gray-300">
+                  <span className="text-cyan-400 font-bold font-mono">Corporate AI Guide: </span>
+                  <span>Discover how AI Digital Human receptionists automate front-desk operations in </span>
+                  <Link href={lang === "en" ? "/blog/ai-business-automation" : `/${lang}/blog/ai-business-automation`} className="text-cyan-400 hover:text-cyan-300 underline font-semibold transition-colors">
+                    AI in Business Automation
+                  </Link>
+                  .
+                </div>
+              )}
+
               {industry.slug === "retail" && (
                 <div className="mt-4 rounded-xl border border-cyan-500/30 bg-cyan-950/40 px-4 py-2.5 text-xs text-gray-300 flex flex-wrap items-center gap-x-1.5 gap-y-1">
                   <span className="text-cyan-400 font-bold font-mono">Retail AI Guides: </span>

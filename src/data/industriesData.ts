@@ -313,20 +313,21 @@ export const industriesData: Record<string, IndustryDetail> = {
     slug: "corporate",
     number: "03",
     title: "Corporate Services & HR",
+    h1Title: "AI Digital Human Receptionists for Corporate Services & HR",
     subtitle: "Digital Receptionists & HR AI Assistants",
     icon: "🏢",
     badge: "ENTERPRISE AI CONCIERGE",
     description:
       "Enhance front-desk operations with digital receptionists, visitor management holograms, employee onboarding guides, and enterprise-grade AI assistants for HR, IT, and internal corporate communications.",
     heroOverview:
-      "Elevate executive lobbies, headquarters, and workplace facilities with AI digital human receptionists. Automate visitor check-in, issue visitor badges, guide employees through HR policies via on-device PDF RAG, and streamline workplace operations.",
+      "HS Global AI provides AI Digital Human receptionists and 3D holographic display solutions for corporate headquarters, enterprise lobbies, and HR departments. Powered by the DIHUAVA AI platform, systems support visitor registration, badge printing, workplace wayfinding, and employee information assistance through on-device processing.",
     accentColor: "from-cyan-500/20 via-sky-500/10 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.3)",
     metrics: [
-      { label: "Reception Workload Automated", value: "85%" },
-      { label: "Operational Uptime", value: "99.9%" },
-      { label: "Visitor Check-In Speed", value: "< 1s" },
-      { label: "On-Device Processing", value: "100%" },
+      { label: "Reception Workload Automation (Target Benchmark)", value: "85%" },
+      { label: "Operational Uptime (Target Benchmark)", value: "99.9%" },
+      { label: "Visitor Check-In Response Speed (Target Benchmark)", value: "< 1s" },
+      { label: "On-Device Processing (Offline Architecture)", value: "100%" },
     ],
     capabilities: [
       {
@@ -407,6 +408,44 @@ export const industriesData: Record<string, IndustryDetail> = {
     metaTitle: "AI Digital Human Receptionists for Corporate Services & HR",
     metaDescription:
       "Automate corporate front-desk reception, visitor management check-in, and employee HR policy assistance with 3D hologram AI receptionists.",
+    infoDepth: {
+      what: "HS Global AI provides AI Digital Human receptionist and 3D holographic concierge solutions for corporate office facilities, executive lobbies, visitor check-in stations, and HR departments.",
+      why: "Enterprise organizations deploy AI Digital Humans to modernize front-desk reception, streamline visitor registration, and provide consistent workplace information assistance.",
+      how: "The DIHUAVA AI platform powers natural spoken conversation, localized HR handbook RAG, visitor QR or badge workflows, and host notification integrations. Processing runs on local edge hardware by default.",
+      where: "Typical deployment environments include corporate headquarters lobbies, multi-tenant office buildings, executive floors, HR service desks, and IT support helpdesks.",
+      who: "Designed for enterprise headquarters, commercial real estate hubs, multinational regional offices, HR departments, and facility management teams seeking interactive front-desk assistance.",
+      limitations: "Operational Boundary Notice: DIHUAVA Digital Humans in corporate environments provide front-desk greeting, visitor check-in, directory navigation, and informational assistance. Systems do not execute binding legal contracts, process payroll transactions, or replace human HR directors.",
+    },
+    faqs: [
+      {
+        question: "How can AI Digital Humans be used at corporate reception desks?",
+        answer: "AI Digital Humans are deployed at corporate reception desks to greet arriving visitors, manage check-in registration, issue digital guest badges, provide interactive floor-by-floor wayfinding, and notify host employees via Slack or Microsoft Teams.",
+      },
+      {
+        question: "Can an AI receptionist support visitor check-in and registration?",
+        answer: "Yes. The AI receptionist guides guests through self-service check-in, captures visitor log details, displays NDA acknowledgments, and sends host employee arrival notifications automatically.",
+      },
+      {
+        question: "Can AI Digital Humans answer employee HR and company policy questions?",
+        answer: "Yes. Powered by local document intelligence (RAG), DIHUAVA indexes internal corporate handbooks, employee benefits guides, and IT troubleshooting documents to provide instant policy answers with strict data privacy.",
+      },
+      {
+        question: "Can the corporate AI solution operate offline without cloud dependence?",
+        answer: "Yes. DIHUAVA is engineered to execute 100% on-device on local edge GPU hardware by default. Speech recognition, policy document indexing, and avatar rendering run locally without cloud data transmission.",
+      },
+      {
+        question: "Can AI Digital Human receptionists work with 3D Hologram Boxes in lobbies?",
+        answer: "Yes. DIHUAVA AI Digital Humans can be projected inside life-size 3D Hologram Box enclosures (65\", 75\", 86\") or ultra-slim 4K Spatial Displays, creating a 1:1 scale volumetric receptionist in executive lobbies.",
+      },
+      {
+        question: "Can the system provide multilingual assistance for global corporate offices?",
+        answer: "Yes. DIHUAVA features real-time speech recognition and voice synthesis supporting 29+ Global Languages on-device, allowing multinational offices to assist international clients and visiting staff in their native language.",
+      },
+      {
+        question: "Where can corporate AI Digital Humans be deployed?",
+        answer: "Corporate AI Digital Humans can be deployed in main corporate building lobbies, multi-tenant elevator banks, executive VIP suites, HR onboarding centers, IT support helpdesks, and facility management service desks.",
+      },
+    ],
   },
 
   healthcare: {
