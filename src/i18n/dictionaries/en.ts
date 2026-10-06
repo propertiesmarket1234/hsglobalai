@@ -1212,12 +1212,12 @@ export const en = {
     heroInlineDesc2: " and ",
     heroInlinePanel: "4K Ultra HD touch screen panel",
     heroInlineDesc3: ", available in ",
-    heroInlineSizes: "55\", 65\", 75\", and 86\"",
+    heroInlineSizes: "32\", 43\", 55\", 65\", 75\", and 86\"",
     heroInlineDesc4: " display sizes. Also explore our life-size ",
     heroHologramLinkText: "AI Hologram Box enclosures",
     ctaPrimaryBtn: "Book Spatial Display Demo →",
     ctaSecondaryBtn: "Download Spatial Datasheet (PDF)",
-    heroPillProfile: "6 cm Profile • 55\"–86\"",
+    heroPillProfile: "6 cm Profile • 32\"–86\"",
     heroOverlayThickness: "● 6 CM THICKNESS",
     heroOverlayCaption: "Spatial Display Touch Screen with 4K Ultra HD volumetric depth perception",
     imageAlt: "AI Spatial Display Volumetric Screen Showcase",
@@ -1225,17 +1225,17 @@ export const en = {
     hardwareHighlightTitle1: "Spatial Display Touch Screen",
     hardwareHighlightTitle2: "With ",
     hardwareHighlightDesc:
-      "Featuring an ultra-thin 6 cm body thickness, responsive multi-touch interactive glass surface, and ultra-crisp 4K Ultra HD resolution across 55\", 65\", 75\", and 86\" screen sizes.",
+      "Featuring an ultra-thin 6 cm body thickness, responsive multi-touch interactive glass surface, and ultra-crisp 4K Ultra HD resolution across 32\", 43\", 55\", 65\", 75\", and 86\" screen sizes.",
     cardProfileLabel: "Body Profile",
     cardProfileVal: "6 cm Depth",
     cardSizesLabel: "Available Sizes",
-    cardSizesVal: "55\", 65\", 75\", 86\"",
+    cardSizesVal: "32\", 43\", 55\", 65\", 75\", 86\"",
     cardPanelLabel: "Interactive Panel",
     cardPanelVal: "4K Touch Screen",
     defSectionBadge: "Product Definition",
     defSectionTitle: "What is Spatial Display?",
     defSectionDesc:
-      "Spatial Display is an immersive hardware display platform engineered to present stereoscopic 3D visuals and host interactive AI Digital Humans directly in physical spaces without specialized headsets.",
+      "Spatial Display is a glasses-free 3D display technology that uses spatial optical techniques to present immersive visual depth directly to viewers without requiring 3D glasses or headsets. HS Global AI's Spatial Display can integrate with DIHUAVA AI Digital Humans for interactive customer and enterprise experiences.",
     definitionPoints: [
       {
         title: "Immersive Visual Display",
@@ -1279,7 +1279,7 @@ export const en = {
     physLayerName: "Spatial Display",
     physBullets: [
       "• 6 cm Ultra-Slim Body Thickness",
-      "• 55\", 65\", 75\", 86\" 4K Touch Panels",
+      "• 32\", 43\", 55\", 65\", 75\", 86\" 4K Touch Panels",
       "• Light-Field Spatial Optics",
       "• Real-Time Eye Tracking Sensors",
     ],
@@ -1435,7 +1435,7 @@ export const en = {
     specs: [
       {
         label: "Available Sizes",
-        value: "55-inch, 65-inch, 75-inch, 86-inch",
+        value: "32-inch, 43-inch, 55-inch, 65-inch, 75-inch, 86-inch",
       },
       {
         label: "Profile Thickness",

@@ -202,7 +202,7 @@ const comparisonData = [
 ];
 
 const spatialSpecs = [
-  { label: "Available Sizes", value: '55-inch, 65-inch, 75-inch, 86-inch' },
+  { label: "Available Sizes", value: '32-inch, 43-inch, 55-inch, 65-inch, 75-inch, 86-inch' },
   { label: "Profile Thickness", value: "Ultra-Slim 6 cm Body Thickness" },
   { label: "Display & Touch Panel", value: "Spatial Display Touch Screen with 4K Ultra HD Resolution" },
   { label: "3D Display Technology", value: "Light-Field Spatial Optical Panel" },
@@ -324,7 +324,7 @@ export default function SpatialDisplayClient() {
                 {sPage.heroInlineDesc2 || " and "}
                 <strong>{sPage.heroInlinePanel || "4K Ultra HD touch screen panel"}</strong>
                 {sPage.heroInlineDesc3 || ", available in "}
-                <strong>{sPage.heroInlineSizes || '55", 65", 75", and 86"'}</strong>
+                <strong>{sPage.heroInlineSizes || '32", 43", 55", 65", 75", and 86"'}</strong>
                 {sPage.heroInlineDesc4 || " display sizes. Also explore our life-size "}
                 <Link href={lPath("/products/holographic-display")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold transition-colors">
                   {sPage.heroHologramLinkText || "AI Hologram Box enclosures"}
@@ -372,7 +372,7 @@ export default function SpatialDisplayClient() {
                       <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-500" />
                     </span>
                     <span className="text-[11px] font-mono font-medium tracking-wider text-cyan-300 uppercase">
-                      {sPage.heroPillProfile || "6 cm Profile • 55\"–86\""}
+                      {sPage.heroPillProfile || "6 cm Profile • 32\"–86\""}
                     </span>
                   </div>
 
@@ -403,12 +403,16 @@ export default function SpatialDisplayClient() {
             </span>
           </div>
 
+          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white font-mono mt-2 mb-4">
+            6 cm Ultra-Slim Profile &amp; 4K Resolution
+          </h2>
+
           <div className="flex items-center justify-center gap-4 sm:gap-8 my-4">
             <div className="flex-1 max-w-[120px] sm:max-w-[220px] h-[3px] bg-gradient-to-r from-transparent via-cyan-400 to-indigo-500 shadow-[0_0_12px_#06b6d4]" />
 
-            <h2 className="text-6xl sm:text-8xl md:text-9xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-400 via-purple-300 to-cyan-300 bg-clip-text text-transparent drop-shadow-[0_0_40px_rgba(168,85,247,0.6)] font-mono">
+            <div className="text-6xl sm:text-8xl md:text-9xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-400 via-purple-300 to-cyan-300 bg-clip-text text-transparent drop-shadow-[0_0_40px_rgba(168,85,247,0.6)] font-mono">
               6 cm
-            </h2>
+            </div>
 
             <div className="flex-1 max-w-[120px] sm:max-w-[220px] h-[3px] bg-gradient-to-l from-transparent via-cyan-400 to-indigo-500 shadow-[0_0_12px_#06b6d4]" />
           </div>
@@ -433,7 +437,7 @@ export default function SpatialDisplayClient() {
             </div>
             <div className="rounded-2xl border border-cyan-500/30 bg-cyan-950/40 px-6 py-3.5 backdrop-blur-md">
               <p className="text-xs font-mono text-cyan-300 uppercase">{sPage.cardSizesLabel || "Available Sizes"}</p>
-              <p className="text-xl font-bold text-white mt-0.5">{sPage.cardSizesVal || '55", 65", 75", 86"'}</p>
+              <p className="text-xl font-bold text-white mt-0.5">{sPage.cardSizesVal || '32", 43", 55", 65", 75", 86"'}</p>
             </div>
             <div className="rounded-2xl border border-amber-500/30 bg-amber-950/40 px-6 py-3.5 backdrop-blur-md">
               <p className="text-xs font-mono text-amber-300 uppercase">{sPage.cardPanelLabel || "Interactive Panel"}</p>
@@ -454,7 +458,7 @@ export default function SpatialDisplayClient() {
               {sPage.defSectionTitle || "What is Spatial Display?"}
             </h2>
             <p className="mt-4 text-base leading-8 text-gray-300">
-              {sPage.defSectionDesc}
+              {sPage.defSectionDesc || "Spatial Display is a glasses-free 3D display technology that uses spatial optical techniques to present immersive visual depth directly to viewers without requiring 3D glasses or headsets. HS Global AI's Spatial Display can integrate with DIHUAVA AI Digital Humans for interactive customer and enterprise experiences."}
             </p>
           </div>
 
@@ -546,7 +550,7 @@ export default function SpatialDisplayClient() {
                     </span>
                     <h4 className="text-lg font-bold text-white mt-1">{sPage.physLayerName || "Spatial Display"}</h4>
                     <ul className="mt-2 text-xs text-gray-300 space-y-1.5 font-mono">
-                      {(sPage.physBullets || ["• 6 cm Ultra-Slim Body Thickness", "• 55\", 65\", 75\", 86\" 4K Touch Panels", "• Light-Field Spatial Optics", "• Real-Time Eye Tracking Sensors"]).map((b: string, i: number) => (
+                      {(sPage.physBullets || ["• 6 cm Ultra-Slim Body Thickness", "• 32\", 43\", 55\", 65\", 75\", 86\" 4K Touch Panels", "• Light-Field Spatial Optics", "• Real-Time Eye Tracking Sensors"]).map((b: string, i: number) => (
                         <li key={i}>{b}</li>
                       ))}
                     </ul>
@@ -756,6 +760,158 @@ export default function SpatialDisplayClient() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SPATIAL DISPLAY VS AI HOLOGRAM BOX COMPARISON SECTION */}
+      <section className="relative overflow-hidden bg-black px-6 py-24 text-white border-b border-white/10">
+        <div className="mx-auto max-w-7xl">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-xs font-bold tracking-[0.3em] text-cyan-400 font-mono uppercase">
+              Form Factor &amp; Platform Architecture
+            </span>
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
+              Spatial Display vs. AI Hologram Box
+            </h2>
+            <p className="mt-4 text-base text-gray-300">
+              Understand the distinct physical form factors and how the DIHUAVA AI software platform powers interactive experiences across both hardware displays.
+            </p>
+          </div>
+
+          <div className="grid gap-8 lg:grid-cols-3">
+            {/* Spatial Display Card */}
+            <div className="rounded-3xl border border-cyan-500/40 bg-cyan-950/20 p-8 backdrop-blur-xl flex flex-col justify-between shadow-[0_0_30px_rgba(6,182,212,0.15)]">
+              <div>
+                <span className="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3.5 py-1 text-xs font-mono font-bold text-cyan-300 uppercase">
+                  Hardware • 3D Screen Panel
+                </span>
+                <h3 className="mt-6 text-2xl font-bold text-white">Spatial Display</h3>
+                <p className="mt-3 text-sm text-gray-300 leading-relaxed">
+                  Ultra-slim 6 cm depth display screen panel using lenticular light-field spatial optics and real-time optical eye tracking to deliver glasses-free 3D stereoscopic depth perception and immersive visual experiences.
+                </p>
+                <ul className="mt-6 space-y-2.5 text-xs font-mono text-gray-300">
+                  <li className="flex items-center gap-2 text-cyan-300">✓ Glasses-Free / Naked-Eye 3D</li>
+                  <li className="flex items-center gap-2 text-cyan-300">✓ Ultra-Slim 6 cm Display Panel</li>
+                  <li className="flex items-center gap-2 text-cyan-300">✓ Spatial Light-Field Optical Technology</li>
+                  <li className="flex items-center gap-2 text-cyan-300">✓ 32", 43", 55", 65", 75", 86" Touch Panels</li>
+                </ul>
+              </div>
+              <div className="mt-8 pt-4 border-t border-white/10">
+                <span className="text-xs font-mono text-cyan-400">Primary Role: Volumetric 3D Visual Stage</span>
+              </div>
+            </div>
+
+            {/* AI Hologram Box Card */}
+            <div className="rounded-3xl border border-purple-500/40 bg-purple-950/20 p-8 backdrop-blur-xl flex flex-col justify-between shadow-[0_0_30px_rgba(168,85,247,0.15)]">
+              <div>
+                <span className="rounded-full border border-purple-500/30 bg-purple-500/10 px-3.5 py-1 text-xs font-mono font-bold text-purple-300 uppercase">
+                  Hardware • Holographic Enclosure
+                </span>
+                <h3 className="mt-6 text-2xl font-bold text-white">AI Hologram Box</h3>
+                <p className="mt-3 text-sm text-gray-300 leading-relaxed">
+                  3D holographic display showcase enclosure in a glass cabinet form factor, delivering life-size 1:1 holographic presentation for interactive avatar engagement.
+                </p>
+                <ul className="mt-6 space-y-2.5 text-xs font-mono text-gray-300">
+                  <li className="flex items-center gap-2 text-purple-300">✓ 3D Holographic Display Enclosure</li>
+                  <li className="flex items-center gap-2 text-purple-300">✓ Box / Glass Cabinet Form Factor</li>
+                  <li className="flex items-center gap-2 text-purple-300">✓ Life-Size Holographic Presentation</li>
+                  <li className="flex items-center gap-2 text-purple-300">✓ 55", 65", 75", 86" Glass Enclosures</li>
+                </ul>
+              </div>
+              <div className="mt-8 pt-4 border-t border-white/10">
+                <Link href={lPath("/products/holographic-display")} className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-purple-400 hover:text-purple-300 underline">
+                  <span>Explore AI Hologram Box</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+
+            {/* DIHUAVA Software Card */}
+            <div className="rounded-3xl border border-sky-500/40 bg-sky-950/20 p-8 backdrop-blur-xl flex flex-col justify-between shadow-[0_0_30px_rgba(14,165,233,0.15)]">
+              <div>
+                <span className="rounded-full border border-sky-500/30 bg-sky-500/10 px-3.5 py-1 text-xs font-mono font-bold text-sky-300 uppercase">
+                  Software • AI Intelligence Layer
+                </span>
+                <h3 className="mt-6 text-2xl font-bold text-white">DIHUAVA Platform</h3>
+                <p className="mt-3 text-sm text-gray-300 leading-relaxed">
+                  Enterprise AI Digital Human software platform serving as the intelligence layer powering interactive avatars, local speech recognition, 29+ global languages, and document RAG across hardware.
+                </p>
+                <ul className="mt-6 space-y-2.5 text-xs font-mono text-gray-300">
+                  <li className="flex items-center gap-2 text-sky-300">✓ AI Digital Human Avatars</li>
+                  <li className="flex items-center gap-2 text-sky-300">✓ Intelligence &amp; Software Layer</li>
+                  <li className="flex items-center gap-2 text-sky-300">✓ 100% Offline Edge GPU RAG</li>
+                  <li className="flex items-center gap-2 text-sky-300">✓ Powers Supported Hardware Experiences</li>
+                </ul>
+              </div>
+              <div className="mt-8 pt-4 border-t border-white/10">
+                <Link href={lPath("/products/ai-digital-human")} className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-sky-400 hover:text-sky-300 underline">
+                  <span>Explore DIHUAVA AI Platform</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FREQUENTLY ASKED QUESTIONS SECTION */}
+      <section className="relative overflow-hidden bg-neutral-950 px-6 py-24 text-white border-b border-white/10">
+        <div className="mx-auto max-w-4xl">
+          <div className="text-center mb-16">
+            <span className="text-xs font-bold tracking-[0.3em] text-cyan-400 font-mono uppercase">
+              Frequently Asked Questions
+            </span>
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
+              Spatial Display FAQs
+            </h2>
+            <p className="mt-4 text-base text-gray-300">
+              Essential answers regarding Spatial Display technology, glasses-free 3D optics, available sizes, and DIHUAVA AI integration.
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            <div className="rounded-3xl border border-white/15 bg-black/80 p-8 backdrop-blur-xl">
+              <h3 className="text-xl font-bold text-white mb-3">What is a Spatial Display?</h3>
+              <p className="text-sm leading-7 text-gray-300">
+                Spatial Display is a glasses-free 3D display technology that uses spatial optical techniques to present immersive visual depth directly to viewers without requiring 3D glasses or headsets. HS Global AI&apos;s Spatial Display can integrate with DIHUAVA AI Digital Humans for interactive customer and enterprise experiences.
+              </p>
+            </div>
+
+            <div className="rounded-3xl border border-white/15 bg-black/80 p-8 backdrop-blur-xl">
+              <h3 className="text-xl font-bold text-white mb-3">Is the Spatial Display glasses-free?</h3>
+              <p className="text-sm leading-7 text-gray-300">
+                Yes, Spatial Display features lenticular light-field optical technology and real-time optical eye tracking to deliver natural 3D depth perception directly to viewer eyes without specialized glasses or AR/VR headsets.
+              </p>
+            </div>
+
+            <div className="rounded-3xl border border-white/15 bg-black/80 p-8 backdrop-blur-xl">
+              <h3 className="text-xl font-bold text-white mb-3">What sizes are available?</h3>
+              <p className="text-sm leading-7 text-gray-300">
+                Spatial Display is available in six confirmed screen sizes: 32-inch, 43-inch, 55-inch, 65-inch, 75-inch, and 86-inch 4K Ultra HD touch panels.
+              </p>
+            </div>
+
+            <div className="rounded-3xl border border-white/15 bg-black/80 p-8 backdrop-blur-xl">
+              <h3 className="text-xl font-bold text-white mb-3">How does DIHUAVA AI integrate with Spatial Display?</h3>
+              <p className="text-sm leading-7 text-gray-300">
+                Spatial Display serves as the physical 3D display hardware layer, while DIHUAVA acts as the AI software intelligence layer. DIHUAVA powers real-time AI Digital Human avatars, speech recognition, local document RAG, and multilingual conversations on the Spatial Display screen.
+              </p>
+            </div>
+
+            <div className="rounded-3xl border border-white/15 bg-black/80 p-8 backdrop-blur-xl">
+              <h3 className="text-xl font-bold text-white mb-3">What is the difference between Spatial Display and an AI Hologram Box?</h3>
+              <p className="text-sm leading-7 text-gray-300">
+                Spatial Display is an ultra-slim 6 cm glasses-free 3D display screen panel using light-field spatial optics. The AI Hologram Box is a 3D glass enclosure showcase designed for life-size 1:1 holographic avatar presentations. Both hardware platforms connect to the DIHUAVA AI software engine.
+              </p>
+            </div>
+
+            <div className="rounded-3xl border border-white/15 bg-black/80 p-8 backdrop-blur-xl">
+              <h3 className="text-xl font-bold text-white mb-3">Where can Spatial Display be deployed?</h3>
+              <p className="text-sm leading-7 text-gray-300">
+                Spatial Display can be deployed across commercial environments including retail showcases, corporate lobbies, healthcare clinics, educational facilities, hospitality concierge desks, museums, and public exhibition spaces.
+              </p>
             </div>
           </div>
         </div>

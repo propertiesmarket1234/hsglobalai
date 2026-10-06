@@ -1064,12 +1064,12 @@ export const fr: Dictionary = {
     heroInlineDesc2: " et d'un panneau tactile ",
     heroInlinePanel: "4K Ultra HD",
     heroInlineDesc3: ", disponible en tailles de ",
-    heroInlineSizes: "55\", 65\", 75\" et 86\"",
+    heroInlineSizes: "32\", 43\", 55\", 65\", 75\" et 86\"",
     heroInlineDesc4: ". Découvrez également nos vitrines holographiques ",
     heroHologramLinkText: "AI Hologram Box à taille réelle",
     ctaPrimaryBtn: "Réserver une démo Spatial Display →",
     ctaSecondaryBtn: "Télécharger la fiche technique (PDF)",
-    heroPillProfile: "Profil 6 cm • 55\"–86\"",
+    heroPillProfile: "Profil 6 cm • 32\"–86\"",
     heroOverlayThickness: "● ÉPAISSEUR DE 6 CM",
     heroOverlayCaption: "Écran tactile Spatial Display avec perception de la profondeur volumétrique 4K Ultra HD",
     imageAlt: "Démonstration d'écran volumétrique AI Spatial Display",
@@ -1077,11 +1077,11 @@ export const fr: Dictionary = {
     hardwareHighlightTitle1: "Écran tactile Spatial Display",
     hardwareHighlightTitle2: "Avec technologie ",
     hardwareHighlightDesc:
-      "Conçu avec un boîtier ultra-fin de 6 cm d'épaisseur, une surface tactile en verre et une résolution 4K Ultra HD disponible en 55\", 65\", 75\" et 86\".",
+      "Conçu avec un boîtier ultra-fin de 6 cm d'épaisseur, une surface tactile en verre et une résolution 4K Ultra HD disponible en 32\", 43\", 55\", 65\", 75\" et 86\".",
     cardProfileLabel: "Profil du boîtier",
     cardProfileVal: "6 cm d'épaisseur",
     cardSizesLabel: "Tailles disponibles",
-    cardSizesVal: "55\", 65\", 75\", 86\"",
+    cardSizesVal: "32\", 43\", 55\", 65\", 75\", 86\"",
     cardPanelLabel: "Panneau interactif",
     cardPanelVal: "Écran tactile 4K",
     defSectionBadge: "Définition du produit",
@@ -1131,7 +1131,7 @@ export const fr: Dictionary = {
     physLayerName: "Spatial Display",
     physBullets: [
       "• Boîtier ultra-fin de 6 cm d'épaisseur",
-      "• Panneaux tactiles 4K de 55\", 65\", 75\", 86\"",
+      "• Panneaux tactiles 4K de 32\", 43\", 55\", 65\", 75\", 86\"",
       "• Optique spatiale à champ lumineux",
       "• Capteurs de suivi oculaire en temps réel",
     ],
@@ -1286,7 +1286,7 @@ export const fr: Dictionary = {
     specs: [
       {
         label: "Tailles disponibles",
-        value: "55 pouces, 65 pouces, 75 pouces, 86 pouces",
+        value: "32 pouces, 43 pouces, 55 pouces, 65 pouces, 75 pouces, 86 pouces",
       },
       {
         label: "Épaisseur du profil",

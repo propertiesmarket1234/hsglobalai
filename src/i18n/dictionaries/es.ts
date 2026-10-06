@@ -1230,12 +1230,12 @@ export const es: Dictionary = {
     heroInlineDesc2: " y panel táctil ",
     heroInlinePanel: "4K Ultra HD",
     heroInlineDesc3: ", disponible en tamaños de ",
-    heroInlineSizes: "55\", 65\", 75\" y 86\"",
+    heroInlineSizes: "32\", 43\", 55\", 65\", 75\" y 86\"",
     heroInlineDesc4: ". También explore nuestras cabinas holográficas ",
     heroHologramLinkText: "AI Hologram Box a tamaño real",
     ctaPrimaryBtn: "Reservar demo de Spatial Display →",
     ctaSecondaryBtn: "Descargar ficha técnica (PDF)",
-    heroPillProfile: "Perfil 6 cm • 55\"–86\"",
+    heroPillProfile: "Perfil 6 cm • 32\"–86\"",
     heroOverlayThickness: "● GROSOR DE 6 CM",
     heroOverlayCaption: "Pantalla táctil Spatial Display con percepción de profundidad volumétrica 4K Ultra HD",
     imageAlt: "Exhibición de pantalla volumétrica AI Spatial Display",
@@ -1243,11 +1243,11 @@ export const es: Dictionary = {
     hardwareHighlightTitle1: "Pantalla táctil Spatial Display",
     hardwareHighlightTitle2: "Con resolución ",
     hardwareHighlightDesc:
-      "Diseñada con un cuerpo ultradelgado de 6 cm de grosor, superficie de cristal multitáctil y resolución 4K Ultra HD en tamaños de 55\", 65\", 75\" y 86\".",
+      "Diseñada con un cuerpo ultradelgado de 6 cm de grosor, superficie de cristal multitáctil y resolución 4K Ultra HD en tamaños de 32\", 43\", 55\", 65\", 75\" y 86\".",
     cardProfileLabel: "Perfil del cuerpo",
     cardProfileVal: "6 cm de grosor",
     cardSizesLabel: "Tamaños disponibles",
-    cardSizesVal: "55\", 65\", 75\", 86\"",
+    cardSizesVal: "32\", 43\", 55\", 65\", 75\", 86\"",
     cardPanelLabel: "Panel interactivo",
     cardPanelVal: "Pantalla táctil 4K",
     defSectionBadge: "Definición del producto",
@@ -1297,7 +1297,7 @@ export const es: Dictionary = {
     physLayerName: "Spatial Display",
     physBullets: [
       "• Cuerpo ultradelgado de 6 cm",
-      "• Paneles táctiles 4K de 55\", 65\", 75\", 86\"",
+      "• Paneles táctiles 4K de 32\", 43\", 55\", 65\", 75\", 86\"",
       "• Óptica espacial de campo de luz",
       "• Sensores de seguimiento ocular en tiempo real",
     ],
@@ -1452,7 +1452,7 @@ export const es: Dictionary = {
     specs: [
       {
         label: "Tamaños disponibles",
-        value: "55 pulgadas, 65 pulgadas, 75 pulgadas, 86 pulgadas",
+        value: "32 pulgadas, 43 pulgadas, 55 pulgadas, 65 pulgadas, 75 pulgadas, 86 pulgadas",
       },
       {
         label: "Grosor del perfil",

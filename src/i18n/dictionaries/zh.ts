@@ -1100,12 +1100,12 @@ export const zh: Dictionary = {
     heroInlineDesc2: " 与 ",
     heroInlinePanel: "4K Ultra HD 触控面板",
     heroInlineDesc3: "，提供 ",
-    heroInlineSizes: "55\"、65\"、75\" 和 86\"",
+    heroInlineSizes: "32\"、43\"、55\"、65\"、75\" 和 86\"",
     heroInlineDesc4: " 显示尺寸。同时可了解我们真人等比例的 ",
     heroHologramLinkText: "AI 3D全息显示柜产品",
     ctaPrimaryBtn: "预约裸眼空间屏演示 →",
     ctaSecondaryBtn: "下载空间显示屏白皮书 (PDF)",
-    heroPillProfile: "6 cm 机身厚度 • 55\"–86\"",
+    heroPillProfile: "6 cm 机身厚度 • 32\"–86\"",
     heroOverlayThickness: "● 6 CM 机身厚度",
     heroOverlayCaption: "具备 4K Ultra HD 体积视觉感知的 Spatial Display 空间显示触控屏",
     imageAlt: "AI Spatial Display 空间显示屏体积光场展示",
@@ -1113,11 +1113,11 @@ export const zh: Dictionary = {
     hardwareHighlightTitle1: "Spatial Display 空间显示触控屏",
     hardwareHighlightTitle2: "搭载 ",
     hardwareHighlightDesc:
-      "采用 6 cm 超薄机身设计，支持高灵敏多点触控与超高清 4K Ultra HD 分辨率，覆盖 55 英寸、65 英寸、75 英寸和 86 英寸全系显示尺寸。",
+      "采用 6 cm 超薄机身设计，支持高灵敏多点触控与超高清 4K Ultra HD 分辨率，覆盖 32 英寸、43 英寸、55 英寸、65 英寸、75 英寸和 86 英寸全系显示尺寸。",
     cardProfileLabel: "机身轮廓",
     cardProfileVal: "6 cm 厚度",
     cardSizesLabel: "可选尺寸",
-    cardSizesVal: "55\", 65\", 75\", 86\"",
+    cardSizesVal: "32\", 43\", 55\", 65\", 75\", 86\"",
     cardPanelLabel: "交互面板",
     cardPanelVal: "4K 触控屏",
     defSectionBadge: "产品定义",
@@ -1167,7 +1167,7 @@ export const zh: Dictionary = {
     physLayerName: "Spatial Display",
     physBullets: [
       "• 6 cm 超薄机身厚度",
-      "• 55\", 65\", 75\", 86\" 4K 触控面板",
+      "• 32\", 43\", 55\", 65\", 75\", 86\" 4K 触控面板",
       "• 光场空间光学器件",
       "• 实时人眼追踪传感器",
     ],
@@ -1322,7 +1322,7 @@ export const zh: Dictionary = {
     specs: [
       {
         label: "支持尺寸",
-        value: "55 英寸, 65 英寸, 75 英寸, 86 英寸",
+        value: "32 英寸, 43 英寸, 55 英寸, 65 英寸, 75 英寸, 86 英寸",
       },
       {
         label: "机身厚度",

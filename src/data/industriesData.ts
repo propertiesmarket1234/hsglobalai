@@ -220,7 +220,7 @@ export const industriesData: Record<string, IndustryDetail> = {
       },
     ],
     techSpecs: [
-      { label: "Display Technology", value: "High-Transmittance 4K Volumetric Holographic Glass" },
+      { label: "Display Technology", value: "Glasses-Free 3D Spatial Display & 4K Volumetric Holographic Glass" },
       { label: "Sensors & Cameras", value: "4K Depth Camera + Proximity Sensor + Touch Surface" },
       { label: "Try-On Engine", value: "Real-Time Neural Mesh Fitting & Apparel Warping AI" },
       { label: "Content Delivery", value: "Offline High-Fidelity 3D Asset Render Pipeline" },
@@ -321,7 +321,7 @@ export const industriesData: Record<string, IndustryDetail> = {
     ],
     techSpecs: [
       { label: "Workplace Integration", value: "Slack, MS Teams, Outlook Calendar & Badge Printer Sync" },
-      { label: "Deployment Options", value: "Life-Size 3D Hologram Enclosure or Slim Lobby Kiosk" },
+      { label: "Deployment Options", value: "Glasses-Free 3D Spatial Display or Life-Size 3D Hologram Enclosure" },
       { label: "Security Standard", value: "Enterprise Air-Gapped Storage & Local Vector Index" },
       { label: "Operating Mode", value: "24/7 Continuous Reception & Wayfinding Operation" },
     ],
@@ -573,7 +573,7 @@ export const industriesData: Record<string, IndustryDetail> = {
       },
     ],
     techSpecs: [
-      { label: "Optics Technology", value: "High-Transmittance 3D Holographic Display Glass" },
+      { label: "Optics Technology", value: "Glasses-Free 3D Spatial Display & Holographic Glass" },
       { label: "Speech Engine", value: "29+ Multilingual Speech Synthesis with Accent Adaptation" },
       { label: "Asset Pipeline", value: "Volumetric 3D Avatar Rendering & Lip-Sync Animation Engine" },
       { label: "Environment Rating", value: "High Ambient Light & Noise Resistant Commercial Hardware" },

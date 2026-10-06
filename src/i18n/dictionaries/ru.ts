@@ -1230,12 +1230,12 @@ export const ru: Dictionary = {
     heroInlineDesc2: " и сенсорным экраном ",
     heroInlinePanel: "4K Ultra HD",
     heroInlineDesc3: ", доступный в размерах ",
-    heroInlineSizes: "55\", 65\", 75\" и 86\"",
+    heroInlineSizes: "32\", 43\", 55\", 65\", 75\" и 86\"",
     heroInlineDesc4: ". Также ознакомьтесь с голографическими кубами ",
     heroHologramLinkText: "AI Hologram Box в полный рост",
     ctaPrimaryBtn: "Запросить демо Spatial Display →",
     ctaSecondaryBtn: "Скачать спецификацию (PDF)",
-    heroPillProfile: "Корпус 6 см • 55\"–86\"",
+    heroPillProfile: "Корпус 6 см • 32\"–86\"",
     heroOverlayThickness: "● ТОЛЩИНА 6 СМ",
     heroOverlayCaption: "Сенсорный экран Spatial Display с 4K Ultra HD объемным восприятием глубины",
     imageAlt: "Демонстрация объемного экрана AI Spatial Display",
@@ -1243,11 +1243,11 @@ export const ru: Dictionary = {
     hardwareHighlightTitle1: "Сенсорный экран Spatial Display",
     hardwareHighlightTitle2: "С технологией ",
     hardwareHighlightDesc:
-      "Ультратонкий корпус толщиной 6 см, чувствительная мультитач-поверхность и разрешение 4K Ultra HD в размерах 55\", 65\", 75\" и 86\".",
+      "Ультратонкий корпус толщиной 6 см, чувствительная мультитач-поверхность и разрешение 4K Ultra HD в размерах 32\", 43\", 55\", 65\", 75\" и 86\".",
     cardProfileLabel: "Профиль корпуса",
     cardProfileVal: "Глубина 6 см",
     cardSizesLabel: "Доступные размеры",
-    cardSizesVal: "55\", 65\", 75\", 86\"",
+    cardSizesVal: "32\", 43\", 55\", 65\", 75\", 86\"",
     cardPanelLabel: "Интерактивная панель",
     cardPanelVal: "4K Сенсорный экран",
     defSectionBadge: "Определение продукта",
@@ -1297,7 +1297,7 @@ export const ru: Dictionary = {
     physLayerName: "Spatial Display",
     physBullets: [
       "• Ультратонкий корпус 6 см",
-      "• Сенсорные 4K панели 55\", 65\", 75\", 86\"",
+      "• Сенсорные 4K панели 32\", 43\", 55\", 65\", 75\", 86\"",
       "• Оптика светового поля",
       "• Сенсоры трекинга глаз",
     ],
@@ -1452,7 +1452,7 @@ export const ru: Dictionary = {
     specs: [
       {
         label: "Доступные размеры",
-        value: "55 дюймов, 65 дюймов, 75 дюймов, 86 дюймов",
+        value: "32 дюймов, 43 дюймов, 55 дюймов, 65 дюймов, 75 дюймов, 86 дюймов",
       },
       {
         label: "Толщина корпуса",
