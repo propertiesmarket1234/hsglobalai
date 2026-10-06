@@ -2,6 +2,7 @@ export interface IndustryDetail {
   slug: string;
   number: string;
   title: string;
+  h1Title?: string;
   subtitle: string;
   icon: string;
   badge: string;
@@ -34,13 +35,14 @@ export const industriesData: Record<string, IndustryDetail> = {
     slug: "banking",
     number: "01",
     title: "Banking & Financial Services",
+    h1Title: "AI Digital Humans & Holograms for Banking & Financial Services",
     subtitle: "3D Holographic AI Bankers & Concierge Assistants",
     icon: "🏦",
     badge: "AIR-GAPPED BANKING AI",
     description:
       "Transform branch experiences with 3D hologram AI bankers for customer onboarding, loan explanations, queue handling, account inquiries, and multilingual financial advisory – delivering secure, interactive banking journeys.",
     heroOverview:
-      "Deploy 100% offline, air-gapped digital human avatars in bank VIP lounges, wealth management centers, and retail branches. Avatars execute instant account inquiries, loan application guidance, compliance disclosure reviews, and multilingual client service while keeping customer financial records air-gapped locally on on-premise hardware.",
+      "HS Global AI provides AI Digital Human and holographic solutions for banking and financial services, supporting customer-facing experiences such as branch reception, visitor guidance, multilingual assistance, and interactive financial information. DIHUAVA provides the AI Digital Human software layer, while supported holographic and spatial display hardware provides the physical experience. Systems deploy 100% offline, air-gapped digital human avatars in bank VIP lounges, wealth management centers, and retail branches to execute instant account inquiries, loan application guidance, compliance disclosure reviews, and multilingual client service locally on on-premise hardware.",
     accentColor: "from-cyan-500/20 via-sky-500/10 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.3)",
     metrics: [
@@ -125,9 +127,47 @@ export const industriesData: Record<string, IndustryDetail> = {
       { label: "Hardware Support", value: "65\", 75\", 86\" 3D Hologram Enclosures & Interactive Kiosks" },
       { label: "Document Processing", value: "Real-Time Local PDF / DOCX RAG Neural Vector Engine" },
     ],
-    metaTitle: "AI Digital Humans & Holograms for Banking & Financial Services",
+    metaTitle: "AI Digital Humans & Holograms for Banking | HS Global AI",
     metaDescription:
-      "Deploy 100% air-gapped, offline AI digital humans and 3D hologram bankers for VIP wealth lounges, retail branch concierges, and multilingual financial advisory.",
+      "Explore HS Global AI banking solutions using AI Digital Humans, holographic displays, multilingual assistance, and on-device AI for customer-facing branch experiences.",
+    infoDepth: {
+      what: "HS Global AI provides AI Digital Human and 3D holographic display solutions for banking and financial services, supporting customer-facing branch experiences including reception, visitor guidance, multilingual assistance, and interactive financial information.",
+      why: "Banks deploy AI Digital Humans to modernize physical branch environments, reduce lobby queue congestion, automate routine front-desk inquiries, and provide 24/7 consistent assistance while allowing human staff to focus on complex advisory relationships.",
+      how: "The DIHUAVA AI platform powers natural spoken dialogue, local document intelligence (on-device RAG), real-time speech synthesis, and 3D avatar animation. Processing runs 100% offline on local GPU hardware by default, keeping sensitive customer interactions air-gapped without cloud data transmission.",
+      where: "Ideal deployment locations include retail bank branch entry lobbies, VIP wealth management lounges, mortgage & credit consultation desks, customer service queue centers, and international branch information kiosks.",
+      who: "Designed for commercial banks, retail banking networks, private wealth management institutions, credit unions, and financial service centers seeking secure physical AI customer engagement.",
+      limitations: "Operational Boundary Notice: DIHUAVA Digital Humans in banking provide administrative, navigational, and informational assistance only. They do NOT execute financial transactions, approve loans, process cash deposits, access private account databases, or provide autonomous financial or investment advice.",
+    },
+    faqs: [
+      {
+        question: "How can AI Digital Humans be used in banking?",
+        answer: "AI Digital Humans are deployed in physical bank branches, VIP wealth lounges, and customer service lobbies to greet visitors, issue queue tickets, explain general banking products, guide clients to service desks, and answer routine administrative queries in spoken natural language.",
+      },
+      {
+        question: "What can an AI Digital Human do in a bank branch?",
+        answer: "In a bank branch, an AI Digital Human greets arriving customers, manages check-in queues, provides floor-by-floor department directions, presents interactive financial product cards (such as credit cards or savings accounts), and explains document guidelines via local RAG.",
+      },
+      {
+        question: "Can DIHUAVA support multilingual banking interactions?",
+        answer: "Yes. DIHUAVA features automatic language detection and natural speech synthesis supporting 29+ Global Languages and regional accents locally, allowing banks to assist expatriates and international clients in their native language.",
+      },
+      {
+        question: "Can AI Digital Humans provide banking information without replacing staff?",
+        answer: "Yes. AI Digital Humans act as an administrative and queue-relief layer to handle high-frequency visitor questions and reception check-in. They do not replace human bank staff, allowing financial advisors and tellers to concentrate on complex client relationships.",
+      },
+      {
+        question: "Can an AI Digital Human work with holographic displays in banking environments?",
+        answer: "Yes. DIHUAVA AI Digital Humans can be projected inside life-size 3D Hologram Box enclosures (65\", 75\", 86\") or ultra-slim Spatial Displays, creating a 1:1 scale volumetric visual presence in VIP lounges and branch lobbies.",
+      },
+      {
+        question: "What hardware can support an AI Digital Human banking experience?",
+        answer: "Supported hardware options include life-size 3D Hologram Box enclosures, 6 cm ultra-slim 4K Spatial Displays, and heavy-duty interactive touchscreen kiosks powered by local edge GPU computing units.",
+      },
+      {
+        question: "Is the banking solution suitable for privacy-focused environments?",
+        answer: "Yes. DIHUAVA is engineered to run 100% offline on-device by default. Speech recognition, document intelligence, and avatar rendering execute locally on physical GPU hardware inside the branch, ensuring customer queries and documents remain air-gapped with zero cloud data transmission.",
+      },
+    ],
   },
 
   retail: {

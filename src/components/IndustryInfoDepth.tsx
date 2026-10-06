@@ -129,7 +129,9 @@ export default function IndustryInfoDepth({ title, infoDepth }: InfoDepthProps) 
                 {card.highlight && (
                   <div className="mt-6 pt-4 border-t border-amber-500/30">
                     <span className="text-xs font-mono text-amber-400 font-semibold flex items-center gap-1.5">
-                      ⚠️ Purely Informational & Administrative — No Medical Diagnosis
+                      ⚠️ {title.toLowerCase().includes("healthcare")
+                        ? "Purely Informational & Administrative — No Medical Diagnosis"
+                        : "Purely Informational & Administrative — Operational Boundaries Apply"}
                     </span>
                   </div>
                 )}

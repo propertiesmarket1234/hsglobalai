@@ -223,12 +223,22 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
                 </span>
               </div>
 
-              <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl lg:leading-[1.1]">
-                {industry.title.split("&")[0]}{" "}
-                <span className="bg-gradient-to-r from-cyan-400 via-sky-300 to-cyan-500 bg-clip-text text-transparent">
-                  {industry.title.includes("&") ? `& ${industry.title.split("&")[1]}` : ""}
-                </span>
-              </h1>
+              {(() => {
+                const h1FullText = industry.h1Title || industry.title;
+                const firstAmp = h1FullText.indexOf("&");
+                const h1Prefix = firstAmp !== -1 ? h1FullText.slice(0, firstAmp).trim() : h1FullText;
+                const h1Suffix = firstAmp !== -1 ? h1FullText.slice(firstAmp).trim() : "";
+                return (
+                  <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl lg:leading-[1.1]">
+                    {h1Prefix}{" "}
+                    {h1Suffix && (
+                      <span className="bg-gradient-to-r from-cyan-400 via-sky-300 to-cyan-500 bg-clip-text text-transparent">
+                        {h1Suffix}
+                      </span>
+                    )}
+                  </h1>
+                );
+              })()}
 
               <p className="mt-4 text-xl font-medium text-cyan-300 font-mono">
                 {industry.subtitle}
@@ -252,6 +262,17 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
                   3D Spatial Display
                 </Link>
               </div>
+
+              {industry.slug === "banking" && (
+                <div className="mt-4 rounded-xl border border-cyan-500/30 bg-cyan-950/40 px-4 py-2.5 text-xs text-gray-300">
+                  <span className="text-cyan-400 font-bold font-mono">Industry Automation Guide: </span>
+                  <span>Learn how digital humans streamline customer onboarding and branch operations in </span>
+                  <Link href={lang === "en" ? "/blog/ai-business-automation" : `/${lang}/blog/ai-business-automation`} className="text-cyan-400 hover:text-cyan-300 underline font-semibold transition-colors">
+                    AI Business Automation
+                  </Link>
+                  .
+                </div>
+              )}
 
               {industry.slug === "healthcare" && (
                 <div className="mt-4 rounded-xl border border-cyan-500/30 bg-cyan-950/40 px-4 py-2.5 text-xs text-gray-300">
