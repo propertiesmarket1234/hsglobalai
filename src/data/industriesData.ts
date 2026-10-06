@@ -174,26 +174,27 @@ export const industriesData: Record<string, IndustryDetail> = {
     slug: "retail",
     number: "02",
     title: "Retail & Advertising",
+    h1Title: "AI Digital Humans & Holograms for Retail & Advertising",
     subtitle: "Holographic Brand Ambassadors & Virtual Fitting",
     icon: "🛍️",
     badge: "IMMERSIVE RETAIL TECH",
     description:
       "Engage shoppers with holographic brand ambassadors, smart product explainers, Virtual Try-On mirrors, and interactive promotional displays designed to boost in-store footfall and checkout conversion rates.",
     heroOverview:
-      "Transform static storefront displays and luxury retail floors into interactive 3D shopping experiences. Holographic brand avatars greet shoppers, demonstrate high-end watches, jewellery, apparel, and electronics, answer specs in 29+ Global Languages, and feature instant Virtual Try-On.",
+      "HS Global AI provides AI Digital Human and 3D holographic display solutions for commercial retail environments, supporting in-store experiences such as brand ambassador presentations, interactive product catalog displays, smart mirror visualization, and multilingual customer assistance. DIHUAVA provides the AI Digital Human software layer, while 3D Hologram Boxes and ultra-slim Spatial Displays provide the physical display hardware.",
     accentColor: "from-cyan-500/20 via-sky-500/10 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.3)",
     metrics: [
-      { label: "Sales Conversion Lift", value: "2.8x" },
-      { label: "Shopper Dwell Time Increase", value: "+65%" },
-      { label: "In-Store Engagement", value: "3x" },
-      { label: "Cloud Dependence", value: "0%" },
+      { label: "Sales Conversion Lift (Target Benchmark)", value: "2.8x" },
+      { label: "Shopper Dwell Time Increase (Target Benchmark)", value: "+65%" },
+      { label: "In-Store Engagement (Target Benchmark)", value: "3x" },
+      { label: "Cloud Dependence (On-Device Architecture)", value: "0%" },
     ],
     capabilities: [
       {
         title: "Real-Time Virtual Fitting & Try-On",
         description:
-          "Enable customers to instantly visualize apparel, eyewear, and luxury jewellery digitally overlaying their reflection in real time.",
+          "Enable customers to visualize luxury watches, eyewear, and jewellery digitally in real time, with real-time apparel fitting overlays under active R&D on the DIHUAVA technology roadmap.",
         icon: "✨",
       },
       {
@@ -227,8 +228,8 @@ export const industriesData: Record<string, IndustryDetail> = {
         title: "Interactive Smart Mirror & Virtual Fitting",
         category: "Virtual Fitting",
         description:
-          "Allow customers to try on outfits virtually without changing rooms, accelerating purchase decisions with instant overlay rendering.",
-        highlight: "Instant Fitting Overlay",
+          "Allow customers to explore accessories and digital product overlays interactively on smart mirrors, with garment cloth fitting overlays continuously developed on the R&D roadmap.",
+        highlight: "Interactive Mirror Visualization",
       },
       {
         title: "Product Launch & Event Activations",
@@ -262,12 +263,50 @@ export const industriesData: Record<string, IndustryDetail> = {
     techSpecs: [
       { label: "Display Technology", value: "Glasses-Free 3D Spatial Display & 4K Volumetric Holographic Glass" },
       { label: "Sensors & Cameras", value: "4K Depth Camera + Proximity Sensor + Touch Surface" },
-      { label: "Try-On Engine", value: "Real-Time Neural Mesh Fitting & Apparel Warping AI" },
+      { label: "Try-On Engine (R&D Roadmap)", value: "Real-Time Neural Mesh Fitting & Accessory Overlay AI" },
       { label: "Content Delivery", value: "Offline High-Fidelity 3D Asset Render Pipeline" },
     ],
-    metaTitle: "AI Digital Humans & Holograms for Retail & Advertising",
+    metaTitle: "AI Digital Humans & Holograms for Retail | HS Global AI",
     metaDescription:
-      "Transform retail stores with 3D hologram brand ambassadors, virtual try-on smart mirrors, and interactive product display kiosks.",
+      "Explore HS Global AI retail solutions using AI Digital Humans, 3D hologram brand ambassadors, smart mirrors, and interactive product catalog displays for stores.",
+    infoDepth: {
+      what: "HS Global AI provides AI Digital Human and 3D holographic display solutions for retail and advertising, supporting in-store customer engagement, product catalog navigation, Virtual Try-On smart mirrors, and brand ambassador presentations.",
+      why: "Retail businesses can use AI Digital Humans to provide consistent multilingual product guidance, interactive customer assistance, and engaging physical-store experiences.",
+      how: "The DIHUAVA AI platform powers natural spoken dialogue, local product catalog RAG, 3D avatar animation, and multi-touch display interaction. Systems process data 100% offline on local GPU hardware by default.",
+      where: "Possible deployment environments include retail storefronts, luxury watch and jewellery showrooms, fashion boutiques, shopping mall concourses, and interactive activation booths.",
+      who: "Designed for retail store chains, luxury brand boutiques, shopping center operators, department stores, and trade-show exhibitors seeking interactive customer engagement.",
+      limitations: "Operational Boundary Notice: DIHUAVA Digital Humans in retail provide interactive product information, visual product demonstrations, and shopping guidance. Real-time apparel and garment fitting remains an active R&D capability on the technology roadmap. Systems do not provide automated body sizing guarantees or replace physical checkout/payment systems.",
+    },
+    faqs: [
+      {
+        question: "How can AI Digital Humans be used in retail stores?",
+        answer: "AI Digital Humans are deployed in physical retail stores, shopping malls, and product showrooms to greet shoppers, present featured collections, answer product specifications, guide customers to department floors, and assist in multilingual sales discovery.",
+      },
+      {
+        question: "What can an AI Digital Human do on a retail sales floor?",
+        answer: "On a retail sales floor, an AI Digital Human acts as a smart brand ambassador greeting visitors, demonstrating 3D product catalog items, highlighting promotional discounts, providing multi-language product guidance, and searching local catalog documents.",
+      },
+      {
+        question: "Can AI Digital Humans provide multilingual shopping assistance?",
+        answer: "Yes. DIHUAVA features real-time language detection and natural speech synthesis supporting 29+ Global Languages on-device, allowing retail stores to welcome international tourists and diverse shoppers in their native language.",
+      },
+      {
+        question: "Can DIHUAVA support interactive 3D product catalog displays?",
+        answer: "Yes. DIHUAVA connects directly with local product catalog databases and 3D digital assets, allowing shoppers to view high-definition product models, explore color variations, and inspect detailed specs on interactive displays.",
+      },
+      {
+        question: "Can AI Digital Humans work with 3D Hologram Boxes in retail?",
+        answer: "Yes. DIHUAVA AI Digital Humans can be rendered inside life-size 3D Hologram Box enclosures or 6 cm ultra-slim 4K Spatial Displays, creating eye-catching volumetric brand ambassador presentations in storefront windows and showroom floors.",
+      },
+      {
+        question: "Does HS Global AI support Virtual Try-On technology?",
+        answer: "HS Global AI supports digital product visualization for luxury watches, jewellery, eyewear, and accessories on interactive smart mirrors and displays. Real-time apparel and garment fitting overlay remains an active R&D capability on the DIHUAVA technology roadmap. The system does not offer automated body sizing guarantees.",
+      },
+      {
+        question: "Where can retail AI Digital Humans be deployed?",
+        answer: "Retail AI Digital Humans can be deployed in storefront display windows, shopping mall concourses, luxury watch and jewellery boutiques, fashion retail floors, trade show exhibition booths, and pop-up brand activation events.",
+      },
+    ],
   },
 
   corporate: {

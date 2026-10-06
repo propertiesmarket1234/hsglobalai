@@ -286,13 +286,17 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
               )}
 
               {industry.slug === "retail" && (
-                <div className="mt-4 rounded-xl border border-cyan-500/30 bg-cyan-950/40 px-4 py-2.5 text-xs text-gray-300">
-                  <span className="text-cyan-400 font-bold font-mono">Technology Guide: </span>
-                  <span>Discover how </span>
+                <div className="mt-4 rounded-xl border border-cyan-500/30 bg-cyan-950/40 px-4 py-2.5 text-xs text-gray-300 flex flex-wrap items-center gap-x-1.5 gap-y-1">
+                  <span className="text-cyan-400 font-bold font-mono">Retail AI Guides: </span>
+                  <span>Explore how </span>
+                  <Link href={lang === "en" ? "/blog/how-ai-in-retail" : `/${lang}/blog/how-ai-in-retail`} className="text-cyan-400 hover:text-cyan-300 underline font-semibold transition-colors">
+                    AI in Retail
+                  </Link>
+                  <span> and </span>
                   <Link href={lang === "en" ? "/blog/what-is-virtual-try-on-technology" : `/${lang}/blog/what-is-virtual-try-on-technology`} className="text-cyan-400 hover:text-cyan-300 underline font-semibold transition-colors">
                     Virtual Try-On Technology
                   </Link>
-                  <span> transforms interactive retail.</span>
+                  <span> transform in-store customer experiences.</span>
                 </div>
               )}
 
