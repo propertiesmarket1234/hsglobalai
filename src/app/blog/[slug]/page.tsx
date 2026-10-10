@@ -27,31 +27,38 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
   const { slug } = await params;
   const post = blogPosts.find((item) => String(item.slug).trim() === String(slug).trim());
 
+  const baseUrl = "https://www.hsglobalai.com";
+
   if (!post) {
     return {
       title: "Article Not Found",
       description: "The requested blog article could not be found.",
       alternates: {
-        canonical: `/blog/${slug}`,
+        canonical: `${baseUrl}/blog/${slug}`,
       },
     };
   }
+
+  const articleUrl = `${baseUrl}/blog/${post.slug}`;
+  const bannerImageUrl = post.bannerImage.startsWith("http")
+    ? post.bannerImage
+    : `${baseUrl}${post.bannerImage.startsWith("/") ? "" : "/"}${post.bannerImage}`;
 
   return {
     title: post.title,
     description: post.snippet,
     keywords: post.tags,
     alternates: {
-      canonical: `/blog/${post.slug}`,
+      canonical: articleUrl,
     },
     openGraph: {
       title: post.title,
       description: post.snippet,
       type: "article",
-      url: `https://hsglobalai.com/blog/${post.slug}`,
+      url: articleUrl,
       images: [
         {
-          url: post.bannerImage,
+          url: bannerImageUrl,
           width: 1200,
           height: 630,
           alt: post.title,
@@ -62,7 +69,7 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
       card: "summary_large_image",
       title: post.title,
       description: post.snippet,
-      images: [post.bannerImage],
+      images: [bannerImageUrl],
     },
   };
 }
@@ -185,6 +192,33 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
 
   const contentBlocks = post.content.split("\n\n");
 
+  // Extract FAQ items for FAQPage JSON-LD schema
+  const faqItems = contentBlocks
+    .filter((b) => b.trim().startsWith("### ") && b.trim().includes("\n"))
+    .map((b) => {
+      const fullContent = b.trim().replace("### ", "").trim();
+      const lines = fullContent.split("\n").map((l) => l.trim()).filter(Boolean);
+      const question = lines[0].replace(/\*\*/g, "").replace(/^Q:\s*/i, "").trim();
+      const answer = lines.slice(1).join(" ").replace(/\*\*/g, "").replace(/\[(.*?)\]\(.*?\)/g, "$1").trim();
+      return { question, answer };
+    });
+
+  const faqSchema =
+    faqItems.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqItems.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: item.answer,
+            },
+          })),
+        }
+      : null;
+
   return (
     <main className="min-h-screen bg-black text-white selection:bg-cyan-500 selection:text-black">
       {/* Inject JSON-LD Schema */}
@@ -196,6 +230,12 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
 
       <Header />
 
