@@ -80,7 +80,7 @@ export function getLocalizedAlternates(path: string, lang?: string) {
   const baseUrl = "https://www.hsglobalai.com";
   const cleanPath = stripLocalePrefix(path);
   const pathSuffix = cleanPath === "/" ? "" : cleanPath;
-  const canonicalUrl = lang ? `${baseUrl}/${lang}${pathSuffix}` : `${baseUrl}${pathSuffix}`;
+  const canonicalUrl = (lang && lang !== "en") ? `${baseUrl}/${lang}${pathSuffix}` : `${baseUrl}${pathSuffix}`;
 
   return {
     canonical: canonicalUrl,

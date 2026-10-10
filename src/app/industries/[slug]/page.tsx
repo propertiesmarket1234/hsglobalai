@@ -261,6 +261,10 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
                 <Link href={spatialHref} className="text-cyan-400 hover:text-cyan-300 underline font-semibold transition-colors">
                   3D Spatial Display
                 </Link>
+                <span>•</span>
+                <Link href={docIntelHref} className="text-cyan-400 hover:text-cyan-300 underline font-semibold transition-colors">
+                  Document Intelligence RAG
+                </Link>
               </div>
 
               {industry.slug === "banking" && (
@@ -308,6 +312,21 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
                     Virtual Try-On Technology
                   </Link>
                   <span> transform in-store customer experiences.</span>
+                </div>
+              )}
+
+              {industry.slug === "education" && (
+                <div className="mt-4 rounded-xl border border-cyan-500/30 bg-cyan-950/40 px-4 py-2.5 text-xs text-gray-300 flex flex-wrap items-center gap-x-1.5 gap-y-1">
+                  <span className="text-cyan-400 font-bold font-mono">EdTech AI Guides: </span>
+                  <span>Learn how on-device AI and local RAG power interactive learning and security in </span>
+                  <Link href={lang === "en" ? "/blog/why-100-offline-ai" : `/${lang}/blog/why-100-offline-ai`} className="text-cyan-400 hover:text-cyan-300 underline font-semibold transition-colors">
+                    Why 100% Offline AI is the Future
+                  </Link>
+                  <span> and </span>
+                  <Link href={lang === "en" ? "/blog/ai-business-automation" : `/${lang}/blog/ai-business-automation`} className="text-cyan-400 hover:text-cyan-300 underline font-semibold transition-colors">
+                    AI Business Automation
+                  </Link>
+                  .
                 </div>
               )}
 

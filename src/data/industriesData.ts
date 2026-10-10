@@ -705,18 +705,19 @@ export const industriesData: Record<string, IndustryDetail> = {
     slug: "education",
     number: "06",
     title: "Education & Training",
+    h1Title: "AI Digital Humans & 3D Holograms for Education & Training",
     subtitle: "Interactive 3D Hologram Tutors & Virtual Lecturers",
     icon: "🎓",
     badge: "NEXT-GEN EDTECH AI",
     description:
       "Deliver immersive learning experiences using AI Digital Human tutors, campus guides, virtual science lab assistants, and 3D hologram instructors for schools, universities, and corporate academies.",
     heroOverview:
-      "Revolutionize learning at universities, K-12 schools, and corporate academies with 3D hologram lecturers and AI tutors. Students interact naturally with digital human instructors for STEM concepts, language learning, virtual lab walkthroughs, and personalized tutoring.",
+      "HS Global AI provides AI Digital Human and 3D holographic display solutions for educational institutions, supporting campus orientation, multilingual student guidance, virtual science lab walkthroughs, and interactive learning assistance. The DIHUAVA AI platform powers real-time spoken dialogue and on-device document intelligence (RAG), while supported 3D Hologram Boxes and Spatial Displays provide physical volumetric visualization for classrooms and student centers.",
     accentColor: "from-cyan-500/20 via-sky-500/10 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.3)",
     metrics: [
-      { label: "Student Engagement Lift", value: "3.5x" },
-      { label: "Positive Learning Feedback", value: "92%" },
+      { label: "Student Engagement Lift (Target Benchmark)", value: "3.5x" },
+      { label: "Positive Learning Feedback (Target Benchmark)", value: "92%" },
       { label: "Study Assistance Hours", value: "24/7" },
       { label: "Languages Supported", value: "29+" },
     ],
@@ -794,10 +795,48 @@ export const industriesData: Record<string, IndustryDetail> = {
       { label: "Learning Engine", value: "Local PDF RAG on Textbooks & Educational Curriculums" },
       { label: "Interaction Mode", value: "Real-Time Natural Voice Dialogue + Touch Glass Visuals" },
       { label: "Language Practice", value: "Accent-Aware Multilingual Conversational AI" },
-      { label: "LMS Integration", value: "Compatible with Canvas, Moodle, and Blackboard APIs" },
+      { label: "Document Intelligence", value: "Local PDF RAG on Textbooks, Curriculums & Campus FAQs" },
     ],
-    metaTitle: "3D Hologram AI Tutors & Lecturers for Education",
+    metaTitle: "AI Digital Humans for Education & Training | HS Global AI",
     metaDescription:
-      "Transform education with 3D hologram AI tutors, virtual science lab docents, campus orientation assistants, and multilingual learning avatars.",
+      "Explore HS Global AI education solutions using AI Digital Humans, 3D hologram tutors, virtual lab assistants, and 100% on-device AI for schools and academies.",
+    infoDepth: {
+      what: "HS Global AI provides AI Digital Human and 3D holographic display solutions for education and corporate training, supporting campus orientation, multilingual student guidance, virtual science lab walkthroughs, and interactive learning assistance.",
+      why: "Educational institutions and academies deploy AI Digital Humans to modernize campus facilities, provide 24/7 student guidance, relieve administrative front-desk queues, and offer engaging interactive learning aids without replacing teaching faculty.",
+      how: "The DIHUAVA AI platform powers real-time natural voice conversation, on-device textbook/curriculum RAG, 3D avatar facial animation, and multilingual speech synthesis. Inference executes 100% offline on local GPU hardware by default, maintaining institutional data privacy.",
+      where: "Ideal deployment environments include university student service centers, campus library lobbies, science & engineering laboratory entrances, corporate training academies, language learning centers, and school admissions halls.",
+      who: "Designed for universities, K-12 school districts, polytechnics, corporate training departments, vocational institutes, and educational exhibition spaces seeking physical interactive AI assistance.",
+      limitations: "Operational Boundary Notice: DIHUAVA Digital Humans in education provide administrative guidance, orientation, lab safety walkthroughs, and conversational practice assistance. They do NOT replace certified teachers or professors, issue formal academic grades, execute student performance monitoring, or guarantee learning outcomes.",
+    },
+    faqs: [
+      {
+        question: "How can AI Digital Humans support education and training?",
+        answer: "AI Digital Humans support educational institutions by acting as physical campus concierges, student service guides, virtual lab safety instructors, and interactive speech practice partners in lobbies, libraries, and learning centers.",
+      },
+      {
+        question: "How do AI Digital Humans provide interactive learning assistance?",
+        answer: "DIHUAVA AI Digital Humans ingest local textbook PDFs, campus FAQs, and course guides using on-device Retrieval-Augmented Generation (RAG) to deliver real-time spoken answers and visual reference cards to student inquiries.",
+      },
+      {
+        question: "Can DIHUAVA provide multilingual educational assistance?",
+        answer: "Yes. DIHUAVA features real-time speech recognition and synthesis supporting 29+ Global Languages on-device, enabling international students and language learners to practice conversational speech and receive campus guidance in their native language.",
+      },
+      {
+        question: "How are holographic displays used in education and training?",
+        answer: "DIHUAVA AI Digital Humans can be rendered inside life-size 3D Hologram Box enclosures (65\", 75\", 86\") or ultra-slim 4K Spatial Displays, projecting 1:1 scale volumetric instructors and 3D visual models for immersive classroom and exhibit demonstrations.",
+      },
+      {
+        question: "What role do Spatial Displays play in educational environments?",
+        answer: "Glasses-free 3D Spatial Displays provide compact, high-definition 3D visualization for interactive student kiosks, library reference desks, and virtual science lab walkthroughs without requiring VR headsets.",
+      },
+      {
+        question: "Can the education AI solution operate offline on-device?",
+        answer: "Yes. DIHUAVA is engineered to execute 100% on-device on local physical GPU hardware by default. Speech recognition, document indexing, and avatar animation run locally, ensuring total student data privacy and zero cloud dependence.",
+      },
+      {
+        question: "What are the appropriate deployment environments and operational limitations in education?",
+        answer: "Appropriate deployment environments include university lobbies, admissions centers, libraries, science lab entryways, and corporate academies. DIHUAVA Digital Humans provide administrative, navigational, and supplementary informational support only; they do not replace teachers, conduct student grading, monitor behavior, or guarantee learning results.",
+      },
+    ],
   },
 };
