@@ -330,6 +330,21 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
                 </div>
               )}
 
+              {industry.slug === "tourism" && (
+                <div className="mt-4 rounded-xl border border-cyan-500/30 bg-cyan-950/40 px-4 py-2.5 text-xs text-gray-300 flex flex-wrap items-center gap-x-1.5 gap-y-1">
+                  <span className="text-cyan-400 font-bold font-mono">Tourism AI Guides: </span>
+                  <span>Discover how </span>
+                  <Link href={lang === "en" ? "/blog/multilingual-ai" : `/${lang}/blog/multilingual-ai`} className="text-cyan-400 hover:text-cyan-300 underline font-semibold transition-colors">
+                    Multilingual AI
+                  </Link>
+                  <span> and </span>
+                  <Link href={lang === "en" ? "/blog/ai-product-catalogue" : `/${lang}/blog/ai-product-catalogue`} className="text-cyan-400 hover:text-cyan-300 underline font-semibold transition-colors">
+                    3D AI Product Catalogues
+                  </Link>
+                  <span> enhance interactive museum exhibits and cultural tour experiences.</span>
+                </div>
+              )}
+
               {/* Action Buttons */}
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <Link

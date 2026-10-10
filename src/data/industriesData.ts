@@ -47,8 +47,8 @@ export const industriesData: Record<string, IndustryDetail> = {
     accentGlow: "rgba(6, 182, 212, 0.3)",
     metrics: [
       { label: "On-Device Processing", value: "100%" },
-      { label: "Branch Engagement Lift", value: "3.2x" },
-      { label: "Queue Wait Time Reduction", value: "40%" },
+      { label: "Branch Engagement Lift (Target Benchmark)", value: "3.2x" },
+      { label: "Queue Wait Time Reduction (Target Benchmark)", value: "40%" },
       { label: "Supported Languages", value: "29+" },
     ],
     capabilities: [
@@ -122,7 +122,8 @@ export const industriesData: Record<string, IndustryDetail> = {
       },
     ],
     techSpecs: [
-      { label: "Data Processing", value: "100% Air-Gapped On-Device GPU Processing" },
+      { label: "System Architecture", value: "DIHUAVA runs 100% offline on-device by default, with optional cloud-management configurations available" },
+      { label: "Multilingual Support", value: "29+ global languages, including 7 specialized Indian languages: Hindi, Tamil, Telugu, Kannada, Bengali, Marathi, and Gujarati" },
       { label: "Security Compliance", value: "ISO 27001 & Bank Security Architecture Compliant" },
       { label: "Hardware Support", value: "65\", 75\", 86\" 3D Hologram Enclosures & Interactive Kiosks" },
       { label: "Document Processing", value: "Real-Time Local PDF / DOCX RAG Neural Vector Engine" },
@@ -261,6 +262,8 @@ export const industriesData: Record<string, IndustryDetail> = {
       },
     ],
     techSpecs: [
+      { label: "System Architecture", value: "DIHUAVA runs 100% offline on-device by default, with optional cloud-management configurations available" },
+      { label: "Multilingual Support", value: "29+ global languages, including 7 specialized Indian languages: Hindi, Tamil, Telugu, Kannada, Bengali, Marathi, and Gujarati" },
       { label: "Display Technology", value: "Glasses-Free 3D Spatial Display & 4K Volumetric Holographic Glass" },
       { label: "Sensors & Cameras", value: "4K Depth Camera + Proximity Sensor + Touch Surface" },
       { label: "Try-On Engine (R&D Roadmap)", value: "Real-Time Neural Mesh Fitting & Accessory Overlay AI" },
@@ -400,12 +403,14 @@ export const industriesData: Record<string, IndustryDetail> = {
       },
     ],
     techSpecs: [
+      { label: "System Architecture", value: "DIHUAVA runs 100% offline on-device by default, with optional cloud-management configurations available" },
+      { label: "Multilingual Support", value: "29+ global languages, including 7 specialized Indian languages: Hindi, Tamil, Telugu, Kannada, Bengali, Marathi, and Gujarati" },
       { label: "Workplace Integration", value: "Slack, MS Teams, Outlook Calendar & Badge Printer Sync" },
       { label: "Deployment Options", value: "Glasses-Free 3D Spatial Display or Life-Size 3D Hologram Enclosure" },
       { label: "Security Standard", value: "Enterprise Air-Gapped Storage & Local Vector Index" },
       { label: "Operating Mode", value: "24/7 Continuous Reception & Wayfinding Operation" },
     ],
-    metaTitle: "AI Digital Human Receptionists for Corporate Services & HR",
+    metaTitle: "AI Digital Human Receptionists for Corporate Services & HR | HS Global AI",
     metaDescription:
       "Automate corporate front-desk reception, visitor management check-in, and employee HR policy assistance with 3D hologram AI receptionists.",
     infoDepth: {
@@ -452,6 +457,7 @@ export const industriesData: Record<string, IndustryDetail> = {
     slug: "healthcare",
     number: "04",
     title: "Healthcare & Telemedicine",
+    h1Title: "AI Digital Humans & Holograms for Healthcare & Hospital Navigation",
     subtitle: "Compassionate Patient Intake & Hospital Navigation AI",
     icon: "🏥",
     badge: "100% OFFLINE PATIENT PRIVACY AI",
@@ -558,7 +564,7 @@ export const industriesData: Record<string, IndustryDetail> = {
       { label: "Physical Hardware Enclosure", value: "Life-Size 3D Hologram Box Enclosure or Ultra-Slim 6 cm Spatial Display Kiosk" },
       { label: "Operational Boundaries", value: "Provides administrative, navigational, and informational support only; does not provide medical diagnoses or clinical decisions" },
     ],
-    metaTitle: "AI Digital Humans for Healthcare & Hospital Navigation",
+    metaTitle: "AI Digital Humans for Healthcare & Hospital Navigation | HS Global AI",
     metaDescription:
       "Enhance hospital patient guidance, intake triage support, and department navigation with 100% offline, air-gapped AI digital human healthcare assistants.",
     infoDepth: {
@@ -605,19 +611,20 @@ export const industriesData: Record<string, IndustryDetail> = {
     slug: "tourism",
     number: "05",
     title: "Tourism & Exhibitions",
+    h1Title: "AI Digital Humans & 3D Holograms for Tourism & Exhibitions",
     subtitle: "Multilingual Hologram Tour Guides & Exhibition Docents",
     icon: "🏛️",
     badge: "CULTURAL & EXHIBITION AI",
     description:
       "Deliver unforgettable visitor experiences using 3D hologram tour guides, multilingual information kiosks, exhibition storytelling avatars, and interactive museum docents powered by digital humans.",
     heroOverview:
-      "Delight visitors at museums, heritage sites, national landmarks, and international expos with interactive 3D hologram tour guides. Avatars speak 29+ global languages, recite historical archives via local RAG, and bring cultural exhibits to life.",
+      "Delight visitors at museums, heritage sites, national landmarks, and international expos with interactive 3D hologram tour guides. Avatars speak 29+ global languages, including 7 specialized Indian languages (Hindi, Tamil, Telugu, Kannada, Bengali, Marathi, Gujarati), recite historical archives via local RAG, and bring cultural exhibits to life. DIHUAVA runs 100% offline on-device by default, with optional cloud-management configurations available.",
     accentColor: "from-cyan-500/20 via-sky-500/10 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.3)",
     metrics: [
-      { label: "Visitor Engagement Lift", value: "4x" },
+      { label: "Visitor Engagement Lift (Target Benchmark)", value: "4x" },
       { label: "Spoken Global Languages", value: "29+" },
-      { label: "Exhibit Satisfaction", value: "95%" },
+      { label: "Exhibit Satisfaction (Target Benchmark)", value: "95%" },
       { label: "Operating Hours", value: "24/7" },
     ],
     capabilities: [
@@ -691,14 +698,55 @@ export const industriesData: Record<string, IndustryDetail> = {
       },
     ],
     techSpecs: [
+      { label: "System Architecture", value: "DIHUAVA runs 100% offline on-device by default, with optional cloud-management configurations available" },
+      { label: "Multilingual Support", value: "29+ global languages, including 7 specialized Indian languages: Hindi, Tamil, Telugu, Kannada, Bengali, Marathi, and Gujarati" },
       { label: "Optics Technology", value: "Glasses-Free 3D Spatial Display & Holographic Glass" },
       { label: "Speech Engine", value: "29+ Multilingual Speech Synthesis with Accent Adaptation" },
       { label: "Asset Pipeline", value: "Volumetric 3D Avatar Rendering & Lip-Sync Animation Engine" },
       { label: "Environment Rating", value: "High Ambient Light & Noise Resistant Commercial Hardware" },
+      { label: "Operational Boundaries", value: "Provides historical, cultural, navigational, and administrative information support only; does not replace formal archaeological verification or museum-curation decisions" },
     ],
-    metaTitle: "3D Hologram Tour Guides & Museum Docents",
+    metaTitle: "3D Hologram Tour Guides & Museum Docents | HS Global AI",
     metaDescription:
       "Engage museum and exhibition visitors with 3D hologram tour guides, multilingual storytelling docents, and interactive heritage kiosks.",
+    infoDepth: {
+      what: "HS Global AI provides AI Digital Human and 3D holographic display solutions for tourism, museums, heritage sites, and exhibition halls, supporting visitor guidance, multilingual storytelling, historical document Q&A, and interactive docent presentations.",
+      why: "Cultural institutions and exhibition spaces deploy AI Digital Humans to engage international tourists in native languages, provide 24/7 autonomous docent assistance, bring historical artifacts to life, and relieve front-desk information queues.",
+      how: "The DIHUAVA AI platform powers natural spoken conversation, historical archive document intelligence (on-device RAG), and 3D avatar animation. Processing runs 100% offline on local physical GPU hardware by default, ensuring continuous operation without cloud data dependencies.",
+      where: "Ideal deployment locations include museum entrance lobbies, heritage site visitor centers, art gallery exhibition rooms, city tourism information kiosks, and international trade show pavilions.",
+      who: "Designed for museums, national monument authorities, tourism boards, exhibition venues, trade show organizers, and cultural heritage centers seeking interactive physical AI engagement.",
+      limitations: "Operational Boundary Notice: DIHUAVA Digital Humans in tourism provide historical, cultural, navigational, and administrative information assistance. They do NOT perform formal archaeological verification, issue academic provenance certifications, or substitute for professional museum curation decisions.",
+    },
+    faqs: [
+      {
+        question: "How can AI Digital Humans be used in tourism and museums?",
+        answer: "AI Digital Humans are deployed in museums, heritage sites, visitor centers, and exhibition halls to greet tourists, deliver multilingual artifact storytelling, answer historical Q&A via local RAG, provide floor navigation, and assist with ticket information.",
+      },
+      {
+        question: "What can an AI hologram tour guide do in an exhibition or heritage site?",
+        answer: "In an exhibition or heritage site, an AI hologram tour guide recreates historical figures or virtual docents to recite archival histories, explain exhibit provenance, answer visitor questions in natural spoken language, and guide guests through venue itineraries.",
+      },
+      {
+        question: "Can DIHUAVA support multilingual tourism guidance?",
+        answer: "Yes. DIHUAVA features real-time speech recognition and voice synthesis supporting 29+ global languages, including 7 specialized Indian languages (Hindi, Tamil, Telugu, Kannada, Bengali, Marathi, and Gujarati), welcoming international tourists in their native language.",
+      },
+      {
+        question: "Can AI Digital Humans operate offline at remote heritage sites or museums?",
+        answer: "Yes. DIHUAVA runs 100% offline on-device by default, with optional cloud-management configurations available. Speech synthesis, document archive RAG, and 3D avatar rendering execute entirely on local physical hardware without cloud internet requirements.",
+      },
+      {
+        question: "Can an AI tour guide work with 3D Hologram Boxes in cultural exhibits?",
+        answer: "Yes. DIHUAVA AI Digital Humans can be projected inside life-size 3D Hologram Box enclosures (65\", 75\", 86\") or 6 cm ultra-slim 4K Spatial Displays, creating 1:1 scale volumetric historic docents inside museum galleries.",
+      },
+      {
+        question: "How does local document intelligence (RAG) work for historical archives and museum catalogs?",
+        answer: "DIHUAVA ingests historical research papers, museum artifact catalogs, and audio guide manuscripts directly onto local GPU hardware. Visitors can ask complex questions about exhibit details, and the avatar responds instantly with accurate historical context.",
+      },
+      {
+        question: "Where can tourism AI Digital Humans be deployed, and what are their operational limitations?",
+        answer: "Appropriate deployment locations include museum entrance lobbies, heritage site visitor centers, art gallery exhibition rooms, city tourism information kiosks, and trade show pavilions. Operational Boundary Notice: DIHUAVA Digital Humans provide historical, cultural, navigational, and administrative information support only; they do not perform formal archaeological verification, issue academic provenance certifications, or substitute for certified museum curators.",
+      },
+    ],
   },
 
   education: {

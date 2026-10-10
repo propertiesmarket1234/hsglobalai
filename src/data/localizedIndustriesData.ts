@@ -529,9 +529,9 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
       heroOverview:
         "在博物馆、遗迹景区、展览馆及世博展厅部署 3D 全息导游。数字人支持 29+ 种语言，借助本地 RAG 讲述历史典故，让文化遗产焕发活力。",
       metrics: [
-        { label: "游客互动体验提升", value: "4倍" },
+        { label: "游客互动体验提升 (目标基准)", value: "4倍" },
         { label: "支持全球语言", value: "29+" },
-        { label: "展览满意度", value: "95%" },
+        { label: "展览满意度 (目标基准)", value: "95%" },
         { label: "运行服务时间", value: "24/7" },
       ],
       capabilities: [
@@ -600,7 +600,7 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         { label: "数字人动画管线", value: "立体 3D 渲染与实时口型同步" },
         { label: "环境适应能力", value: "抗强光、防高噪音工业级硬件" },
       ],
-      metaTitle: "文旅文博 3D 全息导游与博物馆数字人",
+      metaTitle: "文旅文博 3D 全息导游与博物馆数字人 | HS Global AI",
       metaDescription: "部署 3D 全息导游、多语言互动讲解员及文旅问答终端，提升博物馆与展览体验。",
     },
 
@@ -1054,9 +1054,9 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
       heroOverview:
         "Удивляйте посетителей музеев и выставок 3D-голографическими гидами. Аватары говорят на 29+ языках и рассказывают историю экспонатов.",
       metrics: [
-        { label: "Рост вовлеченности", value: "4x" },
+        { label: "Рост вовлеченности (Целевой показатель)", value: "4x" },
         { label: "Поддержка языков", value: "29+" },
-        { label: "Удовлетворенность", value: "95%" },
+        { label: "Удовлетворенность (Целевой показатель)", value: "95%" },
         { label: "Часы работы", value: "24/7" },
       ],
       capabilities: [
@@ -1125,7 +1125,7 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         { label: "Анимация", value: "Объемный рендеринг 3D-аватара и синхронизация губ" },
         { label: "Устойчивость", value: "Оборудование защищено от внешнего освещения и шума" },
       ],
-      metaTitle: "3D-Голографические Гиды и Музейные Экскурсоводы",
+      metaTitle: "3D-Голографические Гиды и Музейные Экскурсоводы | HS Global AI",
       metaDescription: "3D-Голографические гиды и многоязычные экскурсоводы для музеев и выставок.",
     },
 
@@ -1579,9 +1579,9 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
       heroOverview:
         "Deleite a los visitantes de museos y exposiciones con guías holográficos 3D. Hablan más de 29 idiomas y narran la historia a través de RAG local.",
       metrics: [
-        { label: "Interacción de visitantes", value: "4x" },
+        { label: "Interacción de visitantes (Benchmark Target)", value: "4x" },
         { label: "Idiomas soportados", value: "29+" },
-        { label: "Satisfacción en visitas", value: "95%" },
+        { label: "Satisfacción en visitas (Benchmark Target)", value: "95%" },
         { label: "Horas de servicio", value: "24/7" },
       ],
       capabilities: [
@@ -1650,7 +1650,7 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         { label: "Animación", value: "Renderizado 3D volumétrico y sincronización labial" },
         { label: "Resistencia", value: "Hardware comercial resistente a luz ambiental y ruido" },
       ],
-      metaTitle: "Guías Holográficos 3D y Docentes de Museos",
+      metaTitle: "Guías Holográficos 3D y Docentes de Museos | HS Global AI",
       metaDescription: "Guías holográficos 3D y docentes multilingües para museos y centros culturales.",
     },
 
@@ -2104,9 +2104,9 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
       heroOverview:
         "Émerveillez les visiteurs des musées et expositions avec des guides holographiques 3D. Ils parlent 29+ langues et racontent l'histoire via RAG local.",
       metrics: [
-        { label: "Hausse d'engagement", value: "4x" },
+        { label: "Hausse d'engagement (Cible Benchmark)", value: "4x" },
         { label: "Langues prises en charge", value: "29+" },
-        { label: "Satisfaction visites", value: "95%" },
+        { label: "Satisfaction visites (Cible Benchmark)", value: "95%" },
         { label: "Horaires de service", value: "24/7" },
       ],
       capabilities: [
@@ -2175,7 +2175,7 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         { label: "Animation", value: "Rendu 3D volumétrique et synchronisation labiale" },
         { label: "Résistance", value: "Matériel commercial résistant à la lumière et au bruit" },
       ],
-      metaTitle: "Guides Holographiques 3D et Guides de Musée",
+      metaTitle: "Guides Holographiques 3D et Guides de Musée | HS Global AI",
       metaDescription: "Guides holographiques 3D et médiateurs multilingues pour musées et expositions.",
     },
 
