@@ -17,31 +17,31 @@ export const locales: Record<Locale, LocaleInfo> = {
     code: "en",
     name: "English",
     nativeName: "English",
-    flag: "🇺🇸",
+    flag: "EN",
   },
   zh: {
     code: "zh",
     name: "Chinese",
     nativeName: "Chinese (中文)",
-    flag: "🇨🇳",
+    flag: "ZH",
   },
   ru: {
     code: "ru",
     name: "Russian",
     nativeName: "Russian (Русский)",
-    flag: "🇷🇺",
+    flag: "RU",
   },
   es: {
     code: "es",
     name: "Spanish",
     nativeName: "Spanish (Español)",
-    flag: "🇪🇸",
+    flag: "ES",
   },
   fr: {
     code: "fr",
     name: "French",
     nativeName: "French (Français)",
-    flag: "🇫🇷",
+    flag: "FR",
   },
 };
 

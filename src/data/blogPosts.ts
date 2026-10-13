@@ -31,7 +31,7 @@ export const blogPosts: BlogPost[] = [
         bannerImage: "/images/blog/blog_banner_automation.png",
         bannerBg: "from-cyan-950 via-blue-950/80 to-black",
         accentColor: "cyan",
-        icon: "🤖",
+        icon: "bot",
         tags: ["Automation", "Enterprise AI", "DIHUAVA", "On-Device"],
         content: `> - **Low Latency Performance:** On-Device Edge AI delivers Low Latency responses, eliminating awkward conversational pauses.
 > - **100% Data Sovereignty:** Keeps sensitive internal enterprise documents, visitor logs, and voice interactions air-gapped from external cloud servers.
@@ -144,7 +144,7 @@ Bring next-generation AI Digital Humans to your business locations, customer ser
         bannerImage: "/images/blog/blog_banner_edge_ai.png",
         bannerBg: "from-cyan-950 via-sky-950/80 to-black",
         accentColor: "cyan",
-        icon: "⚡",
+        icon: "zap",
         tags: ["Edge AI", "Cloud AI", "Infrastructure", "GPU Computing"],
         content: `Choosing between Cloud AI and Edge AI is one of the most consequential architectural decisions for modern technology leadership. While Cloud AI offered the earliest path to testing large language models, enterprise deployment in physical locations reveals critical flaws: lack of low latency, massive bandwidth costs, and severe data privacy risks.
 
@@ -203,7 +203,7 @@ Because all data processing occurs locally on physical hardware inside your faci
         bannerImage: "/images/blog/blog_banner_customer_support.png",
         bannerBg: "from-cyan-950 via-sky-950/80 to-black",
         accentColor: "cyan",
-        icon: "💬",
+        icon: "message",
         tags: ["Customer Support", "Digital Humans", "UX", "Holograms"],
         content: `> - **Spatial Customer Attraction:** 3D Holographic AI Digital Humans capture visitor attention in physical lobbies and retail showrooms.
 > - **Autonomous Concierge & Navigation:** Guides arriving guests, manages visitor registration, and provides step-by-step physical wayfinding.
@@ -299,7 +299,7 @@ DIHUAVA automatically detects the visitor's spoken language and accent, switchin
         bannerImage: "/images/blog/blog_banner_product_catalogue.png",
         bannerBg: "from-cyan-950 via-sky-950/80 to-black",
         accentColor: "cyan",
-        icon: "🛍️",
+        icon: "retail",
         tags: ["Smart Retail", "Holographic", "Interactive", "Sales AI"],
         content: `In modern retail, physical store visitors expect the same speed, personalization, and instant product information they enjoy when shopping online. Static posters, paper brochures, and traditional digital signage fail to capture modern consumer attention.
 
@@ -357,7 +357,7 @@ Yes. Powered by DIHUAVA's multilingual speech engine, avatars detect spoken lang
         bannerImage: "/images/blog/blog_banner_multilingual.png",
         bannerBg: "from-blue-950 via-cyan-950/80 to-black",
         accentColor: "blue",
-        icon: "🌐",
+        icon: "globe",
         tags: ["Multilingual", "Voice AI", "Global Business", "Localization"],
         content: `Global commerce, international travel, and multicultural urban hubs require businesses to serve visitors in dozens of different languages. Hiring bilingual staff for every shift and language dialect is economically impractical.
 
@@ -409,7 +409,7 @@ The speech recognition module analyzes the visitor's initial spoken words in sub
         bannerImage: "/images/blog/blog_banner_retail.png",
         bannerBg: "from-rose-950 via-pink-950/80 to-black",
         accentColor: "rose",
-        icon: "🏬",
+        icon: "store",
         tags: ["Retail Transformation", "Avatars", "Foot Traffic", "Kiosks"],
         content: `> - **In-Store Foot-Traffic Engagement:** Digital human docents greet shoppers and answer product inquiries on the sales floor.
 > - **Spatial Product Presentation:** Integrates with 3D Hologram Boxes and Spatial Displays for high-definition visual showcases.
@@ -542,7 +542,7 @@ Ready to bring AI digital human avatars to your retail stores or shopping center
         bannerImage: "/images/blog/blog_banner_offline_security.png",
         bannerBg: "from-slate-900 via-zinc-950 to-black",
         accentColor: "slate",
-        icon: "🔒",
+        icon: "shield",
         tags: ["Air-Gapped", "Security", "Privacy", "Compliance"],
         content: `## Introduction
 
@@ -671,7 +671,7 @@ Want to secure your customer interactions and upgrade your enterprise to air-gap
         bannerImage: "/images/blog/blog_banner_digital_human.png",
         bannerBg: "from-indigo-950 via-purple-950/80 to-black",
         accentColor: "cyan",
-        icon: "👤",
+        icon: "user",
         tags: ["Digital Humans", "AI Basics", "Enterprise Guide", "3D Rendering"],
         content: `## Introduction
 
@@ -829,7 +829,7 @@ Want to see how a digital human avatar can work for your business?
         bannerImage: "/images/blog/blog_banner_automation.png",
         bannerBg: "from-cyan-950 via-teal-950/80 to-black",
         accentColor: "cyan",
-        icon: "🏥",
+        icon: "hospital",
         tags: ["Healthcare AI", "Patient Intake", "DIHUAVA", "Offline AI", "Patient Guidance"],
         content: `> - **Empathetic Patient Intake Support:** Automates preliminary visitor check-in, initial administrative information collection, and service desk direction.
 > - **100% Patient Data Privacy:** Speech recognition, document intelligence, and avatar rendering execute locally on physical hardware with zero cloud data leakage.
@@ -1017,7 +1017,7 @@ Bring 100% offline AI Digital Humans to your hospital reception desks, outpatien
         bannerImage: "/images/blog/blog_banner_automation.png",
         bannerBg: "from-cyan-950 via-sky-950/80 to-black",
         accentColor: "cyan",
-        icon: "🛍️",
+        icon: "retail",
         tags: ["Virtual Try-On", "Retail AI", "Smart Mirrors", "Computer Vision", "DIHUAVA Roadmap"],
         content: `> - **Interactive Digital Product Visualization:** Enables shoppers to explore products, luxury watches, jewellery, and accessories digitally on interactive screens.
 > - **Computer Vision & AI Optics:** Utilizes camera tracking and optical rendering to present digital product overlays in physical retail environments.
@@ -1208,7 +1208,7 @@ Explore how AI Digital Humans, interactive spatial displays, and 3D hologram sho
         bannerImage: "/images/blog/blog_banner_edge_ai.png",
         bannerBg: "from-blue-950 via-slate-900 to-black",
         accentColor: "blue",
-        icon: "🌐",
+        icon: "globe",
         tags: [
             "AI Digital Humans",
             "Fleet Management",

@@ -49,12 +49,12 @@ export const en = {
   footer: {
     description:
       "HS Global AI is an advanced AI digital human platform delivering lifelike holographic avatars for banking, retail, healthcare, education and enterprise automation.",
-    singaporeHQLabel: "📍 Singapore HQ:",
+    singaporeHQLabel: "Singapore HQ:",
     singaporeHQAddress: "20 COLLYER QUAY, #09-01, SINGAPORE – 049319",
-    indiaOfficeLabel: "🏢 India Office:",
+    indiaOfficeLabel: "India Office:",
     indiaOfficeAddress:
       "Vijayawada, Andhra Pradesh 520004, India",
-    chinaOfficeLabel: "🏬 China Office:",
+    chinaOfficeLabel: "China Office:",
     chinaOfficeAddress:
       "Bao'an District, Shenzhen, China",
     emailLabel: "✉️ Email:",
@@ -640,7 +640,7 @@ export const en = {
     heroDescription: "Explore HS Global AI products: DIHUAVA AI Digital Human platform, 3D Hologram Box displays, and naked-eye spatial AI displays for 100% offline enterprise deployment.",
     heroSubDescription: "DIHUAVA provides the AI Digital Human software layer that can power HS Global AI's holographic and spatial display experiences.",
     pills: {
-      languages: "🌍 29+ Global Languages",
+      languages: "29+ Global Languages",
       avatars: "Avatar Customization & Voice Cloning",
       offline: "100% Offline AI Engine",
       holographics: "3D Holographics",
@@ -878,17 +878,17 @@ export const en = {
       {
         title: "Retail Sales Ambassador",
         desc: "Proactive product recommendations, cross-selling, promotional announcements, and interactive Virtual Try-On assistance.",
-        icon: "🛍️",
+        icon: "retail",
       },
       {
         title: "Healthcare Patient Assistant",
         desc: "Empathetic hospital wayfinding, symptom intake triage, appointment scheduling, and multilingual discharge instructions.",
-        icon: "🏥",
+        icon: "hospital",
       },
       {
         title: "Corporate Receptionist",
         desc: "Visitor check-in, guest badge issuance, host notifications, workplace wayfinding, and employee HR policy Q&A.",
-        icon: "🏢",
+        icon: "building",
       },
       {
         title: "Custom Brand Avatar",
@@ -1583,8 +1583,8 @@ export const en = {
     heroTitle: "Start your AI journey with ",
     heroTitleHighlight: "HS Global AI.",
     heroDescription: "Reach out to our global team in Singapore HQ or India Office to book a live demo, request datasheets, or discuss custom enterprise deployments.",
-    tabContact: "📬 Contact & Demo Inquiry",
-    tabDownloads: "📥 Download Spec Sheets (PDF)",
+    tabContact: "Contact & Demo Inquiry",
+    tabDownloads: "Download Spec Sheets (PDF)",
     globalInfraBadge: "Global Infrastructure",
     officesTitle: "Our Global Offices",
     officesDescription: "HS Global AI serves enterprise clients worldwide with main headquarters in Singapore and regional development in India.",
@@ -1801,7 +1801,7 @@ export const en = {
         tagline: "Showcasing AI-powered hologram and digital human technology.",
         description: "HS Global AI demonstrated advanced hologram displays and lifelike digital human avatars at LED China 2026, attracting global visitors and industry professionals.",
         badge: "Completed Exhibition",
-        galleryPrompt: "📸 Live Exhibition Photos (Click to View):",
+        galleryPrompt: "Live Exhibition Photos (Click to View):",
         galleryCaptions: [
           "Main Venue Entrance",
           "3D Hologram Pendant Demo",

@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { Play, Pause, ArrowRight } from "lucide-react";
 
 export interface AvatarOption {
   id: string;
@@ -179,7 +180,7 @@ export default function AvatarFaceSelection() {
           <button
             onClick={handlePrev}
             aria-label="Previous Avatar"
-            className="absolute left-1 sm:left-4 top-1/2 -translate-y-1/2 z-40 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-cyan-500/40 bg-black/70 text-cyan-300 backdrop-blur-md transition-all hover:bg-cyan-500/20 hover:scale-110 hover:border-cyan-400 active:scale-95 shadow-[0_0_20px_rgba(6,182,212,0.3)]"
+            className="absolute left-1 sm:left-4 top-1/2 -translate-y-1/2 z-40 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-cyan-500/40 bg-black/70 text-cyan-300 backdrop-blur-md transition-all hover:bg-cyan-500/20 hover:scale-110 hover:border-cyan-400 active:scale-95 shadow-[0_0_20px_rgba(6,182,212,0.3)] cursor-pointer"
           >
             <svg className="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -190,7 +191,7 @@ export default function AvatarFaceSelection() {
           <button
             onClick={handleNext}
             aria-label="Next Avatar"
-            className="absolute right-1 sm:right-4 top-1/2 -translate-y-1/2 z-40 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-cyan-500/40 bg-black/70 text-cyan-300 backdrop-blur-md transition-all hover:bg-cyan-500/20 hover:scale-110 hover:border-cyan-400 active:scale-95 shadow-[0_0_20px_rgba(6,182,212,0.3)]"
+            className="absolute right-1 sm:right-4 top-1/2 -translate-y-1/2 z-40 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-cyan-500/40 bg-black/70 text-cyan-300 backdrop-blur-md transition-all hover:bg-cyan-500/20 hover:scale-110 hover:border-cyan-400 active:scale-95 shadow-[0_0_20px_rgba(6,182,212,0.3)] cursor-pointer"
           >
             <svg className="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
@@ -288,7 +289,7 @@ export default function AvatarFaceSelection() {
             {/* Play/Pause Toggle Button */}
             <button
               onClick={() => setIsPaused(!isPaused)}
-              className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-950/40 px-3.5 py-1.5 text-xs text-gray-200 hover:border-cyan-400 hover:text-white transition-all backdrop-blur-md shadow-md"
+              className="inline-flex h-8 items-center justify-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-950/40 px-4 text-xs text-gray-200 hover:border-cyan-400 hover:text-white transition-all backdrop-blur-md shadow-md active:scale-[0.98] cursor-pointer"
               title={isPaused ? "Resume auto slideshow" : "Pause auto slideshow"}
             >
               <span
@@ -299,7 +300,9 @@ export default function AvatarFaceSelection() {
               <span className="font-mono text-[11px] uppercase tracking-wider font-semibold">
                 {isPaused ? "Slideshow Paused" : "Auto Slideshow"}
               </span>
-              <span className="text-xs ml-1">{isPaused ? "▶" : "❚❚"}</span>
+              <span className="ml-1">
+                {isPaused ? <Play className="h-3 w-3 fill-current" /> : <Pause className="h-3 w-3 fill-current" />}
+              </span>
             </button>
 
             {/* Pagination Dots */}
@@ -348,9 +351,10 @@ export default function AvatarFaceSelection() {
 
             <Link
               href="/contact"
-              className="shrink-0 rounded-full bg-gradient-to-r from-cyan-500 via-sky-500 to-cyan-600 px-7 py-3.5 text-xs sm:text-sm font-bold text-white shadow-xl transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(6,182,212,0.5)]"
+              className="shrink-0 inline-flex h-10 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 via-sky-500 to-cyan-600 px-5 text-xs sm:text-sm font-bold text-white shadow-xl transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] active:scale-[0.98] cursor-pointer"
             >
-              Deploy {selectedAvatar.name} →
+              <span>Deploy {selectedAvatar.name}</span>
+              <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </motion.div>

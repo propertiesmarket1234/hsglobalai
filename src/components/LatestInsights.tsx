@@ -77,7 +77,7 @@ export default function LatestInsights() {
 
           <Link
             href={lPath("/blog")}
-            className="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold backdrop-blur-md transition-all hover:border-cyan-400 hover:bg-white/10 hover:scale-105"
+            className="group inline-flex h-10 items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 text-xs sm:text-[14px] font-semibold backdrop-blur-md transition-all hover:border-cyan-400 hover:bg-white/10 active:scale-[0.98] cursor-pointer shadow-xs"
           >
             <span>{ins.exploreAll}</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 text-cyan-400" />

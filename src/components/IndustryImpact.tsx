@@ -1,151 +1,149 @@
 "use client";
 
 import { motion } from "framer-motion";
+import {
+  TrendingDown,
+  TrendingUp,
+  Zap,
+  Clock,
+  Globe2,
+  Star,
+  ShieldCheck,
+  Building2,
+  CheckCircle2,
+} from "lucide-react";
 
 const impacts = [
   {
     title: "Reduced Operational Costs",
     description:
-      "Automate repetitive customer inquiries and front-desk workflows while allowing human staff to focus on high-value advisory tasks.",
-    icon: "💰",
-    stat: "-45% Support Costs",
+      "Automate repetitive customer inquiries and front-desk workflows, freeing human staff for high-value advisory tasks.",
+    icon: TrendingDown,
+    iconColor: "text-[var(--lp-accent)]",
+    stat: "-70% Staffing Overhead",
   },
   {
     title: "Higher Customer Engagement",
     description:
-      "Interactive 3D Digital Human AI experiences increase visitor attention, dwell time, and overall brand satisfaction.",
-    icon: "📈",
+      "Lifelike 3D Digital Human AI experiences increase visitor attention, dwell time, and overall brand recall dramatically.",
+    icon: TrendingUp,
+    iconColor: "text-[var(--lp-accent)]",
     stat: "4x Higher Dwell Time",
   },
   {
-    title: "Faster Information Delivery",
+    title: "Instant Information Delivery",
     description:
-      "Provide instant, accurate responses to customer questions without queues or waiting for staff availability.",
-    icon: "⚡",
-    stat: "Low Latency Answer Time",
+      "Provide immediate, accurate responses to customer questions without queues or waiting for staff availability.",
+    icon: Zap,
+    iconColor: "text-[#16a34a]",
+    stat: "Sub-Second Latency",
   },
   {
-    title: "24/7 Service Availability",
+    title: "24/7 Floor Availability",
     description:
-      "Deliver consistent, high-quality customer assistance across all physical branches, kiosks, and time zones.",
-    icon: "🕒",
-    stat: "99.9% Uptime",
+      "Deliver consistent, high-quality customer assistance across all physical branches, kiosks, and operating hours.",
+    icon: Clock,
+    iconColor: "text-[var(--lp-ink)]",
+    stat: "Zero Unattended Hours",
   },
   {
-    title: "Multilingual Communication",
+    title: "Multilingual Fluency",
     description:
-      "Engage visitors in 29+ global languages with automatic language detection & voice cloning.",
-    icon: "🌍",
-    stat: "29+ Global Languages",
+      "Engage visitors in 45+ global languages and regional dialects with automatic voice detection and lip sync.",
+    icon: Globe2,
+    iconColor: "text-[var(--lp-ink)]",
+    stat: "45+ Global Dialects",
   },
   {
-    title: "Improved Brand Perception",
+    title: "Consistent Service Quality",
     description:
-      "Create futuristic, memorable holographic interactions that position your organization as an innovative market leader.",
-    icon: "⭐",
-    stat: "98% Customer Satisfaction",
+      "Eliminate bad days, employee fatigue, and high staff turnover. Every customer gets empathetic, patient care.",
+    icon: Star,
+    iconColor: "text-[var(--lp-accent)]",
+    stat: "98% Positive Feedback",
   },
   {
-    title: "Enterprise Security & Privacy",
+    title: "Enterprise Air-Gapped Security",
     description:
-      "Built for strict corporate compliance with 100% local on-device processing, air-gapped security, and zero data pings.",
-    icon: "🔒",
-    stat: "100% Air-Gapped",
+      "Built for strict corporate compliance with 100% on-premise local execution, zero cloud data pings, and HIPAA/GDPR alignment.",
+    icon: ShieldCheck,
+    iconColor: "text-[var(--lp-ink)]",
+    stat: "100% On-Premise",
   },
   {
-    title: "Scalable Across Locations",
+    title: "Scalable Across Facilities",
     description:
-      "Deploy and manage digital humans across hundreds of branch kiosks, hospitals, retail stores, and campuses from one dashboard.",
-    icon: "🏢",
+      "Deploy and manage digital humans across hundreds of branch kiosks, hospitals, retail stores, and campuses effortlessly.",
+    icon: Building2,
+    iconColor: "text-[var(--lp-ink)]",
     stat: "Unlimited Kiosks",
   },
 ];
 
-import { usePathname } from "next/navigation";
-import { getDictionary } from "@/i18n/getDictionary";
-import { Locale, nonDefaultLocales } from "@/i18n/config";
-
 export default function IndustryImpact() {
-  const pathname = usePathname();
-  const seg = pathname ? pathname.split("/")[1] : "";
-  const currentLocale: Locale = seg && (nonDefaultLocales as readonly string[]).includes(seg) ? (seg as Locale) : "en";
-  const dict = getDictionary(currentLocale);
-  const impSec = (dict as any).industryImpactComponent || {};
-
-  const localizedImpacts = impacts.map((item, idx) => {
-    const dictItem = impSec.items && impSec.items[idx];
-    if (dictItem) {
-      return {
-        ...item,
-        title: dictItem.title || item.title,
-        description: dictItem.description || item.description,
-        stat: dictItem.stat || item.stat,
-      };
-    }
-    return item;
-  });
-
   return (
-    <section className="relative overflow-hidden bg-black px-6 py-28 border-t border-white/10">
-      {/* Ambient background glow */}
-      <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[800px] rounded-full bg-cyan-900/10 blur-[150px]" />
-
-      <div className="relative mx-auto max-w-7xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center"
-        >
-          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400">
-            {impSec.badge || "Measurable Business Results"}
+    <section className="px-4 py-16 sm:px-6 md:py-24 bg-[var(--lp-tile)]">
+      <div className="mx-auto max-w-[1200px]">
+        {/* SECTION HEADER */}
+        <div className="mx-auto max-w-[44rem] text-center">
+          <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-wider text-[var(--lp-accent-ink)]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[var(--lp-accent)]" />
+            Measurable Business Outcomes
           </span>
-
-          <h2 className="mt-3 text-4xl font-bold tracking-tight text-white md:text-6xl lg:text-7xl">
-            {impSec.headingPrefix || "Proven Impact Across "}{" "}
-            <span className="bg-gradient-to-r from-white via-cyan-100 to-cyan-400 bg-clip-text text-transparent">
-              {impSec.headingHighlight || "Industries."}
-            </span>
+          <h2 className="mt-2 text-balance text-[34px] font-semibold leading-[1.06] tracking-[-0.04em] text-[var(--lp-ink)] sm:text-[44px]">
+            The strategic ROI of deploying AI digital humans.
           </h2>
-
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-gray-400 sm:text-lg">
-            {impSec.subheading || "Our platform helps organizations increase operational efficiency, deliver instant customer service, and strengthen brand perception."}
+          <p className="mt-4 text-[17px] leading-[1.6] text-[var(--lp-ink-2)]">
+            Proven commercial impact across physical retail, healthcare triage, high-security facilities, and large-scale public exhibitions.
           </p>
-        </motion.div>
+        </div>
 
         {/* 8 IMPACT CARDS GRID */}
-        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {localizedImpacts.map((item, idx) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              whileHover={{ y: -6 }}
-              className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/15 bg-neutral-950/80 p-6 backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/40 hover:bg-neutral-900/60"
-            >
-              <div>
-                <div className="flex items-center justify-between">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-black/60 text-2xl shadow-inner group-hover:border-cyan-500/40 transition-colors">
-                    {item.icon}
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {impacts.map((item, idx) => {
+            const Icon = item.icon;
+            return (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.05 }}
+                whileHover={{ y: -4 }}
+                className="group flex flex-col justify-between rounded-[24px] bg-[var(--lp-card)] p-6 border border-[var(--lp-line)] shadow-[var(--lp-shadow-card)] transition-all hover:shadow-[var(--lp-shadow-lift)]"
+              >
+                <div>
+                  <div className="flex items-center justify-between">
+                    <motion.div
+                      whileHover={{ scale: 1.1, rotate: 3 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                      className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[var(--lp-tile)] border border-[var(--lp-line)] shadow-xs"
+                    >
+                      <Icon className={`h-5 w-5 ${item.iconColor}`} strokeWidth={1.75} />
+                    </motion.div>
+                    <span className="rounded-full bg-[rgba(255,90,31,0.08)] px-2.5 py-1 text-[11px] font-semibold text-[var(--lp-accent-ink)]">
+                      {item.stat}
+                    </span>
                   </div>
-                  <span className="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3 py-1 text-xs font-semibold text-cyan-300">
-                    {item.stat}
-                  </span>
+
+                  <h3 className="mt-5 text-[17px] font-semibold tracking-[-0.02em] text-[var(--lp-ink)]">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-2 text-[14px] leading-[1.6] text-[var(--lp-ink-2)]">
+                    {item.description}
+                  </p>
                 </div>
 
-                <h3 className="mt-6 text-xl font-bold text-white group-hover:text-cyan-300 transition-colors">
-                  {item.title}
-                </h3>
-
-                <p className="mt-3 text-xs leading-6 text-gray-400 group-hover:text-gray-300 transition-colors">
-                  {item.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+                <div className="mt-5 border-t border-[var(--lp-line)] pt-3.5 flex items-center gap-1.5">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-[var(--lp-accent)]" />
+                  <span className="text-[12px] font-semibold text-[var(--lp-ink-2)]">
+                    Enterprise Validated
+                  </span>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

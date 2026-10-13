@@ -105,7 +105,7 @@ export async function POST(request: Request) {
         <body>
           <div class="container">
             <div class="header">
-              <h1>🚀 New Sales Inquiry Received</h1>
+              <h1>New Sales Inquiry Received</h1>
               <p>Submitted via HS Global AI Official Website Contact Form</p>
             </div>
             <div class="content">

@@ -3,49 +3,49 @@
 import { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Locale, locales, LOCAL_STORAGE_LANG_KEY, getLocalizedPath } from "@/i18n/config";
+import {
+  Locale,
+  locales,
+  supportedLocales,
+  LOCAL_STORAGE_LANG_KEY,
+  getLocalizedPath,
+  nonDefaultLocales,
+} from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
+import { X, Globe } from "lucide-react";
 
 export default function LanguageBanner() {
+  const [isVisible, setIsVisible] = useState(false);
+  const [suggestedLocale, setSuggestedLocale] = useState<Locale | null>(null);
   const pathname = usePathname();
   const router = useRouter();
-  const [suggestedLocale, setSuggestedLocale] = useState<Locale | null>(null);
-  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // 1. Check if preference already stored in localStorage
+    // Only evaluate on client-side
     const savedPref = localStorage.getItem(LOCAL_STORAGE_LANG_KEY);
     if (savedPref) {
-      return; // Preference already set or dismissed
+      return;
     }
 
-    // 2. Detect browser languages
-    const userLangs = navigator.languages || [navigator.language || "en"];
-    let matchedLocale: Locale | null = null;
+    const currentPathSeg = pathname ? pathname.split("/")[1] : "";
+    const isAlreadyLocalized = (nonDefaultLocales as readonly string[]).includes(currentPathSeg as any);
 
-    for (const lang of userLangs) {
-      const lower = lang.toLowerCase();
-      if (lower.startsWith("zh")) {
-        matchedLocale = "zh";
-        break;
-      } else if (lower.startsWith("ru")) {
-        matchedLocale = "ru";
-        break;
-      } else if (lower.startsWith("es")) {
-        matchedLocale = "es";
-        break;
-      } else if (lower.startsWith("en")) {
-        // Explicitly English - no banner needed
-        matchedLocale = null;
+    if (isAlreadyLocalized) {
+      return;
+    }
+
+    // Inspect navigator.languages
+    const browserLanguages = typeof navigator !== "undefined" ? navigator.languages || [navigator.language] : [];
+    
+    for (const rawLang of browserLanguages) {
+      const code = rawLang.toLowerCase().split("-")[0];
+      if (code !== "en" && (supportedLocales as readonly string[]).includes(code as Locale)) {
+        setSuggestedLocale(code as Locale);
+        setIsVisible(true);
         break;
       }
     }
-
-    if (matchedLocale) {
-      setSuggestedLocale(matchedLocale);
-      setIsVisible(true);
-    }
-  }, []);
+  }, [pathname]);
 
   const handleDismiss = () => {
     localStorage.setItem(LOCAL_STORAGE_LANG_KEY, "en");
@@ -72,34 +72,37 @@ export default function LanguageBanner() {
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -40 }}
-        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-        className="relative z-50 bg-gradient-to-r from-cyan-950 via-neutral-950 to-blue-950 border-b border-cyan-500/30 px-4 py-2.5 text-xs text-white shadow-xl backdrop-blur-xl"
+        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        className="relative z-50 bg-[var(--lp-card)] border-b border-[var(--lp-line)] px-4 py-2 text-xs text-[var(--lp-ink)] shadow-xs"
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4">
+        <div className="mx-auto flex max-w-[1200px] items-center justify-between gap-4">
           <div className="flex items-center gap-2.5">
-            <span className="text-base">{targetLocaleInfo.flag}</span>
-            <p className="font-medium text-gray-200">
+            <Globe className="h-4 w-4 text-[var(--lp-accent)] shrink-0" />
+            <span className="font-mono text-[10px] font-bold px-1.5 py-0.5 rounded bg-[var(--lp-tile)] border border-[var(--lp-line)] text-[var(--lp-ink)]">
+              {targetLocaleInfo.flag}
+            </span>
+            <p className="font-medium text-[var(--lp-ink-2)]">
               {dict.languageBanner.promptPrefix}{" "}
-              <strong className="text-cyan-300 font-semibold">
+              <strong className="text-[var(--lp-ink)] font-semibold">
                 {targetLocaleInfo.nativeName}
               </strong>
               {dict.languageBanner.promptSuffix}
             </p>
           </div>
 
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex items-center gap-2 shrink-0">
             <button
               onClick={() => handleSwitch(suggestedLocale)}
-              className="rounded-full bg-cyan-500 px-4 py-1 text-[11px] font-bold uppercase tracking-wider text-black shadow-[0_0_15px_rgba(6,182,212,0.4)] transition-all hover:scale-105 hover:bg-cyan-400"
+              className="inline-flex h-8 items-center justify-center rounded-full bg-[var(--lp-ink)] px-4 text-xs font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_1px_2px_rgba(17,17,19,0.24)] transition-all hover:bg-[#2A2A2F] active:scale-[0.98] cursor-pointer"
             >
               {dict.languageBanner.switchBtn} {targetLocaleInfo.nativeName}
             </button>
             <button
               onClick={handleDismiss}
               aria-label={dict.languageBanner.dismissAria}
-              className="rounded-full p-1 text-gray-400 hover:text-white transition-colors"
+              className="inline-flex h-8 w-8 items-center justify-center rounded-full text-[var(--lp-muted)] hover:text-[var(--lp-ink)] hover:bg-[var(--lp-tile)] transition-colors active:scale-[0.98] cursor-pointer"
             >
-              ✕
+              <X className="h-4 w-4" />
             </button>
           </div>
         </div>

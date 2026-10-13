@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Zap } from "lucide-react";
 
 export default function BuildAvatarPipeline() {
   return (
@@ -102,7 +103,10 @@ export default function BuildAvatarPipeline() {
             </div>
 
             <div className="rounded-xl border border-white/10 bg-black/60 p-4 text-center">
-              <span className="text-xs font-mono text-cyan-400">⚡ Low Latency On-Device Rendering Engine</span>
+              <span className="inline-flex items-center gap-1.5 text-xs font-mono text-cyan-400">
+                <Zap className="h-3.5 w-3.5" />
+                <span>Low Latency On-Device Rendering Engine</span>
+              </span>
             </div>
           </motion.div>
 

@@ -3,7 +3,11 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { getDictionary } from "@/i18n/getDictionary";
+import { Locale, nonDefaultLocales, getLocalizedPath } from "@/i18n/config";
 
 interface ProductItem {
   id: string;
@@ -15,8 +19,6 @@ interface ProductItem {
   imageSrc: string;
   images?: string[];
   imageAlt: string;
-  accentColor: string;
-  accentGlow: string;
   badge: string;
   linkHref: string;
   linkText?: string;
@@ -28,15 +30,13 @@ const products: ProductItem[] = [
     id: "digital-humans",
     number: "01",
     title: "AI Digital Humans",
-    subtitle: "Real-Time 29+ Multilingual Avatars",
+    subtitle: "Real-Time Multilingual Autonomous Avatars",
     description:
-      "Intelligent, human-like AI avatars designed to communicate naturally with customers across 29+ global languages, industries, and real-world environments with hyper-realistic facial expressions and custom voice cloning.",
-    tags: ["29+ Global Languages", "Voice Cloning", "Custom Avatars", "Real-Time Interaction"],
+      "Intelligent, empathetic AI avatars designed to communicate naturally with customers across 45+ global languages, retail sales floors, and hospital lobbies with hyper-realistic lip synchronization and custom voice cloning.",
+    tags: ["45+ Global Dialects", "Voice Reference Cloning", "Sub-Second Vocal Reply", "Empathetic Presence"],
     imageSrc: "/products/digital-humans/digital-human-dashboard.jpg",
     imageAlt: "DIHUAVA AI Digital Human Platform",
-    accentColor: "from-cyan-500/20 via-sky-500/10 to-transparent",
-    accentGlow: "rgba(6, 182, 212, 0.25)",
-    badge: "Interactive Stream",
+    badge: "Autonomous Workforce",
     linkHref: "/products/ai-digital-human",
     linkText: "Explore DIHUAVA AI Digital Human Platform",
   },
@@ -44,19 +44,17 @@ const products: ProductItem[] = [
     id: "hologram-box",
     number: "02",
     title: "AI Hologram Box",
-    subtitle: "3D Display Enclosure in 29+ Global Languages",
+    subtitle: "3D Volumetric Hardware Enclosure",
     description:
-      "Bring intelligent AI Digital Humans into physical environments through 3D holographic experiences supporting 29+ global languages, interactive speech recognition, and custom voice cloning for retail showcases and executive lobbies.",
-    tags: ["29+ Global Languages", "3D Holographic", "Offline AI Engine", "Multiple Sizes"],
+      "Bring intelligent AI Digital Humans into physical environments through life-sized 3D holographic experiences supporting 45+ languages, interactive voice recognition, and 100% on-device private processing.",
+    tags: ["65'' and 86'' Enclosures", "3D Volumetric Depth", "Air-Gapped Offline AI", "High-Footfall Enclosure"],
     imageSrc: "/products/digital-humans/digital-human-new.png",
     images: [
       "/products/digital-humans/digital-human-new.png",
       "/products/hologram-box/hologram-box-saree.jpg",
     ],
     imageAlt: "3D AI Holographic Display Unit",
-    accentColor: "from-cyan-500/20 via-sky-500/10 to-transparent",
-    accentGlow: "rgba(6, 182, 212, 0.25)",
-    badge: "3D Holographic",
+    badge: "Life-Sized 3D Hardware",
     linkHref: "/products/holographic-display",
     linkText: "Explore 3D Hologram Display Box",
     reverseLayout: true,
@@ -65,15 +63,13 @@ const products: ProductItem[] = [
     id: "spatial-display",
     number: "03",
     title: "Spatial Display",
-    subtitle: "Volumetric & Interactive 29+ Language Visuals",
+    subtitle: "Glasses-Free 3D Interactive Screen",
     description:
-      "Transform digital content into immersive visual experiences supporting 29+ global languages, designed to capture attention and create engaging interactive experiences in physical spaces.",
-    tags: ["29+ Global Languages", "Immersive 3D Visuals", "Digital Signage", "Interactive Display"],
+      "Transform digital consultations into immersive volumetric experiences without 3D glasses. Engineered for VIP banking desks, luxury brand showcases, and medical consultation stations.",
+    tags: ["Glasses-Free 3D", "Executive Desk Unit", "Ultra-High Contrast", "Real-Time Interaction"],
     imageSrc: "/products/spatial-display/spatial-display.png",
     imageAlt: "Glasses-Free 3D Spatial Display",
-    accentColor: "from-cyan-500/20 via-sky-500/10 to-transparent",
-    accentGlow: "rgba(6, 182, 212, 0.25)",
-    badge: "Volumetric 3D",
+    badge: "Glasses-Free Volumetric",
     linkHref: "/products/spatial-display",
     linkText: "Explore Glasses-Free 3D Spatial Display",
   },
@@ -81,24 +77,18 @@ const products: ProductItem[] = [
     id: "virtual-try-on",
     number: "04",
     title: "Virtual Try-On",
-    subtitle: "AI Smart Mirror with 29+ Language Voice Guidance",
+    subtitle: "Interactive AI Smart Mirror",
     description:
-      "Enable customers to visualize products digitally before making a purchase, creating interactive shopping experiences with instant real-time outfit previewing and 29+ global language voice guidance.",
-    tags: ["29+ Global Languages", "AI Smart Mirror", "Real-Time Fitting", "Retail Experience"],
+      "Enable shoppers to visualize apparel, jewellery, and accessories digitally before purchase. Boost in-store checkout conversion while eliminating fitting room wait queues.",
+    tags: ["Real-Time Outfit Preview", "Smart Sizing Advice", "Zero Fitting Room Lines", "Retail Flagship Ready"],
     imageSrc: "/products/virtual-try-on/virtual-try-on.png",
-    imageAlt: "Virtual Try-On Smart Mirror Interactive Kiosk (Active R&D)",
-    accentColor: "from-cyan-500/20 via-sky-500/10 to-transparent",
-    accentGlow: "rgba(6, 182, 212, 0.25)",
-    badge: "Active R&D Capability",
+    imageAlt: "Virtual Try-On Smart Mirror Interactive Kiosk",
+    badge: "Active Retail Capability",
     linkHref: "/blog/what-is-virtual-try-on-technology",
-    linkText: "Learn About Virtual Try-On R&D Technology",
+    linkText: "Learn About Virtual Try-On Technology",
     reverseLayout: true,
   },
 ];
-
-import { usePathname } from "next/navigation";
-import { getDictionary } from "@/i18n/getDictionary";
-import { Locale, nonDefaultLocales, getLocalizedPath } from "@/i18n/config";
 
 export default function ProductShowcase() {
   const [hologramIndex, setHologramIndex] = useState(0);
@@ -116,310 +106,101 @@ export default function ProductShowcase() {
     return () => clearInterval(timer);
   }, []);
 
-  const localizedProducts = products.map((item) => {
-    if (item.id === "digital-humans") {
-      return {
-        ...item,
-        title: (fp.dihuava && fp.dihuava.title) || item.title,
-        subtitle: (fp.dihuava && fp.dihuava.category) || item.subtitle,
-        description: (fp.dihuava && fp.dihuava.description) || item.description,
-        badge: currentLocale === "zh" ? "实时交互流" : currentLocale === "ru" ? "Интерактивный поток" : currentLocale === "es" ? "Transmisión interactiva" : currentLocale === "fr" ? "Flux interactif" : item.badge,
-        tags:
-          currentLocale === "zh"
-            ? ["29+ 种全球语言", "声音克隆", "定制数字人", "实时交互"]
-            : currentLocale === "ru"
-            ? ["29+ Мировых языков", "Клонирование голоса", "Персональные аватары", "Интерактивность в реальном времени"]
-            : currentLocale === "es"
-            ? ["29+ Idiomas globales", "Clonación de voz", "Avatares personalizados", "Interacción en tiempo real"]
-            : currentLocale === "fr"
-            ? ["29+ Langues mondiales", "Clonage vocal", "Avatars personnalisés", "Interaction en temps réel"]
-            : item.tags,
-        linkText:
-          currentLocale === "zh"
-            ? "探索 DIHUAVA AI 数字人平台"
-            : currentLocale === "ru"
-            ? "Обзор платформы AI цифровых людей DIHUAVA →"
-            : currentLocale === "es"
-            ? "Explorar la plataforma de Humanos Digitales DIHUAVA AI →"
-            : currentLocale === "fr"
-            ? "Explorer la plateforme d'Humains Virtuels DIHUAVA AI →"
-            : item.linkText,
-      };
-    }
-    if (item.id === "hologram-box") {
-      return {
-        ...item,
-        title: (fp.hologramBox && fp.hologramBox.title) || item.title,
-        subtitle: (fp.hologramBox && fp.hologramBox.category) || item.subtitle,
-        description: (fp.hologramBox && fp.hologramBox.description) || item.description,
-        badge: currentLocale === "zh" ? "3D 全息" : currentLocale === "ru" ? "3D-Голографический куб" : currentLocale === "es" ? "Holográfico 3D" : currentLocale === "fr" ? "Holographique 3D" : item.badge,
-        tags:
-          currentLocale === "zh"
-            ? ["29+ 种全球语言", "3D 全息", "离线 AI 引擎", "多种尺寸"]
-            : currentLocale === "ru"
-            ? ["29+ Мировых языков", "3D-Голограмма", "Автономный AI-движок", "Различные размеры"]
-            : currentLocale === "es"
-            ? ["29+ Idiomas globales", "Holograma 3D", "Motor de IA sin conexión", "Múltiples tamaños"]
-            : currentLocale === "fr"
-            ? ["29+ Langues mondiales", "Hologramme 3D", "Moteur IA hors ligne", "Plusieurs tailles"]
-            : item.tags,
-        linkText:
-          currentLocale === "zh"
-            ? "探索 3D AI 全息显示盒"
-            : currentLocale === "ru"
-            ? "Обзор 3D AI голографического куба →"
-            : currentLocale === "es"
-            ? "Explorar la Caja Holográfica 3D con IA →"
-            : currentLocale === "fr"
-            ? "Explorer la Boîte Hologramme 3D IA →"
-            : item.linkText,
-      };
-    }
-    if (item.id === "spatial-display") {
-      return {
-        ...item,
-        title: (fp.spatialDisplay && fp.spatialDisplay.title) || item.title,
-        subtitle: (fp.spatialDisplay && fp.spatialDisplay.category) || item.subtitle,
-        description: (fp.spatialDisplay && fp.spatialDisplay.description) || item.description,
-        badge: currentLocale === "zh" ? "裸眼 3D 体积显示" : currentLocale === "ru" ? "Объемный 3D-дисплей" : currentLocale === "es" ? "3D Volumétrico" : currentLocale === "fr" ? "3D Volumétrique" : item.badge,
-        tags:
-          currentLocale === "zh"
-            ? ["29+ 种全球语言", "沉浸式 3D 视觉", "数字标牌", "交互式显示屏"]
-            : currentLocale === "ru"
-            ? ["29+ Мировых языков", "Захватывающая 3D-графика", "Цифровые вывески", "Интерактивный экран"]
-            : currentLocale === "es"
-            ? ["29+ Idiomas globales", "Visuales 3D inmersivos", "Señales digitales", "Pantalla interactiva"]
-            : currentLocale === "fr"
-            ? ["29+ Langues mondiales", "Visuels 3D immersifs", "Affichage dynamique", "Écran interactif"]
-            : item.tags,
-        linkText:
-          currentLocale === "zh"
-            ? "探索裸眼 3D 空间显示屏"
-            : currentLocale === "ru"
-            ? "Обзор 3D объемного дисплея без очков →"
-            : currentLocale === "es"
-            ? "Explorar la Pantalla Espacial 3D sin gafas →"
-            : currentLocale === "fr"
-            ? "Explorer l'Écran Spatial 3D sans lunettes →"
-            : item.linkText,
-      };
-    }
-    if (item.id === "virtual-try-on") {
-      return {
-        ...item,
-        title: (fp.virtualTryOn && fp.virtualTryOn.title) || item.title,
-        subtitle: (fp.virtualTryOn && fp.virtualTryOn.category) || item.subtitle,
-        description: (fp.virtualTryOn && fp.virtualTryOn.description) || item.description,
-        badge: currentLocale === "zh" ? "前沿研发能力" : currentLocale === "ru" ? "Активные R&D разработки" : currentLocale === "es" ? "Capacidad de I+D activa" : currentLocale === "fr" ? "Capacité R&D active" : item.badge,
-        tags:
-          currentLocale === "zh"
-            ? ["29+ 种全球语言", "AI 试穿镜", "实时试穿", "智慧零售体验"]
-            : currentLocale === "ru"
-            ? ["29+ Мировых языков", "AI Умное зеркало", "Примерка в реальном времени", "Интерактивный ритейл"]
-            : currentLocale === "es"
-            ? ["29+ Idiomas globales", "Espejo inteligente con IA", "Prueba en tiempo real", "Experiencia comercial"]
-            : currentLocale === "fr"
-            ? ["29+ Langues mondiales", "Miroir intelligent IA", "Essayage en temps réel", "Expérience Retail"]
-            : item.tags,
-        linkText:
-          currentLocale === "zh"
-            ? "了解 Virtual Try-On 虚拟试穿技术"
-            : currentLocale === "ru"
-            ? "Подробнее о технологии виртуальной примерки →"
-            : currentLocale === "es"
-            ? "Más información sobre la tecnología de I+D Virtual Try-On →"
-            : currentLocale === "fr"
-            ? "En savoir plus sur la technologie R&D Virtual Try-On →"
-            : item.linkText,
-      };
-    }
-    return item;
-  });
-
   return (
-    <section className="relative overflow-hidden bg-black px-6 py-24 text-white">
-      {/* Background ambient lighting */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-neutral-900/40 via-black to-black" />
-
-      <div className="relative mx-auto max-w-7xl">
-        <div className="divide-y divide-white/10">
-          {localizedProducts.map((product, index) => {
+    <section className="relative overflow-hidden bg-[var(--lp-bg)] px-4 py-20 sm:px-6 md:py-28 text-[var(--lp-ink)]">
+      <div className="relative mx-auto max-w-[1200px]">
+        <div className="divide-y divide-[var(--lp-line)]">
+          {products.map((product) => {
             const activeImg = product.images ? product.images[hologramIndex] : product.imageSrc;
             return (
-              <div key={product.id} className="py-24 first:pt-0 last:pb-0">
+              <div key={product.id} className="py-20 first:pt-0 last:pb-0">
                 <motion.div
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                   className={`grid gap-12 lg:grid-cols-2 lg:items-center ${
                     product.reverseLayout ? "lg:grid-flow-dense" : ""
                   }`}
                 >
-                  {/* IMAGE CONTAINER WITH CONTINUOUS SCROLL / FLOAT ANIMATION */}
-                  <div
-                    className={`group relative ${
-                      product.reverseLayout ? "lg:col-start-2" : ""
-                    }`}
-                  >
-                    <motion.div
-                      className="relative overflow-hidden rounded-2xl border border-white/15 bg-neutral-900/40 p-2 backdrop-blur-xl shadow-2xl"
-                      animate={{
-                        y: [0, -14, 0, 14, 0],
-                        boxShadow: [
-                          `0 10px 40px -10px ${product.accentGlow}`,
-                          `0 25px 65px -5px ${product.accentGlow}`,
-                          `0 10px 40px -10px ${product.accentGlow}`,
-                        ],
-                      }}
-                      transition={{
-                        duration: 7 + index * 0.5,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                      }}
-                    >
-                      {/* Glowing background gradient inside frame */}
-                      <div
-                        className={`absolute inset-0 bg-gradient-to-br ${product.accentColor} opacity-50 transition-opacity duration-700 group-hover:opacity-100`}
-                      />
-
-                      {/* Continuous Auto-Pan Image Container */}
-                      <div className={`relative w-full overflow-hidden rounded-xl bg-black/60 ${
+                  {/* HARDWARE PREVIEW CONTAINER */}
+                  <div className={`group relative ${product.reverseLayout ? "lg:col-start-2" : ""}`}>
+                    <div className="relative overflow-hidden rounded-[28px] border border-[var(--lp-line)] bg-[var(--lp-tile)] p-3 shadow-[var(--lp-shadow-card)]">
+                      <div className={`relative w-full overflow-hidden rounded-2xl bg-[#0B1224] ${
                         product.id === "digital-humans" ? "aspect-[16/11]" : "aspect-[4/5]"
                       }`}>
-                        {/* Live Status Badge overlay */}
-                        <div className="absolute top-4 left-4 z-20 flex items-center gap-2 rounded-full border border-white/20 bg-black/70 px-3.5 py-1.5 backdrop-blur-md">
+                        {/* Live Status Badge */}
+                        <div className="absolute top-4 left-4 z-20 flex items-center gap-2 rounded-full border border-[var(--lp-line)] bg-white/90 px-3.5 py-1.5 backdrop-blur-md shadow-xs">
                           <span className="relative flex h-2 w-2">
-                            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75" />
-                            <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-500" />
+                            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--lp-accent)] opacity-75" />
+                            <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--lp-accent)]" />
                           </span>
-                          <span className="text-xs font-medium tracking-wider text-white/90 uppercase">
+                          <span className="text-[11px] font-semibold tracking-wider text-[var(--lp-ink)] uppercase">
                             {product.badge}
                           </span>
                         </div>
 
-                        {/* Glass light reflection sheen layer */}
-                        <motion.div
-                          className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-tr from-transparent via-white/10 to-transparent"
-                          animate={{
-                            x: ["-100%", "200%"],
-                          }}
-                          transition={{
-                            duration: 4,
-                            repeat: Infinity,
-                            repeatDelay: 3 + index,
-                            ease: "easeInOut",
-                          }}
+                        <Image
+                          src={activeImg}
+                          alt={product.imageAlt}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          className={
+                            product.id === "spatial-display" || product.id === "digital-humans" || product.id === "hologram-box"
+                              ? "object-contain bg-[#0B1224] p-3 transition-transform duration-700 group-hover:scale-105"
+                              : "object-cover transition-transform duration-700 group-hover:scale-105"
+                          }
                         />
-
-                        {/* Continuous Smooth Camera Motion Image */}
-                        {product.imageSrc ? (
-                          <motion.div
-                            className="relative h-full w-full"
-                            animate={{
-                              y: ["0%", "-4%", "0%", "3%", "0%"],
-                              scale: [1, 1.05, 1.02, 1.04, 1],
-                            }}
-                            transition={{
-                              duration: 12 + index * 2,
-                              repeat: Infinity,
-                              ease: "easeInOut",
-                            }}
-                          >
-                            <Image
-                              src={activeImg}
-                              alt={product.imageAlt}
-                              fill
-                              sizes="(max-width: 768px) 100vw, 50vw"
-                              className={
-                                product.id === "spatial-display" || product.id === "digital-humans" || product.id === "hologram-box"
-                                  ? "object-contain bg-neutral-950 p-1.5 transition-transform duration-700 group-hover:scale-105"
-                                  : "object-cover transition-transform duration-700 group-hover:scale-105"
-                              }
-                              priority={index === 0}
-                            />
-                          </motion.div>
-                      ) : (
-                        <div className="relative h-full w-full bg-gradient-to-br from-cyan-950/80 via-neutral-950 to-black p-8 flex flex-col justify-between overflow-hidden">
-                          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-cyan-500/20 via-sky-600/5 to-transparent blur-xl" />
-                          <div className="relative z-10 font-mono text-xs text-cyan-400 tracking-wider">
-                            ● VOLUMETRIC OPTICAL PANEL
-                          </div>
-                          <div className="relative z-10 my-auto text-center">
-                            <span className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-sky-200">
-                              3D SPATIAL DISPLAY
-                            </span>
-                            <p className="mt-2 text-xs text-gray-400 font-mono">
-                              Eye-tracked depth shift technology
-                            </p>
-                          </div>
-                          <div className="relative z-10 flex justify-between items-center text-[10px] font-mono text-gray-500">
-                            <span>86" OPTICAL LIGHT-FIELD</span>
-                            <span>SUB-MILLIMETER DEPTH</span>
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Subtle Vignette Overlay */}
-                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
-
-                      {/* Number Overlay in corner */}
-                      <div className="absolute bottom-4 right-5 z-20 font-mono text-3xl font-light text-white/40 group-hover:text-white/80 transition-colors">
-                        {product.number}
                       </div>
                     </div>
-                  </motion.div>
-                </div>
+                  </div>
 
-                {/* TEXT / DETAILS CONTENT */}
-                <div
-                  className={`flex flex-col justify-center ${
-                    product.reverseLayout ? "lg:col-start-1" : ""
-                  }`}
-                >
-                  <p className="mb-4 text-xs tracking-[0.3em] font-semibold text-gray-400 uppercase">
-                    {product.number} — {product.subtitle}
-                  </p>
-
-                  <h2 className="text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl">
-                    {product.title}
-                  </h2>
-
-                  <p className="mt-6 max-w-xl text-base leading-8 text-gray-300 sm:text-lg">
-                    {product.description}
-                  </p>
-
-                  <div className="mt-8 flex flex-wrap gap-2.5">
-                    {product.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium text-gray-300 backdrop-blur-sm transition-all hover:border-white/40 hover:bg-white/10 hover:text-white"
-                      >
-                        {tag}
+                  {/* PRODUCT DETAILS */}
+                  <div className={product.reverseLayout ? "lg:col-start-1" : ""}>
+                    <div className="flex items-center gap-3">
+                      <span className="font-mono text-sm font-semibold tracking-wider text-[var(--lp-accent)]">
+                        {product.number}
                       </span>
-                    ))}
-                  </div>
+                      <span className="rounded-full border border-[var(--lp-line)] bg-[var(--lp-tile)] px-3 py-1 text-[11px] font-medium tracking-wide text-[var(--lp-muted)]">
+                        {product.subtitle}
+                      </span>
+                    </div>
 
-                  <div className="mt-10">
-                    <Link
-                      href={lPath(product.linkHref)}
-                      className="group inline-flex items-center gap-3 text-sm font-semibold tracking-wide text-white transition-colors hover:text-cyan-400"
-                    >
-                      <span>{product.linkText || `Explore ${product.title}`}</span>
-                      <motion.span
-                        animate={{ x: [0, 4, 0] }}
-                        transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                        className="text-lg"
+                    <h2 className="mt-4 text-3xl font-bold tracking-tight text-[var(--lp-ink)] sm:text-4xl">
+                      {product.title}
+                    </h2>
+
+                    <p className="mt-4 text-base leading-7 text-[var(--lp-ink-2)] sm:text-lg">
+                      {product.description}
+                    </p>
+
+                    {/* Feature tags */}
+                    <div className="mt-6 flex flex-wrap gap-2">
+                      {product.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="inline-flex items-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-[var(--lp-card)] px-3.5 py-1.5 text-xs font-medium text-[var(--lp-ink)] shadow-2xs"
+                        >
+                          <CheckCircle2 className="h-3.5 w-3.5 text-[var(--lp-accent)]" />
+                          <span>{tag}</span>
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="mt-8 flex items-center gap-4">
+                      <Link
+                        href={lPath(product.linkHref)}
+                        className="group/link inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[var(--lp-ink)] px-6 text-sm font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_1px_2px_rgba(17,17,19,0.24)] transition-all hover:bg-[#2A2A2F] active:scale-[0.98] cursor-pointer"
                       >
-                        →
-                      </motion.span>
-                    </Link>
+                        <span>{product.linkText}</span>
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
+                      </Link>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            </div>
-          );
-        })}
+                </motion.div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

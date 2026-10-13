@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
-
+import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { getDictionary } from "@/i18n/getDictionary";
 import { Locale, nonDefaultLocales } from "@/i18n/config";
@@ -17,25 +17,33 @@ export default function FaqClient() {
   const faqSec = dict.home.faqSection;
 
   return (
-    <main className="min-h-screen bg-black text-white selection:bg-cyan-500 selection:text-black">
+    <main className="min-h-screen bg-[var(--lp-bg)] text-[var(--lp-ink)] selection:bg-[var(--lp-accent)] selection:text-white">
       <Header />
 
-      {/* HERO SECTION */}
-      <section className="relative overflow-hidden px-6 pt-32 pb-16 md:pt-40 md:pb-20">
-        <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-[450px] w-[700px] rounded-full bg-cyan-600/15 blur-[150px]" />
+      {/* HERO SECTION: SWIPECRAFT STYLE */}
+      <section className="relative px-4 pt-32 pb-16 sm:px-6 md:pt-40 md:pb-20 border-b border-[var(--lp-line)]">
+        <div className="relative mx-auto max-w-4xl text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-[var(--lp-tile)] px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-[var(--lp-ink-2)] mb-6">
+              <span className="h-1.5 w-1.5 rounded-full bg-[var(--lp-accent)]" />
+              {faqSec.badge || "Knowledge Base & Answers"}
+            </span>
 
-        <div className="relative mx-auto max-w-5xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-cyan-300 backdrop-blur-md mb-6">
-            {faqSec.badge}
-          </span>
+            <h1 className="text-balance text-[40px] font-semibold leading-[1.04] tracking-[-0.04em] text-[var(--lp-ink)] sm:text-[54px] lg:text-[64px]">
+              Frequently Asked{" "}
+              <span className="text-[var(--lp-muted)]">
+                Questions.
+              </span>
+            </h1>
 
-          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl">
-            {faqSec.heading || "Frequently Asked Questions"}
-          </h1>
-
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-gray-300 sm:text-lg">
-            {faqSec.subheading || "Find detailed answers about DIHUAVA's On-Device AI engine, 3D Hologram Box setup, multilingual voice avatars, air-gapped security, and custom integrations."}
-          </p>
+            <p className="mx-auto mt-5 max-w-2xl text-[16px] leading-[1.65] text-[var(--lp-ink-2)] sm:text-[18px]">
+              {faqSec.subheading || "Answers regarding on-premise edge hardware, 3D Hologram Box dimensions, multilingual voice recognition, air-gapped security, and enterprise rollout."}
+            </p>
+          </motion.div>
         </div>
       </section>
 

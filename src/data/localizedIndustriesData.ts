@@ -182,25 +182,25 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
           title: "100% 物理隔离安全保障",
           description:
             "所有语音识别、数字人动画渲染及文档 RAG 检索均在本地 GPU 硬件上严格运行，零数据上传至公有云。",
-          icon: "🔒",
+          icon: "lock",
         },
         {
           title: "本地银行业务文档 RAG",
           description:
             "在本地即时解析保密信贷政策 PDF、利率表及合规条款，提供准确无误的客户咨询解答。",
-          icon: "📄",
+          icon: "file",
         },
         {
           title: "多语言金融理财顾问",
           description:
             "支持 29+ 种全球语言及方言的实时自动识别与自然语音交互，具备专业金融语调。",
-          icon: "🌐",
+          icon: "globe",
         },
         {
           title: "智能排队分流大堂经理",
           description:
             "亲切迎接入店客户、打印排队号码牌、核对预约信息并精准引导至对应业务窗口。",
-          icon: "🎫",
+          icon: "ticket",
         },
       ],
       useCases: [
@@ -270,22 +270,22 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         {
           title: "实时虚拟试衣与试戴",
           description: "让顾客即时通过数字叠加呈现方式试穿服装、试戴眼镜及奢侈珠宝。",
-          icon: "✨",
+          icon: "sparkles",
         },
         {
           title: "3D 全息产品目录展示",
           description: "以光学立体深度与 360 度旋转视觉展示高奢精品的精细 3D 模型。",
-          icon: "💎",
+          icon: "diamond",
         },
         {
           title: "AI 智能交叉销售推荐",
           description: "根据顾客咨询与产品偏好，智能推荐搭配商品并呈献实时促销优惠。",
-          icon: "📈",
+          icon: "chart",
         },
         {
           title: "多语言门店迎宾导购",
           description: "使用国际游客母语亲切迎宾，并精准引导顾客前往目标楼层与展位。",
-          icon: "🌍",
+          icon: "globe",
         },
       ],
       useCases: [
@@ -355,22 +355,22 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         {
           title: "无人化智能前台接待",
           description: "迎接入境访客、扫描邀请二维码、打印访客证并自动发送 Slack/短信通知接待员工。",
-          icon: "👋",
+          icon: "avatar",
         },
         {
           title: "本地 HR 制度文档 RAG",
           description: "基于企业员工手册，精准解答医疗福利、休假制度及差旅报销等问题。",
-          icon: "📋",
+          icon: "list",
         },
         {
           title: "办公园区导航与会议室指引",
           description: "提供立体地图导航，指引嘉宾前往指定会议室与高管办公室。",
-          icon: "🗺️",
+          icon: "map",
         },
         {
           title: "多语言企业通讯录查阅",
           description: "使用 29+ 种全球语言协助全球分公司访客快速对接各部门负责人。",
-          icon: "🌐",
+          icon: "globe",
         },
       ],
       useCases: [
@@ -440,22 +440,22 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         {
           title: "100% 患者隐私与物理隔离",
           description: "语音识别、文档解析及交互全过程严格在本地硬件运行，零云端数据传输。",
-          icon: "🛡️",
+          icon: "shield",
         },
         {
           title: "预检分诊与行政引导",
           description: "以亲切同理的语调收集基本分诊信息，协助护士台进行初步科室分流。",
-          icon: "🩺",
+          icon: "health",
         },
         {
           title: "院内科室路线导航",
           description: "按楼层指引患者及家属前往复杂门诊楼、检验科、影像中心及药房窗口。",
-          icon: "📍",
+          icon: "pin",
         },
         {
           title: "术前准备与术后康复说明",
           description: "用清晰易懂的语音向患者讲解手术注意规程、出院医嘱及行政办手续步骤。",
-          icon: "📝",
+          icon: "note",
         },
       ],
       useCases: [
@@ -538,22 +538,22 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         {
           title: "3D 全息历史人物复原",
           description: "在 1:1 比例全息舱内逼真还原历史名人、文化符号或虚拟导览员。",
-          icon: "👑",
+          icon: "crown",
         },
         {
           title: "多语言文化讲解员",
           description: "根据游客母语自动切换语言，呈现自然生动的语音与地方口音。",
-          icon: "🗣️",
+          icon: "speech",
         },
         {
           title: "历史文献 RAG 检索",
           description: "导入博物馆馆藏目录、历史文献及语音讲解词，支持深度问答。",
-          icon: "📚",
+          icon: "book",
         },
         {
           title: "景区路线与旅游指引",
           description: "提供城市旅游推荐、门票预订说明、交通指引及活动日程。",
-          icon: "🗺️",
+          icon: "map",
         },
       ],
       useCases: [
@@ -623,22 +623,22 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         {
           title: "3D 全息立体 AI 讲师",
           description: "在全息舱内配合 3D 科学模型呈现生动立体的 STEM 科学课程。",
-          icon: "🔬",
+          icon: "lab",
         },
         {
           title: "多语言外语口语对练",
           description: "提供 29+ 种语言的无尽口语对话练习，配备自然发音纠正。",
-          icon: "💬",
+          icon: "speech",
         },
         {
           title: "虚拟实验室安全操作助手",
           description: "一步步指引学生完成化学实验规程、安全检查与设备操作。",
-          icon: "🧪",
+          icon: "lab",
         },
         {
           title: "校园招生与导航助手",
           description: "协助新生及家长了解学校概况、专业设置、入学标准及校园路线。",
-          icon: "🏫",
+          icon: "school",
         },
       ],
       useCases: [
@@ -710,22 +710,22 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         {
           title: "100% Автономная безопасность",
           description: "Распознавание речи, рендеринг аватара и локальный RAG работают строго на локальном GPU.",
-          icon: "🔒",
+          icon: "lock",
         },
         {
           title: "Локальный RAG по банковским документам",
           description: "Мгновенные ответы по условиям кредитования и регламентам из локальных PDF-файлов.",
-          icon: "📄",
+          icon: "file",
         },
         {
           title: "Многоязычные финансовые консультации",
           description: "Распознавание и поддержка 29+ языков в реальном времени с естественнои интонацией.",
-          icon: "🌐",
+          icon: "globe",
         },
         {
           title: "Интерактивный консьерж очередей",
           description: "Приветствует клиентов, выдает талоны очереди и направляет к нужным окнам.",
-          icon: "🎫",
+          icon: "ticket",
         },
       ],
       useCases: [
@@ -795,22 +795,22 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         {
           title: "Виртуальная примерка Virtual Try-On",
           description: "Мгновенная цифровое наложение одежды, очков и ювелирных украшений в реальном времени.",
-          icon: "✨",
+          icon: "sparkles",
         },
         {
           title: "3D-Голографический каталог",
           description: "Демонстрация объемных 3D-моделей премиальных товаров с вращением на 360 градусов.",
-          icon: "💎",
+          icon: "diamond",
         },
         {
           title: "ИИ-Рекомендации товаров",
           description: "Персонализированные рекомендации сопутствующих товаров и специальных предложений.",
-          icon: "📈",
+          icon: "chart",
         },
         {
           title: "Многоязычный консьерж витрины",
           description: "Приветствие иностранных туристов на их родном языке и навигация по торговому центру.",
-          icon: "🌍",
+          icon: "globe",
         },
       ],
       useCases: [
@@ -880,22 +880,22 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         {
           title: "Автономный администратор",
           description: "Встреча гостей, сканирование QR-приглашений, печать бейджей и уведомление сотрудников.",
-          icon: "👋",
+          icon: "avatar",
         },
         {
           title: "Локальный RAG по регламентам HR",
           description: "Ответы на вопросы о льготах, отпусках и больничных из корпоративных регламентов.",
-          icon: "📋",
+          icon: "list",
         },
         {
           title: "Навигация по офису и переговорным",
           description: "Интерактивные карты этажей и сопровождение гостей до нужных кабинетов.",
-          icon: "🗺️",
+          icon: "map",
         },
         {
           title: "Многоязычный справочник",
           description: "Соединение иностранных гостей с руководителями отделов на 29+ языках.",
-          icon: "🌐",
+          icon: "globe",
         },
       ],
       useCases: [
@@ -965,22 +965,22 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         {
           title: "100% Конфиденциальность данных",
           description: "Все разговоры и документы обрабатываются локально без передачи в облако.",
-          icon: "🛡️",
+          icon: "shield",
         },
         {
           title: "Первичная информационная маршрутизация",
           description: "Сбор первичной информации и помощь медперсоналу в направлении пациентов.",
-          icon: "🩺",
+          icon: "health",
         },
         {
           title: "Навигация по корпусам клиники",
           description: "Пошаговый маршрут к диагностическим кабинетам, лабораториям и аптеке.",
-          icon: "📍",
+          icon: "pin",
         },
         {
           title: "Пояснение памятек по уходу",
           description: "Доходчивое объяснение правил подготовки к исследованиям и выписки.",
-          icon: "📝",
+          icon: "note",
         },
       ],
       useCases: [
@@ -1063,22 +1063,22 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         {
           title: "3D-Голограммы исторических личностей",
           description: "Воссоздание исторический персонажей в 3D-голографических кубах 1:1.",
-          icon: "👑",
+          icon: "crown",
         },
         {
           title: "Многоязычный экскурсовод",
           description: "Адаптация речи к родному языку посетителя с естественным произношением.",
-          icon: "🗣️",
+          icon: "speech",
         },
         {
           title: "RAG по архивным материалам",
           description: "Загрузка каталогов и научных статей для детальных ответов на вопросы.",
-          icon: "📚",
+          icon: "book",
         },
         {
           title: "Туристическая навигация",
           description: "Рекомендации по городу, покупка билетов и транспортные маршруты.",
-          icon: "🗺️",
+          icon: "map",
         },
       ],
       useCases: [
@@ -1148,22 +1148,22 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         {
           title: "Интерактивные 3D-Лекторы",
           description: "Наглядные лекции по STEM-предметам с 3D-моделями в голографических кубах.",
-          icon: "🔬",
+          icon: "lab",
         },
         {
           title: "Языковая практика",
           description: "Разговорная практика на 29+ языках с коррекцией произношения.",
-          icon: "💬",
+          icon: "speech",
         },
         {
           title: "Помощник в виртуальной лаборатории",
           description: "Инструктаж по лабораторным работам и технике безопасности.",
-          icon: "🧪",
+          icon: "lab",
         },
         {
           title: "Приемная комиссия и навигатор",
           description: "Помощь абитуриентам по вопросам поступления и картам кампуса.",
-          icon: "🏫",
+          icon: "school",
         },
       ],
       useCases: [
@@ -1235,22 +1235,22 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         {
           title: "Seguridad 100% Aislada",
           description: "Reconocimiento de voz, renderizado y RAG ejecutados estrictamente en hardware GPU local.",
-          icon: "🔒",
+          icon: "lock",
         },
         {
           title: "RAG Documental Bancario Local",
           description: "Respuestas precisas sobre políticas de crédito y normativas desde PDFs locales.",
-          icon: "📄",
+          icon: "file",
         },
         {
           title: "Asesoramiento Financiero Multilingüe",
           description: "Detección de idioma en tiempo real en más de 29 idiomas con entonación natural.",
-          icon: "🌐",
+          icon: "globe",
         },
         {
           title: "Conserje de Colas Interactivo",
           description: "Recibe a los clientes, emite tickets de turno y orienta hacia la ventanilla adecuada.",
-          icon: "🎫",
+          icon: "ticket",
         },
       ],
       useCases: [
@@ -1320,22 +1320,22 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         {
           title: "Probador Virtual Real-Time",
           description: "Visualización instantánea de ropa, gafas y joyería digitalmente sobre el cliente.",
-          icon: "✨",
+          icon: "sparkles",
         },
         {
           title: "Catálogo Holográfico 3D",
           description: "Modelos 3D volumétricos con profundidad óptica y rotación de 360 grados.",
-          icon: "💎",
+          icon: "diamond",
         },
         {
           title: "Recomendaciones de Venta IA",
           description: "Sugerencias de productos complementarios basadas en las consultas del cliente.",
-          icon: "📈",
+          icon: "chart",
         },
         {
           title: "Conserje Multilingüe",
           description: "Bienvenida a turistas en su idioma nativo y orientación en el establecimiento.",
-          icon: "🌍",
+          icon: "globe",
         },
       ],
       useCases: [
@@ -1405,22 +1405,22 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         {
           title: "Recepción Autónoma",
           description: "Salude a los visitantes, escanee códigos QR, imprima pases y notifique al anfitrión.",
-          icon: "👋",
+          icon: "avatar",
         },
         {
           title: "RAG Local de Políticas de RRHH",
           description: "Respuestas sobre beneficios, vacaciones y gastos desde los manuales corporativos.",
-          icon: "📋",
+          icon: "list",
         },
         {
           title: "Orientación en Edificio y Salas",
           description: "Mapas interactivos de pisos e indicaciones hacia salas de reuniones.",
-          icon: "🗺️",
+          icon: "map",
         },
         {
           title: "Directorio Corporativo Multilingüe",
           description: "Conecte a visitantes con ejecutivos de departamento en más de 29 idiomas.",
-          icon: "🌐",
+          icon: "globe",
         },
       ],
       useCases: [
@@ -1490,22 +1490,22 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         {
           title: "100% Privacidad y Seguridad Aislada",
           description: "Procesamiento de voz y documentos exclusivamente en hardware local sin nube.",
-          icon: "🛡️",
+          icon: "shield",
         },
         {
           title: "Soporte de Recepción y Triaje",
           description: "Recopilación de datos administrativos iniciales para orientar la atención.",
-          icon: "🩺",
+          icon: "health",
         },
         {
           title: "Navegación por Departamentos",
           description: "Guía paso a paso por pisos, laboratorios, radiología y farmacias.",
-          icon: "📍",
+          icon: "pin",
         },
         {
           title: "Explicación de Cuidados Pre y Post Op",
           description: "Indicaciones sobre preparación para cirugías e instrucciones de alta en voz clara.",
-          icon: "📝",
+          icon: "note",
         },
       ],
       useCases: [
@@ -1588,22 +1588,22 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         {
           title: "Avatares Históricos 3D",
           description: "Recreación de figuras históricas dentro de cajas holográficas a escala 1:1.",
-          icon: "👑",
+          icon: "crown",
         },
         {
           title: "Narrador de Exposiciones Multilingüe",
           description: "Adaptación del discurso al idioma nativo del visitante con voz natural.",
-          icon: "🗣️",
+          icon: "speech",
         },
         {
           title: "Motor RAG de Archivos Históricos",
           description: "Procesamiento de catálogos y documentos para preguntas y respuestas profundas.",
-          icon: "📚",
+          icon: "book",
         },
         {
           title: "Guía Turístico y de Orientación",
           description: "Recomendaciones de la ciudad, venta de entradas y transporte.",
-          icon: "🗺️",
+          icon: "map",
         },
       ],
       useCases: [
@@ -1673,22 +1673,22 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         {
           title: "Profesores 3D Holográficos",
           description: "Clases sobre materias STEM con modelos 3D dentro de cajas holográficas.",
-          icon: "🔬",
+          icon: "lab",
         },
         {
           title: "Práctica de Idiomas Multilingüe",
           description: "Práctica conversacional en más de 29 idiomas con corrección de pronunciación.",
-          icon: "💬",
+          icon: "speech",
         },
         {
           title: "Guía de Seguridad en Laboratorio",
           description: "Instrucciones paso a paso sobre seguridad y procedimientos de laboratorio.",
-          icon: "🧪",
+          icon: "lab",
         },
         {
           title: "Orientación de Admisiones y Campus",
           description: "Información a estudiantes y padres sobre planes de estudio y mapa de campus.",
-          icon: "🏫",
+          icon: "school",
         },
       ],
       useCases: [
@@ -1760,22 +1760,22 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         {
           title: "Sécurité 100% Isolée",
           description: "Reconnaissance vocale et RAG exécutés exclusivement sur GPU local sans cloud.",
-          icon: "🔒",
+          icon: "lock",
         },
         {
           title: "RAG Documentaire Bancaire Local",
           description: "Réponses précises sur les contrats de prêt et règles depuis des PDF locaux.",
-          icon: "📄",
+          icon: "file",
         },
         {
           title: "Conseil Financier Multilingue",
           description: "Détection automatique de la langue parmi plus de 29 langues en temps réel.",
-          icon: "🌐",
+          icon: "globe",
         },
         {
           title: "Concierge de File d'Attente Interactif",
           description: "Accueille les clients, délivre des tickets et oriente vers le bon guichet.",
-          icon: "🎫",
+          icon: "ticket",
         },
       ],
       useCases: [
@@ -1845,22 +1845,22 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         {
           title: "Essayage Virtuel Real-Time",
           description: "Superposition numérique instantanée de vêtements, lunettes et bijoux en temps réel.",
-          icon: "✨",
+          icon: "sparkles",
         },
         {
           title: "Catalogue Holographique 3D",
           description: "Modèles 3D volumétriques avec profondeur optique et rotation à 360 degrés.",
-          icon: "💎",
+          icon: "diamond",
         },
         {
           title: "Recommandations Vente IA",
           description: "Suggestions de produits complémentaires basées sur les demandes du client.",
-          icon: "📈",
+          icon: "chart",
         },
         {
           title: "Concierge Multilingue",
           description: "Accueil des touristes dans leur langue maternelle et orientation dans le magasin.",
-          icon: "🌍",
+          icon: "globe",
         },
       ],
       useCases: [
@@ -1930,22 +1930,22 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         {
           title: "Réception Autonome",
           description: "Accueil des visiteurs, scan des QR codes, impression des badges et alerte de l'hôte.",
-          icon: "👋",
+          icon: "avatar",
         },
         {
           title: "RAG Local des Politiques RH",
           description: "Réponses aux questions sur les congés, mutuelle et notes de frais depuis les guides RH.",
-          icon: "📋",
+          icon: "list",
         },
         {
           title: "Orientation dans le Bâtiment",
           description: "Cartes interactives des étages et guidage vers les salles de réunion.",
-          icon: "🗺️",
+          icon: "map",
         },
         {
           title: "Annuaire Corporatif Multilingue",
           description: "Mise en relation des visiteurs internationaux avec les responsables en 29+ langues.",
-          icon: "🌐",
+          icon: "globe",
         },
       ],
       useCases: [
@@ -2015,22 +2015,22 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         {
           title: "100% Confidentialité & Sécurité Hors Ligne",
           description: "Traitement de la voix et des documents exclusivement sur matériel local.",
-          icon: "🛡️",
+          icon: "shield",
         },
         {
           title: "Support d'Accueil et Triage Administratif",
           description: "Recueil des informations administratives pour orienter les patients.",
-          icon: "🩺",
+          icon: "health",
         },
         {
           title: "Navigation par Service Hospitalier",
           description: "Guidage étape par étape vers les laboratoires, la radiologie et la pharmacie.",
-          icon: "📍",
+          icon: "pin",
         },
         {
           title: "Explication des Soins Pré et Post Op",
           description: "Consignes de préparation chirurgicale et explications de sortie à la voix.",
-          icon: "📝",
+          icon: "note",
         },
       ],
       useCases: [
@@ -2113,22 +2113,22 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         {
           title: "Avatars Historiques 3D",
           description: "Reconstitution de personnages historiques dans des boîtiers holographiques 1:1.",
-          icon: "👑",
+          icon: "crown",
         },
         {
           title: "Conteur d'Expositions Multilingue",
           description: "Adaptation du récit à la langue du visiteur avec une intonation naturelle.",
-          icon: "🗣️",
+          icon: "speech",
         },
         {
           title: "Moteur RAG d'Archives Historiques",
           description: "Intégration de catalogues et documents de recherche pour des réponses détaillées.",
-          icon: "📚",
+          icon: "book",
         },
         {
           title: "Guide Touristique et Orientations",
           description: "Recommandations sur la ville, billetterie et transports.",
-          icon: "🗺️",
+          icon: "map",
         },
       ],
       useCases: [
@@ -2198,22 +2198,22 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         {
           title: "Enseignants 3D Holographiques",
           description: "Cours interactifs sur les matières STEM avec visuels 3D volumétriques.",
-          icon: "🔬",
+          icon: "lab",
         },
         {
           title: "Pratique des Langues Multilingue",
           description: "Pratique conversationnelle dans plus de 29 langues avec retours sur la prononciation.",
-          icon: "💬",
+          icon: "speech",
         },
         {
           title: "Guide de Sécurité en Laboratoire",
           description: "Instructions étape par étape pour les travaux pratiques et la sécurité.",
-          icon: "🧪",
+          icon: "lab",
         },
         {
           title: "Orientation Admissions et Campus",
           description: "Renseignements pour futurs étudiants et parents sur les cursus et le campus.",
-          icon: "🏫",
+          icon: "school",
         },
       ],
       useCases: [

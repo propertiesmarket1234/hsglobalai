@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Brain, Eye, Sparkles, Mic, Globe, Film } from "lucide-react";
+import { Brain, Eye, Sparkles, Mic, Globe, Film, Volume2 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { getDictionary } from "@/i18n/getDictionary";
 import { Locale, nonDefaultLocales } from "@/i18n/config";
@@ -257,8 +257,9 @@ export default function RealtimeTalkingAvatars() {
                 <span className="text-xs font-mono font-bold text-cyan-300 uppercase tracking-wider">
                   {activeLady.name}
                 </span>
-                <span className="hidden sm:inline-block text-[11px] font-mono text-cyan-400 border-l border-white/20 pl-2">
-                  🎙️ {activeLady.voiceProfile.description}
+                <span className="hidden sm:inline-flex items-center gap-1 text-[11px] font-mono text-cyan-400 border-l border-white/20 pl-2">
+                  <Mic className="h-3 w-3" />
+                  <span>{activeLady.voiceProfile.description}</span>
                 </span>
               </div>
             </div>
@@ -278,8 +279,9 @@ export default function RealtimeTalkingAvatars() {
                 </div>
               </div>
 
-              <div className="rounded-full border border-white/20 bg-black/80 px-3.5 py-2 font-mono text-xs text-gray-300 backdrop-blur-md">
-                🔊 {av.languagesEnabled}
+              <div className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/80 px-3.5 py-2 font-mono text-xs text-gray-300 backdrop-blur-md">
+                <Volume2 className="h-3 w-3 text-cyan-400" />
+                <span>{av.languagesEnabled}</span>
               </div>
             </div>
 
