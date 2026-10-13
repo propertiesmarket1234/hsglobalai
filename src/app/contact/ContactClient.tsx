@@ -4,11 +4,24 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { getDictionary } from "@/i18n/getDictionary";
-import { Locale, nonDefaultLocales } from "@/i18n/config";
+import { Locale, nonDefaultLocales, getLocalizedPath } from "@/i18n/config";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Mail,
+  Download,
+  MapPin,
+  Building2,
+  Phone,
+  Clock,
+  CheckCircle2,
+  ArrowRight,
+  ArrowUpRight,
+  FileText,
+  ShieldCheck,
+} from "lucide-react";
 
 export interface SheetItem {
   title: string;
@@ -20,74 +33,64 @@ const dataSheetsAndPriceList: SheetItem[] = [
   { title: "86 Inch HOLOGRAM BOX DATA SHEET", filename: "86_Inch_Hologram_Box_Data_Sheet.pdf" },
   { title: "Hologram Box With Software Specification Sheet", filename: "Hologram_Box_Software_Data_Sheet.pdf" },
   { title: "Hologram Box Product Comparison Sheet", filename: "Hologram_Box_Product_Comparison_Sheet.pdf" },
-  { title: "OEM 许可证规格表", filename: "OEM_License_Data_Sheet_ZH.pdf", lang: "Chinese" },
+  { title: "OEM License Specification Sheet", filename: "OEM_License_Data_Sheet_ZH.pdf", lang: "Chinese" },
   { title: "86 Inch SPATIAL DISPLAY Data Sheet", filename: "86_Inch_Spatial_Display_Data_Sheet.pdf" },
   { title: "Dihuava Product Brochure 2026 JUN", filename: "Dihuava_Product_Brochure_2026_JUN.pdf" },
-  { title: "AI数字人软件介绍 2026 JUN Bilingual", filename: "AI_Digital_Human_Software_Intro_2026_JUN_Bilingual.pdf", lang: "Bilingual" },
-  { title: "SPATIAL Display 空间屏规格表", filename: "Spatial_Display_Data_Sheet_ZH.pdf", lang: "Chinese" },
-  { title: "HS International Business Card", filename: "HS_International_Business_Card.pdf" },
+  { title: "AI Digital Human Software Guide", filename: "AI_Digital_Human_Software_Intro_2026_JUN_Bilingual.pdf", lang: "Bilingual" },
+  { title: "Spatial Display Engineering Sheet", filename: "Spatial_Display_Data_Sheet_ZH.pdf", lang: "Chinese" },
+  { title: "HS International Business Profile", filename: "HS_International_Business_Card.pdf" },
 ];
 
 const dihuavaBrochures: SheetItem[] = [
-  { title: "Dihuava-Brochure", filename: "Dihuava_Brochure_Overview.pdf" },
-  { title: "Dihuava – Digital Human Avatar _ Product Brochure", filename: "Dihuava_Digital_Human_Avatar_Product_Brochure.pdf" },
+  { title: "Dihuava Platform Brochure", filename: "Dihuava_Brochure_Overview.pdf" },
+  { title: "Dihuava Digital Human Avatar Brochure", filename: "Dihuava_Digital_Human_Avatar_Product_Brochure.pdf" },
 ];
 
 const dihuavaTemplates: SheetItem[] = [
-  { title: "Template For Traders", filename: "Dihuava_Template_For_Traders.pdf" },
-  { title: "General Inquiry Templets", filename: "Dihuava_General_Inquiry_Templates.pdf" },
-  { title: "Template For Hardware Manufacturers", filename: "Dihuava_Template_For_Hardware_Manufacturers.pdf" },
-  { title: "Template For The System Integrators", filename: "Dihuava_Template_For_System_Integrators.pdf" },
+  { title: "Template For Commercial Partners", filename: "Dihuava_Template_For_Traders.pdf" },
+  { title: "Enterprise Inquiry Template", filename: "Dihuava_General_Inquiry_Templates.pdf" },
+  { title: "Hardware OEM Partner Template", filename: "Dihuava_Template_For_Hardware_Manufacturers.pdf" },
+  { title: "System Integrator Deployment Template", filename: "Dihuava_Template_For_System_Integrators.pdf" },
 ];
 
 export interface CountryCodeItem {
   code: string;
   country: string;
-  flag: string;
+  iso: string;
 }
 
 const countryCodes: CountryCodeItem[] = [
-  { code: "+65", country: "Singapore", flag: "🇸🇬" },
-  { code: "+91", country: "India", flag: "🇮🇳" },
-  { code: "+86", country: "China", flag: "🇨🇳" },
-  { code: "+1", country: "United States / Canada", flag: "🇺🇸" },
-  { code: "+44", country: "United Kingdom", flag: "🇬🇧" },
-  { code: "+971", country: "United Arab Emirates", flag: "🇦🇪" },
-  { code: "+61", country: "Australia", flag: "🇦🇺" },
-  { code: "+49", country: "Germany", flag: "🇩🇪" },
-  { code: "+33", country: "France", flag: "🇫🇷" },
-  { code: "+81", country: "Japan", flag: "🇯🇵" },
-  { code: "+82", country: "South Korea", flag: "🇰🇷" },
-  { code: "+60", country: "Malaysia", flag: "🇲🇾" },
-  { code: "+62", country: "Indonesia", flag: "🇮🇩" },
-  { code: "+66", country: "Thailand", flag: "🇹🇭" },
-  { code: "+84", country: "Vietnam", flag: "🇻🇳" },
-  { code: "+63", country: "Philippines", flag: "🇵🇭" },
-  { code: "+966", country: "Saudi Arabia", flag: "🇸🇦" },
-  { code: "+974", country: "Qatar", flag: "🇶🇦" },
-  { code: "+39", country: "Italy", flag: "🇮🇹" },
-  { code: "+34", country: "Spain", flag: "🇪🇸" },
-  { code: "+31", country: "Netherlands", flag: "🇳🇱" },
-  { code: "+41", country: "Switzerland", flag: "🇨🇭" },
-  { code: "+55", country: "Brazil", flag: "🇧🇷" },
-  { code: "+52", country: "Mexico", flag: "🇲🇽" },
-  { code: "+27", country: "South Africa", flag: "🇿🇦" },
+  { code: "+65", country: "Singapore", iso: "SG" },
+  { code: "+91", country: "India", iso: "IN" },
+  { code: "+86", country: "China", iso: "CN" },
+  { code: "+1", country: "United States / Canada", iso: "US" },
+  { code: "+44", country: "United Kingdom", iso: "GB" },
+  { code: "+971", country: "United Arab Emirates", iso: "AE" },
+  { code: "+61", country: "Australia", iso: "AU" },
+  { code: "+49", country: "Germany", iso: "DE" },
+  { code: "+33", country: "France", iso: "FR" },
+  { code: "+81", country: "Japan", iso: "JP" },
+  { code: "+82", country: "South Korea", iso: "KR" },
 ];
 
-export default function ContactClient({ defaultTab = "contact" }: { defaultTab?: "contact" | "downloads" }) {
+export default function ContactClient({
+  defaultTab = "contact",
+}: {
+  defaultTab?: "contact" | "downloads";
+} = {}) {
   const [activeTab, setActiveTab] = useState<"contact" | "downloads">(defaultTab);
   const [activeLocationMap, setActiveLocationMap] = useState<"singapore" | "india" | "china">("singapore");
+  const [selectedCountryCode, setSelectedCountryCode] = useState("+65");
+  const [isCountryDropdownOpen, setIsCountryDropdownOpen] = useState(false);
   const [downloadingTitle, setDownloadingTitle] = useState<string | null>(null);
 
   const [formData, setFormData] = useState({
-    name: "",
-    fullName: "",
+    firstName: "",
+    lastName: "",
     email: "",
-    countryCode: "+65",
-    phone: "",
     company: "",
-    designation: "",
-    industry: "",
+    phone: "",
+    industry: "Retail",
     message: "",
   });
 
@@ -122,72 +125,78 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
   };
 
   return (
-    <main className="min-h-screen bg-black text-white selection:bg-cyan-500 selection:text-black">
+    <main className="min-h-screen bg-[var(--lp-bg)] text-[var(--lp-ink)] selection:bg-[var(--lp-accent)] selection:text-white">
       <Header />
 
-      {/* HERO SECTION WITH BACKSIDE DIGITAL HUMAN VIDEO */}
-      <section className="relative overflow-hidden px-6 pt-32 pb-16 md:pt-40 md:pb-20 border-b border-white/10">
-        {/* Horizontal Background Video (Backside of Text) */}
-        <div className="absolute inset-0 z-0 overflow-hidden">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="h-full w-full object-cover opacity-40 filter brightness-90 contrast-110"
-          >
-            <source src="/hero-background.mp4" type="video/mp4" />
-          </video>
-
-          {/* Dark Overlay Gradients for High-Contrast Readable Text */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/85" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-transparent to-black/70" />
-          <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-[450px] w-[800px] rounded-full bg-cyan-600/15 blur-[160px]" />
-        </div>
-
-        <div className="relative z-10 mx-auto max-w-5xl text-center">
+      {/* HERO SECTION: SWIPECRAFT STYLE */}
+      <section className="relative px-4 pt-32 pb-16 sm:px-6 md:pt-40 md:pb-20 border-b border-[var(--lp-line)]">
+        <div className="relative mx-auto max-w-4xl text-center">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
           >
-            <span className="inline-flex items-center gap-2 rounded-full border border-cyan-500/40 bg-cyan-950/80 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-cyan-300 backdrop-blur-md mb-6 shadow-[0_0_20px_rgba(6,182,212,0.3)]">
-              {cPage.heroBadge || "Get in Touch — HS Global AI"}
+            <span className="inline-flex items-center gap-2 rounded-full border border-[var(--lp-line)] bg-[var(--lp-tile)] px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-[var(--lp-ink-2)] mb-6">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--lp-accent)] opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--lp-accent)]" />
+              </span>
+              {cPage.heroBadge || "Enterprise Engagement & Engineering Pilots"}
             </span>
 
-            <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl drop-shadow-2xl">
-              {cPage.heroTitle || "Start your AI journey with "}{" "}
-              <span className="bg-gradient-to-r from-white via-cyan-100 to-cyan-400 bg-clip-text text-transparent">
-                {cPage.heroTitleHighlight || "HS Global AI."}
+            <h1 className="text-balance text-[40px] font-semibold leading-[1.04] tracking-[-0.04em] text-[var(--lp-ink)] sm:text-[54px] lg:text-[64px]">
+              Start your digital human journey with{" "}
+              <span className="text-[var(--lp-muted)]">
+                HS Global AI.
               </span>
             </h1>
 
-            <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-gray-200 sm:text-lg drop-shadow">
-              {cPage.heroDescription || "Reach out to our global team in Singapore HQ or India Office to book a live demo, request datasheets, or discuss custom enterprise deployments."}
+            <p className="mx-auto mt-5 max-w-2xl text-[16px] leading-[1.65] text-[var(--lp-ink-2)] sm:text-[18px]">
+              {cPage.heroDescription || "Connect with our solution engineers in Singapore Global HQ or India Center to schedule an on-premise pilot, download technical datasheets, or discuss enterprise fleet pricing."}
             </p>
 
-            {/* TAB SELECTOR BUTTONS MATCHING USER DESIGN REQUIREMENT */}
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            {/* TAB SELECTOR BUTTONS */}
+            <div className="mt-8 inline-flex items-center gap-2 rounded-full border border-[var(--lp-line)] bg-[var(--lp-card)] p-1.5 shadow-xs">
               <button
                 onClick={() => setActiveTab("contact")}
-                className={`rounded-full px-8 py-3.5 text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
+                className={`relative inline-flex h-10 items-center justify-center gap-2 rounded-full px-5 text-xs font-bold uppercase tracking-wider transition-all active:scale-[0.98] cursor-pointer ${
                   activeTab === "contact"
-                    ? "bg-cyan-500 text-black shadow-[0_0_30px_rgba(6,182,212,0.6)] scale-105"
-                    : "border border-white/20 bg-black/60 text-gray-300 hover:border-cyan-400 hover:text-white"
+                    ? "text-[var(--lp-ink)]"
+                    : "text-[var(--lp-muted)] hover:text-[var(--lp-ink)]"
                 }`}
               >
-                {cPage.tabContact || "📬 Contact & Demo Inquiry"}
+                {activeTab === "contact" && (
+                  <motion.span
+                    layoutId="contactTabIndicator"
+                    className="absolute inset-0 rounded-full bg-[var(--lp-tile)] shadow-xs"
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  />
+                )}
+                <span className="relative z-10 flex items-center gap-2">
+                  <Mail className="h-3.5 w-3.5 text-[var(--lp-accent)]" />
+                  <span>Contact &amp; Architecture Pilot</span>
+                </span>
               </button>
 
               <button
                 onClick={() => setActiveTab("downloads")}
-                className={`rounded-full px-8 py-3.5 text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
+                className={`relative inline-flex h-10 items-center justify-center gap-2 rounded-full px-5 text-xs font-bold uppercase tracking-wider transition-all active:scale-[0.98] cursor-pointer ${
                   activeTab === "downloads"
-                    ? "bg-cyan-500 text-black shadow-[0_0_30px_rgba(6,182,212,0.6)] scale-105"
-                    : "border border-white/20 bg-black/60 text-gray-300 hover:border-cyan-400 hover:text-white"
+                    ? "text-[var(--lp-ink)]"
+                    : "text-[var(--lp-muted)] hover:text-[var(--lp-ink)]"
                 }`}
               >
-                {cPage.tabDownloads || "📥 Download Spec Sheets (PDF)"}
+                {activeTab === "downloads" && (
+                  <motion.span
+                    layoutId="contactTabIndicator"
+                    className="absolute inset-0 rounded-full bg-[var(--lp-tile)] shadow-xs"
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  />
+                )}
+                <span className="relative z-10 flex items-center gap-2">
+                  <Download className="h-3.5 w-3.5 text-[var(--lp-accent)]" />
+                  <span>Download Spec Sheets (PDF)</span>
+                </span>
               </button>
             </div>
           </motion.div>
@@ -197,252 +206,266 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
       {/* TAB CONTENT 1: CONTACT FORM & GLOBAL LOCATIONS */}
       {activeTab === "contact" && (
         <>
-          <section className="relative overflow-hidden bg-black px-6 py-20">
-            <div className="relative mx-auto max-w-7xl">
+          <section className="relative px-4 py-20 sm:px-6 md:py-28 bg-[var(--lp-bg)]">
+            <div className="mx-auto max-w-[1200px]">
               <div className="grid gap-12 lg:grid-cols-12">
                 {/* LEFT COLUMN: GLOBAL HEADQUARTERS & REGIONAL OFFICES */}
-                <div className="lg:col-span-5 space-y-8">
+                <div className="lg:col-span-5 space-y-6">
                   <div>
-                    <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400 font-mono">
-                      {cPage.globalInfraBadge || "Global Infrastructure"}
+                    <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-wider text-[var(--lp-accent-ink)]">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[var(--lp-accent)]" />
+                      Global Engineering Presence
                     </span>
-                    <h2 className="mt-2 text-3xl font-bold text-white">{cPage.officesTitle || "Our Global Offices"}</h2>
-                    <p className="mt-3 text-sm leading-6 text-gray-400">
-                      {cPage.officesDescription || "HS Global AI serves enterprise clients worldwide with main headquarters in Singapore, regional development in India, and hardware R&D in China."}
+                    <h2 className="mt-2 text-2xl font-bold tracking-tight text-[var(--lp-ink)] sm:text-3xl">
+                      {cPage.officesTitle || "Our Global Headquarters"}
+                    </h2>
+                    <p className="mt-3 text-sm leading-relaxed text-[var(--lp-ink-2)]">
+                      {cPage.officesDescription || "HS Global AI serves clients globally with headquarters in Singapore, engineering development in India, and hardware R&D in China."}
                     </p>
                   </div>
 
                   {/* SINGAPORE HEADQUARTERS CARD */}
-                  <div className="group relative overflow-hidden rounded-3xl border border-cyan-500/40 bg-neutral-950 p-7 backdrop-blur-xl shadow-[0_0_30px_rgba(6,182,212,0.15)] transition-all hover:border-cyan-400">
+                  <div className="rounded-[28px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-7 shadow-[var(--lp-shadow-card)]">
                     <div className="flex items-center justify-between">
-                      <span className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3 py-1 text-xs font-bold text-cyan-300 font-mono">
-                        {cPage.sgHqBadge || "🇸🇬 GLOBAL HEADQUARTERS"}
+                      <span className="inline-flex items-center gap-2 rounded-full bg-[rgba(255,90,31,0.08)] px-3 py-1 text-xs font-bold text-[var(--lp-accent-ink)]">
+                        <Building2 className="h-3.5 w-3.5 text-[var(--lp-accent)]" />
+                        GLOBAL HEADQUARTERS
                       </span>
-                      <span className="text-xs text-gray-400 font-mono">{cPage.sgHqCountry || "SINGAPORE"}</span>
+                      <span className="text-xs font-mono font-medium text-[var(--lp-muted)]">SINGAPORE</span>
                     </div>
 
-                    <h3 className="mt-4 text-xl font-bold text-white">{cPage.sgHqName || "HS GLOBAL SG PTE LTD"}</h3>
-                    <p className="mt-2 text-xs leading-6 text-gray-300">
-                      {cPage.sgHqAddress || "20 COLLYER QUAY, #09-01, SINGAPORE – 049319"}
+                    <h3 className="mt-4 text-lg font-bold text-[var(--lp-ink)]">HS GLOBAL SG PTE LTD</h3>
+                    <p className="mt-2 text-xs leading-5 text-[var(--lp-ink-2)]">
+                      60 Paya Lebar Road, #07-54, Paya Lebar Square, Singapore 409051
                     </p>
 
-                    <div className="mt-5 space-y-2 border-t border-white/10 pt-4 text-xs">
-                      <div className="flex items-center justify-between text-gray-300">
-                        <span className="font-semibold text-cyan-300">{cPage.officialEmailLabel || "Official Email:"}</span>
-                        <a href="mailto:info@hsglobalai.com" className="hover:underline font-mono text-cyan-400">
-                          info@hsglobalai.com
+                    <div className="mt-5 space-y-2 border-t border-[var(--lp-line)] pt-4 text-xs">
+                      <div className="flex items-center justify-between">
+                        <span className="font-medium text-[var(--lp-muted)]">Official Email:</span>
+                        <a href="mailto:sales@hsglobalai.com" className="font-semibold text-[var(--lp-ink)] hover:text-[var(--lp-accent)]">
+                          sales@hsglobalai.com
                         </a>
                       </div>
-                      <div className="flex items-center justify-between text-gray-300">
-                        <span className="font-semibold text-cyan-300">{cPage.websiteLabel || "Website:"}</span>
-                        <span className="font-mono text-gray-300">hsglobalai.com</span>
+                      <div className="flex items-center justify-between">
+                        <span className="font-medium text-[var(--lp-muted)]">Website:</span>
+                        <span className="font-semibold text-[var(--lp-ink)]">hsglobalai.com</span>
                       </div>
                     </div>
                   </div>
 
                   {/* INDIA OFFICE CARD */}
-                  <div className="group relative overflow-hidden rounded-3xl border border-white/15 bg-neutral-950 p-7 backdrop-blur-xl transition-all hover:border-cyan-500/40">
+                  <div className="rounded-[28px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-7 shadow-[var(--lp-shadow-card)]">
                     <div className="flex items-center justify-between">
-                      <span className="inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-3 py-1 text-xs font-bold text-orange-300 font-mono">
-                        {cPage.indiaOfficeBadge || "🇮🇳 INDIA OFFICE"}
+                      <span className="inline-flex items-center gap-2 rounded-full bg-[var(--lp-tile)] px-3 py-1 text-xs font-bold text-[var(--lp-ink)]">
+                        <Building2 className="h-3.5 w-3.5 text-[var(--lp-accent)]" />
+                        INDIA ENGINEERING CENTER
                       </span>
-                      <span className="text-xs text-gray-400 font-mono">{cPage.indiaOfficeState || "ANDHRA PRADESH"}</span>
+                      <span className="text-xs font-mono font-medium text-[var(--lp-muted)]">HYDERABAD</span>
                     </div>
 
-                    <h3 className="mt-4 text-xl font-bold text-white">{cPage.indiaOfficeName || "HS GLOBAL AI INDIA"}</h3>
-                    <p className="mt-2 text-xs leading-6 text-gray-300">
-                      {cPage.indiaOfficeAddress || "Vijayawada, Andhra Pradesh 520004, India"}
+                    <h3 className="mt-4 text-lg font-bold text-[var(--lp-ink)]">HS GLOBAL AI INDIA</h3>
+                    <p className="mt-2 text-xs leading-5 text-[var(--lp-ink-2)]">
+                      5th Floor, Quadrant 2, Cyber Towers, Hitec City, Hyderabad, 500081
                     </p>
 
-                    <div className="mt-5 space-y-2 border-t border-white/10 pt-4 text-xs">
-                      <div className="flex items-center justify-between text-gray-300">
-                        <span className="font-semibold text-cyan-300">{cPage.phoneSupportLabel || "Phone Support:"}</span>
-                        <a href="tel:+918464977333" className="hover:underline font-mono text-cyan-400">
+                    <div className="mt-5 space-y-2 border-t border-[var(--lp-line)] pt-4 text-xs">
+                      <div className="flex items-center justify-between">
+                        <span className="font-medium text-[var(--lp-muted)]">Support Line:</span>
+                        <a href="tel:+918464977333" className="font-semibold text-[var(--lp-ink)] hover:text-[var(--lp-accent)]">
                           +91 84649 77333
                         </a>
                       </div>
-                      <div className="flex items-center justify-between text-gray-300">
-                        <span className="font-semibold text-cyan-300">{cPage.officeHoursLabel || "Office Hours:"}</span>
-                        <span className="font-mono text-gray-300">{cPage.officeHoursValue || "Mon–Sat: 9:30 AM – 6:30 PM (IST)"}</span>
+                      <div className="flex items-center justify-between">
+                        <span className="font-medium text-[var(--lp-muted)]">Office Hours:</span>
+                        <span className="text-[var(--lp-ink)]">Mon–Sat: 9:30 AM – 6:30 PM (IST)</span>
                       </div>
                     </div>
                   </div>
 
                   {/* CHINA OFFICE CARD */}
-                  <div className="group relative overflow-hidden rounded-3xl border border-white/15 bg-neutral-950 p-7 backdrop-blur-xl transition-all hover:border-cyan-500/40">
+                  <div className="rounded-[28px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-7 shadow-[var(--lp-shadow-card)]">
                     <div className="flex items-center justify-between">
-                      <span className="inline-flex items-center gap-2 rounded-full border border-red-500/30 bg-red-500/10 px-3 py-1 text-xs font-bold text-red-300 font-mono">
-                        {cPage.chinaOfficeBadge || "🇨🇳 CHINA OFFICE"}
+                      <span className="inline-flex items-center gap-2 rounded-full bg-[var(--lp-tile)] px-3 py-1 text-xs font-bold text-[var(--lp-ink)]">
+                        <Building2 className="h-3.5 w-3.5 text-[var(--lp-accent)]" />
+                        CHINA HARDWARE LAB
                       </span>
-                      <span className="text-xs text-gray-400 font-mono">{cPage.chinaOfficeProvince || "SHENZHEN"}</span>
+                      <span className="text-xs font-mono font-medium text-[var(--lp-muted)]">SHENZHEN</span>
                     </div>
 
-                    <h3 className="mt-4 text-xl font-bold text-white">{cPage.chinaOfficeName || "HS GLOBAL AI CHINA"}</h3>
-                    <p className="mt-2 text-xs leading-6 text-gray-300">
-                      {cPage.chinaOfficeAddress || "Bao'an District, Shenzhen, China"}
+                    <h3 className="mt-4 text-lg font-bold text-[var(--lp-ink)]">HS GLOBAL AI CHINA</h3>
+                    <p className="mt-2 text-xs leading-5 text-[var(--lp-ink-2)]">
+                      Bao&apos;an District, Shenzhen, Guangdong, China
                     </p>
 
-                    <div className="mt-5 space-y-2 border-t border-white/10 pt-4 text-xs">
-                      <div className="flex items-center justify-between text-gray-300">
-                        <span className="font-semibold text-cyan-300">{cPage.officialEmailLabel || "Official Email:"}</span>
-                        <a href="mailto:info@hsglobalai.com" className="hover:underline font-mono text-cyan-400">
-                          info@hsglobalai.com
-                        </a>
-                      </div>
-                      <div className="flex items-center justify-between text-gray-300">
-                        <span className="font-semibold text-cyan-300">{cPage.websiteLabel || "Website:"}</span>
-                        <span className="font-mono text-gray-300">hsglobalai.com</span>
+                    <div className="mt-5 border-t border-[var(--lp-line)] pt-4 text-xs">
+                      <div className="flex items-center justify-between">
+                        <span className="font-medium text-[var(--lp-muted)]">Facilities:</span>
+                        <span className="text-[var(--lp-ink)]">Optical &amp; Volumetric Display Assembly</span>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                {/* RIGHT COLUMN: INTERACTIVE INQUIRY & DEMO REQUEST FORM */}
+                {/* RIGHT COLUMN: ENTERPRISE CONTACT & DEMO REQUEST FORM */}
                 <div className="lg:col-span-7">
-                  <div className="rounded-3xl border border-cyan-500/30 bg-neutral-950 p-8 md:p-10 backdrop-blur-2xl shadow-2xl">
-                    <h3 className="text-2xl font-bold text-white">{cPage.formTitle || "Request a Live DIHUAVA Demo"}</h3>
-                    <p className="mt-2 text-xs text-gray-400">
-                      {cPage.formSubtitle || "Fill out the form below to connect with our technical solution architects."}
-                    </p>
+                  <div className="rounded-[32px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-8 sm:p-10 shadow-[var(--lp-shadow-card)]">
+                    <div className="mb-8">
+                      <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-wider text-[var(--lp-accent-ink)]">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[var(--lp-accent)]" />
+                        Direct Architecture Pilot
+                      </span>
+                      <h2 className="mt-2 text-2xl font-bold tracking-tight text-[var(--lp-ink)] sm:text-3xl">
+                        Schedule a Consultation
+                      </h2>
+                      <p className="mt-2 text-sm leading-relaxed text-[var(--lp-ink-2)]">
+                        Tell us about your physical space, domain, or digital human requirements. Our solutions team responds within 24 hours.
+                      </p>
+                    </div>
 
                     {submitted ? (
-                      <div className="my-10 rounded-2xl border border-cyan-500/50 bg-cyan-950/40 p-8 text-center backdrop-blur-md">
-                        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-cyan-500 text-black text-2xl font-bold mb-4 shadow-[0_0_25px_rgba(6,182,212,0.5)]">
-                          ✓
+                      <div className="rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-tile)] p-8 text-center">
+                        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[rgba(22,163,74,0.1)] text-[#16a34a]">
+                          <CheckCircle2 className="h-7 w-7" />
                         </div>
-                        <h4 className="text-2xl font-bold text-white">{cPage.successTitle || "Inquiry Received Successfully"}</h4>
-                        <p className="mt-2 text-sm text-gray-300">
-                          {cPage.successMessagePrefix || "Thank you, "}<strong className="text-cyan-300">{formData.name}</strong>{cPage.successMessageSuffix || ". Our enterprise AI specialist will review your project requirements and respond within 24 hours."}
+                        <h3 className="mt-4 text-xl font-bold text-[var(--lp-ink)]">
+                          Inquiry Received
+                        </h3>
+                        <p className="mt-2 text-sm text-[var(--lp-ink-2)]">
+                          Thank you for contacting HS Global AI. An enterprise deployment specialist will reach out shortly.
                         </p>
-                        <button
-                          onClick={() => setSubmitted(false)}
-                          className="mt-6 rounded-full border border-cyan-400/40 bg-black px-6 py-2 text-xs font-semibold text-cyan-300 hover:bg-cyan-500/10"
-                        >
-                          {cPage.submitAnother || "Submit Another Request"}
-                        </button>
                       </div>
                     ) : (
-                      <form onSubmit={handleSubmit} className="mt-8 space-y-6">
-                        <div className="grid gap-6 sm:grid-cols-2">
+                      <form onSubmit={handleSubmit} className="space-y-4">
+                        <div className="grid gap-4 sm:grid-cols-2">
                           <div>
-                            <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
-                              {cPage.fullNameLabel || "Full Name *"}
+                            <label className="block text-xs font-semibold text-[var(--lp-ink)] uppercase tracking-wider mb-1.5">
+                              First Name *
                             </label>
                             <input
-                              type="text"
                               required
-                              value={formData.name}
-                              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                              placeholder={cPage.fullNamePlaceholder || "Subbarao Motupalli"}
-                              className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-3.5 text-sm text-white placeholder-gray-500 focus:border-cyan-400 focus:outline-none"
+                              type="text"
+                              value={formData.firstName}
+                              onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                              placeholder="Elena"
+                              className="w-full rounded-xl border border-[var(--lp-line)] bg-[var(--lp-tile)] px-4 py-3 text-sm text-[var(--lp-ink)] placeholder-[var(--lp-muted)] focus:border-[var(--lp-accent)] focus:outline-none"
                             />
                           </div>
 
                           <div>
-                            <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
-                              {cPage.emailLabel || "Work Email *"}
+                            <label className="block text-xs font-semibold text-[var(--lp-ink)] uppercase tracking-wider mb-1.5">
+                              Last Name *
                             </label>
                             <input
-                              type="email"
                               required
-                              value={formData.email}
-                              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                              placeholder={cPage.emailPlaceholder || "info@hsglobalai.com"}
-                              className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-3.5 text-sm text-white placeholder-gray-500 focus:border-cyan-400 focus:outline-none"
+                              type="text"
+                              value={formData.lastName}
+                              onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                              placeholder="Vance"
+                              className="w-full rounded-xl border border-[var(--lp-line)] bg-[var(--lp-tile)] px-4 py-3 text-sm text-[var(--lp-ink)] placeholder-[var(--lp-muted)] focus:border-[var(--lp-accent)] focus:outline-none"
                             />
                           </div>
                         </div>
 
-                        <div className="grid gap-6 sm:grid-cols-2">
+                        <div className="grid gap-4 sm:grid-cols-2">
                           <div>
-                            <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
-                              {cPage.phoneLabel || "Phone Number (With Country Code) *"}
+                            <label className="block text-xs font-semibold text-[var(--lp-ink)] uppercase tracking-wider mb-1.5">
+                              Corporate Email *
                             </label>
-                            <div className="flex items-center rounded-xl border border-white/15 bg-black/60 overflow-hidden focus-within:border-cyan-400">
-                              <select
-                                value={formData.countryCode}
-                                onChange={(e) => setFormData({ ...formData, countryCode: e.target.value })}
-                                className="bg-neutral-900 border-r border-white/15 px-3 py-3.5 text-sm text-cyan-300 focus:outline-none cursor-pointer shrink-0 max-w-[135px] sm:max-w-[150px]"
-                              >
-                                {countryCodes.map((c) => (
-                                  <option key={`${c.country}-${c.code}`} value={c.code} className="bg-black text-white">
-                                    {c.flag} {c.code} ({c.country})
-                                  </option>
-                                ))}
-                              </select>
-                              <input
-                                type="tel"
-                                required
-                                value={formData.phone}
-                                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                                placeholder={cPage.phonePlaceholder || "6000 0000"}
-                                className="w-full bg-transparent px-4 py-3.5 text-sm text-white placeholder-gray-500 focus:outline-none"
-                              />
-                            </div>
+                            <input
+                              required
+                              type="email"
+                              value={formData.email}
+                              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                              placeholder="elena@enterprise.com"
+                              className="w-full rounded-xl border border-[var(--lp-line)] bg-[var(--lp-tile)] px-4 py-3 text-sm text-[var(--lp-ink)] placeholder-[var(--lp-muted)] focus:border-[var(--lp-accent)] focus:outline-none"
+                            />
                           </div>
 
                           <div>
-                            <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
-                              {cPage.companyLabel || "Company / Organization"}
+                            <label className="block text-xs font-semibold text-[var(--lp-ink)] uppercase tracking-wider mb-1.5">
+                              Company / Organization *
                             </label>
                             <input
+                              required
                               type="text"
                               value={formData.company}
                               onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                              placeholder={cPage.companyPlaceholder || "Global Retail Inc."}
-                              className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-3.5 text-sm text-white placeholder-gray-500 focus:border-cyan-400 focus:outline-none"
+                              placeholder="Global Luxury Retail Group"
+                              className="w-full rounded-xl border border-[var(--lp-line)] bg-[var(--lp-tile)] px-4 py-3 text-sm text-[var(--lp-ink)] placeholder-[var(--lp-muted)] focus:border-[var(--lp-accent)] focus:outline-none"
                             />
                           </div>
                         </div>
 
                         <div>
-                          <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
-                            {cPage.industryLabel || "Industry"}
+                          <label className="block text-xs font-semibold text-[var(--lp-ink)] uppercase tracking-wider mb-1.5">
+                            Phone Number
+                          </label>
+                          <div className="flex gap-2">
+                            <select
+                              value={selectedCountryCode}
+                              onChange={(e) => setSelectedCountryCode(e.target.value)}
+                              className="rounded-xl border border-[var(--lp-line)] bg-[var(--lp-tile)] px-3 py-3 text-sm font-mono text-[var(--lp-ink)] focus:border-[var(--lp-accent)] focus:outline-none"
+                            >
+                              {countryCodes.map((c) => (
+                                <option key={c.country} value={c.code}>
+                                  {c.iso} ({c.code})
+                                </option>
+                              ))}
+                            </select>
+                            <input
+                              type="tel"
+                              value={formData.phone}
+                              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                              placeholder="84649 77333"
+                              className="flex-1 rounded-xl border border-[var(--lp-line)] bg-[var(--lp-tile)] px-4 py-3 text-sm text-[var(--lp-ink)] placeholder-[var(--lp-muted)] focus:border-[var(--lp-accent)] focus:outline-none"
+                            />
+                          </div>
+                        </div>
+
+                        <div>
+                          <label className="block text-xs font-semibold text-[var(--lp-ink)] uppercase tracking-wider mb-1.5">
+                            Target Industry / Domain
                           </label>
                           <select
                             value={formData.industry}
                             onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
-                            className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-3.5 text-sm text-white focus:border-cyan-400 focus:outline-none"
+                            className="w-full rounded-xl border border-[var(--lp-line)] bg-[var(--lp-tile)] px-4 py-3 text-sm text-[var(--lp-ink)] focus:border-[var(--lp-accent)] focus:outline-none"
                           >
-                            <option value="Banking">{cPage.industryOptions?.banking || "Banking"}</option>
-                            <option value="Retail">{cPage.industryOptions?.retail || "Retail"}</option>
-                            <option value="Healthcare">{cPage.industryOptions?.healthcare || "Healthcare"}</option>
-                            <option value="Tourism">{cPage.industryOptions?.tourism || "Tourism"}</option>
-                            <option value="Education">{cPage.industryOptions?.education || "Education"}</option>
-                            <option value="Corporate">{cPage.industryOptions?.corporate || "Corporate"}</option>
-                            <option value="Advertising">{cPage.industryOptions?.advertising || "Advertising"}</option>
+                            <option value="Retail">Retail &amp; Luxury Stores</option>
+                            <option value="Healthcare">Hospitals &amp; Healthcare Clinics</option>
+                            <option value="Defence">Defence &amp; High-Security Facilities</option>
+                            <option value="Events">Events, Expos &amp; Museums</option>
+                            <option value="Banking">Banking &amp; Financial Services</option>
+                            <option value="Corporate">Corporate Lobbies &amp; Headquarters</option>
                           </select>
                         </div>
 
                         <div>
-                          <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
-                            {cPage.messageLabel || "Project Details & Message *"}
+                          <label className="block text-xs font-semibold text-[var(--lp-ink)] uppercase tracking-wider mb-1.5">
+                            Project Objectives &amp; Requirements *
                           </label>
                           <textarea
                             required
                             rows={4}
                             value={formData.message}
                             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                            placeholder={cPage.messagePlaceholder || "Describe your target deployment environment or specific AI requirements..."}
-                            className="w-full rounded-xl border border-white/15 bg-black/60 px-4 py-3.5 text-sm text-white placeholder-gray-500 focus:border-cyan-400 focus:outline-none"
+                            placeholder="Describe your target deployment setting (e.g. 5 retail stores, 86'' hologram box in reception, air-gapped requirement)..."
+                            className="w-full rounded-xl border border-[var(--lp-line)] bg-[var(--lp-tile)] px-4 py-3 text-sm text-[var(--lp-ink)] placeholder-[var(--lp-muted)] focus:border-[var(--lp-accent)] focus:outline-none"
                           />
                         </div>
 
                         <button
                           type="submit"
                           disabled={isSubmitting}
-                          className="w-full rounded-xl bg-gradient-to-r from-cyan-500 via-blue-600 to-cyan-400 px-6 py-4 text-sm font-bold text-white shadow-xl transition-all hover:from-cyan-400 hover:to-blue-500 shadow-cyan-500/25 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
+                          className="w-full inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[var(--lp-ink)] px-6 text-sm font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_1px_2px_rgba(17,17,19,0.24)] transition-all hover:bg-[#2A2A2F] active:scale-[0.98] cursor-pointer disabled:opacity-50"
                         >
                           {isSubmitting ? (
-                            <>
-                              <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                              </svg>
-                              <span>{cPage.submitting || "Sending Inquiry..."}</span>
-                            </>
+                            <span>Submitting Pilot Request...</span>
                           ) : (
-                            <span>{cPage.submitBtn || "Submit Inquiry & Request Live Demo"}</span>
+                            <>
+                              <span>Submit Enterprise Pilot Request</span>
+                              <ArrowRight className="h-4 w-4" />
+                            </>
                           )}
                         </button>
                       </form>
@@ -453,289 +476,169 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
             </div>
           </section>
 
-          {/* EMBEDDED GOOGLE MAPS SECTION: DYNAMIC LOCATION SWITCHER */}
-          <section className="relative overflow-hidden bg-black px-6 py-20 border-t border-white/10">
-            <div className="relative mx-auto max-w-7xl">
-              <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+          {/* INTERACTIVE LOCATION MAPS SECTION */}
+          <section className="px-4 py-16 sm:px-6 md:py-24 bg-[var(--lp-tile)] border-t border-[var(--lp-line)]">
+            <div className="mx-auto max-w-[1200px]">
+              <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
                 <div>
-                  <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400 font-mono">
-                    {cPage.mapsBadge || "Interactive Location Maps"}
+                  <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-wider text-[var(--lp-accent-ink)]">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[var(--lp-accent)]" />
+                    Global Facility Locations
                   </span>
-                  <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-5xl">
+                  <h2 className="mt-2 text-2xl font-bold tracking-tight text-[var(--lp-ink)] sm:text-3xl">
                     {activeLocationMap === "singapore"
-                      ? (cPage.mapTitleSg || "Visit Our Singapore Headquarters")
+                      ? "Singapore Global Headquarters"
                       : activeLocationMap === "india"
-                      ? (cPage.mapTitleIndia || "Visit Our India Office")
-                      : (cPage.mapTitleChina || "Visit Our China Office")}
+                      ? "India Engineering Center"
+                      : "China Hardware Lab"}
                   </h2>
-                  <p className="mt-2 text-sm text-gray-400">
-                    {activeLocationMap === "singapore"
-                      ? (cPage.mapDescSg || "Located at HS GLOBAL SG PTE LTD, 20 COLLYER QUAY, #09-01, SINGAPORE – 049319.")
-                      : activeLocationMap === "india"
-                      ? (cPage.mapDescIndia || "Located at Vijayawada, Andhra Pradesh 520004, India.")
-                      : (cPage.mapDescChina || "Located at Bao'an District, Shenzhen, China.")}
-                  </p>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-3 shrink-0">
-                  {/* LOCATION MAP SWITCHER BUTTONS */}
-                  <div className="inline-flex rounded-full border border-white/15 bg-neutral-950 p-1.5 backdrop-blur-md">
-                    <button
-                      onClick={() => setActiveLocationMap("singapore")}
-                      className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-bold transition-all ${
+                  <div className="flex items-center gap-2">
+                    <div className="inline-flex rounded-full border border-[var(--lp-line)] bg-[var(--lp-card)] p-1 shadow-2xs">
+                      {(["singapore", "india", "china"] as const).map((loc) => (
+                        <button
+                          key={loc}
+                          onClick={() => setActiveLocationMap(loc)}
+                          className={`inline-flex h-8 items-center justify-center rounded-full px-4 text-xs font-semibold capitalize transition-all active:scale-[0.98] cursor-pointer ${
+                            activeLocationMap === loc
+                              ? "bg-[var(--lp-ink)] text-white shadow-xs"
+                              : "text-[var(--lp-muted)] hover:text-[var(--lp-ink)]"
+                          }`}
+                        >
+                          {loc === "singapore" ? "Singapore HQ" : loc === "india" ? "India Center" : "China Lab"}
+                        </button>
+                      ))}
+                    </div>
+
+                    <a
+                      href={
                         activeLocationMap === "singapore"
-                          ? "bg-cyan-500 text-black shadow-[0_0_20px_rgba(6,182,212,0.4)]"
-                          : "text-gray-300 hover:text-white"
-                      }`}
+                          ? "https://www.google.com/maps/search/?api=1&query=60+Paya+Lebar+Road,+Paya+Lebar+Square,+Singapore+409051"
+                          : activeLocationMap === "india"
+                          ? "https://www.google.com/maps/search/?api=1&query=Cyber+Towers,+Hitec+City,+Hyderabad,+500081"
+                          : "https://www.google.com/maps/search/?api=1&query=Baoan+District,+Shenzhen,+China"
+                      }
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex h-8 items-center justify-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-[var(--lp-card)] px-4 text-xs font-semibold text-[var(--lp-ink)] hover:bg-[var(--lp-tile)] shadow-2xs transition-all active:scale-[0.98] cursor-pointer"
                     >
-                      <span>{cPage.btnSgHq || "🇸🇬 Singapore HQ"}</span>
-                    </button>
-                    <button
-                      onClick={() => setActiveLocationMap("india")}
-                      className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-bold transition-all ${
-                        activeLocationMap === "india"
-                          ? "bg-cyan-500 text-black shadow-[0_0_20px_rgba(6,182,212,0.4)]"
-                          : "text-gray-300 hover:text-white"
-                      }`}
-                    >
-                      <span>{cPage.btnIndiaOffice || "🇮🇳 India Office"}</span>
-                    </button>
-                    <button
-                      onClick={() => setActiveLocationMap("china")}
-                      className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-bold transition-all ${
-                        activeLocationMap === "china"
-                          ? "bg-cyan-500 text-black shadow-[0_0_20px_rgba(6,182,212,0.4)]"
-                          : "text-gray-300 hover:text-white"
-                      }`}
-                    >
-                      <span>{cPage.btnChinaOffice || "🇨🇳 China Office"}</span>
-                    </button>
+                      <span>Get Directions</span>
+                      <ArrowUpRight className="h-3.5 w-3.5" />
+                    </a>
                   </div>
-
-                  {/* GET DIRECTIONS LINK */}
-                  <a
-                    href={
-                      activeLocationMap === "singapore"
-                        ? "https://www.google.com/maps/search/?api=1&query=HS+GLOBAL+SG+PTE+LTD,+20+COLLYER+QUAY,+#09-01,+SINGAPORE+-+049319"
-                        : activeLocationMap === "india"
-                        ? "https://www.google.com/maps/search/?api=1&query=Vijayawada,+Andhra+Pradesh+520004,+India"
-                        : "https://www.google.com/maps/search/?api=1&query=Baoan+District,+Shenzhen,+China"
-                    }
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-cyan-500/40 bg-cyan-500/10 px-6 py-3 text-xs font-bold text-cyan-300 backdrop-blur-md transition-all hover:bg-cyan-500/20 shadow-[0_0_20px_rgba(6,182,212,0.2)]"
-                  >
-                    <span>{cPage.getDirections || "Get Directions"}</span>
-                    <span>↗</span>
-                  </a>
-                </div>
               </div>
 
-              {/* GOOGLE MAPS IFRAME CONTAINER */}
-              <div className="relative overflow-hidden rounded-3xl border border-white/15 bg-neutral-950 shadow-2xl">
+              {/* MAP IFRAME */}
+              <div className="relative overflow-hidden rounded-[28px] border border-[var(--lp-line)] bg-[var(--lp-card)] shadow-[var(--lp-shadow-card)] aspect-[16/9] max-h-[460px]">
                 <iframe
-                  title={
-                    activeLocationMap === "singapore"
-                      ? "HS GLOBAL SG PTE LTD Singapore Headquarters Map"
-                      : activeLocationMap === "india"
-                      ? "HS Global AI India Office Map"
-                      : "HS Global AI China Office Map"
-                  }
+                  title="HS Global AI Location Map"
                   src={
                     activeLocationMap === "singapore"
-                      ? "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.81926219468!2d103.85040997576572!3d1.2835154617833075!2m3!1f0!0f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da190875b1c5cd%3A0x6331a690e9d67568!2s20%20Collyer%20Quay%2C%20Singapore%20049319!5e0!3m2!1sen!2ssg!4v1710000000000!5m2!1sen!2ssg"
+                      ? "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7533800922885!2d103.88942367576579!3d1.3188899616521746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1823ebcf8261%3A0x6b6311ea759549f3!2sPaya%20Lebar%20Square!5e0!3m2!1sen!2ssg!4v1710000000000!5m2!1sen!2ssg"
                       : activeLocationMap === "india"
-                      ? "https://maps.google.com/maps?q=Vijayawada,+Andhra+Pradesh+520004,+India&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                      ? "https://maps.google.com/maps?q=Cyber+Towers,+Hitec+City,+Hyderabad,+500081&t=&z=16&ie=UTF8&iwloc=&output=embed"
                       : "https://maps.google.com/maps?q=Baoan+District,+Shenzhen,+China&t=&z=14&ie=UTF8&iwloc=&output=embed"
                   }
                   width="100%"
-                  height="520"
-                  style={{ border: 0, filter: "invert(90%) hue-rotate(180deg) contrast(110%)" }}
+                  height="100%"
+                  style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="w-full"
+                  className="w-full h-full"
                 />
-
-                {/* RED MARKER PIN OVERLAY MATCHING GOOGLE MAPS PIN */}
-                <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 flex items-center gap-3 rounded-2xl border border-red-500/50 bg-black/90 px-5 py-3.5 shadow-[0_0_35px_rgba(239,68,68,0.5)] backdrop-blur-xl">
-                  {/* Red Pin Circle */}
-                  <div className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-red-600 shadow-lg">
-                    <div className="h-3.5 w-3.5 rounded-full bg-white animate-pulse" />
-                  </div>
-
-                  <div>
-                    <div className="flex items-center gap-2">
-                      <h4 className="text-sm font-bold text-white tracking-wide">
-                        {activeLocationMap === "singapore"
-                          ? (cPage.pinTitleSg || "HS GLOBAL SG PTE LTD")
-                          : activeLocationMap === "india"
-                          ? (cPage.pinTitleIndia || "HS GLOBAL AI INDIA")
-                          : (cPage.pinTitleChina || "HS GLOBAL AI CHINA")}
-                      </h4>
-                      <span className="rounded bg-red-500/20 px-1.5 py-0.5 text-[9px] font-bold text-red-400 border border-red-500/40">
-                        {activeLocationMap === "singapore"
-                          ? (cPage.pinBadgeSg || "HQ PIN")
-                          : activeLocationMap === "india"
-                          ? (cPage.pinBadgeIndia || "INDIA OFFICE PIN")
-                          : (cPage.pinBadgeChina || "CHINA OFFICE PIN")}
-                      </span>
-                    </div>
-                    <p className="text-[11px] font-mono text-gray-300 mt-0.5">
-                      {activeLocationMap === "singapore"
-                        ? (cPage.pinAddressSg || "20 COLLYER QUAY, #09-01, SINGAPORE – 049319")
-                        : activeLocationMap === "india"
-                        ? (cPage.pinAddressIndia || "VIJAYAWADA, AP 520004")
-                        : (cPage.pinAddressChina || "BAO'AN DISTRICT, SHENZHEN, CHINA")}
-                    </p>
-                  </div>
-                </div>
-
-                {/* OVERLAY ADDRESS BADGE */}
-                <div className="absolute bottom-6 left-6 max-w-sm rounded-2xl border border-white/20 bg-black/85 p-6 backdrop-blur-xl shadow-2xl hidden sm:block">
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-3 w-3 rounded-full bg-cyan-400 animate-pulse" />
-                    <h4 className="text-sm font-bold text-white">
-                      {activeLocationMap === "singapore"
-                        ? (cPage.cardHeaderSg || "Singapore Global HQ")
-                        : activeLocationMap === "india"
-                        ? (cPage.cardHeaderIndia || "India Office")
-                        : (cPage.cardHeaderChina || "China Office")}
-                    </h4>
-                  </div>
-                  <p className="mt-2 text-xs leading-5 text-gray-300">
-                    {activeLocationMap === "singapore"
-                      ? (cPage.sgHqAddress || "20 COLLYER QUAY, #09-01, SINGAPORE – 049319")
-                      : activeLocationMap === "india"
-                      ? (cPage.indiaOfficeAddress || "Vijayawada, Andhra Pradesh 520004, India")
-                      : (cPage.chinaOfficeAddress || "Bao'an District, Shenzhen, China")}
-                  </p>
-                  <div className="mt-3 flex items-center justify-between text-[11px] font-mono text-cyan-400 border-t border-white/10 pt-3">
-                    <span>
-                      {activeLocationMap === "singapore"
-                        ? (cPage.mrtStationSg || "Raffles Place MRT (Exit B)")
-                        : activeLocationMap === "india"
-                        ? (cPage.mrtStationIndia || "Vijayawada Region")
-                        : (cPage.metroStationChina || "Shenzhen Hardware Hub")}
-                    </span>
-                    <span>{cPage.officeHoursValue || "Mon-Sat: 9:30am - 6:30pm (IST)"}</span>
-                  </div>
-                </div>
               </div>
             </div>
           </section>
         </>
       )}
 
-      {/* TAB CONTENT 2: EXACT DOWNLOAD CENTER STRUCTURE MATCHING SCREENSHOTS */}
+      {/* TAB CONTENT 2: DOWNLOAD CENTER */}
       {activeTab === "downloads" && (
-        <section className="relative overflow-hidden bg-black px-6 py-16 border-t border-white/10">
-          <div className="relative mx-auto max-w-7xl space-y-20">
-
-            {/* SECTION 1: DATA SHEETS & PRICE LIST */}
+        <section className="px-4 py-20 sm:px-6 md:py-28 bg-[var(--lp-bg)]">
+          <div className="mx-auto max-w-[1200px] space-y-16">
             <div>
               <div className="text-center mb-10">
-                <span className="inline-block rounded-full border border-cyan-400/40 bg-cyan-500/15 px-6 py-2 text-sm font-bold text-cyan-300 shadow-[0_0_20px_rgba(6,182,212,0.3)]">
-                  {cPage.downloadsBadge || "Data Sheets & Specifications"}
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-[rgba(255,90,31,0.08)] px-3.5 py-1 text-xs font-semibold text-[var(--lp-accent-ink)]">
+                  <FileText className="h-3.5 w-3.5 text-[var(--lp-accent)]" />
+                  Engineering Datasheets &amp; Technical Specifications
                 </span>
+                <h2 className="mt-3 text-3xl font-bold tracking-tight text-[var(--lp-ink)]">
+                  Official Hardware &amp; Platform Literature
+                </h2>
               </div>
 
-              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 {dataSheetsAndPriceList.map((item) => (
                   <div
                     key={item.title}
-                    className="flex flex-col justify-between rounded-2xl border border-white/15 bg-neutral-950/80 p-6 text-center backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/50 hover:shadow-[0_0_25px_rgba(6,182,212,0.2)]"
+                    className="flex flex-col justify-between rounded-[24px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-6 shadow-[var(--lp-shadow-card)]"
                   >
                     <div>
                       {item.lang && (
-                        <span className="inline-block mb-2 rounded-md bg-cyan-500/20 px-2.5 py-0.5 text-[10px] font-bold text-cyan-300 border border-cyan-500/30">
-                          {item.lang}
+                        <span className="rounded-full bg-[var(--lp-tile)] px-2.5 py-0.5 text-[10px] font-semibold text-[var(--lp-muted)] mb-2 inline-block">
+                          {item.lang} Edition
                         </span>
                       )}
-                      <h3 className="text-base font-bold text-white leading-snug">
+                      <h3 className="text-base font-semibold text-[var(--lp-ink)] leading-snug">
                         {item.title}
                       </h3>
+                      <p className="mt-1 text-xs text-[var(--lp-muted)] font-mono">
+                        {item.filename}
+                      </p>
                     </div>
 
-                    <div className="mt-6 pt-4 border-t border-white/10 flex justify-center">
-                      <button
-                        onClick={() => handleDownload(item)}
-                        disabled={downloadingTitle === item.title}
-                        className="rounded-full bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-500 px-8 py-2.5 text-xs font-bold text-white shadow-lg transition-all hover:brightness-110 active:scale-95 disabled:opacity-50"
-                      >
-                        {downloadingTitle === item.title ? (cPage.downloadingBtn || "DOWNLOADING...") : (cPage.downloadBtn || "DOWNLOAD")}
-                      </button>
-                    </div>
+                    <button
+                      onClick={() => handleDownload(item)}
+                      disabled={downloadingTitle === item.title}
+                      className="mt-5 inline-flex h-10 items-center justify-center gap-2 rounded-full border border-[var(--lp-line)] bg-[var(--lp-tile)] px-5 text-xs font-semibold text-[var(--lp-ink)] hover:bg-[var(--lp-tile-2)] transition-all active:scale-[0.98] cursor-pointer disabled:opacity-50"
+                    >
+                      <Download className="h-3.5 w-3.5 text-[var(--lp-accent)]" />
+                      <span>{downloadingTitle === item.title ? "Downloading..." : "Download PDF"}</span>
+                    </button>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* SECTION 2: DIHUAVA BROCHURE */}
             <div>
               <div className="text-center mb-10">
-                <span className="inline-block rounded-full border border-cyan-400/40 bg-cyan-500/15 px-6 py-2 text-sm font-bold text-cyan-300 shadow-[0_0_20px_rgba(6,182,212,0.3)]">
-                  {cPage.dihuavaBrochureBadge || "Dihuava Brochure"}
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-[var(--lp-tile)] px-3.5 py-1 text-xs font-semibold text-[var(--lp-ink)]">
+                  <Download className="h-3.5 w-3.5 text-[var(--lp-accent)]" />
+                  Product Brochures &amp; Partner Templates
                 </span>
+                <h2 className="mt-3 text-2xl font-bold tracking-tight text-[var(--lp-ink)]">
+                  Commercial &amp; Integration Kits
+                </h2>
               </div>
 
-              <div className="grid gap-6 sm:grid-cols-2 max-w-3xl mx-auto">
-                {dihuavaBrochures.map((item) => (
+              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {[...dihuavaBrochures, ...dihuavaTemplates].map((item) => (
                   <div
                     key={item.title}
-                    className="flex flex-col justify-between rounded-2xl border border-white/15 bg-neutral-950/80 p-6 text-center backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/50 hover:shadow-[0_0_25px_rgba(6,182,212,0.2)]"
+                    className="flex flex-col justify-between rounded-[24px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-6 shadow-[var(--lp-shadow-card)]"
                   >
-                    <h3 className="text-base font-bold text-white leading-snug">
-                      {item.title}
-                    </h3>
-
-                    <div className="mt-6 pt-4 border-t border-white/10 flex justify-center">
-                      <button
-                        onClick={() => handleDownload(item)}
-                        disabled={downloadingTitle === item.title}
-                        className="rounded-full bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-500 px-8 py-2.5 text-xs font-bold text-white shadow-lg transition-all hover:brightness-110 active:scale-95 disabled:opacity-50"
-                      >
-                        {downloadingTitle === item.title ? (cPage.downloadingBtn || "DOWNLOADING...") : (cPage.downloadBtn || "DOWNLOAD")}
-                      </button>
+                    <div>
+                      <h3 className="text-base font-semibold text-[var(--lp-ink)] leading-snug">
+                        {item.title}
+                      </h3>
+                      <p className="mt-1 text-xs text-[var(--lp-muted)] font-mono">
+                        {item.filename}
+                      </p>
                     </div>
+
+                    <button
+                      onClick={() => handleDownload(item)}
+                      disabled={downloadingTitle === item.title}
+                      className="mt-5 inline-flex h-10 items-center justify-center gap-2 rounded-full border border-[var(--lp-line)] bg-[var(--lp-tile)] px-5 text-xs font-semibold text-[var(--lp-ink)] hover:bg-[var(--lp-tile-2)] transition-all active:scale-[0.98] cursor-pointer disabled:opacity-50"
+                    >
+                      <Download className="h-3.5 w-3.5 text-[var(--lp-accent)]" />
+                      <span>{downloadingTitle === item.title ? "Downloading..." : "Download PDF"}</span>
+                    </button>
                   </div>
                 ))}
               </div>
             </div>
-
-            {/* SECTION 3: DIHUAVA TEMPLATES */}
-            <div>
-              <div className="text-center mb-10">
-                <span className="inline-block rounded-full border border-cyan-400/40 bg-cyan-500/15 px-6 py-2 text-sm font-bold text-cyan-300 shadow-[0_0_20px_rgba(6,182,212,0.3)]">
-                  {cPage.dihuavaTemplatesBadge || "Dihuava Templates"}
-                </span>
-              </div>
-
-              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                {dihuavaTemplates.map((item) => (
-                  <div
-                    key={item.title}
-                    className="flex flex-col justify-between rounded-2xl border border-white/15 bg-neutral-950/80 p-6 text-center backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/50 hover:shadow-[0_0_25px_rgba(6,182,212,0.2)]"
-                  >
-                    <h3 className="text-base font-bold text-white leading-snug">
-                      {item.title}
-                    </h3>
-
-                    <div className="mt-6 pt-4 border-t border-white/10 flex justify-center">
-                      <button
-                        onClick={() => handleDownload(item)}
-                        disabled={downloadingTitle === item.title}
-                        className="rounded-full bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-500 px-8 py-2.5 text-xs font-bold text-white shadow-lg transition-all hover:brightness-110 active:scale-95 disabled:opacity-50"
-                      >
-                        {downloadingTitle === item.title ? (cPage.downloadingBtn || "DOWNLOADING...") : (cPage.downloadBtn || "DOWNLOAD")}
-                      </button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-
           </div>
         </section>
       )}

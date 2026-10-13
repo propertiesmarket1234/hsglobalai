@@ -15,6 +15,7 @@ import {
   stripLocalePrefix,
 } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
+import { Check, Globe } from "lucide-react";
 import LanguageBanner from "@/components/LanguageBanner";
 
 export default function Header() {
@@ -25,6 +26,7 @@ export default function Header() {
   const [contactDropdownOpen, setContactDropdownOpen] = useState(false);
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   const getInitialLocale = (): Locale => {
     const seg = pathname ? pathname.split("/")[1] : "";
     if (seg && (nonDefaultLocales as readonly string[]).includes(seg)) {
@@ -34,9 +36,7 @@ export default function Header() {
   };
 
   const [currentLocale, setCurrentLocale] = useState<Locale>(getInitialLocale);
-
   const dict = getDictionary(currentLocale);
-
   const lPath = (path: string) => getLocalizedPath(path, currentLocale);
 
   useEffect(() => {
@@ -73,785 +73,408 @@ export default function Header() {
   return (
     <>
       <LanguageBanner />
-      <header className="sticky top-0 z-50 w-full bg-black/75 backdrop-blur-2xl border-b border-cyan-500/20 shadow-[0_4px_30px_rgba(0,0,0,0.8)] transition-all duration-300">
-
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5">
-        {/* LOGO */}
-        <Link href={lPath("/")} className="flex flex-col items-center group relative shrink-0">
-          <Image
-            src="/logo/hs-global-ai-logo.png"
-            alt="HS Global AI"
-            width={90}
-            height={60}
-            priority
-            className="h-auto w-[85px] transition-transform duration-300 group-hover:scale-105 group-hover:drop-shadow-[0_0_12px_rgba(6,182,212,0.6)]"
-          />
-          <span className="mt-1 text-[11px] font-bold tracking-widest text-white uppercase group-hover:text-cyan-400 transition-colors whitespace-nowrap">
-            HS GLOBAL AI
-          </span>
-        </Link>
-
-        {/* DESKTOP NAVIGATION LINKS */}
-        <nav className="hidden items-center gap-3.5 lg:gap-6 xl:gap-8 md:flex shrink-0">
-          {/* HOME LINK */}
+      <header className="sticky top-0 z-50 px-3 pt-3 sm:px-4">
+        <div className="lp-nav-capsule mx-auto flex h-14 max-w-[1200px] items-center justify-between rounded-full border border-[var(--lp-line)] bg-[rgba(250,250,250,0.88)] pl-4 pr-2 backdrop-blur-md shadow-[0_2px_12px_rgba(17,17,19,0.04)]">
+          {/* BRAND LOGO */}
           <Link
             href={lPath("/")}
-            className={`relative py-1 text-sm whitespace-nowrap transition-colors ${
-              isActive("/")
-                ? "font-semibold text-cyan-400"
-                : "text-gray-300 hover:text-white"
-            }`}
+            aria-label="HS Global AI home"
+            className="group flex items-center gap-2.5 rounded-full"
           >
-            <span className="whitespace-nowrap">{dict.nav.home}</span>
-            {isActive("/") && (
-              <motion.div
-                layoutId="activeNavIndicator"
-                className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-cyan-400 to-sky-400 shadow-[0_0_8px_#06b6d4]"
-                transition={{ type: "spring", stiffness: 380, damping: 30 }}
+            <span className="transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:-rotate-6 group-hover:scale-105">
+              <Image
+                src="/logo/hs-global-ai-logo.png"
+                alt="HS Global AI"
+                width={32}
+                height={32}
+                priority
+                className="h-7 w-auto object-contain"
               />
-            )}
+            </span>
+            <span className="text-[15px] font-semibold tracking-[-0.03em] text-[var(--lp-ink)]">
+              HS Global AI
+            </span>
           </Link>
 
-          {/* PRODUCTS DROPDOWN */}
-          <div
-            className="relative"
-            onMouseEnter={() => setProductsDropdownOpen(true)}
-            onMouseLeave={() => setProductsDropdownOpen(false)}
-          >
+          {/* DESKTOP NAVIGATION LINKS */}
+          <nav aria-label="Primary" className="hidden items-center gap-1 md:flex">
+            {/* HOME */}
             <Link
-              href={lPath("/products")}
-              className={`relative inline-flex items-center gap-1.5 py-1 text-sm whitespace-nowrap transition-colors ${
-                isActive("/products")
-                  ? "font-semibold text-cyan-400"
-                  : "text-gray-300 hover:text-white"
+              href={lPath("/")}
+              className={`relative rounded-full px-3 py-1.5 text-[14px] transition-colors duration-200 ${
+                isActive("/")
+                  ? "bg-[var(--lp-tile)] text-[var(--lp-ink)] font-semibold"
+                  : "text-[var(--lp-ink-2)] hover:text-[var(--lp-ink)] hover:bg-[var(--lp-tile)]"
               }`}
             >
-              <span className="whitespace-nowrap">{dict.nav.products}</span>
-              <svg
-                className={`h-3.5 w-3.5 shrink-0 transition-transform duration-300 ${productsDropdownOpen ? "rotate-180 text-cyan-400" : ""}`}
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-              </svg>
-
-              {isActive("/products") && (
-                <motion.div
-                  layoutId="activeNavIndicator"
-                  className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-cyan-400 to-sky-400 shadow-[0_0_8px_#06b6d4]"
-                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                />
-              )}
+              <span>{dict.nav.home}</span>
             </Link>
 
-            {/* PRODUCTS DROPDOWN MENU WITH ANIMATEPRESENCE */}
-            <AnimatePresence>
-              {productsDropdownOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 8, scale: 0.95 }}
-                  transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                  className="absolute left-0 top-full pt-2 w-64 z-50"
-                >
-                  <div className="rounded-2xl border border-cyan-500/30 bg-neutral-950/95 p-2.5 shadow-2xl backdrop-blur-2xl">
-                    <Link
-                      href={lPath("/products")}
-                      className="block rounded-xl px-4 py-2.5 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
-                    >
-                      {dict.nav.allProductsOverview}
-                    </Link>
-
-                    <div className="my-1.5 border-t border-white/10" />
-
-                    <Link
-                      href={lPath("/products/ai-digital-human")}
-                      className="block rounded-xl px-4 py-2.5 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
-                    >
-                      {dict.nav.dihuavaAvatarPlatform}
-                    </Link>
-
-                    <Link
-                      href={lPath("/products/holographic-display")}
-                      className="block rounded-xl px-4 py-2.5 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
-                    >
-                      {dict.nav.holographicDisplay}
-                    </Link>
-
-                    <Link
-                      href={lPath("/products/spatial-display")}
-                      className="block rounded-xl px-4 py-2.5 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
-                    >
-                      {dict.nav.spatialDisplay}
-                    </Link>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-
-          {/* INDUSTRIES DROPDOWN */}
-          <div
-            className="relative"
-            onMouseEnter={() => setIndustriesDropdownOpen(true)}
-            onMouseLeave={() => setIndustriesDropdownOpen(false)}
-          >
-            <Link
-              href={lPath("/industries")}
-              className={`relative inline-flex items-center gap-1.5 py-1 text-sm whitespace-nowrap transition-colors ${
-                isActive("/industries")
-                  ? "font-semibold text-cyan-400"
-                  : "text-gray-300 hover:text-white"
-              }`}
+            {/* PRODUCTS DROPDOWN */}
+            <div
+              className="relative"
+              onMouseEnter={() => setProductsDropdownOpen(true)}
+              onMouseLeave={() => setProductsDropdownOpen(false)}
             >
-              <span className="whitespace-nowrap">{dict.nav.industries}</span>
-              <svg
-                className={`h-3.5 w-3.5 shrink-0 transition-transform duration-200 ${
-                  industriesDropdownOpen ? "rotate-180 text-cyan-400" : "text-gray-400"
+              <Link
+                href={lPath("/products")}
+                className={`inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-[14px] transition-colors duration-200 ${
+                  isActive("/products")
+                    ? "bg-[var(--lp-tile)] text-[var(--lp-ink)] font-semibold"
+                    : "text-[var(--lp-ink-2)] hover:text-[var(--lp-ink)] hover:bg-[var(--lp-tile)]"
                 }`}
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
+                <span>{dict.nav.products}</span>
+                <svg
+                  className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                    productsDropdownOpen ? "rotate-180" : ""
+                  }`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </Link>
 
-              {isActive("/industries") && (
-                <motion.div
-                  layoutId="activeNavIndicator"
-                  className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-cyan-400 to-sky-400 shadow-[0_0_8px_#06b6d4]"
-                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                />
-              )}
+              <AnimatePresence>
+                {productsDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 6, scale: 0.98 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 4, scale: 0.98 }}
+                    transition={{ duration: 0.15, ease: "easeOut" }}
+                    className="absolute left-0 top-full pt-2 w-64 z-50"
+                  >
+                    <div className="rounded-2xl border border-[var(--lp-line)] bg-white p-2 shadow-[var(--lp-shadow-card)]">
+                      <Link
+                        href={lPath("/products")}
+                        className="block rounded-xl px-3.5 py-2 text-[13px] font-medium text-[var(--lp-ink-2)] hover:bg-[var(--lp-tile)] hover:text-[var(--lp-ink)] transition-colors"
+                      >
+                        {dict.nav.allProductsOverview}
+                      </Link>
+                      <div className="my-1 border-t border-[var(--lp-line)]" />
+                      <Link
+                        href={lPath("/products/ai-digital-human")}
+                        className="block rounded-xl px-3.5 py-2 text-[13px] font-medium text-[var(--lp-ink-2)] hover:bg-[var(--lp-tile)] hover:text-[var(--lp-ink)] transition-colors"
+                      >
+                        {dict.nav.dihuavaAvatarPlatform}
+                      </Link>
+                      <Link
+                        href={lPath("/products/holographic-display")}
+                        className="block rounded-xl px-3.5 py-2 text-[13px] font-medium text-[var(--lp-ink-2)] hover:bg-[var(--lp-tile)] hover:text-[var(--lp-ink)] transition-colors"
+                      >
+                        {dict.nav.holographicDisplay}
+                      </Link>
+                      <Link
+                        href={lPath("/products/spatial-display")}
+                        className="block rounded-xl px-3.5 py-2 text-[13px] font-medium text-[var(--lp-ink-2)] hover:bg-[var(--lp-tile)] hover:text-[var(--lp-ink)] transition-colors"
+                      >
+                        {dict.nav.spatialDisplay}
+                      </Link>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* INDUSTRIES DROPDOWN */}
+            <div
+              className="relative"
+              onMouseEnter={() => setIndustriesDropdownOpen(true)}
+              onMouseLeave={() => setIndustriesDropdownOpen(false)}
+            >
+              <Link
+                href={lPath("/industries")}
+                className={`inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-[14px] transition-colors duration-200 ${
+                  isActive("/industries")
+                    ? "bg-[var(--lp-tile)] text-[var(--lp-ink)] font-semibold"
+                    : "text-[var(--lp-ink-2)] hover:text-[var(--lp-ink)] hover:bg-[var(--lp-tile)]"
+                }`}
+              >
+                <span>{dict.nav.industries}</span>
+                <svg
+                  className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                    industriesDropdownOpen ? "rotate-180" : ""
+                  }`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </Link>
+
+              <AnimatePresence>
+                {industriesDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 6, scale: 0.98 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 4, scale: 0.98 }}
+                    transition={{ duration: 0.15, ease: "easeOut" }}
+                    className="absolute left-0 top-full pt-2 w-64 z-50"
+                  >
+                    <div className="rounded-2xl border border-[var(--lp-line)] bg-white p-2 shadow-[var(--lp-shadow-card)]">
+                      <Link
+                        href={lPath("/industries")}
+                        className="block rounded-xl px-3.5 py-2 text-[13px] font-medium text-[var(--lp-ink-2)] hover:bg-[var(--lp-tile)] hover:text-[var(--lp-ink)] transition-colors"
+                      >
+                        {dict.nav.allIndustryDeployments}
+                      </Link>
+                      <div className="my-1 border-t border-[var(--lp-line)]" />
+                      <Link
+                        href={lPath("/industries/banking")}
+                        className="block rounded-xl px-3.5 py-2 text-[13px] font-medium text-[var(--lp-ink-2)] hover:bg-[var(--lp-tile)] hover:text-[var(--lp-ink)] transition-colors"
+                      >
+                        {dict.nav.bankingServices}
+                      </Link>
+                      <Link
+                        href={lPath("/industries/retail")}
+                        className="block rounded-xl px-3.5 py-2 text-[13px] font-medium text-[var(--lp-ink-2)] hover:bg-[var(--lp-tile)] hover:text-[var(--lp-ink)] transition-colors"
+                      >
+                        {dict.nav.retailAdvertising}
+                      </Link>
+                      <Link
+                        href={lPath("/industries/corporate")}
+                        className="block rounded-xl px-3.5 py-2 text-[13px] font-medium text-[var(--lp-ink-2)] hover:bg-[var(--lp-tile)] hover:text-[var(--lp-ink)] transition-colors"
+                      >
+                        {dict.nav.corporateServices}
+                      </Link>
+                      <Link
+                        href={lPath("/industries/healthcare")}
+                        className="block rounded-xl px-3.5 py-2 text-[13px] font-medium text-[var(--lp-ink-2)] hover:bg-[var(--lp-tile)] hover:text-[var(--lp-ink)] transition-colors"
+                      >
+                        {dict.nav.healthcareHospitals}
+                      </Link>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* ABOUT */}
+            <Link
+              href={lPath("/about")}
+              className={`rounded-full px-3 py-1.5 text-[14px] transition-colors duration-200 ${
+                isActive("/about")
+                  ? "bg-[var(--lp-tile)] text-[var(--lp-ink)] font-semibold"
+                  : "text-[var(--lp-ink-2)] hover:text-[var(--lp-ink)] hover:bg-[var(--lp-tile)]"
+              }`}
+            >
+              <span>{dict.footer.aboutUs}</span>
             </Link>
 
-            <AnimatePresence>
-              {industriesDropdownOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 8, scale: 0.95 }}
-                  transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                  className="absolute left-0 top-full pt-2 w-72 z-50"
-                >
-                  <div className="rounded-2xl border border-cyan-500/30 bg-neutral-950/95 p-2.5 shadow-2xl backdrop-blur-2xl">
-                    <Link
-                      href={lPath("/industries")}
-                      className="block rounded-xl px-4 py-2.5 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
-                    >
-                      {dict.nav.allIndustryDeployments}
-                    </Link>
+            {/* EVENTS */}
+            <Link
+              href={lPath("/events")}
+              className={`rounded-full px-3 py-1.5 text-[14px] transition-colors duration-200 ${
+                isActive("/events")
+                  ? "bg-[var(--lp-tile)] text-[var(--lp-ink)] font-semibold"
+                  : "text-[var(--lp-ink-2)] hover:text-[var(--lp-ink)] hover:bg-[var(--lp-tile)]"
+              }`}
+            >
+              <span>{dict.nav.events}</span>
+            </Link>
 
-                    <div className="my-1.5 border-t border-white/10" />
-
-                    <Link
-                      href={lPath("/industries/banking")}
-                      className="block rounded-xl px-4 py-2 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
-                    >
-                      {dict.nav.bankingServices}
-                    </Link>
-
-                    <Link
-                      href={lPath("/industries/retail")}
-                      className="block rounded-xl px-4 py-2 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
-                    >
-                      {dict.nav.retailAdvertising}
-                    </Link>
-
-                    <Link
-                      href={lPath("/industries/corporate")}
-                      className="block rounded-xl px-4 py-2 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
-                    >
-                      {dict.nav.corporateServices}
-                    </Link>
-
-                    <Link
-                      href={lPath("/industries/healthcare")}
-                      className="block rounded-xl px-4 py-2 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
-                    >
-                      {dict.nav.healthcareHospitals}
-                    </Link>
-
-                    <Link
-                      href={lPath("/industries/tourism")}
-                      className="block rounded-xl px-4 py-2 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
-                    >
-                      {dict.nav.tourismMuseums}
-                    </Link>
-
-                    <Link
-                      href={lPath("/industries/education")}
-                      className="block rounded-xl px-4 py-2 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
-                    >
-                      {dict.nav.educationAcademies}
-                    </Link>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-
-          <Link
-            href={lPath("/about")}
-            className={`relative py-1 text-sm whitespace-nowrap transition-colors ${
-              isActive("/about")
-                ? "font-semibold text-cyan-400"
-                : "text-gray-300 hover:text-white"
-            }`}
-          >
-            <span className="whitespace-nowrap">{dict.footer.aboutUs}</span>
-            {isActive("/about") && (
-              <motion.div
-                layoutId="activeNavIndicator"
-                className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-cyan-400 to-sky-400 shadow-[0_0_8px_#06b6d4]"
-                transition={{ type: "spring", stiffness: 380, damping: 30 }}
-              />
-            )}
-          </Link>
-
-          <Link
-            href={lPath("/events")}
-            className={`relative py-1 text-sm whitespace-nowrap transition-colors ${
-              isActive("/events")
-                ? "font-semibold text-cyan-400"
-                : "text-gray-300 hover:text-white"
-            }`}
-          >
-            <span className="whitespace-nowrap">{dict.nav.events}</span>
-            {isActive("/events") && (
-              <motion.div
-                layoutId="activeNavIndicator"
-                className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-cyan-400 to-sky-400 shadow-[0_0_8px_#06b6d4]"
-                transition={{ type: "spring", stiffness: 380, damping: 30 }}
-              />
-            )}
-          </Link>
-
-          <Link
-            href={lPath("/blog")}
-            className={`relative py-1 text-sm whitespace-nowrap transition-colors ${
-              isActive("/blog")
-                ? "font-semibold text-cyan-400"
-                : "text-gray-300 hover:text-white"
-            }`}
-          >
-            <span className="whitespace-nowrap">{dict.nav.blog}</span>
-            {isActive("/blog") && (
-              <motion.div
-                layoutId="activeNavIndicator"
-                className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-cyan-400 to-sky-400 shadow-[0_0_8px_#06b6d4]"
-                transition={{ type: "spring", stiffness: 380, damping: 30 }}
-              />
-            )}
-          </Link>
-
-          {/* CONTACT US DROPDOWN WITH SUB-ITEM DOWNLOAD CENTER */}
-          <div
-            className="relative"
-            onMouseEnter={() => setContactDropdownOpen(true)}
-            onMouseLeave={() => setContactDropdownOpen(false)}
-          >
+            {/* CONTACT */}
             <Link
               href={lPath("/contact")}
-              className={`relative inline-flex items-center gap-1.5 py-1 text-sm whitespace-nowrap transition-colors ${
+              className={`rounded-full px-3 py-1.5 text-[14px] transition-colors duration-200 ${
                 isActive("/contact")
-                  ? "font-semibold text-cyan-400"
-                  : "text-gray-300 hover:text-white"
+                  ? "bg-[var(--lp-tile)] text-[var(--lp-ink)] font-semibold"
+                  : "text-[var(--lp-ink-2)] hover:text-[var(--lp-ink)] hover:bg-[var(--lp-tile)]"
               }`}
             >
-              <span className="whitespace-nowrap">{dict.nav.contactUs}</span>
-              <svg
-                className={`h-3.5 w-3.5 shrink-0 transition-transform duration-300 ${contactDropdownOpen ? "rotate-180 text-cyan-400" : ""}`}
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-              </svg>
-
-              {isActive("/contact") && (
-                <motion.div
-                  layoutId="activeNavIndicator"
-                  className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-cyan-400 to-sky-400 shadow-[0_0_8px_#06b6d4]"
-                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                />
-              )}
+              <span>{dict.nav.contactUs}</span>
             </Link>
+          </nav>
 
-            {/* DROPDOWN MENU WITH ANIMATEPRESENCE */}
-            <AnimatePresence>
-              {contactDropdownOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 8, scale: 0.95 }}
-                  transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                  className="absolute left-0 top-full pt-2 w-52 z-50"
-                >
-                  <div className="rounded-2xl border border-cyan-500/30 bg-neutral-950/95 p-2.5 shadow-2xl backdrop-blur-2xl">
-                    <Link
-                      href={lPath("/contact")}
-                      className="block rounded-xl px-4 py-2.5 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
-                    >
-                      {dict.nav.contactUs}
-                    </Link>
-
-                    <Link
-                      href={lPath("/contact/download-center")}
-                      className="block rounded-xl px-4 py-2.5 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all border-t border-white/10 mt-1.5 pt-2.5"
-                    >
-                      {dict.nav.downloadCenter}
-                    </Link>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-        </nav>
-
-        {/* CTA & DESKTOP SOCIAL ICONS & LANGUAGE SELECTOR */}
-        <div className="hidden md:flex items-center gap-3 lg:gap-5 shrink-0">
-          {/* DESKTOP LANGUAGE SELECTOR */}
-          <div
-            className="relative"
-            onMouseEnter={() => setLangDropdownOpen(true)}
-            onMouseLeave={() => setLangDropdownOpen(false)}
-          >
-            <button
-              onClick={() => setLangDropdownOpen(!langDropdownOpen)}
-              className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-neutral-900/80 px-3.5 py-1.5 text-xs font-semibold text-gray-200 backdrop-blur-md transition-all hover:border-cyan-400 hover:text-white whitespace-nowrap shrink-0"
-              aria-label={dict.nav.selectLanguage || "Select Language"}
+          {/* RIGHT ACTION CONTROLS */}
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            {/* LANGUAGE SELECTOR (Desktop and Tablet) */}
+            <div
+              className="relative hidden md:block"
+              onMouseEnter={() => setLangDropdownOpen(true)}
+              onMouseLeave={() => setLangDropdownOpen(false)}
             >
-              <span>{locales[currentLocale].flag}</span>
-              <span>{locales[currentLocale].nativeName}</span>
-              <svg
-                className={`h-3 w-3 shrink-0 transition-transform duration-300 ${
-                  langDropdownOpen ? "rotate-180 text-cyan-400" : "text-gray-400"
-                }`}
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+              <button
+                onClick={() => setLangDropdownOpen(!langDropdownOpen)}
+                className="inline-flex h-10 items-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-white px-3.5 text-[12px] font-medium text-[var(--lp-ink-2)] shadow-xs transition-all duration-150 hover:bg-[var(--lp-tile)] hover:text-[var(--lp-ink)] active:scale-[0.98] cursor-pointer"
+                aria-label="Select Language"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-
-            <AnimatePresence>
-              {langDropdownOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: 8, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 8, scale: 0.95 }}
-                  transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                  className="absolute right-0 top-full pt-2 w-52 z-50"
+                <span className="font-mono text-[10px] font-bold px-1.5 py-0.5 rounded bg-[var(--lp-tile)] border border-[var(--lp-line)] text-[var(--lp-ink)]">{locales[currentLocale].flag}</span>
+                <span>{locales[currentLocale].nativeName}</span>
+                <svg
+                  className={`h-3 w-3 transition-transform duration-200 ${
+                    langDropdownOpen ? "rotate-180" : ""
+                  }`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
                 >
-                  <div className="rounded-2xl border border-cyan-500/30 bg-neutral-950/95 p-2 shadow-2xl backdrop-blur-2xl">
-                    {supportedLocales.map((loc) => {
-                      const info = locales[loc];
-                      const isSelected = loc === currentLocale;
-                      return (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              <AnimatePresence>
+                {langDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 6, scale: 0.98 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 4, scale: 0.98 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute right-0 top-full pt-2 w-48 z-50"
+                  >
+                    <div className="rounded-2xl border border-[var(--lp-line)] bg-white p-1.5 shadow-[var(--lp-shadow-card)]">
+                      {supportedLocales.map((loc) => (
                         <button
                           key={loc}
                           onClick={() => handleSelectLanguage(loc)}
-                          className={`flex w-full items-center justify-between rounded-xl px-3.5 py-2 text-xs font-semibold transition-all ${
-                            isSelected
-                              ? "bg-cyan-500/15 text-cyan-300 border border-cyan-500/30"
-                              : "text-gray-300 hover:bg-white/5 hover:text-white"
+                          className={`flex w-full items-center justify-between rounded-xl px-3 py-1.5 text-left text-[12px] font-medium transition-colors cursor-pointer active:scale-[0.98] ${
+                            loc === currentLocale
+                              ? "bg-[var(--lp-tile)] text-[var(--lp-ink)] font-semibold"
+                              : "text-[var(--lp-ink-2)] hover:bg-[var(--lp-tile-2)] hover:text-[var(--lp-ink)]"
                           }`}
                         >
-                          <div className="flex items-center gap-2">
-                            <span>{info.flag}</span>
-                            <span>{info.nativeName}</span>
-                          </div>
-                          {isSelected && <span className="text-cyan-400 font-bold">✓</span>}
+                          <span className="flex items-center gap-2">
+                            <span className="font-mono text-[10px] font-bold px-1.5 py-0.5 rounded bg-[var(--lp-tile)] border border-[var(--lp-line)] text-[var(--lp-ink)]">{locales[loc].flag}</span>
+                            <span>{locales[loc].nativeName}</span>
+                          </span>
+                          {loc === currentLocale && <Check className="h-3.5 w-3.5 text-[var(--lp-accent)]" />}
                         </button>
-                      );
-                    })}
-                  </div>
-                </motion.div>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* PRIMARY CTA: BOOK DEMO BUTTON (Hidden on mobile < sm to guarantee zero header squish) */}
+            <Link
+              href={lPath("/contact")}
+              className="hidden sm:inline-flex h-10 items-center justify-center whitespace-nowrap rounded-full bg-[var(--lp-ink)] px-5 text-[14px] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_1px_2px_rgba(17,17,19,0.24)] transition-all duration-150 hover:bg-[#2A2A2F] active:scale-[0.98] cursor-pointer"
+            >
+              {dict.common.bookDemo || "Book Demo"}
+            </Link>
+
+            {/* MOBILE HAMBURGER BUTTON */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle Menu"
+              className="relative inline-flex h-10 w-10 items-center justify-center rounded-full text-[var(--lp-ink-2)] transition-colors hover:bg-[var(--lp-tile-2)] active:scale-95 cursor-pointer md:hidden"
+            >
+              {mobileMenuOpen ? (
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
               )}
-            </AnimatePresence>
-          </div>
-
-          <Link
-            href={lPath("/contact")}
-            className="rounded-full bg-gradient-to-r from-cyan-400 via-sky-400 to-cyan-500 px-5 py-2.5 text-xs font-bold text-black shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(6,182,212,0.7)] whitespace-nowrap shrink-0"
-          >
-            {dict.common.bookDemo}
-          </Link>
-
-          {/* Social Icons */}
-          <div className="hidden lg:flex items-center gap-3.5 border-l border-white/15 pl-5">
-            <a
-              href="https://www.facebook.com/hsglobalai/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-              className="text-gray-300 transition-all hover:text-cyan-400 hover:scale-110"
-            >
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M14 8h3V4h-3c-3 0-5 2-5 5v2H6v4h3v9h4v-9h3l1-4h-4V9c0-.7.3-1 1-1Z" />
-              </svg>
-            </a>
-
-            <a
-              href="https://x.com/HSGlobalAI"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="X (Twitter)"
-              className="text-gray-300 transition-all hover:text-cyan-400 hover:scale-110 font-bold text-sm"
-            >
-              𝕏
-            </a>
-
-            <a
-              href="https://www.linkedin.com/company/hs-global-ai/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="text-gray-300 transition-all hover:text-cyan-400 hover:scale-110"
-            >
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M5.5 8.5H2.5V21h3V8.5ZM4 3a1.75 1.75 0 1 0 0 3.5A1.75 1.75 0 0 0 4 3ZM9 8.5h2.9v1.7h.1c.4-.8 1.4-2 3.6-2 3.8 0 4.5 2.5 4.5 5.8V21h-3v-6.2c0-1.5 0-3.4-2.1-3.4s-2.4 1.6-2.4 3.3V21H9V8.5Z" />
-              </svg>
-            </a>
-
-            <a
-              href="https://www.instagram.com/hsglobalai/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="text-gray-300 transition-all hover:text-cyan-400 hover:scale-110"
-            >
-              <svg
-                width="17"
-                height="17"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <rect x="3" y="3" width="18" height="18" rx="5" />
-                <circle cx="12" cy="12" r="4" />
-                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-              </svg>
-            </a>
-
-            <a
-              href="https://www.youtube.com/@hsglobalai"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="YouTube"
-              className="text-gray-300 transition-all hover:text-cyan-400 hover:scale-110"
-            >
-              <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M23 12s0-3.5-.4-5.2a3 3 0 0 0-2.1-2.1C18.8 4.2 12 4.2 12 4.2s-6.8 0-8.5.5a3 3 0 0 0-2.1 2.1C1 8.5 1 12 1 12s0 3.5.4 5.2a3 3 0 0 0 2.1 2.1c1.7.5 8.5.5 8.5.5s6.8 0 8.5-.5a3 3 0 0 0 2.1-2.1C23 15.5 23 12 23 12Zm-13.2 4V8l6.9 4-6.9 4Z" />
-              </svg>
-            </a>
+            </button>
           </div>
         </div>
 
-        {/* MOBILE RIGHT CONTROLS (DEMO BUTTON & HAMBURGER TOGGLE) */}
-        <div className="flex md:hidden items-center gap-3">
-          <Link
-            href={lPath("/contact")}
-            className="rounded-full bg-white px-4 py-2 text-xs font-bold text-black shadow-md hover:bg-cyan-400 transition-colors"
-          >
-            {dict.common.bookDemo}
-          </Link>
-
-          {/* HAMBURGER BUTTON */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle Mobile Menu"
-            className="rounded-xl border border-white/20 bg-neutral-900/90 p-2 text-cyan-400 hover:text-white transition-colors"
-          >
-            {mobileMenuOpen ? (
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            )}
-          </button>
-        </div>
-      </div>
-
-      {/* MOBILE SLIDE-OUT DRAWER MENU */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="md:hidden overflow-hidden border-t border-white/10 bg-neutral-950/98 backdrop-blur-2xl px-6 py-6"
-          >
-            <div className="space-y-4">
-              {/* MOBILE LANGUAGE SELECTOR */}
-              <div className="pb-3 border-b border-white/10">
-                <span className="block text-[11px] font-mono text-cyan-400 uppercase tracking-widest px-1 mb-2">
-                  {dict.nav.selectLanguage}
-                </span>
-                <div className="grid grid-cols-2 gap-2">
-                  {supportedLocales.map((loc) => {
-                    const info = locales[loc];
-                    const isSelected = loc === currentLocale;
-                    return (
-                      <button
-                        key={loc}
-                        onClick={() => handleSelectLanguage(loc)}
-                        className={`flex items-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold transition-all ${
-                          isSelected
-                            ? "bg-cyan-500/20 text-cyan-300 border border-cyan-500/40"
-                            : "border border-white/10 bg-white/5 text-gray-300 hover:border-white/20 hover:text-white"
-                        }`}
-                      >
-                        <span>{info.flag}</span>
-                        <span>{info.nativeName}</span>
-                        {isSelected && <span className="ml-auto text-cyan-400 font-bold">✓</span>}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-              <Link
-                href={lPath("/")}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`block rounded-xl px-4 py-3 text-base font-semibold transition-colors ${
-                  isActive("/")
-                    ? "bg-cyan-500/10 text-cyan-400 border border-cyan-500/30"
-                    : "text-gray-200 hover:bg-white/5 hover:text-white"
-                }`}
-              >
-                {dict.nav.home}
-              </Link>
-
-              <div>
-                <Link
-                  href={lPath("/products")}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`block rounded-xl px-4 py-3 text-base font-semibold transition-colors ${
-                    isActive("/products") && !pathname.includes("/products/")
-                      ? "bg-cyan-500/10 text-cyan-400 border border-cyan-500/30"
-                      : "text-gray-200 hover:bg-white/5 hover:text-white"
-                  }`}
-                >
-                  {dict.nav.allProductsOverview}
-                </Link>
-
-                {/* Subpages links in mobile drawer */}
-                <div className="ml-4 mt-1 border-l border-cyan-500/20 pl-3 space-y-1">
-                  <Link
-                    href={lPath("/products/ai-digital-human")}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={`block rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
-                      pathname.includes("/products/ai-digital-human")
-                        ? "text-cyan-400 font-semibold"
-                        : "text-gray-400 hover:text-white"
-                    }`}
-                  >
-                    ● {dict.nav.dihuavaAvatarPlatform}
-                  </Link>
-
-                  <Link
-                    href={lPath("/products/holographic-display")}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={`block rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
-                      pathname.includes("/products/holographic-display")
-                        ? "text-cyan-400 font-semibold"
-                        : "text-gray-400 hover:text-white"
-                    }`}
-                  >
-                    ● {dict.nav.holographicDisplay}
-                  </Link>
-
-                  <Link
-                    href={lPath("/products/spatial-display")}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={`block rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
-                      pathname.includes("/products/spatial-display")
-                        ? "text-cyan-400 font-semibold"
-                        : "text-gray-400 hover:text-white"
-                    }`}
-                  >
-                    ● {dict.nav.spatialDisplay}
-                  </Link>
-                </div>
-              </div>
-
-              <Link
-                href={lPath("/industries")}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`block rounded-xl px-4 py-3 text-base font-semibold transition-colors ${
-                  isActive("/industries")
-                    ? "bg-cyan-500/10 text-cyan-400 border border-cyan-500/30"
-                    : "text-gray-200 hover:bg-white/5 hover:text-white"
-                }`}
-              >
-                {dict.nav.industries}
-              </Link>
-
-              <Link
-                href={lPath("/about")}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`block rounded-xl px-4 py-3 text-base font-semibold transition-colors ${
-                  isActive("/about")
-                    ? "bg-cyan-500/10 text-cyan-400 border border-cyan-500/30"
-                    : "text-gray-200 hover:bg-white/5 hover:text-white"
-                }`}
-              >
-                {dict.footer.aboutUs}
-              </Link>
-
-              <Link
-                href={lPath("/events")}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`block rounded-xl px-4 py-3 text-base font-semibold transition-colors ${
-                  isActive("/events")
-                    ? "bg-cyan-500/10 text-cyan-400 border border-cyan-500/30"
-                    : "text-gray-200 hover:bg-white/5 hover:text-white"
-                }`}
-              >
-                {dict.nav.events}
-              </Link>
-
-              <Link
-                href={lPath("/blog")}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`block rounded-xl px-4 py-3 text-base font-semibold transition-colors ${
-                  isActive("/blog")
-                    ? "bg-cyan-500/10 text-cyan-400 border border-cyan-500/30"
-                    : "text-gray-200 hover:bg-white/5 hover:text-white"
-                }`}
-              >
-                {dict.nav.blog}
-              </Link>
-
-              <div className="pt-2 border-t border-white/10">
-                <span className="block text-[11px] font-mono text-cyan-400 uppercase tracking-widest px-4 mb-2">
-                  {dict.nav.contactUs} & {dict.footer.usefulLinksHeader}
-                </span>
-
+        {/* MOBILE SLIDE-OUT MENU DRAWER */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className="mx-auto mt-2 max-w-[1200px] overflow-hidden rounded-[24px] border border-[var(--lp-line)] bg-white p-4 sm:p-5 shadow-[var(--lp-shadow-lift)] md:hidden"
+            >
+              <div className="space-y-3">
+                {/* PROMINENT MOBILE BOOK DEMO BUTTON */}
                 <Link
                   href={lPath("/contact")}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`block rounded-xl px-4 py-3 text-base font-semibold transition-colors ${
-                    isActive("/contact") && !pathname.includes("download-center")
-                      ? "bg-cyan-500/10 text-cyan-400 border border-cyan-500/30"
-                      : "text-gray-200 hover:bg-white/5 hover:text-white"
-                  }`}
+                  className="flex h-12 w-full items-center justify-center rounded-full bg-[var(--lp-ink)] px-6 text-center text-[14px] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_1px_2px_rgba(17,17,19,0.24)] transition-all hover:bg-neutral-800 active:scale-[0.98] cursor-pointer"
                 >
-                  📍 {dict.nav.contactUs}
+                  {dict.common.bookDemo || "Book Demo"}
                 </Link>
-
                 <Link
-                  href={lPath("/contact/download-center")}
+                  href={lPath("/")}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`block rounded-xl px-4 py-3 text-base font-semibold transition-colors mt-1 ${
-                    pathname.includes("download-center")
-                      ? "bg-cyan-500/10 text-cyan-400 border border-cyan-500/30"
-                      : "text-gray-200 hover:bg-white/5 hover:text-white"
-                  }`}
+                  className="block rounded-xl px-3 py-2 text-[14px] font-medium text-[var(--lp-ink)] hover:bg-[var(--lp-tile)]"
                 >
-                  📥 {dict.nav.downloadCenter}
+                  {dict.nav.home}
                 </Link>
-              </div>
+                <Link
+                  href={lPath("/products")}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block rounded-xl px-3 py-2 text-[14px] font-medium text-[var(--lp-ink)] hover:bg-[var(--lp-tile)]"
+                >
+                  {dict.nav.allProductsOverview}
+                </Link>
+                <Link
+                  href={lPath("/products/ai-digital-human")}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block rounded-xl pl-6 py-1.5 text-[13px] text-[var(--lp-ink-2)] hover:bg-[var(--lp-tile)]"
+                >
+                  {dict.nav.dihuavaAvatarPlatform}
+                </Link>
+                <Link
+                  href={lPath("/industries")}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block rounded-xl px-3 py-2 text-[14px] font-medium text-[var(--lp-ink)] hover:bg-[var(--lp-tile)]"
+                >
+                  {dict.nav.industries}
+                </Link>
+                <Link
+                  href={lPath("/about")}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block rounded-xl px-3 py-2 text-[14px] font-medium text-[var(--lp-ink)] hover:bg-[var(--lp-tile)]"
+                >
+                  {dict.footer.aboutUs}
+                </Link>
+                <Link
+                  href={lPath("/events")}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block rounded-xl px-3 py-2 text-[14px] font-medium text-[var(--lp-ink)] hover:bg-[var(--lp-tile)]"
+                >
+                  {dict.nav.events}
+                </Link>
+                <Link
+                  href={lPath("/contact")}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block rounded-xl px-3 py-2 text-[14px] font-medium text-[var(--lp-ink)] hover:bg-[var(--lp-tile)]"
+                >
+                  {dict.nav.contactUs}
+                </Link>
 
-              {/* MOBILE SOCIAL ICONS BAR */}
-              <div className="pt-6 border-t border-white/10">
-                <p className="text-xs font-mono uppercase tracking-wider text-gray-400 px-4 mb-3">
-                  Connect With HS Global AI
-                </p>
-
-                <div className="flex items-center gap-5 px-4">
-                  {/* Facebook */}
-                  <a
-                    href="https://www.facebook.com/hsglobalai/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Facebook"
-                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 bg-white/5 text-white transition-colors hover:border-cyan-400 hover:text-cyan-400"
-                  >
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M14 8h3V4h-3c-3 0-5 2-5 5v2H6v4h3v9h4v-9h3l1-4h-4V9c0-.7.3-1 1-1Z" />
-                    </svg>
-                  </a>
-
-                  {/* X / Twitter */}
-                  <a
-                    href="https://x.com/HSGlobalAI"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="X (Twitter)"
-                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 bg-white/5 text-white font-bold text-sm transition-colors hover:border-cyan-400 hover:text-cyan-400"
-                  >
-                    𝕏
-                  </a>
-
-                  {/* LinkedIn */}
-                  <a
-                    href="https://www.linkedin.com/company/hs-global-ai/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="LinkedIn"
-                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 bg-white/5 text-white transition-colors hover:border-cyan-400 hover:text-cyan-400"
-                  >
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M5.5 8.5H2.5V21h3V8.5ZM4 3a1.75 1.75 0 1 0 0 3.5A1.75 1.75 0 0 0 4 3ZM9 8.5h2.9v1.7h.1c.4-.8 1.4-2 3.6-2 3.8 0 4.5 2.5 4.5 5.8V21h-3v-6.2c0-1.5 0-3.4-2.1-3.4s-2.4 1.6-2.4 3.3V21H9V8.5Z" />
-                    </svg>
-                  </a>
-
-                  {/* Instagram */}
-                  <a
-                    href="https://www.instagram.com/hsglobalai/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Instagram"
-                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 bg-white/5 text-white transition-colors hover:border-cyan-400 hover:text-cyan-400"
-                  >
-                    <svg
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <rect x="3" y="3" width="18" height="18" rx="5" />
-                      <circle cx="12" cy="12" r="4" />
-                      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-                    </svg>
-                  </a>
-
-                  {/* YouTube */}
-                  <a
-                    href="https://www.youtube.com/@hsglobalai"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="YouTube"
-                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 bg-white/5 text-white transition-colors hover:border-cyan-400 hover:text-cyan-400"
-                  >
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M23 12s0-3.5-.4-5.2a3 3 0 0 0-2.1-2.1C18.8 4.2 12 4.2 12 4.2s-6.8 0-8.5.5a3 3 0 0 0-2.1 2.1C1 8.5 1 12 1 12s0 3.5.4 5.2a3 3 0 0 0 2.1 2.1c1.7.5 8.5.5 8.5.5s6.8 0 8.5-.5a3 3 0 0 0 2.1-2.1C23 15.5 23 12 23 12Zm-13.2 4V8l6.9 4-6.9 4Z" />
-                    </svg>
-                  </a>
+                {/* Mobile Language Chips */}
+                <div className="pt-3 border-t border-[var(--lp-line)]">
+                  <span className="block text-[11px] font-medium text-[var(--lp-muted)] mb-2">
+                    {dict.nav.selectLanguage || "Language"}
+                  </span>
+                  <div className="flex flex-wrap gap-1.5">
+                    {supportedLocales.map((loc) => (
+                      <button
+                        key={loc}
+                        onClick={() => {
+                          handleSelectLanguage(loc);
+                          setMobileMenuOpen(false);
+                        }}
+                        className={`inline-flex h-8 items-center justify-center gap-1.5 rounded-full px-3.5 text-xs font-medium transition-all active:scale-[0.98] cursor-pointer ${
+                          loc === currentLocale
+                            ? "bg-[var(--lp-ink)] text-white shadow-xs"
+                            : "bg-[var(--lp-tile)] text-[var(--lp-ink-2)] hover:bg-[var(--lp-tile-2)]"
+                        }`}
+                      >
+                        <span className="font-mono text-[10px] font-bold px-1 rounded bg-[var(--lp-tile)]/20 text-current">{locales[loc].flag}</span>
+                        <span>{locales[loc].nativeName}</span>
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
-
-              {/* HQ ADDRESS BRIEF */}
-              <div className="pt-4 px-4 text-[11px] text-gray-400">
-                <p>📍 HS GLOBAL SG PTE LTD, 20 COLLYER QUAY, #09-01, SINGAPORE – 049319</p>
-                <p className="mt-1">✉️ sales@hsglobalai.com</p>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </header>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </header>
     </>
   );
 }

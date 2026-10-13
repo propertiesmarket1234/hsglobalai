@@ -9,7 +9,7 @@ import ChatbotVsAvatar from "@/components/ChatbotVsAvatar";
 import CTA from "@/components/CTA";
 import Link from "next/link";
 import { motion } from "framer-motion";
-
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { getDictionary } from "@/i18n/getDictionary";
 import { Locale, nonDefaultLocales, getLocalizedPath } from "@/i18n/config";
@@ -23,123 +23,107 @@ export default function ProductsClient() {
   const pPage = (dict as any).productsPage || {};
 
   return (
-    <main className="min-h-screen bg-black text-white selection:bg-cyan-500 selection:text-black">
+    <main className="min-h-screen overflow-x-clip bg-[var(--lp-bg)] text-[var(--lp-ink)] selection:bg-[var(--lp-accent)] selection:text-white">
       <Header />
 
-      {/* PRODUCTS HERO SECTION WITH BACKSIDE DIGITAL HUMAN VIDEO */}
-      <section className="relative overflow-hidden px-6 pt-32 pb-20 md:pt-40 md:pb-28 border-b border-white/10">
-        {/* Horizontal Background Video (Backside of Text) */}
-        <div className="absolute inset-0 z-0 overflow-hidden">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="h-full w-full object-cover opacity-40 filter brightness-90 contrast-110"
-          >
-            <source src="/hero-background.mp4" type="video/mp4" />
-          </video>
-
-          {/* Dark Overlay Gradients for High-Contrast Readable Text */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/85" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-transparent to-black/70" />
-          <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-[450px] w-[700px] rounded-full bg-gradient-to-b from-cyan-500/20 via-blue-600/10 to-transparent blur-[140px]" />
-        </div>
-
-        <div className="relative z-10 mx-auto max-w-7xl">
+      {/* PRODUCTS HERO SECTION: SWIPECRAFT STYLE */}
+      <section className="relative px-4 pt-28 pb-12 sm:px-6 md:pt-36 md:pb-16 border-b border-[var(--lp-line)]">
+        <div className="mx-auto max-w-[1200px]">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.6 }}
           >
             {/* Category Tag Badge */}
-            <div className="inline-flex items-center gap-2.5 rounded-full border border-cyan-500/40 bg-cyan-950/80 px-4 py-1.5 backdrop-blur-md shadow-[0_0_20px_rgba(6,182,212,0.3)]">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[var(--lp-line)] bg-[var(--lp-tile)] px-3.5 py-1.5 mb-6">
               <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-500" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--lp-accent)] opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--lp-accent)]" />
               </span>
-              <span className="text-xs font-semibold tracking-widest text-cyan-300 uppercase">
-                {pPage.heroBadge || "HS Global AI Suite — Products"}
+              <span className="text-[12px] font-semibold uppercase tracking-wider text-[var(--lp-ink-2)]">
+                {pPage.heroBadge || "Enterprise Product Suite — Hardware & Software"}
               </span>
             </div>
 
             {/* Grid Layout with Balanced Alignment */}
-            <div className="mt-8 grid gap-8 lg:grid-cols-12 lg:items-end lg:gap-12">
-              {/* Heading Column */}
+            <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
               <div className="lg:col-span-7">
-                <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl lg:leading-[1.1] drop-shadow-2xl">
-                  {pPage.heroTitle || "AI products built for "}{" "}
-                  <span className="bg-gradient-to-r from-white via-cyan-100 to-cyan-400 bg-clip-text text-transparent">
-                    {pPage.heroTitleHighlight || "real-world experiences."}
+                <h1 className="text-balance text-[40px] font-semibold leading-[1.04] tracking-[-0.04em] text-[var(--lp-ink)] sm:text-[54px] lg:text-[64px]">
+                  Physical hardware & software for the{" "}
+                  <span className="text-[var(--lp-muted)]">
+                    digital workforce.
                   </span>
                 </h1>
               </div>
 
-              {/* Description Column */}
               <div className="lg:col-span-5 lg:pb-2">
-                <p className="text-base leading-8 text-gray-200 sm:text-lg drop-shadow">
-                  {pPage.heroDescription || "Explore HS Global AI products: DIHUAVA AI Digital Human platform, 3D Hologram Box displays, and naked-eye spatial AI displays for 100% offline enterprise deployment."}
-                </p>
-                <p className="mt-3 text-sm leading-relaxed text-cyan-200/90 font-medium">
-                  {pPage.heroSubDescription || "DIHUAVA provides the AI Digital Human software layer that can power HS Global AI's holographic and spatial display experiences."}
+                <p className="text-[16px] leading-[1.65] text-[var(--lp-ink-2)] sm:text-[18px]">
+                  {pPage.heroDescription || "From proprietary on-premise AI software (DIHUAVA) to life-sized 3D Hologram Cabinets and glasses-free Spatial Displays. Engineered for retail flagships, hospitals, and defence installations."}
                 </p>
 
                 {/* Capability Pills */}
                 <div className="mt-6 flex flex-wrap gap-2">
-                  <span className="rounded-full border border-cyan-500/40 bg-cyan-950/60 px-3.5 py-1 text-xs font-semibold text-cyan-300 backdrop-blur-md shadow-[0_0_12px_rgba(6,182,212,0.2)]">
-                    {pPage.pills?.languages || "🌍 29+ Global Languages"}
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-[var(--lp-card)] px-3 py-1 text-xs font-medium text-[var(--lp-ink)] shadow-2xs">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-[var(--lp-accent)]" />
+                    45+ Global Languages
                   </span>
-                  <span className="rounded-full border border-cyan-500/30 bg-black/60 px-3.5 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md">
-                    {pPage.pills?.avatars || "Avatar Customization & Voice Cloning"}
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-[var(--lp-card)] px-3 py-1 text-xs font-medium text-[var(--lp-ink)] shadow-2xs">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-[var(--lp-accent)]" />
+                    100% Offline Edge AI
                   </span>
-                  <span className="rounded-full border border-cyan-500/30 bg-black/60 px-3.5 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md">
-                    {pPage.pills?.offline || "100% Offline AI Engine"}
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-[var(--lp-card)] px-3 py-1 text-xs font-medium text-[var(--lp-ink)] shadow-2xs">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-[var(--lp-accent)]" />
+                    3D Volumetric Displays
                   </span>
-                  <span className="rounded-full border border-cyan-500/30 bg-black/60 px-3.5 py-1 text-xs font-medium text-cyan-300 backdrop-blur-md">
-                    {pPage.pills?.holographics || "3D Holographics"}
-                  </span>
+                </div>
+
+                <div className="mt-6">
+                  <Link
+                    href={lPath("/contact/download-center")}
+                    className="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[var(--lp-ink)] px-6 text-sm font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_1px_2px_rgba(17,17,19,0.24)] transition-all hover:bg-[#2A2A2F] active:scale-[0.98] cursor-pointer"
+                  >
+                    <span>Download Engineering Datasheets</span>
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
                 </div>
               </div>
             </div>
 
             {/* Product Ecosystem Taxonomy */}
-            <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-4 border-t border-white/10 pt-8">
-              <div className="rounded-xl border border-white/10 bg-white/5 p-3.5 backdrop-blur-md">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-400 block">
-                  {pPage.taxonomy?.softwareLabel || "Software Platform"}
+            <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-4 border-t border-[var(--lp-line)] pt-8">
+              <div className="rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-tile)] p-4">
+                <span className="text-[11px] font-mono uppercase tracking-wider text-[var(--lp-muted)] block">
+                  Software Layer
                 </span>
-                <span className="text-xs font-semibold text-white">
-                  {pPage.taxonomy?.softwareValue || "DIHUAVA AI Platform"}
-                </span>
-              </div>
-              <div className="rounded-xl border border-white/10 bg-white/5 p-3.5 backdrop-blur-md">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-400 block">
-                  {pPage.taxonomy?.hologramLabel || "3D Hardware Enclosure"}
-                </span>
-                <span className="text-xs font-semibold text-white">
-                  {pPage.taxonomy?.hologramValue || "Holographic Display"}
+                <span className="text-sm font-semibold text-[var(--lp-ink)] mt-0.5 block">
+                  DIHUAVA AI Engine
                 </span>
               </div>
-              <div className="rounded-xl border border-white/10 bg-white/5 p-3.5 backdrop-blur-md">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-400 block">
-                  {pPage.taxonomy?.spatialLabel || "Glasses-Free 3D Display"}
+              <div className="rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-tile)] p-4">
+                <span className="text-[11px] font-mono uppercase tracking-wider text-[var(--lp-muted)] block">
+                  3D Hologram Cabinet
                 </span>
-                <span className="text-xs font-semibold text-white">
-                  {pPage.taxonomy?.spatialValue || "Spatial Display"}
+                <span className="text-sm font-semibold text-[var(--lp-ink)] mt-0.5 block">
+                  65&apos;&apos; &amp; 86&apos;&apos; Hologram Boxes
                 </span>
               </div>
-              <div className="rounded-xl border border-white/10 bg-white/5 p-3.5 backdrop-blur-md">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-400 block">
-                  {pPage.taxonomy?.rndLabel || "Active R&D Capability"}
+              <div className="rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-tile)] p-4">
+                <span className="text-[11px] font-mono uppercase tracking-wider text-[var(--lp-muted)] block">
+                  Executive Desk Unit
                 </span>
-                <span className="text-xs font-semibold text-white">
-                  {pPage.taxonomy?.rndValue || "Virtual Try-On Mirror"}
+                <span className="text-sm font-semibold text-[var(--lp-ink)] mt-0.5 block">
+                  Glasses-Free Spatial 3D
+                </span>
+              </div>
+              <div className="rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-tile)] p-4">
+                <span className="text-[11px] font-mono uppercase tracking-wider text-[var(--lp-muted)] block">
+                  Interactive Fitting
+                </span>
+                <span className="text-sm font-semibold text-[var(--lp-ink)] mt-0.5 block">
+                  Virtual Try-On Mirror
                 </span>
               </div>
             </div>
-
-            {/* Bottom Divider Accent */}
-            <div className="mt-12 h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
           </motion.div>
         </div>
       </section>
@@ -147,47 +131,16 @@ export default function ProductsClient() {
       {/* PRODUCT SHOWCASE */}
       <ProductShowcase />
 
-      {/* DEDICATED 29+ GLOBAL LANGUAGES SECTION */}
+      {/* DEDICATED 45+ GLOBAL LANGUAGES SECTION */}
       <GlobalLanguagesSection />
 
-      {/* CORE PLATFORM CAPABILITIES ENGINE */}
+      {/* DIHUAVA SOFTWARE PLATFORM INTELLIGENCE */}
       <DihuavaPlatform />
 
-      {/* CHATBOT VS DIGITAL HUMAN AVATAR COMPARISON */}
+      {/* COST CUTTING & ASSISTANCE QUALITY COMPARISON */}
       <ChatbotVsAvatar />
 
-      {/* ENTERPRISE INDUSTRY SOLUTIONS LINKS */}
-      <section className="relative overflow-hidden bg-black px-6 py-16 text-white border-t border-white/10">
-        <div className="mx-auto max-w-7xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-cyan-400">
-            {pPage.industrySolutions?.badge || "Industry Deployment Solutions"}
-          </p>
-          <h3 className="mt-2 text-2xl font-bold text-white sm:text-3xl">
-            {pPage.industrySolutions?.title || "Engineered for Vertical Enterprise Environments"}
-          </h3>
-          <p className="mt-3 text-sm sm:text-base leading-relaxed text-gray-300 max-w-2xl mx-auto">
-            {pPage.industrySolutions?.desc || "Discover how HS Global AI digital humans and holographic displays are deployed across enterprise sector workflows."}
-          </p>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs font-medium">
-            <Link href={lPath("/industries")} className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-gray-200 hover:border-cyan-400 hover:text-white transition-colors">
-              {pPage.industrySolutions?.allSolutions || "All Industry Solutions →"}
-            </Link>
-            <Link href={lPath("/industries/healthcare")} className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-gray-200 hover:border-cyan-400 hover:text-white transition-colors">
-              {pPage.industrySolutions?.healthcare || "Healthcare & Patient Experience →"}
-            </Link>
-            <Link href={lPath("/industries/retail")} className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-gray-200 hover:border-cyan-400 hover:text-white transition-colors">
-              {pPage.industrySolutions?.retail || "Retail & Smart Mirror Kiosks →"}
-            </Link>
-            <Link href={lPath("/industries/banking")} className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-gray-200 hover:border-cyan-400 hover:text-white transition-colors">
-              {pPage.industrySolutions?.banking || "Banking & Air-Gapped Concierge →"}
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* CALL TO ACTION SECTION */}
       <CTA />
-
       <Footer />
     </main>
   );

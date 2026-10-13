@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import { Plus } from "lucide-react";
 import { getDictionary } from "@/i18n/getDictionary";
 import { Locale, nonDefaultLocales } from "@/i18n/config";
 
@@ -15,123 +16,83 @@ interface FAQItem {
 export default function FAQ() {
   const pathname = usePathname();
   const seg = pathname ? pathname.split("/")[1] : "";
-  const currentLocale: Locale = seg && (nonDefaultLocales as readonly string[]).includes(seg) ? (seg as Locale) : "en";
+  const currentLocale: Locale =
+    seg && (nonDefaultLocales as readonly string[]).includes(seg)
+      ? (seg as Locale)
+      : "en";
   const dict = getDictionary(currentLocale);
   const faqSec = dict.home.faqSection;
 
-  const categories = faqSec.categories;
-  const faqData: FAQItem[] = faqSec.items;
-
-  const [selectedCategory, setSelectedCategory] = useState(faqSec.categories[0]);
+  const faqData: FAQItem[] = faqSec.items || [];
   const [openIndex, setOpenIndex] = useState<number | null>(0);
-
-  const filteredFaqs =
-    selectedCategory === faqSec.categories[0]
-      ? faqData
-      : faqData.filter((f) => f.category === selectedCategory);
 
   const toggle = (idx: number) => {
     setOpenIndex(openIndex === idx ? null : idx);
   };
 
   return (
-    <section className="relative overflow-hidden bg-black px-6 py-28 text-white border-t border-white/10">
-      {/* Background glow */}
-      <div className="pointer-events-none absolute left-1/3 top-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-cyan-900/10 blur-[150px]" />
-
-      <div className="relative mx-auto max-w-5xl">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center"
-        >
-          <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 backdrop-blur-md mb-6 shadow-[0_0_20px_rgba(6,182,212,0.25)]">
-            <span className="h-2 w-2 rounded-full bg-cyan-400 animate-pulse" />
-            <span className="text-xs font-semibold uppercase tracking-[0.25em] text-cyan-300">
-              {faqSec.badge}
+    <section id="faq" className="relative overflow-hidden py-16 sm:py-20 md:py-24 bg-white border-b border-[var(--lp-line)]">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        {/* SECTION HEADER */}
+        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--lp-card)] border border-[var(--lp-line)] shadow-xs mb-4">
+            <span className="w-2 h-2 rounded-full bg-[var(--lp-accent)] animate-pulse" />
+            <span className="text-[11px] font-semibold tracking-wider text-[var(--lp-muted)] uppercase">
+              Frequently Asked Questions
             </span>
           </div>
-
-          <h2 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl">
-            {faqSec.heading}
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--lp-ink)] leading-[1.12]">
+            Things enterprise leaders ask before deploying.
           </h2>
-
-          <p className="mx-auto mt-4 max-w-xl text-base leading-8 text-gray-300 sm:text-lg">
-            {faqSec.subheading}
+          <p className="mt-4 sm:mt-5 text-sm sm:text-lg leading-relaxed text-[var(--lp-muted)]">
+            Have questions about on-premise hardware, domain accuracy, or staffing cost reduction? Contact our deployment engineers directly at contact@hsglobalai.com.
           </p>
-        </motion.div>
-
-        {/* CATEGORY FILTER TABS */}
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-2">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => {
-                setSelectedCategory(cat);
-                setOpenIndex(0);
-              }}
-              className={`rounded-full px-4 py-2 text-xs font-semibold backdrop-blur-md transition-all duration-300 ${
-                selectedCategory === cat
-                  ? "bg-cyan-500 text-black shadow-[0_0_25px_rgba(6,182,212,0.4)] scale-105"
-                  : "border border-white/15 bg-white/5 text-gray-300 hover:border-white/30 hover:text-white"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
         </div>
 
-        {/* ACCORDION LIST */}
-        <div className="mt-12 space-y-4">
-          {filteredFaqs.map((faq, idx) => {
+        {/* FAQ ACCORDION LIST */}
+        <div className="divide-y divide-[var(--lp-line)] border-y border-[var(--lp-line)]">
+          {faqData.map((item, idx) => {
             const isOpen = openIndex === idx;
             return (
-              <motion.div
-                key={faq.question}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.05 }}
-                className={`overflow-hidden rounded-2xl border transition-all duration-300 ${
-                  isOpen
-                    ? "border-cyan-500/50 bg-neutral-950/90 shadow-[0_0_30px_rgba(6,182,212,0.15)]"
-                    : "border-white/15 bg-neutral-950/60 hover:border-white/30"
-                }`}
-              >
+              <div key={idx} className="py-4 sm:py-6">
                 <button
                   onClick={() => toggle(idx)}
-                  className="flex w-full items-center justify-between p-6 text-left text-base font-semibold text-white sm:text-lg hover:text-cyan-300 transition-colors"
+                  className="group flex w-full items-start justify-between gap-3.5 sm:gap-4 text-left transition-all duration-150 cursor-pointer active:scale-[0.99]"
                 >
-                  <span className="pr-4">{faq.question}</span>
-                  <span
-                    className={`ml-2 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/5 text-sm transition-transform duration-300 ${
-                      isOpen ? "rotate-180 border-cyan-400 text-cyan-400 bg-cyan-500/10" : "text-gray-400"
+                  <span className={`text-[15px] sm:text-[18px] font-semibold tracking-[-0.015em] transition-colors leading-snug ${
+                    isOpen ? "text-[var(--lp-accent)]" : "text-[var(--lp-ink)] group-hover:text-[var(--lp-accent)]"
+                  }`}>
+                    {item.question}
+                  </span>
+                  <motion.span
+                    animate={{ rotate: isOpen ? 45 : 0 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                    className={`mt-0.5 sm:mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[var(--lp-line)] transition-colors ${
+                      isOpen
+                        ? "bg-[var(--lp-card)] text-[var(--lp-accent)] shadow-xs"
+                        : "bg-[var(--lp-tile)] text-[var(--lp-ink)] group-hover:bg-[var(--lp-tile-2)]"
                     }`}
                   >
-                    ↓
-                  </span>
+                    <Plus className="h-3.5 sm:h-4 w-3.5 sm:w-4" strokeWidth={2} />
+                  </motion.span>
                 </button>
 
-                <AnimatePresence>
+                <AnimatePresence initial={false}>
                   {isOpen && (
                     <motion.div
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
                       exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                      className="px-6 pb-6 text-sm leading-7 text-gray-300 sm:text-base border-t border-white/10 pt-4 overflow-hidden"
+                      transition={{ duration: 0.25, ease: "easeOut" }}
+                      className="overflow-hidden"
                     >
-                      <p>{faq.answer}</p>
-                      <div className="mt-4 flex items-center justify-between text-xs text-gray-500 font-mono">
-                        <span>{faqSec.categoryLabel} {faq.category.toUpperCase()}</span>
-                        <span className="text-cyan-400 font-semibold">{faqSec.verified}</span>
-                      </div>
+                      <p className="mt-3 sm:mt-4 max-w-3xl text-[13px] sm:text-[15px] leading-[1.65] text-[var(--lp-ink-2)]">
+                        {item.answer}
+                      </p>
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </motion.div>
+              </div>
             );
           })}
         </div>

@@ -37,7 +37,7 @@ export const industriesData: Record<string, IndustryDetail> = {
     title: "Banking & Financial Services",
     h1Title: "AI Digital Humans & Holograms for Banking & Financial Services",
     subtitle: "3D Holographic AI Bankers & Concierge Assistants",
-    icon: "🏦",
+    icon: "bank",
     badge: "AIR-GAPPED BANKING AI",
     description:
       "Transform branch experiences with 3D hologram AI bankers for customer onboarding, loan explanations, queue handling, account inquiries, and multilingual financial advisory – delivering secure, interactive banking journeys.",
@@ -56,25 +56,25 @@ export const industriesData: Record<string, IndustryDetail> = {
         title: "100% Air-Gapped Security",
         description:
           "All speech recognition, avatar animation, and document RAG run strictly on local GPU hardware with zero data transmitted to public cloud servers.",
-        icon: "🔒",
+        icon: "lock",
       },
       {
         title: "On-Device Banking RAG",
         description:
           "Ingest confidential credit policy PDFs, loan rates, and compliance terms locally for instant, accurate customer answers.",
-        icon: "📄",
+        icon: "file",
       },
       {
         title: "Multilingual Financial Advisory",
         description:
           "Automatic real-time language detection supporting 29+ Global Languages and regional dialects with natural pitch modulation.",
-        icon: "🌐",
+        icon: "globe",
       },
       {
         title: "Interactive Queue Concierge",
         description:
           "Greet visiting branch clients, print queue tickets, verify appointment details, and direct customers to relevant service counters.",
-        icon: "🎫",
+        icon: "ticket",
       },
     ],
     useCases: [
@@ -177,7 +177,7 @@ export const industriesData: Record<string, IndustryDetail> = {
     title: "Retail & Advertising",
     h1Title: "AI Digital Humans & Holograms for Retail & Advertising",
     subtitle: "Holographic Brand Ambassadors & Virtual Fitting",
-    icon: "🛍️",
+    icon: "retail",
     badge: "IMMERSIVE RETAIL TECH",
     description:
       "Engage shoppers with holographic brand ambassadors, smart product explainers, Virtual Try-On mirrors, and interactive promotional displays designed to boost in-store footfall and checkout conversion rates.",
@@ -202,19 +202,19 @@ export const industriesData: Record<string, IndustryDetail> = {
         title: "3D Holographic Product Catalog",
         description:
           "Showcase intricate 3D volumetric models of luxury items with optical depth and 360-degree rotation.",
-        icon: "💎",
+        icon: "diamond",
       },
       {
         title: "AI Sales Recommendations",
         description:
           "Suggest complementary products and highlight promotional offers based on customer queries and product interest.",
-        icon: "📈",
+        icon: "chart",
       },
       {
         title: "Multilingual Storefront Concierge",
         description:
           "Greet international tourists in their native language and guide them directly to desired department floors.",
-        icon: "🌍",
+        icon: "globe",
       },
     ],
     useCases: [
@@ -318,7 +318,7 @@ export const industriesData: Record<string, IndustryDetail> = {
     title: "Corporate Services & HR",
     h1Title: "AI Digital Human Receptionists for Corporate Services & HR",
     subtitle: "Digital Receptionists & HR AI Assistants",
-    icon: "🏢",
+    icon: "building",
     badge: "ENTERPRISE AI CONCIERGE",
     description:
       "Enhance front-desk operations with digital receptionists, visitor management holograms, employee onboarding guides, and enterprise-grade AI assistants for HR, IT, and internal corporate communications.",
@@ -337,25 +337,25 @@ export const industriesData: Record<string, IndustryDetail> = {
         title: "Autonomous Front-Desk Reception",
         description:
           "Greet corporate visitors, scan QR invitation codes, print guest badges, and automatically notify host employees via SMS/Slack.",
-        icon: "👋",
+        icon: "avatar",
       },
       {
         title: "On-Device HR & Policy RAG",
         description:
           "Answer employee queries regarding healthcare benefits, leave policies, and travel expenses directly from corporate handbooks.",
-        icon: "📋",
+        icon: "list",
       },
       {
         title: "Workplace Wayfinding & Meeting Rooms",
         description:
           "Provide interactive floor maps and guide guests to assigned conference rooms and executive suites.",
-        icon: "🗺️",
+        icon: "map",
       },
       {
         title: "Multilingual Corporate Directory",
         description:
           "Connect global office visitors with regional department heads across 29+ Global Languages.",
-        icon: "🌐",
+        icon: "globe",
       },
     ],
     useCases: [
@@ -459,7 +459,7 @@ export const industriesData: Record<string, IndustryDetail> = {
     title: "Healthcare & Telemedicine",
     h1Title: "AI Digital Humans & Holograms for Healthcare & Hospital Navigation",
     subtitle: "Compassionate Patient Intake & Hospital Navigation AI",
-    icon: "🏥",
+    icon: "hospital",
     badge: "100% OFFLINE PATIENT PRIVACY AI",
     description:
       "Deploy AI Digital Humans on 3D Hologram Boxes or Spatial Displays for patient reception, hospital wayfinding, appointment guidance, patient intake support, and pre/post-op care explanations with 100% patient data privacy.",
@@ -478,25 +478,25 @@ export const industriesData: Record<string, IndustryDetail> = {
         title: "100% Patient Data Privacy & Air-Gapped Security",
         description:
           "Ensure complete patient health data privacy by processing all speech, documents, and interactions strictly on local physical hardware with zero cloud data leakage.",
-        icon: "🛡️",
+        icon: "shield",
       },
       {
         title: "Patient Intake & Triage Support",
         description:
           "Collect preliminary patient intake details in a comforting, empathetic tone to assist nursing staff with initial administrative routing and service desk direction.",
-        icon: "🩺",
+        icon: "health",
       },
       {
         title: "Hospital & Department Navigation",
         description:
           "Guide patients and families floor-by-floor through complex medical centers, outpatient clinics, radiology units, and pharmacy desks.",
-        icon: "📍",
+        icon: "pin",
       },
       {
         title: "Pre & Post-Op Care Explainer",
         description:
           "Walk patients through surgical preparation guidelines, discharge care instructions, and administrative procedures in clear, comforting spoken words.",
-        icon: "📝",
+        icon: "note",
       },
     ],
     useCases: [
@@ -613,7 +613,7 @@ export const industriesData: Record<string, IndustryDetail> = {
     title: "Tourism & Exhibitions",
     h1Title: "AI Digital Humans & 3D Holograms for Tourism & Exhibitions",
     subtitle: "Multilingual Hologram Tour Guides & Exhibition Docents",
-    icon: "🏛️",
+    icon: "castle",
     badge: "CULTURAL & EXHIBITION AI",
     description:
       "Deliver unforgettable visitor experiences using 3D hologram tour guides, multilingual information kiosks, exhibition storytelling avatars, and interactive museum docents powered by digital humans.",
@@ -632,25 +632,25 @@ export const industriesData: Record<string, IndustryDetail> = {
         title: "3D Holographic Historic Avatars",
         description:
           "Recreate historical figures, cultural icons, or virtual docents standing inside 1:1 scale optical hologram boxes.",
-        icon: "👑",
+        icon: "crown",
       },
       {
         title: "Multilingual Exhibition Storyteller",
         description:
           "Instantly adapt speech and storytelling to the visitor's native language with natural voice modulation and regional accents.",
-        icon: "🗣️",
+        icon: "speech",
       },
       {
         title: "Historical Archive RAG Engine",
         description:
           "Ingest museum catalogs, historical research papers, and exhibition audio guides for deep, interactive Q&A.",
-        icon: "📚",
+        icon: "book",
       },
       {
         title: "Tourist Wayfinding & Sightseeing Guide",
         description:
           "Provide city recommendations, ticketing information, transport directions, and event itineraries.",
-        icon: "🗺️",
+        icon: "map",
       },
     ],
     useCases: [
@@ -755,7 +755,7 @@ export const industriesData: Record<string, IndustryDetail> = {
     title: "Education & Training",
     h1Title: "AI Digital Humans & 3D Holograms for Education & Training",
     subtitle: "Interactive 3D Hologram Tutors & Virtual Lecturers",
-    icon: "🎓",
+    icon: "education",
     badge: "NEXT-GEN EDTECH AI",
     description:
       "Deliver immersive learning experiences using AI Digital Human tutors, campus guides, virtual science lab assistants, and 3D hologram instructors for schools, universities, and corporate academies.",
@@ -774,25 +774,25 @@ export const industriesData: Record<string, IndustryDetail> = {
         title: "Interactive 3D AI Lecturers",
         description:
           "Deliver engaging lectures on complex STEM topics with 3D visual aids rendered inside volumetric hologram enclosures.",
-        icon: "🔬",
+        icon: "lab",
       },
       {
         title: "Multilingual Language Practice",
         description:
           "Provide students with infinite conversational practice across 29+ Global Languages with natural voice modulation.",
-        icon: "💬",
+        icon: "speech",
       },
       {
         title: "Virtual Science & Safety Lab Guide",
         description:
           "Guide students step-by-step through laboratory procedures, chemical safety checks, and experiment walkthroughs.",
-        icon: "🧪",
+        icon: "lab",
       },
       {
         title: "Campus Admissions & Directory AI",
         description:
           "Assist prospective students and parents with campus orientation, course registrations, and admissions criteria.",
-        icon: "🏫",
+        icon: "school",
       },
     ],
     useCases: [
