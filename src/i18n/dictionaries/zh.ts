@@ -51,12 +51,12 @@ export const zh: Dictionary = {
   footer: {
     description:
       "HS Global AI 是先进的AI数字人平台，为金融、零售、医疗、教育和企业自动化提供逼真的全息数字人体验。",
-    singaporeHQLabel: "📍 新加坡总部:",
+    singaporeHQLabel: "新加坡总部:",
     singaporeHQAddress: "20 COLLYER QUAY, #09-01, SINGAPORE – 049319",
-    indiaOfficeLabel: "🏢 印度办公室:",
+    indiaOfficeLabel: "印度办公室:",
     indiaOfficeAddress:
       "Vijayawada, Andhra Pradesh 520004, India",
-    chinaOfficeLabel: "🏬 中国办公室:",
+    chinaOfficeLabel: "中国办公室:",
     chinaOfficeAddress:
       "中国广东省深圳市宝安区",
     emailLabel: "✉️ 电子邮箱:",
@@ -642,7 +642,7 @@ export const zh: Dictionary = {
     heroDescription: "探索 HS Global AI 产品：DIHUAVA AI 数字人平台、3D 全息显示盒与裸眼 3D 空间显示屏，专为 100% 离线企业部署打造。",
     heroSubDescription: "DIHUAVA 提供 AI 数字人软件层，为 HS Global AI 的全息与空间显示体验提供动力。",
     pills: {
-      languages: "🌍 29+ 种全球语言",
+      languages: "29+ 种全球语言",
       avatars: "数字人形象定制与声音克隆",
       offline: "100% 离线 AI 引擎",
       holographics: "3D 全息技术",
@@ -791,9 +791,9 @@ export const zh: Dictionary = {
       { name: "29+ 全球语言引擎", speed: "29+ 全球语言", desc: "涵盖英语、中文、印地语、西班牙语、阿拉伯语、法语、德语、日语、韩语、俄语及全球主要国际语言。" },
     ],
     personaProfiles: [
-      { title: "零售销售大使", desc: "主动产品推荐、交叉销售、促销播报以及虚拟试穿辅助。", icon: "🛍️" },
-      { title: "医疗导诊助手", desc: "充满关怀的医院分诊与导航、症状初筛、预约登记及多语言出院指引。", icon: "🏥" },
-      { title: "企业前台接待", desc: "访客登记签到、通行证发放、员工通知、楼宇导航及 HR 政策解答。", icon: "🏢" },
+      { title: "零售销售大使", desc: "主动产品推荐、交叉销售、促销播报以及虚拟试穿辅助。", icon: "retail" },
+      { title: "医疗导诊助手", desc: "充满关怀的医院分诊与导航、症状初筛、预约登记及多语言出院指引。", icon: "hospital" },
+      { title: "企业前台接待", desc: "访客登记签到、通行证发放、员工通知、楼宇导航及 HR 政策解答。", icon: "building" },
       { title: "定制品牌数字人", desc: "定制 3D 角色网格、专属服装、声音克隆基准及品牌化交互风格。", icon: "⭐" },
     ],
     customPersonaFeatures: [
@@ -1470,8 +1470,8 @@ export const zh: Dictionary = {
     heroTitle: "开启您的 AI 之旅，与 ",
     heroTitleHighlight: "HS Global AI.",
     heroDescription: "与我们在新加坡总部或印度办公室的全球团队取得联系，预约实时演示、索取规格表或讨论定制企业部署方案。",
-    tabContact: "📬 联系与演示咨询",
-    tabDownloads: "📥 下载规格表 (PDF)",
+    tabContact: "联系与演示咨询",
+    tabDownloads: "下载规格表 (PDF)",
     globalInfraBadge: "全球基础设施",
     officesTitle: "我们的全球办公室",
     officesDescription: "HS Global AI 在新加坡设立全球总部，在印度设立区域研发中心，为全球企业客户提供服务。",
@@ -1688,7 +1688,7 @@ export const zh: Dictionary = {
         tagline: "展示 AI 驱动的全息与数字人技术。",
         description: "HS Global AI 在 LED China 2026 上展示了先进的全息显示与逼真数字人分身，吸引了全球参观者与行业专家。",
         badge: "已完成展会",
-        galleryPrompt: "📸 展会现场照片（点击查看）：",
+        galleryPrompt: "展会现场照片（点击查看）：",
         galleryCaptions: [
           "主会场入口",
           "3D 全息吊坠演示",

@@ -51,12 +51,12 @@ export const es: Dictionary = {
   footer: {
     description:
       "HS Global AI es una plataforma avanzada de humanos digitales con IA que ofrece avatares holográficos hiperrealistas para banca, comercio, salud, educación y automatización empresarial.",
-    singaporeHQLabel: "📍 Sede en Singapur:",
+    singaporeHQLabel: "Sede en Singapur:",
     singaporeHQAddress: "20 COLLYER QUAY, #09-01, SINGAPORE – 049319",
-    indiaOfficeLabel: "🏢 Oficina en India:",
+    indiaOfficeLabel: "Oficina en India:",
     indiaOfficeAddress:
       "Vijayawada, Andhra Pradesh 520004, India",
-    chinaOfficeLabel: "🏬 Oficina en China:",
+    chinaOfficeLabel: "Oficina en China:",
     chinaOfficeAddress:
       "Distrito de Bao'an, Shenzhen, China",
     emailLabel: "✉️ Correo electrónico:",
@@ -772,7 +772,7 @@ export const es: Dictionary = {
     heroDescription: "Explore los productos de HS Global AI: plataforma de Humanos Digitales DIHUAVA AI, vitrinas holográficas 3D y pantallas espaciales 3D sin gafas para despliegue 100% sin conexión.",
     heroSubDescription: "DIHUAVA proporciona la capa de software de Humanos Digitales con IA que impulsa las experiencias holográficas y de pantallas espaciales de HS Global AI.",
     pills: {
-      languages: "🌍 29+ Idiomas globales",
+      languages: "29+ Idiomas globales",
       avatars: "Personalización de avatares y clonación de voz",
       offline: "Motor de IA 100% sin conexión",
       holographics: "Holografía 3D",
@@ -921,9 +921,9 @@ export const es: Dictionary = {
       { name: "Motor de 29+ idiomas globales", speed: "29+ Idiomas globales", desc: "Cubre inglés, mandarín, hindi, español, árabe, francés, alemán, japonés, coreano, ruso y los principales idiomas internacionales." },
     ],
     personaProfiles: [
-      { title: "Embajador de ventas minoristas", desc: "Recomendaciones proactivas de productos, venta cruzada y asistencia interactiva de Virtual Try-On.", icon: "🛍️" },
-      { title: "Asistente de atención médica", desc: "Orientación empática en hospitales, triaje de síntomas, programación de citas e instrucciones multilingües.", icon: "🏥" },
-      { title: "Recepcionista corporativo", desc: "Registro de visitantes, emisión de credenciales, notificaciones y respuestas a preguntas de RRHH.", icon: "🏢" },
+      { title: "Embajador de ventas minoristas", desc: "Recomendaciones proactivas de productos, venta cruzada y asistencia interactiva de Virtual Try-On.", icon: "retail" },
+      { title: "Asistente de atención médica", desc: "Orientación empática en hospitales, triaje de síntomas, programación de citas e instrucciones multilingües.", icon: "hospital" },
+      { title: "Recepcionista corporativo", desc: "Registro de visitantes, emisión de credenciales, notificaciones y respuestas a preguntas de RRHH.", icon: "building" },
       { title: "Avatar de marca personalizado", desc: "Malla 3D personalizada, vestuario corporativo, referencia de clonación de voz y estilo de marca.", icon: "⭐" },
     ],
     customPersonaFeatures: [
@@ -1600,8 +1600,8 @@ export const es: Dictionary = {
     heroTitle: "Comience su viaje de IA con ",
     heroTitleHighlight: "HS Global AI.",
     heroDescription: "Póngase en contacto con nuestro equipo global en la sede central de Singapur o en la oficina de India para reservar una demostración en vivo, solicitar fichas técnicas o analizar implementaciones empresariales personalizadas.",
-    tabContact: "📬 Contacto y consulta de demostración",
-    tabDownloads: "📥 Descargar fichas técnicas (PDF)",
+    tabContact: "Contacto y consulta de demostración",
+    tabDownloads: "Descargar fichas técnicas (PDF)",
     globalInfraBadge: "Infraestructura global",
     officesTitle: "Nuestras oficinas globales",
     officesDescription: "HS Global AI presta servicios a clientes corporativos de todo el mundo con sede principal en Singapur y desarrollo regional en la India.",
@@ -1818,7 +1818,7 @@ export const es: Dictionary = {
         tagline: "Exhibición de tecnología de hologramas y humanos digitales impulsados por AI.",
         description: "HS Global AI demostró pantallas holográficas avanzadas y avatares de humanos digitales hiperrealistas en LED China 2026, atrayendo a visitantes globales y profesionales de la industria.",
         badge: "Exposición Completada",
-        galleryPrompt: "📸 Fotos en vivo de la exposición (Haga clic para ver):",
+        galleryPrompt: "Fotos en vivo de la exposición (Haga clic para ver):",
         galleryCaptions: [
           "Entrada Principal del Recinto",
           "Demostración de Colgante Holográfico 3D",

@@ -12,7 +12,14 @@ import {
   Cpu,
   Eye,
   Volume2,
+  ArrowRight,
+  CheckCircle2,
+  Maximize2,
+  ShieldCheck,
 } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { getDictionary } from "@/i18n/getDictionary";
+import { Locale, nonDefaultLocales, getLocalizedPath } from "@/i18n/config";
 
 const hologramHeroImages = [
   {
@@ -31,16 +38,16 @@ const hologramFeatures = [
   {
     title: "Life-Size 4K 3D Volumetric Enclosure",
     description:
-      "Available in 55-inch, 65-inch, 75-inch, and 86-inch vertical 4K Ultra-HD holographic glass showcases displaying 1:1 scale digital human avatars with hyper-realistic depth perception. The four distinct display sizes support diverse physical deployment requirements across retail showrooms, banking branches, corporate lobbies, and exhibition centers.",
+      "Available in 55-inch, 65-inch, 75-inch, and 86-inch vertical 4K Ultra-HD holographic glass showcases displaying 1:1 scale digital human avatars with hyper-realistic depth perception across retail showrooms, banking branches, corporate lobbies, and exhibition centers.",
     icon: Box,
     badge: "4K Ultra-HD | 55\" - 86\"",
   },
   {
     title: "Integrated AI Workstation",
     description:
-      "Built-in high-performance industrial AI computing unit running the DIHUAVA 100% offline AI engine delivering Low Latency real-time performance, zero cloud dependency, and enterprise-grade data privacy.",
+      "Built-in high-performance industrial AI computing unit running the DIHUAVA 100% offline AI engine delivering low-latency real-time performance, zero cloud dependency, and enterprise-grade data privacy.",
     icon: Cpu,
-    badge: "On-Device Processing",
+    badge: "On-Device Edge GPU",
   },
   {
     title: "Multimodal Interaction Sensors",
@@ -54,24 +61,20 @@ const hologramFeatures = [
     description:
       "Focused spatial audio system designed for noisy exhibition halls, bank lobbies, and shopping malls, ensuring crystal-clear speech intelligibility.",
     icon: Volume2,
-    badge: "Spatial Audio",
+    badge: "Spatial Audio Array",
   },
 ];
 
-
 const hardwareSpecs = [
-  { label: "Display Sizes", value: "55-inch, 65-inch, 75-inch, 86-inch" },
-  { label: "Display Resolution & Technology", value: "Ultra-HD 4K (3840 x 2160) high-transmission 3D holographic optical glass" },
-  { label: "Brightness & Contrast", value: "700 nits / 4000:1 dynamic contrast ratio" },
-  { label: "AI Computing Unit", value: "Built-in industrial-grade AI workstation (Edge GPU/NPU) running 100% offline" },
-  { label: "Touch & Camera System", value: "10-point capacitive touch glass + wide-angle tracking camera" },
-  { label: "Audio Hardware", value: "Integrated directional soundbar + beamforming microphone array" },
-  { label: "Operating Environment", value: "Designed for continuous 24/7 commercial operation" },
+  { label: "Available Sizes", value: "55-inch, 65-inch, 75-inch, 86-inch Vertical Showcases" },
+  { label: "Display Resolution", value: "4K Ultra-HD (3840 x 2160) Optical Holographic Panel" },
+  { label: "Optical Glass", value: "High-transmittance anti-reflective beam-splitter glass" },
+  { label: "Touch System", value: "Multi-touch capacitive touch sensor glass" },
+  { label: "Camera & Sensors", value: "HD Wide-Angle Camera + Proximity Sensor Array" },
+  { label: "Audio Output", value: "Integrated high-fidelity directional acoustic sound system" },
+  { label: "AI Computing", value: "Integrated NVIDIA RTX industrial GPU edge workstation" },
+  { label: "Software Compatibility", value: "DIHUAVA AI Digital Human Platform (100% Offline Edge)" },
 ];
-
-import { usePathname } from "next/navigation";
-import { getDictionary } from "@/i18n/getDictionary";
-import { Locale, nonDefaultLocales, getLocalizedPath } from "@/i18n/config";
 
 export default function HolographicDisplayClient() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -79,73 +82,30 @@ export default function HolographicDisplayClient() {
   const seg = pathname ? pathname.split("/")[1] : "";
   const currentLocale: Locale = seg && (nonDefaultLocales as readonly string[]).includes(seg) ? (seg as Locale) : "en";
   const dict = getDictionary(currentLocale);
-  const hPage = (dict as any).holographicPage || {};
+  const hPage = (dict as any).hologramPage || {};
   const lPath = (path: string) => getLocalizedPath(path, currentLocale);
-
-  const t = {
-    breadcrumbProducts: hPage.breadcrumbProducts || "Products",
-    breadcrumbCurrent: hPage.breadcrumbCurrent || "AI Hologram Box",
-    availableSpecs: hPage.availableSpecs || "Available Specs:",
-    size55: hPage.size55 || '55" Inch',
-    size65: hPage.size65 || '65" Inch',
-    size75: hPage.size75 || '75" Inch',
-    size86: hPage.size86 || '86" Inch',
-    ctaPrimaryBtn: hPage.ctaPrimaryBtn || "Book Hologram Box Demo →",
-    ctaSecondaryBtn: hPage.ctaSecondaryBtn || "Download Spec Sheets (PDF)",
-    sizesLabel: hPage.sizesLabel || "SIZES:",
-    statusBadge: hPage.statusBadge || "● AI HOLOGRAM BOX",
-    slideText: hPage.slideText || "SLIDE",
-    goToSlide: hPage.goToSlide || "Go to slide",
-    imageAlts: hPage.imageAlts || [
-      "AI Hologram Box with DIHUAVA AI Digital Human",
-      "3D AI Hologram Box display for enterprise environments",
-    ],
-    slideCaptions: hPage.slideCaptions || [
-      "Life-size 1:1 scale digital avatar enclosure in executive silver suit",
-      "Life-size 1:1 scale digital avatar enclosure in traditional attire",
-    ],
-    featuresBadge: hPage.featuresBadge || "Hardware Highlights",
-    featuresHeading: hPage.featuresHeading || "Turnkey AI Hologram Box Hardware for Enterprise Spaces",
-    specsBadge: hPage.specsBadge || "Hardware Specifications",
-    specsHeading: hPage.specsHeading || "AI Hologram Box Technical Parameters",
-    tableHeaderSpec: hPage.tableHeaderSpec || "Specification",
-    tableHeaderDetails: hPage.tableHeaderDetails || "Details",
-    ctaTitle: hPage.ctaTitle || "Bring AI Digital Humans",
-    ctaHighlight: hPage.ctaHighlight || "Into Your Physical Space",
-    ctaDesc: hPage.ctaDesc || "Explore holographic display hardware designed for immersive customer engagement across retail, banking, corporate, healthcare, museums, and exhibitions.",
-    ctaPrimaryText: hPage.ctaPrimaryText || "Book a Demo",
-    ctaSecondaryText: hPage.ctaSecondaryText || "Download Datasheets (PDF)",
-  };
-
-  const localizedSpecs = hPage.hardwareSpecs || hardwareSpecs;
-  const localizedFeatures = hologramFeatures.map((feat, idx) => {
-    const dictFeat = hPage.hologramFeatures && hPage.hologramFeatures[idx];
-    return dictFeat
-      ? { ...feat, title: dictFeat.title || feat.title, description: dictFeat.description || feat.description, badge: dictFeat.badge || feat.badge }
-      : feat;
-  });
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": [
+    itemListElement: [
       {
         "@type": "ListItem",
-        "position": 1,
-        "name": (dict as any).common?.navHome || "Home",
-        "item": `https://www.hsglobalai.com${lPath("/")}`,
+        position: 1,
+        name: (dict as any).common?.navHome || "Home",
+        item: `https://www.hsglobalai.com${lPath("/")}`,
       },
       {
         "@type": "ListItem",
-        "position": 2,
-        "name": t.breadcrumbProducts,
-        "item": `https://www.hsglobalai.com${lPath("/products")}`,
+        position: 2,
+        name: "Products",
+        item: `https://www.hsglobalai.com${lPath("/products")}`,
       },
       {
         "@type": "ListItem",
-        "position": 3,
-        "name": t.breadcrumbCurrent,
-        "item": `https://www.hsglobalai.com${lPath("/products/holographic-display")}`,
+        position: 3,
+        name: "Holographic Display",
+        item: `https://www.hsglobalai.com${lPath("/products/holographic-display")}`,
       },
     ],
   };
@@ -158,119 +118,86 @@ export default function HolographicDisplayClient() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-black text-white selection:bg-cyan-500 selection:text-black">
+    <main className="min-h-screen bg-[var(--lp-bg)] text-[var(--lp-ink)] selection:bg-[var(--lp-accent)] selection:text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <Header />
 
-      {/* HERO SECTION */}
-      <section className="relative overflow-hidden px-6 pt-32 pb-20 md:pt-40 md:pb-28 border-b border-white/10">
-        <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-[500px] w-[800px] rounded-full bg-gradient-to-b from-cyan-500/20 via-sky-600/10 to-transparent blur-[160px]" />
-
-        <div className="relative mx-auto max-w-7xl">
+      {/* HERO SECTION: SWIPECRAFT STYLE */}
+      <section className="relative px-4 pt-32 pb-16 sm:px-6 md:pt-40 md:pb-24 border-b border-[var(--lp-line)]">
+        <div className="mx-auto max-w-[1200px]">
           {/* Breadcrumb Navigation */}
-          <div className="flex items-center gap-2 text-xs text-gray-400 mb-6 font-mono">
-            <Link href={lPath("/products")} className="hover:text-cyan-400 transition-colors">
-              {t.breadcrumbProducts}
+          <div className="flex items-center gap-2 text-xs text-[var(--lp-muted)] mb-6 font-mono">
+            <Link href={lPath("/products")} className="hover:text-[var(--lp-ink)] transition-colors">
+              Products
             </Link>
             <span>/</span>
-            <span className="text-cyan-300 font-semibold">{t.breadcrumbCurrent}</span>
+            <span className="text-[var(--lp-ink)] font-semibold">3D Hologram Box</span>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="grid gap-12 lg:grid-cols-12 lg:items-center"
-          >
+          <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
             {/* Left Content */}
             <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2.5 rounded-full border border-cyan-500/40 bg-cyan-950/80 px-4 py-1.5 backdrop-blur-md shadow-[0_0_20px_rgba(6,182,212,0.3)] mb-6">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[var(--lp-line)] bg-[var(--lp-tile)] px-3.5 py-1.5 mb-6">
                 <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-500" />
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--lp-accent)] opacity-75" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--lp-accent)]" />
                 </span>
-                <span className="text-xs font-semibold tracking-widest text-cyan-300 uppercase">
-                  {hPage.heroBadge || "3D Optical Glass Hardware"}
+                <span className="text-[12px] font-semibold uppercase tracking-wider text-[var(--lp-ink-2)]">
+                  Volumetric 3D Holographic Hardware
                 </span>
               </div>
 
-              <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl lg:leading-[1.1]">
-                {hPage.heroTitle || "AI Hologram Box "}{" "}
-                <span className="bg-gradient-to-r from-cyan-400 via-sky-300 to-cyan-500 bg-clip-text text-transparent">
-                  {hPage.heroTitleHighlight || "3D Holographic Display"}
+              <h1 className="text-balance text-[40px] font-semibold leading-[1.04] tracking-[-0.04em] text-[var(--lp-ink)] sm:text-[54px] lg:text-[64px]">
+                Life-sized 3D Hologram Box for{" "}
+                <span className="text-[var(--lp-muted)]">
+                  physical customer presence.
                 </span>
               </h1>
 
-              <p className="mt-6 text-base leading-8 text-gray-300 sm:text-lg max-w-2xl">
-                {currentLocale === "zh" ? (
-                  <>通过 3D 全息显示柜将智能 <Link href={lPath("/products/ai-digital-human")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">DIHUAVA AI 数字人</Link> 引入物理空间，支持 29+ 全球语言、文档 RAG，并与 <Link href={lPath("/products/spatial-display")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">3D 空间显示器</Link> 形成协同硬件阵列。</>
-                ) : currentLocale === "ru" ? (
-                  <>Интегрируйте умных <Link href={lPath("/products/ai-digital-human")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">DIHUAVA AI Digital Human</Link> в физические пространства с помощью 3D-голографических кубов, с поддержкой 29+ языков и совместным использованием с <Link href={lPath("/products/spatial-display")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">3D Spatial Display</Link>.</>
-                ) : currentLocale === "es" ? (
-                  <>Lleve <Link href={lPath("/products/ai-digital-human")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">DIHUAVA AI Digital Humans</Link> interactivos a espacios físicos mediante vitrinas holográficas 3D compatibles con 29+ idiomas y despliegues junto a <Link href={lPath("/products/spatial-display")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">3D Spatial Displays</Link>.</>
-                ) : currentLocale === "fr" ? (
-                  <>Intégrez des <Link href={lPath("/products/ai-digital-human")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">DIHUAVA AI Digital Humans</Link> interactifs dans les espaces physiques via des caissons holographiques 3D compatibles avec 29+ langues et des installations <Link href={lPath("/products/spatial-display")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">3D Spatial Display</Link>.</>
-                ) : (
-                  <>Bring intelligent <Link href={lPath("/products/ai-digital-human")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">DIHUAVA AI Digital Human</Link> software into physical environments through 3D holographic experiences supporting 29+ global languages, interactive speech recognition, custom voice cloning, and complementary <Link href={lPath("/products/spatial-display")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">3D Spatial Displays</Link>.</>
-                )}
+              <p className="mt-5 text-[16px] leading-[1.65] text-[var(--lp-ink-2)] sm:text-[18px] max-w-2xl">
+                Bring intelligent AI digital humans into physical environments through life-sized 1:1 scale 3D holographic showcases. Powered by on-premise industrial GPU hardware, directional audio, and 45+ language speech recognition.
               </p>
 
-              {/* GEO Answer Summary Block */}
-              <div className="mt-6 rounded-2xl border border-cyan-500/30 bg-cyan-950/40 p-5 backdrop-blur-md shadow-[0_0_20px_rgba(6,182,212,0.15)] max-w-2xl">
-                <h2 className="text-sm font-bold uppercase tracking-wider text-cyan-400 font-mono mb-2">
-                  What is an AI Hologram Box?
-                </h2>
-                <p className="text-sm leading-relaxed text-gray-300">
-                  An AI Hologram Box is a 3D holographic display enclosure that combines immersive visual presentation with interactive AI Digital Humans. HS Global AI&apos;s AI Hologram Box integrates <Link href={lPath("/products/ai-digital-human")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">DIHUAVA AI Digital Human</Link> software with a built-in AI workstation, multimodal sensors, directional audio, and 4K optical display technology for interactive experiences in physical environments.
-                </p>
-              </div>
-
-              {/* Size Badge Selector Pills */}
-              <div className="mt-6 flex flex-wrap items-center gap-3">
-                <span className="text-xs font-mono font-semibold uppercase tracking-wider text-gray-400">
-                  {t.availableSpecs}
+              {/* Size Selector Pills */}
+              <div className="mt-6 flex flex-wrap items-center gap-2">
+                <span className="text-xs font-semibold uppercase tracking-wider text-[var(--lp-muted)] mr-1">
+                  Enclosure Sizes:
                 </span>
-                <span className="rounded-full border border-cyan-500/40 bg-cyan-950/80 px-3.5 py-1 text-xs font-bold text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
-                  4K Ultra-HD
-                </span>
-                <span className="rounded-full border border-cyan-500/40 bg-cyan-950/80 px-3.5 py-1 text-xs font-bold text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
-                  {t.size55}
-                </span>
-                <span className="rounded-full border border-cyan-500/40 bg-cyan-950/80 px-3.5 py-1 text-xs font-bold text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
-                  {t.size65}
-                </span>
-                <span className="rounded-full border border-cyan-500/40 bg-cyan-950/80 px-3.5 py-1 text-xs font-bold text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
-                  {t.size75}
-                </span>
-                <span className="rounded-full border border-cyan-500/40 bg-cyan-950/80 px-3.5 py-1 text-xs font-bold text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
-                  {t.size86}
-                </span>
+                {["55-Inch", "65-Inch", "75-Inch", "86-Inch (Life-Size 1:1)"].map((sz) => (
+                  <span
+                    key={sz}
+                    className="rounded-full border border-[var(--lp-line)] bg-[var(--lp-card)] px-3 py-1 text-xs font-semibold text-[var(--lp-ink)] shadow-2xs"
+                  >
+                    {sz}
+                  </span>
+                ))}
               </div>
 
               {/* Action Buttons */}
-              <div className="mt-8 flex flex-wrap items-center gap-4">
+              <div className="mt-8 flex flex-col sm:flex-row items-center gap-3">
                 <Link
                   href={lPath("/contact")}
-                  className="rounded-full bg-gradient-to-r from-cyan-500 via-sky-500 to-cyan-600 px-8 py-3.5 text-sm font-bold text-white shadow-xl transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(6,182,212,0.4)]"
+                  className="group inline-flex h-12 w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-[var(--lp-ink)] px-6 text-sm sm:text-[15px] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_1px_2px_rgba(17,17,19,0.24)] transition-all hover:bg-[#2A2A2F] active:scale-[0.98] cursor-pointer"
                 >
-                  {t.ctaPrimaryBtn}
+                  <span>Request Hologram Box Quote</span>
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
                 <Link
                   href={lPath("/contact/download-center")}
-                  className="rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-semibold text-gray-200 backdrop-blur-md transition-colors hover:border-cyan-400 hover:text-white"
+                  className="inline-flex h-12 w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-[var(--lp-line)] bg-white px-6 text-sm sm:text-[15px] font-semibold text-[var(--lp-ink)] shadow-xs transition-all hover:bg-[var(--lp-tile)] active:scale-[0.98] cursor-pointer"
                 >
-                  {t.ctaSecondaryBtn}
+                  <span>Download Spec Sheet (PDF)</span>
                 </Link>
               </div>
             </div>
 
-            {/* Right Visual Image with Size Badges & Auto-Sliding Dual Images */}
+            {/* Right Visual Image */}
             <div className="lg:col-span-5">
-              <div className="relative overflow-hidden rounded-3xl border border-cyan-500/30 bg-neutral-950/80 p-3 backdrop-blur-xl shadow-[0_0_50px_rgba(6,182,212,0.2)]">
-                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-black">
+              <div className="rounded-[32px] border border-[var(--lp-line)] bg-[var(--lp-tile)] p-3 shadow-[var(--lp-shadow-card)]">
+                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-[#0B1224]">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={currentImageIndex}
@@ -282,10 +209,7 @@ export default function HolographicDisplayClient() {
                     >
                       <Image
                         src={hologramHeroImages[currentImageIndex].src}
-                        alt={
-                          (t.imageAlts && t.imageAlts[currentImageIndex]) ||
-                          hologramHeroImages[currentImageIndex].alt
-                        }
+                        alt={hologramHeroImages[currentImageIndex].alt}
                         fill
                         priority
                         className="object-cover"
@@ -293,121 +217,105 @@ export default function HolographicDisplayClient() {
                     </motion.div>
                   </AnimatePresence>
 
-                  <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
-
-                  {/* Top Left Auto Slide Indicators */}
-                  <div className="absolute top-4 left-4 z-20 flex items-center gap-1.5 rounded-full border border-white/20 bg-black/80 px-3 py-1.5 backdrop-blur-md">
+                  {/* Top Left Slide Indicators */}
+                  <div className="absolute top-4 left-4 z-20 flex items-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-white/90 px-3 py-1.5 backdrop-blur-md shadow-xs">
                     {hologramHeroImages.map((_, idx) => (
                       <button
                         key={idx}
                         onClick={() => setCurrentImageIndex(idx)}
-                        aria-label={`${t.goToSlide} ${idx + 1}`}
-                        className={`h-2 rounded-full transition-all duration-500 ${
-                          idx === currentImageIndex ? "w-6 bg-cyan-400" : "w-2 bg-white/40 hover:bg-white/70"
+                        className={`h-2 rounded-full transition-all ${
+                          currentImageIndex === idx
+                            ? "w-6 bg-[var(--lp-accent)]"
+                            : "w-2 bg-gray-300 hover:bg-gray-400"
                         }`}
                       />
                     ))}
+                    <span className="text-[10px] font-semibold text-[var(--lp-ink)] ml-1">
+                      Enclosure View {currentImageIndex + 1}
+                    </span>
                   </div>
 
-                  {/* Top Right Size Badge Floating Pill on Image */}
-                  <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 rounded-full border border-cyan-400/40 bg-black/85 px-3.5 py-1.5 backdrop-blur-md shadow-[0_0_20px_rgba(6,182,212,0.3)]">
-                    <span className="text-[11px] font-semibold text-cyan-300 font-mono">{t.sizesLabel}</span>
-                    <span className="rounded-md bg-cyan-500/20 px-2 py-0.5 text-xs font-extrabold text-white border border-cyan-400/40">55"</span>
-                    <span className="rounded-md bg-cyan-500/20 px-2 py-0.5 text-xs font-extrabold text-white border border-cyan-400/40">65"</span>
-                    <span className="rounded-md bg-cyan-500/20 px-2 py-0.5 text-xs font-extrabold text-white border border-cyan-400/40">75"</span>
-                    <span className="rounded-md bg-cyan-500/20 px-2 py-0.5 text-xs font-extrabold text-white border border-cyan-400/40">86"</span>
-                  </div>
-
-                  {/* System Overlay Status */}
-                  <div className="absolute bottom-4 left-4 right-4 z-20 rounded-xl border border-white/15 bg-black/85 p-4 backdrop-blur-md">
-                    <div className="flex items-center justify-between text-xs font-mono">
-                      <span className="text-cyan-400 font-bold">{t.statusBadge}</span>
-                      <span className="text-emerald-400 font-bold">{t.slideText} {currentImageIndex + 1}/{hologramHeroImages.length}</span>
-                    </div>
-                    <p className="mt-1 text-xs text-gray-300">
-                      {t.slideCaptions[currentImageIndex]}
+                  <div className="absolute bottom-3 left-3 right-3 rounded-xl border border-[var(--lp-line)] bg-white/90 p-3 backdrop-blur-md shadow-xs">
+                    <p className="text-xs font-medium text-[var(--lp-ink)]">
+                      {hologramHeroImages[currentImageIndex].caption}
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* HOLOGRAM BOX FEATURES */}
-      <section className="relative overflow-hidden bg-black px-6 py-24 text-white">
-        <div className="mx-auto max-w-7xl">
-          <div className="text-center">
-            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400">
-              {t.featuresBadge}
+      {/* 4 CORE HARDWARE FEATURES */}
+      <section className="px-4 py-20 sm:px-6 md:py-28 bg-[var(--lp-bg)] border-b border-[var(--lp-line)]">
+        <div className="mx-auto max-w-[1200px]">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-wider text-[var(--lp-accent-ink)]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[var(--lp-accent)]" />
+              Engineered for Public Spaces
             </span>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-5xl">
-              {t.featuresHeading}
+            <h2 className="mt-2 text-3xl font-bold tracking-tight text-[var(--lp-ink)] md:text-4xl">
+              Precision 3D Holographic Display Engineering
             </h2>
+            <p className="mt-4 text-base text-[var(--lp-ink-2)]">
+              Commercial-grade structural cabinetry with integrated edge compute, directional acoustics, and high-footfall thermal dissipation.
+            </p>
           </div>
 
-          <div className="mt-16 grid gap-8 md:grid-cols-2">
-            {localizedFeatures.map((feature) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="group relative flex flex-col justify-between rounded-3xl border border-white/15 bg-neutral-950/80 p-8 backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/50 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)]"
-              >
-                <div>
-                  <div className="flex items-center justify-between">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-500/40 bg-cyan-950/50 text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
-                      <feature.icon className="w-6 h-6 text-cyan-300" strokeWidth={1.75} />
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {hologramFeatures.map((feat) => {
+              const Icon = feat.icon;
+              return (
+                <div
+                  key={feat.title}
+                  className="flex flex-col justify-between rounded-[24px] border border-[var(--lp-line)] bg-[var(--lp-tile)] p-6 shadow-xs"
+                >
+                  <div>
+                    <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-[var(--lp-line)] bg-[var(--lp-card)] text-[var(--lp-accent)] shadow-xs mb-5">
+                      <Icon className="w-5 h-5" strokeWidth={1.75} />
                     </span>
-                    <span className="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3.5 py-1 text-xs font-semibold text-cyan-300">
-                      {feature.badge}
+                    <span className="rounded-full bg-[var(--lp-card)] px-2.5 py-0.5 text-[10px] font-semibold text-[var(--lp-muted)] mb-2 inline-block">
+                      {feat.badge}
                     </span>
+                    <h3 className="text-lg font-bold text-[var(--lp-ink)]">
+                      {feat.title}
+                    </h3>
+                    <p className="mt-2.5 text-xs leading-relaxed text-[var(--lp-ink-2)]">
+                      {feat.description}
+                    </p>
                   </div>
-                  <h3 className="mt-6 text-xl font-bold text-white group-hover:text-cyan-300 transition-colors">
-                    {feature.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-7 text-gray-300">
-                    {feature.description}
-                  </p>
                 </div>
-              </motion.div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* HARDWARE SPECIFICATIONS TABLE */}
-      <section className="relative overflow-hidden bg-neutral-950 px-6 py-24 text-white border-t border-white/10">
-        <div className="mx-auto max-w-5xl">
+      {/* HARDWARE SPECIFICATIONS */}
+      <section className="px-4 py-20 sm:px-6 md:py-28 bg-[var(--lp-tile)] border-b border-[var(--lp-line)]">
+        <div className="mx-auto max-w-[960px]">
           <div className="text-center mb-12">
-            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400 font-mono">
-              {t.specsBadge}
+            <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-wider text-[var(--lp-accent-ink)]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[var(--lp-accent)]" />
+              Technical Specifications
             </span>
-            <h2 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              {t.specsHeading}
+            <h2 className="mt-2 text-3xl font-bold tracking-tight text-[var(--lp-ink)] md:text-4xl">
+              Hologram Box Architecture &amp; Dimensions
             </h2>
           </div>
 
-          <div className="overflow-hidden rounded-2xl border border-cyan-500/30 bg-black/60 shadow-2xl backdrop-blur-xl">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 px-6 py-4 bg-cyan-950/60 font-mono text-xs uppercase text-cyan-300 border-b border-white/10">
-              <span>{t.tableHeaderSpec}</span>
-              <span className="sm:col-span-2">{t.tableHeaderDetails}</span>
-            </div>
-            <div className="divide-y divide-white/10">
-              {localizedSpecs.map((spec: any, i: number) => (
+          <div className="overflow-hidden rounded-[24px] border border-[var(--lp-line)] bg-[var(--lp-card)] shadow-xs">
+            <div className="divide-y divide-[var(--lp-line)]">
+              {hardwareSpecs.map((spec) => (
                 <div
                   key={spec.label}
-                  className={`grid grid-cols-1 gap-2 px-6 py-4.5 sm:grid-cols-3 sm:gap-4 ${
-                    i % 2 === 0 ? "bg-white/[0.02]" : ""
-                  }`}
+                  className="grid grid-cols-1 gap-2 p-5 sm:grid-cols-12 sm:items-center hover:bg-[var(--lp-tile)]/50 transition-colors"
                 >
-                  <span className="text-sm font-semibold text-cyan-300 font-mono">
+                  <span className="text-sm font-semibold text-[var(--lp-muted)] sm:col-span-5 font-mono">
                     {spec.label}
                   </span>
-                  <span className="text-sm text-gray-300 sm:col-span-2">
+                  <span className="text-sm font-semibold text-[var(--lp-ink)] sm:col-span-7">
                     {spec.value}
                   </span>
                 </div>
@@ -417,89 +325,8 @@ export default function HolographicDisplayClient() {
         </div>
       </section>
 
-      {/* FAQ SECTION */}
-      <section className="relative overflow-hidden bg-black px-6 py-24 text-white border-t border-white/10">
-        <div className="mx-auto max-w-5xl">
-          <div className="text-center mb-14">
-            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400 font-mono">
-              Frequently Asked Questions
-            </span>
-            <h2 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              AI Hologram Box FAQ
-            </h2>
-            <p className="mt-3 text-sm text-gray-400 max-w-xl mx-auto">
-              Verified answers to key questions about HS Global AI&apos;s 3D Hologram Box display showcases and <Link href={lPath("/products/ai-digital-human")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">DIHUAVA AI Digital Human</Link> platform integration.
-            </p>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-2">
-            <div className="rounded-2xl border border-white/10 bg-neutral-950/80 p-6 backdrop-blur-md">
-              <h3 className="text-base font-bold text-cyan-300 mb-2">
-                Q1. What is an AI Hologram Box?
-              </h3>
-              <p className="text-sm leading-relaxed text-gray-300">
-                An AI Hologram Box is a 3D holographic display enclosure that combines high-clarity 4K optical glass presentation with interactive AI Digital Humans. HS Global AI&apos;s AI Hologram Box integrates <Link href={lPath("/products/ai-digital-human")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">DIHUAVA AI Digital Human</Link> software with a built-in AI workstation, multimodal sensors, directional audio, and 4K optical display technology for interactive experiences in physical environments.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-white/10 bg-neutral-950/80 p-6 backdrop-blur-md">
-              <h3 className="text-base font-bold text-cyan-300 mb-2">
-                Q2. What sizes are available for the AI Hologram Box?
-              </h3>
-              <p className="text-sm leading-relaxed text-gray-300">
-                The AI Hologram Box is available in four standard commercial sizes: 55-inch, 65-inch, 75-inch, and 86-inch vertical Ultra-HD 4K holographic optical glass showcases to support different physical deployment requirements across retail showrooms, banking branches, corporate lobbies, and exhibition centers.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-white/10 bg-neutral-950/80 p-6 backdrop-blur-md">
-              <h3 className="text-base font-bold text-cyan-300 mb-2">
-                Q3. How does the AI Hologram Box work with DIHUAVA?
-              </h3>
-              <p className="text-sm leading-relaxed text-gray-300">
-                The AI Hologram Box features a built-in industrial AI workstation running the 100% offline <Link href={lPath("/products/ai-digital-human")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">DIHUAVA AI Digital Human</Link> engine. This enables real-time natural language interaction, document RAG knowledge retrieval, sub-second dialogue response, and multimodal speech synthesis on-device with zero cloud dependency.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-white/10 bg-neutral-950/80 p-6 backdrop-blur-md">
-              <h3 className="text-base font-bold text-cyan-300 mb-2">
-                Q4. Where can an AI Hologram Box be deployed?
-              </h3>
-              <p className="text-sm leading-relaxed text-gray-300">
-                The AI Hologram Box is engineered for continuous 24/7 commercial operation across retail stores, banking branches, corporate reception lobbies, trade show exhibition halls, healthcare facilities, and public customer service hubs.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-white/10 bg-neutral-950/80 p-6 backdrop-blur-md">
-              <h3 className="text-base font-bold text-cyan-300 mb-2">
-                Q5. What display technology does the AI Hologram Box use?
-              </h3>
-              <p className="text-sm leading-relaxed text-gray-300">
-                It utilizes high-transmission Ultra-HD 4K (3840 x 2160) 3D holographic optical glass with 700 nits brightness and a 4000:1 dynamic contrast ratio for vivid, life-size 1:1 digital avatar presentation with depth perception, complementary with <Link href={lPath("/products/spatial-display")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">3D Spatial Displays</Link>.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-white/10 bg-neutral-950/80 p-6 backdrop-blur-md">
-              <h3 className="text-base font-bold text-cyan-300 mb-2">
-                Q6. Does the AI Hologram Box support AI Digital Humans?
-              </h3>
-              <p className="text-sm leading-relaxed text-gray-300">
-                Yes. The showcase is natively integrated with the <Link href={lPath("/products/ai-digital-human")} className="text-cyan-400 hover:text-cyan-300 underline font-semibold">DIHUAVA AI Digital Human Platform</Link>, supporting 1:1 life-size digital avatar rendering, 29+ global languages, custom voice cloning, camera tracking, and interactive touch controls.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <CTA
-        title={t.ctaTitle}
-        highlightTitle={t.ctaHighlight}
-        description={t.ctaDesc}
-        primaryButtonText={t.ctaPrimaryText}
-        secondaryButtonText={t.ctaSecondaryText}
-        secondaryButtonHref={lPath("/contact/download-center")}
-      />
+      <CTA />
       <Footer />
     </main>
   );
 }
-

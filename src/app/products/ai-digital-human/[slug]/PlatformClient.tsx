@@ -25,6 +25,7 @@ import {
   Play,
   Film,
   Video,
+  Plus,
 } from "lucide-react";
 
 interface SpecItem {
@@ -824,19 +825,21 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
   const data = platformData[canonicalSlug];
 
   const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   if (!data) {
     return (
-      <main className="min-h-screen bg-black text-white selection:bg-cyan-500 selection:text-black">
+      <main className="min-h-screen bg-[var(--lp-bg)] text-[var(--lp-ink)] selection:bg-[var(--lp-accent)] selection:text-white">
         <Header />
         <div className="flex flex-col items-center justify-center min-h-[70vh] px-6 text-center">
-          <h1 className="text-4xl font-extrabold text-cyan-400 sm:text-5xl">Feature Page Not Found</h1>
-          <p className="mt-4 text-gray-400">The platform capability page you are looking for does not exist.</p>
+          <h1 className="text-4xl font-bold text-[var(--lp-ink)] sm:text-5xl">Feature Page Not Found</h1>
+          <p className="mt-4 text-[var(--lp-muted)]">The platform capability page you are looking for does not exist.</p>
           <Link
             href={lPath("/products/ai-digital-human")}
-            className="mt-8 rounded-full border border-cyan-400/50 bg-cyan-950/80 px-8 py-3.5 text-sm font-bold text-cyan-300 transition-all hover:bg-cyan-400 hover:text-black"
+            className="mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-full border border-[var(--lp-line)] bg-[var(--lp-card)] px-6 text-sm sm:text-[15px] font-semibold text-[var(--lp-ink)] shadow-xs transition-all hover:bg-[var(--lp-tile)] active:scale-[0.98] cursor-pointer"
           >
-            ← Return to DIHUAVA Platform Overview
+            <ChevronLeft className="w-4 h-4" />
+            <span>Return to DIHUAVA Platform Overview</span>
           </Link>
         </div>
         <Footer />
@@ -847,69 +850,68 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
   const activeVideo = data.demoVideos?.find((v) => v.id === activeVideoId) || data.demoVideos?.[0];
 
   return (
-    <main className="min-h-screen bg-black text-white selection:bg-cyan-500 selection:text-black">
+    <main className="min-h-screen bg-[var(--lp-bg)] text-[var(--lp-ink)] selection:bg-[var(--lp-accent)] selection:text-white">
       <Header />
 
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden bg-black px-6 pt-36 pb-20 border-b border-white/10">
-        <div className="pointer-events-none absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[950px] rounded-full bg-cyan-600/15 blur-[170px]" />
-
-        <div className="relative mx-auto max-w-6xl">
+      <section className="relative px-4 pt-32 pb-16 sm:px-6 md:pt-40 md:pb-24 border-b border-[var(--lp-line)]">
+        <div className="relative mx-auto max-w-[1200px]">
           <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
             <Link
               href={lPath("/products/ai-digital-human")}
-              className="inline-flex items-center gap-2 text-xs font-medium text-cyan-400 hover:text-white transition-colors"
+              className="inline-flex items-center gap-2 text-xs font-medium text-[var(--lp-muted)] hover:text-[var(--lp-ink)] transition-colors"
             >
               <ChevronLeft className="w-4 h-4" /> Return to DIHUAVA Platform Overview
             </Link>
             <Link
               href={lPath(`/products/ai-digital-human/${data.slug}`)}
-              className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-cyan-300 hover:text-white border border-cyan-500/30 bg-cyan-950/60 px-3 py-1 rounded-lg transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-[var(--lp-ink)] border border-[var(--lp-line)] bg-[var(--lp-card)] px-3 py-1 rounded-full shadow-2xs transition-colors hover:bg-[var(--lp-tile)]"
             >
-              <span>View DIHUAVA Product Specs</span>
-              <span>→</span>
+              <span>Platform Specs Brief</span>
+              <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
           >
-            <div className="inline-flex items-center gap-2.5 rounded-full border border-cyan-500/40 bg-cyan-950/80 px-4 py-1.5 backdrop-blur-md mb-6 shadow-[0_0_20px_rgba(6,182,212,0.3)]">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[var(--lp-line)] bg-[var(--lp-tile)] px-3.5 py-1.5 mb-6">
               <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-500" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--lp-accent)] opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--lp-accent)]" />
               </span>
-              <span className="text-xs font-mono font-semibold tracking-widest text-cyan-300 uppercase">
+              <span className="text-[12px] font-semibold uppercase tracking-wider text-[var(--lp-ink-2)] font-mono">
                 {data.badge}
               </span>
             </div>
 
-            <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl lg:leading-[1.1]">
+            <h1 className="text-balance text-[40px] font-semibold leading-[1.04] tracking-[-0.04em] text-[var(--lp-ink)] sm:text-[54px] lg:text-[64px]">
               {data.title}
             </h1>
 
-            <p className="mt-4 text-lg font-mono text-cyan-400 font-semibold max-w-3xl">
+            <p className="mt-4 text-lg font-semibold text-[var(--lp-accent)] max-w-3xl">
               {data.subtitle}
             </p>
 
-            <p className="mt-6 text-base leading-8 text-gray-300 sm:text-lg max-w-3xl">
+            <p className="mt-5 text-[16px] leading-[1.65] text-[var(--lp-ink-2)] sm:text-[18px] max-w-3xl">
               {data.description}
             </p>
 
-            <div className="mt-10 flex flex-wrap items-center gap-4">
+            <div className="mt-8 flex flex-col sm:flex-row items-center gap-3">
               <Link
                 href={lPath("/contact")}
-                className="rounded-full bg-gradient-to-r from-cyan-500 via-sky-500 to-cyan-600 px-8 py-3.5 text-sm font-bold text-white shadow-xl transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(6,182,212,0.4)]"
+                className="group inline-flex h-12 w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-[var(--lp-ink)] px-6 text-sm sm:text-[15px] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_1px_2px_rgba(17,17,19,0.24)] transition-all hover:bg-[#2A2A2F] active:scale-[0.98] cursor-pointer"
               >
-                Request Architecture Demo →
+                <span>Request Architecture Demo</span>
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
                 href={lPath("/contact/download-center")}
-                className="rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-semibold text-gray-200 backdrop-blur-md transition-colors hover:border-cyan-400 hover:text-white"
+                className="inline-flex h-12 w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-[var(--lp-line)] bg-white px-6 text-sm sm:text-[15px] font-semibold text-[var(--lp-ink)] shadow-xs transition-all hover:bg-[var(--lp-tile)] active:scale-[0.98] cursor-pointer"
               >
-                Download Whitepaper (PDF)
+                <span>Download Whitepaper (PDF)</span>
               </Link>
             </div>
           </motion.div>
@@ -917,15 +919,15 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
       </section>
 
       {/* 2. SPECIFICATIONS SUMMARY BAR */}
-      <section className="relative overflow-hidden bg-neutral-950 px-6 py-8 border-b border-white/10">
-        <div className="mx-auto max-w-6xl">
+      <section className="relative bg-[var(--lp-tile)] px-6 py-8 border-b border-[var(--lp-line)]">
+        <div className="mx-auto max-w-[1200px]">
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
             {data.specs.map((spec, i) => (
-              <div key={i} className="rounded-2xl border border-white/10 bg-black/60 p-5 backdrop-blur-md">
-                <span className="block text-[11px] font-mono uppercase tracking-wider text-gray-400">
+              <div key={i} className="rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-card)] p-5 shadow-2xs">
+                <span className="block text-[11px] font-mono uppercase tracking-wider text-[var(--lp-muted)]">
                   {spec.label}
                 </span>
-                <span className="mt-1 block text-lg font-bold text-cyan-400 font-mono">
+                <span className="mt-1 block text-lg font-bold text-[var(--lp-ink)] font-mono">
                   {spec.value}
                 </span>
               </div>
@@ -935,17 +937,17 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
       </section>
 
       {/* 3. ARCHITECTURAL OVERVIEW */}
-      <section className="relative overflow-hidden bg-black px-6 py-20 border-b border-white/10">
-        <div className="mx-auto max-w-6xl">
+      <section className="relative px-6 py-20 border-b border-[var(--lp-line)]">
+        <div className="mx-auto max-w-[1200px]">
           <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
             <div className="lg:col-span-7">
-              <span className="text-xs font-mono font-semibold uppercase tracking-[0.3em] text-cyan-400">
+              <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-[var(--lp-accent)]">
                 Deep Dive Architecture
               </span>
-              <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-4xl">
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--lp-ink)] md:text-4xl">
                 {data.overviewHeading}
               </h2>
-              <div className="mt-6 space-y-4 text-base leading-8 text-gray-300">
+              <div className="mt-6 space-y-4 text-base leading-relaxed text-[var(--lp-ink-2)]">
                 {data.overviewParagraphs.map((p, i) => (
                   <p key={i}>{p}</p>
                 ))}
@@ -953,26 +955,26 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
             </div>
 
             <div className="lg:col-span-5">
-              <div className="rounded-3xl border border-cyan-500/30 bg-neutral-950 p-8 backdrop-blur-xl shadow-[0_0_40px_rgba(6,182,212,0.15)]">
-                <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                  <ShieldCheck className="w-5 h-5 text-cyan-400" />
+              <div className="rounded-[28px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-8 shadow-xs">
+                <h3 className="text-lg font-bold text-[var(--lp-ink)] mb-4 flex items-center gap-2">
+                  <ShieldCheck className="w-5 h-5 text-emerald-600" />
                   Engineering Standards
                 </h3>
-                <ul className="space-y-3 text-xs leading-6 text-gray-300">
-                  <li className="flex items-start gap-2">
-                    <span className="text-cyan-400 font-bold">✓</span>
-                    <span>100% On-Device GPU Processing (Zero Cloud Ping)</span>
+                <ul className="space-y-3.5 text-xs leading-6 text-[var(--lp-ink-2)] font-mono">
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                    <span>100% On-Device GPU Processing (Zero Cloud Latency)</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-cyan-400 font-bold">✓</span>
-                    <span>Deterministic Low-Latency Lip-Sync</span>
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                    <span>Deterministic Low-Latency Lip-Sync Precision</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-cyan-400 font-bold">✓</span>
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                     <span>Air-Gapped Data Security Designed for GDPR/HIPAA Privacy Alignment</span>
                   </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-cyan-400 font-bold">✓</span>
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                     <span>24/7 Continuous Commercial Hardware Reliability</span>
                   </li>
                 </ul>
@@ -984,24 +986,24 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
 
       {/* 4. INTERACTIVE DEMO VIDEO GALLERY */}
       {data.demoVideos && data.demoVideos.length > 0 && (
-        <section className="relative overflow-hidden bg-neutral-950 px-6 py-20 border-b border-white/10">
-          <div className="mx-auto max-w-6xl">
+        <section className="relative bg-[var(--lp-tile)] px-6 py-20 border-b border-[var(--lp-line)]">
+          <div className="mx-auto max-w-[1200px]">
             <div className="text-center max-w-3xl mx-auto mb-12">
-              <span className="text-xs font-mono font-semibold uppercase tracking-[0.3em] text-cyan-400">
+              <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-[var(--lp-accent)]">
                 Interactive Demonstrations
               </span>
-              <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-4xl">
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--lp-ink)] md:text-4xl">
                 Feature Demonstration Videos
               </h2>
-              <p className="mt-3 text-sm text-gray-400">
+              <p className="mt-3 text-sm text-[var(--lp-ink-2)]">
                 Select a demonstration below to inspect local-first execution.
               </p>
             </div>
 
             {/* Video Player Display */}
             {activeVideo && (
-              <div className="mb-10 overflow-hidden rounded-3xl border border-cyan-500/30 bg-black shadow-2xl">
-                <div className="relative aspect-video w-full bg-neutral-900">
+              <div className="mb-10 overflow-hidden rounded-[28px] border border-[var(--lp-line)] bg-[var(--lp-card)] shadow-xs">
+                <div className="relative aspect-video w-full bg-black">
                   <video
                     key={activeVideo.id}
                     src={activeVideo.videoSrc}
@@ -1012,14 +1014,14 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
                     className="h-full w-full object-cover"
                   />
                 </div>
-                <div className="p-6 bg-neutral-950 border-t border-white/10">
+                <div className="p-6 border-t border-[var(--lp-line)] bg-[var(--lp-card)]">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-xl font-bold text-white">{activeVideo.title}</h3>
-                    <span className="rounded-full bg-cyan-950 px-3 py-1 text-xs font-mono text-cyan-300 border border-cyan-500/30">
+                    <h3 className="text-xl font-bold text-[var(--lp-ink)]">{activeVideo.title}</h3>
+                    <span className="rounded-full bg-[var(--lp-tile)] px-3 py-1 text-xs font-mono text-[var(--lp-ink)] border border-[var(--lp-line)]">
                       Duration: {activeVideo.duration}
                     </span>
                   </div>
-                  <p className="mt-2 text-sm text-gray-300">{activeVideo.description}</p>
+                  <p className="mt-2 text-sm text-[var(--lp-ink-2)]">{activeVideo.description}</p>
                 </div>
               </div>
             )}
@@ -1032,17 +1034,17 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
                   onClick={() => setActiveVideoId(video.id)}
                   className={`text-left rounded-2xl border p-4 transition-all duration-300 ${
                     (activeVideoId === video.id || (!activeVideoId && video.id === data.demoVideos[0].id))
-                      ? "border-cyan-400 bg-cyan-950/60 shadow-[0_0_20px_rgba(6,182,212,0.3)]"
-                      : "border-white/10 bg-black/60 hover:border-white/30"
+                      ? "border-[var(--lp-accent)] bg-[var(--lp-card)] shadow-xs ring-1 ring-[var(--lp-accent)]"
+                      : "border-[var(--lp-line)] bg-[var(--lp-card)] hover:bg-[var(--lp-tile)]"
                   }`}
                 >
-                  <div className="flex items-center justify-between text-xs font-mono text-cyan-400 mb-2">
-                    <span className="flex items-center gap-1">
+                  <div className="flex items-center justify-between text-xs font-mono text-[var(--lp-accent)] mb-2">
+                    <span className="flex items-center gap-1 font-semibold">
                       <Play className="w-3 h-3 fill-current" /> DEMO
                     </span>
-                    <span>{video.duration}</span>
+                    <span className="text-[var(--lp-muted)]">{video.duration}</span>
                   </div>
-                  <h4 className="text-sm font-bold text-white line-clamp-2">{video.title}</h4>
+                  <h4 className="text-sm font-bold text-[var(--lp-ink)] line-clamp-2">{video.title}</h4>
                 </button>
               ))}
             </div>
@@ -1051,42 +1053,44 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
       )}
 
       {/* 5. MICRO-FEATURES GRID */}
-      <section className="relative overflow-hidden bg-black px-6 py-20 border-b border-white/10">
-        <div className="mx-auto max-w-6xl">
+      <section className="relative px-6 py-20 border-b border-[var(--lp-line)]">
+        <div className="mx-auto max-w-[1200px]">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-xs font-mono font-semibold uppercase tracking-[0.3em] text-cyan-400">
+            <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-[var(--lp-accent)]">
               Technical Capabilities
             </span>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-4xl">
-              Micro-Features & Engineering Detail
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--lp-ink)] md:text-4xl">
+              Micro-Features &amp; Engineering Detail
             </h2>
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {data.microFeatures.map((mf, i) => (
-              <div
+              <motion.div
                 key={i}
-                className="rounded-2xl border border-white/10 bg-neutral-950/80 p-6 backdrop-blur-md hover:border-cyan-500/40 transition-colors"
+                whileHover={{ y: -3 }}
+                transition={{ duration: 0.2 }}
+                className="rounded-[24px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-6 shadow-xs hover:shadow-md transition-shadow"
               >
-                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-cyan-950 text-cyan-400 font-mono text-xs font-bold border border-cyan-500/30 mb-4">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--lp-tile)] text-[var(--lp-ink)] font-mono text-xs font-bold border border-[var(--lp-line)] mb-4">
                   0{i + 1}
                 </div>
-                <h3 className="text-base font-bold text-white mb-2">{mf.title}</h3>
-                <p className="text-xs leading-6 text-gray-400">{mf.desc}</p>
-              </div>
+                <h3 className="text-base font-bold text-[var(--lp-ink)] mb-2">{mf.title}</h3>
+                <p className="text-xs leading-relaxed text-[var(--lp-ink-2)]">{mf.desc}</p>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
       {/* 6. HOW IT WORKS WORKFLOW STEPS */}
-      <section className="relative overflow-hidden bg-neutral-950 px-6 py-20 border-b border-white/10">
-        <div className="mx-auto max-w-6xl">
+      <section className="relative bg-[var(--lp-tile)] px-6 py-20 border-b border-[var(--lp-line)]">
+        <div className="mx-auto max-w-[1200px]">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-xs font-mono font-semibold uppercase tracking-[0.3em] text-cyan-400">
+            <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-[var(--lp-accent)]">
               Workflow Breakdown
             </span>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-4xl">
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--lp-ink)] md:text-4xl">
               How It Works End-to-End
             </h2>
           </div>
@@ -1095,11 +1099,11 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
             {data.howItWorks.map((item) => (
               <div
                 key={item.step}
-                className="rounded-2xl border border-white/15 bg-black/80 p-6 backdrop-blur-md"
+                className="rounded-[24px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-6 shadow-xs"
               >
-                <span className="text-2xl font-black font-mono text-cyan-400">{item.step}</span>
-                <h3 className="mt-3 text-lg font-bold text-white">{item.title}</h3>
-                <p className="mt-2 text-xs leading-6 text-gray-300">{item.desc}</p>
+                <span className="text-2xl font-bold font-mono text-[var(--lp-accent)]">{item.step}</span>
+                <h3 className="mt-3 text-lg font-bold text-[var(--lp-ink)]">{item.title}</h3>
+                <p className="mt-2 text-xs leading-relaxed text-[var(--lp-ink-2)]">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -1107,30 +1111,30 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
       </section>
 
       {/* 7. INPUT REQUIREMENTS CHECKLIST */}
-      <section className="relative overflow-hidden bg-black px-6 py-20 border-b border-white/10">
+      <section className="relative px-6 py-20 border-b border-[var(--lp-line)]">
         <div className="mx-auto max-w-5xl">
           <div className="text-center mb-12">
-            <span className="text-xs font-mono font-semibold uppercase tracking-[0.3em] text-cyan-400">
+            <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-[var(--lp-accent)]">
               Deployment Prerequisites
             </span>
-            <h2 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h2 className="mt-2 text-3xl font-semibold tracking-tight text-[var(--lp-ink)] sm:text-4xl">
               Input Requirements Checklist
             </h2>
           </div>
 
-          <div className="overflow-hidden rounded-2xl border border-cyan-500/30 bg-neutral-950/90 shadow-2xl backdrop-blur-xl">
-            <div className="divide-y divide-white/10">
+          <div className="overflow-hidden rounded-[24px] border border-[var(--lp-line)] bg-[var(--lp-card)] shadow-xs">
+            <div className="divide-y divide-[var(--lp-line)]">
               {data.inputChecklist.map((req, i) => (
                 <div
                   key={i}
                   className={`grid grid-cols-1 gap-2 px-6 py-4.5 sm:grid-cols-3 sm:gap-4 ${
-                    i % 2 === 0 ? "bg-white/[0.02]" : ""
+                    i % 2 === 0 ? "bg-[var(--lp-card)]" : "bg-[var(--lp-tile)]/40"
                   }`}
                 >
-                  <span className="text-sm font-semibold text-cyan-300 font-mono">
+                  <span className="text-sm font-semibold text-[var(--lp-ink)] font-mono">
                     {req.item}
                   </span>
-                  <span className="text-sm text-gray-300 sm:col-span-2">
+                  <span className="text-sm text-[var(--lp-ink-2)] sm:col-span-2">
                     {req.spec}
                   </span>
                 </div>
@@ -1141,20 +1145,20 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
       </section>
 
       {/* 8. INDUSTRY USE CASES */}
-      <section className="relative overflow-hidden bg-neutral-950 px-6 py-20 border-b border-white/10">
+      <section className="relative bg-[var(--lp-tile)] px-6 py-20 border-b border-[var(--lp-line)]">
         <div className="mx-auto max-w-5xl text-center">
-          <span className="text-xs font-mono font-semibold uppercase tracking-[0.3em] text-cyan-400">
+          <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-[var(--lp-accent)]">
             Target Deployments
           </span>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--lp-ink)] sm:text-4xl">
             Primary Industry Applications
           </h2>
 
           <div className="mt-10 grid gap-4 sm:grid-cols-2 text-left">
             {data.useCases.map((uc, i) => (
-              <div key={i} className="flex items-center gap-3 rounded-xl border border-white/10 bg-black/60 p-4">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0" />
-                <span className="text-sm font-semibold text-gray-200">{uc}</span>
+              <div key={i} className="flex items-center gap-3 rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-card)] p-4 shadow-2xs">
+                <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
+                <span className="text-sm font-semibold text-[var(--lp-ink)]">{uc}</span>
               </div>
             ))}
           </div>
@@ -1162,42 +1166,64 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
       </section>
 
       {/* 9. FEATURE FAQ */}
-      <section className="relative overflow-hidden bg-black px-6 py-20 border-b border-white/10">
+      <section className="relative px-6 py-20 border-b border-[var(--lp-line)]">
         <div className="mx-auto max-w-4xl">
           <div className="text-center mb-12">
-            <span className="text-xs font-mono font-semibold uppercase tracking-[0.3em] text-cyan-400">
+            <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-[var(--lp-accent)]">
               Feature Insights
             </span>
-            <h2 className="mt-2 text-3xl font-bold text-white sm:text-4xl">
+            <h2 className="mt-2 text-3xl font-semibold tracking-tight text-[var(--lp-ink)] sm:text-4xl">
               Frequently Asked Questions
             </h2>
           </div>
 
           <div className="space-y-4">
-            {data.faq.map((faq, i) => (
-              <div key={i} className="rounded-2xl border border-white/15 bg-neutral-950 p-6">
-                <h3 className="text-base font-bold text-white">{faq.question}</h3>
-                <p className="mt-2 text-sm leading-7 text-gray-300">{faq.answer}</p>
-              </div>
-            ))}
+            {data.faq.map((faq, i) => {
+              const isOpen = openFaq === i;
+              return (
+                <div key={i} className="rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-card)] overflow-hidden shadow-xs">
+                  <button
+                    onClick={() => setOpenFaq(isOpen ? null : i)}
+                    className="flex w-full items-center justify-between p-6 text-left"
+                  >
+                    <span className="text-base font-semibold text-[var(--lp-ink)] pr-4">
+                      {faq.question}
+                    </span>
+                    <motion.div
+                      animate={{ rotate: isOpen ? 45 : 0 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                      className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--lp-tile)] text-[var(--lp-ink)]"
+                    >
+                      <Plus className="h-4 w-4" />
+                    </motion.div>
+                  </button>
+                  {isOpen && (
+                    <div className="px-6 pb-6 pt-0 text-sm leading-relaxed text-[var(--lp-ink-2)] border-t border-[var(--lp-line)] pt-4">
+                      {faq.answer}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* 10. NEXT FEATURE NAVIGATION FOOTER BANNER */}
-      <section className="relative overflow-hidden bg-neutral-950 px-6 py-16">
+      <section className="relative bg-[var(--lp-tile)] px-6 py-16">
         <div className="mx-auto max-w-4xl text-center">
-          <span className="text-xs font-mono text-gray-400 uppercase tracking-widest">
+          <span className="text-xs font-mono text-[var(--lp-muted)] uppercase tracking-widest font-semibold">
             NEXT PLATFORM CAPABILITY
           </span>
-          <h3 className="mt-2 text-2xl font-bold text-white md:text-3xl">
+          <h3 className="mt-2 text-2xl font-bold text-[var(--lp-ink)] md:text-3xl">
             {data.nextFeatureName}
           </h3>
           <Link
-            href={`/products/ai-digital-human/${data.nextFeatureSlug}`}
-            className="mt-6 inline-flex items-center gap-2 rounded-full bg-cyan-500 px-8 py-3 text-sm font-bold text-black hover:bg-cyan-400 transition-all shadow-[0_0_20px_rgba(6,182,212,0.4)]"
+            href={lPath(`/products/ai-digital-human/${data.nextFeatureSlug}`)}
+            className="mt-6 inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[var(--lp-ink)] px-6 text-sm sm:text-[15px] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_1px_2px_rgba(17,17,19,0.24)] transition-all hover:bg-[#2A2A2F] active:scale-[0.98] cursor-pointer"
           >
-            Explore Next Feature <ArrowRight className="w-4 h-4" />
+            <span>Explore Next Feature</span>
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>

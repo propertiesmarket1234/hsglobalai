@@ -4,6 +4,7 @@ import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
+import { ArrowRight, BookOpen, Sparkles, CheckCircle2, ChevronLeft } from "lucide-react";
 import { blogPosts } from "@/data/blogPosts";
 import { getDictionary } from "@/i18n/getDictionary";
 import { Locale, nonDefaultLocales, getLocalizedPath } from "@/i18n/config";
@@ -80,7 +81,7 @@ function renderFormattedText(text: string, lPath: (p: string) => string) {
   return parts.map((part, index) => {
     if (part.startsWith("**") && part.endsWith("**")) {
       return (
-        <strong key={index} className="font-semibold text-white">
+        <strong key={index} className="font-semibold text-[var(--lp-ink)]">
           {part.slice(2, -2)}
         </strong>
       );
@@ -92,7 +93,7 @@ function renderFormattedText(text: string, lPath: (p: string) => string) {
         <Link
           key={index}
           href={lPath(linkHref)}
-          className="text-cyan-400 hover:text-cyan-300 underline underline-offset-4 font-semibold transition-colors"
+          className="text-[var(--lp-accent)] hover:underline font-semibold transition-colors"
         >
           {linkText}
         </Link>
@@ -119,18 +120,19 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
 
   if (!post) {
     return (
-      <main className="min-h-screen bg-black text-white flex flex-col items-center justify-center p-6">
-        <div className="text-center max-w-md border border-cyan-500/30 rounded-3xl p-10 bg-neutral-950/80 backdrop-blur-xl">
-          <span className="text-5xl">🔍</span>
-          <h1 className="mt-4 text-3xl font-bold">{bPage.notFoundTitle || "Article Not Found"}</h1>
-          <p className="mt-2 text-sm text-gray-400">
-            {bPage.notFoundDesc || "No article matches the requested URL:"} <code className="text-cyan-400">{slug}</code>
+      <main className="min-h-screen bg-[var(--lp-bg)] text-[var(--lp-ink)] flex flex-col items-center justify-center p-6">
+        <div className="text-center max-w-md border border-[var(--lp-line)] rounded-[28px] p-10 bg-[var(--lp-card)] shadow-xs">
+          <BookOpen className="h-12 w-12 text-[var(--lp-muted)] mx-auto mb-4" />
+          <h1 className="text-2xl font-bold text-[var(--lp-ink)]">{bPage.notFoundTitle || "Article Not Found"}</h1>
+          <p className="mt-2 text-sm text-[var(--lp-ink-2)]">
+            {bPage.notFoundDesc || "No article matches the requested URL:"} <code className="text-[var(--lp-accent)] font-mono">{slug}</code>
           </p>
           <Link
             href={lPath("/blog")}
-            className="mt-6 inline-flex items-center gap-2 rounded-full bg-cyan-500 px-6 py-2.5 text-xs font-bold text-black transition hover:bg-cyan-400"
+            className="mt-6 inline-flex h-10 items-center justify-center gap-2 rounded-full bg-[var(--lp-ink)] px-5 text-xs sm:text-[14px] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_1px_2px_rgba(17,17,19,0.24)] transition-all hover:bg-[#2A2A2F] active:scale-[0.98] cursor-pointer"
           >
-            {bPage.backToHub || "← Back to Blog Hub"}
+            <ChevronLeft className="h-4 w-4" />
+            <span>{(bPage.backToHub || "Back to Blog Hub").replace(/^[←\s]+/, "")}</span>
           </Link>
         </div>
       </main>
@@ -146,23 +148,23 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": post.title,
-    "description": post.snippet,
-    "image": post.bannerImage,
-    "datePublished": post.date,
-    "author": {
+    headline: post.title,
+    description: post.snippet,
+    image: post.bannerImage,
+    datePublished: post.date,
+    author: {
       "@type": "Organization",
-      "name": post.author,
+      name: post.author,
     },
-    "publisher": {
+    publisher: {
       "@type": "Organization",
-      "name": "HS Global AI",
-      "logo": {
+      name: "HS Global AI",
+      logo: {
         "@type": "ImageObject",
-        "url": "https://hsglobalai.com/logo.png",
+        url: "https://hsglobalai.com/logo.png",
       },
     },
-    "keywords": post.tags.join(", "),
+    keywords: post.tags.join(", "),
   };
 
   const breadcrumbSchema = {
@@ -220,7 +222,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
       : null;
 
   return (
-    <main className="min-h-screen bg-black text-white selection:bg-cyan-500 selection:text-black">
+    <main className="min-h-screen bg-[var(--lp-bg)] text-[var(--lp-ink)] selection:bg-[var(--lp-accent)] selection:text-white">
       {/* Inject JSON-LD Schema */}
       <script
         type="application/ld+json"
@@ -240,51 +242,47 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
       <Header />
 
       {/* ARTICLE HERO BANNER */}
-      <section className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-20 px-6">
-        {/* Glow Effects */}
-        <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-[500px] w-[900px] rounded-full bg-cyan-600/15 blur-[160px]" />
-
+      <section className="relative pt-32 pb-14 md:pt-40 md:pb-16 px-4 sm:px-6 border-b border-[var(--lp-line)]">
         <div className="relative mx-auto max-w-4xl">
           {/* Breadcrumb Navigation */}
-          <div className="flex items-center gap-2 text-xs font-mono text-gray-400 mb-6">
-            <Link href={lPath("/blog")} className="hover:text-cyan-400 transition-colors">
+          <div className="flex items-center gap-2 text-xs font-mono text-[var(--lp-muted)] mb-6">
+            <Link href={lPath("/blog")} className="hover:text-[var(--lp-ink)] transition-colors">
               {bPage.breadcrumbHub || "Blog Hub"}
             </Link>
             <span>/</span>
-            <span className="text-cyan-300">{post.category}</span>
+            <span className="text-[var(--lp-ink)] font-semibold">{post.category}</span>
           </div>
 
           {/* Category Badge */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 backdrop-blur-md mb-6">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[var(--lp-line)] bg-[var(--lp-tile)] px-3.5 py-1.5 mb-6">
             <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-500" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--lp-accent)] opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--lp-accent)]" />
             </span>
-            <span className="text-xs font-semibold tracking-widest text-cyan-300 uppercase">
+            <span className="text-[12px] font-semibold uppercase tracking-wider text-[var(--lp-ink-2)]">
               {post.category}
             </span>
           </div>
 
           {/* H1 Title */}
-          <h1 className="text-3xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl leading-[1.15]">
+          <h1 className="text-3xl font-semibold tracking-[-0.03em] text-[var(--lp-ink)] sm:text-5xl lg:text-6xl leading-[1.12]">
             {post.title}
           </h1>
 
           {/* Metadata Bar */}
-          <div className="mt-8 flex flex-wrap items-center gap-4 text-xs text-gray-400 border-y border-white/10 py-4">
+          <div className="mt-8 flex flex-wrap items-center gap-4 text-xs text-[var(--lp-muted)] border-y border-[var(--lp-line)] py-4">
             <div className="flex items-center gap-2">
-              <span className="text-base">{post.icon}</span>
-              <span className="font-medium text-gray-200">{post.author}</span>
+              <span className="font-semibold text-[var(--lp-ink)]">{post.author}</span>
             </div>
             <span>•</span>
             <time className="font-mono">{post.date}</time>
             <span>•</span>
-            <span className="font-mono text-cyan-300">{post.readTime}</span>
+            <span className="font-mono text-[var(--lp-ink)]">{post.readTime}</span>
           </div>
 
           {/* Hero Banner Image */}
           {post.bannerImage && (
-            <div className="mt-10 overflow-hidden rounded-3xl border border-white/15 relative h-72 sm:h-96 w-full shadow-2xl bg-neutral-900">
+            <div className="mt-10 overflow-hidden rounded-[28px] border border-[var(--lp-line)] relative h-72 sm:h-96 w-full shadow-xs bg-[var(--lp-tile)]">
               <Image
                 src={post.bannerImage}
                 alt={post.title}
@@ -292,15 +290,14 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
                 priority
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             </div>
           )}
         </div>
       </section>
 
       {/* ARTICLE CONTENT CONTAINER */}
-      <section className="relative px-6 pb-24">
-        <article className="mx-auto max-w-4xl leading-8 text-gray-200">
+      <section className="relative px-4 py-16 sm:px-6">
+        <article className="mx-auto max-w-4xl leading-relaxed text-[var(--lp-ink-2)]">
           {contentBlocks.map((block, idx) => {
             const trimmed = block.trim();
 
@@ -313,20 +310,17 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
               return (
                 <div
                   key={idx}
-                  className="my-10 rounded-3xl border border-cyan-500/40 bg-gradient-to-br from-cyan-950/40 via-neutral-950 to-blue-950/30 p-6 md:p-8 backdrop-blur-xl shadow-[0_0_40px_rgba(6,182,212,0.15)] relative overflow-hidden"
+                  className="my-10 rounded-[28px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-6 md:p-8 shadow-xs relative overflow-hidden"
                 >
-                  <div className="absolute top-0 right-0 h-32 w-32 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none" />
-                  <div className="flex items-center gap-3 text-cyan-400 font-bold text-base mb-4 border-b border-cyan-500/20 pb-3">
-                    <svg className="w-5 h-5 fill-cyan-400" viewBox="0 0 24 24">
-                      <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-                    </svg>
+                  <div className="flex items-center gap-2.5 text-[var(--lp-ink)] font-bold text-base mb-4 border-b border-[var(--lp-line)] pb-3">
+                    <Sparkles className="w-5 h-5 text-[var(--lp-accent)]" />
                     <span>{bPage.keyTakeawaysTitle || "Key Takeaways & Executive Summary"}</span>
                   </div>
-                  <ul className="space-y-3 text-sm md:text-base text-gray-200">
+                  <ul className="space-y-3 text-sm md:text-base text-[var(--lp-ink-2)]">
                     {lines.map((line, lIdx) => {
                       return (
                         <li key={lIdx} className="flex items-start gap-3">
-                          <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(6,182,212,0.8)]" />
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--lp-accent)]" />
                           <span>{renderFormattedText(line.replace(/^-\s*/, ""), lPath)}</span>
                         </li>
                       );
@@ -341,47 +335,37 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
               return (
                 <div
                   key={idx}
-                  className="my-12 rounded-3xl border border-cyan-500/40 bg-gradient-to-r from-cyan-950/80 via-neutral-950 to-blue-950/80 p-8 md:p-10 text-center shadow-2xl relative overflow-hidden group"
+                  className="my-12 rounded-[28px] border border-[var(--lp-line)] bg-[var(--lp-tile)] p-8 md:p-10 text-center shadow-xs relative overflow-hidden"
                 >
-                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-64 w-96 rounded-full bg-cyan-500/10 blur-3xl pointer-events-none" />
-
                   <div className="relative z-10">
-                    <span className="inline-flex items-center gap-2 rounded-full border border-cyan-400/40 bg-cyan-400/10 px-3.5 py-1 text-xs font-semibold text-cyan-300 mb-4">
-                      <svg className="w-3.5 h-3.5 fill-cyan-300" viewBox="0 0 24 24">
-                        <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" />
-                      </svg>
-                      {bPage.inlineCtaBadge || "Live Interactive Avatar Demo"}
+                    <span className="inline-flex items-center gap-2 rounded-full border border-[var(--lp-line)] bg-[var(--lp-card)] px-3.5 py-1 text-xs font-semibold text-[var(--lp-ink)] mb-4">
+                      <Sparkles className="w-3.5 h-3.5 text-[var(--lp-accent)]" />
+                      {bPage.inlineCtaBadge || "Interactive Avatar Architecture"}
                     </span>
 
-                    <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
+                    <h3 className="text-2xl md:text-3xl font-bold text-[var(--lp-ink)] tracking-tight">
                       {bPage.inlineCtaHeading || "Elevate Your Enterprise with On-Device Digital Humans"}
                     </h3>
 
-                    <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-gray-300">
+                    <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-[var(--lp-ink-2)]">
                       {bPage.inlineCtaDesc ||
-                        "Experience Low Latency voice dialogue and 100% data privacy on your physical hardware. Book a live walkthrough with our enterprise AI engineering team."}
+                        "Experience low-latency voice dialogue and 100% data privacy on your physical hardware. Book a live walkthrough with our enterprise AI engineering team."}
                     </p>
 
-                    <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+                    <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
                       <Link
                         href={lPath("/contact")}
-                        className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 px-8 py-3.5 text-xs font-bold text-black shadow-[0_0_25px_rgba(6,182,212,0.4)] transition-all hover:scale-105 hover:from-cyan-300 hover:to-blue-400"
+                        className="inline-flex h-10 items-center justify-center gap-2 rounded-full bg-[var(--lp-ink)] px-5 text-xs sm:text-[14px] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_1px_2px_rgba(17,17,19,0.24)] transition-all hover:bg-[#2A2A2F] active:scale-[0.98] cursor-pointer"
                       >
-                        <svg className="w-4 h-4 fill-black" viewBox="0 0 24 24">
-                          <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" />
-                        </svg>
-                        {bPage.inlineCtaBtn1 || "Schedule Live Hologram Demo"}
-                        <span>→</span>
+                        <span>{bPage.inlineCtaBtn1 || "Schedule Live Hologram Demo"}</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
                       </Link>
 
                       <Link
-                        href={lPath("/contact")}
-                        className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-neutral-900/80 px-6 py-3.5 text-xs font-semibold text-gray-200 transition-all hover:border-white/40 hover:text-white"
+                        href={lPath("/contact/download-center")}
+                        className="inline-flex h-10 items-center justify-center gap-2 rounded-full border border-[var(--lp-line)] bg-[var(--lp-card)] px-5 text-xs sm:text-[14px] font-semibold text-[var(--lp-ink)] shadow-xs transition-all hover:bg-[var(--lp-tile)] active:scale-[0.98] cursor-pointer"
                       >
-                        <svg className="w-4 h-4 fill-current text-gray-400" viewBox="0 0 24 24">
-                          <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2ZM16 18H8V16H16V18ZM16 14H8V12H16V14ZM13 9V3.5L18.5 9H13Z" />
-                        </svg>
-                        {bPage.inlineCtaBtn2 || "Request Technical Specs"}
+                        <span>{bPage.inlineCtaBtn2 || "Request Technical Specs"}</span>
                       </Link>
                     </div>
                   </div>
@@ -394,39 +378,32 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
               return (
                 <div
                   key={idx}
-                  className="my-12 rounded-3xl border border-white/15 bg-neutral-950 p-8 md:p-12 text-center shadow-2xl relative overflow-hidden"
+                  className="my-12 rounded-[28px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-8 md:p-12 text-center shadow-xs relative overflow-hidden"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-950/50 via-neutral-950 to-blue-950/50" />
-
                   <div className="relative z-10">
-                    <h3 className="text-2xl md:text-4xl font-bold text-white tracking-tight">
+                    <h3 className="text-2xl md:text-4xl font-bold text-[var(--lp-ink)] tracking-tight">
                       {bPage.bottomCtaHeading || "Ready to Transform Your Enterprise Operations?"}
                     </h3>
 
-                    <p className="mx-auto mt-4 max-w-2xl text-base text-gray-300 leading-7">
+                    <p className="mx-auto mt-4 max-w-2xl text-base text-[var(--lp-ink-2)] leading-relaxed">
                       {bPage.bottomCtaDesc ||
                         "Join industry leaders deploying DIHUAVA AI Digital Humans for 24/7 autonomous customer reception, knowledge access, and interactive retail."}
                     </p>
 
-                    <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+                    <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
                       <Link
                         href={lPath("/contact")}
-                        className="inline-flex items-center gap-2.5 rounded-full bg-cyan-400 px-8 py-4 text-xs font-bold uppercase tracking-wider text-black shadow-[0_0_30px_rgba(6,182,212,0.5)] transition-all hover:scale-105 hover:bg-cyan-300"
+                        className="inline-flex h-12 w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-[var(--lp-ink)] px-6 text-sm sm:text-[15px] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_1px_2px_rgba(17,17,19,0.24)] transition-all hover:bg-[#2A2A2F] active:scale-[0.98] cursor-pointer"
                       >
-                        <svg className="w-4 h-4 fill-black" viewBox="0 0 24 24">
-                          <path d="M19 4H18V2H16V4H8V2H6V4H5C3.89 4 3 4.9 3 6V20C3 21.1 3.89 22 5 22H19C20.1 22 21 21.1 21 20V6C21 4.9 20.1 4 19 4ZM19 20H5V10H19V20ZM19 8H5V6H19V8Z" />
-                        </svg>
-                        {bPage.bottomCtaBtn1 || "Book a 1-on-1 Strategy Call"}
+                        <span>{bPage.bottomCtaBtn1 || "Book a 1-on-1 Strategy Call"}</span>
+                        <ArrowRight className="w-4 h-4" />
                       </Link>
 
                       <Link
-                        href={lPath("/contact")}
-                        className="inline-flex items-center gap-2.5 rounded-full border border-cyan-500/40 bg-cyan-500/10 px-8 py-4 text-xs font-bold uppercase tracking-wider text-cyan-300 transition-all hover:bg-cyan-500/20 hover:border-cyan-400"
+                        href={lPath("/products")}
+                        className="inline-flex h-12 w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-[var(--lp-line)] bg-white px-6 text-sm sm:text-[15px] font-semibold text-[var(--lp-ink)] shadow-xs transition-all hover:bg-[var(--lp-tile)] active:scale-[0.98] cursor-pointer"
                       >
-                        <svg className="w-4 h-4 fill-cyan-300" viewBox="0 0 24 24">
-                          <path d="M7 2v11h3v9l7-12h-4l4-8z" />
-                        </svg>
-                        {bPage.bottomCtaBtn2 || "Explore DIHUAVA Hardware"}
+                        <span>{bPage.bottomCtaBtn2 || "Explore Hardware Solutions"}</span>
                       </Link>
                     </div>
                   </div>
@@ -440,45 +417,22 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
               return (
                 <h2
                   key={idx}
-                  className="mt-14 mb-6 text-2xl md:text-3xl font-bold tracking-tight text-white border-l-4 border-cyan-400 pl-4 py-1"
+                  className="mt-12 mb-5 text-2xl md:text-3xl font-bold tracking-tight text-[var(--lp-ink)] border-l-4 border-[var(--lp-accent)] pl-4 py-1"
                 >
                   {titleText}
                 </h2>
               );
             }
 
-            // 5. H3 HEADINGS (Questions or Subheadings)
+            // 5. H3 HEADINGS
             if (trimmed.startsWith("### ")) {
-              const fullContent = trimmed.replace("### ", "").trim();
-
-              // If the H3 block contains an inline answer (separated by \n)
-              if (fullContent.includes("\n")) {
-                const lines = fullContent.split("\n").map((l) => l.trim()).filter(Boolean);
-                const question = lines[0];
-                const answer = lines.slice(1).join(" ");
-
-                return (
-                  <div
-                    key={idx}
-                    className="my-6 rounded-2xl border border-cyan-500/30 bg-neutral-950/90 p-6 shadow-xl backdrop-blur-md"
-                  >
-                    <h3 className="text-lg md:text-xl font-bold text-cyan-400 tracking-wide mb-2 flex items-start gap-2">
-                      <span className="text-cyan-400 shrink-0 font-mono">Q:</span>
-                      <span>{renderFormattedText(question, lPath)}</span>
-                    </h3>
-                    <p className="text-base md:text-lg text-white leading-8 font-normal pl-6 border-l-2 border-cyan-500/30 mt-3">
-                      {renderFormattedText(answer, lPath)}
-                    </p>
-                  </div>
-                );
-              }
-
+              const titleText = trimmed.replace("### ", "");
               return (
                 <h3
                   key={idx}
-                  className="mt-10 mb-3 text-xl md:text-2xl font-bold text-cyan-400 tracking-wide"
+                  className="mt-8 mb-3 text-xl font-bold text-[var(--lp-ink)]"
                 >
-                  {renderFormattedText(fullContent, lPath)}
+                  {titleText}
                 </h3>
               );
             }
@@ -489,31 +443,31 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
               return (
                 <h4
                   key={idx}
-                  className="mt-6 mb-3 text-lg font-semibold text-cyan-300"
+                  className="mt-6 mb-2 text-base font-semibold text-[var(--lp-ink)]"
                 >
-                  {renderFormattedText(titleText, lPath)}
+                  {titleText}
                 </h4>
               );
             }
 
-            // 7. HORIZONTAL DIVIDER
+            // 7. HORIZONTAL DIVIDERS
             if (trimmed === "---") {
-              return <hr key={idx} className="my-10 border-white/10" />;
+              return <hr key={idx} className="my-8 border-[var(--lp-line)]" />;
             }
 
-            // 8. MARKDOWN TABLES
+            // 8. TABLES
             if (trimmed.startsWith("|")) {
-              const rows = trimmed.split("\n").filter((r) => r.trim() !== "");
+              const rows = trimmed.split("\n");
               return (
-                <div key={idx} className="my-8 overflow-x-auto rounded-2xl border border-white/15 bg-neutral-950 p-2 shadow-xl">
-                  <table className="w-full text-left text-xs md:text-sm">
+                <div key={idx} className="my-8 overflow-x-auto rounded-[20px] border border-[var(--lp-line)] bg-[var(--lp-card)] shadow-xs">
+                  <table className="w-full text-left text-xs">
                     <thead>
                       {rows.slice(0, 1).map((row, rIdx) => {
                         const cols = row.split("|").filter((c) => c.trim() !== "");
                         return (
-                          <tr key={rIdx} className="border-b border-cyan-500/30 bg-cyan-500/10 font-bold text-cyan-300">
+                          <tr key={rIdx} className="border-b border-[var(--lp-line)] bg-[var(--lp-tile)] font-bold text-[var(--lp-ink)]">
                             {cols.map((col, cIdx) => (
-                              <th key={cIdx} className="py-4 px-5">
+                              <th key={cIdx} className="py-3.5 px-4">
                                 {col.replace(/\*\*/g, "").trim()}
                               </th>
                             ))}
@@ -521,13 +475,13 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
                         );
                       })}
                     </thead>
-                    <tbody className="divide-y divide-white/10">
+                    <tbody className="divide-y divide-[var(--lp-line)]">
                       {rows.slice(2).map((row, rIdx) => {
                         const cols = row.split("|").filter((c) => c.trim() !== "");
                         return (
-                          <tr key={rIdx} className="hover:bg-white/[0.03] transition-colors">
+                          <tr key={rIdx} className="hover:bg-[var(--lp-tile)]/50 transition-colors">
                             {cols.map((col, cIdx) => (
-                              <td key={cIdx} className="py-4 px-5 text-gray-200">
+                              <td key={cIdx} className="py-3.5 px-4 text-[var(--lp-ink-2)]">
                                 {renderFormattedText(col.trim(), lPath)}
                               </td>
                             ))}
@@ -544,19 +498,19 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
             if (trimmed.includes("\n- ") || trimmed.startsWith("- ")) {
               const lines = trimmed.split("\n");
               return (
-                <ul key={idx} className="my-6 space-y-3 pl-2">
+                <ul key={idx} className="my-6 space-y-2.5 pl-2">
                   {lines.map((line, lIdx) => {
                     if (line.startsWith("- ")) {
                       const cleanText = line.replace("- ", "");
                       return (
-                        <li key={lIdx} className="flex items-start gap-3 text-gray-200 text-base md:text-lg">
-                          <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(6,182,212,0.8)]" />
+                        <li key={lIdx} className="flex items-start gap-2.5 text-[var(--lp-ink-2)] text-base">
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--lp-accent)]" />
                           <span>{renderFormattedText(cleanText, lPath)}</span>
                         </li>
                       );
                     }
                     return (
-                      <p key={lIdx} className="text-white mb-2 text-base md:text-lg">
+                      <p key={lIdx} className="text-[var(--lp-ink)] mb-2 text-base">
                         {renderFormattedText(line, lPath)}
                       </p>
                     );
@@ -571,12 +525,13 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
               const linkHref = trimmed.substring(trimmed.indexOf("](") + 2, trimmed.length - 1);
 
               return (
-                <div key={idx} className="my-8 rounded-2xl border border-cyan-500/30 bg-neutral-950 p-6 text-center shadow-lg">
+                <div key={idx} className="my-8 rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-tile)] p-6 text-center">
                   <Link
                     href={lPath(linkHref)}
-                    className="inline-flex items-center gap-2 rounded-full bg-cyan-500 px-8 py-3 text-xs font-bold text-black shadow-lg transition hover:bg-cyan-400 hover:scale-105"
+                    className="inline-flex h-10 items-center justify-center gap-2 rounded-full bg-[var(--lp-ink)] px-5 text-xs sm:text-[14px] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_1px_2px_rgba(17,17,19,0.24)] transition-all hover:bg-[#2A2A2F] active:scale-[0.98] cursor-pointer"
                   >
-                    {linkText} →
+                    <span>{linkText}</span>
+                    <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                 </div>
               );
@@ -584,20 +539,20 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
 
             // 11. REGULAR PARAGRAPHS
             return (
-              <p key={idx} className="mb-6 text-base md:text-lg leading-8 text-white font-normal">
+              <p key={idx} className="mb-5 text-base leading-relaxed text-[var(--lp-ink-2)]">
                 {renderFormattedText(trimmed, lPath)}
               </p>
             );
           })}
 
           {/* TAGS FOOTER */}
-          <div className="mt-16 pt-8 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
+          <div className="mt-14 pt-6 border-t border-[var(--lp-line)] flex flex-wrap items-center justify-between gap-4">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="text-xs text-gray-400 mr-2">{bPage.tagsLabel || "Tags:"}</span>
+              <span className="text-xs text-[var(--lp-muted)] mr-1">{bPage.tagsLabel || "Tags:"}</span>
               {post.tags.map((t) => (
                 <span
                   key={t}
-                  className="rounded-lg border border-cyan-500/30 bg-cyan-500/10 px-3 py-1 text-xs text-cyan-300"
+                  className="rounded-full border border-[var(--lp-line)] bg-[var(--lp-tile)] px-3 py-0.5 text-xs text-[var(--lp-ink-2)]"
                 >
                   #{t}
                 </span>
@@ -606,22 +561,27 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
 
             <Link
               href={lPath("/blog")}
-              className="text-xs font-semibold text-cyan-400 hover:underline inline-flex items-center gap-1"
+              className="text-xs font-semibold text-[var(--lp-ink)] hover:text-[var(--lp-accent)] transition-colors inline-flex items-center gap-1.5"
             >
-              {bPage.backToKnowledgeHub || "← Back to Knowledge Hub"}
+              <ChevronLeft className="w-3.5 h-3.5" />
+              <span>{(bPage.backToKnowledgeHub || "Back to Knowledge Hub").replace(/^[←\s]+/, "")}</span>
             </Link>
           </div>
         </article>
 
         {/* RELATED ARTICLES SECTION */}
         {relatedPosts.length > 0 && (
-          <div className="mx-auto max-w-7xl mt-24 pt-16 border-t border-white/10">
+          <div className="mx-auto max-w-[1200px] mt-20 pt-14 border-t border-[var(--lp-line)]">
             <div className="flex items-center justify-between mb-8">
-              <h3 className="text-2xl font-bold text-white">
+              <h3 className="text-2xl font-bold text-[var(--lp-ink)]">
                 {bPage.relatedArticlesTitle || "Related Articles"}
               </h3>
-              <Link href={lPath("/blog")} className="text-xs font-semibold text-cyan-400 hover:underline">
-                {bPage.viewAllArticles || "View All Articles →"}
+              <Link
+                href={lPath("/blog")}
+                className="text-xs font-semibold text-[var(--lp-ink)] hover:text-[var(--lp-accent)] transition-colors inline-flex items-center gap-1.5"
+              >
+                <span>{(bPage.viewAllArticles || "View All Articles").replace(/[\s→]+$/, "")}</span>
+                <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
 
@@ -630,23 +590,24 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
                 <Link
                   key={rel.id}
                   href={lPath(`/blog/${rel.slug}`)}
-                  className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/15 bg-neutral-950 p-6 transition-all hover:border-cyan-500/50 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)]"
+                  className="group relative flex flex-col justify-between overflow-hidden rounded-[24px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-6 shadow-xs hover:shadow-md transition-all"
                 >
                   <div>
-                    <span className="text-[11px] font-semibold text-cyan-400 uppercase tracking-wider">
+                    <span className="text-[11px] font-semibold text-[var(--lp-accent)] uppercase tracking-wider">
                       {rel.category}
                     </span>
-                    <h4 className="mt-2 text-base font-bold text-white group-hover:text-cyan-300 transition-colors line-clamp-2">
+                    <h4 className="mt-2 text-base font-bold text-[var(--lp-ink)] group-hover:text-[var(--lp-accent)] transition-colors line-clamp-2">
                       {rel.title}
                     </h4>
-                    <p className="mt-2 text-xs text-gray-400 line-clamp-2 leading-5">
+                    <p className="mt-2 text-xs text-[var(--lp-ink-2)] line-clamp-2 leading-relaxed">
                       {rel.snippet}
                     </p>
                   </div>
-                  <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-gray-500">
-                    <span>{rel.readTime}</span>
-                    <span className="text-cyan-400 font-semibold group-hover:translate-x-1 transition-transform">
-                      {bPage.readShort || "Read →"}
+                  <div className="mt-6 pt-4 border-t border-[var(--lp-line)] flex items-center justify-between text-xs text-[var(--lp-muted)]">
+                    <span className="font-mono">{rel.readTime}</span>
+                    <span className="text-[var(--lp-ink)] font-semibold group-hover:text-[var(--lp-accent)] group-hover:translate-x-1 transition-all inline-flex items-center gap-1">
+                      <span>{bPage.readShort || "Read"}</span>
+                      <ArrowRight className="h-3.5 w-3.5" />
                     </span>
                   </div>
                 </Link>

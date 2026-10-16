@@ -1,218 +1,55 @@
 "use client";
 
 import Header from "@/components/Header";
-import DihuavaPlatform from "@/components/DihuavaPlatform";
-import Products from "@/components/Products";
-import ImmersiveUseCases from "@/components/ImmersiveUseCases";
-import RealtimeTalkingAvatars from "@/components/RealtimeTalkingAvatars";
-import ChatbotVsAvatar from "@/components/ChatbotVsAvatar";
+import ParallaxBackgroundLayer from "@/components/ParallaxBackgroundLayer";
+import DigitalHumanHero from "@/components/DigitalHumanHero";
+import EnterpriseQuestionSimulator from "@/components/EnterpriseQuestionSimulator";
 import Industries from "@/components/Industries";
-import LatestInsights from "@/components/LatestInsights";
+import EnterpriseRoiCalculator from "@/components/EnterpriseRoiCalculator";
+import EnterpriseSecurityCommand from "@/components/EnterpriseSecurityCommand";
+import ChatbotVsAvatar from "@/components/ChatbotVsAvatar";
+import Products from "@/components/Products";
 import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { usePathname } from "next/navigation";
-import { getDictionary } from "@/i18n/getDictionary";
-import { Locale, nonDefaultLocales } from "@/i18n/config";
 
 export default function HomeClient() {
-  const pathname = usePathname();
-  const seg = pathname ? pathname.split("/")[1] : "";
-  const currentLocale: Locale = seg && (nonDefaultLocales as readonly string[]).includes(seg) ? (seg as Locale) : "en";
-  const dict = getDictionary(currentLocale);
-  const hero = dict.home.hero;
-
-  const lPath = (path: string) => {
-    if (currentLocale === "en") return path;
-    return `/${currentLocale}${path === "/" ? "" : path}`;
-  };
-
   return (
-    <main className="min-h-screen bg-black text-white selection:bg-cyan-500 selection:text-black">
+    <main className="relative min-h-screen bg-[var(--lp-bg)] text-[var(--lp-ink)] selection:bg-[var(--lp-accent)] selection:text-white overflow-x-clip">
+      {/* 0. MULTI-DEPTH PARALLAX BACKGROUND ACCENT LAYER */}
+      <ParallaxBackgroundLayer />
+
+      {/* 1. FLOATING CAPSULE NAVIGATION HEADER */}
       <Header />
 
-      {/* HERO SECTION WITH BACKSIDE DIGITAL HUMAN VIDEO */}
-      <section className="relative flex min-h-[92vh] items-center justify-center px-6 pt-32 pb-24 overflow-hidden border-b border-white/10">
-        {/* Horizontal Background Video (Backside of Text) */}
-        <div className="absolute inset-0 z-0 overflow-hidden">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="h-full w-full object-cover opacity-45 filter brightness-90 contrast-110"
-          >
-            <source src="/hero-background.mp4" type="video/mp4" />
-          </video>
+      {/* 2. SWIPECRAFT-STYLE DOMAIN-FIRST DIGITAL HUMAN HERO */}
+      <DigitalHumanHero />
 
-          {/* Dark Overlay Gradients for High-Contrast Readable Text */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/55 to-black/80" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-transparent to-black/70" />
-          <div className="pointer-events-none absolute left-1/3 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[950px] rounded-full bg-cyan-600/20 blur-[170px]" />
-          <div className="pointer-events-none absolute right-1/4 top-1/3 h-[500px] w-[750px] rounded-full bg-sky-600/15 blur-[170px]" />
-        </div>
+      {/* 3. INTERACTIVE ENTERPRISE WORKFLOW & DOMAIN QUESTION SIMULATOR */}
+      <EnterpriseQuestionSimulator />
 
-        {/* HERO TEXT OVERLAY (ABOVE THE VIDEO WITH Z-10) */}
-        <motion.div
-          initial={{ opacity: 0, y: 35 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="relative text-center text-white z-10 max-w-5xl"
-        >
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-flex items-center gap-2.5 rounded-full border border-cyan-500/40 bg-cyan-950/80 px-4 py-1.5 backdrop-blur-md mb-8 shadow-[0_0_25px_rgba(6,182,212,0.35)]"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-500" />
-            </span>
-            <span className="text-xs font-semibold tracking-widest text-cyan-300 uppercase">
-              {hero.badge}
-            </span>
-          </motion.div>
-
-          {/* Main Headline */}
-          <h1 className="text-5xl font-extrabold tracking-tight md:text-7xl lg:text-8xl drop-shadow-2xl">
-            {hero.titleLine1}
-            <br />
-            {hero.titleLine2Prefix}
-            <span className="bg-gradient-to-r from-white via-cyan-100 to-cyan-400 bg-clip-text text-transparent">
-              {hero.titleLine2Highlight}
-            </span>
-          </h1>
-
-          <p className="mx-auto mt-8 max-w-3xl text-lg text-gray-200 sm:text-xl leading-relaxed drop-shadow-md">
-            {hero.descriptionPrefix}
-            <span className="font-bold text-cyan-300 bg-cyan-950/80 px-2.5 py-0.5 rounded-md border border-cyan-500/40 shadow-[0_0_15px_rgba(6,182,212,0.35)] inline-block">
-              {hero.descriptionHighlight}
-            </span>{" "}
-            {hero.descriptionSuffix}
-          </p>
-
-          {/* Action Buttons */}
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <a
-              href={lPath("/contact")}
-              className="rounded-full bg-white px-9 py-4 text-sm font-bold text-black transition-all duration-300 hover:scale-105 hover:bg-cyan-400 hover:shadow-[0_0_35px_rgba(6,182,212,0.6)]"
-            >
-              {hero.bookDemo}
-            </a>
-            <a
-              href={lPath("/products")}
-              className="rounded-full border border-cyan-400/40 bg-black/60 px-8 py-4 text-sm font-semibold text-cyan-300 backdrop-blur-md transition-all duration-300 hover:border-cyan-400 hover:bg-cyan-500/10 hover:scale-105 shadow-[0_0_20px_rgba(6,182,212,0.2)]"
-            >
-              {hero.exploreProducts}
-            </a>
-          </div>
-
-          {/* Quick Metrics Bar */}
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-16 grid grid-cols-2 gap-4 border-t border-white/15 pt-10 sm:grid-cols-4 backdrop-blur-md rounded-2xl bg-black/50 p-6 shadow-2xl border border-cyan-500/20"
-          >
-            <div>
-              <p className="text-3xl font-bold text-cyan-400 drop-shadow">{hero.metrics.offlineTitle}</p>
-              <p className="text-xs text-gray-300 uppercase tracking-wider mt-1 font-medium font-mono">{hero.metrics.offlineDesc}</p>
-            </div>
-            <div>
-              <p className="text-3xl font-bold text-cyan-400 drop-shadow">{hero.metrics.languagesTitle}</p>
-              <p className="text-xs text-gray-300 uppercase tracking-wider mt-1 font-medium font-mono font-semibold">{hero.metrics.languagesDesc}</p>
-            </div>
-            <div>
-              <p className="text-3xl font-bold text-cyan-400 drop-shadow">{hero.metrics.latencyTitle}</p>
-              <p className="text-xs text-gray-300 uppercase tracking-wider mt-1 font-medium font-mono">{hero.metrics.latencyDesc}</p>
-            </div>
-            <div>
-              <p className="text-3xl font-bold text-cyan-400 drop-shadow">{hero.metrics.privacyTitle}</p>
-              <p className="text-xs text-gray-300 uppercase tracking-wider mt-1 font-medium font-mono">{hero.metrics.privacyDesc}</p>
-            </div>
-          </motion.div>
-
-          {/* PICTORIAL HERO SHOWCASE STRIP */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.6 }}
-            className="mt-10 border-t border-cyan-500/20 pt-8"
-          >
-            <span className="block text-center text-xs font-mono font-bold text-cyan-300 uppercase tracking-widest mb-4">
-              ✨ Enterprise Live Display Hardware & Avatars
-            </span>
-
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-              {[
-                { title: "AI Digital Human", tag: "60 FPS Stream", img: "/images/avatars/full_digital_human_presenter.png", href: "/products/ai-digital-human" },
-                { title: "3D Hologram Box", tag: "Offline Cabinet", img: "/products/hologram-box/hologram-box.png", href: "/products/holographic-display" },
-                { title: "Museum Hologram", tag: "Heritage Avatar", img: "/images/use-cases/museum_hologram_avatar.png", href: "/industries/tourism" },
-                { title: "Banking VIP Kiosk", tag: "Wealth Advisor", img: "/images/use-cases/banking_hologram_kiosk.png", href: "/industries/banking" },
-              ].map((item) => (
-                <a
-                  key={item.title}
-                  href={lPath(item.href)}
-                  className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/15 bg-black/70 p-3 backdrop-blur-md transition-all duration-300 hover:border-cyan-400 hover:bg-neutral-900/90 hover:scale-105 shadow-lg"
-                >
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-neutral-950">
-                    <Image
-                      src={item.img}
-                      alt={item.title}
-                      fill
-                      sizes="(max-width: 768px) 50vw, 25vw"
-                      className="object-contain p-1 filter brightness-105 contrast-105 transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                    <div className="absolute top-2 left-2 rounded-full border border-cyan-500/40 bg-black/80 px-2 py-0.5 text-[9px] font-mono text-cyan-300">
-                      {item.tag}
-                    </div>
-                  </div>
-                  <div className="mt-2.5 flex items-center justify-between text-left">
-                    <span className="text-xs font-bold text-white group-hover:text-cyan-300 transition-colors">
-                      {item.title}
-                    </span>
-                    <span className="text-xs text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
-                  </div>
-                </a>
-              ))}
-            </div>
-          </motion.div>
-        </motion.div>
-      </section>
-
-      {/* CORE PLATFORM CAPABILITIES */}
-      <DihuavaPlatform />
-
-      {/* PORTRAITS & HOLOGRAMS THAT SPEAK (IMMERSIVE USE CASES) */}
-      <ImmersiveUseCases />
-
-      {/* REAL-TIME CONVERSATIONAL AVATARS WITH MEMORY */}
-      <RealtimeTalkingAvatars />
-
-      {/* FEATURED PRODUCTS */}
-      <Products />
-
-      {/* CHATBOT VS DIGITAL HUMAN COMPARISON */}
-      <ChatbotVsAvatar />
-
-      {/* INDUSTRIES SECTION */}
+      {/* 4. ASYMMETRIC BENTO GRID: DOMAIN SOLUTIONS (RETAIL, HEALTHCARE, DEFENCE, EVENTS) */}
       <Industries />
 
-      {/* LATEST AI INSIGHTS & ARTICLES */}
-      <LatestInsights />
+      {/* 5. INTERACTIVE ENTERPRISE ROI & COST-SAVINGS DRAG BAR CALCULATOR */}
+      <EnterpriseRoiCalculator />
 
-      {/* FAQ SECTION */}
+      {/* 6. INTERACTIVE AIR-GAPPED SECURITY & DATA PRIVACY COMMAND CENTER */}
+      <EnterpriseSecurityCommand />
+
+      {/* 7. COST CUTTING & ROI VALUE COMPARISON (CHATBOTS VS STAFFING VS DIGITAL HUMANS) */}
+      <ChatbotVsAvatar />
+
+      {/* 8. PHYSICAL HARDWARE & FORM FACTORS (HOLOGRAM BOXES, KIOSKS, SPATIAL DISPLAYS) */}
+      <Products />
+
+      {/* 9. ENTERPRISE DEPLOYMENT FAQ ACCORDION */}
       <FAQ />
 
-      {/* CTA SECTION */}
+      {/* 10. HIGH-CONVERSION ENTERPRISE PILOT CTA CALLOUT */}
       <CTA />
 
-      {/* FOOTER */}
+      {/* 11. MINIMALIST EDITORIAL FOOTER */}
       <Footer />
     </main>
   );

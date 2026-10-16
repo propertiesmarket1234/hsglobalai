@@ -12,12 +12,12 @@ import { getLocalizedAlternates } from "@/i18n/config";
 import {
   ShieldCheck,
   FileText,
-  Globe,
+  Globe2,
   Ticket,
   Landmark,
   ShoppingBag,
   Building2,
-  Stethoscope,
+  HeartPulse,
   Castle,
   GraduationCap,
   BarChart2,
@@ -28,27 +28,60 @@ import {
   UserCheck,
   Sparkles,
   HelpCircle,
+  ArrowRight,
+  CheckCircle2,
 } from "lucide-react";
 
 const getIconComponent = (iconStr: string) => {
-  switch (iconStr) {
-    case "🔒": return ShieldCheck;
-    case "📄": return FileText;
-    case "🌐": return Globe;
-    case "🎫": return Ticket;
-    case "🏦": return Landmark;
-    case "🛍️": return ShoppingBag;
-    case "🏢": return Building2;
-    case "🏥": return Stethoscope;
-    case "🏛️": return Castle;
-    case "🎓": return GraduationCap;
-    case "📊": return BarChart2;
-    case "⚡": return Zap;
-    case "🎬": return Film;
-    case "👥": return Users;
-    case "📦": return Box;
-    case "👤": return UserCheck;
-    case "✨": return Sparkles;
+  switch (iconStr.toLowerCase()) {
+    case "lock":
+    case "shield": return ShieldCheck;
+    case "file":
+    case "doc":
+    case "note":
+    case "list": return FileText;
+    case "globe":
+    case "earth": return Globe2;
+    case "ticket": return Ticket;
+    case "bank":
+    case "landmark": return Landmark;
+    case "bag":
+    case "retail":
+    case "shop": return ShoppingBag;
+    case "building":
+    case "corporate":
+    case "office": return Building2;
+    case "hospital":
+    case "health":
+    case "stethoscope":
+    case "pulse": return HeartPulse;
+    case "gov":
+    case "heritage":
+    case "castle": return Castle;
+    case "education":
+    case "school":
+    case "book": return GraduationCap;
+    case "chart":
+    case "growth":
+    case "bar": return BarChart2;
+    case "zap":
+    case "flash": return Zap;
+    case "film":
+    case "video": return Film;
+    case "users":
+    case "people":
+    case "audience":
+    case "speech": return Users;
+    case "box":
+    case "cube": return Box;
+    case "avatar":
+    case "user":
+    case "vip":
+    case "crown": return UserCheck;
+    case "sparkles":
+    case "magic":
+    case "gem":
+    case "diamond": return Sparkles;
     default: return HelpCircle;
   }
 };
@@ -72,9 +105,7 @@ export async function generateMetadata({ params }: IndustryPageProps): Promise<M
 
   if (!industry) {
     return {
-      title: "Industry Solutions | HS Global AI",
-      description: "AI Digital Human and 3D Hologram Box solutions tailored for global enterprise industries.",
-      alternates: getLocalizedAlternates(`/industries/${slug}`, lang),
+      title: "Industry Not Found | HS Global AI",
     };
   }
 
@@ -111,7 +142,6 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
   const holoHref = lang === "en" ? "/products/holographic-display" : `/${lang}/products/holographic-display`;
   const avatarHref = lang === "en" ? "/products/ai-digital-human" : `/${lang}/products/ai-digital-human`;
   const spatialHref = lang === "en" ? "/products/spatial-display" : `/${lang}/products/spatial-display`;
-  const docIntelHref = lang === "en" ? "/products/ai-digital-human/document-intelligence" : `/${lang}/products/ai-digital-human/document-intelligence`;
 
   const baseUrl = "https://www.hsglobalai.com";
   const currentPath = lang === "en" ? `/industries/${industry.slug}` : `/${lang}/industries/${industry.slug}`;
@@ -174,7 +204,7 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
     : null;
 
   return (
-    <main className="min-h-screen bg-black text-white selection:bg-cyan-500 selection:text-black">
+    <main className="min-h-screen bg-[var(--lp-bg)] text-[var(--lp-ink)] selection:bg-[var(--lp-accent)] selection:text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
@@ -191,215 +221,117 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
       )}
       <Header />
 
-      {/* HERO SECTION */}
-      <section className="relative overflow-hidden px-6 pt-32 pb-24 md:pt-40 md:pb-28 border-b border-white/10">
-        {/* Ambient Top Glow */}
-        <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-[500px] w-[800px] rounded-full bg-gradient-to-b from-cyan-500/20 via-sky-600/10 to-transparent blur-[160px]" />
-
-        <div className="relative mx-auto max-w-7xl">
+      {/* HERO SECTION: SWIPECRAFT STYLE */}
+      <section className="relative px-4 pt-32 pb-16 sm:px-6 md:pt-40 md:pb-24 border-b border-[var(--lp-line)]">
+        <div className="mx-auto max-w-[1200px]">
           {/* Breadcrumb Navigation */}
-          <div className="flex items-center gap-2 text-xs text-gray-400 mb-6 font-mono">
-            <Link href={homeHref} className="hover:text-cyan-400 transition-colors">
+          <div className="flex items-center gap-2 text-xs text-[var(--lp-muted)] mb-6 font-mono">
+            <Link href={homeHref} className="hover:text-[var(--lp-ink)] transition-colors">
               {ui.home}
             </Link>
             <span>/</span>
-            <Link href={industriesHref} className="hover:text-cyan-400 transition-colors">
+            <Link href={industriesHref} className="hover:text-[var(--lp-ink)] transition-colors">
               {ui.industries}
             </Link>
             <span>/</span>
-            <span className="text-cyan-300 font-semibold">{industry.title}</span>
+            <span className="text-[var(--lp-ink)] font-semibold">{industry.title}</span>
           </div>
 
           <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
             {/* Left Content */}
             <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2.5 rounded-full border border-cyan-500/40 bg-cyan-950/80 px-4 py-1.5 backdrop-blur-md shadow-[0_0_20px_rgba(6,182,212,0.3)] mb-6">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[var(--lp-line)] bg-[var(--lp-tile)] px-3.5 py-1.5 mb-6">
                 <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-500" />
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--lp-accent)] opacity-75" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--lp-accent)]" />
                 </span>
-                <span className="text-xs font-semibold tracking-widest text-cyan-300 uppercase font-mono">
+                <span className="text-[12px] font-semibold uppercase tracking-wider text-[var(--lp-ink-2)]">
                   {industry.badge}
                 </span>
               </div>
 
-              {(() => {
-                const h1FullText = industry.h1Title || industry.title;
-                const firstAmp = h1FullText.indexOf("&");
-                const h1Prefix = firstAmp !== -1 ? h1FullText.slice(0, firstAmp).trim() : h1FullText;
-                const h1Suffix = firstAmp !== -1 ? h1FullText.slice(firstAmp).trim() : "";
-                return (
-                  <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl lg:leading-[1.1]">
-                    {h1Prefix}{" "}
-                    {h1Suffix && (
-                      <span className="bg-gradient-to-r from-cyan-400 via-sky-300 to-cyan-500 bg-clip-text text-transparent">
-                        {h1Suffix}
-                      </span>
-                    )}
-                  </h1>
-                );
-              })()}
+              <h1 className="text-balance text-[40px] font-semibold leading-[1.04] tracking-[-0.04em] text-[var(--lp-ink)] sm:text-[54px] lg:text-[64px]">
+                {industry.h1Title || industry.title}
+              </h1>
 
-              <p className="mt-4 text-xl font-medium text-cyan-300 font-mono">
+              <p className="mt-3 text-lg font-medium text-[var(--lp-muted)]">
                 {industry.subtitle}
               </p>
 
-              <p className="mt-6 text-base leading-8 text-gray-300 sm:text-lg max-w-2xl">
+              <p className="mt-5 text-[16px] leading-[1.65] text-[var(--lp-ink-2)] sm:text-[18px] max-w-2xl">
                 {industry.heroOverview}
               </p>
 
-              <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2 text-xs font-mono text-cyan-300/90 border-l-2 border-cyan-500/50 pl-4 py-1">
-                <span className="text-gray-400">Supported Hardware &amp; Software Platforms:</span>
-                <Link href={avatarHref} className="text-cyan-400 hover:text-cyan-300 underline font-semibold transition-colors">
-                  DIHUAVA AI Digital Human
+              {/* Supported Platforms Link Strip */}
+              <div className="mt-6 flex flex-wrap items-center gap-2 text-xs text-[var(--lp-muted)]">
+                <span className="font-semibold text-[var(--lp-ink)]">Supported Hardware &amp; AI Stack:</span>
+                <Link href={avatarHref} className="inline-flex h-7 items-center justify-center rounded-full bg-[var(--lp-tile)] border border-[var(--lp-line)] px-3 text-[11px] font-medium text-[var(--lp-ink)] hover:bg-[var(--lp-tile-2)] transition-colors active:scale-[0.98] cursor-pointer">
+                  DIHUAVA Digital Human
                 </Link>
-                <span>•</span>
-                <Link href={holoHref} className="text-cyan-400 hover:text-cyan-300 underline font-semibold transition-colors">
-                  AI Holographic Display
+                <Link href={holoHref} className="inline-flex h-7 items-center justify-center rounded-full bg-[var(--lp-tile)] border border-[var(--lp-line)] px-3 text-[11px] font-medium text-[var(--lp-ink)] hover:bg-[var(--lp-tile-2)] transition-colors active:scale-[0.98] cursor-pointer">
+                  3D Hologram Cabinet
                 </Link>
-                <span>•</span>
-                <Link href={spatialHref} className="text-cyan-400 hover:text-cyan-300 underline font-semibold transition-colors">
-                  3D Spatial Display
-                </Link>
-                <span>•</span>
-                <Link href={docIntelHref} className="text-cyan-400 hover:text-cyan-300 underline font-semibold transition-colors">
-                  Document Intelligence RAG
+                <Link href={spatialHref} className="inline-flex h-7 items-center justify-center rounded-full bg-[var(--lp-tile)] border border-[var(--lp-line)] px-3 text-[11px] font-medium text-[var(--lp-ink)] hover:bg-[var(--lp-tile-2)] transition-colors active:scale-[0.98] cursor-pointer">
+                  Spatial 3D Screen
                 </Link>
               </div>
 
-              {industry.slug === "banking" && (
-                <div className="mt-4 rounded-xl border border-cyan-500/30 bg-cyan-950/40 px-4 py-2.5 text-xs text-gray-300">
-                  <span className="text-cyan-400 font-bold font-mono">Industry Automation Guide: </span>
-                  <span>Learn how digital humans streamline customer onboarding and branch operations in </span>
-                  <Link href={lang === "en" ? "/blog/ai-business-automation" : `/${lang}/blog/ai-business-automation`} className="text-cyan-400 hover:text-cyan-300 underline font-semibold transition-colors">
-                    AI Business Automation
-                  </Link>
-                  .
-                </div>
-              )}
-
-              {industry.slug === "healthcare" && (
-                <div className="mt-4 rounded-xl border border-cyan-500/30 bg-cyan-950/40 px-4 py-2.5 text-xs text-gray-300">
-                  <span className="text-cyan-400 font-bold font-mono">Educational Guide: </span>
-                  <span>Read our detailed analysis on </span>
-                  <Link href={lang === "en" ? "/blog/ai-patient-triage-healthcare-guidance" : `/${lang}/blog/ai-patient-triage-healthcare-guidance`} className="text-cyan-400 hover:text-cyan-300 underline font-semibold transition-colors">
-                    AI Patient Triage &amp; Healthcare Guidance
-                  </Link>
-                  .
-                </div>
-              )}
-
-              {industry.slug === "corporate" && (
-                <div className="mt-4 rounded-xl border border-cyan-500/30 bg-cyan-950/40 px-4 py-2.5 text-xs text-gray-300">
-                  <span className="text-cyan-400 font-bold font-mono">Corporate AI Guide: </span>
-                  <span>Discover how AI Digital Human receptionists automate front-desk operations in </span>
-                  <Link href={lang === "en" ? "/blog/ai-business-automation" : `/${lang}/blog/ai-business-automation`} className="text-cyan-400 hover:text-cyan-300 underline font-semibold transition-colors">
-                    AI in Business Automation
-                  </Link>
-                  .
-                </div>
-              )}
-
-              {industry.slug === "retail" && (
-                <div className="mt-4 rounded-xl border border-cyan-500/30 bg-cyan-950/40 px-4 py-2.5 text-xs text-gray-300 flex flex-wrap items-center gap-x-1.5 gap-y-1">
-                  <span className="text-cyan-400 font-bold font-mono">Retail AI Guides: </span>
-                  <span>Explore how </span>
-                  <Link href={lang === "en" ? "/blog/how-ai-in-retail" : `/${lang}/blog/how-ai-in-retail`} className="text-cyan-400 hover:text-cyan-300 underline font-semibold transition-colors">
-                    AI in Retail
-                  </Link>
-                  <span> and </span>
-                  <Link href={lang === "en" ? "/blog/what-is-virtual-try-on-technology" : `/${lang}/blog/what-is-virtual-try-on-technology`} className="text-cyan-400 hover:text-cyan-300 underline font-semibold transition-colors">
-                    Virtual Try-On Technology
-                  </Link>
-                  <span> transform in-store customer experiences.</span>
-                </div>
-              )}
-
-              {industry.slug === "education" && (
-                <div className="mt-4 rounded-xl border border-cyan-500/30 bg-cyan-950/40 px-4 py-2.5 text-xs text-gray-300 flex flex-wrap items-center gap-x-1.5 gap-y-1">
-                  <span className="text-cyan-400 font-bold font-mono">EdTech AI Guides: </span>
-                  <span>Learn how on-device AI and local RAG power interactive learning and security in </span>
-                  <Link href={lang === "en" ? "/blog/why-100-offline-ai" : `/${lang}/blog/why-100-offline-ai`} className="text-cyan-400 hover:text-cyan-300 underline font-semibold transition-colors">
-                    Why 100% Offline AI is the Future
-                  </Link>
-                  <span> and </span>
-                  <Link href={lang === "en" ? "/blog/ai-business-automation" : `/${lang}/blog/ai-business-automation`} className="text-cyan-400 hover:text-cyan-300 underline font-semibold transition-colors">
-                    AI Business Automation
-                  </Link>
-                  .
-                </div>
-              )}
-
-              {industry.slug === "tourism" && (
-                <div className="mt-4 rounded-xl border border-cyan-500/30 bg-cyan-950/40 px-4 py-2.5 text-xs text-gray-300 flex flex-wrap items-center gap-x-1.5 gap-y-1">
-                  <span className="text-cyan-400 font-bold font-mono">Tourism AI Guides: </span>
-                  <span>Discover how </span>
-                  <Link href={lang === "en" ? "/blog/multilingual-ai" : `/${lang}/blog/multilingual-ai`} className="text-cyan-400 hover:text-cyan-300 underline font-semibold transition-colors">
-                    Multilingual AI
-                  </Link>
-                  <span> and </span>
-                  <Link href={lang === "en" ? "/blog/ai-product-catalogue" : `/${lang}/blog/ai-product-catalogue`} className="text-cyan-400 hover:text-cyan-300 underline font-semibold transition-colors">
-                    3D AI Product Catalogues
-                  </Link>
-                  <span> enhance interactive museum exhibits and cultural tour experiences.</span>
-                </div>
-              )}
-
               {/* Action Buttons */}
-              <div className="mt-8 flex flex-wrap items-center gap-4">
+              <div className="mt-8 flex flex-col sm:flex-row items-center gap-3">
                 <Link
                   href={contactHref}
-                  className="rounded-full bg-gradient-to-r from-cyan-500 via-sky-500 to-cyan-600 px-8 py-3.5 text-sm font-bold text-white shadow-xl transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(6,182,212,0.4)]"
+                  className="group inline-flex h-12 w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-[var(--lp-ink)] px-6 text-sm sm:text-[15px] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_1px_2px_rgba(17,17,19,0.24)] transition-all hover:bg-[#2A2A2F] active:scale-[0.98] cursor-pointer"
                 >
-                  {ui.requestDemo.replace("{title}", industry.title)}
+                  <span>Request {industry.title} Pilot</span>
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
                 <Link
                   href={downloadHref}
-                  className="rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-semibold text-gray-200 backdrop-blur-md transition-colors hover:border-cyan-400 hover:text-white"
+                  className="inline-flex h-12 w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-[var(--lp-line)] bg-white px-6 text-sm sm:text-[15px] font-semibold text-[var(--lp-ink)] shadow-xs transition-all hover:bg-[var(--lp-tile)] active:scale-[0.98] cursor-pointer"
                 >
-                  {ui.downloadPdf}
+                  <span>{ui.downloadPdf}</span>
                 </Link>
               </div>
             </div>
 
             {/* Right Card Visual */}
             <div className="lg:col-span-5">
-              <div className="relative overflow-hidden rounded-3xl border border-cyan-500/30 bg-neutral-950/90 p-8 backdrop-blur-xl shadow-[0_0_50px_rgba(6,182,212,0.2)]">
-                <div className="flex items-center gap-4 border-b border-white/10 pb-6">
-                  <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-cyan-400/40 bg-cyan-950/60 text-cyan-300 shadow-[0_0_20px_rgba(6,182,212,0.25)] backdrop-blur-md">
-                    <MainIcon className="w-8 h-8 text-cyan-300" strokeWidth={1.75} />
+              <div className="rounded-[32px] border border-[var(--lp-line)] bg-[var(--lp-tile)] p-8 shadow-[var(--lp-shadow-card)]">
+                <div className="flex items-center gap-4 border-b border-[var(--lp-line)] pb-6">
+                  <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-card)] text-[var(--lp-accent)] shadow-xs">
+                    <MainIcon className="w-7 h-7" strokeWidth={1.75} />
                   </span>
                   <div>
-                    <span className="font-mono text-xs text-cyan-400 tracking-wider uppercase">
-                      INDUSTRY DEPLOYMENT {industry.number}
+                    <span className="font-mono text-xs text-[var(--lp-muted)] tracking-wider uppercase">
+                      DEPLOYMENT ARCHITECTURE {industry.number}
                     </span>
-                    <h3 className="text-2xl font-bold text-white">{industry.title}</h3>
+                    <h3 className="text-xl font-bold text-[var(--lp-ink)]">{industry.title}</h3>
                   </div>
                 </div>
 
-                <div className="mt-6 space-y-4">
-                  <div className="rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-md">
-                    <span className="text-xs font-mono text-gray-400 uppercase tracking-wider">
+                <div className="mt-6 space-y-3">
+                  <div className="rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-card)] p-4 shadow-2xs">
+                    <span className="text-xs font-semibold text-[var(--lp-muted)] uppercase tracking-wider block">
                       {ui.targetEnvironment}
                     </span>
-                    <p className="mt-1 text-sm font-semibold text-white">
+                    <p className="mt-1 text-sm font-semibold text-[var(--lp-ink)]">
                       {ui.targetEnvValue}
                     </p>
                   </div>
 
-                  <div className="rounded-xl border border-cyan-500/30 bg-cyan-950/40 p-4 backdrop-blur-md">
-                    <span className="text-xs font-mono text-cyan-400 uppercase tracking-wider">
+                  <div className="rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-card)] p-4 shadow-2xs">
+                    <span className="text-xs font-semibold text-[var(--lp-muted)] uppercase tracking-wider block">
                       {ui.coreAiArch}
                     </span>
-                    <p className="mt-1 text-sm font-semibold text-cyan-200">
+                    <p className="mt-1 text-sm font-semibold text-[var(--lp-accent-ink)]">
                       {ui.coreAiArchValue}
                     </p>
                   </div>
                 </div>
 
-                <div className="mt-6 pt-6 border-t border-white/10 flex items-center justify-between text-xs font-mono text-gray-400">
+                <div className="mt-6 pt-5 border-t border-[var(--lp-line)] flex items-center justify-between text-xs font-mono text-[var(--lp-muted)]">
                   <span>{ui.statusReady}</span>
-                  <span className="text-emerald-400">{ui.languages29}</span>
+                  <span className="font-semibold text-[#16a34a]">{ui.languages29}</span>
                 </div>
               </div>
             </div>
@@ -408,18 +340,18 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
       </section>
 
       {/* METRICS & BUSINESS IMPACT */}
-      <section className="relative overflow-hidden bg-neutral-950 px-6 py-16 border-b border-white/10">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
+      <section className="px-4 py-16 sm:px-6 md:py-20 bg-[var(--lp-tile)] border-b border-[var(--lp-line)]">
+        <div className="mx-auto max-w-[1200px]">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             {industry.metrics.map((metric, idx) => (
               <div
                 key={idx}
-                className="rounded-2xl border border-white/10 bg-black/60 p-6 text-center backdrop-blur-md shadow-lg"
+                className="rounded-[24px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-6 text-center shadow-xs"
               >
-                <p className="text-3xl font-extrabold text-cyan-400 drop-shadow md:text-4xl">
+                <p className="text-3xl font-extrabold text-[var(--lp-accent)] font-mono md:text-4xl">
                   {metric.value}
                 </p>
-                <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-gray-300 font-mono">
+                <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-[var(--lp-muted)]">
                   {metric.label}
                 </p>
               </div>
@@ -429,36 +361,37 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
       </section>
 
       {/* CORE CAPABILITIES */}
-      <section className="relative overflow-hidden px-6 py-24 border-b border-white/10">
-        <div className="mx-auto max-w-7xl">
+      <section className="px-4 py-20 sm:px-6 md:py-28 bg-[var(--lp-bg)] border-b border-[var(--lp-line)]">
+        <div className="mx-auto max-w-[1200px]">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400 font-mono">
+            <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-wider text-[var(--lp-accent-ink)]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[var(--lp-accent)]" />
               {ui.tailoredCapabilitiesBadge}
             </span>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-5xl">
+            <h2 className="mt-2 text-3xl font-bold tracking-tight text-[var(--lp-ink)] md:text-4xl">
               {ui.tailoredCapabilitiesTitle.replace("{title}", industry.title)}
             </h2>
-            <p className="mt-4 text-base text-gray-400 leading-7">
+            <p className="mt-4 text-base text-[var(--lp-ink-2)]">
               {ui.tailoredCapabilitiesDesc}
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {industry.capabilities.map((cap, idx) => {
               const CapIcon = getIconComponent(cap.icon);
               return (
                 <div
                   key={idx}
-                  className="group relative flex flex-col justify-between rounded-2xl border border-white/15 bg-neutral-950/80 p-6 backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/40 hover:shadow-[0_0_30px_rgba(6,182,212,0.2)]"
+                  className="group flex flex-col justify-between rounded-[24px] border border-[var(--lp-line)] bg-[var(--lp-tile)] p-6 shadow-xs"
                 >
                   <div>
-                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-500/40 bg-cyan-950/50 text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.2)] mb-5">
-                      <CapIcon className="w-6 h-6 text-cyan-300" strokeWidth={1.75} />
+                    <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-[var(--lp-line)] bg-[var(--lp-card)] text-[var(--lp-accent)] shadow-xs mb-5">
+                      <CapIcon className="w-5 h-5" strokeWidth={1.75} />
                     </span>
-                    <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors">
+                    <h3 className="text-lg font-bold text-[var(--lp-ink)]">
                       {cap.title}
                     </h3>
-                    <p className="mt-3 text-sm leading-6 text-gray-300">
+                    <p className="mt-2.5 text-sm leading-relaxed text-[var(--lp-ink-2)]">
                       {cap.description}
                     </p>
                   </div>
@@ -470,65 +403,53 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
       </section>
 
       {/* REAL-WORLD DEPLOYMENT USE CASES */}
-      <section className="relative overflow-hidden bg-black px-6 py-28 md:py-36 border-b border-cyan-500/30">
-        <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[700px] w-[1000px] rounded-full bg-gradient-to-r from-cyan-500/20 via-sky-600/10 to-transparent blur-[180px]" />
-        <div className="pointer-events-none absolute right-0 top-1/4 h-96 w-96 rounded-full bg-cyan-600/15 blur-[140px]" />
-        <div className="pointer-events-none absolute left-0 bottom-1/4 h-96 w-96 rounded-full bg-sky-500/10 blur-[140px]" />
+      <section className="px-4 py-20 sm:px-6 md:py-28 bg-[var(--lp-tile)] border-b border-[var(--lp-line)]">
+        <div className="mx-auto max-w-[1200px]">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-wider text-[var(--lp-accent-ink)]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[var(--lp-accent)]" />
+              {ui.useCasesBadge}
+            </span>
 
-        <div className="relative mx-auto max-w-7xl">
-          <div className="text-center max-w-3xl mx-auto mb-20">
-            <div className="inline-flex items-center gap-2.5 rounded-full border border-cyan-400/40 bg-cyan-950/90 px-5 py-2 backdrop-blur-md shadow-[0_0_30px_rgba(6,182,212,0.4)] mb-6">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75" />
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-cyan-400" />
-              </span>
-              <span className="text-xs font-extrabold tracking-[0.25em] text-cyan-300 uppercase font-mono">
-                {ui.useCasesBadge}
-              </span>
-            </div>
-
-            <h2 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl lg:leading-tight">
+            <h2 className="mt-2 text-3xl font-bold tracking-tight text-[var(--lp-ink)] md:text-4xl">
               {ui.useCasesTitle.replace("{title}", industry.title)}
             </h2>
 
-            <p className="mt-5 text-base text-gray-300 sm:text-lg leading-8">
+            <p className="mt-4 text-base text-[var(--lp-ink-2)]">
               {ui.useCasesDesc.replace("{title}", industry.title)}
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {industry.useCases.map((useCase, idx) => (
               <div
                 key={idx}
-                className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-cyan-500/35 bg-neutral-950/90 p-8 backdrop-blur-2xl shadow-[0_0_35px_rgba(6,182,212,0.15)] transition-all duration-500 hover:-translate-y-2.5 hover:scale-[1.02] hover:border-cyan-400 hover:shadow-[0_0_55px_rgba(6,182,212,0.4)]"
+                className="group flex flex-col justify-between rounded-[28px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-7 shadow-[var(--lp-shadow-card)]"
               >
-                <div className="absolute left-0 top-0 h-1.5 w-full bg-gradient-to-r from-cyan-500 via-sky-400 to-cyan-600 opacity-80 group-hover:opacity-100 transition-opacity" />
-
                 <div>
-                  <div className="flex items-center justify-between gap-3 mb-6">
-                    <span className="rounded-full border border-cyan-500/40 bg-cyan-500/10 px-3.5 py-1 text-xs font-semibold text-cyan-300 font-mono tracking-wide">
+                  <div className="flex items-center justify-between gap-3 mb-5">
+                    <span className="rounded-full bg-[var(--lp-tile)] px-3 py-1 text-xs font-semibold text-[var(--lp-muted)]">
                       {useCase.category}
                     </span>
-                    <span className="rounded-xl border border-cyan-500/40 bg-cyan-950/90 px-3 py-1 font-mono text-xs font-bold text-cyan-400 shadow-inner">
+                    <span className="font-mono text-xs font-bold text-[var(--lp-muted)]">
                       0{idx + 1}
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-bold tracking-tight text-white group-hover:text-cyan-300 transition-colors mb-3">
+                  <h3 className="text-xl font-bold tracking-tight text-[var(--lp-ink)] mb-2.5">
                     {useCase.title}
                   </h3>
 
-                  <p className="text-sm leading-7 text-gray-300">
+                  <p className="text-sm leading-relaxed text-[var(--lp-ink-2)]">
                     {useCase.description}
                   </p>
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-white/15">
-                  <div className="rounded-xl border border-cyan-500/40 bg-cyan-950/70 p-3.5 backdrop-blur-md shadow-[0_0_20px_rgba(6,182,212,0.2)] group-hover:border-cyan-400/70 transition-colors">
-                    <span className="text-xs font-mono font-bold text-cyan-300 flex items-center gap-2">
-                      <span className="text-amber-400 text-sm">⚡</span> {ui.keyAdvantage} {useCase.highlight}
-                    </span>
-                  </div>
+                <div className="mt-6 pt-5 border-t border-[var(--lp-line)]">
+                  <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--lp-accent-ink)]">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-[var(--lp-accent)]" />
+                    <span>{ui.keyAdvantage}: {useCase.highlight}</span>
+                  </span>
                 </div>
               </div>
             ))}
@@ -542,28 +463,29 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
       )}
 
       {/* TECHNICAL SPECIFICATIONS */}
-      <section className="relative overflow-hidden px-6 py-24 border-b border-white/10">
-        <div className="mx-auto max-w-5xl">
+      <section className="px-4 py-20 sm:px-6 md:py-28 bg-[var(--lp-bg)] border-b border-[var(--lp-line)]">
+        <div className="mx-auto max-w-[960px]">
           <div className="text-center mb-12">
-            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400 font-mono">
+            <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-wider text-[var(--lp-accent-ink)]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[var(--lp-accent)]" />
               {ui.enterpriseSpecsBadge}
             </span>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-white md:text-4xl">
+            <h2 className="mt-2 text-3xl font-bold tracking-tight text-[var(--lp-ink)] md:text-4xl">
               {ui.enterpriseSpecsTitle}
             </h2>
           </div>
 
-          <div className="overflow-hidden rounded-2xl border border-white/15 bg-neutral-950 backdrop-blur-xl">
-            <div className="divide-y divide-white/10">
+          <div className="overflow-hidden rounded-[24px] border border-[var(--lp-line)] bg-[var(--lp-card)] shadow-xs">
+            <div className="divide-y divide-[var(--lp-line)]">
               {industry.techSpecs.map((spec, idx) => (
                 <div
                   key={idx}
-                  className="grid gap-4 p-6 sm:grid-cols-12 sm:items-center hover:bg-white/[0.02] transition-colors"
+                  className="grid gap-2 p-5 sm:grid-cols-12 sm:items-center hover:bg-[var(--lp-tile)]/50 transition-colors"
                 >
-                  <span className="text-sm font-semibold text-gray-400 sm:col-span-4 font-mono">
+                  <span className="text-sm font-semibold text-[var(--lp-muted)] sm:col-span-5 font-mono">
                     {spec.label}
                   </span>
-                  <span className="text-sm font-bold text-cyan-300 sm:col-span-8">
+                  <span className="text-sm font-semibold text-[var(--lp-ink)] sm:col-span-7">
                     {spec.value}
                   </span>
                 </div>
@@ -579,22 +501,24 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
       )}
 
       {/* OTHER INDUSTRIES NAVIGATOR */}
-      <section className="relative overflow-hidden bg-neutral-950 px-6 py-24 border-b border-white/10">
-        <div className="mx-auto max-w-7xl">
-          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end mb-12">
+      <section className="px-4 py-20 sm:px-6 md:py-28 bg-[var(--lp-tile)] border-b border-[var(--lp-line)]">
+        <div className="mx-auto max-w-[1200px]">
+          <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end mb-10">
             <div>
-              <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400 font-mono">
+              <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-wider text-[var(--lp-accent-ink)]">
+                <span className="h-1.5 w-1.5 rounded-full bg-[var(--lp-accent)]" />
                 {ui.exploreOtherBadge}
               </span>
-              <h2 className="mt-2 text-3xl font-bold text-white md:text-4xl">
+              <h2 className="mt-2 text-2xl font-bold text-[var(--lp-ink)] md:text-3xl">
                 {ui.exploreOtherTitle}
               </h2>
             </div>
             <Link
               href={industriesHref}
-              className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-400 hover:underline"
+              className="inline-flex items-center gap-1 text-sm font-semibold text-[var(--lp-ink)] hover:text-[var(--lp-accent)]"
             >
               <span>{ui.viewAllIndustries}</span>
+              <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
 
@@ -602,28 +526,29 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
             {allIndustries.map((ind) => {
               const isCurrent = ind.slug === industry.slug;
               const indHref = lang === "en" ? `/industries/${ind.slug}` : `/${lang}/industries/${ind.slug}`;
+              const IndIcon = getIconComponent(ind.icon);
               return (
                 <Link
                   key={ind.slug}
                   href={indHref}
-                  className={`group relative flex items-center justify-between rounded-2xl border p-5 backdrop-blur-md transition-all duration-300 ${
+                  className={`group flex items-center justify-between rounded-[20px] border p-4 transition-all ${
                     isCurrent
-                      ? "border-cyan-400 bg-cyan-950/60 shadow-[0_0_25px_rgba(6,182,212,0.3)]"
-                      : "border-white/15 bg-black/60 hover:border-cyan-500/40 hover:bg-white/5"
+                      ? "border-[var(--lp-ink)] bg-[var(--lp-card)] shadow-xs"
+                      : "border-[var(--lp-line)] bg-[var(--lp-card)] hover:bg-[var(--lp-tile)]"
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <span className="text-2xl">{ind.icon}</span>
+                    <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--lp-tile)] text-[var(--lp-accent)] border border-[var(--lp-line)]">
+                      <IndIcon className="w-4 h-4" strokeWidth={1.75} />
+                    </span>
                     <div>
-                      <h4 className="text-sm font-bold text-white group-hover:text-cyan-300 transition-colors">
+                      <h4 className="text-sm font-bold text-[var(--lp-ink)] group-hover:text-[var(--lp-accent)] transition-colors">
                         {ind.title}
                       </h4>
-                      <p className="text-xs text-gray-400 font-mono">0{ind.number}</p>
+                      <p className="text-xs text-[var(--lp-muted)] font-mono">0{ind.number}</p>
                     </div>
                   </div>
-                  <span className="text-cyan-400 transition-transform group-hover:translate-x-1">
-                    →
-                  </span>
+                  <ArrowRight className="h-4 w-4 text-[var(--lp-muted)] group-hover:translate-x-1 group-hover:text-[var(--lp-ink)] transition-all" />
                 </Link>
               );
             })}

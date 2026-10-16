@@ -3,10 +3,11 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Image from "next/image";
-import { UserCheck, FileText, Globe, Sparkles, ShoppingBag, Brain } from "lucide-react";
+import { UserCheck, FileText, Globe, Sparkles, ShoppingBag, Brain, ArrowRight, CheckCircle2 } from "lucide-react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { getDictionary } from "@/i18n/getDictionary";
-import { Locale, nonDefaultLocales } from "@/i18n/config";
+import { Locale, nonDefaultLocales, getLocalizedPath } from "@/i18n/config";
 
 interface HighlightItem {
   label: string;
@@ -32,167 +33,117 @@ export default function DihuavaPlatform() {
   const currentLocale: Locale = seg && (nonDefaultLocales as readonly string[]).includes(seg) ? (seg as Locale) : "en";
   const dict = getDictionary(currentLocale);
   const hp = dict.home.platform;
-
-  const lPath = (path: string) => {
-    if (currentLocale === "en") return path;
-    return `/${currentLocale}${path === "/" ? "" : path}`;
-  };
+  const lPath = (path: string) => getLocalizedPath(path, currentLocale);
 
   const capabilities: CapabilityItem[] = [
     {
       id: "avatar",
-      title: hp.capabilities.avatar.title,
-      subtitle: hp.capabilities.avatar.subtitle,
-      description: hp.capabilities.avatar.description,
+      title: "Avatar Customization",
+      subtitle: "Hyper-Realistic Photorealistic 3D Personas",
+      description:
+        "Design bespoke digital humans tailored to your corporate brand. Customize facial features, uniform wardrobe, posture behavior, and corporate voice clone profiles with millisecond-accurate lip synchronization.",
       icon: UserCheck,
-      tags: hp.capabilities.avatar.tags,
-      stat: hp.capabilities.avatar.stat,
+      tags: ["Photorealistic 3D Mesh", "Voice Reference Cloning", "Dynamic Lip Sync", "Brand Uniform Wardrobe"],
+      stat: "Sub-Second Lip Sync",
       linkUrl: "/products/ai-digital-human/avatar-customization",
-      linkText: hp.capabilities.avatar.linkText,
-      highlights: hp.capabilities.avatar.highlights,
+      linkText: "Explore Avatar Customization",
+      highlights: [
+        { label: "Rendering", detail: "Real-time 60 FPS 4K on-premise rendering" },
+        { label: "Voice", detail: "Bespoke corporate voice cloning in 45+ languages" },
+      ],
     },
     {
       id: "document",
-      title: hp.capabilities.document.title,
-      subtitle: hp.capabilities.document.subtitle,
-      description: hp.capabilities.document.description,
+      title: "Document Intelligence",
+      subtitle: "Air-Gapped Local Knowledge RAG",
+      description:
+        "Upload corporate SOP manuals, clinical medical guidelines, product catalogs, and compliance FAQs. The local AI engine indexes documents offline and answers visitor questions with 100% citation grounding.",
       icon: FileText,
-      tags: hp.capabilities.document.tags,
-      stat: hp.capabilities.document.stat,
+      tags: ["Local PDF & Doc Indexing", "Zero Cloud Transmission", "Instant Document Search", "Strict Hallucination Guards"],
+      stat: "100% Air-Gapped",
       linkUrl: "/products/ai-digital-human/document-intelligence",
-      linkText: hp.capabilities.document.linkText,
-      highlights: hp.capabilities.document.highlights,
+      linkText: "Explore Document Intelligence",
+      highlights: [
+        { label: "Security", detail: "Zero data leaves the local physical edge workstation" },
+        { label: "Accuracy", detail: "Strict RAG grounding to approved company literature" },
+      ],
     },
     {
-      id: "language",
-      title: hp.capabilities.language.title,
-      subtitle: hp.capabilities.language.subtitle,
-      description: hp.capabilities.language.description,
+      id: "languages",
+      title: "Multilingual Engine",
+      subtitle: "45+ Spoken Languages & Dialects",
+      description:
+        "Engage international shoppers and global tourists effortlessly. The platform detects the spoken language automatically and switches dialogue instantly without requiring manual touch input.",
       icon: Globe,
-      tags: hp.capabilities.language.tags,
-      stat: hp.capabilities.language.stat,
-      linkUrl: "/products/ai-digital-human/multilingual-support",
-      linkText: hp.capabilities.language.linkText,
-      highlights: hp.capabilities.language.highlights,
-    },
-    {
-      id: "persona",
-      title: hp.capabilities.persona.title,
-      subtitle: hp.capabilities.persona.subtitle,
-      description: hp.capabilities.persona.description,
-      icon: Sparkles,
-      tags: hp.capabilities.persona.tags,
-      stat: hp.capabilities.persona.stat,
-      linkUrl: "/products/ai-digital-human/persona-management",
-      linkText: hp.capabilities.persona.linkText,
-      highlights: hp.capabilities.persona.highlights,
-    },
-    {
-      id: "catalog",
-      title: hp.capabilities.catalog.title,
-      subtitle: hp.capabilities.catalog.subtitle,
-      description: hp.capabilities.catalog.description,
-      icon: ShoppingBag,
-      tags: hp.capabilities.catalog.tags,
-      stat: hp.capabilities.catalog.stat,
-      linkUrl: "/products/ai-digital-human/ai-product-catalog",
-      linkText: hp.capabilities.catalog.linkText,
-      highlights: hp.capabilities.catalog.highlights,
-    },
-    {
-      id: "brain-clone",
-      title: (hp.capabilities as any).brainClone?.title || "Brain Clone",
-      subtitle: (hp.capabilities as any).brainClone?.subtitle || "Source-Grounded Personal Knowledge Engine",
-      description: (hp.capabilities as any).brainClone?.description || "Turn a person's recorded talks and teachings into a source-grounded digital human that answers from what they actually said.",
-      icon: Brain,
-      tags: (hp.capabilities as any).brainClone?.tags || ["Source-Grounded Answers", "On-Device Hardware", "Rights Approval Required", "No Invention Guard"],
-      stat: (hp.capabilities as any).brainClone?.stat || "IN DEVELOPMENT",
+      tags: ["Auto Language Detection", "45+ Dialects", "Native Accents", "Zero Lag TTS"],
+      stat: "45+ Languages",
       linkUrl: "/products/ai-digital-human",
-      linkText: (hp.capabilities as any).brainClone?.linkText || "Explore DIHUAVA Platform Architecture →",
-      highlights: (hp.capabilities as any).brainClone?.highlights || [
-        { label: "Source-Grounded Answers", detail: "Answers from the person's recorded words, with source passages available on demand." },
-        { label: "On-Device Hardware", detail: "Processing runs on customer-owned hardware with zero cloud data transmission." },
-        { label: "Rights Approval Required", detail: "Requires signed release from the individual, estate, or institution before setup." },
-        { label: "Grounded Response Guard", detail: "When the recorded material does not contain the answer, Brain Clone does not invent one." },
+      linkText: "Explore Multilingual Engine",
+      highlights: [
+        { label: "Coverage", detail: "Major European, Asian, and Middle Eastern languages" },
+        { label: "Latency", detail: "Instantaneous dialect switching" },
       ],
     },
   ];
 
-  const [activeTab, setActiveTab] = useState(capabilities[0].id);
+  const [activeTab, setActiveTab] = useState<string>("avatar");
   const activeCapability = capabilities.find((c) => c.id === activeTab) || capabilities[0];
 
   return (
-    <section className="relative overflow-hidden bg-black px-6 py-32 text-white border-t border-white/10">
-      {/* Background ambient lighting */}
-      <div className="pointer-events-none absolute right-1/3 top-1/2 -translate-y-1/2 h-[550px] w-[550px] rounded-full bg-cyan-600/10 blur-[150px]" />
-
-      <div className="relative mx-auto max-w-7xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="flex items-center gap-3">
-            <span className="h-2 w-2 rounded-full bg-cyan-400 animate-pulse" />
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400">
-              {hp.badge}
-            </p>
-          </div>
-
-          <div className="mt-4 flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
-            <h2 className="max-w-3xl text-4xl font-bold tracking-tight md:text-6xl lg:text-7xl">
-              {hp.title}{" "}
-              <span className="bg-gradient-to-r from-white via-cyan-100 to-cyan-400 bg-clip-text text-transparent">
-                {hp.titleHighlight}
-              </span>
-            </h2>
-
-            <p className="max-w-md text-base leading-7 text-gray-400">
-              {hp.subtitle}
-            </p>
-          </div>
-        </motion.div>
+    <section className="relative overflow-hidden bg-[var(--lp-bg)] px-4 py-20 sm:px-6 md:py-28 text-[var(--lp-ink)]">
+      <div className="relative mx-auto max-w-[1200px]">
+        {/* SECTION HEADER */}
+        <div className="mx-auto max-w-[44rem] text-center mb-16">
+          <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-wider text-[var(--lp-accent-ink)]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[var(--lp-accent)]" />
+            Software Intelligence Layer
+          </span>
+          <h2 className="mt-2 text-balance text-[34px] font-semibold leading-[1.06] tracking-[-0.04em] text-[var(--lp-ink)] sm:text-[44px]">
+            The brain behind the digital human workforce.
+          </h2>
+          <p className="mt-4 text-[17px] leading-[1.6] text-[var(--lp-ink-2)]">
+            DIHUAVA is our proprietary on-premise AI platform powering autonomous avatars across interactive touchscreens, 3D hologram cabinets, and spatial displays.
+          </p>
+        </div>
 
         {/* INTERACTIVE CAPABILITIES SHOWCASE */}
-        <div className="mt-16 grid gap-8 lg:grid-cols-12 lg:items-center">
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
           {/* TABS SELECTOR (Left 5 Cols) */}
           <div className="flex flex-col gap-3 lg:col-span-5">
             {capabilities.map((cap) => {
               const isActive = cap.id === activeTab;
+              const Icon = cap.icon;
               return (
                 <button
                   key={cap.id}
                   onClick={() => setActiveTab(cap.id)}
-                  className={`group relative flex items-center justify-between rounded-2xl border p-5 text-left transition-all duration-300 ${
+                  className={`group relative flex items-center justify-between rounded-2xl border p-5 text-left transition-all cursor-pointer active:scale-[0.99] ${
                     isActive
-                      ? "border-cyan-500/50 bg-cyan-500/10 backdrop-blur-xl shadow-[0_0_30px_rgba(6,182,212,0.15)]"
-                      : "border-white/10 bg-neutral-950/60 backdrop-blur-md hover:border-white/20 hover:bg-white/5"
+                      ? "border-[var(--lp-ink)] bg-[var(--lp-card)] shadow-[var(--lp-shadow-card)]"
+                      : "border-[var(--lp-line)] bg-[var(--lp-tile)] hover:bg-[var(--lp-tile-2)]"
                   }`}
                 >
                   <div className="flex items-center gap-4">
-                    <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-cyan-500/40 bg-cyan-950/50 text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
-                      <cap.icon className="w-5 h-5 text-cyan-300" strokeWidth={1.75} />
-                    </span>
+                    <motion.span
+                      whileHover={{ scale: 1.1, rotate: 3 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                      className={`flex h-11 w-11 items-center justify-center rounded-xl border border-[var(--lp-line)] ${
+                        isActive ? "bg-[var(--lp-tile)] text-[var(--lp-accent)]" : "bg-[var(--lp-card)] text-[var(--lp-ink)]"
+                      }`}
+                    >
+                      <Icon className="w-5 h-5" strokeWidth={1.75} />
+                    </motion.span>
                     <div>
-                      <h3
-                        className={`text-lg font-bold transition-colors ${
-                          isActive ? "text-cyan-300" : "text-white group-hover:text-gray-200"
-                        }`}
-                      >
+                      <h3 className="text-base font-bold text-[var(--lp-ink)]">
                         {cap.title}
                       </h3>
-                      <p className="text-xs font-medium text-gray-400">{cap.subtitle}</p>
+                      <p className="text-xs text-[var(--lp-muted)]">{cap.subtitle}</p>
                     </div>
                   </div>
 
-                  <span
-                    className={`text-sm transition-transform duration-300 ${
-                      isActive ? "translate-x-1 text-cyan-400" : "text-gray-600 group-hover:text-white"
-                    }`}
-                  >
-                    →
-                  </span>
+                  <ArrowRight className={`h-4 w-4 transition-transform ${
+                    isActive ? "translate-x-1 text-[var(--lp-accent)]" : "text-[var(--lp-muted)] group-hover:translate-x-0.5"
+                  }`} />
                 </button>
               );
             })}
@@ -204,53 +155,52 @@ export default function DihuavaPlatform() {
               key={activeCapability.id}
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4 }}
-              className="relative overflow-hidden rounded-3xl border border-white/15 bg-neutral-950/90 p-8 sm:p-10 backdrop-blur-xl shadow-2xl"
+              transition={{ duration: 0.35 }}
+              className="relative overflow-hidden rounded-[28px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-8 sm:p-10 shadow-[var(--lp-shadow-card)]"
             >
               {/* Top Stat Badge */}
-              <div className="flex items-center justify-between border-b border-white/10 pb-6">
+              <div className="flex items-center justify-between border-b border-[var(--lp-line)] pb-6">
                 <div className="flex items-center gap-3">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-500/40 bg-cyan-950/60 text-cyan-300 shadow-[0_0_20px_rgba(6,182,212,0.25)] backdrop-blur-md">
-                    <activeCapability.icon className="w-6 h-6 text-cyan-300" strokeWidth={1.75} />
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-tile)] text-[var(--lp-accent)] shadow-xs">
+                    <activeCapability.icon className="w-6 h-6" strokeWidth={1.75} />
                   </span>
                   <div>
-                    <span className="text-xs font-semibold uppercase tracking-wider text-cyan-400">
-                      {hp.deepDive}
+                    <span className="text-xs font-semibold uppercase tracking-wider text-[var(--lp-accent-ink)]">
+                      Platform Capability
                     </span>
-                    <h3 className="text-2xl font-bold text-white sm:text-3xl">
+                    <h3 className="text-2xl font-bold text-[var(--lp-ink)] sm:text-3xl">
                       {activeCapability.title}
                     </h3>
                   </div>
                 </div>
 
-                <div className="shrink-0 whitespace-nowrap rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 backdrop-blur-md">
-                  <span className="text-xs font-semibold text-cyan-300">
-                    {activeCapability.stat}
-                  </span>
+                <div className="shrink-0 rounded-full bg-[rgba(255,90,31,0.08)] px-3.5 py-1 text-xs font-semibold text-[var(--lp-accent-ink)]">
+                  {activeCapability.stat}
                 </div>
               </div>
 
               {/* Description */}
-              <p className="mt-6 text-base leading-8 text-gray-300 sm:text-lg">
+              <p className="mt-6 text-base leading-7 text-[var(--lp-ink-2)]">
                 {activeCapability.description}
               </p>
 
               {/* Tags */}
-              <div className="mt-8 flex flex-wrap gap-2.5">
+              <div className="mt-6 flex flex-wrap gap-2">
                 {activeCapability.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium text-gray-200 backdrop-blur-md"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-[var(--lp-tile)] px-3.5 py-1.5 text-xs font-medium text-[var(--lp-ink)]"
                   >
-                    ✓ {tag}
+                    <CheckCircle2 className="h-3.5 w-3.5 text-[var(--lp-accent)]" />
+                    <span>{tag}</span>
                   </span>
                 ))}
               </div>
 
               {/* Active Tab Pictorial Graphic & Specs Display */}
-              <div className="mt-8 relative overflow-hidden rounded-2xl border border-cyan-500/30 bg-black/80 p-5 backdrop-blur-md shadow-xl">
+              <div className="mt-8 relative overflow-hidden rounded-2xl border border-[var(--lp-line)] bg-black/80 p-5 backdrop-blur-md shadow-xl">
                 {/* Pictorial Visual Container depending on activeTab */}
-                <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl border border-white/10 bg-neutral-950 mb-6 group">
+                <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl border border-white/10 bg-neutral-950 group">
                   {activeCapability.id === "avatar" && (
                     <div className="relative h-full w-full flex items-center justify-center bg-gradient-to-br from-cyan-950/60 via-black to-slate-950">
                       <Image
@@ -360,46 +310,30 @@ export default function DihuavaPlatform() {
                     </div>
                   )}
                 </div>
-
-                <div className="flex items-center justify-between border-b border-white/10 pb-3">
-                  <div className="flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-cyan-400 animate-pulse" />
-                    <span className="text-xs font-semibold uppercase tracking-wider text-cyan-400">
-                      {hp.highlightsTitle}
-                    </span>
-                  </div>
-                  <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-emerald-300 bg-emerald-950/70 border border-emerald-500/30 px-2.5 py-0.5 rounded-full">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" />
-                    {hp.activeSystem}
-                  </span>
-                </div>
-
-                <div className="mt-4 space-y-3">
-                  {activeCapability.highlights.map((item, idx) => (
-                    <div key={idx} className="flex items-start gap-3 text-xs sm:text-sm">
-                      <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-cyan-500/20 text-cyan-400 text-[10px] font-bold">
-                        ✓
-                      </span>
-                      <p className="text-gray-300 leading-normal">
-                        <strong className="font-semibold text-white">{item.label}:</strong>{" "}
-                        <span className="text-gray-400">{item.detail}</span>
-                      </p>
-                    </div>
-                  ))}
-                </div>
               </div>
 
-              {/* Slide Redirection Page CTA Button */}
-              <div className="mt-6 flex flex-wrap items-center justify-between gap-4 pt-5 border-t border-white/10">
-                <span className="text-xs text-gray-400 font-medium">
-                  {hp.footerQuestion}
-                </span>
-                <a
+              {/* Highlights */}
+              <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 border-t border-[var(--lp-line)] pt-6">
+                {activeCapability.highlights.map((h) => (
+                  <div key={h.label} className="rounded-xl bg-[var(--lp-tile)] p-3.5 border border-[var(--lp-line)]">
+                    <span className="text-[11px] font-semibold text-[var(--lp-muted)] uppercase tracking-wider block">
+                      {h.label}
+                    </span>
+                    <span className="text-xs font-medium text-[var(--lp-ink)] mt-0.5 block">
+                      {h.detail}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8 flex items-center justify-between pt-2">
+                <Link
                   href={lPath(activeCapability.linkUrl)}
-                  className="inline-flex items-center gap-2 rounded-full border border-cyan-400/50 bg-cyan-950/80 px-5 py-2.5 text-xs font-bold text-cyan-300 shadow-[0_0_20px_rgba(6,182,212,0.3)] backdrop-blur-md transition-all duration-300 hover:border-cyan-400 hover:bg-cyan-500 hover:text-black hover:scale-105"
+                  className="group/btn inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[var(--lp-ink)] px-6 text-sm font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_1px_2px_rgba(17,17,19,0.24)] transition-all hover:bg-[#2A2A2F] active:scale-[0.98] cursor-pointer"
                 >
                   <span>{activeCapability.linkText}</span>
-                </a>
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                </Link>
               </div>
             </motion.div>
           </div>
