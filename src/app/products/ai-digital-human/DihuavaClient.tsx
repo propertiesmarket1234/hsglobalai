@@ -235,12 +235,12 @@ const voiceCapabilities = [
 const personaProfiles = [
   {
     title: "Retail Sales Ambassador",
-    desc: "Proactive product recommendations, cross-selling, promotional announcements, and interactive Virtual Try-On assistance.",
+    desc: "Proactive product recommendations, cross-selling, promotional announcements, and interactive product exploration (garment fitting on active R&D roadmap).",
     icon: "🛍️",
   },
   {
     title: "Healthcare Patient Assistant",
-    desc: "Empathetic hospital wayfinding, symptom intake triage, appointment scheduling, and multilingual discharge instructions.",
+    desc: "Empathetic hospital wayfinding, administrative patient intake assistance, appointment scheduling, and clinic guidance.",
     icon: "🏥",
   },
   {
@@ -308,7 +308,7 @@ const faqs = [
   },
   {
     q: "Is visitor voice or conversation data transmitted to the cloud?",
-    a: "Zero voice or conversation data is sent to external servers. All AI processing occurs locally on physical edge hardware, ensuring complete compliance with GDPR, PDPA, and HIPAA privacy standards.",
+    a: "Zero voice or conversation data is sent to external servers. All AI processing occurs locally on physical edge hardware, supporting GDPR, PDPA, and HIPAA privacy principles through complete local data residency.",
   },
   {
     q: "Can we clone our own corporate brand voice?",

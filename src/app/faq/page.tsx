@@ -47,7 +47,7 @@ const faqJsonLd = {
       "acceptedAnswer": {
         "@type": "Answer",
         "text":
-          "By automating front-desk reception, customer onboarding, product demonstrations, and routine information delivery, HS Global AI significantly reduces staffing requirements, eliminates queue times, and ensures consistent 24/7 service quality.",
+          "By automating front-desk reception, customer onboarding, product demonstrations, and routine information delivery, HS Global AI significantly reduces staffing requirements, minimizes queue waiting times, and ensures consistent 24/7 service quality.",
       },
     },
     {
@@ -110,7 +110,7 @@ const faqJsonLd = {
       "acceptedAnswer": {
         "@type": "Answer",
         "text":
-          "HS Global AI supports 29+ global languages (including English, Spanish, Mandarin, Arabic, Japanese, French, German, and Hindi), custom voice cloning, and over 100 regional accents with automatic language detection.",
+          "HS Global AI supports 29+ global languages, including 7 specialized Indian languages (Hindi, Tamil, Telugu, Kannada, Bengali, Marathi, and Gujarati), custom voice cloning, and regional dialect adaptation with automatic language detection.",
       },
     },
     {

@@ -380,7 +380,7 @@ HS Global AI’s speech architecture incorporates real-time Language Identificat
 
 ## Real-World Applications Across Enterprise Verticals
 
-Multilingual avatars powered by the **[DIHUAVA AI Digital Human platform](/products/ai-digital-human)** are deployed in **international airport desks, luxury hotel lobbies, museum tours, [banking branch networks](/industries/banking), and [corporate enterprise headquarters](/industries/corporate)**, providing instant multilingual assistance with zero wait time. Learn how to manage multi-unit installations in our guide to **[AI Digital Human fleet management](/blog/ai-digital-human-fleet-management)** or request technical datasheets in our **[download center](/contact/download-center)**.
+Multilingual avatars powered by the **[DIHUAVA AI Digital Human platform](/products/ai-digital-human)** are designed for deployment in **international airport desks, luxury hotel lobbies, museum tours, [banking branch networks](/industries/banking), and [corporate enterprise headquarters](/industries/corporate)**, providing instant multilingual assistance with reduced waiting times. Learn how to manage multi-unit installations in our guide to **[AI Digital Human fleet management](/blog/ai-digital-human-fleet-management)** or request technical datasheets in our **[download center](/contact/download-center)**.
 
 ---
 

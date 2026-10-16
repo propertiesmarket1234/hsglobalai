@@ -22,7 +22,7 @@ const featuredLanguages: LanguageItem[] = [
   { name: "Hindi", native: "हिन्दी", region: "India", flag: "🇮🇳" },
   { name: "Tamil", native: "தமிழ்", region: "India & SE Asia", flag: "🇮🇳" },
   { name: "Telugu", native: "తెలుగు", region: "India", flag: "🇮🇳" },
-  { name: "Kannada", native: "கன்னட / ಕನ್ನಡ", region: "India", flag: "🇮🇳" },
+  { name: "Kannada", native: "ಕನ್ನಡ", region: "India", flag: "🇮🇳" },
   { name: "Bengali", native: "বাংলা", region: "India & Bangladesh", flag: "🇮🇳" },
   { name: "Marathi", native: "मराठी", region: "India", flag: "🇮🇳" },
   { name: "Gujarati", native: "ગુજરાતી", region: "India", flag: "🇮🇳" },
@@ -63,9 +63,9 @@ const languageFeatures = [
   },
   {
     icon: ShieldCheck,
-    title: "100+ Regional Accents & Pitch Modulation",
+    title: "Regional Accent & Dialect Adaptation",
     description:
-      "Supports nuanced regional dialects, local accents, and context-aware pronunciation for healthcare, retail, and corporate concierges.",
+      "Supports nuanced regional accents, local pronunciation, and pitch modulation across all supported languages.",
   },
 ];
 
@@ -328,7 +328,7 @@ export default function GlobalLanguagesSection() {
             </div>
           </div>
           <div className="rounded-2xl border border-white/10 bg-neutral-900/60 p-6 text-center backdrop-blur-md">
-            <div className="text-3xl font-extrabold text-cyan-400 sm:text-4xl">100+</div>
+            <div className="text-2xl font-extrabold text-cyan-400 sm:text-3xl">Adaptive</div>
             <div className="mt-1 text-xs font-medium text-gray-300 uppercase tracking-wider">
               {gSec.metricRegionalAccents || "Regional Accents"}
             </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function BuildAvatarPipeline() {
@@ -17,7 +18,7 @@ export default function BuildAvatarPipeline() {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-cyan-300 backdrop-blur-md mb-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-cyan-300 backdrop-blur-md mb-4 shadow-[0_0_20px_rgba(6,182,212,0.25)]">
             Avatar Engineering Pipeline
           </div>
 
@@ -33,7 +34,7 @@ export default function BuildAvatarPipeline() {
           </p>
         </motion.div>
 
-        {/* BENTO GRID LAYOUT */}
+        {/* BENTO GRID LAYOUT WITH HIGH-RES PICTORIAL PREVIEWS */}
         <div className="mt-16 grid gap-6 lg:grid-cols-3 lg:grid-rows-2">
           {/* CARD 1: TOP LEFT - Character Design */}
           <motion.div
@@ -41,25 +42,30 @@ export default function BuildAvatarPipeline() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-white/15 bg-neutral-950/80 p-8 backdrop-blur-xl transition-all duration-500 hover:border-cyan-500/50 hover:bg-neutral-900/90 shadow-xl"
+            className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-white/15 bg-neutral-950/80 p-6 sm:p-8 backdrop-blur-xl transition-all duration-500 hover:border-cyan-500/50 hover:bg-neutral-900/90 shadow-xl"
           >
             <div>
               <h3 className="text-xl font-bold text-white">
                 <span className="text-cyan-400">Character Design</span> & Styling
               </h3>
-              <p className="mt-3 text-sm leading-6 text-gray-400">
-                We build your avatar using advanced rendering pipelines: custom skin tones, hair, wardrobe, and facial features tuned to your brand brief.
+              <p className="mt-2 text-xs sm:text-sm leading-6 text-gray-400">
+                Custom skin tones, attire, lip-sync rigging, and facial features tuned to your brand identity.
               </p>
             </div>
 
-            {/* Custom SVG Icon Container */}
-            <div className="mt-8 flex justify-center">
-              <div className="relative flex h-36 w-full max-w-[200px] items-center justify-center rounded-2xl border border-cyan-500/20 bg-cyan-950/20 p-4 transition-transform group-hover:scale-105">
-                <svg className="h-20 w-20 text-cyan-400/80" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <circle cx="32" cy="24" r="14" strokeDasharray="3 3" />
-                  <path d="M16 52c0-8.837 7.163-16 16-16s16 7.163 16 16" />
-                  <circle cx="32" cy="24" r="4" fill="currentColor" className="text-cyan-400" />
-                </svg>
+            {/* Photo Container */}
+            <div className="mt-6 flex justify-center">
+              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-cyan-500/30 bg-black/60 shadow-lg">
+                <Image
+                  src="/images/avatars/futuristic_female_avatar.png"
+                  alt="Avatar Character Design & Styling"
+                  fill
+                  className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                <div className="absolute bottom-2.5 left-3 text-[11px] font-mono text-cyan-300 font-semibold">
+                  3D Photorealistic Rigging
+                </div>
               </div>
             </div>
           </motion.div>
@@ -70,7 +76,7 @@ export default function BuildAvatarPipeline() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-cyan-500/40 bg-gradient-to-b from-cyan-950/30 via-neutral-950/90 to-black p-8 backdrop-blur-xl transition-all duration-500 hover:border-cyan-400 shadow-[0_0_40px_rgba(6,182,212,0.15)] lg:row-span-2"
+            className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-cyan-500/40 bg-gradient-to-b from-cyan-950/30 via-neutral-950/90 to-black p-6 sm:p-8 backdrop-blur-xl transition-all duration-500 hover:border-cyan-400 shadow-[0_0_40px_rgba(6,182,212,0.15)] lg:row-span-2"
           >
             <div>
               <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-3 py-1 text-xs font-semibold text-cyan-300 mb-3">
@@ -80,29 +86,30 @@ export default function BuildAvatarPipeline() {
                 <span className="text-cyan-400">Real-Time</span> Performance
               </h3>
               <p className="mt-3 text-sm leading-6 text-gray-300">
-                Your avatar renders locally and streams on-device: high fidelity, zero cloud install required, Low Latency response time for fluid conversation.
+                Your avatar renders locally and streams on-device: high fidelity, zero cloud install required, Low Latency response time.
               </p>
             </div>
 
-            {/* Center Avatar Silhouette Illustration */}
-            <div className="my-8 flex justify-center py-6">
-              <div className="relative flex h-56 w-full max-w-[240px] items-center justify-center rounded-2xl border border-cyan-400/30 bg-cyan-950/30 p-6 transition-transform group-hover:scale-105">
-                {/* Glowing Background Core */}
-                <div className="absolute h-24 w-24 rounded-full bg-cyan-400/20 blur-xl animate-pulse" />
-                <svg className="relative z-10 h-36 w-36 text-cyan-400" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <circle cx="32" cy="18" r="10" />
-                  <line x1="32" y1="28" x2="32" y2="46" />
-                  <line x1="20" y1="36" x2="44" y2="36" />
-                  <line x1="32" y1="46" x2="22" y2="58" />
-                  <line x1="32" y1="46" x2="42" y2="58" />
-                  <path d="M18 60 Q32 54 46 60" strokeDasharray="2 2" stroke="currentColor" />
-                  <circle cx="32" cy="18" r="3" fill="currentColor" />
-                </svg>
+            {/* Photo Preview Frame */}
+            <div className="my-6 flex justify-center">
+              <div className="relative aspect-[3/4] w-full max-w-[220px] overflow-hidden rounded-2xl border border-cyan-400/40 bg-black/80 shadow-[0_0_30px_rgba(6,182,212,0.3)]">
+                <Image
+                  src="/products/hologram-box/hologram-box.png"
+                  alt="Real-Time Holographic Performance Unit"
+                  fill
+                  className="object-contain p-2 transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+                <div className="absolute bottom-3 left-3 right-3 text-center">
+                  <span className="inline-block rounded-full bg-cyan-950/90 border border-cyan-500/40 px-3 py-1 text-[10px] font-mono text-cyan-300 font-bold">
+                    60 FPS Local Display
+                  </span>
+                </div>
               </div>
             </div>
 
-            <div className="rounded-xl border border-white/10 bg-black/60 p-4 text-center">
-              <span className="text-xs font-mono text-cyan-400">⚡ Low Latency On-Device Rendering Engine</span>
+            <div className="rounded-xl border border-white/10 bg-black/60 p-3.5 text-center">
+              <span className="text-xs font-mono text-cyan-400 font-semibold">⚡ Low Latency On-Device Engine</span>
             </div>
           </motion.div>
 
@@ -112,28 +119,30 @@ export default function BuildAvatarPipeline() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-white/15 bg-neutral-950/80 p-8 backdrop-blur-xl transition-all duration-500 hover:border-cyan-500/50 hover:bg-neutral-900/90 shadow-xl"
+            className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-white/15 bg-neutral-950/80 p-6 sm:p-8 backdrop-blur-xl transition-all duration-500 hover:border-cyan-500/50 hover:bg-neutral-900/90 shadow-xl"
           >
             <div>
               <h3 className="text-xl font-bold text-white">
                 <span className="text-cyan-400">Knowledge</span> & AI Integration
               </h3>
-              <p className="mt-3 text-sm leading-6 text-gray-400">
-                We wire your knowledge base, brand guidelines, and LLM of choice into the character so every response stays on-brand, accurate, and contextually aware.
+              <p className="mt-2 text-xs sm:text-sm leading-6 text-gray-400">
+                Wire corporate PDFs, brand guidelines, and product catalogues into grounded RAG.
               </p>
             </div>
 
-            {/* Custom SVG Icon Container */}
-            <div className="mt-8 flex justify-center">
-              <div className="relative flex h-36 w-full max-w-[200px] items-center justify-center rounded-2xl border border-cyan-500/20 bg-cyan-950/20 p-4 transition-transform group-hover:scale-105">
-                <svg className="h-20 w-20 text-cyan-400/80" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M16 44C12 44 8 40 8 34C8 28.5 12 24.5 17 24C19 17 25 12 32 12C40 12 46.5 17.5 47.5 25C52.5 25.5 56 29.5 56 35C56 40.5 51.5 44 46 44Z" strokeDasharray="3 3" />
-                  <circle cx="32" cy="28" r="3" fill="currentColor" className="text-cyan-400" />
-                  <circle cx="22" cy="36" r="2.5" fill="currentColor" className="text-cyan-400" />
-                  <circle cx="42" cy="36" r="2.5" fill="currentColor" className="text-cyan-400" />
-                  <line x1="32" y1="28" x2="22" y2="36" />
-                  <line x1="32" y1="28" x2="42" y2="36" />
-                </svg>
+            {/* Photo Container */}
+            <div className="mt-6 flex justify-center">
+              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-cyan-500/30 bg-black/60 shadow-lg">
+                <Image
+                  src="/products/digital-humans/digital-human-dashboard.jpg"
+                  alt="Knowledge Base Document RAG Integration"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                <div className="absolute bottom-2.5 left-3 text-[11px] font-mono text-cyan-300 font-semibold">
+                  Air-Gapped Vector Search RAG
+                </div>
               </div>
             </div>
           </motion.div>
@@ -144,27 +153,30 @@ export default function BuildAvatarPipeline() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-white/15 bg-neutral-950/80 p-8 backdrop-blur-xl transition-all duration-500 hover:border-cyan-500/50 hover:bg-neutral-900/90 shadow-xl"
+            className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-white/15 bg-neutral-950/80 p-6 sm:p-8 backdrop-blur-xl transition-all duration-500 hover:border-cyan-500/50 hover:bg-neutral-900/90 shadow-xl"
           >
             <div>
               <h3 className="text-xl font-bold text-white">
                 <span className="text-cyan-400">Voice</span> & Personality
               </h3>
-              <p className="mt-3 text-sm leading-6 text-gray-400">
-                Cloned or synthetic voice, configured in your native language and tone. Multilingual by default, with real-time speech response.
+              <p className="mt-2 text-xs sm:text-sm leading-6 text-gray-400">
+                Voice cloning across 29+ languages with natural lip-sync synthesis.
               </p>
             </div>
 
-            {/* Custom SVG Icon Container */}
-            <div className="mt-8 flex justify-center">
-              <div className="relative flex h-36 w-full max-w-[200px] items-center justify-center rounded-2xl border border-cyan-500/20 bg-cyan-950/20 p-4 transition-transform group-hover:scale-105">
-                <svg className="h-20 w-20 text-cyan-400/80" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <rect x="24" y="14" width="16" height="24" rx="8" />
-                  <path d="M16 34c0 8.837 7.163 16 16 16s16-7.163 16-16" />
-                  <line x1="32" y1="50" x2="32" y2="58" />
-                  <path d="M8 34 Q 12 28, 16 34 T 24 34" stroke="currentColor" />
-                  <path d="M40 34 Q 48 28, 52 34 T 56 34" stroke="currentColor" />
-                </svg>
+            {/* Photo Container */}
+            <div className="mt-6 flex justify-center">
+              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-cyan-500/30 bg-black/60 shadow-lg">
+                <Image
+                  src="/images/avatars/talking_lady_avatar.png"
+                  alt="Voice Cloning & Neural Speech Synthesis"
+                  fill
+                  className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                <div className="absolute bottom-2.5 left-3 text-[11px] font-mono text-cyan-300 font-semibold">
+                  🎙️ Cloned Neural Audio Output
+                </div>
               </div>
             </div>
           </motion.div>
@@ -175,28 +187,30 @@ export default function BuildAvatarPipeline() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-white/15 bg-neutral-950/80 p-8 backdrop-blur-xl transition-all duration-500 hover:border-cyan-500/50 hover:bg-neutral-900/90 shadow-xl"
+            className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-white/15 bg-neutral-950/80 p-6 sm:p-8 backdrop-blur-xl transition-all duration-500 hover:border-cyan-500/50 hover:bg-neutral-900/90 shadow-xl"
           >
             <div>
               <h3 className="text-xl font-bold text-white">
                 <span className="text-cyan-400">Deploy</span> Anywhere
               </h3>
-              <p className="mt-3 text-sm leading-6 text-gray-400">
-                Web, mobile, kiosk, 3D Hologram Box, spatial display or live stage. Your avatar runs on any screen, in any country, around the clock.
+              <p className="mt-2 text-xs sm:text-sm leading-6 text-gray-400">
+                Deploy on 3D Hologram Boxes, kiosks, spatial screens, or live event stages.
               </p>
             </div>
 
-            {/* Custom SVG Icon Container */}
-            <div className="mt-8 flex justify-center">
-              <div className="relative flex h-36 w-full max-w-[200px] items-center justify-center rounded-2xl border border-cyan-500/20 bg-cyan-950/20 p-4 transition-transform group-hover:scale-105">
-                <svg className="h-20 w-20 text-cyan-400/80" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <circle cx="32" cy="32" r="20" />
-                  <ellipse cx="32" cy="32" rx="8" ry="20" />
-                  <line x1="12" y1="32" x2="52" y2="32" />
-                  <rect x="10" y="10" width="6" height="6" rx="1" fill="currentColor" className="text-cyan-400" />
-                  <rect x="48" y="10" width="6" height="6" rx="1" fill="currentColor" className="text-cyan-400" />
-                  <rect x="48" y="48" width="6" height="6" rx="1" fill="currentColor" className="text-cyan-400" />
-                </svg>
+            {/* Photo Container */}
+            <div className="mt-6 flex justify-center">
+              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-cyan-500/30 bg-black/60 shadow-lg">
+                <Image
+                  src="/images/use-cases/jewellery_hologram_kiosk.png"
+                  alt="Deployment on Kiosks & Spatial Holograms"
+                  fill
+                  className="object-contain p-2 transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                <div className="absolute bottom-2.5 left-3 text-[11px] font-mono text-cyan-300 font-semibold">
+                  Multi-Screen & Holographic Hardware
+                </div>
               </div>
             </div>
           </motion.div>

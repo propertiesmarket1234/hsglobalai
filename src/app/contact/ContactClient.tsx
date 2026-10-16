@@ -22,20 +22,20 @@ const dataSheetsAndPriceList: SheetItem[] = [
   { title: "Hologram Box Product Comparison Sheet", filename: "Hologram_Box_Product_Comparison_Sheet.pdf" },
   { title: "OEM 许可证规格表", filename: "OEM_License_Data_Sheet_ZH.pdf", lang: "Chinese" },
   { title: "86 Inch SPATIAL DISPLAY Data Sheet", filename: "86_Inch_Spatial_Display_Data_Sheet.pdf" },
-  { title: "Dihuava Product Brochure 2026 JUN", filename: "Dihuava_Product_Brochure_2026_JUN.pdf" },
+  { title: "DIHUAVA Product Brochure 2026 JUN", filename: "Dihuava_Product_Brochure_2026_JUN.pdf" },
   { title: "AI数字人软件介绍 2026 JUN Bilingual", filename: "AI_Digital_Human_Software_Intro_2026_JUN_Bilingual.pdf", lang: "Bilingual" },
   { title: "SPATIAL Display 空间屏规格表", filename: "Spatial_Display_Data_Sheet_ZH.pdf", lang: "Chinese" },
   { title: "HS International Business Card", filename: "HS_International_Business_Card.pdf" },
 ];
 
 const dihuavaBrochures: SheetItem[] = [
-  { title: "Dihuava-Brochure", filename: "Dihuava_Brochure_Overview.pdf" },
-  { title: "Dihuava – Digital Human Avatar _ Product Brochure", filename: "Dihuava_Digital_Human_Avatar_Product_Brochure.pdf" },
+  { title: "DIHUAVA Brochure Overview", filename: "Dihuava_Brochure_Overview.pdf" },
+  { title: "DIHUAVA – Digital Human Avatar Product Brochure", filename: "Dihuava_Digital_Human_Avatar_Product_Brochure.pdf" },
 ];
 
 const dihuavaTemplates: SheetItem[] = [
   { title: "Template For Traders", filename: "Dihuava_Template_For_Traders.pdf" },
-  { title: "General Inquiry Templets", filename: "Dihuava_General_Inquiry_Templates.pdf" },
+  { title: "General Inquiry Templates", filename: "Dihuava_General_Inquiry_Templates.pdf" },
   { title: "Template For Hardware Manufacturers", filename: "Dihuava_Template_For_Hardware_Manufacturers.pdf" },
   { title: "Template For The System Integrators", filename: "Dihuava_Template_For_System_Integrators.pdf" },
 ];
@@ -111,14 +111,17 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
   const handleDownload = (item: SheetItem) => {
     setDownloadingTitle(item.title);
     setTimeout(() => {
-      const link = document.createElement("a");
-      link.href = `/downloads/${item.filename}`;
-      link.download = item.filename;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      setFormData((prev) => ({
+        ...prev,
+        message: `I would like to request the official technical specification document: "${item.title}". Please send the datasheet to my work email.`,
+      }));
+      setActiveTab("contact");
       setDownloadingTitle(null);
-    }, 800);
+      const formElement = document.getElementById("inquiry-form");
+      if (formElement) {
+        formElement.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 400);
   };
 
   return (
@@ -299,7 +302,7 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
 
                 {/* RIGHT COLUMN: INTERACTIVE INQUIRY & DEMO REQUEST FORM */}
                 <div className="lg:col-span-7">
-                  <div className="rounded-3xl border border-cyan-500/30 bg-neutral-950 p-8 md:p-10 backdrop-blur-2xl shadow-2xl">
+                  <div id="inquiry-form" className="rounded-3xl border border-cyan-500/30 bg-neutral-950 p-8 md:p-10 backdrop-blur-2xl shadow-2xl">
                     <h3 className="text-2xl font-bold text-white">{cPage.formTitle || "Request a Live DIHUAVA Demo"}</h3>
                     <p className="mt-2 text-xs text-gray-400">
                       {cPage.formSubtitle || "Fill out the form below to connect with our technical solution architects."}
@@ -675,7 +678,7 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
             <div>
               <div className="text-center mb-10">
                 <span className="inline-block rounded-full border border-cyan-400/40 bg-cyan-500/15 px-6 py-2 text-sm font-bold text-cyan-300 shadow-[0_0_20px_rgba(6,182,212,0.3)]">
-                  {cPage.dihuavaBrochureBadge || "Dihuava Brochure"}
+                  {cPage.dihuavaBrochureBadge || "DIHUAVA Brochure"}
                 </span>
               </div>
 
@@ -707,7 +710,7 @@ export default function ContactClient({ defaultTab = "contact" }: { defaultTab?:
             <div>
               <div className="text-center mb-10">
                 <span className="inline-block rounded-full border border-cyan-400/40 bg-cyan-500/15 px-6 py-2 text-sm font-bold text-cyan-300 shadow-[0_0_20px_rgba(6,182,212,0.3)]">
-                  {cPage.dihuavaTemplatesBadge || "Dihuava Templates"}
+                  {cPage.dihuavaTemplatesBadge || "DIHUAVA Templates"}
                 </span>
               </div>
 

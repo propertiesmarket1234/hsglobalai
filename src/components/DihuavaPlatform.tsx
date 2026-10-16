@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import Image from "next/image";
 import { UserCheck, FileText, Globe, Sparkles, ShoppingBag, Brain } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { getDictionary } from "@/i18n/getDictionary";
@@ -246,8 +247,120 @@ export default function DihuavaPlatform() {
                 ))}
               </div>
 
-              {/* Executive Highlights Card */}
-              <div className="mt-8 relative overflow-hidden rounded-2xl border border-cyan-500/20 bg-neutral-900/80 p-5 backdrop-blur-md shadow-lg">
+              {/* Active Tab Pictorial Graphic & Specs Display */}
+              <div className="mt-8 relative overflow-hidden rounded-2xl border border-cyan-500/30 bg-black/80 p-5 backdrop-blur-md shadow-xl">
+                {/* Pictorial Visual Container depending on activeTab */}
+                <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl border border-white/10 bg-neutral-950 mb-6 group">
+                  {activeCapability.id === "avatar" && (
+                    <div className="relative h-full w-full flex items-center justify-center bg-gradient-to-br from-cyan-950/60 via-black to-slate-950">
+                      <Image
+                        src="/images/avatars/executive_lady.png"
+                        alt="AI Avatar Face Customization"
+                        fill
+                        className="object-cover object-top filter brightness-105 contrast-105 transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/30" />
+                      <div className="absolute top-3 left-3 z-10 rounded-full border border-cyan-400/50 bg-black/80 px-3 py-1 text-[11px] font-mono text-cyan-300 backdrop-blur-md flex items-center gap-1.5 shadow-lg">
+                        <span className="h-2 w-2 rounded-full bg-cyan-400 animate-ping" />
+                        <span>Real-Time Lip-Sync Engine</span>
+                      </div>
+                      <div className="absolute bottom-3 right-3 z-10 rounded-full border border-emerald-500/40 bg-emerald-950/80 px-3 py-1 text-[11px] font-mono text-emerald-300 backdrop-blur-md">
+                        60 FPS Neural Rendering
+                      </div>
+                    </div>
+                  )}
+
+                  {activeCapability.id === "document" && (
+                    <div className="relative h-full w-full flex items-center justify-center bg-neutral-950">
+                      <Image
+                        src="/products/digital-humans/digital-human-dashboard.jpg"
+                        alt="On-Device Document Intelligence RAG Engine"
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/30" />
+                      <div className="absolute top-3 left-3 z-10 rounded-full border border-cyan-400/50 bg-black/80 px-3 py-1 text-[11px] font-mono text-cyan-300 backdrop-blur-md flex items-center gap-1.5 shadow-lg">
+                        <span className="h-2 w-2 rounded-full bg-cyan-400 animate-pulse" />
+                        <span>Air-Gapped Document RAG Engine</span>
+                      </div>
+                    </div>
+                  )}
+
+                  {activeCapability.id === "language" && (
+                    <div className="relative h-full w-full p-6 flex flex-col justify-between bg-gradient-to-br from-cyan-950/80 via-black to-blue-950">
+                      <div className="flex items-center justify-between z-10">
+                        <span className="text-xs font-mono text-cyan-300 font-bold uppercase tracking-wider">
+                          🌐 29+ Global Languages + 7 Indian Regional Models
+                        </span>
+                        <span className="rounded-full bg-cyan-500/20 px-2.5 py-0.5 text-[10px] font-mono text-cyan-300 border border-cyan-500/30">
+                          Neural Speech Synthesis
+                        </span>
+                      </div>
+
+                      <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 my-auto z-10">
+                        {["English (US/UK)", "Spanish", "Arabic", "Mandarin", "Hindi (हिंदी)", "Telugu (తెలుగు)", "Tamil (தமிழ்)", "Bengali (বাংলা)"].map((lang) => (
+                          <div key={lang} className="rounded-lg border border-cyan-500/30 bg-black/70 p-2 text-[11px] font-mono font-medium text-cyan-200 text-center backdrop-blur-md shadow-md">
+                            {lang}
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="flex items-center justify-between text-[11px] font-mono text-gray-400 z-10 border-t border-cyan-500/20 pt-2">
+                        <span>Offline Acoustic Models</span>
+                        <span className="text-cyan-400 font-semibold">Zero Internet Latency</span>
+                      </div>
+                    </div>
+                  )}
+
+                  {activeCapability.id === "persona" && (
+                    <div className="relative h-full w-full flex items-center justify-center bg-neutral-950">
+                      <Image
+                        src="/images/avatars/full_digital_human_presenter.png"
+                        alt="Corporate Persona Management"
+                        fill
+                        className="object-cover object-top filter brightness-105 contrast-105 transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/30" />
+                      <div className="absolute top-3 left-3 z-10 rounded-full border border-cyan-400/50 bg-black/80 px-3 py-1 text-[11px] font-mono text-cyan-300 backdrop-blur-md flex items-center gap-1.5 shadow-lg">
+                        <span className="h-2 w-2 rounded-full bg-cyan-400 animate-ping" />
+                        <span>Corporate Persona Engine</span>
+                      </div>
+                    </div>
+                  )}
+
+                  {activeCapability.id === "catalog" && (
+                    <div className="relative h-full w-full flex items-center justify-center bg-neutral-950">
+                      <Image
+                        src="/images/use-cases/jewellery_hologram_kiosk.png"
+                        alt="AI Interactive Product Catalogue Kiosk"
+                        fill
+                        className="object-contain p-2 transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/30" />
+                      <div className="absolute top-3 left-3 z-10 rounded-full border border-cyan-400/50 bg-black/80 px-3 py-1 text-[11px] font-mono text-cyan-300 backdrop-blur-md flex items-center gap-1.5 shadow-lg">
+                        <span className="h-2 w-2 rounded-full bg-cyan-400 animate-pulse" />
+                        <span>CSV-Driven AI Catalogue Kiosk</span>
+                      </div>
+                    </div>
+                  )}
+
+                  {activeCapability.id === "brain-clone" && (
+                    <div className="relative h-full w-full flex items-center justify-center bg-neutral-950">
+                      <Image
+                        src="/images/avatars/albert_einstein.png"
+                        alt="Brain Clone Digital Twin Engine"
+                        fill
+                        className="object-contain p-2 filter brightness-105 contrast-105 transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/30" />
+                      <div className="absolute top-3 left-3 z-10 rounded-full border border-amber-400/50 bg-black/80 px-3 py-1 text-[11px] font-mono text-amber-300 backdrop-blur-md flex items-center gap-1.5 shadow-lg">
+                        <span className="h-2 w-2 rounded-full bg-amber-400 animate-pulse" />
+                        <span>Source-Grounded Personal Knowledge Engine</span>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
                 <div className="flex items-center justify-between border-b border-white/10 pb-3">
                   <div className="flex items-center gap-2">
                     <span className="h-2 w-2 rounded-full bg-cyan-400 animate-pulse" />

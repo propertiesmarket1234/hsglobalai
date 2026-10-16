@@ -111,7 +111,7 @@ export const industriesData: Record<string, IndustryDetail> = {
         category: "Queue Automation",
         description:
           "Reduce lobby congestion with autonomous hologram concierges greeting visitors, scanning QR check-ins, and routing clients to service counters.",
-        highlight: "40% Faster Check-In",
+        highlight: "Up to 40% Faster Check-In (Target Benchmark)",
       },
       {
         title: "Multilingual Banking Assistant",
@@ -124,8 +124,8 @@ export const industriesData: Record<string, IndustryDetail> = {
     techSpecs: [
       { label: "System Architecture", value: "DIHUAVA runs 100% offline on-device by default, with optional cloud-management configurations available" },
       { label: "Multilingual Support", value: "29+ global languages, including 7 specialized Indian languages: Hindi, Tamil, Telugu, Kannada, Bengali, Marathi, and Gujarati" },
-      { label: "Security Compliance", value: "ISO 27001 & Bank Security Architecture Compliant" },
-      { label: "Hardware Support", value: "65\", 75\", 86\" 3D Hologram Enclosures & Interactive Kiosks" },
+      { label: "Security Architecture", value: "Engineered to align with ISO 27001 and bank-grade cybersecurity standards" },
+      { label: "Hardware Support", value: "55\", 65\", 75\", 86\" 3D Hologram Enclosures & Interactive Kiosks" },
       { label: "Document Processing", value: "Real-Time Local PDF / DOCX RAG Neural Vector Engine" },
     ],
     metaTitle: "AI Digital Humans & Holograms for Banking | HS Global AI",
@@ -405,7 +405,7 @@ export const industriesData: Record<string, IndustryDetail> = {
     techSpecs: [
       { label: "System Architecture", value: "DIHUAVA runs 100% offline on-device by default, with optional cloud-management configurations available" },
       { label: "Multilingual Support", value: "29+ global languages, including 7 specialized Indian languages: Hindi, Tamil, Telugu, Kannada, Bengali, Marathi, and Gujarati" },
-      { label: "Workplace Integration", value: "Slack, MS Teams, Outlook Calendar & Badge Printer Sync" },
+      { label: "Workplace Integration", value: "Slack, MS Teams, Outlook Calendar & Badge Printer Sync (Available via optional network configuration)" },
       { label: "Deployment Options", value: "Glasses-Free 3D Spatial Display or Life-Size 3D Hologram Enclosure" },
       { label: "Security Standard", value: "Enterprise Air-Gapped Storage & Local Vector Index" },
       { label: "Operating Mode", value: "24/7 Continuous Reception & Wayfinding Operation" },
@@ -558,7 +558,7 @@ export const industriesData: Record<string, IndustryDetail> = {
       },
     ],
     techSpecs: [
-      { label: "Data Protection & Privacy", value: "100% Local On-Device AI Inference (Zero Cloud Data Transmitted; HIPAA & GDPR Compliant)" },
+      { label: "Data Protection & Privacy", value: "100% Local On-Device AI Inference (Supports HIPAA, PDPA & GDPR privacy principles through zero cloud data transmission)" },
       { label: "System Architecture", value: "DIHUAVA runs 100% offline on-device by default, with optional cloud-management configurations available" },
       { label: "Multilingual Support", value: "29+ Global Languages & 7 Specialized Indian Languages (Hindi, Tamil, Telugu, Kannada, Bengali, Marathi, Gujarati)" },
       { label: "Physical Hardware Enclosure", value: "Life-Size 3D Hologram Box Enclosure or Ultra-Slim 6 cm Spatial Display Kiosk" },
@@ -566,7 +566,7 @@ export const industriesData: Record<string, IndustryDetail> = {
     ],
     metaTitle: "AI Digital Humans for Healthcare & Hospital Navigation | HS Global AI",
     metaDescription:
-      "Enhance hospital patient guidance, intake triage support, and department navigation with 100% offline, air-gapped AI digital human healthcare assistants.",
+      "Enhance hospital patient guidance, administrative intake support, and department navigation with 100% offline, on-device AI digital human healthcare assistants.",
     infoDepth: {
       what: "An AI Digital Human in healthcare is an interactive, lifelike avatar rendered on 3D Hologram Boxes or Spatial Displays to assist patients, families, and visitors in physical healthcare environments.",
       why: "Healthcare facilities deploy AI Digital Humans to streamline front-desk operations, reduce patient waiting anxiety, overcome language barriers, and allow healthcare staff to focus on direct patient care.",
@@ -736,7 +736,7 @@ export const industriesData: Record<string, IndustryDetail> = {
       },
       {
         question: "Can an AI tour guide work with 3D Hologram Boxes in cultural exhibits?",
-        answer: "Yes. DIHUAVA AI Digital Humans can be projected inside life-size 3D Hologram Box enclosures (65\", 75\", 86\") or 6 cm ultra-slim 4K Spatial Displays, creating 1:1 scale volumetric historic docents inside museum galleries.",
+        answer: "Yes. DIHUAVA AI Digital Humans can be projected inside life-size 3D Hologram Box enclosures (55\", 65\", 75\", 86\") or 6 cm ultra-slim 4K Spatial Displays, creating 1:1 scale volumetric historic docents inside museum galleries.",
       },
       {
         question: "How does local document intelligence (RAG) work for historical archives and museum catalogs?",

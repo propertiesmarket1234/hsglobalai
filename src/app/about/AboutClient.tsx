@@ -134,7 +134,7 @@ const industries = [
   { name: "Retail & Shopping Malls", count: "3D Holographic Product Guides" },
   { name: "Corporate & Executive Lobbies", count: "Virtual Receptionists & Wayfinding" },
   { name: "Tourism, Museums & Exhibitions", count: "Multilingual Tour Docents" },
-  { name: "Healthcare & Telemedicine", count: "Patient Intake & Triage AI" },
+  { name: "Healthcare & Telemedicine", count: "Patient Intake & Navigation AI" },
   { name: "Education & Corporate Training", count: "Interactive 3D AI Instructors" },
 ];
 

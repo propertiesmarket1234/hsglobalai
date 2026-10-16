@@ -83,8 +83,8 @@ const products: ProductItem[] = [
     title: "Virtual Try-On",
     subtitle: "AI Smart Mirror with 29+ Language Voice Guidance",
     description:
-      "Enable customers to visualize products digitally before making a purchase, creating interactive shopping experiences with instant real-time outfit previewing and 29+ global language voice guidance.",
-    tags: ["29+ Global Languages", "AI Smart Mirror", "Real-Time Fitting", "Retail Experience"],
+      "Enable customers to visualize products digitally before making a purchase, creating interactive shopping experiences with product visualization and 29+ global language voice guidance (apparel outfit previewing on active R&D roadmap).",
+    tags: ["29+ Global Languages", "AI Smart Mirror", "Product Visualization", "Retail Experience"],
     imageSrc: "/products/virtual-try-on/virtual-try-on.png",
     imageAlt: "Virtual Try-On Smart Mirror Interactive Kiosk (Active R&D)",
     accentColor: "from-cyan-500/20 via-sky-500/10 to-transparent",

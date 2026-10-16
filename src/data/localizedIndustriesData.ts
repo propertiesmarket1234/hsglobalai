@@ -243,8 +243,8 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
       ],
       techSpecs: [
         { label: "数据处理模式", value: "100% 本地 GPU 芯片离线物理隔离运行" },
-        { label: "安全合规认证", value: "符合 ISO 27001 及银行级网络安全架构" },
-        { label: "硬件设备规格", value: "65吋, 75吋, 86吋 3D 全息舱及互动立式终端" },
+        { label: "安全架构设计", value: "对标 ISO 27001 与银行级网络安全架构设计" },
+        { label: "硬件设备规格", value: "55吋, 65吋, 75吋, 86吋 3D 全息舱及互动立式终端" },
         { label: "文档解析能力", value: "实时本地 PDF / DOCX RAG 向量检索引擎" },
       ],
       metaTitle: "金融与银行服务 AI 数字人与全息解决方案",
@@ -509,7 +509,7 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         },
       ],
       techSpecs: [
-        { label: "数据安全与隐私保护", value: "100% 本地离线推理（符合 HIPAA / GDPR 隐私规范）" },
+        { label: "数据安全与隐私保护", value: "100% 本地离线推理（支持 HIPAA / GDPR 隐私原则）" },
         { label: "系统架构说明", value: "默认 100% 离线运行，可选云端管理模块" },
         { label: "语言支持范围", value: "29+ 全球语言及多地区方言" },
         { label: "硬件终端形态", value: "1:1 比例 3D 全息舱或 6 cm 超薄 Spatial Display" },
@@ -768,8 +768,8 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
       ],
       techSpecs: [
         { label: "Обработка данных", value: "100% Автономная работа на локальном GPU" },
-        { label: "Стандарты безопасности", value: "Соответствие ISO 27001 и банковским стандартам" },
-        { label: "Форм-факторы оборудования", value: "3D-Голографические кубы 65\", 75\", 86\" и киоски" },
+        { label: "Стандарты безопасности", value: "Разработано с учетом ISO 27001 и банковских стандартов" },
+        { label: "Форм-факторы оборудования", value: "3D-Голографические кубы 55\", 65\", 75\", 86\" и киоски" },
         { label: "Обработка документов", value: "Локальный векторный движок RAG для PDF / DOCX" },
       ],
       metaTitle: "ИИ Цифровые Аватары и Голограммы для Банков",
@@ -1034,7 +1034,7 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         },
       ],
       techSpecs: [
-        { label: "Защита данных", value: "100% Локальный ИИ (Соответствие HIPAA и GDPR)" },
+        { label: "Защита данных", value: "100% Локальный ИИ (Поддержка принципов приватности HIPAA и GDPR)" },
         { label: "Архитектура", value: "100% Автономная работа по умолчанию" },
         { label: "Языки", value: "29+ Мировых языков" },
         { label: "Форм-фактор", value: "3D-Голографический куб или тонкая стойка 6 см" },
@@ -1293,8 +1293,8 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
       ],
       techSpecs: [
         { label: "Procesamiento de datos", value: "100% Procesamiento GPU offline en dispositivo local" },
-        { label: "Cumplimiento de seguridad", value: "Conforme a ISO 27001 y arquitectura bancaria" },
-        { label: "Hardware", value: "Cajas holográficas 3D de 65\", 75\", 86\" y quioscos" },
+        { label: "Arquitectura de seguridad", value: "Diseñado para alinearse con ISO 27001 y estándares bancarios" },
+        { label: "Hardware", value: "Cajas holográficas 3D de 55\", 65\", 75\", 86\" y quioscos" },
         { label: "Documentos", value: "Motor RAG vectorial local para archivos PDF / DOCX" },
       ],
       metaTitle: "IA y Hologramas para Banca y Servicios Financieros",
@@ -1559,7 +1559,7 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         },
       ],
       techSpecs: [
-        { label: "Protección de datos", value: "Procesamiento 100% local (Conforme a HIPAA y GDPR)" },
+        { label: "Protección de datos", value: "Procesamiento 100% local (Compatible con principios HIPAA y GDPR)" },
         { label: "Arquitectura", value: "Funcionamiento 100% offline por defecto" },
         { label: "Idiomas", value: "29+ Idiomas globales" },
         { label: "Hardware", value: "Caja holográfica 3D a tamaño real o pantalla spatial 6 cm" },
@@ -1818,8 +1818,8 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
       ],
       techSpecs: [
         { label: "Traitement des données", value: "Traitement 100% hors ligne sur GPU local" },
-        { label: "Conformité sécurité", value: "Conforme ISO 27001 et normes bancaires" },
-        { label: "Matériel", value: "Boîtiers holographiques 3D 65\", 75\", 86\" et bornes" },
+        { label: "Conformité sécurité", value: "Conçu selon ISO 27001 et normes bancaires" },
+        { label: "Matériel", value: "Boîtiers holographiques 3D 55\", 65\", 75\", 86\" et bornes" },
         { label: "Traitement documents", value: "Moteur RAG vectoriel local pour fichiers PDF / DOCX" },
       ],
       metaTitle: "IA et Hologrammes pour la Banque et les Services Financiers",
@@ -2084,7 +2084,7 @@ export const localizedIndustriesData: Record<string, Record<string, IndustryDeta
         },
       ],
       techSpecs: [
-        { label: "Protection des données", value: "Traitement 100% local (Conforme HIPAA et RGPD)" },
+        { label: "Protection des données", value: "Traitement 100% local (Compatible avec les principes HIPAA et RGPD)" },
         { label: "Architecture", value: "Fonctionnement 100% hors ligne par défaut" },
         { label: "Langues", value: "29+ Langues mondiales" },
         { label: "Matériel", value: "Boîtier holographique 3D taille réelle ou borne spatial 6 cm" },

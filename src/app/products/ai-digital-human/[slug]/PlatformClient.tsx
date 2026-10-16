@@ -99,7 +99,7 @@ export const platformData: Record<string, PlatformPageData> = {
       { label: "Lip-Sync Latency", value: "Low Latency On-Device" },
       { label: "Voice Sample Needed", value: "5–30s Audio Clip" },
       { label: "Neural Output", value: "24kHz Mono" },
-      { label: "Data Confidentiality", value: "100% Air-Gapped" },
+      { label: "Data Confidentiality", value: "100% Offline On-Device by Default (Air-Gap Capable)" },
     ],
     demoVideos: [
       {
@@ -440,7 +440,7 @@ export const platformData: Record<string, PlatformPageData> = {
         desc: "Applies native dialect pronunciation rules and natural pauses so speech output sounds respectful and human.",
       },
       {
-        title: "Zero Cloud Dependency Guarantee",
+        title: "Zero Cloud Dependency by Default",
         desc: "Operates perfectly in air-gapped environments, underground transit stations, or places with zero network connectivity.",
       },
     ],
@@ -956,7 +956,7 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
               <div className="rounded-3xl border border-cyan-500/30 bg-neutral-950 p-8 backdrop-blur-xl shadow-[0_0_40px_rgba(6,182,212,0.15)]">
                 <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
                   <ShieldCheck className="w-5 h-5 text-cyan-400" />
-                  Engineering Guarantee
+                  Engineering Standards
                 </h3>
                 <ul className="space-y-3 text-xs leading-6 text-gray-300">
                   <li className="flex items-start gap-2">
@@ -969,7 +969,7 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-cyan-400 font-bold">✓</span>
-                    <span>Air-Gapped Data Security Compliant with GDPR/HIPAA</span>
+                    <span>Air-Gapped Data Security Designed for GDPR/HIPAA Privacy Alignment</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-cyan-400 font-bold">✓</span>

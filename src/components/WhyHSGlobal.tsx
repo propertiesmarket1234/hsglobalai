@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { getDictionary } from "@/i18n/getDictionary";
@@ -16,9 +17,10 @@ const features = [
     accentColor: "from-cyan-500/20 via-sky-500/5 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.3)",
     borderColor: "group-hover:border-cyan-500/40",
+    imageSrc: "/products/hologram-box/hologram-box.png",
     icon: (
       <svg
-        className="h-8 w-8 text-cyan-400"
+        className="h-6 w-6 text-cyan-400"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -42,9 +44,10 @@ const features = [
     accentColor: "from-cyan-500/20 via-sky-500/5 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.3)",
     borderColor: "group-hover:border-cyan-500/40",
+    imageSrc: "/images/avatars/talking_lady_avatar.png",
     icon: (
       <svg
-        className="h-8 w-8 text-cyan-400"
+        className="h-6 w-6 text-cyan-400"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -68,9 +71,10 @@ const features = [
     accentColor: "from-cyan-500/20 via-sky-500/5 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.3)",
     borderColor: "group-hover:border-cyan-500/40",
+    imageSrc: "/images/avatars/executive_lady.png",
     icon: (
       <svg
-        className="h-8 w-8 text-cyan-400"
+        className="h-6 w-6 text-cyan-400"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -94,9 +98,10 @@ const features = [
     accentColor: "from-cyan-500/20 via-sky-500/5 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.3)",
     borderColor: "group-hover:border-cyan-500/40",
+    imageSrc: "/products/digital-humans/digital-human-dashboard.jpg",
     icon: (
       <svg
-        className="h-8 w-8 text-cyan-400"
+        className="h-6 w-6 text-cyan-400"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -153,7 +158,7 @@ export default function WhyHSGlobal() {
           </div>
         </motion.div>
 
-        {/* FEATURE CARDS GRID */}
+        {/* FEATURE CARDS GRID WITH PICTORIAL PREVIEWS */}
         <div className="mt-20 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {features.map((feature, index) => (
             <motion.div
@@ -163,67 +168,60 @@ export default function WhyHSGlobal() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.15 }}
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              className={`group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-neutral-950/80 p-8 backdrop-blur-xl transition-colors duration-500 hover:bg-neutral-900/60 ${feature.borderColor}`}
+              className={`group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-neutral-950/80 p-6 backdrop-blur-xl transition-colors duration-500 hover:bg-neutral-900/60 ${feature.borderColor}`}
             >
               {/* Radial gradient background on hover */}
               <div
                 className={`pointer-events-none absolute inset-0 bg-gradient-to-b ${feature.accentColor} opacity-0 transition-opacity duration-500 group-hover:opacity-100`}
               />
 
-              {/* Light reflection sweep */}
-              <motion.div
-                className="pointer-events-none absolute -inset-full z-10 bg-gradient-to-r from-transparent via-white/5 to-transparent"
-                animate={{
-                  x: ["-100%", "200%"],
-                }}
-                transition={{
-                  duration: 6,
-                  repeat: Infinity,
-                  repeatDelay: 4 + index,
-                  ease: "easeInOut",
-                }}
-              />
-
               <div>
                 {/* Header info */}
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-sm font-semibold tracking-wider text-gray-500 group-hover:text-white transition-colors">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="font-mono text-xs font-semibold tracking-wider text-gray-500 group-hover:text-white transition-colors">
                     {feature.number}
                   </span>
-                  <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-medium tracking-wide text-gray-400 backdrop-blur-sm group-hover:border-white/25 group-hover:text-white transition-all">
+                  <span className="rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-[10px] font-medium tracking-wide text-gray-400 backdrop-blur-sm group-hover:border-white/25 group-hover:text-white transition-all">
                     {feature.badge}
                   </span>
                 </div>
 
-                {/* Animated Icon */}
-                <motion.div
-                  className="mt-8 flex h-14 w-14 items-center justify-center rounded-2xl border border-cyan-500/40 bg-cyan-950/50 text-cyan-300 shadow-[0_0_20px_rgba(6,182,212,0.25)] backdrop-blur-md transition-all"
-                  animate={{ y: [0, -4, 0] }}
-                  transition={{ duration: 4 + index, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  {feature.icon}
-                </motion.div>
+                {/* Pictorial Image Preview */}
+                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-white/10 bg-black/60 my-2">
+                  <Image
+                    src={feature.imageSrc}
+                    alt={feature.title}
+                    fill
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                    className="object-contain p-1.5 filter brightness-105 contrast-105 transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+
+                  <div className="absolute bottom-2 left-2 flex h-8 w-8 items-center justify-center rounded-xl border border-cyan-500/40 bg-black/80 text-cyan-300 backdrop-blur-md shadow-md">
+                    {feature.icon}
+                  </div>
+                </div>
 
                 {/* Title & Subtitle */}
-                <h3 className="mt-8 text-2xl font-bold tracking-tight text-white group-hover:text-cyan-300 transition-colors">
+                <h3 className="mt-5 text-xl font-bold tracking-tight text-white group-hover:text-cyan-300 transition-colors">
                   {feature.title}
                 </h3>
-                <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-gray-500">
+                <p className="mt-0.5 text-[11px] font-semibold uppercase tracking-wider text-gray-400">
                   {feature.subtitle}
                 </p>
 
                 {/* Description */}
-                <p className="mt-4 text-sm sm:text-base leading-relaxed text-gray-400 group-hover:text-gray-300 transition-colors">
+                <p className="mt-3 text-xs sm:text-sm leading-relaxed text-gray-400 group-hover:text-gray-300 transition-colors">
                   {feature.description}
                 </p>
               </div>
 
               {/* Bottom decorative bar */}
-              <div className="mt-8 pt-4 border-t border-white/10 flex items-center justify-between">
-                <span className="text-xs font-medium text-gray-500 group-hover:text-gray-300 transition-colors">
-                  Explore Architecture
+              <div className="mt-6 pt-3 border-t border-white/10 flex items-center justify-between">
+                <span className="text-xs font-medium text-gray-400 group-hover:text-gray-200 transition-colors">
+                  Explore Tech
                 </span>
-                <span className="text-sm text-gray-500 group-hover:text-white group-hover:translate-x-1 transition-all">
+                <span className="text-sm text-cyan-400 group-hover:translate-x-1 transition-all">
                   →
                 </span>
               </div>

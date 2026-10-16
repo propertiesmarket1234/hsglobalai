@@ -11,6 +11,7 @@ import LatestInsights from "@/components/LatestInsights";
 import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { getDictionary } from "@/i18n/getDictionary";
@@ -132,6 +133,53 @@ export default function HomeClient() {
             <div>
               <p className="text-3xl font-bold text-cyan-400 drop-shadow">{hero.metrics.privacyTitle}</p>
               <p className="text-xs text-gray-300 uppercase tracking-wider mt-1 font-medium font-mono">{hero.metrics.privacyDesc}</p>
+            </div>
+          </motion.div>
+
+          {/* PICTORIAL HERO SHOWCASE STRIP */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.6 }}
+            className="mt-10 border-t border-cyan-500/20 pt-8"
+          >
+            <span className="block text-center text-xs font-mono font-bold text-cyan-300 uppercase tracking-widest mb-4">
+              ✨ Enterprise Live Display Hardware & Avatars
+            </span>
+
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              {[
+                { title: "AI Digital Human", tag: "60 FPS Stream", img: "/images/avatars/full_digital_human_presenter.png", href: "/products/ai-digital-human" },
+                { title: "3D Hologram Box", tag: "Offline Cabinet", img: "/products/hologram-box/hologram-box.png", href: "/products/holographic-display" },
+                { title: "Museum Hologram", tag: "Heritage Avatar", img: "/images/use-cases/museum_hologram_avatar.png", href: "/industries/tourism" },
+                { title: "Banking VIP Kiosk", tag: "Wealth Advisor", img: "/images/use-cases/banking_hologram_kiosk.png", href: "/industries/banking" },
+              ].map((item) => (
+                <a
+                  key={item.title}
+                  href={lPath(item.href)}
+                  className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/15 bg-black/70 p-3 backdrop-blur-md transition-all duration-300 hover:border-cyan-400 hover:bg-neutral-900/90 hover:scale-105 shadow-lg"
+                >
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-neutral-950">
+                    <Image
+                      src={item.img}
+                      alt={item.title}
+                      fill
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                      className="object-contain p-1 filter brightness-105 contrast-105 transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                    <div className="absolute top-2 left-2 rounded-full border border-cyan-500/40 bg-black/80 px-2 py-0.5 text-[9px] font-mono text-cyan-300">
+                      {item.tag}
+                    </div>
+                  </div>
+                  <div className="mt-2.5 flex items-center justify-between text-left">
+                    <span className="text-xs font-bold text-white group-hover:text-cyan-300 transition-colors">
+                      {item.title}
+                    </span>
+                    <span className="text-xs text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                  </div>
+                </a>
+              ))}
             </div>
           </motion.div>
         </motion.div>

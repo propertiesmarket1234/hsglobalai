@@ -36,10 +36,10 @@ const industries = [
     title: "Retail & Advertising",
     subtitle: "Holographic Brand Ambassadors",
     description:
-      "Engage shoppers with holographic brand ambassadors, smart product explainers, Virtual Try-On mirrors, and interactive promotional displays designed to boost in-store footfall and checkout conversion rates.",
+      "Engage shoppers with holographic brand ambassadors, smart product explainers, interactive product discovery displays, and Virtual Try-On smart mirrors (Active R&D) designed to boost in-store footfall and checkout conversion rates.",
     useCase: "3D Holographic Shopping Guide & Smart Mirror",
     features: [
-      "Virtual Try-On",
+      "Virtual Try-On (Active R&D)",
       "Interactive Product Discovery",
       "AI Sales Ambassador",
       "Smart Promotional Displays",
@@ -70,12 +70,12 @@ const industries = [
     number: "04",
     slug: "healthcare",
     title: "Healthcare & Telemedicine",
-    subtitle: "Patient Triage & Navigation AI",
+    subtitle: "Patient Intake & Navigation AI",
     description:
-      "Deploy hologram healthcare assistants for patient guidance, appointment scheduling, hospital navigation, triage symptom check, and tele-consultation support with a compassionate, human-like interface.",
+      "Deploy hologram healthcare assistants for patient navigation, appointment scheduling, administrative intake assistance, and clinic guidance with a compassionate, human-like interface.",
     useCase: "Hospital Navigation & Patient Intake AI",
     features: [
-      "Patient Guidance & Triage",
+      "Patient Guidance & Intake",
       "Hospital Navigation",
       "Appointment Booking",
       "Multilingual Care Support",
@@ -270,10 +270,10 @@ export default function IndustriesShowcase() {
         },
         {
           title: "Salud y telemedicina",
-          subtitle: "Triage de pacientes y navegación con IA",
-          description: "Despliegue asistentes de atención médica holográficos para orientación al paciente, programación de citas, navegación hospitalaria, evaluación de síntomas y soporte de teleconsulta.",
+          subtitle: "Admisión y navegación hospitalaria con IA",
+          description: "Despliegue asistentes de atención médica holográficos para orientación al paciente, programación de citas, navegación hospitalaria, asistencia administrativa de admisión y soporte de teleconsulta.",
           useCase: "Navegación hospitalaria y admisión con IA",
-          features: ["Orientación y triage de pacientes", "Navegación hospitalaria", "Reserva de citas", "Soporte asistencial multilingüe"],
+          features: ["Orientación y admisión de pacientes", "Navegación hospitalaria", "Reserva de citas", "Soporte asistencial multilingüe"],
         },
         {
           title: "Turismo y exposiciones",
@@ -306,9 +306,9 @@ export default function IndustriesShowcase() {
         {
           title: "Vente au Détail & Publicité",
           subtitle: "Ambassadeurs de Marque Holographiques",
-          description: "Captivez les acheteurs avec des ambassadeurs holographiques de marque, des démonstrateurs de produits intelligents, des miroirs Virtual Try-On et des affichages promotionnels interactifs.",
+          description: "Captivez les acheteurs avec des ambassadeurs holographiques de marque, des démonstrateurs de produits intelligents, des miroirs Virtual Try-On (R&D Active) et des affichages promotionnels interactifs.",
           useCase: "Guide d'achat holographique 3D & miroir intelligent",
-          features: ["Virtual Try-On", "Découverte interactive de produits", "Ambassadeur de vente IA", "Affichages promotionnels intelligents"],
+          features: ["Virtual Try-On (R&D Active)", "Découverte interactive de produits", "Ambassadeur de vente IA", "Affichages promotionnels intelligents"],
         },
         {
           title: "Services aux Entreprises",
@@ -319,10 +319,10 @@ export default function IndustriesShowcase() {
         },
         {
           title: "Santé & Télémédecine",
-          subtitle: "Triage des Patients & Orientation IA",
-          description: "Déployez des assistants médicaux holographiques pour la guidance des patients, la prise de rendez-vous, la navigation hospitalière, le pré-triage et le support de téléconsultation.",
+          subtitle: "Accueil des Patients & Orientation IA",
+          description: "Déployez des assistants médicaux holographiques pour la guidance des patients, la prise de rendez-vous, la navigation hospitalière, l'accueil administratif et le support d'orientation.",
           useCase: "Navigation hospitalière & admission IA",
-          features: ["Guidance et triage des patients", "Navigation hospitalière", "Réservation de rendez-vous", "Support de soins multilingue"],
+          features: ["Guidance et accueil des patients", "Navigation hospitalière", "Réservation de rendez-vous", "Support de soins multilingue"],
         },
         {
           title: "Tourisme & Expositions",
@@ -355,9 +355,9 @@ export default function IndustriesShowcase() {
         {
           title: "Retail & Advertising",
           subtitle: "Holographic Brand Ambassadors",
-          description: "Engage shoppers with holographic brand ambassadors, smart product explainers, Virtual Try-On mirrors, and interactive promotional displays designed to boost in-store footfall and checkout conversion rates.",
+          description: "Engage shoppers with holographic brand ambassadors, smart product explainers, interactive product discovery displays, and Virtual Try-On smart mirrors (Active R&D) designed to boost in-store footfall and checkout conversion rates.",
           useCase: "3D Holographic Shopping Guide & Smart Mirror",
-          features: ["Virtual Try-On", "Interactive Product Discovery", "AI Sales Ambassador", "Smart Promotional Displays"],
+          features: ["Virtual Try-On (Active R&D)", "Interactive Product Discovery", "AI Sales Ambassador", "Smart Promotional Displays"],
         },
         {
           title: "Corporate Services",
@@ -368,10 +368,10 @@ export default function IndustriesShowcase() {
         },
         {
           title: "Healthcare & Telemedicine",
-          subtitle: "Patient Triage & Navigation AI",
-          description: "Deploy hologram healthcare assistants for patient guidance, appointment scheduling, hospital navigation, triage symptom check, and tele-consultation support with a compassionate, human-like interface.",
+          subtitle: "Patient Intake & Navigation AI",
+          description: "Deploy hologram healthcare assistants for patient navigation, appointment scheduling, hospital navigation, administrative intake assistance, and clinic guidance with a compassionate, human-like interface.",
           useCase: "Hospital Navigation & Patient Intake AI",
-          features: ["Patient Guidance & Triage", "Hospital Navigation", "Appointment Booking", "Multilingual Care Support"],
+          features: ["Patient Guidance & Intake", "Hospital Navigation", "Appointment Booking", "Multilingual Care Support"],
         },
         {
           title: "Tourism & Exhibitions",
@@ -409,7 +409,7 @@ export default function IndustriesShowcase() {
     <section className="relative overflow-hidden bg-black px-6 py-24 text-white">
       <div className="relative mx-auto max-w-7xl divide-y divide-white/10">
         {localizedIndustries.map((industry) => (
-          <div key={industry.number} className="py-20 first:pt-0 last:pb-0 overflow-hidden">
+          <div key={industry.number} id={industry.slug} className="py-20 first:pt-0 last:pb-0 overflow-hidden">
             <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
               {/* LEFT HEADER & ICON */}
               <motion.div

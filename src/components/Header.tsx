@@ -153,37 +153,49 @@ export default function Header() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 8, scale: 0.95 }}
                   transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                  className="absolute left-0 top-full pt-2 w-64 z-50"
+                  className="absolute left-0 top-full pt-2 w-72 z-50"
                 >
-                  <div className="rounded-2xl border border-cyan-500/30 bg-neutral-950/95 p-2.5 shadow-2xl backdrop-blur-2xl">
+                  <div className="rounded-2xl border border-cyan-500/30 bg-neutral-950/95 p-2.5 shadow-2xl backdrop-blur-2xl space-y-1">
                     <Link
                       href={lPath("/products")}
-                      className="block rounded-xl px-4 py-2.5 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
+                      className="flex items-center gap-3 rounded-xl p-2 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all group"
                     >
-                      {dict.nav.allProductsOverview}
+                      <div className="relative h-9 w-9 shrink-0 overflow-hidden rounded-lg border border-white/10 bg-neutral-900">
+                        <Image src="/products/digital-humans/digital-human-dashboard.jpg" alt="Overview" fill className="object-cover group-hover:scale-110 transition-transform" />
+                      </div>
+                      <span>{dict.nav.allProductsOverview}</span>
                     </Link>
 
-                    <div className="my-1.5 border-t border-white/10" />
+                    <div className="my-1 border-t border-white/10" />
 
                     <Link
                       href={lPath("/products/ai-digital-human")}
-                      className="block rounded-xl px-4 py-2.5 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
+                      className="flex items-center gap-3 rounded-xl p-2 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all group"
                     >
-                      {dict.nav.dihuavaAvatarPlatform}
+                      <div className="relative h-9 w-9 shrink-0 overflow-hidden rounded-lg border border-cyan-500/30 bg-neutral-900">
+                        <Image src="/images/avatars/full_digital_human_presenter.png" alt="DIHUAVA Avatar" fill className="object-cover object-top group-hover:scale-110 transition-transform" />
+                      </div>
+                      <span>{dict.nav.dihuavaAvatarPlatform}</span>
                     </Link>
 
                     <Link
                       href={lPath("/products/holographic-display")}
-                      className="block rounded-xl px-4 py-2.5 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
+                      className="flex items-center gap-3 rounded-xl p-2 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all group"
                     >
-                      {dict.nav.holographicDisplay}
+                      <div className="relative h-9 w-9 shrink-0 overflow-hidden rounded-lg border border-cyan-500/30 bg-neutral-900">
+                        <Image src="/products/hologram-box/hologram-box.png" alt="Hologram Box" fill className="object-contain p-0.5 group-hover:scale-110 transition-transform" />
+                      </div>
+                      <span>{dict.nav.holographicDisplay}</span>
                     </Link>
 
                     <Link
                       href={lPath("/products/spatial-display")}
-                      className="block rounded-xl px-4 py-2.5 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all"
+                      className="flex items-center gap-3 rounded-xl p-2 text-xs font-semibold text-gray-200 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all group"
                     >
-                      {dict.nav.spatialDisplay}
+                      <div className="relative h-9 w-9 shrink-0 overflow-hidden rounded-lg border border-cyan-500/30 bg-neutral-900">
+                        <Image src="/products/spatial-display/spatial-display.png" alt="Spatial Display" fill className="object-contain p-0.5 group-hover:scale-110 transition-transform" />
+                      </div>
+                      <span>{dict.nav.spatialDisplay}</span>
                     </Link>
                   </div>
                 </motion.div>

@@ -400,7 +400,7 @@ export const en = {
         },
         {
           capability: "Visitor Speech Data Privacy",
-          dihuava: "100% Air-Gapped (Speech & voice never leave building)",
+          dihuava: "100% Offline On-Device by Default (Speech & voice never leave building)",
           cloudApis: "Streamed over internet to vendor servers",
           enterprisePlatforms: "Streamed to cloud servers",
           gpuBlueprints: "Depends on external API endpoints configured",
@@ -558,7 +558,7 @@ export const en = {
         {
           category: "General & Overview",
           question: "How does HS Global AI reduce operational costs?",
-          answer: "By automating front-desk reception, customer onboarding, product demonstrations, and routine information delivery, HS Global AI significantly reduces staffing requirements, eliminates queue times, and ensures consistent 24/7 service quality.",
+          answer: "By automating front-desk reception, customer onboarding, product demonstrations, and routine information delivery, HS Global AI significantly reduces staffing requirements, minimizes queue waiting times, and ensures consistent 24/7 service quality.",
         },
         {
           category: "Customization & AI Training",
@@ -593,7 +593,7 @@ export const en = {
         {
           category: "Capabilities & Features",
           question: "How many languages and dialects are supported?",
-          answer: "HS Global AI supports 29+ global languages (including English, Spanish, Mandarin, Arabic, Japanese, French, German, and Hindi), custom voice cloning, and over 100 regional accents with automatic language detection.",
+          answer: "HS Global AI supports 29+ global languages, including 7 specialized Indian languages: Hindi, Tamil, Telugu, Kannada, Bengali, Marathi, and Gujarati, custom voice cloning, and regional dialect adaptation where supported with automatic language detection.",
         },
         {
           category: "Capabilities & Features",
@@ -877,12 +877,12 @@ export const en = {
     personaProfiles: [
       {
         title: "Retail Sales Ambassador",
-        desc: "Proactive product recommendations, cross-selling, promotional announcements, and interactive Virtual Try-On assistance.",
+        desc: "Proactive product recommendations, cross-selling, promotional announcements, and interactive product exploration (garment fitting on active R&D roadmap).",
         icon: "🛍️",
       },
       {
         title: "Healthcare Patient Assistant",
-        desc: "Empathetic hospital wayfinding, symptom intake triage, appointment scheduling, and multilingual discharge instructions.",
+        desc: "Empathetic hospital wayfinding, administrative patient intake assistance, appointment scheduling, and clinic guidance.",
         icon: "🏥",
       },
       {
@@ -942,7 +942,7 @@ export const en = {
       },
       {
         q: "Is visitor voice or conversation data transmitted to the cloud?",
-        a: "Zero voice or conversation data is sent to external servers. All AI processing occurs locally on physical edge hardware, ensuring complete compliance with GDPR, PDPA, and HIPAA privacy standards.",
+        a: "Zero voice or conversation data is sent to external servers. All AI processing occurs locally on physical edge hardware, supporting GDPR, PDPA, and HIPAA privacy principles through complete local data residency.",
       },
       {
         q: "Can we clone our own corporate brand voice?",
@@ -1570,7 +1570,7 @@ export const en = {
         },
         {
                 "name": "Healthcare & Telemedicine",
-                "count": "Patient Intake & Triage AI"
+                "count": "Patient Intake & Navigation AI"
         },
         {
                 "name": "Education & Corporate Training",
@@ -1660,8 +1660,8 @@ export const en = {
     mrtStationIndia: "Vijayawada Region",
     metroStationChina: "Shenzhen Hardware Hub",
     downloadsBadge: "Data Sheets & Specifications",
-    dihuavaBrochureBadge: "Dihuava Brochure",
-    dihuavaTemplatesBadge: "Dihuava Templates",
+    dihuavaBrochureBadge: "DIHUAVA Brochure",
+    dihuavaTemplatesBadge: "DIHUAVA Templates",
     downloadBtn: "DOWNLOAD",
     downloadingBtn: "DOWNLOADING...",
   },
@@ -1700,8 +1700,8 @@ export const en = {
             "description": "Replicate target executive or brand voice styles while preserving natural pronunciation and emotional tone across all languages."
         },
         {
-            "title": "100+ Regional Accents & Pitch Modulation",
-            "description": "Supports nuanced regional dialects, local accents, and context-aware pronunciation for healthcare, retail, and corporate concierges."
+            "title": "Regional Accent & Dialect Adaptation",
+            "description": "Supports nuanced regional accents, local pronunciation, and pitch modulation across all supported languages."
         }
     ]
 },

@@ -545,7 +545,7 @@ export const fr: Dictionary = {
         {
           category: "Général & Présentation",
           question: "Comment HS Global AI réduit-il les coûts opérationnels ?",
-          answer: "En automatisant l'accueil, l'intégration des clients, les démonstrations de produits et la diffusion régulière d'informations, HS Global AI réduit considérablement les besoins en personnel, élimine les files d'attente et garantit une qualité de service 24/7.",
+          answer: "En automatisant l'accueil, l'intégration des clients, les démonstrations de produits et la diffusion régulière d'informations, HS Global AI réduit considérablement les besoins en personnel, minimise les temps d'attente et garantit une qualité de service 24/7.",
         },
         {
           category: "Personnalisation & Entraînement IA",
@@ -580,7 +580,7 @@ export const fr: Dictionary = {
         {
           category: "Capacités & Fonctionnalités",
           question: "Combien de langues et dialectes sont pris en charge ?",
-          answer: "HS Global AI prend en charge 29+ langues mondiales (dont l'anglais, l'espagnol, le mandarin, l'arabe, le japonais, le français, l'allemand et l'hindi), le clonage vocal personnalisé et plus de 100 accents régionaux avec détection automatique de la langue.",
+          answer: "HS Global AI prend en charge 29+ langues mondiales, dont 7 langues indiennes spécialisées : hindi, tamoul, télougou, kannada, bengali, marathi et gujarati, le clonage vocal personnalisé et l'adaptation aux dialectes régionaux là où elle est prise en charge avec détection automatique de la langue.",
         },
         {
           category: "Capacités & Fonctionnalités",
@@ -815,7 +815,7 @@ export const fr: Dictionary = {
       },
       {
         q: "Les données vocales des visiteurs sont-elles transmises au cloud ?",
-        a: "Zéro donnée vocale ou de conversation n'est envoyée vers des serveurs externes. Tout le traitement IA s'effectue localement, garantissant la conformité GDPR, PDPA et HIPAA.",
+        a: "Zéro donnée vocale ou de conversation n'est envoyée vers des serveurs externes. Tout le traitement IA s'effectue localement, soutenant les principes de confidentialité GDPR, PDPA et HIPAA grâce à la résidence locale des données.",
       },
       {
         q: "Pouvons-nous cloner notre propre voix de marque ?",
@@ -1421,7 +1421,7 @@ export const fr: Dictionary = {
       },
       {
         name: "Santé & Télémédecine",
-        count: "Accueil & Triage des Patients par IA",
+        count: "Accueil & Orientation des Patients par IA",
       },
       {
         name: "Éducation & Formation d'Entreprise",
@@ -1551,8 +1551,8 @@ export const fr: Dictionary = {
         description: "Reproduit le style vocal de vos dirigeants ou de votre marque en conservant la prononciation naturelle dans toutes les langues."
       },
       {
-        title: "100+ Accents Régionaux",
-        description: "Prend en charge les dialectes régionaux et la prononciation adaptée pour la santé, le commerce et l'accueil d'entreprise."
+        title: "Adaptation des Accents & Dialectes Régionaux",
+        description: "Prend en charge les accents régionaux nuancés, la prononciation locale et la modulation du ton dans toutes les langues prises en charge."
       }
     ]
   },

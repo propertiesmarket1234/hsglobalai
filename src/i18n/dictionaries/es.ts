@@ -960,7 +960,7 @@ export const es: Dictionary = {
       },
       {
         q: "¿Se transmiten los datos de voz del visitante a la nube?",
-        a: "Cero datos de voz o conversación se envían a servidores externos. Todo el procesamiento de IA ocurre localmente, garantizando el cumplimiento de GDPR, PDPA y HIPAA.",
+        a: "Cero datos de voz o conversación se envían a servidores externos. Todo el procesamiento de IA ocurre localmente, respaldando los principios de privacidad de GDPR, PDPA y HIPAA mediante la residencia de datos local.",
       },
       {
         q: "¿Podemos clonar nuestra propia voz corporativa de marca?",
@@ -1717,8 +1717,8 @@ export const es: Dictionary = {
             "description": "Replica tonos de voz corporativos o ejecutivos manteniendo una pronunciación natural en todos los idiomas."
         },
         {
-            "title": "100+ acentos regionales",
-            "description": "Admite dialectos regionales y pronunciación adaptada para atención médica, comercio y empresas."
+            "title": "Adaptación de acentos y dialectos regionales",
+            "description": "Admite acentos regionales matizados, pronunciación local y modulación de tono en todos los idiomas compatibles."
         }
     ]
 },
