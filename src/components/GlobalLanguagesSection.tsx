@@ -71,7 +71,7 @@ const languageFeatures = [
 
 export default function GlobalLanguagesSection() {
   return (
-    <section className="relative overflow-hidden bg-[var(--lp-tile)] px-4 py-20 sm:px-6 md:py-28 text-[var(--lp-ink)]">
+    <section id="global-languages" className="relative overflow-hidden bg-[var(--lp-tile)] px-4 py-20 sm:px-6 md:py-28 text-[var(--lp-ink)]">
       <div className="relative mx-auto max-w-[1200px]">
         {/* SECTION HEADER */}
         <div className="mx-auto max-w-[44rem] text-center">

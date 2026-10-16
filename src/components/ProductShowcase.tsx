@@ -32,8 +32,8 @@ const products: ProductItem[] = [
     title: "AI Digital Humans",
     subtitle: "Real-Time Multilingual Autonomous Avatars",
     description:
-      "Intelligent, empathetic AI avatars designed to communicate naturally with customers across 45+ global languages, retail sales floors, and hospital lobbies with hyper-realistic lip synchronization and custom voice cloning.",
-    tags: ["45+ Global Dialects", "Voice Reference Cloning", "Sub-Second Vocal Reply", "Empathetic Presence"],
+      "Intelligent, empathetic AI avatars designed to communicate naturally with customers across 29+ global languages, retail sales floors, and hospital lobbies with hyper-realistic lip synchronization and custom voice cloning.",
+    tags: ["29+ Global Languages", "Voice Reference Cloning", "Sub-Second Vocal Reply", "Empathetic Presence"],
     imageSrc: "/products/digital-humans/digital-human-dashboard.jpg",
     imageAlt: "DIHUAVA AI Digital Human Platform",
     badge: "Autonomous Workforce",
@@ -46,7 +46,7 @@ const products: ProductItem[] = [
     title: "AI Hologram Box",
     subtitle: "3D Volumetric Hardware Enclosure",
     description:
-      "Bring intelligent AI Digital Humans into physical environments through life-sized 3D holographic experiences supporting 45+ languages, interactive voice recognition, and 100% on-device private processing.",
+      "Bring intelligent AI Digital Humans into physical environments through life-sized 3D holographic experiences supporting 29+ global languages, interactive voice recognition, and 100% on-device private processing.",
     tags: ["65'' and 86'' Enclosures", "3D Volumetric Depth", "Air-Gapped Offline AI", "High-Footfall Enclosure"],
     imageSrc: "/products/digital-humans/digital-human-new.png",
     images: [

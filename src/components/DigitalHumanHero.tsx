@@ -140,7 +140,7 @@ const DOMAIN_PERSONAS: DomainPersona[] = [
     personaRole: "Holographic Keynote Host & Event Concierge",
     videoSrc: "/videos/avatars/meilin_speaking.mp4",
     primaryMetric: "3.8x Longer Visitor Dwell Time",
-    secondaryMetric: "45+ Native Languages",
+    secondaryMetric: "29+ Global Languages",
     costSavingBadge: "10,000+ Inquiries / Day",
     initialMessage:
       "Welcome to Global Tech Expo 2026! I am your interactive event host. I can print your attendee badge, guide you to exhibition booths, and schedule 1-on-1 speaker meetings.",
@@ -412,24 +412,24 @@ export default function DigitalHumanHero() {
 
         {/* TIER 4: SUB-HERO ENTERPRISE ROI & HARDWARE ECOSYSTEM BAR (SWIPECRAFT SYMMETRICAL STRUCTURE) */}
         <div className="mt-8 sm:mt-12 border-t border-[var(--lp-line)] pt-6 sm:pt-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4">
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-3 sm:gap-4">
             {/* CARD 1: ENTERPRISE ROI */}
             <div className="flex flex-col sm:flex-row sm:items-center gap-2.5 sm:gap-3 rounded-2xl sm:rounded-full bg-[var(--lp-tile)] px-3.5 sm:px-4 py-2 border border-[var(--lp-line)] shadow-xs">
               <span className="flex items-center gap-1.5 text-[11px] font-mono font-bold text-[var(--lp-muted)] uppercase tracking-wider shrink-0">
                 <span className="h-1.5 w-1.5 rounded-full bg-[var(--lp-accent)]" />
                 Enterprise ROI
               </span>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 sm:gap-2 flex-1">
+              <div className="grid grid-cols-2 gap-1.5 w-full sm:flex sm:flex-1 sm:items-center sm:gap-2">
                 {[
-                  { label: "70% Cost Cut", icon: TrendingUp, href: "#roi-calculator" },
-                  { label: "Zero Wait", icon: Clock, href: "#domain-simulator" },
+                  { label: "70% Cost Cut", icon: TrendingUp, href: "#enterprise-security" },
+                  { label: "Zero Wait", icon: Clock, href: "#enterprise-simulator" },
                   { label: "100% Air-Gap", icon: Lock, href: "#enterprise-security" },
-                  { label: "45+ Dialects", icon: CheckCircle2, href: "#domain-solutions" },
+                  { label: "29+ Global Languages", icon: CheckCircle2, href: "#global-languages" },
                 ].map(({ label, icon: Icon, href }) => (
                   <a
                     key={label}
                     href={href}
-                    className="inline-flex h-8 items-center justify-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-white px-2 text-[11px] sm:text-xs font-semibold text-[var(--lp-ink)] shadow-2xs hover:border-[var(--lp-ink)] hover:bg-[var(--lp-tile)] transition-all active:scale-[0.98] cursor-pointer whitespace-nowrap"
+                    className="inline-flex h-8 items-center justify-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-white px-2.5 sm:px-3 text-[11px] sm:text-xs font-semibold text-[var(--lp-ink)] shadow-2xs hover:border-[var(--lp-ink)] hover:bg-[var(--lp-tile)] transition-all active:scale-[0.98] cursor-pointer whitespace-nowrap flex-1 sm:flex-initial"
                   >
                     <Icon className="h-3.5 w-3.5 text-[var(--lp-accent)] shrink-0" />
                     <span>{label}</span>
@@ -444,7 +444,7 @@ export default function DigitalHumanHero() {
                 <span className="h-1.5 w-1.5 rounded-full bg-cyan-500" />
                 Form Factors
               </span>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 sm:gap-2 flex-1">
+              <div className="grid grid-cols-2 gap-1.5 w-full sm:flex sm:flex-1 sm:items-center sm:gap-2">
                 {[
                   { label: "Retail Kiosks", icon: Store, href: lPath("/products") },
                   { label: "3D Holograms", icon: Sparkles, href: lPath("/products/holographic-display") },
@@ -454,7 +454,7 @@ export default function DigitalHumanHero() {
                   <Link
                     key={label}
                     href={href}
-                    className="inline-flex h-8 items-center justify-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-white px-2 text-[11px] sm:text-xs font-semibold text-[var(--lp-ink)] shadow-2xs hover:border-[var(--lp-ink)] hover:bg-[var(--lp-tile)] transition-all active:scale-[0.98] cursor-pointer whitespace-nowrap"
+                    className="inline-flex h-8 items-center justify-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-white px-2.5 sm:px-3 text-[11px] sm:text-xs font-semibold text-[var(--lp-ink)] shadow-2xs hover:border-[var(--lp-ink)] hover:bg-[var(--lp-tile)] transition-all active:scale-[0.98] cursor-pointer whitespace-nowrap flex-1 sm:flex-initial"
                   >
                     <Icon className="h-3.5 w-3.5 text-cyan-600 shrink-0" />
                     <span>{label}</span>

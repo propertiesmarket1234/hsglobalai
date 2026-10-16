@@ -49,7 +49,7 @@ export default function DihuavaPlatform() {
       linkText: "Explore Avatar Customization",
       highlights: [
         { label: "Rendering", detail: "Real-time 60 FPS 4K on-premise rendering" },
-        { label: "Voice", detail: "Bespoke corporate voice cloning in 45+ languages" },
+        { label: "Voice", detail: "Bespoke corporate voice cloning in 29+ global languages" },
       ],
     },
     {
@@ -71,12 +71,12 @@ export default function DihuavaPlatform() {
     {
       id: "languages",
       title: "Multilingual Engine",
-      subtitle: "45+ Spoken Languages & Dialects",
+      subtitle: "29+ Global Languages",
       description:
         "Engage international shoppers and global tourists effortlessly. The platform detects the spoken language automatically and switches dialogue instantly without requiring manual touch input.",
       icon: Globe,
-      tags: ["Auto Language Detection", "45+ Dialects", "Native Accents", "Zero Lag TTS"],
-      stat: "45+ Languages",
+      tags: ["Auto Language Detection", "29+ Global Languages", "Native Accents", "Zero Lag TTS"],
+      stat: "29+ Global Languages",
       linkUrl: "/products/ai-digital-human",
       linkText: "Explore Multilingual Engine",
       highlights: [

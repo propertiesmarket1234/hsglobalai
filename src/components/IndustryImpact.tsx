@@ -49,10 +49,10 @@ const impacts = [
   {
     title: "Multilingual Fluency",
     description:
-      "Engage visitors in 45+ global languages and regional dialects with automatic voice detection and lip sync.",
+      "Engage visitors in 29+ global languages and regional dialects with automatic voice detection and lip sync.",
     icon: Globe2,
     iconColor: "text-[var(--lp-ink)]",
-    stat: "45+ Global Dialects",
+    stat: "29+ Global Languages",
   },
   {
     title: "Consistent Service Quality",

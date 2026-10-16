@@ -65,7 +65,7 @@ export default function ProductsClient() {
                 <div className="mt-6 flex flex-wrap gap-2">
                   <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-[var(--lp-card)] px-3 py-1 text-xs font-medium text-[var(--lp-ink)] shadow-2xs">
                     <CheckCircle2 className="h-3.5 w-3.5 text-[var(--lp-accent)]" />
-                    45+ Global Languages
+                    29+ Global Languages
                   </span>
                   <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-[var(--lp-card)] px-3 py-1 text-xs font-medium text-[var(--lp-ink)] shadow-2xs">
                     <CheckCircle2 className="h-3.5 w-3.5 text-[var(--lp-accent)]" />
@@ -131,7 +131,7 @@ export default function ProductsClient() {
       {/* PRODUCT SHOWCASE */}
       <ProductShowcase />
 
-      {/* DEDICATED 45+ GLOBAL LANGUAGES SECTION */}
+      {/* DEDICATED 29+ GLOBAL LANGUAGES SECTION */}
       <GlobalLanguagesSection />
 
       {/* DIHUAVA SOFTWARE PLATFORM INTELLIGENCE */}

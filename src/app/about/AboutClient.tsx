@@ -61,9 +61,9 @@ const enterprisePillars = [
     icon: User,
   },
   {
-    title: "45+ Multilingual Dialects",
+    title: "29+ Global Languages",
     description:
-      "Communicate fluently across 45+ international languages and regional dialects with instant auto-switching and natural accents.",
+      "Communicate fluently across 29+ international languages and regional dialects with instant auto-switching and natural accents.",
     icon: Globe2,
   },
   {

@@ -40,7 +40,7 @@ export default function ChatbotVsAvatar() {
       feature: "Multilingual Spoken Fluency",
       chatbot: "Text translation only (often clumsy)",
       humanStaff: "Limited to hired staff languages",
-      digitalHuman: "45+ native dialects spoken fluently",
+      digitalHuman: "29+ global languages spoken fluently",
     },
     {
       feature: "Air-Gapped On-Premise Security",

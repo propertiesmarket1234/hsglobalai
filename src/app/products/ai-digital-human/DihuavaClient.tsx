@@ -99,11 +99,11 @@ const coreModules = [
   {
     id: "multilingual-voice",
     title: "Multilingual Engine & Voice Cloning",
-    subtitle: "45+ Global Languages & Brand Voice Matching",
+    subtitle: "29+ Global Languages & Brand Voice Matching",
     description:
-      "Full on-device speech recognition, voice synthesis, and translation across 45+ global languages, including regional accents and automatic per-persona voice cloning.",
+      "Full on-device speech recognition, voice synthesis, and translation across 29+ global languages, including regional accents and automatic per-persona voice cloning.",
     icon: Globe2,
-    badge: "45+ Global Languages",
+    badge: "29+ Global Languages",
     featureUrl: "/products/ai-digital-human",
     highlights: [
       "Auto language switching without touch input",
@@ -154,8 +154,8 @@ const architecturalPillars = [
     icon: User,
   },
   {
-    title: "45+ Multilingual Speech Engine",
-    desc: "Real-time speech recognition & synthesis across 45+ global languages and major regional dialects with instant auto-switch.",
+    title: "29+ Multilingual Speech Engine",
+    desc: "Real-time speech recognition & synthesis across 29+ global languages and major regional dialects with instant auto-switch.",
     icon: Globe2,
   },
   {
@@ -231,7 +231,7 @@ const voiceCapabilities = [
     desc: "Optimized for natural customer service with audible warmth, realistic pauses, and fluid conversational cadence.",
   },
   {
-    name: "45+ Global Dialect Adaptation",
+    name: "29+ Global Language Adaptation",
     speed: "Localized Speech",
     desc: "Specialized neural models for international and regional accents with localized phrasing and numbering.",
   },
@@ -301,7 +301,7 @@ const comparisonTable = [
 
 const productSpecs = [
   { label: "Deployment Modes", value: "3D Hologram Cabinets, Spatial Displays, Touchscreen Kiosks" },
-  { label: "Language Coverage", value: "45+ Global Languages with Automatic Language Detection" },
+  { label: "Language Coverage", value: "29+ Global Languages with Automatic Language Detection" },
   { label: "Security Architecture", value: "100% Air-Gapped Local Edge Execution (Zero Cloud Data Leakage)" },
   { label: "Voice Features", value: "Sub-Second TTS, Voice Cloning, Dynamic Real-Time Lip Sync" },
   { label: "Knowledge Formats", value: "PDF, CSV Catalogs, Markdown, Plain Text with Local RAG" },
@@ -376,7 +376,7 @@ export default function DihuavaClient() {
               </h1>
 
               <p className="mt-5 text-[16px] leading-[1.65] text-[var(--lp-ink-2)] sm:text-[18px]">
-                DIHUAVA is our enterprise AI Digital Human software platform powering interactive avatars that communicate naturally, understand your product catalog, speak 45+ languages, and run 100% offline on local GPU hardware across interactive kiosks, 3D hologram boxes, and spatial displays.
+                DIHUAVA is our enterprise AI Digital Human software platform powering interactive avatars that communicate naturally, understand your product catalog, speak 29+ global languages, and run 100% offline on local GPU hardware across interactive kiosks, 3D hologram boxes, and spatial displays.
               </p>
 
               {/* ACTION BUTTONS */}
@@ -404,7 +404,7 @@ export default function DihuavaClient() {
                 </span>
                 <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-[var(--lp-card)] px-3 py-1 text-xs font-medium text-[var(--lp-ink)] shadow-2xs">
                   <Globe2 className="h-3 w-3 text-[var(--lp-accent)]" />
-                  45+ Global Languages
+                  29+ Global Languages
                 </span>
                 <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-[var(--lp-card)] px-3 py-1 text-xs font-medium text-[var(--lp-ink)] shadow-2xs">
                   <Camera className="h-3 w-3 text-[var(--lp-ink)]" />
@@ -449,8 +449,8 @@ export default function DihuavaClient() {
         <div className="mx-auto max-w-4xl">
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 text-center">
             <div className="rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-card)] p-5 shadow-2xs">
-              <p className="text-3xl font-extrabold text-[var(--lp-accent)] font-mono">45+</p>
-              <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-[var(--lp-muted)]">Global Dialects</p>
+              <p className="text-3xl font-extrabold text-[var(--lp-accent)] font-mono">29+</p>
+              <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-[var(--lp-muted)]">Global Languages</p>
             </div>
             <div className="rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-card)] p-5 shadow-2xs">
               <p className="text-3xl font-extrabold text-[var(--lp-ink)] font-mono">100%</p>

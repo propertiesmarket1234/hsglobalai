@@ -158,7 +158,7 @@ export default function HolographicDisplayClient() {
               </h1>
 
               <p className="mt-5 text-[16px] leading-[1.65] text-[var(--lp-ink-2)] sm:text-[18px] max-w-2xl">
-                Bring intelligent AI digital humans into physical environments through life-sized 1:1 scale 3D holographic showcases. Powered by on-premise industrial GPU hardware, directional audio, and 45+ language speech recognition.
+                Bring intelligent AI digital humans into physical environments through life-sized 1:1 scale 3D holographic showcases. Powered by on-premise industrial GPU hardware, directional audio, and 29+ global language speech recognition.
               </p>
 
               {/* Size Selector Pills */}
