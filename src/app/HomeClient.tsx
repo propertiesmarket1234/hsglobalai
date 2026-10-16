@@ -5,7 +5,6 @@ import ParallaxBackgroundLayer from "@/components/ParallaxBackgroundLayer";
 import DigitalHumanHero from "@/components/DigitalHumanHero";
 import EnterpriseQuestionSimulator from "@/components/EnterpriseQuestionSimulator";
 import Industries from "@/components/Industries";
-import EnterpriseRoiCalculator from "@/components/EnterpriseRoiCalculator";
 import EnterpriseSecurityCommand from "@/components/EnterpriseSecurityCommand";
 import ChatbotVsAvatar from "@/components/ChatbotVsAvatar";
 import Products from "@/components/Products";
@@ -31,10 +30,7 @@ export default function HomeClient() {
       {/* 4. ASYMMETRIC BENTO GRID: DOMAIN SOLUTIONS (RETAIL, HEALTHCARE, DEFENCE, EVENTS) */}
       <Industries />
 
-      {/* 5. INTERACTIVE ENTERPRISE ROI & COST-SAVINGS DRAG BAR CALCULATOR */}
-      <EnterpriseRoiCalculator />
-
-      {/* 6. INTERACTIVE AIR-GAPPED SECURITY & DATA PRIVACY COMMAND CENTER */}
+      {/* 5. INTERACTIVE AIR-GAPPED SECURITY & DATA PRIVACY COMMAND CENTER */}
       <EnterpriseSecurityCommand />
 
       {/* 7. COST CUTTING & ROI VALUE COMPARISON (CHATBOTS VS STAFFING VS DIGITAL HUMANS) */}
