@@ -412,54 +412,63 @@ export default function DigitalHumanHero() {
 
         {/* TIER 4: SUB-HERO ENTERPRISE ROI & HARDWARE ECOSYSTEM BAR (SWIPECRAFT SYMMETRICAL STRUCTURE) */}
         <div className="mt-8 sm:mt-12 border-t border-[var(--lp-line)] pt-6 sm:pt-8">
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-3 sm:gap-4">
-            {/* CARD 1: ENTERPRISE ROI */}
-            <div className="flex flex-col sm:flex-row sm:items-center gap-2.5 sm:gap-3 rounded-2xl sm:rounded-full bg-[var(--lp-tile)] px-3.5 sm:px-4 py-2 border border-[var(--lp-line)] shadow-xs">
-              <span className="flex items-center gap-1.5 text-[11px] font-mono font-bold text-[var(--lp-muted)] uppercase tracking-wider shrink-0">
-                <span className="h-1.5 w-1.5 rounded-full bg-[var(--lp-accent)]" />
-                Enterprise ROI
-              </span>
-              <div className="grid grid-cols-2 gap-1.5 w-full sm:flex sm:flex-1 sm:items-center sm:gap-2">
-                {[
-                  { label: "70% Cost Cut", icon: TrendingUp, href: "#enterprise-security" },
-                  { label: "Zero Wait", icon: Clock, href: "#enterprise-simulator" },
-                  { label: "100% Air-Gap", icon: Lock, href: "#enterprise-security" },
-                  { label: "29+ Global Languages", icon: CheckCircle2, href: "#global-languages" },
-                ].map(({ label, icon: Icon, href }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    className="inline-flex h-8 items-center justify-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-white px-2.5 sm:px-3 text-[11px] sm:text-xs font-semibold text-[var(--lp-ink)] shadow-2xs hover:border-[var(--lp-ink)] hover:bg-[var(--lp-tile)] transition-all active:scale-[0.98] cursor-pointer whitespace-nowrap flex-1 sm:flex-initial"
-                  >
-                    <Icon className="h-3.5 w-3.5 text-[var(--lp-accent)] shrink-0" />
-                    <span>{label}</span>
-                  </a>
-                ))}
+          <div className="rounded-2xl xl:rounded-full bg-[var(--lp-tile)] p-3 xl:px-5 xl:py-2 border border-[var(--lp-line)] shadow-xs">
+            <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-3 xl:gap-4">
+              {/* GROUP 1: ENTERPRISE ROI */}
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-2.5">
+                <span className="flex items-center gap-1.5 text-[11px] font-bold text-[var(--lp-muted)] uppercase tracking-wider shrink-0">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[var(--lp-accent)] animate-pulse" />
+                  Enterprise ROI
+                </span>
+                <div className="hidden sm:block h-3.5 w-px bg-[var(--lp-line-strong)] shrink-0" />
+                <div className="flex flex-wrap items-center gap-1.5">
+                  {[
+                    { label: "70% Cost Cut", icon: TrendingUp, href: "#enterprise-security" },
+                    { label: "Zero Wait", icon: Clock, href: "#enterprise-simulator" },
+                    { label: "100% Air-Gap", icon: Lock, href: "#enterprise-security" },
+                    { label: "29+ Global Languages", icon: CheckCircle2, href: "#global-languages" },
+                  ].map(({ label, icon: Icon, href }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      className="inline-flex h-7.5 items-center justify-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-white px-2.5 sm:px-3 text-[11px] font-semibold text-[var(--lp-ink)] shadow-2xs hover:border-[var(--lp-ink)] hover:bg-[var(--lp-tile)] transition-all active:scale-[0.98] cursor-pointer whitespace-nowrap"
+                    >
+                      <Icon className="h-3.5 w-3.5 text-[var(--lp-accent)] shrink-0" />
+                      <span>{label}</span>
+                    </a>
+                  ))}
+                </div>
               </div>
-            </div>
 
-            {/* CARD 2: PHYSICAL FORM FACTORS */}
-            <div className="flex flex-col sm:flex-row sm:items-center gap-2.5 sm:gap-3 rounded-2xl sm:rounded-full bg-[var(--lp-tile)] px-3.5 sm:px-4 py-2 border border-[var(--lp-line)] shadow-xs">
-              <span className="flex items-center gap-1.5 text-[11px] font-mono font-bold text-[var(--lp-muted)] uppercase tracking-wider shrink-0">
-                <span className="h-1.5 w-1.5 rounded-full bg-cyan-500" />
-                Form Factors
-              </span>
-              <div className="grid grid-cols-2 gap-1.5 w-full sm:flex sm:flex-1 sm:items-center sm:gap-2">
-                {[
-                  { label: "Retail Kiosks", icon: Store, href: lPath("/products") },
-                  { label: "3D Holograms", icon: Sparkles, href: lPath("/products/holographic-display") },
-                  { label: "Hospital Triage", icon: HeartPulse, href: lPath("/industries/healthcare") },
-                  { label: "VIP Spatial", icon: Activity, href: lPath("/products/spatial-display") },
-                ].map(({ label, icon: Icon, href }) => (
-                  <Link
-                    key={label}
-                    href={href}
-                    className="inline-flex h-8 items-center justify-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-white px-2.5 sm:px-3 text-[11px] sm:text-xs font-semibold text-[var(--lp-ink)] shadow-2xs hover:border-[var(--lp-ink)] hover:bg-[var(--lp-tile)] transition-all active:scale-[0.98] cursor-pointer whitespace-nowrap flex-1 sm:flex-initial"
-                  >
-                    <Icon className="h-3.5 w-3.5 text-cyan-600 shrink-0" />
-                    <span>{label}</span>
-                  </Link>
-                ))}
+              {/* CENTRAL VERTICAL DIVIDER (VISIBLE ON XL+ ONLY) */}
+              <div className="hidden xl:block h-5 w-px bg-[var(--lp-line-strong)] shrink-0" />
+              {/* HORIZONTAL DIVIDER ON SMALLER SCREENS */}
+              <div className="block xl:hidden w-full h-px bg-[var(--lp-line)]" />
+
+              {/* GROUP 2: PHYSICAL FORM FACTORS */}
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-2.5">
+                <span className="flex items-center gap-1.5 text-[11px] font-bold text-[var(--lp-muted)] uppercase tracking-wider shrink-0">
+                  <span className="h-1.5 w-1.5 rounded-full bg-cyan-500 animate-pulse" />
+                  Form Factors
+                </span>
+                <div className="hidden sm:block h-3.5 w-px bg-[var(--lp-line-strong)] shrink-0" />
+                <div className="flex flex-wrap items-center gap-1.5">
+                  {[
+                    { label: "Retail Kiosks", icon: Store, href: lPath("/products") },
+                    { label: "3D Holograms", icon: Sparkles, href: lPath("/products/holographic-display") },
+                    { label: "Hospital Triage", icon: HeartPulse, href: lPath("/industries/healthcare") },
+                    { label: "VIP Spatial", icon: Activity, href: lPath("/products/spatial-display") },
+                  ].map(({ label, icon: Icon, href }) => (
+                    <Link
+                      key={label}
+                      href={href}
+                      className="inline-flex h-7.5 items-center justify-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-white px-2.5 sm:px-3 text-[11px] font-semibold text-[var(--lp-ink)] shadow-2xs hover:border-[var(--lp-ink)] hover:bg-[var(--lp-tile)] transition-all active:scale-[0.98] cursor-pointer whitespace-nowrap"
+                    >
+                      <Icon className="h-3.5 w-3.5 text-cyan-600 shrink-0" />
+                      <span>{label}</span>
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

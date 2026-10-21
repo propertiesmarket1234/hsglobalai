@@ -17,6 +17,7 @@ import {
 import { getDictionary } from "@/i18n/getDictionary";
 import { Check, Globe } from "lucide-react";
 import LanguageBanner from "@/components/LanguageBanner";
+import { socialLinks } from "@/components/SocialLinks";
 
 export default function Header() {
   const pathname = usePathname();
@@ -302,7 +303,7 @@ export default function Header() {
                 className="inline-flex h-10 items-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-white px-3.5 text-[12px] font-medium text-[var(--lp-ink-2)] shadow-xs transition-all duration-150 hover:bg-[var(--lp-tile)] hover:text-[var(--lp-ink)] active:scale-[0.98] cursor-pointer"
                 aria-label="Select Language"
               >
-                <span className="font-mono text-[10px] font-bold px-1.5 py-0.5 rounded bg-[var(--lp-tile)] border border-[var(--lp-line)] text-[var(--lp-ink)]">{locales[currentLocale].flag}</span>
+                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-[var(--lp-tile)] border border-[var(--lp-line)] text-[var(--lp-ink)]">{locales[currentLocale].flag}</span>
                 <span>{locales[currentLocale].nativeName}</span>
                 <svg
                   className={`h-3 w-3 transition-transform duration-200 ${
@@ -337,7 +338,7 @@ export default function Header() {
                           }`}
                         >
                           <span className="flex items-center gap-2">
-                            <span className="font-mono text-[10px] font-bold px-1.5 py-0.5 rounded bg-[var(--lp-tile)] border border-[var(--lp-line)] text-[var(--lp-ink)]">{locales[loc].flag}</span>
+                            <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-[var(--lp-tile)] border border-[var(--lp-line)] text-[var(--lp-ink)]">{locales[loc].flag}</span>
                             <span>{locales[loc].nativeName}</span>
                           </span>
                           {loc === currentLocale && <Check className="h-3.5 w-3.5 text-[var(--lp-accent)]" />}
@@ -356,6 +357,22 @@ export default function Header() {
             >
               {dict.common.bookDemo || "Book Demo"}
             </Link>
+
+            {/* SOCIAL LINKS (Desktop & Tablet) */}
+            <div className="hidden md:flex items-center gap-1 border-l border-[var(--lp-line)] pl-2 sm:pl-3 ml-0.5">
+              {socialLinks.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={item.ariaLabel}
+                  className="inline-flex h-8 w-8 items-center justify-center rounded-full text-[var(--lp-muted)] transition-colors hover:bg-[var(--lp-tile)] hover:text-[var(--lp-ink)] active:scale-95 cursor-pointer"
+                >
+                  <item.icon className="h-3.5 w-3.5" />
+                </a>
+              ))}
+            </div>
 
             {/* MOBILE HAMBURGER BUTTON */}
             <button
@@ -464,9 +481,30 @@ export default function Header() {
                             : "bg-[var(--lp-tile)] text-[var(--lp-ink-2)] hover:bg-[var(--lp-tile-2)]"
                         }`}
                       >
-                        <span className="font-mono text-[10px] font-bold px-1 rounded bg-[var(--lp-tile)]/20 text-current">{locales[loc].flag}</span>
+                        <span className="text-[10px] font-bold px-1 rounded bg-[var(--lp-tile)]/20 text-current">{locales[loc].flag}</span>
                         <span>{locales[loc].nativeName}</span>
                       </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Mobile Social Links */}
+                <div className="pt-3 border-t border-[var(--lp-line)]">
+                  <span className="block text-[11px] font-medium text-[var(--lp-muted)] mb-2">
+                    Official Social Channels
+                  </span>
+                  <div className="flex items-center gap-2">
+                    {socialLinks.map((item) => (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={item.ariaLabel}
+                        className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--lp-line)] bg-[var(--lp-tile)] text-[var(--lp-ink-2)] hover:text-[var(--lp-ink)] hover:bg-[var(--lp-tile-2)] transition-colors active:scale-95 cursor-pointer"
+                      >
+                        <item.icon className="h-4 w-4" />
+                      </a>
                     ))}
                   </div>
                 </div>

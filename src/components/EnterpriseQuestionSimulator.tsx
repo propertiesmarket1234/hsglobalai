@@ -375,7 +375,7 @@ export default function EnterpriseQuestionSimulator() {
                     </h4>
                     <div className="flex items-center gap-2 mt-0.5">
                       <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
-                      <span className="text-[11px] font-mono text-[var(--lp-muted)]">
+                      <span className="text-[11px] font-medium text-[var(--lp-muted)]">
                         Edge Model Loaded · 100% Offline
                       </span>
                     </div>
@@ -383,7 +383,7 @@ export default function EnterpriseQuestionSimulator() {
                 </div>
 
                 {/* LATENCY TELEMETRY PILL */}
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[rgba(22,163,74,0.08)] border border-[rgba(22,163,74,0.2)] text-xs font-bold text-[#16a34a] font-mono self-start sm:self-auto">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[rgba(22,163,74,0.08)] border border-[rgba(22,163,74,0.2)] text-xs font-semibold text-[#16a34a] self-start sm:self-auto">
                   <Zap className="w-3.5 h-3.5" />
                   <span>{activeScenario.latencyMs}ms voice response</span>
                 </div>
@@ -421,9 +421,9 @@ export default function EnterpriseQuestionSimulator() {
                         <div className="mt-3.5 pt-3 border-t border-[var(--lp-line)] flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-[var(--lp-muted)]">
                           <div className="flex items-center gap-2">
                             <Volume2 className="w-3.5 h-3.5 text-[var(--lp-accent)] shrink-0" />
-                            <span className="font-mono text-[11px]">Synthesizing 48kHz voice</span>
+                            <span className="text-[11px] font-medium">Synthesizing 48kHz voice</span>
                           </div>
-                          <span className="text-[11px] font-semibold text-[var(--lp-ink)] font-mono">
+                          <span className="text-[11px] font-semibold text-[var(--lp-ink)]">
                             Action: {activeScenario.actionTaken}
                           </span>
                         </div>
@@ -435,16 +435,16 @@ export default function EnterpriseQuestionSimulator() {
 
               {/* ACTION PIPELINE AUDIT TRAIL */}
               <div className="mt-6 pt-5 border-t border-[var(--lp-line)]">
-                <span className="text-[11px] font-semibold text-[var(--lp-muted)] uppercase tracking-wider block mb-2.5 font-mono">
+                <span className="text-[11px] font-semibold text-[var(--lp-muted)] uppercase tracking-wider block mb-2.5">
                   Real-Time Local Execution Pipeline
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                   {activeScenario.pipelineSteps.map((step, sIdx) => (
                     <div
                       key={step}
-                      className="p-2.5 rounded-xl bg-[var(--lp-tile)] border border-[var(--lp-line)] text-[11px] font-mono text-[var(--lp-ink)] flex items-center gap-2"
+                      className="p-2.5 rounded-xl bg-[var(--lp-tile)] border border-[var(--lp-line)] text-xs font-medium text-[var(--lp-ink)] flex items-center gap-2"
                     >
-                      <span className="w-4 h-4 rounded-full bg-[var(--lp-card)] border border-[var(--lp-line)] flex items-center justify-center text-[9px] font-bold text-[var(--lp-accent)] shrink-0">
+                      <span className="w-4 h-4 rounded-full bg-[var(--lp-card)] border border-[var(--lp-line)] flex items-center justify-center text-[10px] font-bold text-[var(--lp-accent)] shrink-0">
                         {sIdx + 1}
                       </span>
                       <span className="leading-snug">{step}</span>

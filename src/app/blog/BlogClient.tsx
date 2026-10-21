@@ -161,8 +161,8 @@ export default function BlogClient() {
                       <span className="rounded-full bg-[var(--lp-tile)] px-3 py-1 text-xs font-semibold text-[var(--lp-ink-2)] border border-[var(--lp-line)]">
                         {featuredPost.category}
                       </span>
-                      <span className="text-xs font-mono text-[var(--lp-muted)]">{featuredPost.readTime}</span>
-                      <span className="text-xs font-mono text-[var(--lp-muted)]">• {featuredPost.date}</span>
+                      <span className="text-xs text-[var(--lp-muted)]">{featuredPost.readTime}</span>
+                      <span className="text-xs text-[var(--lp-muted)]">• {featuredPost.date}</span>
                     </div>
 
                     <h2 className="mt-4 text-2xl sm:text-3xl font-bold tracking-tight text-[var(--lp-ink)] group-hover:text-[var(--lp-accent)] transition-colors">
@@ -253,7 +253,7 @@ export default function BlogClient() {
                     </span>
 
                     {/* Read Time */}
-                    <span className="absolute bottom-3.5 right-3.5 rounded-full border border-white/20 bg-black/60 px-2.5 py-0.5 font-mono text-[10px] text-white backdrop-blur-md">
+                    <span className="absolute bottom-3.5 right-3.5 rounded-full border border-white/20 bg-black/60 px-2.5 py-0.5 text-[10px] text-white backdrop-blur-md">
                       {post.readTime}
                     </span>
                   </div>
@@ -284,7 +284,7 @@ export default function BlogClient() {
 
                     {/* CARD FOOTER */}
                     <div className="mt-6 pt-4 border-t border-[var(--lp-line)] flex items-center justify-between text-xs text-[var(--lp-muted)]">
-                      <span className="font-mono">{post.date}</span>
+                      <span className="">{post.date}</span>
                       <span className="font-semibold text-[var(--lp-ink)] group-hover:text-[var(--lp-accent)] group-hover:translate-x-1 transition-all inline-flex items-center gap-1">
                         <span>{bPage.readArticle || "Read Article"}</span>
                         <ArrowRight className="h-3.5 w-3.5" />
@@ -330,7 +330,7 @@ export default function BlogClient() {
                     <span className="rounded-full bg-[var(--lp-ink)] px-3 py-1 text-xs font-semibold text-white">
                       {activePost.category}
                     </span>
-                    <span className="text-xs font-mono text-white/90 bg-black/50 px-3 py-1 rounded-full backdrop-blur-md">
+                    <span className="text-xs text-white/90 bg-black/50 px-3 py-1 rounded-full backdrop-blur-md">
                       {activePost.date} • {activePost.readTime}
                     </span>
                   </div>
@@ -343,7 +343,7 @@ export default function BlogClient() {
 
               {/* Scrollable Modal Content Body */}
               <div className="overflow-y-auto p-6 md:p-8 space-y-6 text-sm leading-relaxed text-[var(--lp-ink-2)]">
-                <div className="flex items-center gap-3 text-xs text-[var(--lp-muted)] font-mono border-b border-[var(--lp-line)] pb-4">
+                <div className="flex items-center gap-3 text-xs text-[var(--lp-muted)] border-b border-[var(--lp-line)] pb-4">
                   <span>Author: {activePost.author}</span>
                   <span>•</span>
                   <span>{bPage.enterpriseHubLabel || "HS Global AI Enterprise Hub"}</span>

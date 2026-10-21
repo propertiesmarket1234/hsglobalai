@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Locale, nonDefaultLocales, getLocalizedPath } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
+import { socialLinks } from "@/components/SocialLinks";
 
 export default function Footer() {
   const pathname = usePathname();
@@ -39,10 +40,40 @@ export default function Footer() {
 
             <div className="mt-6 space-y-2 text-[12px] text-[var(--lp-muted)]">
               <p>
-                <strong className="text-[var(--lp-ink)] font-semibold">Singapore HQ:</strong> 60 Paya Lebar Road, #07-54, Paya Lebar Square, Singapore 409051
+                <strong className="text-[var(--lp-ink)] font-semibold">Singapore HQ:</strong>{" "}
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=60+Paya+Lebar+Road,+%2307-54,+Paya+Lebar+Square,+Singapore+409051"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[var(--lp-accent)] transition-colors inline-flex items-center gap-1 group"
+                >
+                  <span className="underline decoration-dotted underline-offset-2">60 Paya Lebar Road, #07-54, Paya Lebar Square, Singapore 409051</span>
+                  <span className="text-[10px] text-[var(--lp-muted)] group-hover:text-[var(--lp-accent)]">↗</span>
+                </a>
               </p>
               <p>
-                <strong className="text-[var(--lp-ink)] font-semibold">India Center:</strong> 5th Floor, Quadrant 2, Cyber Towers, Hitec City, Hyderabad, 500081
+                <strong className="text-[var(--lp-ink)] font-semibold">India:</strong>{" "}
+                <a
+                  href="https://www.google.com/maps/place/HS+GLOBAL+SG+PTE+LTD(INDIA)/@16.5294115,80.6710744,17z/data=!4m6!3m5!1s0x3a35e5b4fd9dfb2d:0xa85104746b554b94!8m2!3d16.5294115!4d80.6710744!16s%2Fg%2F11x82y6fb3"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[var(--lp-accent)] transition-colors inline-flex items-center gap-1 group"
+                >
+                  <span className="underline decoration-dotted underline-offset-2">Vijayawada, Andhra Pradesh, India</span>
+                  <span className="text-[10px] text-[var(--lp-muted)] group-hover:text-[var(--lp-accent)]">↗</span>
+                </a>
+              </p>
+              <p>
+                <strong className="text-[var(--lp-ink)] font-semibold">China:</strong>{" "}
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Bao'an+District,+Shenzhen,+China"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[var(--lp-accent)] transition-colors inline-flex items-center gap-1 group"
+                >
+                  <span className="underline decoration-dotted underline-offset-2">Bao&apos;an District, Shenzhen, China</span>
+                  <span className="text-[10px] text-[var(--lp-muted)] group-hover:text-[var(--lp-accent)]">↗</span>
+                </a>
               </p>
               <p className="pt-1">
                 <a
@@ -52,6 +83,27 @@ export default function Footer() {
                   sales@hsglobalai.com
                 </a>
               </p>
+
+              {/* SOCIAL MEDIA PROFILES */}
+              <div className="pt-3">
+                <span className="block text-[11px] uppercase tracking-wider text-[var(--lp-muted)] mb-2 font-medium">
+                  Follow Us
+                </span>
+                <div className="flex items-center gap-2">
+                  {socialLinks.map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={item.ariaLabel}
+                      className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[var(--lp-line)] bg-white text-[var(--lp-ink-2)] transition-all hover:bg-[var(--lp-tile)] hover:border-[var(--lp-accent)] hover:text-[var(--lp-ink)] hover:scale-105 shadow-2xs active:scale-95 cursor-pointer"
+                    >
+                      <item.icon className="h-3.5 w-3.5" />
+                    </a>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
@@ -157,6 +209,22 @@ export default function Footer() {
             <Link href={lPath("/contact")} className="hover:text-[var(--lp-ink)] transition-colors">
               Pilot Inquiries
             </Link>
+
+            {/* SOCIAL LINKS (Footer Bottom) */}
+            <div className="flex items-center gap-1.5 sm:border-l sm:border-[var(--lp-line)] sm:pl-4">
+              {socialLinks.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={item.ariaLabel}
+                  className="inline-flex h-7 w-7 items-center justify-center rounded-full text-[var(--lp-muted)] hover:text-[var(--lp-ink)] hover:bg-[var(--lp-tile)] transition-all active:scale-95 cursor-pointer"
+                >
+                  <item.icon className="h-3.5 w-3.5" />
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>

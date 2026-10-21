@@ -120,7 +120,7 @@ export default function LatestInsights() {
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-black/30" />
 
-                  <div className="absolute top-3 left-3 flex items-center gap-2 rounded-full border border-cyan-500/40 bg-black/80 px-3 py-1 text-[11px] font-mono font-semibold text-cyan-300 backdrop-blur-md">
+                  <div className="absolute top-3 left-3 flex items-center gap-2 rounded-full border border-cyan-500/40 bg-black/80 px-3 py-1 text-[11px] font-semibold text-cyan-300 backdrop-blur-md">
                     {post.category}
                   </div>
                 </div>
@@ -128,8 +128,8 @@ export default function LatestInsights() {
                 <div className="p-6 flex-1 flex flex-col justify-between">
                   <div>
                     <div className="flex items-center justify-between gap-2 mb-3">
-                      <span className="text-xs text-gray-400 font-mono">#{post.tag}</span>
-                      <span className="flex items-center gap-1 text-xs text-gray-400 font-mono">
+                      <span className="text-xs text-gray-400 font-medium">#{post.tag}</span>
+                      <span className="flex items-center gap-1 text-xs text-gray-400 font-medium">
                         <Clock className="w-3 h-3 text-gray-500" /> {post.readTime}
                       </span>
                     </div>
@@ -143,7 +143,7 @@ export default function LatestInsights() {
                     </p>
                   </div>
 
-                  <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono text-cyan-400 font-bold">
+                  <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-cyan-400 font-bold">
                     <span>{ins.readArticle}</span>
                     <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                   </div>
@@ -157,7 +157,7 @@ export default function LatestInsights() {
         <div className="mt-24 pt-16 border-t border-white/10">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
             <div>
-              <div className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 mb-2">
+              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-cyan-400 mb-2">
                 <Camera className="w-4 h-4" /> Global Expo Deployments
               </div>
               <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
@@ -196,7 +196,7 @@ export default function LatestInsights() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
 
                 <div className="absolute bottom-3 left-3 right-3 z-10">
-                  <span className="block text-[10px] font-mono text-cyan-400 uppercase tracking-wider font-semibold">
+                  <span className="block text-[10px] text-cyan-400 uppercase tracking-wider font-semibold">
                     📍 {photo.loc}
                   </span>
                   <p className="text-xs font-bold text-white leading-tight truncate mt-0.5">

@@ -47,7 +47,7 @@ const products: ProductItem[] = [
     subtitle: "3D Volumetric Hardware Enclosure",
     description:
       "Bring intelligent AI Digital Humans into physical environments through life-sized 3D holographic experiences supporting 29+ global languages, interactive voice recognition, and 100% on-device private processing.",
-    tags: ["65'' and 86'' Enclosures", "3D Volumetric Depth", "Air-Gapped Offline AI", "High-Footfall Enclosure"],
+    tags: ["55'', 65'', 75'', 86'' Enclosures", "3D Volumetric Depth", "Air-Gapped Offline AI", "High-Footfall Enclosure"],
     imageSrc: "/products/digital-humans/digital-human-new.png",
     images: [
       "/products/digital-humans/digital-human-new.png",
@@ -66,7 +66,7 @@ const products: ProductItem[] = [
     subtitle: "Glasses-Free 3D Interactive Screen",
     description:
       "Transform digital consultations into immersive volumetric experiences without 3D glasses. Engineered for VIP banking desks, luxury brand showcases, and medical consultation stations.",
-    tags: ["Glasses-Free 3D", "Executive Desk Unit", "Ultra-High Contrast", "Real-Time Interaction"],
+    tags: ["32'', 43'', 55'', 65'', 75'', 86'' Sizes", "Glasses-Free 3D", "Executive Desk Unit", "Ultra-High Contrast", "Real-Time Interaction"],
     imageSrc: "/products/spatial-display/spatial-display.png",
     imageAlt: "Glasses-Free 3D Spatial Display",
     badge: "Glasses-Free Volumetric",
@@ -158,7 +158,7 @@ export default function ProductShowcase() {
                   {/* PRODUCT DETAILS */}
                   <div className={product.reverseLayout ? "lg:col-start-1" : ""}>
                     <div className="flex items-center gap-3">
-                      <span className="font-mono text-sm font-semibold tracking-wider text-[var(--lp-accent)]">
+                      <span className="text-sm font-semibold tracking-wider text-[var(--lp-accent)]">
                         {product.number}
                       </span>
                       <span className="rounded-full border border-[var(--lp-line)] bg-[var(--lp-tile)] px-3 py-1 text-[11px] font-medium tracking-wide text-[var(--lp-muted)]">

@@ -347,7 +347,7 @@ export default function DihuavaClient() {
       <section className="relative px-4 pt-32 pb-16 sm:px-6 md:pt-40 md:pb-24 border-b border-[var(--lp-line)]">
         <div className="mx-auto max-w-[1200px]">
           {/* Breadcrumb Navigation */}
-          <div className="flex items-center gap-2 text-xs text-[var(--lp-muted)] mb-6 font-mono">
+          <div className="flex items-center gap-2 text-xs text-[var(--lp-muted)] mb-6">
             <Link href={lPath("/products")} className="hover:text-[var(--lp-ink)] transition-colors">
               Products
             </Link>
@@ -429,7 +429,7 @@ export default function DihuavaClient() {
                     className="object-contain w-full h-full p-2"
                   />
                   <div className="absolute bottom-3 left-3 right-3 rounded-xl border border-[var(--lp-line)] bg-white/90 p-3 backdrop-blur-md shadow-xs">
-                    <div className="flex items-center justify-between text-xs font-mono">
+                    <div className="flex items-center justify-between text-xs">
                       <span className="font-bold text-[var(--lp-ink)]">DIHUAVA ON-PREMISE ENGINE</span>
                       <span className="font-semibold text-[#16a34a]">STATUS: 100% LOCAL</span>
                     </div>
@@ -449,19 +449,19 @@ export default function DihuavaClient() {
         <div className="mx-auto max-w-4xl">
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 text-center">
             <div className="rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-card)] p-5 shadow-2xs">
-              <p className="text-3xl font-extrabold text-[var(--lp-accent)] font-mono">29+</p>
+              <p className="text-3xl font-extrabold text-[var(--lp-accent)]">29+</p>
               <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-[var(--lp-muted)]">Global Languages</p>
             </div>
             <div className="rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-card)] p-5 shadow-2xs">
-              <p className="text-3xl font-extrabold text-[var(--lp-ink)] font-mono">100%</p>
+              <p className="text-3xl font-extrabold text-[var(--lp-ink)]">100%</p>
               <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-[var(--lp-muted)]">Air-Gapped Offline</p>
             </div>
             <div className="rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-card)] p-5 shadow-2xs">
-              <p className="text-3xl font-extrabold text-[var(--lp-accent)] font-mono">&lt;800ms</p>
+              <p className="text-3xl font-extrabold text-[var(--lp-accent)]">&lt;800ms</p>
               <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-[var(--lp-muted)]">Vocal Response Time</p>
             </div>
             <div className="rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-card)] p-5 shadow-2xs">
-              <p className="text-3xl font-extrabold text-[#16a34a] font-mono">70%</p>
+              <p className="text-3xl font-extrabold text-[#16a34a]">70%</p>
               <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-[var(--lp-muted)]">Staffing Cost Saved</p>
             </div>
           </div>
@@ -499,7 +499,7 @@ export default function DihuavaClient() {
                     <h3 className="text-lg font-bold text-[var(--lp-ink)] mb-2">{pillar.title}</h3>
                     <p className="text-xs leading-relaxed text-[var(--lp-ink-2)]">{pillar.desc}</p>
                   </div>
-                  <div className="mt-5 pt-3 border-t border-[var(--lp-line)] text-xs font-mono text-[var(--lp-muted)]">
+                  <div className="mt-5 pt-3 border-t border-[var(--lp-line)] text-xs text-[var(--lp-muted)]">
                     PILLAR 0{idx + 1}
                   </div>
                 </div>
@@ -533,7 +533,7 @@ export default function DihuavaClient() {
               >
                 <div>
                   <div className="flex items-center justify-between mb-5">
-                    <span className="text-2xl font-extrabold font-mono text-[var(--lp-accent)]">
+                    <span className="text-2xl font-extrabold text-[var(--lp-accent)]">
                       {item.step}
                     </span>
                     <span className="rounded-full bg-[var(--lp-tile)] px-2.5 py-0.5 text-[11px] font-semibold text-[var(--lp-muted)]">
@@ -754,7 +754,7 @@ export default function DihuavaClient() {
                   key={spec.label}
                   className="grid grid-cols-1 gap-2 px-6 py-4 sm:grid-cols-3 sm:gap-4 hover:bg-[var(--lp-tile)]/40 transition-colors"
                 >
-                  <span className="text-sm font-semibold text-[var(--lp-muted)] font-mono">
+                  <span className="text-sm font-semibold text-[var(--lp-muted)]">
                     {spec.label}
                   </span>
                   <span className="text-sm font-semibold text-[var(--lp-ink)] sm:col-span-2">

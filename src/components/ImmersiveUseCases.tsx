@@ -181,7 +181,7 @@ export default function ImmersiveUseCases() {
                   <div className="mt-8 grid grid-cols-3 gap-4 border-t border-[var(--lp-line)] pt-6">
                     {activeStory.metrics.map((m) => (
                       <div key={m.label}>
-                        <p className="text-2xl font-bold text-[var(--lp-ink)] font-mono">{m.value}</p>
+                        <p className="text-2xl font-bold text-[var(--lp-ink)]">{m.value}</p>
                         <p className="text-[11px] text-[var(--lp-muted)] uppercase tracking-wider mt-0.5">
                           {m.label}
                         </p>

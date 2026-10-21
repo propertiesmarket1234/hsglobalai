@@ -225,7 +225,7 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
       <section className="relative px-4 pt-32 pb-16 sm:px-6 md:pt-40 md:pb-24 border-b border-[var(--lp-line)]">
         <div className="mx-auto max-w-[1200px]">
           {/* Breadcrumb Navigation */}
-          <div className="flex items-center gap-2 text-xs text-[var(--lp-muted)] mb-6 font-mono">
+          <div className="flex items-center gap-2 text-xs text-[var(--lp-muted)] mb-6">
             <Link href={homeHref} className="hover:text-[var(--lp-ink)] transition-colors">
               {ui.home}
             </Link>
@@ -302,7 +302,7 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
                     <MainIcon className="w-7 h-7" strokeWidth={1.75} />
                   </span>
                   <div>
-                    <span className="font-mono text-xs text-[var(--lp-muted)] tracking-wider uppercase">
+                    <span className="text-xs text-[var(--lp-muted)] tracking-wider uppercase">
                       DEPLOYMENT ARCHITECTURE {industry.number}
                     </span>
                     <h3 className="text-xl font-bold text-[var(--lp-ink)]">{industry.title}</h3>
@@ -329,7 +329,7 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
                   </div>
                 </div>
 
-                <div className="mt-6 pt-5 border-t border-[var(--lp-line)] flex items-center justify-between text-xs font-mono text-[var(--lp-muted)]">
+                <div className="mt-6 pt-5 border-t border-[var(--lp-line)] flex items-center justify-between text-xs text-[var(--lp-muted)]">
                   <span>{ui.statusReady}</span>
                   <span className="font-semibold text-[#16a34a]">{ui.languages29}</span>
                 </div>
@@ -348,7 +348,7 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
                 key={idx}
                 className="rounded-[24px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-6 text-center shadow-xs"
               >
-                <p className="text-3xl font-extrabold text-[var(--lp-accent)] font-mono md:text-4xl">
+                <p className="text-3xl font-extrabold text-[var(--lp-accent)] md:text-4xl">
                   {metric.value}
                 </p>
                 <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-[var(--lp-muted)]">
@@ -431,7 +431,7 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
                     <span className="rounded-full bg-[var(--lp-tile)] px-3 py-1 text-xs font-semibold text-[var(--lp-muted)]">
                       {useCase.category}
                     </span>
-                    <span className="font-mono text-xs font-bold text-[var(--lp-muted)]">
+                    <span className="text-xs font-bold text-[var(--lp-muted)]">
                       0{idx + 1}
                     </span>
                   </div>
@@ -482,7 +482,7 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
                   key={idx}
                   className="grid gap-2 p-5 sm:grid-cols-12 sm:items-center hover:bg-[var(--lp-tile)]/50 transition-colors"
                 >
-                  <span className="text-sm font-semibold text-[var(--lp-muted)] sm:col-span-5 font-mono">
+                  <span className="text-sm font-semibold text-[var(--lp-muted)] sm:col-span-5">
                     {spec.label}
                   </span>
                   <span className="text-sm font-semibold text-[var(--lp-ink)] sm:col-span-7">
@@ -545,7 +545,7 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
                       <h4 className="text-sm font-bold text-[var(--lp-ink)] group-hover:text-[var(--lp-accent)] transition-colors">
                         {ind.title}
                       </h4>
-                      <p className="text-xs text-[var(--lp-muted)] font-mono">0{ind.number}</p>
+                      <p className="text-xs text-[var(--lp-muted)]">0{ind.number}</p>
                     </div>
                   </div>
                   <ArrowRight className="h-4 w-4 text-[var(--lp-muted)] group-hover:translate-x-1 group-hover:text-[var(--lp-ink)] transition-all" />

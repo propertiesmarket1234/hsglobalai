@@ -150,7 +150,7 @@ export default function RealtimeTalkingAvatars() {
         {/* CAROUSEL PRESENTER INDICATOR BAR (NON-CLICKABLE VISUAL SHOWCASE) */}
         <div className="mb-8 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-white/10 bg-neutral-950/80 p-3.5 backdrop-blur-md pointer-events-none select-none">
           <div className="flex items-center gap-2">
-            <span className="text-xs font-mono font-bold uppercase text-cyan-300 tracking-wider">
+            <span className="text-xs font-bold uppercase text-cyan-300 tracking-wider">
               {av.avatarPresenter}
             </span>
           </div>
@@ -173,7 +173,7 @@ export default function RealtimeTalkingAvatars() {
                     }`}
                   />
                   <span>{lady.name}</span>
-                  <span className="text-[10px] text-gray-400 font-mono">({lady.role})</span>
+                  <span className="text-[10px] text-gray-400 font-medium">({lady.role})</span>
                 </div>
               );
             })}
@@ -228,10 +228,10 @@ export default function RealtimeTalkingAvatars() {
                     <div className="rounded-2xl border border-cyan-500/40 bg-cyan-950/60 p-4 text-cyan-300 mb-3 shadow-[0_0_20px_rgba(6,182,212,0.3)]">
                       <Film className="w-8 h-8" />
                     </div>
-                    <span className="text-sm font-bold font-mono text-cyan-300 uppercase tracking-wider">
+                    <span className="text-sm font-bold text-cyan-300 uppercase tracking-wider">
                       Video Stream Area — Slide 0{currentIndex + 1} ({activeLady.name})
                     </span>
-                    <p className="mt-2 text-xs font-mono text-gray-400 max-w-xs">
+                    <p className="mt-2 text-xs text-gray-400 max-w-xs">
                       MP4 Video Slot: {activeLady.videoSrc}
                     </p>
                   </div>
@@ -248,16 +248,16 @@ export default function RealtimeTalkingAvatars() {
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75" />
                   <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-cyan-500" />
                 </span>
-                <span className="text-xs font-mono font-bold tracking-widest text-cyan-300 uppercase">
+                <span className="text-xs font-bold tracking-widest text-cyan-300 uppercase">
                   {av.liveStreamBadge}
                 </span>
               </div>
 
               <div className="flex items-center gap-2.5 rounded-full border border-cyan-500/40 bg-black/85 px-4 py-2 backdrop-blur-md">
-                <span className="text-xs font-mono font-bold text-cyan-300 uppercase tracking-wider">
+                <span className="text-xs font-bold text-cyan-300 uppercase tracking-wider">
                   {activeLady.name}
                 </span>
-                <span className="hidden sm:inline-flex items-center gap-1 text-[11px] font-mono text-cyan-400 border-l border-white/20 pl-2">
+                <span className="hidden sm:inline-flex items-center gap-1 text-[11px] text-cyan-400 border-l border-white/20 pl-2">
                   <Mic className="h-3 w-3" />
                   <span>{activeLady.voiceProfile.description}</span>
                 </span>
@@ -274,12 +274,12 @@ export default function RealtimeTalkingAvatars() {
                   </div>
                 </div>
 
-                <div className="rounded-full border border-cyan-500/40 bg-black/85 px-4 py-2 font-mono text-xs font-bold text-cyan-300 backdrop-blur-md shadow-lg">
+                <div className="rounded-full border border-cyan-500/40 bg-black/85 px-4 py-2 text-xs font-bold text-cyan-300 backdrop-blur-md shadow-lg">
                   {av.autonomousStream}
                 </div>
               </div>
 
-              <div className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/80 px-3.5 py-2 font-mono text-xs text-gray-300 backdrop-blur-md">
+              <div className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/80 px-3.5 py-2 text-xs text-gray-300 backdrop-blur-md">
                 <Volume2 className="h-3 w-3 text-cyan-400" />
                 <span>{av.languagesEnabled}</span>
               </div>
@@ -292,7 +292,7 @@ export default function RealtimeTalkingAvatars() {
             
             {/* Top Capability Indicator Card */}
             <div>
-              <span className="block text-[11px] font-mono font-bold uppercase tracking-wider text-cyan-400 mb-3">
+              <span className="block text-[11px] font-bold uppercase tracking-wider text-cyan-400 mb-3">
                 {av.avatarCapability}
               </span>
               <AnimatePresence mode="wait">
@@ -312,7 +312,7 @@ export default function RealtimeTalkingAvatars() {
                       <h3 className="text-sm font-bold text-white">
                         {activeLady.capabilityTitle}
                       </h3>
-                      <p className="text-xs text-cyan-300 font-mono mt-0.5">
+                      <p className="text-xs text-cyan-300 mt-0.5">
                         {activeLady.voiceProfile.accentName}
                       </p>
                     </div>
@@ -324,10 +324,10 @@ export default function RealtimeTalkingAvatars() {
             {/* Chat Interface Header */}
             <div className="flex items-center justify-between border-b border-white/15 pb-3 pt-2">
               <div className="flex items-center gap-2">
-                <span className="font-mono text-xs font-bold tracking-wider text-cyan-400 uppercase">
+                <span className="text-xs font-bold tracking-wider text-cyan-400 uppercase">
                   {av.chatInterface}
                 </span>
-                <span className="rounded-full bg-cyan-500/20 px-2.5 py-0.5 text-[10px] font-mono font-semibold text-cyan-300">
+                <span className="rounded-full bg-cyan-500/20 px-2.5 py-0.5 text-[10px] font-semibold text-cyan-300">
                   {av.online}
                 </span>
               </div>
@@ -363,7 +363,7 @@ export default function RealtimeTalkingAvatars() {
             </div>
 
             {/* Carousel Auto-play Progress Footer Bar */}
-            <div className="pt-3 border-t border-white/15 flex items-center justify-between text-xs font-mono text-gray-400">
+            <div className="pt-3 border-t border-white/15 flex items-center justify-between text-xs text-gray-400">
               <div className="flex items-center gap-2">
                 <Globe className="h-4 w-4 text-cyan-400" />
                 <span className="text-gray-300">29+ Global Languages</span>

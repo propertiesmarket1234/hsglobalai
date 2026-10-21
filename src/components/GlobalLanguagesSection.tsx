@@ -140,7 +140,7 @@ export default function GlobalLanguagesSection() {
                 key={lang.name}
                 className="flex items-center gap-2.5 rounded-xl border border-[var(--lp-line)] bg-[var(--lp-tile)] p-2.5 transition-colors hover:border-[var(--lp-accent)]/40 hover:bg-[var(--lp-card)]"
               >
-                <span className="flex h-6 w-7 shrink-0 items-center justify-center rounded-md bg-[var(--lp-card)] text-[10px] font-mono font-bold text-[var(--lp-ink)] border border-[var(--lp-line)] shadow-2xs">
+                <span className="flex h-6 w-7 shrink-0 items-center justify-center rounded-md bg-[var(--lp-card)] text-[10px] font-bold text-[var(--lp-ink)] border border-[var(--lp-line)] shadow-2xs">
                   {lang.code}
                 </span>
                 <div className="min-w-0">

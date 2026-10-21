@@ -129,7 +129,7 @@ export default function HolographicDisplayClient() {
       <section className="relative px-4 pt-32 pb-16 sm:px-6 md:pt-40 md:pb-24 border-b border-[var(--lp-line)]">
         <div className="mx-auto max-w-[1200px]">
           {/* Breadcrumb Navigation */}
-          <div className="flex items-center gap-2 text-xs text-[var(--lp-muted)] mb-6 font-mono">
+          <div className="flex items-center gap-2 text-xs text-[var(--lp-muted)] mb-6">
             <Link href={lPath("/products")} className="hover:text-[var(--lp-ink)] transition-colors">
               Products
             </Link>
@@ -312,7 +312,7 @@ export default function HolographicDisplayClient() {
                   key={spec.label}
                   className="grid grid-cols-1 gap-2 p-5 sm:grid-cols-12 sm:items-center hover:bg-[var(--lp-tile)]/50 transition-colors"
                 >
-                  <span className="text-sm font-semibold text-[var(--lp-muted)] sm:col-span-5 font-mono">
+                  <span className="text-sm font-semibold text-[var(--lp-muted)] sm:col-span-5">
                     {spec.label}
                   </span>
                   <span className="text-sm font-semibold text-[var(--lp-ink)] sm:col-span-7">

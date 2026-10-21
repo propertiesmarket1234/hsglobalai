@@ -236,7 +236,7 @@ export default function EventsClient() {
               className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4 max-w-4xl mx-auto"
             >
               <div className="rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-card)] p-5 shadow-2xs">
-                <div className="text-3xl font-bold text-[var(--lp-ink)] font-mono">
+                <div className="text-3xl font-bold text-[var(--lp-ink)]">
                   {ePage.metrics?.visitorsVal || "5,000+"}
                 </div>
                 <div className="mt-1 text-xs text-[var(--lp-muted)] font-medium">
@@ -245,7 +245,7 @@ export default function EventsClient() {
               </div>
 
               <div className="rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-card)] p-5 shadow-2xs">
-                <div className="text-3xl font-bold text-[var(--lp-ink)] font-mono">
+                <div className="text-3xl font-bold text-[var(--lp-ink)]">
                   {ePage.metrics?.demosVal || "120+"}
                 </div>
                 <div className="mt-1 text-xs text-[var(--lp-muted)] font-medium">
@@ -254,7 +254,7 @@ export default function EventsClient() {
               </div>
 
               <div className="rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-card)] p-5 shadow-2xs">
-                <div className="text-3xl font-bold text-[var(--lp-ink)] font-mono">
+                <div className="text-3xl font-bold text-[var(--lp-ink)]">
                   {ePage.metrics?.mediaVal || "25+"}
                 </div>
                 <div className="mt-1 text-xs text-[var(--lp-muted)] font-medium">
@@ -263,7 +263,7 @@ export default function EventsClient() {
               </div>
 
               <div className="rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-card)] p-5 shadow-2xs">
-                <div className="text-3xl font-bold text-[var(--lp-accent)] font-mono">
+                <div className="text-3xl font-bold text-[var(--lp-accent)]">
                   {ePage.metrics?.offlineVal || "100%"}
                 </div>
                 <div className="mt-1 text-xs text-[var(--lp-muted)] font-medium">
@@ -278,7 +278,7 @@ export default function EventsClient() {
         <section className="relative py-20 px-4 sm:px-6 border-b border-[var(--lp-line)]">
           <div className="mx-auto max-w-[1200px]">
             <div className="mb-14 text-center md:text-left">
-              <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-[var(--lp-accent)]">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--lp-accent)]">
                 {ePage.recentSectionBadge || "PROJECT SHOWCASE"}
               </span>
               <h2 className="mt-2 text-3xl font-semibold tracking-tight text-[var(--lp-ink)] md:text-5xl">
@@ -357,7 +357,7 @@ export default function EventsClient() {
                         {/* Interactive Photo Selector for LED China */}
                         {event.id === "led-china-2026" && (
                           <div className="mb-5 rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-tile)] p-3">
-                            <span className="flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-wider text-[var(--lp-ink)] mb-2 font-semibold">
+                            <span className="flex items-center gap-1.5 text-[11px] uppercase tracking-wider text-[var(--lp-ink)] mb-2 font-semibold">
                               <Camera className="h-3 w-3 text-[var(--lp-accent)]" />
                               <span>Live Exhibition Gallery (Click to Inspect):</span>
                             </span>
@@ -397,7 +397,7 @@ export default function EventsClient() {
 
                       {/* Highlights checklist */}
                       <div className="pt-4 border-t border-[var(--lp-line)]">
-                        <h4 className="text-xs font-mono uppercase tracking-wider text-[var(--lp-muted)] mb-3 font-semibold">
+                        <h4 className="text-xs uppercase tracking-wider text-[var(--lp-muted)] mb-3 font-semibold">
                           {(event as any).highlightsHeading || "EXHIBITION KEY HIGHLIGHTS"}
                         </h4>
                         <ul className="grid grid-cols-1 gap-2">
@@ -424,7 +424,7 @@ export default function EventsClient() {
         <section id="highlights" className="relative bg-[var(--lp-tile)] py-20 px-4 sm:px-6 border-b border-[var(--lp-line)]">
           <div className="mx-auto max-w-[1200px]">
             <div className="mb-10 text-center">
-              <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-[var(--lp-accent)]">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--lp-accent)]">
                 {ePage.momentsSectionBadge || "EXHIBITION MOMENTS"}
               </span>
               <h2 className="mt-2 text-3xl font-semibold tracking-tight text-[var(--lp-ink)] md:text-4xl">
@@ -475,7 +475,7 @@ export default function EventsClient() {
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-                      <div className="absolute bottom-2 left-3 right-3 flex items-center justify-between text-[11px] font-mono text-white bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-lg border border-white/20">
+                      <div className="absolute bottom-2 left-3 right-3 flex items-center justify-between text-[11px] text-white bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-lg border border-white/20">
                         <span>{item.category}</span>
                         <span>{item.event}</span>
                       </div>

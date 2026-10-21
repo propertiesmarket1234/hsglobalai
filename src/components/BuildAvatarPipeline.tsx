@@ -64,7 +64,7 @@ export default function BuildAvatarPipeline() {
                   className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                <div className="absolute bottom-2.5 left-3 text-[11px] font-mono text-cyan-300 font-semibold">
+                <div className="absolute bottom-2.5 left-3 text-[11px] text-cyan-300 font-semibold">
                   3D Photorealistic Rigging
                 </div>
               </div>
@@ -102,7 +102,7 @@ export default function BuildAvatarPipeline() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
                 <div className="absolute bottom-3 left-3 right-3 text-center">
-                  <span className="inline-block rounded-full bg-cyan-950/90 border border-cyan-500/40 px-3 py-1 text-[10px] font-mono text-cyan-300 font-bold">
+                  <span className="inline-block rounded-full bg-cyan-950/90 border border-cyan-500/40 px-3 py-1 text-[10px] text-cyan-300 font-bold">
                     60 FPS Local Display
                   </span>
                 </div>
@@ -110,7 +110,7 @@ export default function BuildAvatarPipeline() {
             </div>
 
             <div className="rounded-xl border border-white/10 bg-black/60 p-4 text-center">
-              <span className="inline-flex items-center gap-1.5 text-xs font-mono text-cyan-400">
+              <span className="inline-flex items-center gap-1.5 text-xs font-medium text-cyan-400">
                 <Zap className="h-3.5 w-3.5" />
                 <span>Low Latency On-Device Rendering Engine</span>
               </span>
@@ -144,7 +144,7 @@ export default function BuildAvatarPipeline() {
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                <div className="absolute bottom-2.5 left-3 text-[11px] font-mono text-cyan-300 font-semibold">
+                <div className="absolute bottom-2.5 left-3 text-[11px] text-cyan-300 font-semibold">
                   Air-Gapped Vector Search RAG
                 </div>
               </div>
@@ -178,7 +178,7 @@ export default function BuildAvatarPipeline() {
                   className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                <div className="absolute bottom-2.5 left-3 text-[11px] font-mono text-cyan-300 font-semibold">
+                <div className="absolute bottom-2.5 left-3 text-[11px] text-cyan-300 font-semibold">
                   🎙️ Cloned Neural Audio Output
                 </div>
               </div>
@@ -212,7 +212,7 @@ export default function BuildAvatarPipeline() {
                   className="object-contain p-2 transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                <div className="absolute bottom-2.5 left-3 text-[11px] font-mono text-cyan-300 font-semibold">
+                <div className="absolute bottom-2.5 left-3 text-[11px] text-cyan-300 font-semibold">
                   Multi-Screen & Holographic Hardware
                 </div>
               </div>

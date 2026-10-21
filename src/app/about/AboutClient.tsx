@@ -69,7 +69,7 @@ const enterprisePillars = [
   {
     title: "3D Volumetric Hardware",
     description:
-      "Enclose digital human assistants in life-sized 65'' and 86'' holographic cabinets and glasses-free executive spatial displays.",
+      "Enclose digital human assistants in life-sized 55'', 65'', 75'', and 86'' holographic cabinets and glasses-free executive spatial displays.",
     icon: Tv,
   },
   {
@@ -188,18 +188,33 @@ export default function AboutClient() {
 
                 {/* GLOBAL OFFICES (CLEAN BADGES, ZERO EMOJIS) */}
                 <div className="mt-6 flex flex-wrap gap-2 text-xs font-medium text-[var(--lp-ink)]">
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-[var(--lp-card)] px-3 py-1 shadow-2xs">
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=60+Paya+Lebar+Road,+%2307-54,+Paya+Lebar+Square,+Singapore+409051"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-[var(--lp-card)] px-3 py-1 shadow-2xs hover:border-[var(--lp-accent)] hover:text-[var(--lp-accent)] transition-colors"
+                  >
                     <MapPin className="h-3 w-3 text-[var(--lp-accent)]" />
-                    Global HQ: Singapore (Collyer Quay)
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-[var(--lp-card)] px-3 py-1 shadow-2xs">
+                    Global HQ: Singapore (Paya Lebar Square)
+                  </a>
+                  <a
+                    href="https://www.google.com/maps/place/HS+GLOBAL+SG+PTE+LTD(INDIA)/@16.5294115,80.6710744,17z/data=!4m6!3m5!1s0x3a35e5b4fd9dfb2d:0xa85104746b554b94!8m2!3d16.5294115!4d80.6710744!16s%2Fg%2F11x82y6fb3"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-[var(--lp-card)] px-3 py-1 shadow-2xs hover:border-[var(--lp-accent)] hover:text-[var(--lp-accent)] transition-colors"
+                  >
                     <Building2 className="h-3 w-3 text-[var(--lp-accent)]" />
-                    India Center: Cyber Towers (Hyderabad)
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-[var(--lp-card)] px-3 py-1 shadow-2xs">
+                    India: Vijayawada (Andhra Pradesh)
+                  </a>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Bao'an+District,+Shenzhen,+China"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-[var(--lp-card)] px-3 py-1 shadow-2xs hover:border-[var(--lp-accent)] hover:text-[var(--lp-accent)] transition-colors"
+                  >
                     <Globe2 className="h-3 w-3 text-[var(--lp-accent)]" />
-                    China Office: Shenzhen (Bao&apos;an)
-                  </span>
+                    China: Shenzhen (Bao&apos;an)
+                  </a>
                 </div>
               </div>
             </div>
@@ -339,7 +354,7 @@ export default function AboutClient() {
                 key={item.number}
                 className="rounded-[24px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-7 shadow-[var(--lp-shadow-card)]"
               >
-                <span className="font-mono text-sm font-semibold text-[var(--lp-accent)]">
+                <span className="text-sm font-semibold text-[var(--lp-accent)]">
                   {item.number}
                 </span>
                 <h3 className="mt-3 text-xl font-bold text-[var(--lp-ink)]">
@@ -374,7 +389,7 @@ export default function AboutClient() {
                 className="group flex flex-col justify-between py-6 sm:flex-row sm:items-center transition-colors hover:bg-[var(--lp-tile)]/50 px-2 rounded-xl"
               >
                 <div className="flex items-center gap-4">
-                  <span className="font-mono text-sm font-semibold text-[var(--lp-muted)]">
+                  <span className="text-sm font-semibold text-[var(--lp-muted)]">
                     0{i + 1}
                   </span>
                   <h3 className="text-lg font-bold text-[var(--lp-ink)] group-hover:text-[var(--lp-accent)] transition-colors">

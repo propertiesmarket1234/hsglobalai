@@ -78,7 +78,7 @@ export default function HowItWorks() {
               {/* Top Step Pill */}
               <div>
                 <div className="flex items-center justify-between border-b border-white/10 pb-6">
-                  <span className="font-mono text-4xl font-extrabold text-white/20 group-hover:text-cyan-400 transition-colors">
+                  <span className="text-4xl font-extrabold tracking-tight text-white/20 group-hover:text-cyan-400 transition-colors">
                     {item.step}
                   </span>
                   <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-500/40 bg-cyan-950/50 text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.2)] group-hover:scale-110 transition-transform">
@@ -99,7 +99,7 @@ export default function HowItWorks() {
               </div>
 
               {/* Progress Line */}
-              <div className="mt-8 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-gray-400 font-mono">
+              <div className="mt-8 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-gray-400 font-medium">
                 <span>Phase {item.step} Deployment</span>
                 <span className="text-cyan-400 font-semibold">100% Active</span>
               </div>

@@ -78,7 +78,7 @@ export default function LanguageBanner() {
         <div className="mx-auto flex max-w-[1200px] items-center justify-between gap-4">
           <div className="flex items-center gap-2.5">
             <Globe className="h-4 w-4 text-[var(--lp-accent)] shrink-0" />
-            <span className="font-mono text-[10px] font-bold px-1.5 py-0.5 rounded bg-[var(--lp-tile)] border border-[var(--lp-line)] text-[var(--lp-ink)]">
+            <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-[var(--lp-tile)] border border-[var(--lp-line)] text-[var(--lp-ink)]">
               {targetLocaleInfo.flag}
             </span>
             <p className="font-medium text-[var(--lp-ink-2)]">

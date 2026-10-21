@@ -144,7 +144,7 @@ export default function IndustriesShowcase() {
                   className="lg:col-span-5"
                 >
                   <div className="flex items-center gap-3">
-                    <span className="font-mono text-sm font-semibold tracking-wider text-[var(--lp-accent)]">
+                    <span className="text-sm font-semibold tracking-wider text-[var(--lp-accent)]">
                       {industry.number}
                     </span>
                     <span className="rounded-full border border-[var(--lp-line)] bg-[var(--lp-tile)] px-3 py-1 text-[11px] font-medium tracking-wide text-[var(--lp-muted)]">

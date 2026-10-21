@@ -865,7 +865,7 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
             </Link>
             <Link
               href={lPath(`/products/ai-digital-human/${data.slug}`)}
-              className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-[var(--lp-ink)] border border-[var(--lp-line)] bg-[var(--lp-card)] px-3 py-1 rounded-full shadow-2xs transition-colors hover:bg-[var(--lp-tile)]"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--lp-ink)] border border-[var(--lp-line)] bg-[var(--lp-card)] px-3 py-1 rounded-full shadow-2xs transition-colors hover:bg-[var(--lp-tile)]"
             >
               <span>Platform Specs Brief</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -882,7 +882,7 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--lp-accent)] opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--lp-accent)]" />
               </span>
-              <span className="text-[12px] font-semibold uppercase tracking-wider text-[var(--lp-ink-2)] font-mono">
+              <span className="text-[12px] font-semibold uppercase tracking-wider text-[var(--lp-ink-2)]">
                 {data.badge}
               </span>
             </div>
@@ -924,10 +924,10 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
             {data.specs.map((spec, i) => (
               <div key={i} className="rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-card)] p-5 shadow-2xs">
-                <span className="block text-[11px] font-mono uppercase tracking-wider text-[var(--lp-muted)]">
+                <span className="block text-[11px] uppercase tracking-wider text-[var(--lp-muted)]">
                   {spec.label}
                 </span>
-                <span className="mt-1 block text-lg font-bold text-[var(--lp-ink)] font-mono">
+                <span className="mt-1 block text-lg font-bold text-[var(--lp-ink)]">
                   {spec.value}
                 </span>
               </div>
@@ -941,7 +941,7 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
         <div className="mx-auto max-w-[1200px]">
           <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
             <div className="lg:col-span-7">
-              <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-[var(--lp-accent)]">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--lp-accent)]">
                 Deep Dive Architecture
               </span>
               <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--lp-ink)] md:text-4xl">
@@ -960,7 +960,7 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
                   <ShieldCheck className="w-5 h-5 text-emerald-600" />
                   Engineering Standards
                 </h3>
-                <ul className="space-y-3.5 text-xs leading-6 text-[var(--lp-ink-2)] font-mono">
+                <ul className="space-y-3.5 text-xs leading-6 text-[var(--lp-ink-2)]">
                   <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                     <span>100% On-Device GPU Processing (Zero Cloud Latency)</span>
@@ -989,7 +989,7 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
         <section className="relative bg-[var(--lp-tile)] px-6 py-20 border-b border-[var(--lp-line)]">
           <div className="mx-auto max-w-[1200px]">
             <div className="text-center max-w-3xl mx-auto mb-12">
-              <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-[var(--lp-accent)]">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--lp-accent)]">
                 Interactive Demonstrations
               </span>
               <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--lp-ink)] md:text-4xl">
@@ -1017,7 +1017,7 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
                 <div className="p-6 border-t border-[var(--lp-line)] bg-[var(--lp-card)]">
                   <div className="flex items-center justify-between">
                     <h3 className="text-xl font-bold text-[var(--lp-ink)]">{activeVideo.title}</h3>
-                    <span className="rounded-full bg-[var(--lp-tile)] px-3 py-1 text-xs font-mono text-[var(--lp-ink)] border border-[var(--lp-line)]">
+                    <span className="rounded-full bg-[var(--lp-tile)] px-3 py-1 text-xs text-[var(--lp-ink)] border border-[var(--lp-line)]">
                       Duration: {activeVideo.duration}
                     </span>
                   </div>
@@ -1038,7 +1038,7 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
                       : "border-[var(--lp-line)] bg-[var(--lp-card)] hover:bg-[var(--lp-tile)]"
                   }`}
                 >
-                  <div className="flex items-center justify-between text-xs font-mono text-[var(--lp-accent)] mb-2">
+                  <div className="flex items-center justify-between text-xs text-[var(--lp-accent)] mb-2">
                     <span className="flex items-center gap-1 font-semibold">
                       <Play className="w-3 h-3 fill-current" /> DEMO
                     </span>
@@ -1056,7 +1056,7 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
       <section className="relative px-6 py-20 border-b border-[var(--lp-line)]">
         <div className="mx-auto max-w-[1200px]">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-[var(--lp-accent)]">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--lp-accent)]">
               Technical Capabilities
             </span>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--lp-ink)] md:text-4xl">
@@ -1072,7 +1072,7 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
                 transition={{ duration: 0.2 }}
                 className="rounded-[24px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-6 shadow-xs hover:shadow-md transition-shadow"
               >
-                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--lp-tile)] text-[var(--lp-ink)] font-mono text-xs font-bold border border-[var(--lp-line)] mb-4">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--lp-tile)] text-[var(--lp-ink)] text-xs font-bold border border-[var(--lp-line)] mb-4">
                   0{i + 1}
                 </div>
                 <h3 className="text-base font-bold text-[var(--lp-ink)] mb-2">{mf.title}</h3>
@@ -1087,7 +1087,7 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
       <section className="relative bg-[var(--lp-tile)] px-6 py-20 border-b border-[var(--lp-line)]">
         <div className="mx-auto max-w-[1200px]">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-[var(--lp-accent)]">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--lp-accent)]">
               Workflow Breakdown
             </span>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--lp-ink)] md:text-4xl">
@@ -1101,7 +1101,7 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
                 key={item.step}
                 className="rounded-[24px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-6 shadow-xs"
               >
-                <span className="text-2xl font-bold font-mono text-[var(--lp-accent)]">{item.step}</span>
+                <span className="text-2xl font-bold text-[var(--lp-accent)]">{item.step}</span>
                 <h3 className="mt-3 text-lg font-bold text-[var(--lp-ink)]">{item.title}</h3>
                 <p className="mt-2 text-xs leading-relaxed text-[var(--lp-ink-2)]">{item.desc}</p>
               </div>
@@ -1114,7 +1114,7 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
       <section className="relative px-6 py-20 border-b border-[var(--lp-line)]">
         <div className="mx-auto max-w-5xl">
           <div className="text-center mb-12">
-            <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-[var(--lp-accent)]">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--lp-accent)]">
               Deployment Prerequisites
             </span>
             <h2 className="mt-2 text-3xl font-semibold tracking-tight text-[var(--lp-ink)] sm:text-4xl">
@@ -1131,7 +1131,7 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
                     i % 2 === 0 ? "bg-[var(--lp-card)]" : "bg-[var(--lp-tile)]/40"
                   }`}
                 >
-                  <span className="text-sm font-semibold text-[var(--lp-ink)] font-mono">
+                  <span className="text-sm font-semibold text-[var(--lp-ink)]">
                     {req.item}
                   </span>
                   <span className="text-sm text-[var(--lp-ink-2)] sm:col-span-2">
@@ -1147,7 +1147,7 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
       {/* 8. INDUSTRY USE CASES */}
       <section className="relative bg-[var(--lp-tile)] px-6 py-20 border-b border-[var(--lp-line)]">
         <div className="mx-auto max-w-5xl text-center">
-          <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-[var(--lp-accent)]">
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--lp-accent)]">
             Target Deployments
           </span>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--lp-ink)] sm:text-4xl">
@@ -1169,7 +1169,7 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
       <section className="relative px-6 py-20 border-b border-[var(--lp-line)]">
         <div className="mx-auto max-w-4xl">
           <div className="text-center mb-12">
-            <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-[var(--lp-accent)]">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--lp-accent)]">
               Feature Insights
             </span>
             <h2 className="mt-2 text-3xl font-semibold tracking-tight text-[var(--lp-ink)] sm:text-4xl">
@@ -1212,7 +1212,7 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
       {/* 10. NEXT FEATURE NAVIGATION FOOTER BANNER */}
       <section className="relative bg-[var(--lp-tile)] px-6 py-16">
         <div className="mx-auto max-w-4xl text-center">
-          <span className="text-xs font-mono text-[var(--lp-muted)] uppercase tracking-widest font-semibold">
+          <span className="text-xs text-[var(--lp-muted)] uppercase tracking-widest font-semibold">
             NEXT PLATFORM CAPABILITY
           </span>
           <h3 className="mt-2 text-2xl font-bold text-[var(--lp-ink)] md:text-3xl">

@@ -268,7 +268,7 @@ export default function Industries() {
 
             <div className="mt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-t border-[var(--lp-line)] pt-4">
               <span className="text-[13px] text-[var(--lp-muted)]">
-                Available in 65&apos;&apos; and 86&apos;&apos; life-sized volumetric hologram enclosures
+                Available in 55&apos;&apos;, 65&apos;&apos;, 75&apos;&apos;, and 86&apos;&apos; life-sized volumetric hologram enclosures
               </span>
               <Link
                 href={lPath("/industries/tourism")}

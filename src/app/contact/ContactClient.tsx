@@ -21,6 +21,9 @@ import {
   ArrowUpRight,
   FileText,
   ShieldCheck,
+  Copy,
+  Check,
+  Navigation,
 } from "lucide-react";
 
 export interface SheetItem {
@@ -73,6 +76,81 @@ const countryCodes: CountryCodeItem[] = [
   { code: "+82", country: "South Korea", iso: "KR" },
 ];
 
+export interface FacilityLocation {
+  id: "singapore" | "india" | "china";
+  country: string;
+  city: string;
+  label: string;
+  shortTab: string;
+  badge: string;
+  companyName: string;
+  rating?: string;
+  category?: string;
+  plusCode?: string;
+  address: string;
+  fullPostalAddress?: string;
+  landmarkTransit: string;
+  email?: string;
+  phone?: string;
+  hours?: string;
+  facilitiesNote?: string;
+  mapsSearchUrl: string;
+  mapsEmbedUrl: string;
+}
+
+export const FACILITY_LOCATIONS: FacilityLocation[] = [
+  {
+    id: "singapore",
+    country: "Singapore",
+    city: "Singapore",
+    label: "Singapore Global Headquarters",
+    shortTab: "Singapore HQ",
+    badge: "GLOBAL HEADQUARTERS",
+    companyName: "HS GLOBAL SG PTE LTD",
+    address: "60 Paya Lebar Road, #07-54, Paya Lebar Square, Singapore 409051",
+    fullPostalAddress: "60 Paya Lebar Road, #07-54, Paya Lebar Square, Singapore 409051",
+    landmarkTransit: "Direct internal lift access via Paya Lebar MRT (East-West EW8 / Circle Line CC9)",
+    email: "sales@hsglobalai.com",
+    hours: "Mon–Fri: 9:00 AM – 6:00 PM (SGT)",
+    mapsSearchUrl: "https://www.google.com/maps/search/?api=1&query=60+Paya+Lebar+Road,+%2307-54,+Paya+Lebar+Square,+Singapore+409051",
+    mapsEmbedUrl: "https://maps.google.com/maps?q=60+Paya+Lebar+Road,+%2307-54,+Paya+Lebar+Square,+Singapore+409051&t=&z=17&ie=UTF8&iwloc=&output=embed",
+  },
+  {
+    id: "india",
+    country: "India",
+    city: "Vijayawada",
+    label: "India Engineering Center",
+    shortTab: "India",
+    badge: "INDIA ENGINEERING CENTER",
+    companyName: "HS GLOBAL SG PTE LTD(INDIA)",
+    rating: "5.0 ★★★★★ (3 Google Reviews)",
+    category: "Software company",
+    plusCode: "GMHC+QC Kanuru, Andhra Pradesh",
+    address: "Vijayawada, Andhra Pradesh, India",
+    fullPostalAddress: "49-4-1, 17/3E, Prasanth Colony, 1st line, Gunadala, Kanuru, Andhra Pradesh 520004",
+    landmarkTransit: "Kanuru / Gunadala Innovation Corridor · Plus Code: GMHC+QC",
+    phone: "+91 84649 77333",
+    hours: "Mon–Sat: 9:30 AM – 6:30 PM (IST)",
+    mapsSearchUrl: "https://www.google.com/maps/place/HS+GLOBAL+SG+PTE+LTD(INDIA)/@16.5294115,80.6710744,17z/data=!4m6!3m5!1s0x3a35e5b4fd9dfb2d:0xa85104746b554b94!8m2!3d16.5294115!4d80.6710744!16s%2Fg%2F11x82y6fb3",
+    mapsEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3825.267!2d80.6710744!3d16.5294115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35e5b4fd9dfb2d%3A0xa85104746b554b94!2sHS%20GLOBAL%20SG%20PTE%20LTD(INDIA)!5e0!3m2!1sen!2sin!4v1729148000000!5m2!1sen!2sin",
+  },
+  {
+    id: "china",
+    country: "China",
+    city: "Shenzhen",
+    label: "China Hardware Lab",
+    shortTab: "China",
+    badge: "CHINA HARDWARE LAB",
+    companyName: "HS GLOBAL AI CHINA",
+    address: "Bao'an District, Shenzhen, China",
+    fullPostalAddress: "Bao'an District, Shenzhen, Guangdong, China",
+    landmarkTransit: "Shenzhen Bao'an International Tech & Display Manufacturing Corridor",
+    facilitiesNote: "Optical Precision & Holographic Display Manufacturing Facility",
+    mapsSearchUrl: "https://www.google.com/maps/search/?api=1&query=Bao'an+District,+Shenzhen,+China",
+    mapsEmbedUrl: "https://maps.google.com/maps?q=Bao'an+District,+Shenzhen,+China&t=&z=14&ie=UTF8&iwloc=&output=embed",
+  },
+];
+
 export default function ContactClient({
   defaultTab = "contact",
 }: {
@@ -83,6 +161,25 @@ export default function ContactClient({
   const [selectedCountryCode, setSelectedCountryCode] = useState("+65");
   const [isCountryDropdownOpen, setIsCountryDropdownOpen] = useState(false);
   const [downloadingTitle, setDownloadingTitle] = useState<string | null>(null);
+  const [copiedAddress, setCopiedAddress] = useState(false);
+
+  const activeFacility = FACILITY_LOCATIONS.find((f) => f.id === activeLocationMap) || FACILITY_LOCATIONS[0];
+
+  const handleSelectAndScrollLocation = (locId: "singapore" | "india" | "china") => {
+    setActiveLocationMap(locId);
+    const element = document.getElementById("facility-locations");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const handleCopyAddress = (text: string) => {
+    if (typeof navigator !== "undefined" && navigator.clipboard) {
+      navigator.clipboard.writeText(text);
+      setCopiedAddress(true);
+      setTimeout(() => setCopiedAddress(false), 2000);
+    }
+  };
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -155,7 +252,7 @@ export default function ContactClient({
             </h1>
 
             <p className="mx-auto mt-5 max-w-2xl text-[16px] leading-[1.65] text-[var(--lp-ink-2)] sm:text-[18px]">
-              {cPage.heroDescription || "Connect with our solution engineers in Singapore Global HQ or India Center to schedule an on-premise pilot, download technical datasheets, or discuss enterprise fleet pricing."}
+              {cPage.heroDescription || "Connect with our solution engineers in Singapore Global HQ, India, or China to schedule an on-premise pilot, download technical datasheets, or discuss enterprise fleet pricing."}
             </p>
 
             {/* TAB SELECTOR BUTTONS */}
@@ -228,21 +325,31 @@ export default function ContactClient({
                   </div>
 
                   {/* SINGAPORE HEADQUARTERS CARD */}
-                  <div className="rounded-[28px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-7 shadow-[var(--lp-shadow-card)]">
+                  <div
+                    className={`rounded-[28px] border bg-[var(--lp-card)] p-7 shadow-[var(--lp-shadow-card)] transition-all ${
+                      activeLocationMap === "singapore" ? "border-[var(--lp-accent)] ring-1 ring-[var(--lp-accent)]" : "border-[var(--lp-line)] hover:border-[var(--lp-line-strong)]"
+                    }`}
+                  >
                     <div className="flex items-center justify-between">
                       <span className="inline-flex items-center gap-2 rounded-full bg-[rgba(255,90,31,0.08)] px-3 py-1 text-xs font-bold text-[var(--lp-accent-ink)]">
                         <Building2 className="h-3.5 w-3.5 text-[var(--lp-accent)]" />
                         GLOBAL HEADQUARTERS
                       </span>
-                      <span className="text-xs font-mono font-medium text-[var(--lp-muted)]">SINGAPORE</span>
+                      <span className="text-xs font-medium text-[var(--lp-muted)]">SINGAPORE</span>
                     </div>
 
                     <h3 className="mt-4 text-lg font-bold text-[var(--lp-ink)]">HS GLOBAL SG PTE LTD</h3>
-                    <p className="mt-2 text-xs leading-5 text-[var(--lp-ink-2)]">
-                      60 Paya Lebar Road, #07-54, Paya Lebar Square, Singapore 409051
-                    </p>
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&query=60+Paya+Lebar+Road,+%2307-54,+Paya+Lebar+Square,+Singapore+409051"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-2 block text-xs leading-5 text-[var(--lp-ink-2)] hover:text-[var(--lp-accent)] transition-colors group/addr"
+                    >
+                      <span className="underline decoration-dotted underline-offset-2">60 Paya Lebar Road, #07-54, Paya Lebar Square, Singapore 409051</span>
+                      <ArrowUpRight className="inline-block h-3 w-3 ml-1 opacity-70 group-hover/addr:opacity-100" />
+                    </a>
 
-                    <div className="mt-5 space-y-2 border-t border-[var(--lp-line)] pt-4 text-xs">
+                    <div className="mt-4 space-y-2 border-t border-[var(--lp-line)] pt-3.5 text-xs">
                       <div className="flex items-center justify-between">
                         <span className="font-medium text-[var(--lp-muted)]">Official Email:</span>
                         <a href="mailto:sales@hsglobalai.com" className="font-semibold text-[var(--lp-ink)] hover:text-[var(--lp-accent)]">
@@ -254,24 +361,62 @@ export default function ContactClient({
                         <span className="font-semibold text-[var(--lp-ink)]">hsglobalai.com</span>
                       </div>
                     </div>
+
+                    <div className="mt-4 pt-3.5 border-t border-[var(--lp-line)] flex items-center justify-between">
+                      <button
+                        type="button"
+                        onClick={() => handleSelectAndScrollLocation("singapore")}
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--lp-accent)] hover:text-[var(--lp-accent-ink)] transition-colors cursor-pointer"
+                      >
+                        <MapPin className="h-3.5 w-3.5" />
+                        <span>View On Map ↓</span>
+                      </button>
+                      <a
+                        href="https://www.google.com/maps/search/?api=1&query=60+Paya+Lebar+Road,+%2307-54,+Paya+Lebar+Square,+Singapore+409051"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-xs font-medium text-[var(--lp-muted)] hover:text-[var(--lp-ink)] transition-colors"
+                      >
+                        <span>Directions</span>
+                        <ArrowUpRight className="h-3 w-3" />
+                      </a>
+                    </div>
                   </div>
 
                   {/* INDIA OFFICE CARD */}
-                  <div className="rounded-[28px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-7 shadow-[var(--lp-shadow-card)]">
+                  <div
+                    className={`rounded-[28px] border bg-[var(--lp-card)] p-7 shadow-[var(--lp-shadow-card)] transition-all ${
+                      activeLocationMap === "india" ? "border-[var(--lp-accent)] ring-1 ring-[var(--lp-accent)]" : "border-[var(--lp-line)] hover:border-[var(--lp-line-strong)]"
+                    }`}
+                  >
                     <div className="flex items-center justify-between">
                       <span className="inline-flex items-center gap-2 rounded-full bg-[var(--lp-tile)] px-3 py-1 text-xs font-bold text-[var(--lp-ink)]">
                         <Building2 className="h-3.5 w-3.5 text-[var(--lp-accent)]" />
                         INDIA ENGINEERING CENTER
                       </span>
-                      <span className="text-xs font-mono font-medium text-[var(--lp-muted)]">HYDERABAD</span>
+                      <span className="text-xs font-medium text-[var(--lp-muted)]">ANDHRA PRADESH</span>
                     </div>
 
-                    <h3 className="mt-4 text-lg font-bold text-[var(--lp-ink)]">HS GLOBAL AI INDIA</h3>
-                    <p className="mt-2 text-xs leading-5 text-[var(--lp-ink-2)]">
-                      5th Floor, Quadrant 2, Cyber Towers, Hitec City, Hyderabad, 500081
-                    </p>
+                    <h3 className="mt-4 text-lg font-bold text-[var(--lp-ink)]">HS GLOBAL SG PTE LTD(INDIA)</h3>
+                    <div className="mt-1 flex items-center gap-2 text-xs text-[var(--lp-muted)]">
+                      <span className="inline-flex items-center gap-1 font-semibold text-amber-500">
+                        ★ 5.0 (3)
+                      </span>
+                      <span>•</span>
+                      <span>Software company</span>
+                    </div>
 
-                    <div className="mt-5 space-y-2 border-t border-[var(--lp-line)] pt-4 text-xs">
+                    <a
+                      href="https://www.google.com/maps/place/HS+GLOBAL+SG+PTE+LTD(INDIA)/@16.5294115,80.6710744,17z/data=!4m6!3m5!1s0x3a35e5b4fd9dfb2d:0xa85104746b554b94!8m2!3d16.5294115!4d80.6710744!16s%2Fg%2F11x82y6fb3"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-2 block text-xs leading-5 text-[var(--lp-ink-2)] hover:text-[var(--lp-accent)] transition-colors group/addr"
+                    >
+                      <span className="underline decoration-dotted underline-offset-2">Vijayawada, Andhra Pradesh, India</span>
+                      <ArrowUpRight className="inline-block h-3 w-3 ml-1 opacity-70 group-hover/addr:opacity-100" />
+                    </a>
+
+                    <div className="mt-4 space-y-2 border-t border-[var(--lp-line)] pt-3.5 text-xs">
                       <div className="flex items-center justify-between">
                         <span className="font-medium text-[var(--lp-muted)]">Support Line:</span>
                         <a href="tel:+918464977333" className="font-semibold text-[var(--lp-ink)] hover:text-[var(--lp-accent)]">
@@ -282,29 +427,83 @@ export default function ContactClient({
                         <span className="font-medium text-[var(--lp-muted)]">Office Hours:</span>
                         <span className="text-[var(--lp-ink)]">Mon–Sat: 9:30 AM – 6:30 PM (IST)</span>
                       </div>
+                      <div className="flex items-center justify-between">
+                        <span className="font-medium text-[var(--lp-muted)]">Plus Code:</span>
+                        <span className="text-[var(--lp-ink)]">GMHC+QC Kanuru</span>
+                      </div>
+                    </div>
+
+                    <div className="mt-4 pt-3.5 border-t border-[var(--lp-line)] flex items-center justify-between">
+                      <button
+                        type="button"
+                        onClick={() => handleSelectAndScrollLocation("india")}
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--lp-accent)] hover:text-[var(--lp-accent-ink)] transition-colors cursor-pointer"
+                      >
+                        <MapPin className="h-3.5 w-3.5" />
+                        <span>View On Map ↓</span>
+                      </button>
+                      <a
+                        href="https://www.google.com/maps/place/HS+GLOBAL+SG+PTE+LTD(INDIA)/@16.5294115,80.6710744,17z/data=!4m6!3m5!1s0x3a35e5b4fd9dfb2d:0xa85104746b554b94!8m2!3d16.5294115!4d80.6710744!16s%2Fg%2F11x82y6fb3"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-xs font-medium text-[var(--lp-muted)] hover:text-[var(--lp-ink)] transition-colors"
+                      >
+                        <span>Directions</span>
+                        <ArrowUpRight className="h-3 w-3" />
+                      </a>
                     </div>
                   </div>
 
                   {/* CHINA OFFICE CARD */}
-                  <div className="rounded-[28px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-7 shadow-[var(--lp-shadow-card)]">
+                  <div
+                    className={`rounded-[28px] border bg-[var(--lp-card)] p-7 shadow-[var(--lp-shadow-card)] transition-all ${
+                      activeLocationMap === "china" ? "border-[var(--lp-accent)] ring-1 ring-[var(--lp-accent)]" : "border-[var(--lp-line)] hover:border-[var(--lp-line-strong)]"
+                    }`}
+                  >
                     <div className="flex items-center justify-between">
                       <span className="inline-flex items-center gap-2 rounded-full bg-[var(--lp-tile)] px-3 py-1 text-xs font-bold text-[var(--lp-ink)]">
                         <Building2 className="h-3.5 w-3.5 text-[var(--lp-accent)]" />
                         CHINA HARDWARE LAB
                       </span>
-                      <span className="text-xs font-mono font-medium text-[var(--lp-muted)]">SHENZHEN</span>
+                      <span className="text-xs font-medium text-[var(--lp-muted)]">SHENZHEN</span>
                     </div>
 
                     <h3 className="mt-4 text-lg font-bold text-[var(--lp-ink)]">HS GLOBAL AI CHINA</h3>
-                    <p className="mt-2 text-xs leading-5 text-[var(--lp-ink-2)]">
-                      Bao&apos;an District, Shenzhen, Guangdong, China
-                    </p>
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&query=Bao'an+District,+Shenzhen,+China"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-2 block text-xs leading-5 text-[var(--lp-ink-2)] hover:text-[var(--lp-accent)] transition-colors group/addr"
+                    >
+                      <span className="underline decoration-dotted underline-offset-2">Bao&apos;an District, Shenzhen, China</span>
+                      <ArrowUpRight className="inline-block h-3 w-3 ml-1 opacity-70 group-hover/addr:opacity-100" />
+                    </a>
 
-                    <div className="mt-5 border-t border-[var(--lp-line)] pt-4 text-xs">
+                    <div className="mt-4 border-t border-[var(--lp-line)] pt-3.5 text-xs">
                       <div className="flex items-center justify-between">
                         <span className="font-medium text-[var(--lp-muted)]">Facilities:</span>
                         <span className="text-[var(--lp-ink)]">Optical &amp; Volumetric Display Assembly</span>
                       </div>
+                    </div>
+
+                    <div className="mt-4 pt-3.5 border-t border-[var(--lp-line)] flex items-center justify-between">
+                      <button
+                        type="button"
+                        onClick={() => handleSelectAndScrollLocation("china")}
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--lp-accent)] hover:text-[var(--lp-accent-ink)] transition-colors cursor-pointer"
+                      >
+                        <MapPin className="h-3.5 w-3.5" />
+                        <span>View On Map ↓</span>
+                      </button>
+                      <a
+                        href="https://www.google.com/maps/search/?api=1&query=Bao'an+District,+Shenzhen,+China"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-xs font-medium text-[var(--lp-muted)] hover:text-[var(--lp-ink)] transition-colors"
+                      >
+                        <span>Directions</span>
+                        <ArrowUpRight className="h-3 w-3" />
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -407,7 +606,7 @@ export default function ContactClient({
                             <select
                               value={selectedCountryCode}
                               onChange={(e) => setSelectedCountryCode(e.target.value)}
-                              className="rounded-xl border border-[var(--lp-line)] bg-[var(--lp-tile)] px-3 py-3 text-sm font-mono text-[var(--lp-ink)] focus:border-[var(--lp-accent)] focus:outline-none"
+                              className="rounded-xl border border-[var(--lp-line)] bg-[var(--lp-tile)] px-3 py-3 text-sm text-[var(--lp-ink)] focus:border-[var(--lp-accent)] focus:outline-none"
                             >
                               {countryCodes.map((c) => (
                                 <option key={c.country} value={c.code}>
@@ -480,8 +679,9 @@ export default function ContactClient({
           </section>
 
           {/* INTERACTIVE LOCATION MAPS SECTION */}
-          <section className="px-4 py-16 sm:px-6 md:py-24 bg-[var(--lp-tile)] border-t border-[var(--lp-line)]">
+          <section id="facility-locations" className="px-4 py-16 sm:px-6 md:py-24 bg-[var(--lp-tile)] border-t border-[var(--lp-line)]">
             <div className="mx-auto max-w-[1200px]">
+              {/* SECTION HEADER */}
               <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
                 <div>
                   <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-wider text-[var(--lp-accent-ink)]">
@@ -489,67 +689,211 @@ export default function ContactClient({
                     Global Facility Locations
                   </span>
                   <h2 className="mt-2 text-2xl font-bold tracking-tight text-[var(--lp-ink)] sm:text-3xl">
-                    {activeLocationMap === "singapore"
-                      ? "Singapore Global Headquarters"
-                      : activeLocationMap === "india"
-                      ? "India Engineering Center"
-                      : "China Hardware Lab"}
+                    {activeFacility.label}
                   </h2>
                 </div>
 
-                  <div className="flex items-center gap-2">
-                    <div className="inline-flex rounded-full border border-[var(--lp-line)] bg-[var(--lp-card)] p-1 shadow-2xs">
-                      {(["singapore", "india", "china"] as const).map((loc) => (
-                        <button
-                          key={loc}
-                          onClick={() => setActiveLocationMap(loc)}
-                          className={`inline-flex h-8 items-center justify-center rounded-full px-4 text-xs font-semibold capitalize transition-all active:scale-[0.98] cursor-pointer ${
-                            activeLocationMap === loc
-                              ? "bg-[var(--lp-ink)] text-white shadow-xs"
-                              : "text-[var(--lp-muted)] hover:text-[var(--lp-ink)]"
-                          }`}
-                        >
-                          {loc === "singapore" ? "Singapore HQ" : loc === "india" ? "India Center" : "China Lab"}
-                        </button>
-                      ))}
-                    </div>
-
-                    <a
-                      href={
-                        activeLocationMap === "singapore"
-                          ? "https://www.google.com/maps/search/?api=1&query=60+Paya+Lebar+Road,+Paya+Lebar+Square,+Singapore+409051"
-                          : activeLocationMap === "india"
-                          ? "https://www.google.com/maps/search/?api=1&query=Cyber+Towers,+Hitec+City,+Hyderabad,+500081"
-                          : "https://www.google.com/maps/search/?api=1&query=Baoan+District,+Shenzhen,+China"
-                      }
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex h-8 items-center justify-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-[var(--lp-card)] px-4 text-xs font-semibold text-[var(--lp-ink)] hover:bg-[var(--lp-tile)] shadow-2xs transition-all active:scale-[0.98] cursor-pointer"
-                    >
-                      <span>Get Directions</span>
-                      <ArrowUpRight className="h-3.5 w-3.5" />
-                    </a>
+                <div className="flex items-center gap-2 flex-wrap sm:flex-nowrap">
+                  <div className="inline-flex rounded-full border border-[var(--lp-line)] bg-[var(--lp-card)] p-1 shadow-2xs">
+                    {FACILITY_LOCATIONS.map((f) => (
+                      <button
+                        key={f.id}
+                        type="button"
+                        onClick={() => setActiveLocationMap(f.id)}
+                        className={`inline-flex h-8 items-center justify-center rounded-full px-4 text-xs font-semibold transition-all active:scale-[0.98] cursor-pointer ${
+                          activeLocationMap === f.id
+                            ? "bg-[var(--lp-ink)] text-white shadow-xs"
+                            : "text-[var(--lp-muted)] hover:text-[var(--lp-ink)]"
+                        }`}
+                      >
+                        {f.shortTab}
+                      </button>
+                    ))}
                   </div>
+
+                  <a
+                    href={activeFacility.mapsSearchUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex h-8 items-center justify-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-[var(--lp-card)] px-4 text-xs font-semibold text-[var(--lp-ink)] hover:bg-[var(--lp-tile)] shadow-2xs transition-all active:scale-[0.98] cursor-pointer"
+                  >
+                    <span>Get Directions</span>
+                    <ArrowUpRight className="h-3.5 w-3.5" />
+                  </a>
+                </div>
               </div>
 
-              {/* MAP IFRAME */}
-              <div className="relative overflow-hidden rounded-[28px] border border-[var(--lp-line)] bg-[var(--lp-card)] shadow-[var(--lp-shadow-card)] aspect-[16/9] max-h-[460px]">
-                <iframe
-                  title="HS Global AI Location Map"
-                  src={
-                    activeLocationMap === "singapore"
-                      ? "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7533800922885!2d103.88942367576579!3d1.3188899616521746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1823ebcf8261%3A0x6b6311ea759549f3!2sPaya%20Lebar%20Square!5e0!3m2!1sen!2ssg!4v1710000000000!5m2!1sen!2ssg"
-                      : activeLocationMap === "india"
-                      ? "https://maps.google.com/maps?q=Cyber+Towers,+Hitec+City,+Hyderabad,+500081&t=&z=16&ie=UTF8&iwloc=&output=embed"
-                      : "https://maps.google.com/maps?q=Baoan+District,+Shenzhen,+China&t=&z=14&ie=UTF8&iwloc=&output=embed"
-                  }
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  className="w-full h-full"
-                />
+              {/* INTEGRATED MAP & EXACT COMPANY LOCATION CARD GRID */}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+                {/* MAP IFRAME CONTAINER */}
+                <div className="lg:col-span-7 xl:col-span-8 relative overflow-hidden rounded-[28px] border border-[var(--lp-line)] bg-[var(--lp-card)] shadow-[var(--lp-shadow-card)] min-h-[380px] sm:min-h-[440px] lg:min-h-[500px]">
+                  {/* FLOATING TOP-LEFT LOCATION BADGE OVER MAP */}
+                  <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-10 pointer-events-none">
+                    <div className="flex items-center gap-2 rounded-full border border-[var(--lp-line)] bg-white/95 px-3.5 py-1.5 shadow-sm backdrop-blur-md">
+                      <span className="h-2 w-2 rounded-full bg-[var(--lp-accent)] animate-pulse" />
+                      <span className="text-xs font-bold text-[var(--lp-ink)]">
+                        {activeFacility.companyName}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* FLOATING TOP-RIGHT OPEN IN MAPS BUTTON */}
+                  <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10">
+                    <a
+                      href={activeFacility.mapsSearchUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-white/95 px-3 py-1.5 text-xs font-semibold text-[var(--lp-ink)] hover:text-[var(--lp-accent)] hover:border-[var(--lp-accent)] shadow-sm backdrop-blur-md transition-all active:scale-[0.98] cursor-pointer"
+                    >
+                      <MapPin className="h-3.5 w-3.5 text-[var(--lp-accent)]" />
+                      <span>Open Exact Pin</span>
+                      <ArrowUpRight className="h-3 w-3" />
+                    </a>
+                  </div>
+
+                  <iframe
+                    key={activeFacility.id}
+                    title={`${activeFacility.companyName} Exact Location Map`}
+                    src={activeFacility.mapsEmbedUrl}
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    className="w-full h-full min-h-[380px] sm:min-h-[440px] lg:min-h-[500px]"
+                  />
+                </div>
+
+                {/* EXACT COMPANY LOCATION DETAIL CARD */}
+                <div className="lg:col-span-5 xl:col-span-4 rounded-[28px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-6 sm:p-7 shadow-[var(--lp-shadow-card)] flex flex-col justify-between">
+                  <div>
+                    {/* BADGE & CITY */}
+                    <div className="flex items-center justify-between pb-4 border-b border-[var(--lp-line)]">
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-[rgba(255,90,31,0.08)] px-3 py-1 text-xs font-bold text-[var(--lp-accent-ink)]">
+                        <Building2 className="h-3.5 w-3.5 text-[var(--lp-accent)]" />
+                        {activeFacility.badge}
+                      </span>
+                      <span className="text-xs font-bold text-[var(--lp-muted)] uppercase">
+                        {activeFacility.city}
+                      </span>
+                    </div>
+
+                    {/* COMPANY TITLE */}
+                    <h3 className="mt-5 text-xl font-bold tracking-tight text-[var(--lp-ink)]">
+                      {activeFacility.companyName}
+                    </h3>
+                    {activeFacility.rating && (
+                      <div className="mt-1.5 flex items-center gap-2 text-xs text-[var(--lp-muted)]">
+                        <span className="inline-flex items-center gap-1 font-semibold text-amber-500">
+                          {activeFacility.rating}
+                        </span>
+                        {activeFacility.category && (
+                          <>
+                            <span>•</span>
+                            <span className="font-medium">{activeFacility.category}</span>
+                          </>
+                        )}
+                      </div>
+                    )}
+
+                    {/* EXACT PHYSICAL ADDRESS BOX */}
+                    <div className="mt-4 p-4 rounded-2xl bg-[var(--lp-tile)] border border-[var(--lp-line)]">
+                      <div className="flex items-start gap-2.5">
+                        <MapPin className="h-4 w-4 text-[var(--lp-accent)] shrink-0 mt-0.5" />
+                        <div>
+                          <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--lp-muted)] block">
+                            Exact Company Address
+                          </span>
+                          <p className="mt-1 text-sm font-semibold text-[var(--lp-ink)] leading-snug">
+                            {activeFacility.address}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* TRANSIT / LANDMARK DETAIL */}
+                      <div className="mt-3.5 pt-3 border-t border-[var(--lp-line)] flex items-start gap-2 text-xs text-[var(--lp-ink-2)]">
+                        <Navigation className="h-3.5 w-3.5 text-cyan-600 shrink-0 mt-0.5" />
+                        <span className="leading-relaxed">{activeFacility.landmarkTransit}</span>
+                      </div>
+                    </div>
+
+                    {/* FACILITY METRICS / CONTACT */}
+                    <div className="mt-5 space-y-2.5 text-xs">
+                      {activeFacility.plusCode && (
+                        <div className="flex items-center justify-between py-1.5 border-b border-[var(--lp-line)]">
+                          <span className="text-[var(--lp-muted)] font-medium">Google Plus Code:</span>
+                          <span className="text-[var(--lp-ink)] font-semibold">{activeFacility.plusCode}</span>
+                        </div>
+                      )}
+                      {activeFacility.email && (
+                        <div className="flex items-center justify-between py-1.5 border-b border-[var(--lp-line)]">
+                          <span className="text-[var(--lp-muted)] font-medium">Direct Inquiries:</span>
+                          <a
+                            href={`mailto:${activeFacility.email}`}
+                            className="font-semibold text-[var(--lp-ink)] hover:text-[var(--lp-accent)] transition-colors"
+                          >
+                            {activeFacility.email}
+                          </a>
+                        </div>
+                      )}
+                      {activeFacility.phone && (
+                        <div className="flex items-center justify-between py-1.5 border-b border-[var(--lp-line)]">
+                          <span className="text-[var(--lp-muted)] font-medium">Phone Desk:</span>
+                          <a
+                            href={`tel:${activeFacility.phone}`}
+                            className="font-semibold text-[var(--lp-ink)] hover:text-[var(--lp-accent)] transition-colors"
+                          >
+                            {activeFacility.phone}
+                          </a>
+                        </div>
+                      )}
+                      {activeFacility.hours && (
+                        <div className="flex items-center justify-between py-1.5 border-b border-[var(--lp-line)]">
+                          <span className="text-[var(--lp-muted)] font-medium">Visiting Hours:</span>
+                          <span className="text-[var(--lp-ink)] font-semibold">{activeFacility.hours}</span>
+                        </div>
+                      )}
+                      {activeFacility.facilitiesNote && (
+                        <div className="flex items-center justify-between py-1.5 border-b border-[var(--lp-line)]">
+                          <span className="text-[var(--lp-muted)] font-medium">Lab Capability:</span>
+                          <span className="text-[var(--lp-ink)] font-semibold">{activeFacility.facilitiesNote}</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* BOTTOM ACTION BUTTONS */}
+                  <div className="mt-6 pt-5 border-t border-[var(--lp-line)] space-y-2.5">
+                    <a
+                      href={activeFacility.mapsSearchUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2 w-full h-11 rounded-full bg-[var(--lp-ink)] text-white text-xs font-semibold hover:bg-[#2A2A2F] transition-all shadow-xs active:scale-[0.98] cursor-pointer"
+                    >
+                      <MapPin className="h-4 w-4 text-[var(--lp-accent)]" />
+                      <span>Open Exact Location in Google Maps</span>
+                      <ArrowUpRight className="h-4 w-4" />
+                    </a>
+
+                    <button
+                      type="button"
+                      onClick={() => handleCopyAddress(activeFacility.fullPostalAddress || activeFacility.address)}
+                      className="flex items-center justify-center gap-2 w-full h-9 rounded-full border border-[var(--lp-line)] bg-white text-xs font-medium text-[var(--lp-ink)] hover:bg-[var(--lp-tile)] transition-all active:scale-[0.98] cursor-pointer"
+                    >
+                      {copiedAddress ? (
+                        <>
+                          <Check className="h-3.5 w-3.5 text-emerald-600" />
+                          <span className="text-emerald-700 font-semibold">Address Copied to Clipboard!</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="h-3.5 w-3.5 text-[var(--lp-muted)]" />
+                          <span>Copy Full Address</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
@@ -586,7 +930,7 @@ export default function ContactClient({
                       <h3 className="text-base font-semibold text-[var(--lp-ink)] leading-snug">
                         {item.title}
                       </h3>
-                      <p className="mt-1 text-xs text-[var(--lp-muted)] font-mono">
+                      <p className="mt-1 text-xs text-[var(--lp-muted)]">
                         {item.filename}
                       </p>
                     </div>
@@ -625,7 +969,7 @@ export default function ContactClient({
                       <h3 className="text-base font-semibold text-[var(--lp-ink)] leading-snug">
                         {item.title}
                       </h3>
-                      <p className="mt-1 text-xs text-[var(--lp-muted)] font-mono">
+                      <p className="mt-1 text-xs text-[var(--lp-muted)]">
                         {item.filename}
                       </p>
                     </div>

@@ -297,7 +297,7 @@ export default function AvatarFaceSelection() {
                   isPaused ? "bg-amber-400" : "bg-cyan-400 animate-pulse"
                 }`}
               />
-              <span className="font-mono text-[11px] uppercase tracking-wider font-semibold">
+              <span className="text-[11px] uppercase tracking-wider font-semibold">
                 {isPaused ? "Slideshow Paused" : "Auto Slideshow"}
               </span>
               <span className="ml-1">
@@ -340,7 +340,7 @@ export default function AvatarFaceSelection() {
                 <h3 className="text-xl sm:text-2xl font-bold text-white">
                   {selectedAvatar.name}
                 </h3>
-                <span className="rounded-full border border-cyan-500/40 bg-cyan-500/15 px-3 py-0.5 text-[11px] font-extrabold text-cyan-300 uppercase font-mono tracking-wider">
+                <span className="rounded-full border border-cyan-500/40 bg-cyan-500/15 px-3 py-0.5 text-[11px] font-bold text-cyan-300 uppercase tracking-wider">
                   {selectedAvatar.badge}
                 </span>
               </div>

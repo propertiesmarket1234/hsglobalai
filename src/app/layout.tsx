@@ -120,7 +120,7 @@ const organizationJsonLd = {
         },
         {
           "@type": "Place",
-          "name": "India Office",
+          "name": "HS GLOBAL SG PTE LTD(INDIA)",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "Vijayawada",

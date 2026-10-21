@@ -125,7 +125,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
           <BookOpen className="h-12 w-12 text-[var(--lp-muted)] mx-auto mb-4" />
           <h1 className="text-2xl font-bold text-[var(--lp-ink)]">{bPage.notFoundTitle || "Article Not Found"}</h1>
           <p className="mt-2 text-sm text-[var(--lp-ink-2)]">
-            {bPage.notFoundDesc || "No article matches the requested URL:"} <code className="text-[var(--lp-accent)] font-mono">{slug}</code>
+            {bPage.notFoundDesc || "No article matches the requested URL:"} <code className="text-[var(--lp-accent)]">{slug}</code>
           </p>
           <Link
             href={lPath("/blog")}
@@ -245,7 +245,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
       <section className="relative pt-32 pb-14 md:pt-40 md:pb-16 px-4 sm:px-6 border-b border-[var(--lp-line)]">
         <div className="relative mx-auto max-w-4xl">
           {/* Breadcrumb Navigation */}
-          <div className="flex items-center gap-2 text-xs font-mono text-[var(--lp-muted)] mb-6">
+          <div className="flex items-center gap-2 text-xs text-[var(--lp-muted)] mb-6">
             <Link href={lPath("/blog")} className="hover:text-[var(--lp-ink)] transition-colors">
               {bPage.breadcrumbHub || "Blog Hub"}
             </Link>
@@ -275,9 +275,9 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
               <span className="font-semibold text-[var(--lp-ink)]">{post.author}</span>
             </div>
             <span>•</span>
-            <time className="font-mono">{post.date}</time>
+            <time className="">{post.date}</time>
             <span>•</span>
-            <span className="font-mono text-[var(--lp-ink)]">{post.readTime}</span>
+            <span className="text-[var(--lp-ink)]">{post.readTime}</span>
           </div>
 
           {/* Hero Banner Image */}
@@ -604,7 +604,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
                     </p>
                   </div>
                   <div className="mt-6 pt-4 border-t border-[var(--lp-line)] flex items-center justify-between text-xs text-[var(--lp-muted)]">
-                    <span className="font-mono">{rel.readTime}</span>
+                    <span className="">{rel.readTime}</span>
                     <span className="text-[var(--lp-ink)] font-semibold group-hover:text-[var(--lp-accent)] group-hover:translate-x-1 transition-all inline-flex items-center gap-1">
                       <span>{bPage.readShort || "Read"}</span>
                       <ArrowRight className="h-3.5 w-3.5" />

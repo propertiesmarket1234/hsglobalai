@@ -157,7 +157,7 @@ export default function Products() {
                         {product.category}
                       </span>
                     </div>
-                    <span className="font-mono text-[12px] text-[var(--lp-muted)]">
+                    <span className="text-[12px] font-medium text-[var(--lp-muted)]">
                       {product.id}
                     </span>
                   </div>

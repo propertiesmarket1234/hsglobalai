@@ -205,7 +205,7 @@ export default function EnterpriseSecurityCommand() {
                 <button
                   type="button"
                   onClick={() => setIsCloudDisconnected(!isCloudDisconnected)}
-                  className={`inline-flex h-7 items-center justify-center px-3 rounded-full text-[11px] font-bold font-mono transition-all duration-150 self-start sm:self-auto cursor-pointer active:scale-[0.98] shadow-2xs ${
+                  className={`inline-flex h-7 items-center justify-center px-3 rounded-full text-[11px] font-bold tracking-wider transition-all duration-150 self-start sm:self-auto cursor-pointer active:scale-[0.98] shadow-2xs ${
                     isCloudDisconnected
                       ? "bg-[rgba(22,163,74,0.12)] text-[#16a34a] border border-[rgba(22,163,74,0.25)]"
                       : "bg-[var(--lp-tile)] text-[var(--lp-muted)] border border-[var(--lp-line)]"
@@ -274,7 +274,7 @@ export default function EnterpriseSecurityCommand() {
                       <span className="text-[11px] font-medium text-[var(--lp-muted)] block">
                         {spec.label}
                       </span>
-                      <span className="text-xs sm:text-sm font-bold text-[var(--lp-ink)] font-mono block mt-1">
+                      <span className="text-xs sm:text-sm font-bold text-[var(--lp-ink)] block mt-1">
                         {spec.value}
                       </span>
                     </div>
@@ -286,7 +286,7 @@ export default function EnterpriseSecurityCommand() {
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pb-3 border-b border-neutral-800">
                     <div className="flex items-center gap-2">
                       <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
-                      <span className="text-xs font-mono font-semibold text-neutral-300">
+                      <span className="text-xs font-semibold text-neutral-300">
                         Hardware Packet Telemetry Probe
                       </span>
                     </div>
@@ -294,13 +294,13 @@ export default function EnterpriseSecurityCommand() {
                       type="button"
                       onClick={handleRunLeakTest}
                       disabled={isSimulatingLeakTest}
-                      className="inline-flex h-8 items-center justify-center px-3.5 rounded-full bg-neutral-800 hover:bg-neutral-700 text-xs font-mono font-medium text-white transition-all duration-150 active:scale-[0.98] self-start sm:self-auto cursor-pointer shadow-xs border border-white/10 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="inline-flex h-8 items-center justify-center px-3.5 rounded-full bg-neutral-800 hover:bg-neutral-700 text-xs font-medium text-white transition-all duration-150 active:scale-[0.98] self-start sm:self-auto cursor-pointer shadow-xs border border-white/10 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {isSimulatingLeakTest ? "Scanning ports..." : "Run Packet Probe"}
                     </button>
                   </div>
 
-                  <div className="mt-3 font-mono text-xs text-neutral-400 space-y-1">
+                  <div className="mt-3 text-xs text-neutral-400 space-y-1">
                     <div>[PROBE:ETH0] Scanning physical interface ports 80/443/8080...</div>
                     <div>[SOCKETS] Active external WAN connections: 0 established</div>
                     {leakTestResult && (

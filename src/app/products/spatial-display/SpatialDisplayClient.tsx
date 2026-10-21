@@ -311,7 +311,7 @@ export default function SpatialDisplayClient() {
       <section className="relative px-4 pt-32 pb-16 sm:px-6 md:pt-40 md:pb-24 border-b border-[var(--lp-line)]">
         <div className="mx-auto max-w-[1200px]">
           {/* Breadcrumb Navigation */}
-          <div className="flex items-center gap-2 text-xs text-[var(--lp-muted)] mb-6 font-mono">
+          <div className="flex items-center gap-2 text-xs text-[var(--lp-muted)] mb-6">
             <Link href={lPath("/products")} className="hover:text-[var(--lp-ink)] transition-colors">
               {sPage.breadcrumbProducts || "Products"}
             </Link>
@@ -362,7 +362,7 @@ export default function SpatialDisplayClient() {
               {/* Size Selector Pills */}
               <div className="mt-6 flex flex-wrap items-center gap-2">
                 <span className="text-xs font-semibold uppercase tracking-wider text-[var(--lp-muted)] mr-1">
-                  Available Formats:
+                  Available Sizes:
                 </span>
                 {['32"', '43"', '55"', '65"', '75"', '86" (4K Touch)'].map((sz) => (
                   <span
@@ -412,13 +412,13 @@ export default function SpatialDisplayClient() {
                       <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--lp-accent)] opacity-75" />
                       <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--lp-accent)]" />
                     </span>
-                    <span className="text-[11px] font-mono font-medium tracking-wider text-white uppercase">
+                    <span className="text-[11px] font-medium tracking-wider text-white uppercase">
                       {sPage.heroPillProfile || '6 cm Profile • 32"–86"'}
                     </span>
                   </div>
 
                   <div className="absolute bottom-4 left-4 right-4 z-10 rounded-xl border border-white/15 bg-black/75 p-3.5 backdrop-blur-md">
-                    <div className="flex items-center justify-between text-xs font-mono">
+                    <div className="flex items-center justify-between text-xs">
                       <span className="text-white font-semibold">{sPage.heroOverlayThickness || "6 CM PROFILE"}</span>
                       <span className="text-amber-400 font-bold">4K ULTRA HD</span>
                     </div>
@@ -467,15 +467,15 @@ export default function SpatialDisplayClient() {
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <div className="rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-card)] px-6 py-3.5 shadow-2xs">
-              <p className="text-xs font-mono text-[var(--lp-muted)] uppercase">{sPage.cardProfileLabel || "Body Profile"}</p>
+              <p className="text-xs text-[var(--lp-muted)] uppercase">{sPage.cardProfileLabel || "Body Profile"}</p>
               <p className="text-xl font-bold text-[var(--lp-ink)] mt-0.5">{sPage.cardProfileVal || "6 cm Depth"}</p>
             </div>
             <div className="rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-card)] px-6 py-3.5 shadow-2xs">
-              <p className="text-xs font-mono text-[var(--lp-muted)] uppercase">{sPage.cardSizesLabel || "Available Sizes"}</p>
+              <p className="text-xs text-[var(--lp-muted)] uppercase">{sPage.cardSizesLabel || "Available Sizes"}</p>
               <p className="text-xl font-bold text-[var(--lp-ink)] mt-0.5">{sPage.cardSizesVal || '32", 43", 55", 65", 75", 86"'}</p>
             </div>
             <div className="rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-card)] px-6 py-3.5 shadow-2xs">
-              <p className="text-xs font-mono text-[var(--lp-muted)] uppercase">{sPage.cardPanelLabel || "Interactive Panel"}</p>
+              <p className="text-xs text-[var(--lp-muted)] uppercase">{sPage.cardPanelLabel || "Interactive Panel"}</p>
               <p className="text-xl font-bold text-[var(--lp-accent)] mt-0.5">{sPage.cardPanelVal || "4K Touch Screen"}</p>
             </div>
           </div>
@@ -486,7 +486,7 @@ export default function SpatialDisplayClient() {
       <section className="relative overflow-hidden px-6 py-24 border-b border-[var(--lp-line)]">
         <div className="relative mx-auto max-w-[1200px]">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-bold tracking-[0.2em] text-[var(--lp-accent)] font-mono uppercase">
+            <span className="text-xs font-bold tracking-[0.2em] text-[var(--lp-accent)] uppercase">
               {sPage.defSectionBadge || "Product Definition"}
             </span>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--lp-ink)] sm:text-5xl">
@@ -532,7 +532,7 @@ export default function SpatialDisplayClient() {
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 rounded-full border border-[var(--lp-line)] bg-[var(--lp-card)] px-3.5 py-1.5 mb-6 shadow-2xs">
                 <ShieldCheck className="w-4 h-4 text-[var(--lp-accent)]" />
-                <span className="text-xs font-bold tracking-wider text-[var(--lp-ink)] uppercase font-mono">
+                <span className="text-xs font-bold tracking-wider text-[var(--lp-ink)] uppercase">
                   {sPage.partnershipBadge || "Hardware & Software Synergy"}
                 </span>
               </div>
@@ -549,7 +549,7 @@ export default function SpatialDisplayClient() {
               </p>
 
               <div className="mt-6 rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-card)] p-5 shadow-xs">
-                <span className="text-xs font-mono font-bold text-[var(--lp-accent)] uppercase tracking-wider block mb-1">
+                <span className="text-xs font-bold text-[var(--lp-accent)] uppercase tracking-wider block mb-1">
                   {sPage.canonicalArchBadge || "Canonical AI Architecture"}
                 </span>
                 <p className="text-sm font-semibold text-[var(--lp-ink)] leading-relaxed">
@@ -575,17 +575,17 @@ export default function SpatialDisplayClient() {
             {/* Right Card */}
             <div className="lg:col-span-5">
               <div className="rounded-[28px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-8 shadow-[var(--lp-shadow-card)]">
-                <h3 className="text-lg font-bold text-[var(--lp-ink)] mb-6 border-b border-[var(--lp-line)] pb-4 font-mono">
+                <h3 className="text-lg font-bold text-[var(--lp-ink)] mb-6 border-b border-[var(--lp-line)] pb-4">
                   {sPage.sysArchCardTitle || "System Architecture Division"}
                 </h3>
 
                 <div className="space-y-6">
                   <div className="rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-tile)] p-5">
-                    <span className="text-xs font-mono font-bold text-[var(--lp-accent)] uppercase">
+                    <span className="text-xs font-bold text-[var(--lp-accent)] uppercase">
                       {sPage.physLayerBadge || "Physical Layer (Hardware)"}
                     </span>
                     <h4 className="text-lg font-bold text-[var(--lp-ink)] mt-1">{sPage.physLayerName || "Spatial Display"}</h4>
-                    <ul className="mt-2 text-xs text-[var(--lp-ink-2)] space-y-1.5 font-mono">
+                    <ul className="mt-2 text-xs text-[var(--lp-ink-2)] space-y-1.5">
                       {(sPage.physBullets || ["• 6 cm Ultra-Slim Body Thickness", "• 32\", 43\", 55\", 65\", 75\", 86\" 4K Touch Panels", "• Light-Field Spatial Optics", "• Real-Time Eye Tracking Sensors"]).map((b: string, i: number) => (
                         <li key={i}>{b}</li>
                       ))}
@@ -593,11 +593,11 @@ export default function SpatialDisplayClient() {
                   </div>
 
                   <div className="rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-tile)] p-5">
-                    <span className="text-xs font-mono font-bold text-[var(--lp-ink)] uppercase">
+                    <span className="text-xs font-bold text-[var(--lp-ink)] uppercase">
                       {sPage.intelLayerBadge || "Intelligence Layer (Software)"}
                     </span>
                     <h4 className="text-lg font-bold text-[var(--lp-ink)] mt-1">{sPage.intelLayerName || "DIHUAVA Platform"}</h4>
-                    <ul className="mt-2 text-xs text-[var(--lp-ink-2)] space-y-1.5 font-mono">
+                    <ul className="mt-2 text-xs text-[var(--lp-ink-2)] space-y-1.5">
                       {(sPage.intelBullets || ["• AI Digital Human Avatars", "• On-Device Speech & Local RAG", "• 29+ Global Languages", "• 100% Offline GPU Processing"]).map((b: string, i: number) => (
                         <li key={i}>{b}</li>
                       ))}
@@ -614,7 +614,7 @@ export default function SpatialDisplayClient() {
       <section className="relative overflow-hidden px-6 py-24 border-b border-[var(--lp-line)]">
         <div className="mx-auto max-w-[1200px]">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--lp-accent)] font-mono">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--lp-accent)]">
               {sPage.featuresTitle || sPage.techOverviewBadge || "Technology Overview"}
             </span>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--lp-ink)] md:text-5xl">
@@ -661,7 +661,7 @@ export default function SpatialDisplayClient() {
       <section className="relative overflow-hidden bg-[var(--lp-tile)] px-6 py-24 border-b border-[var(--lp-line)]">
         <div className="mx-auto max-w-[1200px]">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-bold tracking-[0.2em] text-[var(--lp-accent)] font-mono uppercase">
+            <span className="text-xs font-bold tracking-[0.2em] text-[var(--lp-accent)] uppercase">
               {sPage.targetDeploymentsBadge || "Target Deployments"}
             </span>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--lp-ink)] sm:text-5xl">
@@ -709,7 +709,7 @@ export default function SpatialDisplayClient() {
                   <div className="pt-4 border-t border-[var(--lp-line)]">
                     <Link
                       href={lPath(ind.link)}
-                      className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[var(--lp-ink)] hover:text-[var(--lp-accent)] transition-colors uppercase tracking-wider"
+                      className="inline-flex items-center gap-2 text-xs font-bold text-[var(--lp-ink)] hover:text-[var(--lp-accent)] transition-colors uppercase tracking-wider"
                     >
                       <span>{sPage.exploreIndustryBtn || "Explore Solution"}</span>
                       <ArrowRight className="w-3.5 h-3.5" />
@@ -726,7 +726,7 @@ export default function SpatialDisplayClient() {
       <section className="relative overflow-hidden px-6 py-24 border-b border-[var(--lp-line)]">
         <div className="mx-auto max-w-[1200px]">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-bold tracking-[0.2em] text-[var(--lp-accent)] font-mono uppercase">
+            <span className="text-xs font-bold tracking-[0.2em] text-[var(--lp-accent)] uppercase">
               {sPage.valueSectionBadge || "Commercial Intent & Value"}
             </span>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--lp-ink)] sm:text-5xl">
@@ -768,7 +768,7 @@ export default function SpatialDisplayClient() {
       <section className="relative overflow-hidden bg-[var(--lp-tile)] px-6 py-24 border-b border-[var(--lp-line)]">
         <div className="mx-auto max-w-5xl">
           <div className="text-center mb-16">
-            <span className="text-xs font-bold tracking-[0.2em] text-[var(--lp-accent)] font-mono uppercase">
+            <span className="text-xs font-bold tracking-[0.2em] text-[var(--lp-accent)] uppercase">
               {sPage.compSectionBadge || "Technology Comparison"}
             </span>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--lp-ink)] sm:text-5xl">
@@ -780,7 +780,7 @@ export default function SpatialDisplayClient() {
           </div>
 
           <div className="overflow-hidden rounded-[28px] border border-[var(--lp-line)] bg-[var(--lp-card)] shadow-xs">
-            <div className="grid grid-cols-12 bg-[var(--lp-tile)] px-6 py-4 border-b border-[var(--lp-line)] font-mono text-xs font-bold uppercase tracking-wider text-[var(--lp-ink)]">
+            <div className="grid grid-cols-12 bg-[var(--lp-tile)] px-6 py-4 border-b border-[var(--lp-line)] text-xs font-bold uppercase tracking-wider text-[var(--lp-ink)]">
               <div className="col-span-4 sm:col-span-3">{sPage.tableHeaderCategory || "Feature Category"}</div>
               <div className="col-span-4 sm:col-span-4 text-[var(--lp-muted)]">{sPage.tableHeaderConventional || "Conventional 2D Display"}</div>
               <div className="col-span-4 sm:col-span-5 text-[var(--lp-accent)]">{sPage.tableHeaderSpatial || "Spatial Display (3D)"}</div>
@@ -794,7 +794,7 @@ export default function SpatialDisplayClient() {
                     idx % 2 === 0 ? "bg-[var(--lp-card)]" : "bg-[var(--lp-tile)]/40"
                   }`}
                 >
-                  <div className="col-span-12 sm:col-span-3 font-semibold text-[var(--lp-ink)] font-mono mb-2 sm:mb-0">
+                  <div className="col-span-12 sm:col-span-3 font-semibold text-[var(--lp-ink)] mb-2 sm:mb-0">
                     {row.feature}
                   </div>
                   <div className="col-span-12 sm:col-span-4 text-[var(--lp-muted)] pr-4 mb-2 sm:mb-0">
@@ -814,7 +814,7 @@ export default function SpatialDisplayClient() {
       <section className="relative overflow-hidden px-6 py-24 border-b border-[var(--lp-line)]">
         <div className="mx-auto max-w-[1200px]">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-bold tracking-[0.2em] text-[var(--lp-accent)] font-mono uppercase">
+            <span className="text-xs font-bold tracking-[0.2em] text-[var(--lp-accent)] uppercase">
               Form Factor &amp; Platform Architecture
             </span>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--lp-ink)] sm:text-5xl">
@@ -829,14 +829,14 @@ export default function SpatialDisplayClient() {
             {/* Spatial Display Card */}
             <div className="rounded-[28px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-8 shadow-xs flex flex-col justify-between">
               <div>
-                <span className="rounded-full border border-[var(--lp-line)] bg-[var(--lp-tile)] px-3.5 py-1 text-xs font-mono font-bold text-[var(--lp-ink)] uppercase">
+                <span className="rounded-full border border-[var(--lp-line)] bg-[var(--lp-tile)] px-3.5 py-1 text-xs font-bold text-[var(--lp-ink)] uppercase">
                   Hardware • 3D Screen Panel
                 </span>
                 <h3 className="mt-6 text-2xl font-bold text-[var(--lp-ink)]">Spatial Display</h3>
                 <p className="mt-3 text-sm text-[var(--lp-ink-2)] leading-relaxed">
                   Ultra-slim 6 cm depth display screen panel using lenticular light-field spatial optics and real-time optical eye tracking to deliver glasses-free 3D stereoscopic depth perception and immersive visual experiences.
                 </p>
-                <ul className="mt-6 space-y-2.5 text-xs font-mono text-[var(--lp-ink-2)]">
+                <ul className="mt-6 space-y-2.5 text-xs text-[var(--lp-ink-2)]">
                   <li className="flex items-center gap-2 text-[var(--lp-ink)]">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                     Glasses-Free / Naked-Eye 3D
@@ -856,21 +856,21 @@ export default function SpatialDisplayClient() {
                 </ul>
               </div>
               <div className="mt-8 pt-4 border-t border-[var(--lp-line)]">
-                <span className="text-xs font-mono text-[var(--lp-accent)] font-semibold">Primary Role: Volumetric 3D Visual Stage</span>
+                <span className="text-xs text-[var(--lp-accent)] font-semibold">Primary Role: Volumetric 3D Visual Stage</span>
               </div>
             </div>
 
             {/* AI Hologram Box Card */}
             <div className="rounded-[28px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-8 shadow-xs flex flex-col justify-between">
               <div>
-                <span className="rounded-full border border-[var(--lp-line)] bg-[var(--lp-tile)] px-3.5 py-1 text-xs font-mono font-bold text-[var(--lp-ink)] uppercase">
+                <span className="rounded-full border border-[var(--lp-line)] bg-[var(--lp-tile)] px-3.5 py-1 text-xs font-bold text-[var(--lp-ink)] uppercase">
                   Hardware • Holographic Enclosure
                 </span>
                 <h3 className="mt-6 text-2xl font-bold text-[var(--lp-ink)]">AI Hologram Box</h3>
                 <p className="mt-3 text-sm text-[var(--lp-ink-2)] leading-relaxed">
                   3D holographic display showcase enclosure in a glass cabinet form factor, delivering life-size 1:1 holographic presentation for interactive avatar engagement.
                 </p>
-                <ul className="mt-6 space-y-2.5 text-xs font-mono text-[var(--lp-ink-2)]">
+                <ul className="mt-6 space-y-2.5 text-xs text-[var(--lp-ink-2)]">
                   <li className="flex items-center gap-2 text-[var(--lp-ink)]">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                     3D Holographic Showcase Enclosure
@@ -890,7 +890,7 @@ export default function SpatialDisplayClient() {
                 </ul>
               </div>
               <div className="mt-8 pt-4 border-t border-[var(--lp-line)]">
-                <Link href={lPath("/products/holographic-display")} className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-[var(--lp-ink)] hover:text-[var(--lp-accent)] transition-colors">
+                <Link href={lPath("/products/holographic-display")} className="inline-flex items-center gap-1.5 text-xs font-bold text-[var(--lp-ink)] hover:text-[var(--lp-accent)] transition-colors">
                   <span>Explore AI Hologram Box</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
@@ -900,14 +900,14 @@ export default function SpatialDisplayClient() {
             {/* DIHUAVA Software Card */}
             <div className="rounded-[28px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-8 shadow-xs flex flex-col justify-between">
               <div>
-                <span className="rounded-full border border-[var(--lp-line)] bg-[var(--lp-tile)] px-3.5 py-1 text-xs font-mono font-bold text-[var(--lp-ink)] uppercase">
+                <span className="rounded-full border border-[var(--lp-line)] bg-[var(--lp-tile)] px-3.5 py-1 text-xs font-bold text-[var(--lp-ink)] uppercase">
                   Software • AI Intelligence Layer
                 </span>
                 <h3 className="mt-6 text-2xl font-bold text-[var(--lp-ink)]">DIHUAVA Platform</h3>
                 <p className="mt-3 text-sm text-[var(--lp-ink-2)] leading-relaxed">
                   Enterprise AI Digital Human software platform serving as the intelligence layer powering interactive avatars, local speech recognition, 29+ global languages, and document RAG across hardware.
                 </p>
-                <ul className="mt-6 space-y-2.5 text-xs font-mono text-[var(--lp-ink-2)]">
+                <ul className="mt-6 space-y-2.5 text-xs text-[var(--lp-ink-2)]">
                   <li className="flex items-center gap-2 text-[var(--lp-ink)]">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                     AI Digital Human Avatars
@@ -927,7 +927,7 @@ export default function SpatialDisplayClient() {
                 </ul>
               </div>
               <div className="mt-8 pt-4 border-t border-[var(--lp-line)]">
-                <Link href={lPath("/products/ai-digital-human")} className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-[var(--lp-ink)] hover:text-[var(--lp-accent)] transition-colors">
+                <Link href={lPath("/products/ai-digital-human")} className="inline-flex items-center gap-1.5 text-xs font-bold text-[var(--lp-ink)] hover:text-[var(--lp-accent)] transition-colors">
                   <span>Explore DIHUAVA AI Platform</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
@@ -941,7 +941,7 @@ export default function SpatialDisplayClient() {
       <section className="relative overflow-hidden bg-[var(--lp-tile)] px-6 py-24 border-b border-[var(--lp-line)]">
         <div className="mx-auto max-w-5xl">
           <div className="text-center mb-12">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--lp-accent)] font-mono">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--lp-accent)]">
               {sPage.specsTitle || sPage.specsSectionBadge || "Technical Specifications"}
             </span>
             <h2 className="mt-2 text-3xl font-semibold tracking-tight text-[var(--lp-ink)] sm:text-4xl">
@@ -958,7 +958,7 @@ export default function SpatialDisplayClient() {
                     i % 2 === 0 ? "bg-[var(--lp-card)]" : "bg-[var(--lp-tile)]/40"
                   }`}
                 >
-                  <span className="text-sm font-semibold text-[var(--lp-ink)] font-mono">
+                  <span className="text-sm font-semibold text-[var(--lp-ink)]">
                     {spec.label}
                   </span>
                   <span className="text-sm text-[var(--lp-ink-2)] sm:col-span-2">
@@ -975,7 +975,7 @@ export default function SpatialDisplayClient() {
       <section className="relative overflow-hidden px-6 py-24 border-b border-[var(--lp-line)]">
         <div className="mx-auto max-w-4xl">
           <div className="text-center mb-16">
-            <span className="text-xs font-bold tracking-[0.2em] text-[var(--lp-accent)] font-mono uppercase">
+            <span className="text-xs font-bold tracking-[0.2em] text-[var(--lp-accent)] uppercase">
               Frequently Asked Questions
             </span>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--lp-ink)] sm:text-5xl">

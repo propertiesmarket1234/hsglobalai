@@ -92,7 +92,7 @@ export default function ProductsClient() {
             {/* Product Ecosystem Taxonomy */}
             <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-4 border-t border-[var(--lp-line)] pt-8">
               <div className="rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-tile)] p-4">
-                <span className="text-[11px] font-mono uppercase tracking-wider text-[var(--lp-muted)] block">
+                <span className="text-[11px] uppercase tracking-wider text-[var(--lp-muted)] block">
                   Software Layer
                 </span>
                 <span className="text-sm font-semibold text-[var(--lp-ink)] mt-0.5 block">
@@ -100,23 +100,23 @@ export default function ProductsClient() {
                 </span>
               </div>
               <div className="rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-tile)] p-4">
-                <span className="text-[11px] font-mono uppercase tracking-wider text-[var(--lp-muted)] block">
-                  3D Hologram Cabinet
+                <span className="text-[11px] uppercase tracking-wider text-[var(--lp-muted)] block">
+                  3D Hologram Box
                 </span>
                 <span className="text-sm font-semibold text-[var(--lp-ink)] mt-0.5 block">
-                  65&apos;&apos; &amp; 86&apos;&apos; Hologram Boxes
+                  55&apos;&apos;, 65&apos;&apos;, 75&apos;&apos;, 86&apos;&apos; Hologram Boxes
                 </span>
               </div>
               <div className="rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-tile)] p-4">
-                <span className="text-[11px] font-mono uppercase tracking-wider text-[var(--lp-muted)] block">
-                  Executive Desk Unit
+                <span className="text-[11px] uppercase tracking-wider text-[var(--lp-muted)] block">
+                  Spatial Display
                 </span>
                 <span className="text-sm font-semibold text-[var(--lp-ink)] mt-0.5 block">
-                  Glasses-Free Spatial 3D
+                  32&apos;&apos;, 43&apos;&apos;, 55&apos;&apos;, 65&apos;&apos;, 75&apos;&apos;, 86&apos;&apos; Spatial Display Sizes
                 </span>
               </div>
               <div className="rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-tile)] p-4">
-                <span className="text-[11px] font-mono uppercase tracking-wider text-[var(--lp-muted)] block">
+                <span className="text-[11px] uppercase tracking-wider text-[var(--lp-muted)] block">
                   Interactive Fitting
                 </span>
                 <span className="text-sm font-semibold text-[var(--lp-ink)] mt-0.5 block">

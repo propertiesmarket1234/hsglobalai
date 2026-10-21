@@ -29,7 +29,7 @@ export default function PrivacyClient() {
           <h1 className="text-balance text-[40px] font-semibold leading-[1.04] tracking-[-0.04em] text-[var(--lp-ink)] sm:text-[54px]">
             {pPage.title || "Privacy Policy"}
           </h1>
-          <p className="mt-4 text-xs text-[var(--lp-muted)] font-mono">
+          <p className="mt-4 text-xs text-[var(--lp-muted)]">
             {pPage.lastUpdated || "Last Updated: January 2026 | HS GLOBAL SG PTE LTD"}
           </p>
 

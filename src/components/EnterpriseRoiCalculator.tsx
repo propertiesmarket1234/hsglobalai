@@ -114,7 +114,7 @@ export default function EnterpriseRoiCalculator() {
                     <Layers className="w-4 h-4 text-[var(--lp-muted)]" />
                     Physical Stations / Kiosks
                   </label>
-                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-[var(--lp-tile)] border border-[var(--lp-line)] text-xs sm:text-sm font-bold text-[var(--lp-ink)] font-mono shadow-xs">
+                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-[var(--lp-tile)] border border-[var(--lp-line)] text-xs sm:text-sm font-bold text-[var(--lp-ink)] shadow-xs">
                     {locations} {locations === 1 ? "Station" : "Stations"}
                   </span>
                 </div>
@@ -128,7 +128,7 @@ export default function EnterpriseRoiCalculator() {
                   onChange={(e) => setLocations(parseInt(e.target.value, 10))}
                   className="w-full h-2 bg-[var(--lp-tile)] rounded-lg appearance-none cursor-pointer accent-[var(--lp-accent)]"
                 />
-                <div className="flex justify-between text-[11px] text-[var(--lp-muted)] mt-1.5 font-mono">
+                <div className="flex justify-between text-[11px] text-[var(--lp-muted)] mt-1.5 font-medium">
                   <span>1 single kiosk</span>
                   <span>25 regional desks</span>
                   <span>50+ nationwide</span>
@@ -145,7 +145,7 @@ export default function EnterpriseRoiCalculator() {
                     <DollarSign className="w-4 h-4 text-[var(--lp-muted)]" />
                     Annual Salary per Staff Desk
                   </label>
-                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-[var(--lp-tile)] border border-[var(--lp-line)] text-xs sm:text-sm font-bold text-[var(--lp-ink)] font-mono shadow-xs">
+                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-[var(--lp-tile)] border border-[var(--lp-line)] text-xs sm:text-sm font-bold text-[var(--lp-ink)] shadow-xs">
                     {formatCurrency(salary)}/yr
                   </span>
                 </div>
@@ -159,7 +159,7 @@ export default function EnterpriseRoiCalculator() {
                   onChange={(e) => setSalary(parseInt(e.target.value, 10))}
                   className="w-full h-2 bg-[var(--lp-tile)] rounded-lg appearance-none cursor-pointer accent-[var(--lp-accent)]"
                 />
-                <div className="flex justify-between text-[11px] text-[var(--lp-muted)] mt-1.5 font-mono">
+                <div className="flex justify-between text-[11px] text-[var(--lp-muted)] mt-1.5 font-medium">
                   <span>$30,000 (Entry)</span>
                   <span>$70,000 (Concierge)</span>
                   <span>$110,000+ (Specialist)</span>
@@ -240,7 +240,7 @@ export default function EnterpriseRoiCalculator() {
                     Projected Net Annual Savings
                   </span>
                   <div className="mt-2 flex flex-wrap items-baseline gap-2.5 sm:gap-3">
-                    <span className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--lp-ink)] font-mono">
+                    <span className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--lp-ink)]">
                       {formatCurrency(annualSavings)}
                     </span>
                     <span className="inline-flex items-center px-2.5 py-0.5 sm:py-1 rounded-full bg-[rgba(22,163,74,0.1)] border border-[rgba(22,163,74,0.2)] text-[11px] sm:text-xs font-bold text-[#16a34a]">
@@ -258,7 +258,7 @@ export default function EnterpriseRoiCalculator() {
                 <div>
                   <div className="flex justify-between text-xs font-semibold text-[var(--lp-muted)] mb-1.5">
                     <span>Traditional Manual Staffing Expense</span>
-                    <span className="text-[var(--lp-ink)] font-mono">
+                    <span className="text-[var(--lp-ink)] font-semibold">
                       {formatCurrency(annualHumanCost)}/yr
                     </span>
                   </div>
@@ -272,7 +272,7 @@ export default function EnterpriseRoiCalculator() {
                     <span className="text-[var(--lp-ink)] font-bold">
                       HS Global AI Enterprise Solution
                     </span>
-                    <span className="text-[var(--lp-accent)] font-mono font-bold">
+                    <span className="text-[var(--lp-accent)] font-bold">
                       {formatCurrency(annualAiCost)}/yr
                     </span>
                   </div>
@@ -294,7 +294,7 @@ export default function EnterpriseRoiCalculator() {
                   <span className="text-[11px] font-medium text-[var(--lp-muted)] block">
                     Break-Even
                   </span>
-                  <span className="mt-1 text-base sm:text-lg font-bold text-[var(--lp-ink)] font-mono block">
+                  <span className="mt-1 text-base sm:text-lg font-bold text-[var(--lp-ink)] block">
                     {paybackMonths} mo
                   </span>
                   <span className="text-[10px] text-[var(--lp-muted)] block mt-0.5">
@@ -306,7 +306,7 @@ export default function EnterpriseRoiCalculator() {
                   <span className="text-[11px] font-medium text-[var(--lp-muted)] block">
                     Service Hours
                   </span>
-                  <span className="mt-1 text-base sm:text-lg font-bold text-[var(--lp-ink)] font-mono block">
+                  <span className="mt-1 text-base sm:text-lg font-bold text-[var(--lp-ink)] block">
                     {totalHoursCovered}
                   </span>
                   <span className="text-[10px] text-[var(--lp-muted)] block mt-0.5">
@@ -318,7 +318,7 @@ export default function EnterpriseRoiCalculator() {
                   <span className="text-[11px] font-medium text-[var(--lp-muted)] block">
                     Guest Capacity
                   </span>
-                  <span className="mt-1 text-base sm:text-lg font-bold text-[var(--lp-ink)] font-mono block">
+                  <span className="mt-1 text-base sm:text-lg font-bold text-[var(--lp-ink)] block">
                     {estimatedInteractionsYear}
                   </span>
                   <span className="text-[10px] text-[var(--lp-muted)] block mt-0.5">

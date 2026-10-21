@@ -99,7 +99,7 @@ export default function WhyHSGlobal() {
               >
                 <div>
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-xs font-semibold tracking-wider text-[var(--lp-muted)]">
+                    <span className="text-xs font-semibold tracking-wider text-[var(--lp-muted)]">
                       {feature.number}
                     </span>
                     <span className="rounded-full border border-[var(--lp-line)] bg-[var(--lp-pebble)] px-2.5 py-1 text-[11px] font-medium tracking-wide text-[var(--lp-muted)]">
