@@ -566,7 +566,7 @@ export default function SpatialDisplayClient() {
                   href={lPath("/products/ai-digital-human")}
                   className="inline-flex items-center gap-2 text-sm font-bold text-[var(--lp-ink)] hover:text-[var(--lp-accent)] transition-colors"
                 >
-                  <span>{sPage.learnDihuavaLink || "Learn more about DIHUAVA AI Platform"}</span>
+                  <span>{sPage.learnDihuavaLink || "Learn how DIHUAVA powers interactive 3D digital humans"}</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -928,7 +928,7 @@ export default function SpatialDisplayClient() {
               </div>
               <div className="mt-8 pt-4 border-t border-[var(--lp-line)]">
                 <Link href={lPath("/products/ai-digital-human")} className="inline-flex items-center gap-1.5 text-xs font-bold text-[var(--lp-ink)] hover:text-[var(--lp-accent)] transition-colors">
-                  <span>Explore DIHUAVA AI Platform</span>
+                  <span>Explore DIHUAVA offline AI digital human software</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>

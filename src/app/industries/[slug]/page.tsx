@@ -454,6 +454,29 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
               </div>
             ))}
           </div>
+
+          {/* Contextual DIHUAVA Software Integration Callout */}
+          <div className="mt-12 rounded-[24px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xs">
+            <div className="max-w-2xl">
+              <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[var(--lp-accent-ink)] mb-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-[var(--lp-accent)]" />
+                Software Engine Architecture
+              </span>
+              <h3 className="text-lg sm:text-xl font-bold text-[var(--lp-ink)]">
+                Powered by DIHUAVA Offline AI Digital Human Software
+              </h3>
+              <p className="mt-1.5 text-sm text-[var(--lp-ink-2)] leading-relaxed">
+                Every {industry.title.toLowerCase()} deployment runs on the DIHUAVA platform—providing autonomous on-device natural language dialogue, local document intelligence (RAG), and 29+ global languages without recurring cloud API fees.
+              </p>
+            </div>
+            <Link
+              href={avatarHref}
+              className="inline-flex h-11 shrink-0 items-center justify-center gap-2 rounded-full border border-[var(--lp-line)] bg-[var(--lp-tile)] px-5 text-xs font-semibold text-[var(--lp-ink)] hover:bg-[var(--lp-ink)] hover:text-white transition-all active:scale-[0.98] cursor-pointer"
+            >
+              <span>Explore DIHUAVA Platform</span>
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          </div>
         </div>
       </section>
 

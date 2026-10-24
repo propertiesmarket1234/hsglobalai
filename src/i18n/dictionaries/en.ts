@@ -992,9 +992,9 @@ export const en = {
     },
     "multilingual-support": {
       badge: "FEATURE DEEP DIVE",
-      title: "Multilingual Engine & Voice Synthesis",
+      title: "Multilingual AI Avatar Software & Speech Synthesis",
       subtitle: "29+ Global Languages Supported Natively On-Device with Automatic Language Switching",
-      description: "Full on-device speech recognition, neural voice synthesis, and translation across 29+ global languages. Enables seamless multi-lingual customer interaction without cloud API latency or recurring cloud API usage charges.",
+      description: "Enterprise multilingual AI avatar software delivering on-device speech recognition, neural voice synthesis, and real-time translation across 29+ global languages and 7 Indian regional languages without recurring cloud API fees.",
       overviewHeading: "29+ Global Language & On-Device Translation Pipeline",
       nextFeatureName: "Persona Management & Brand Safety",
     },
@@ -1273,7 +1273,7 @@ export const en = {
       "\"DIHUAVA runs 100% offline on-device by default, with optional cloud-management configurations available.\"",
     partnershipDesc2:
       "Spatial Display itself is high-performance 3D display hardware, not an AI system. When paired with DIHUAVA, it provides a physical volumetric stage where interactive AI avatars interact with visitors smoothly in real-time.",
-    learnDihuavaLink: "Learn more about DIHUAVA AI Platform",
+    learnDihuavaLink: "Learn how DIHUAVA powers interactive 3D digital humans",
     sysArchCardTitle: "System Architecture Division",
     physLayerBadge: "Physical Layer (Hardware)",
     physLayerName: "Spatial Display",

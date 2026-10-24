@@ -372,10 +372,10 @@ export const platformData: Record<string, PlatformPageData> = {
   "multilingual-support": {
     slug: "multilingual-support",
     badge: "FEATURE DEEP DIVE",
-    title: "Multilingual Support & Speech Synthesis",
+    title: "Multilingual AI Avatar Software & Speech Synthesis",
     subtitle: "29+ Spoken Global Languages Running 100% On-Device",
     description:
-      "Full offline ASR, translation, and neural speech synthesis across 29+ global languages including 7 specialized Indian languages, processed on-device with fluid language switching to eliminate recurring cloud API charges.",
+      "Enterprise multilingual AI avatar software delivering on-device speech recognition, neural voice synthesis, and real-time translation across 29+ global languages and 7 Indian regional languages without recurring cloud API fees.",
     icon: Globe,
     overviewHeading: "29+ Shipping Languages with Purpose-Built Regional Speech Models",
     overviewParagraphs: [

@@ -723,6 +723,53 @@ export default function DihuavaClient() {
               </div>
             </div>
           </div>
+
+          {/* KIOSK DEPLOYMENT ARCHITECTURE STRIP */}
+          <div className="mt-12 rounded-[28px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-6 sm:p-8 shadow-xs">
+            <div className="max-w-2xl mb-6">
+              <span className="text-xs font-semibold text-[var(--lp-accent-ink)] uppercase tracking-wider block">
+                Physical Kiosk Architecture
+              </span>
+              <h3 className="mt-1 text-xl sm:text-2xl font-bold text-[var(--lp-ink)]">
+                Engineered for High-Traffic Public Kiosks &amp; Totems
+              </h3>
+              <p className="mt-2 text-sm text-[var(--lp-ink-2)] leading-relaxed">
+                DIHUAVA integrates directly into standalone floor kiosks, countertop enclosures, and interactive signage, combining conversational AI with reliable on-device execution.
+              </p>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-tile)] p-5">
+                <div className="flex items-center gap-2 mb-2">
+                  <CheckCircle2 className="h-4 w-4 text-[var(--lp-accent)] shrink-0" />
+                  <h4 className="text-sm font-bold text-[var(--lp-ink)]">Touch &amp; Voice Dual Navigation</h4>
+                </div>
+                <p className="text-xs text-[var(--lp-ink-2)] leading-relaxed">
+                  Visitors can speak naturally or tap touchscreen menus to browse product catalogs, select from 29+ languages, and query local document knowledge bases.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-tile)] p-5">
+                <div className="flex items-center gap-2 mb-2">
+                  <CheckCircle2 className="h-4 w-4 text-[var(--lp-accent)] shrink-0" />
+                  <h4 className="text-sm font-bold text-[var(--lp-ink)]">Embedded GPU Hardware</h4>
+                </div>
+                <p className="text-xs text-[var(--lp-ink-2)] leading-relaxed">
+                  Operates on compact industrial workstations or embedded PCs inside the kiosk enclosure. An 8GB VRAM GPU provides a baseline recommendation for smooth local inference.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-tile)] p-5">
+                <div className="flex items-center gap-2 mb-2">
+                  <CheckCircle2 className="h-4 w-4 text-[var(--lp-accent)] shrink-0" />
+                  <h4 className="text-sm font-bold text-[var(--lp-ink)]">Autonomous Offline Reliability</h4>
+                </div>
+                <p className="text-xs text-[var(--lp-ink-2)] leading-relaxed">
+                  Core dialogue, speech synthesis, and facial lip-sync execute 100% on-device by default, ensuring uninterrupted visitor assistance during venue network outages.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

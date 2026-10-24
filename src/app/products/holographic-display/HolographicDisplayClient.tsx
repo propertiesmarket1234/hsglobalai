@@ -176,6 +176,18 @@ export default function HolographicDisplayClient() {
                 ))}
               </div>
 
+              {/* Software Integration Callout */}
+              <div className="mt-5 flex items-center gap-2 text-xs text-[var(--lp-muted)]">
+                <span className="font-semibold text-[var(--lp-ink)]">Software Engine:</span>
+                <Link
+                  href={lPath("/products/ai-digital-human")}
+                  className="inline-flex items-center gap-1 font-medium text-[var(--lp-accent-ink)] hover:text-[var(--lp-ink)] hover:underline transition-colors"
+                >
+                  <span>DIHUAVA Offline AI Digital Human Platform</span>
+                  <ArrowRight className="w-3 h-3" />
+                </Link>
+              </div>
+
               {/* Action Buttons */}
               <div className="mt-8 flex flex-col sm:flex-row items-center gap-3">
                 <Link
@@ -284,6 +296,15 @@ export default function HolographicDisplayClient() {
                     <p className="mt-2.5 text-xs leading-relaxed text-[var(--lp-ink-2)]">
                       {feat.description}
                     </p>
+                    {feat.title === "Integrated AI Workstation" && (
+                      <Link
+                        href={lPath("/products/ai-digital-human")}
+                        className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-[var(--lp-accent-ink)] hover:underline"
+                      >
+                        <span>Explore DIHUAVA platform</span>
+                        <ArrowRight className="w-3 h-3" />
+                      </Link>
+                    )}
                   </div>
                 </div>
               );
@@ -316,7 +337,17 @@ export default function HolographicDisplayClient() {
                     {spec.label}
                   </span>
                   <span className="text-sm font-semibold text-[var(--lp-ink)] sm:col-span-7">
-                    {spec.value}
+                    {spec.label === "Software Compatibility" ? (
+                      <Link
+                        href={lPath("/products/ai-digital-human")}
+                        className="inline-flex items-center gap-1.5 text-[var(--lp-accent-ink)] hover:underline font-semibold"
+                      >
+                        <span>{spec.value}</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
+                    ) : (
+                      spec.value
+                    )}
                   </span>
                 </div>
               ))}
