@@ -120,7 +120,7 @@ export default function ChatbotVsAvatar() {
             <div className="mt-4 sm:mt-5 border-t border-[var(--lp-line)] pt-3.5 flex items-center gap-1.5">
               <CheckCircle2 className="h-3.5 w-3.5 text-[#16a34a] shrink-0" />
               <span className="text-[11px] sm:text-[12px] font-semibold text-[#16a34a]">
-                Sub-second vocal responses
+                Low-latency vocal responses
               </span>
             </div>
           </motion.div>

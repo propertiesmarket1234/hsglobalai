@@ -143,7 +143,7 @@ export const zh: Dictionary = {
           linkText: "了解更多关于数字人形象与声音克隆 →",
           tags: ["超逼真数字人", "零样本声音克隆", "状态过渡", "端侧 60 FPS"],
           highlights: [
-            { label: "零样本声音克隆", detail: "单个 5 至 30 秒 WAV/MP3 音频切片，以 24kHz 单声道预编码，无按小时计算的 API 费用。" },
+            { label: "零样本声音克隆", detail: "单个 5 至 30 秒 WAV/MP3 音频切片，以 24kHz 单声道预编码，无持续产生的云端 API 调用费用。" },
             { label: "状态驱动交互", detail: "在不同状态视频切片之间平滑淡入淡出，实现视觉上的聆听、思考与表达。" },
             { label: "实时唇形同步", detail: "语音播放时在设备端实时生成音素——速度超越实时，语音绝不卡顿。" },
           ]
@@ -366,8 +366,8 @@ export const zh: Dictionary = {
         privacyDesc: "语音识别、RAG 检索、对话和语音合成 100% 在端侧运行。无任何访客语音或机密文档通过互联网传输至外部云服务器。",
         hardwareTitle: "1 台小型电脑 vs. 2 台数据中心 GPU",
         hardwareDesc: "传统平台每个并发流需要多台昂贵的数据中心 GPU。DIHUAVA 将完整流程在显示屏后面的单台小型 Mac Mini 上本地运行。",
-        costTitle: "按时计费不复存在 ($0/分钟)",
-        costDesc: "云端数字人服务每分钟收取 $0.10–$0.37 的活跃费用。DIHUAVA 以固定本地计算成本运行——您的终端 24/7 7x24 全天候运行，无任何按分钟计费的云端 API 费用。",
+        costTitle: "避免持续云端 API 计费",
+        costDesc: "云端数字人服务每分钟收取 $0.10–$0.37 的活跃费用。本地部署可免除持续的云端 API 使用费。软件许可、维护、更新及支持条款根据具体商务方案确定。",
       },
       matrixTitle: "核心功能对比矩阵",
       matrixSubtitle: "DIHUAVA 端侧 AI vs. 标准数字人",
@@ -416,7 +416,7 @@ export const zh: Dictionary = {
         },
         {
           capability: "通话时长成本结构",
-          dihuava: "每分钟 $0 (固定本地计算电力成本)",
+          dihuava: "免云端 API 计费 (依据商务方案)",
           cloudApis: "每活跃分钟 $0.10 – $0.37",
           enterprisePlatforms: "高额按月云端订阅层级",
           gpuBlueprints: "高昂 GPU 资本支出 + 第三方 API 使用费",
@@ -515,7 +515,7 @@ export const zh: Dictionary = {
           title: "为何 100% 离线 AI 是企业级技术的未来",
           category: "端侧 AI",
           readTime: "阅读时长 7 分钟",
-          snippet: "探索物理隔离的 GPU 硬件如何提供亚秒级语音对话、零云端延迟和 100% 数据隐私防护。",
+          snippet: "探索物理隔离的 GPU 硬件如何提供低延迟响应语音对话、零云端延迟和 100% 数据隐私防护。",
           tag: "物理隔离隐私",
         },
         {
@@ -680,7 +680,7 @@ export const zh: Dictionary = {
     heroCtaPrimary: "预约实时演示",
     heroCtaSecondary: "下载平台技术规格 (PDF)",
     metadata: {
-      title: "AI 数字人软件平台 | DIHUAVA | HS Global AI",
+      title: "AI 数字人软件平台 | DIHUAVA",
       description: "DIHUAVA 是 HS Global AI 推出的企业级 AI 数字人软件平台，具备 100% 端侧离线处理、29+ 种全球语言和文档智能 RAG 引擎。",
     },
     modulesTitle: "平台核心子系统",
@@ -822,7 +822,7 @@ export const zh: Dictionary = {
     faqs: [
       {
         q: "DIHUAVA 需要互联网连接吗？",
-        a: "不需要。DIHUAVA 默认 100% 在端侧本地离线运行，同时提供可选的云端管理配置。完整的 29 种语言语音流水线、文档 RAG、产品目录、合影拍照与实时卡通渲染均完全在本地硬件上运行。",
+        a: "DIHUAVA 专为端侧部署设计，核心语音识别、文档检索 (RAG) 和数字人渲染完全离线运行。日常自主交互无需持续网络连接，网络连接仅用于初始安装、软件更新、远程设备管理或可选的手机二维码相片分享。",
       },
       {
         q: "端侧支持多少种语言？",
@@ -882,7 +882,7 @@ export const zh: Dictionary = {
       badge: "功能深度解析",
       title: "多语言引擎与语音合成",
       subtitle: "原生支持 29+ 全球语言，自动语种识别与无缝切换",
-      description: "完全基于端侧的语音识别、神经网络语音合成与翻译，覆盖 29+ 全球语言。无需云端 API 延迟或字符扣费，即可提供多语言对话。",
+      description: "完全基于端侧的语音识别、神经网络语音合成与翻译，覆盖 29+ 全球语言。无需云端 API 延迟或持续的云端 API 调用费用，即可提供多语言对话。",
       overviewHeading: "29+ 全球语言与端侧翻译流程",
       nextFeatureName: "Persona 角色管理与品牌安全",
     },

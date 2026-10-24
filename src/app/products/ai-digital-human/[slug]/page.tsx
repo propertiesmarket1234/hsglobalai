@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { getLocalizedAlternates } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 import PlatformClient, { platformData } from "./PlatformClient";
 
 interface PageProps {
@@ -19,20 +21,31 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const data = platformData[slug];
+  const dict = getDictionary("en");
+  const capDict = (dict as Record<string, unknown> & { capabilityPages?: Record<string, { title?: string; description?: string }> }).capabilityPages?.[slug];
+  const defaultData = platformData[slug];
+
+  const title = capDict?.title
+    ? `${capDict.title} | DIHUAVA`
+    : defaultData
+    ? `${defaultData.title} | DIHUAVA`
+    : "DIHUAVA Capability";
+
+  const description = capDict?.description || defaultData?.description || "Explore interactive capabilities and AI features of the DIHUAVA Digital Human platform.";
 
   return {
-    title: data ? `${data.title} | DIHUAVA | HS Global AI` : "DIHUAVA Capability | HS Global AI",
-    description: data ? data.description : "Explore interactive capabilities and AI features of the DIHUAVA Digital Human platform.",
-    alternates: {
-      canonical: `/products/ai-digital-human/${slug}`,
-    },
+    title,
+    description,
+    alternates: getLocalizedAlternates(`/products/ai-digital-human/${slug}`),
   };
 }
 
 export default async function DihuavaCapabilityPage({ params }: PageProps) {
   const { slug } = await params;
-  const data = platformData[slug];
+  const dict = getDictionary("en");
+  const capDict = (dict as Record<string, unknown> & { capabilityPages?: Record<string, { title?: string; description?: string }> }).capabilityPages?.[slug];
+  const defaultData = platformData[slug];
+  const pageTitle = capDict?.title || defaultData?.title || slug;
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -59,7 +72,7 @@ export default async function DihuavaCapabilityPage({ params }: PageProps) {
       {
         "@type": "ListItem",
         position: 4,
-        name: data?.title || slug,
+        name: pageTitle,
         item: `https://www.hsglobalai.com/products/ai-digital-human/${slug}`,
       },
     ],

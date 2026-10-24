@@ -73,9 +73,9 @@ const enterprisePillars = [
     icon: Tv,
   },
   {
-    title: "Sub-Second Latency Dialogue",
+    title: "Low-Latency Spoken Dialogue",
     description:
-      "Ultra-low latency speech pipeline delivers vocal responses within milliseconds, eliminating awkward conversational pauses.",
+      "Responsive speech pipeline delivers natural vocal responses, eliminating awkward conversational pauses.",
     icon: Zap,
   },
   {

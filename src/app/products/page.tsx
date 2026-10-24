@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
+import { getLocalizedAlternates } from "@/i18n/config";
 import ProductsClient from "./ProductsClient";
 
 export const metadata: Metadata = {
   title: "AI Digital Humans, Hologram & Spatial Display Products",
   description:
     "Explore HS Global AI products: DIHUAVA AI Digital Human platform, 3D Hologram Box displays, and naked-eye spatial AI displays for enterprise deployment.",
-  alternates: {
-    canonical: "/products",
-  },
+  alternates: getLocalizedAlternates("/products"),
   openGraph: {
     title: "AI Digital Humans, Hologram & Spatial Display Products | HS Global AI",
     description:

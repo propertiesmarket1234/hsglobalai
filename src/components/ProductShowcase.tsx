@@ -33,7 +33,7 @@ const products: ProductItem[] = [
     subtitle: "Real-Time Multilingual Autonomous Avatars",
     description:
       "Intelligent, empathetic AI avatars designed to communicate naturally with customers across 29+ global languages, retail sales floors, and hospital lobbies with hyper-realistic lip synchronization and custom voice cloning.",
-    tags: ["29+ Global Languages", "Voice Reference Cloning", "Sub-Second Vocal Reply", "Empathetic Presence"],
+    tags: ["29+ Global Languages", "Voice Reference Cloning", "Low-Latency Vocal Reply", "Empathetic Presence"],
     imageSrc: "/products/digital-humans/digital-human-dashboard.jpg",
     imageAlt: "DIHUAVA AI Digital Human Platform",
     badge: "Autonomous Workforce",

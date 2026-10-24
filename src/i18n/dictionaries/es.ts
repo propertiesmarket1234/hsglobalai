@@ -150,7 +150,7 @@ export const es: Dictionary = {
         "highlights": [
           {
             "label": "Clonación de voz Zero-Shot",
-            "detail": "Un archivo WAV/MP3 de 5 a 30 segundos precodificado a 24kHz mono sin tarifas API por hora."
+            "detail": "Un archivo WAV/MP3 de 5 a 30 segundos precodificado a 24kHz mono sin costes recurrentes de API en la nube."
           },
           {
             "label": "Presencia por estados",
@@ -496,8 +496,8 @@ export const es: Dictionary = {
       "privacyDesc": "Reconocimiento de voz, RAG, diálogo y síntesis de voz se ejecutan 100% en el dispositivo. Cero datos o audios transmitidos a internet.",
       "hardwareTitle": "1 Equipo compacto vs. 2 GPU de centro de datos",
       "hardwareDesc": "Las plataformas tradicionales requieren varias GPU de centro de datos. DIHUAVA ejecuta todo en un único Mac Mini detrás de la pantalla.",
-      "costTitle": "Sin costes por minuto ($0/min)",
-      "costDesc": "Los servicios en la nube cobran $0.10–$0.37 por minuto activo. DIHUAVA opera con costes fijos de electricidad local 24/7."
+      "costTitle": "Sin tarificación por minuto de API",
+      "costDesc": "Los servicios en la nube cobran $0.10–$0.37 por minuto activo. El despliegue local evita cargos recurrentes de API en la nube. Las condiciones de licencia, mantenimiento y soporte dependen del paquete comercial acordado."
     },
     "matrixTitle": "Matriz de funciones",
     "matrixSubtitle": "IA local DIHUAVA vs. Humanos digitales estándar",
@@ -546,7 +546,7 @@ export const es: Dictionary = {
       },
       {
         "capability": "Estructura de costes de conversación",
-        "dihuava": "$0 por minuto (Coste fijo de electricidad)",
+        "dihuava": "Sin costes de API en la nube (según paquete)",
         "cloudApis": "$0.10 – $0.37 por minuto activo",
         "enterprisePlatforms": "Suscripciones mensuales elevadas",
         "gpuBlueprints": "Coste de GPU + tarifas de API de terceros"
@@ -645,7 +645,7 @@ export const es: Dictionary = {
         "title": "Por qué la IA 100% sin conexión es el futuro de la tecnología empresarial",
         "category": "IA en el dispositivo",
         "readTime": "7 min de lectura",
-        "snippet": "Cómo el hardware GPU local ofrece diálogos sin latencia y 100% de privacidad de datos.",
+        "snippet": "Cómo el hardware GPU local ofrece diálogos de baja latencia y 100% de privacidad de datos.",
         "tag": "Privacidad Air-Gapped"
       },
       {
@@ -952,7 +952,7 @@ export const es: Dictionary = {
     faqs: [
       {
         q: "¿DIHUAVA requiere conectividad a internet?",
-        a: "No. DIHUAVA se ejecuta 100% sin conexión en el dispositivo por defecto. Todo el flujo de voz de 29 idiomas, RAG, catálogo y fotos se procesan en hardware local.",
+        a: "DIHUAVA está diseñada para despliegue en el dispositivo, donde el reconocimiento de voz, RAG y renderizado de avatar funcionan completamente sin conexión. No se requiere internet continuo para la interacción diaria, reservándose la conectividad para instalación, actualizaciones, gestión remota o envío de fotos por código QR.",
       },
       {
         q: "¿Cuántos idiomas son compatibles en el dispositivo?",
@@ -1012,7 +1012,7 @@ export const es: Dictionary = {
       badge: "ANÁLISIS DETALLADO",
       title: "Motor multilingüe y síntesis de voz",
       subtitle: "Más de 29 idiomas globales compatibles de forma nativa en el dispositivo",
-      description: "Reconocimiento de voz, síntesis neuronal y traducción local en más de 29 idiomas. Permite interacción multilingüe fluida sin latencia ni costes de API en la nube.",
+      description: "Reconocimiento de voz, síntesis neuronal y traducción local en más de 29 idiomas. Permite interacción multilingüe fluida sin latencia ni costes recurrentes de API en la nube.",
       overviewHeading: "Canal de más de 29 idiomas globales y traducción local",
       nextFeatureName: "Gestión de personas y seguridad de marca",
     },

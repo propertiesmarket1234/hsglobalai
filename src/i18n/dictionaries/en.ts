@@ -141,7 +141,7 @@ export const en = {
           linkText: "Learn More About Avatar & Voice Cloning →",
           tags: ["Photoreal Persona", "Zero-Shot Voice Clone", "State Transitions", "On-Device 60 FPS"],
           highlights: [
-            { label: "Zero-Shot Voice Cloning", detail: "Single 5 to 30 second WAV/MP3 clip pre-encoded at 24kHz mono with no per-hour API fees." },
+            { label: "Zero-Shot Voice Cloning", detail: "Single 5 to 30 second WAV/MP3 clip pre-encoded at 24kHz mono without recurring cloud API usage charges." },
             { label: "State-Driven Presence", detail: "Visually listens, thinks, and speaks with smooth cross-fades between state video clips." },
             { label: "Real-Time Lipsync", detail: "Phonemes generated on-device as speech plays—faster than real time so speech never lags." },
           ]
@@ -364,8 +364,8 @@ export const en = {
         privacyDesc: "Speech recognition, RAG retrieval, dialogue, and voice synthesis run 100% on-device. Zero visitor audio or confidential documents are streamed over the internet to external cloud servers.",
         hardwareTitle: "1 Compact Computer vs. 2 Datacenter GPUs",
         hardwareDesc: "Legacy platforms require multiple heavy datacenter GPUs per simultaneous stream. DIHUAVA runs the complete pipeline locally on a single compact Mac Mini that fits behind the display screen.",
-        costTitle: "The Meter Never Runs ($0/min)",
-        costDesc: "Cloud avatar services charge $0.10–$0.37 per active minute. DIHUAVA operates at fixed local compute costs—your kiosks run 24/7 around the clock with zero per-minute cloud API charges.",
+        costTitle: "No Cloud API Metering",
+        costDesc: "Cloud avatar services charge $0.10–$0.37 per active minute. On-premise deployment can avoid recurring cloud API usage charges. Software licensing, maintenance, updates, and support terms depend on the agreed commercial package.",
       },
       matrixTitle: "Master Feature Matrix",
       matrixSubtitle: "DIHUAVA On-Device AI vs. Standard Digital Humans",
@@ -414,7 +414,7 @@ export const en = {
         },
         {
           capability: "Talk-Time Cost Structure",
-          dihuava: "$0 Per Minute (Fixed local compute electricity)",
+          dihuava: "Zero Cloud API Fees (Commercial package terms apply)",
           cloudApis: "$0.10 – $0.37 per active minute",
           enterprisePlatforms: "High monthly cloud subscription tiers",
           gpuBlueprints: "Heavy GPU CapEx + third-party API usage fees",
@@ -513,7 +513,7 @@ export const en = {
           title: "Why 100% Offline AI is the Future of Enterprise Technology",
           category: "On-Device AI",
           readTime: "7 min read",
-          snippet: "Explore how air-gapped GPU hardware delivers sub-second voice dialogue, zero cloud latency, and 100% data privacy.",
+          snippet: "Explore how air-gapped GPU hardware delivers responsive low-latency voice dialogue, zero cloud latency, and 100% data privacy.",
           tag: "Air-Gapped Privacy",
         },
         {
@@ -678,8 +678,8 @@ export const en = {
     heroCtaPrimary: "Book a Live Demo",
     heroCtaSecondary: "Download Platform Specs (PDF)",
     metadata: {
-      title: "AI Digital Human Software Platform | DIHUAVA | HS Global AI",
-      description: "DIHUAVA by HS Global AI is an enterprise AI Digital Human software platform featuring 100% offline edge processing, 29+ languages, and document intelligence.",
+      title: "Offline AI Digital Human Software Platform | DIHUAVA",
+      description: "DIHUAVA is an offline AI digital human software platform for enterprise deployment with 100% local processing, on-device RAG, and multilingual capabilities.",
     },
     modulesTitle: "Platform Core Subsystems",
     modulesSubtitle: "7 integrated modules powering autonomous conversational avatars and interactive kiosks.",
@@ -934,7 +934,7 @@ export const en = {
     faqs: [
       {
         q: "Does DIHUAVA require internet connectivity?",
-        a: "No. DIHUAVA runs 100% offline on-device by default, with optional cloud-management configurations available. The full 29-language voice pipeline, document RAG, product catalog, Selfie compositing, and Live Character rendering run completely offline on local hardware.",
+        a: "DIHUAVA is designed for on-device deployment where core speech recognition, document retrieval (RAG), and avatar rendering function completely offline. An active internet connection is not required for daily autonomous customer interactions, though network connectivity is used for initial installation, software updates, remote fleet management, or optional mobile QR photo sharing.",
       },
       {
         q: "How many languages are supported on-device?",
@@ -994,7 +994,7 @@ export const en = {
       badge: "FEATURE DEEP DIVE",
       title: "Multilingual Engine & Voice Synthesis",
       subtitle: "29+ Global Languages Supported Natively On-Device with Automatic Language Switching",
-      description: "Full on-device speech recognition, neural voice synthesis, and translation across 29+ global languages. Enables seamless multi-lingual customer interaction without cloud API latency or per-character costs.",
+      description: "Full on-device speech recognition, neural voice synthesis, and translation across 29+ global languages. Enables seamless multi-lingual customer interaction without cloud API latency or recurring cloud API usage charges.",
       overviewHeading: "29+ Global Language & On-Device Translation Pipeline",
       nextFeatureName: "Persona Management & Brand Safety",
     },

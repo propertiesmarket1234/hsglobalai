@@ -44,7 +44,7 @@ export default function DihuavaPlatform() {
         "Design bespoke digital humans tailored to your corporate brand. Customize facial features, uniform wardrobe, posture behavior, and corporate voice clone profiles with millisecond-accurate lip synchronization.",
       icon: UserCheck,
       tags: ["Photorealistic 3D Mesh", "Voice Reference Cloning", "Dynamic Lip Sync", "Brand Uniform Wardrobe"],
-      stat: "Sub-Second Lip Sync",
+      stat: "Real-Time Lip Sync",
       linkUrl: "/products/ai-digital-human/avatar-customization",
       linkText: "Explore Avatar Customization",
       highlights: [
@@ -81,7 +81,7 @@ export default function DihuavaPlatform() {
       linkText: "Explore Multilingual Engine",
       highlights: [
         { label: "Coverage", detail: "Major European, Asian, and Middle Eastern languages" },
-        { label: "Latency", detail: "Instantaneous dialect switching" },
+        { label: "Latency", detail: "Fluid on-device dialect switching" },
       ],
     },
   ];

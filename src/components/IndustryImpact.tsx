@@ -36,7 +36,7 @@ const impacts = [
       "Provide immediate, accurate responses to customer questions without queues or waiting for staff availability.",
     icon: Zap,
     iconColor: "text-[#16a34a]",
-    stat: "Sub-Second Latency",
+    stat: "Low Latency",
   },
   {
     title: "24/7 Floor Availability",

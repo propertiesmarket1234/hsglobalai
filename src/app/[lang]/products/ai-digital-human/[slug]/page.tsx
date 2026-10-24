@@ -32,14 +32,14 @@ export async function generateMetadata({
   const { lang, slug } = await params;
   const locale: Locale = isValidLocale(lang) ? (lang as Locale) : "en";
   const dict = getDictionary(locale);
-  const capDict = (dict as any).capabilityPages?.[slug];
+  const capDict = (dict as Record<string, unknown> & { capabilityPages?: Record<string, { title?: string; description?: string }> }).capabilityPages?.[slug];
   const defaultData = platformData[slug];
 
   const title = capDict?.title
-    ? `${capDict.title} | DIHUAVA | HS Global AI`
+    ? `${capDict.title} | DIHUAVA`
     : defaultData
-    ? `${defaultData.title} | DIHUAVA | HS Global AI`
-    : "DIHUAVA Capability | HS Global AI";
+    ? `${defaultData.title} | DIHUAVA`
+    : "DIHUAVA Capability";
 
   const description = capDict?.description || defaultData?.description || "Explore interactive capabilities and AI features of the DIHUAVA Digital Human platform.";
 

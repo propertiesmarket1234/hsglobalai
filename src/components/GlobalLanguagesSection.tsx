@@ -83,7 +83,7 @@ export default function GlobalLanguagesSection() {
             Speak naturally to every customer on Earth.
           </h2>
           <p className="mt-4 text-[17px] leading-[1.6] text-[var(--lp-ink-2)]">
-            Deploy digital human ambassadors that instantly recognize and speak 29+ global languages, including 7 specialized Indian languages, with sub-second latency and authentic vocal inflections.
+            Deploy digital human ambassadors that instantly recognize and speak 29+ global languages, including 7 specialized Indian languages, with responsive low latency and authentic vocal inflections.
           </p>
         </div>
 

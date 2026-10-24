@@ -42,7 +42,7 @@ export const blogPosts: BlogPost[] = [
 
 AI business automation is transforming how modern enterprises manage customer onboarding, information retrieval, visitor reception, and repetitive front-office tasks. Legacy automation tools—such as website pop-up widgets or interactive voice response (IVR) phone menus—suffer from drop-off rates exceeding 70% due to rigid text scripts, lack of Low Latency, and an absence of human connection.
 
-Embodied AI Digital Humans bridge this gap by uniting visual presence, natural neural voice synthesis, and domain-specific Large Language Models (LLMs). When deployed on spatial hardware like the **[AI Hologram Box](/products/holographic-display)** or smart interactive kiosks, [DIHUAVA AI Digital Human](/products/ai-digital-human) avatars attract foot traffic while running 24/7 autonomous operations. DIHUAVA runs 100% offline on-device by default, with optional cloud-management configurations available.
+Embodied AI Digital Humans bridge this gap by uniting visual presence, natural neural voice synthesis, and domain-specific Large Language Models (LLMs). When deployed on spatial hardware like the **[AI Hologram Box](/products/holographic-display)** or smart interactive kiosks, [DIHUAVA on-device AI digital human](/products/ai-digital-human) avatars attract foot traffic while running 24/7 autonomous operations. DIHUAVA runs 100% offline on-device by default, with optional cloud-management configurations available.
 
 ---
 
@@ -73,7 +73,7 @@ Digital Humans conduct initial visitor registration, collect inquiry parameters,
 | **Low Latency** | 1.5s – 3.5s (Dependent on WAN) | Low Latency Real-Time | Fluid human voice interaction |
 | **Data Privacy** | Cloud transmission required | 100% Air-Gapped Local Hardware | Designed for HIPAA & GDPR data privacy alignment |
 | **Offline Reliability** | Fails during internet outage | 24/7 Continuous Operation | Zero downtime risk |
-| **Pricing Model** | Linear API cost per query | One-time hardware investment | Predictable enterprise TCO |
+| **Pricing Model** | Linear API cost per query | On-premise deployment avoids per-query API fees | Predictable enterprise TCO (licensing & support by package) |
 
 ---
 
@@ -157,7 +157,7 @@ Bring next-generation AI Digital Humans to your business locations, customer ser
 As AI transitions from online text prompts to real-time physical interactions (like 3D Hologram kiosks and voice-activated digital receptionists), network stability becomes a critical bottleneck.
 
 ### 1. The Low Latency Advantage
-A natural spoken dialogue requires voice input, speech-to-text (STT), LLM reasoning, text-to-speech (TTS), and natural facial expressions via speech animation to complete with Low Latency fluidity. Over cloud connections, ping times and API queueing often delay responses beyond 2 seconds, creating uncomfortable awkward pauses for users. Edge AI platforms like [DIHUAVA AI Digital Human](/products/ai-digital-human) process speech and rendering directly on local GPU chips, achieving instantaneous Low Latency fluidity.
+A natural spoken dialogue requires voice input, speech-to-text (STT), LLM reasoning, text-to-speech (TTS), and natural facial expressions via speech animation to complete with Low Latency fluidity. Over cloud connections, ping times and API queueing often delay responses beyond 2 seconds, creating uncomfortable awkward pauses for users. Edge AI platforms like the **[DIHUAVA offline digital human platform](/products/ai-digital-human)** process speech and rendering directly on local GPU chips to deliver responsive low-latency interaction without cloud queue delays.
 
 ### 2. Air-Gapped Data Sovereignty
 Regulated industries—such as [banking & financial services](/industries/banking), defense, healthcare, and corporate facilities—are legally restricted from uploading raw customer audio, biometric scans, or confidential internal documents to external cloud endpoints. Edge AI keeps 100% of data contained within local physical hardware with [100% offline document intelligence](/products/ai-digital-human/document-intelligence). DIHUAVA runs 100% offline on-device by default, with optional cloud-management configurations available. Read our deep-dive analysis on [why 100% offline AI is essential for enterprise security](/blog/why-100-offline-ai).
@@ -168,7 +168,7 @@ Regulated industries—such as [banking & financial services](/industries/bankin
 
 1. **Bandwidth Savings:** Local model execution eliminates continuous high-resolution video and audio streaming back and forth across WAN networks.
 2. **Deterministic Reliability:** Edge AI continues to function seamlessly during internet outages, regional ISP failures, or server downtime.
-3. **Predictable Cost Scale:** Cloud AI API pricing scales linearly with usage volume, leading to unpredictable monthly bills. Edge AI operates on a fixed one-time hardware investment like the [AI Hologram Box](/products/holographic-display). Explore enterprise specification sheets and architecture guides in our **[download center](/contact/download-center)**.
+3. **Predictable Cost Scale:** Cloud AI API pricing scales linearly with usage volume, leading to unpredictable monthly bills. On-premise deployment can avoid recurring cloud API usage charges, with software licensing, maintenance, and support terms configured according to the commercial package. Explore enterprise specification sheets and architecture guides in our **[download center](/contact/download-center)**.
 
 ---
 
@@ -390,10 +390,10 @@ Multilingual avatars powered by the **[DIHUAVA AI Digital Human platform](/produ
 DIHUAVA supports 29+ global languages natively, including 7 specialized Indian languages (Hindi, Tamil, Telugu, Kannada, Bengali, Marathi, and Gujarati), running 100% on local edge GPU hardware.
 
 ### Does multilingual AI voice interaction require active cloud connectivity?
-No. DIHUAVA runs 100% offline on-device by default, with optional cloud-management configurations available. Speech-to-text, translation, and text-to-speech models process locally without cloud latency or per-interaction API costs.
+No. DIHUAVA runs 100% offline on-device by default, with optional cloud-management configurations available. Speech-to-text, translation, and text-to-speech models process locally without cloud latency or recurring cloud API usage charges.
 
 ### How does automatic language detection work during customer interaction?
-The speech recognition module analyzes the visitor's initial spoken words in sub-second time, identifies the language acoustic signatures, and dynamically matches the avatar's vocal synthesis profile to reply in the exact language detected.`,
+The speech recognition module analyzes the visitor's initial spoken words with responsive low latency, identifies the language acoustic signatures, and dynamically matches the avatar's vocal synthesis profile to reply in the exact language detected.`,
     },
     {
         id: "6",
@@ -569,7 +569,7 @@ Instead of sending data to external servers, all processing happens locally on t
 | **Compliance Alignment** | Cloud data transmission | Designed for HIPAA & GDPR data handling alignment |
 | **Low Latency** | Dependent on internet (300ms–2s+) | Low Latency (real-time) |
 | **Reliability** | Internet dependent | Always available 24/7 |
-| **Operating Cost** | Scaled recurring API fees | Fixed hardware ownership model |
+| **Operating Cost** | Scaled recurring API fees | On-premise deployment avoids recurring cloud API charges (licensing & support by package) |
 
 Offline AI delivers complete data sovereignty while delivering Low Latency and eliminating cloud API downtime. Learn more in our technical comparison guide on **[Edge AI vs. Cloud AI enterprise infrastructure](/blog/edge-ai-vs-cloud-ai)**.
 
@@ -603,7 +603,7 @@ Offline AI combines several sophisticated local technologies into a unified proc
 - **[On-device document intelligence (RAG)](/products/ai-digital-human/document-intelligence):** Ingests PDFs locally with zero cloud transmission.
 - **[Enterprise persona management](/products/ai-digital-human/persona-management):** Instant zero-code vertical persona swaps.
 
-Platforms like **[DIHUAVA by HS Global AI](/products/ai-digital-human)** operate fully on-device, ensuring that all AI interactions happen securely without cloud dependency.
+Platforms like the **[DIHUAVA offline AI digital human software](/products/ai-digital-human)** operate fully on-device, ensuring that all AI interactions happen securely without cloud dependency.
 
 ---
 
@@ -742,7 +742,7 @@ Engages customers in multiple languages effortlessly.
 | **Visual Engine** | Displays avatar on screen |
 
 ### Advanced Capability
-Platforms like **[DIHUAVA by HS Global AI](/products/ai-digital-human)** offer:
+Enterprise solutions like **[DIHUAVA digital human software](/products/ai-digital-human)** offer:
 - 100% on-device processing
 - Zero cloud dependency
 - High data privacy
@@ -1301,7 +1301,7 @@ When designing an enterprise physical AI infrastructure, organizations must eval
 To understand how software and hardware interact across an enterprise fleet, organizations must recognize the clear separation between the underlying AI engine and the physical display form factor:
 
 - **HS Global AI**: The enterprise technology provider delivering end-to-end hardware-software physical AI solutions.
-- **[DIHUAVA AI Platform](/products/ai-digital-human)**: The core AI software engine responsible for real-time talking avatar rendering, neural speech synthesis (TTS), automatic speech recognition (ASR), local RAG document intelligence, and multi-location management.
+- **[DIHUAVA enterprise digital human software](/products/ai-digital-human)**: The core AI software engine responsible for real-time talking avatar rendering, neural speech synthesis (TTS), automatic speech recognition (ASR), local RAG document intelligence, and multi-location management.
 - **AI Digital Humans**: The embodied 3D virtual avatars engineered with customized visual appearances, corporate uniforms, brand logos, and specific behavioral personalities.
 - **Physical AI Display Environments**: The specialized physical display hardware hosting the avatar:
   - **[3D Hologram Boxes](/products/holographic-display)**: Volumetric 3D display enclosures creating the visual perception of a physical human presence.

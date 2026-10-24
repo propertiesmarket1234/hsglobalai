@@ -94,7 +94,7 @@ export const platformData: Record<string, PlatformPageData> = {
     overviewHeading: "Photoreal Persona & Zero-Shot Voice Synthesis Pipeline",
     overviewParagraphs: [
       "HS Global AI separates digital humans into two distinct, deterministic engineering pipelines: the visual video persona and the neural voice engine. The visual avatar displays seamless state transitions (idle, listening, thinking, speaking, and selfie pose) with smooth cross-fades so state changes never show jarring video cuts.",
-      "The voice engine uses zero-shot neural cloning. By uploading a single 5 to 30 second clean audio clip (WAV or MP3), the system normalizes the audio to 24kHz mono and pre-encodes the voice profile once at upload. From then on, the avatar speaks any sentence in any of our 29+ supported languages in your authentic voice synthesized 100% on-device with zero per-hour API fees.",
+      "The voice engine uses zero-shot neural cloning. By uploading a single 5 to 30 second clean audio clip (WAV or MP3), the system normalizes the audio to 24kHz mono and pre-encodes the voice profile once at upload. From then on, the avatar speaks any sentence in any of our 29+ supported languages in your authentic voice synthesized 100% on-device without recurring cloud API usage charges.",
     ],
     specs: [
       { label: "Lip-Sync Latency", value: "Low Latency On-Device" },
@@ -143,7 +143,7 @@ export const platformData: Record<string, PlatformPageData> = {
       },
       {
         title: "Zero-Shot Voice Cloning",
-        desc: "Requires only one 5–30 second clean audio clip. No studio recording sessions, GPU re-training runs, or per-minute voice API charges.",
+        desc: "Requires only one 5–30 second clean audio clip. No studio recording sessions, GPU re-training runs, or recurring cloud voice API charges.",
       },
       {
         title: "Gender-Correct Default Fallback",
@@ -234,7 +234,7 @@ export const platformData: Record<string, PlatformPageData> = {
     description:
       "Upload corporate PDFs, technical manuals, policy guidelines, and spreadsheets. The avatar answers questions grounded strictly in your documents, processing everything locally with zero cloud data leakage.",
     icon: FileText,
-    overviewHeading: "Sub-Millisecond Retrieval Stack with Cross-Encoder Precision",
+    overviewHeading: "High-Precision Local Retrieval Stack with Cross-Encoder Architecture",
     overviewParagraphs: [
       "DIHUAVA's Document Intelligence engine provides a complete retrieval-augmented generation (RAG) stack running entirely on local device hardware. Documents are chunked and embedded locally, retrieved via vector similarity search, and then re-ranked by an on-device cross-encoder before the answer is generated.",
       "The cross-encoder re-ranker solves the critical accuracy flaw of standard vector search. It evaluates passage relevance in context, ensuring cross-language questions (e.g. asking a question in Hindi about an English PDF manual) retrieve exact, truthful answers. If a question is not covered in your documents, our grounding guard ensures the avatar politely declines to answer rather than hallucinating details.",
@@ -375,18 +375,18 @@ export const platformData: Record<string, PlatformPageData> = {
     title: "Multilingual Support & Speech Synthesis",
     subtitle: "29+ Spoken Global Languages Running 100% On-Device",
     description:
-      "Full offline ASR, translation, and neural speech synthesis across 29+ global languages including 7 specialized Indian languages, processed with instant language switching and zero cloud API charges.",
+      "Full offline ASR, translation, and neural speech synthesis across 29+ global languages including 7 specialized Indian languages, processed on-device with fluid language switching to eliminate recurring cloud API charges.",
     icon: Globe,
     overviewHeading: "29+ Shipping Languages with Purpose-Built Regional Speech Models",
     overviewParagraphs: [
-      "The DIHUAVA multilingual stack delivers complete speech recognition, translation, and neural voice synthesis across 29+ shipping global languages running 100% on local edge hardware with zero per-minute cloud API fees.",
+      "The DIHUAVA multilingual stack delivers complete speech recognition, translation, and neural voice synthesis across 29+ shipping global languages running on local edge hardware without recurring cloud API usage charges.",
       "A major breakthrough is our dedicated support for 7 Indian regional languages: Hindi, Tamil, Telugu, Kannada, Bengali, Marathi, and Gujarati. Standard cloud speech vendors struggle with non-Latin script phonemes on local hardware. We built specialized speech recognition and synthesis models specifically trained for these regional scripts, delivering fluid, natural conversations at international airports, retail malls, and government venues.",
     ],
     specs: [
       { label: "Languages Supported", value: "29+ Global Languages" },
       { label: "Regional Models", value: "7 Indian Languages" },
-      { label: "Auto-Switch Latency", value: "Instant Detection" },
-      { label: "Cloud API Fees", value: "$0 Per Minute" },
+      { label: "Auto-Switch Performance", value: "Automatic Detection" },
+      { label: "Cloud API Usage Charges", value: "Avoided via Local Deployment" },
     ],
     demoVideos: [
       {
@@ -421,8 +421,8 @@ export const platformData: Record<string, PlatformPageData> = {
         desc: "Purpose-built speech recognition and synthesis models for Hindi, Tamil, Telugu, Kannada, Bengali, Marathi, and Gujarati.",
       },
       {
-        title: "100% Offline Speech Execution",
-        desc: "Speech recognition, translation, LLM dialogue, and voice synthesis run locally on the kiosk. Zero per-minute cloud API charges.",
+        title: "On-Device Speech Execution",
+        desc: "Core speech recognition, translation, LLM dialogue, and voice synthesis run locally on the kiosk, avoiding recurring cloud API usage charges.",
       },
       {
         title: "Real-Time Automatic Language Switching",
@@ -488,7 +488,7 @@ export const platformData: Record<string, PlatformPageData> = {
       {
         question: "Do cloud speech services charge per minute when using this system?",
         answer:
-          "No. All speech recognition, translation, and voice synthesis run locally on your device hardware, incurring $0 in per-minute API fees.",
+          "No. Core speech recognition, translation, and voice synthesis run locally on your device hardware, avoiding recurring cloud API usage charges. Software licensing, maintenance, updates, and support terms depend on the agreed commercial package.",
       },
       {
         question: "How fast does the avatar switch languages?",

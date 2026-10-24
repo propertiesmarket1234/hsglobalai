@@ -687,7 +687,7 @@ export const industriesData: Record<string, IndustryDetail> = {
         category: "Visitor Souvenir",
         description:
           "Allow visitors to take a photo alongside historical figures or cultural avatars and receive instant QR download links.",
-        highlight: "Sub-Second Photo Souvenir",
+        highlight: "Instant Photo Souvenir",
       },
       {
         title: "Multilingual Sightseeing Concierge",

@@ -222,8 +222,8 @@ const howItWorksSteps = [
 const voiceCapabilities = [
   {
     name: "Ultra-Fast Local TTS",
-    speed: "Sub-Second Latency",
-    desc: "Optimized for high-throughput public kiosks and fast question-answering with immediate vocal replies.",
+    speed: "Low Latency",
+    desc: "Optimized for high-throughput public kiosks and responsive question-answering on supported edge hardware.",
   },
   {
     name: "Expressive Conversational Voice",
@@ -278,56 +278,71 @@ const customPersonaFeatures = [
 
 const comparisonTable = [
   {
-    feature: "Data Privacy & Security",
-    dihuava: "100% On-device local execution, air-gapped, zero external pings",
-    cloud: "Data sent to external cloud servers, third-party logging risk",
+    feature: "Data Privacy & Data Residency",
+    dihuava: "Local on-device execution; voice input and document queries remain on premises without mandatory cloud transmission",
+    cloud: "Queries streamed to third-party cloud servers with external logging and multi-tenant residency",
   },
   {
-    feature: "Internet Dependency",
-    dihuava: "Zero internet required. Operates reliably during outages",
-    cloud: "Requires constant high-bandwidth internet connectivity",
+    feature: "Network Dependency",
+    dihuava: "Operates offline locally; continuous broadband is not required for daily autonomous avatar interactions",
+    cloud: "Requires continuous high-bandwidth internet connectivity; sessions fail during network outages",
   },
   {
     feature: "Conversational Latency",
-    dihuava: "Local GPU execution eliminates cloud network round-trips",
-    cloud: "Subject to network packet latency and cloud server queue delays",
+    dihuava: "Local GPU inference avoids cloud network round-trips and external API queue delays",
+    cloud: "Subject to variable WAN latency, router jitter, and public cloud queue backpressure",
   },
   {
-    feature: "Operating Cost Model",
-    dihuava: "One-time hardware license, zero recurring per-token cloud fees",
-    cloud: "Unpredictable per-token and per-minute recurring API charges",
+    feature: "Licensing & Operating Cost",
+    dihuava: "On-premise deployment can avoid recurring cloud API usage charges. Software licensing, maintenance, updates, and support terms depend on the agreed commercial package.",
+    cloud: "Unpredictable recurring expenses scaling linearly with customer conversation minutes and token volume",
+  },
+  {
+    feature: "Deployment Form Factors",
+    dihuava: "Native hardware driver integration for interactive touch kiosks, 3D hologram boxes, and spatial displays",
+    cloud: "Primarily web browser embeds with limited native peripheral hardware support",
   },
 ];
 
 const productSpecs = [
-  { label: "Deployment Modes", value: "3D Hologram Cabinets, Spatial Displays, Touchscreen Kiosks" },
-  { label: "Language Coverage", value: "29+ Global Languages with Automatic Language Detection" },
-  { label: "Security Architecture", value: "100% Air-Gapped Local Edge Execution (Zero Cloud Data Leakage)" },
-  { label: "Voice Features", value: "Sub-Second TTS, Voice Cloning, Dynamic Real-Time Lip Sync" },
-  { label: "Knowledge Formats", value: "PDF, CSV Catalogs, Markdown, Plain Text with Local RAG" },
-  { label: "Hardware Hosting", value: "Local NVIDIA RTX GPU Workstation (On-Premise)" },
+  { label: "Supported Operating Systems", value: "Windows 11 (64-bit), Linux (Ubuntu 22.04 LTS)" },
+  { label: "Processor & GPU Requirements", value: "Modern multi-core CPU, dedicated NVIDIA RTX GPU (8GB VRAM baseline recommendation; actual requirements depend on model selection, avatar resolution, and concurrent workloads)" },
+  { label: "Offline Operation Scope", value: "Core speech recognition, document retrieval (RAG), LLM reasoning, and 3D lip-sync execute locally on-device without continuous internet" },
+  { label: "Network Connectivity Role", value: "Optional for daily interaction; utilized for initial setup, software updates, remote management, and optional mobile QR photo sharing" },
+  { label: "Physical Display Outputs", value: "Interactive Touch Kiosks, 3D Hologram Boxes (55″–86″), Spatial Displays via HDMI / DisplayPort" },
+  { label: "Audio & Vision Peripherals", value: "Standard directional USB microphone arrays and HD / 4K optical webcams for face tracking" },
+  { label: "Multilingual Language Coverage", value: "29+ Global Languages plus 7 Indian Regional Languages with on-device language detection" },
+  { label: "Enterprise Knowledge Formats", value: "PDF, CSV Product Catalogs, TXT, and Markdown ingested into local on-device RAG" },
 ];
 
 const faqs = [
   {
-    q: "Can DIHUAVA operate completely without an internet connection?",
-    a: "Yes. DIHUAVA is engineered from the ground up for 100% air-gapped operation. Speech recognition, document retrieval (RAG), LLM reasoning, voice synthesis, and 3D facial rendering execute entirely on local GPU edge hardware.",
+    q: "What is offline AI digital human software?",
+    a: "Offline AI digital human software is an on-premise application that runs conversational avatars locally on dedicated hardware without depending on a continuous cloud connection. In DIHUAVA, speech recognition, language reasoning, and 3D facial animation process directly on local GPU hardware, keeping interactions responsive and sensitive corporate documents private within your facility.",
   },
   {
-    q: "Is visitor voice or conversation data transmitted to the cloud?",
-    a: "Zero voice or conversation data is sent to external servers. All AI processing occurs locally on physical edge hardware, supporting GDPR, PDPA, and HIPAA privacy principles through complete local data residency.",
+    q: "Can DIHUAVA operate without a continuous internet connection?",
+    a: "Yes. DIHUAVA is designed for on-device deployment where core speech recognition, document retrieval (RAG), and avatar rendering function completely offline. An active internet connection is not required for daily autonomous customer interactions, though network connectivity is used for initial installation, software updates, remote fleet management, or optional mobile QR photo sharing.",
   },
   {
-    q: "Can we clone our own corporate brand voice?",
-    a: "Yes. Custom persona packages can include short reference audio recordings. The platform clones the persona's voice automatically across multilingual synthesis tiers with no manual voice-training step.",
+    q: "What hardware is required to run DIHUAVA?",
+    a: "DIHUAVA requires a dedicated workstation or embedded PC running Windows 11 or Linux paired with a compatible NVIDIA RTX GPU. An 8GB VRAM GPU provides a baseline recommendation, while actual requirements depend on model complexity, avatar resolution, and simultaneous workloads. The system interfaces with standard directional microphone arrays, HD/4K webcams, and display outputs including HDMI or DisplayPort for kiosks, spatial displays, and 3D hologram boxes.",
   },
   {
-    q: "What is Selfie With Avatar?",
-    a: "Selfie With Avatar allows visitors to tap Selfie on screen and instantly capture a photo standing next to the avatar. Real-time compositing matches face size and vertical height, applies creative filters, and generates a 24-hour QR share link.",
+    q: "Which languages does DIHUAVA support?",
+    a: "DIHUAVA supports real-time conversational interaction across 29+ global languages, including English, Mandarin, Spanish, French, German, Japanese, and Korean, along with 7 Indian regional languages (Hindi, Tamil, Telugu, Kannada, Bengali, Marathi, and Gujarati). The speech engine detects incoming spoken languages automatically on-device.",
   },
   {
-    q: "What is Live Character Experience?",
-    a: "Live Character Experience is a real-time cartoon face mode. The camera tracks visitor facial movements (smiles, blinks, head turns) and warps a stylized character skin directly onto their face with ultra-low latency.",
+    q: "Can DIHUAVA be deployed on kiosks and interactive displays?",
+    a: "Yes. DIHUAVA is engineered specifically for physical customer presence, including interactive touchscreen kiosks, 3D Hologram Boxes (55″–86″), and glasses-free spatial displays. It supports responsive touch navigation, interactive CSV product catalogs, and optional camera-based visitor face tracking.",
+  },
+  {
+    q: "How is DIHUAVA different from cloud-based digital human platforms?",
+    a: "Cloud-based platforms stream video and audio over public WAN connections, which introduces network round-trip latency, recurring API costs, and external data transmission risks. In contrast, DIHUAVA processes voice and knowledge retrieval locally on edge hardware to keep sensitive data on-premise. On-premise deployment can avoid recurring cloud API usage charges. Software licensing, maintenance, updates, and support terms depend on the agreed commercial package.",
+  },
+  {
+    q: "How can an enterprise request pricing or a demonstration?",
+    a: "Enterprises can schedule a live demonstration or request hardware and licensing pricing by visiting our contact page or downloading engineering datasheets from our download center. Our technical team works with you to determine the right hardware specifications, avatar styling, and domain knowledge integration for your venue.",
   },
 ];
 
@@ -369,14 +384,14 @@ export default function DihuavaClient() {
               </div>
 
               <h1 className="text-balance text-[40px] font-semibold leading-[1.04] tracking-[-0.04em] text-[var(--lp-ink)] sm:text-[54px] lg:text-[64px]">
-                AI Digital Humans Built for{" "}
+                Offline AI Digital Human Software{" "}
                 <span className="text-[var(--lp-muted)]">
-                  Physical Customer Presence.
+                  for Enterprise Presence.
                 </span>
               </h1>
 
               <p className="mt-5 text-[16px] leading-[1.65] text-[var(--lp-ink-2)] sm:text-[18px]">
-                DIHUAVA is our enterprise AI Digital Human software platform powering interactive avatars that communicate naturally, understand your product catalog, speak 29+ global languages, and run 100% offline on local GPU hardware across interactive kiosks, 3D hologram boxes, and spatial displays.
+                DIHUAVA is an enterprise offline AI digital human software platform powering interactive 3D avatars that converse naturally, query proprietary knowledge with on-device RAG, speak 29+ global languages, and operate locally on dedicated GPU hardware across interactive kiosks, 3D hologram boxes, and spatial displays.
               </p>
 
               {/* ACTION BUTTONS */}
@@ -444,6 +459,24 @@ export default function DihuavaClient() {
         </div>
       </section>
 
+      {/* DEFINITION SECTION: WHAT IS OFFLINE AI DIGITAL HUMAN SOFTWARE? */}
+      <section className="px-4 py-14 sm:px-6 bg-[var(--lp-bg)] border-b border-[var(--lp-line)]">
+        <div className="mx-auto max-w-[960px]">
+          <div className="rounded-[24px] border border-[var(--lp-line)] bg-[var(--lp-tile)] p-6 sm:p-8 shadow-xs">
+            <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-wider text-[var(--lp-accent-ink)]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[var(--lp-accent)]" />
+              Industry Definition
+            </span>
+            <h2 className="mt-2 text-2xl font-bold tracking-tight text-[var(--lp-ink)] sm:text-3xl">
+              What Is Offline AI Digital Human Software?
+            </h2>
+            <p className="mt-4 text-[15px] sm:text-base leading-[1.7] text-[var(--lp-ink-2)]">
+              Offline AI digital human software enables a digital human or conversational avatar to perform supported AI interactions locally on compatible hardware, without depending on a continuous cloud connection. DIHUAVA by HS Global AI is designed for on-device deployment, with capabilities for conversational interaction, speech processing, and 3D avatar presentation. Deployment requirements and available features depend on the configured hardware and software.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* METRICS COUNTER BAR */}
       <section className="px-4 py-12 sm:px-6 bg-[var(--lp-tile)] border-b border-[var(--lp-line)]">
         <div className="mx-auto max-w-4xl">
@@ -457,8 +490,8 @@ export default function DihuavaClient() {
               <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-[var(--lp-muted)]">Air-Gapped Offline</p>
             </div>
             <div className="rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-card)] p-5 shadow-2xs">
-              <p className="text-3xl font-extrabold text-[var(--lp-accent)]">&lt;800ms</p>
-              <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-[var(--lp-muted)]">Vocal Response Time</p>
+              <p className="text-2xl sm:text-3xl font-extrabold text-[var(--lp-accent)]">Low Latency</p>
+              <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-[var(--lp-muted)]">Edge Response Time</p>
             </div>
             <div className="rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-card)] p-5 shadow-2xs">
               <p className="text-3xl font-extrabold text-[#16a34a]">70%</p>
@@ -474,13 +507,13 @@ export default function DihuavaClient() {
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-wider text-[var(--lp-accent-ink)]">
               <span className="h-1.5 w-1.5 rounded-full bg-[var(--lp-accent)]" />
-              Unified Subsystem Architecture
+              On-Device AI Architecture
             </span>
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-[var(--lp-ink)] md:text-4xl">
-              Eight Core Technologies Powering DIHUAVA
+              On-Device Processing and Offline Deployment
             </h2>
             <p className="mt-4 text-base text-[var(--lp-ink-2)]">
-              DIHUAVA operates via an integrated local-first model where conversational AI, rendering, multilingual speech, vision, and hardware drivers execute harmoniously on physical edge workstations.
+              DIHUAVA is an on-device AI digital human platform engineered for offline enterprise deployment. Speech recognition, document retrieval (RAG), conversational LLM reasoning, voice synthesis, and 3D avatar rendering run locally on physical workstations—eliminating continuous cloud streaming dependencies during daily operations, while optional network connectivity remains available for initial installation, software updates, centralized fleet oversight, or mobile QR sharing.
             </p>
           </div>
 
@@ -518,10 +551,10 @@ export default function DihuavaClient() {
               Real-Time Conversational Flow
             </span>
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-[var(--lp-ink)] md:text-4xl">
-              How DIHUAVA Powers AI Digital Humans
+              How DIHUAVA Powers Offline Conversational AI Avatars
             </h2>
             <p className="mt-4 text-base text-[var(--lp-ink-2)]">
-              A seamless end-to-end edge pipeline powering human-like interactions without cloud latency or security vulnerabilities.
+              An integrated local edge pipeline powering responsive, face-to-face avatar interactions without public cloud round-trips or third-party data transmission.
             </p>
           </div>
 
@@ -566,13 +599,13 @@ export default function DihuavaClient() {
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-wider text-[var(--lp-accent-ink)]">
               <span className="h-1.5 w-1.5 rounded-full bg-[var(--lp-accent)]" />
-              Complete Modular Capabilities
+              Modular Software Capabilities
             </span>
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-[var(--lp-ink)] md:text-4xl">
-              7 Intelligent Modules. 1 Integrated Local AI.
+              Multilingual AI Avatar Software &amp; Modular Features
             </h2>
             <p className="mt-4 text-base text-[var(--lp-ink-2)]">
-              Everything your digital human needs to understand, communicate, recommend, and interact—running locally on the edge.
+              Comprehensive capabilities for enterprise multilingual AI avatar software: on-device speech across 29+ languages, document RAG, CSV-driven product recommendations, interactive selfie compositing, and live cartoon face tracking.
             </p>
           </div>
 
@@ -640,13 +673,13 @@ export default function DihuavaClient() {
             <div className="lg:col-span-6">
               <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-wider text-[var(--lp-accent-ink)]">
                 <span className="h-1.5 w-1.5 rounded-full bg-[var(--lp-accent)]" />
-                Persona Architecture
+                Kiosks &amp; Interactive Spaces
               </span>
               <h2 className="mt-2 text-3xl font-bold tracking-tight text-[var(--lp-ink)] md:text-4xl">
-                Custom AI Digital Humans for Every Enterprise Domain
+                AI Digital Human for Kiosks and Interactive Displays
               </h2>
               <p className="mt-4 text-base leading-relaxed text-[var(--lp-ink-2)]">
-                Configure digital humans with industry-specific personalities, communication styles, voice behavior, micro-gestures, and corporate branding.
+                Deploy enterprise digital human software across high-traffic physical touchpoints—optimizing each AI digital human for kiosks, 3D hologram boxes, and spatial display totems in retail, healthcare, hospitality, banking, and public venues.
               </p>
 
               <div className="mt-8 space-y-3">
@@ -699,11 +732,14 @@ export default function DihuavaClient() {
           <div className="text-center mb-12">
             <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-wider text-[var(--lp-accent-ink)]">
               <span className="h-1.5 w-1.5 rounded-full bg-[var(--lp-accent)]" />
-              Strategic Architecture Comparison
+              Platform Comparison
             </span>
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-[var(--lp-ink)] md:text-4xl">
-              Why Businesses Choose DIHUAVA On-Premise Platform
+              Offline Digital Human Platform vs. Cloud-Based Alternatives
             </h2>
+            <p className="mt-4 text-base text-[var(--lp-ink-2)] max-w-2xl mx-auto">
+              Understand how local on-device processing compares with traditional cloud-dependent avatar services in privacy, network dependency, latency, and operational cost.
+            </p>
           </div>
 
           <div className="overflow-hidden rounded-[24px] border border-[var(--lp-line)] bg-[var(--lp-card)] shadow-xs">
@@ -740,11 +776,14 @@ export default function DihuavaClient() {
           <div className="text-center mb-12">
             <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-wider text-[var(--lp-accent-ink)]">
               <span className="h-1.5 w-1.5 rounded-full bg-[var(--lp-accent)]" />
-              Technical Specifications
+              Deployment &amp; Hardware
             </span>
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-[var(--lp-ink)] md:text-4xl">
-              DIHUAVA Enterprise Specifications
+              Hardware and Deployment Requirements for DIHUAVA
             </h2>
+            <p className="mt-4 text-base text-[var(--lp-ink-2)] max-w-2xl mx-auto">
+              Engineering specifications for deploying the DIHUAVA offline AI digital human platform across enterprise physical environments.
+            </p>
           </div>
 
           <div className="overflow-hidden rounded-[24px] border border-[var(--lp-line)] bg-[var(--lp-card)] shadow-xs">
@@ -773,10 +812,10 @@ export default function DihuavaClient() {
           <div className="max-w-xl mb-12">
             <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-wider text-[var(--lp-accent-ink)]">
               <span className="h-1.5 w-1.5 rounded-full bg-[var(--lp-accent)]" />
-              Product Insights
+              AEO Knowledge Base
             </span>
             <h2 className="mt-2 text-3xl font-bold text-[var(--lp-ink)] md:text-4xl">
-              Frequently Asked Questions
+              Frequently Asked Questions About Offline AI Digital Humans
             </h2>
           </div>
 

@@ -78,7 +78,7 @@ export default function WhyHSGlobal() {
             </h2>
 
             <p className="max-w-md text-base leading-relaxed text-[var(--lp-muted)]">
-              {wComp.subtitle || "Engineered to operate securely, intelligently, and reliably across physical environments with sub-second latency and zero cloud dependency."}
+              {wComp.subtitle || "Engineered to operate securely, intelligently, and reliably across physical environments with responsive low latency and zero cloud dependency."}
             </p>
           </div>
         </motion.div>

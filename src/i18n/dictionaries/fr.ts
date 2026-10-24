@@ -143,7 +143,7 @@ export const fr: Dictionary = {
           linkText: "En savoir plus sur l'avatar et le clonage vocal →",
           tags: ["Persona Photoréaliste", "Clonage Vocal Zero-Shot", "Transitions d'État", "60 FPS Sur Appareil"],
           highlights: [
-            { label: "Clonage Vocal Zero-Shot", detail: "Extrait unique de 5 à 30 secondes WAV/MP3 pré-encodé à 24kHz mono sans frais API à la minute." },
+            { label: "Clonage Vocal Zero-Shot", detail: "Extrait unique de 5 à 30 secondes WAV/MP3 pré-encodé à 24kHz mono sans frais d'API cloud récurrents." },
             { label: "Présence Basée sur les États", detail: "Écoute, réfléchit et parle visuellement avec des fondus enchaînés fluides entre les clips vidéo." },
             { label: "Synchronisation Labiale Temps Réel", detail: "Phonèmes générés sur l'appareil pendant le discours—plus rapide que le temps réel sans aucun décalage." },
           ]
@@ -351,8 +351,8 @@ export const fr: Dictionary = {
         privacyDesc: "La reconnaissance vocale, la recherche RAG, le dialogue et la synthèse vocale s'exécutent 100% sur l'appareil. Aucun audio ni document confidentiel n'est transmis à des serveurs cloud externes.",
         hardwareTitle: "1 Ordinateur Compact vs 2 GPU de Datacenter",
         hardwareDesc: "Les plateformes traditionnelles nécessitent plusieurs lourds GPU de datacenter. DIHUAVA fait fonctionner l'ensemble de la chaîne localement sur un Mac Mini compact placé derrière l'écran.",
-        costTitle: "Aucun Compteur à la Minute (0 €/min)",
-        costDesc: "Les services d'avatars cloud facturent de 0,10 $ à 0,37 $ par minute active. DIHUAVA fonctionne à coûts informatiques locaux fixes—vos bornes fonctionnent 24/7 sans aucun frais d'API cloud.",
+        costTitle: "Aucune Tarification d'API Cloud",
+        costDesc: "Les services d'avatars cloud facturent de 0,10 $ à 0,37 $ par minute active. Le déploiement sur site peut éviter les frais récurrents d'API cloud. Les conditions de licence logicielle, de maintenance, de mise à jour et de support dépendent du forfait commercial convenu.",
       },
       matrixTitle: "Matrice de Fonctionnalités Principales",
       matrixSubtitle: "IA Sur Appareil DIHUAVA vs. Humains Virtuels Cloud Standard",
@@ -401,7 +401,7 @@ export const fr: Dictionary = {
         },
         {
           capability: "Structure de Coût du Temps de Parole",
-          dihuava: "0 € Par Minute (Coût fixe d'électricité informatique locale)",
+          dihuava: "Sans frais d'API cloud (selon forfait commercial)",
           cloudApis: "0,10 $ – 0,37 $ par minute active",
           enterprisePlatforms: "Niveaux d'abonnement cloud mensuels élevés",
           gpuBlueprints: "Lourd CapEx GPU + frais d'utilisation des API tierces",
@@ -500,7 +500,7 @@ export const fr: Dictionary = {
           title: "Pourquoi l'IA 100% hors ligne est l'avenir de la technologie d'entreprise",
           category: "IA Sur Appareil",
           readTime: "7 min de lecture",
-          snippet: "Découvrez comment le matériel GPU air-gapped offre un dialogue vocal sous la seconde, une latence cloud nulle et une confidentialité à 100%.",
+          snippet: "Découvrez comment le matériel GPU air-gapped offre un dialogue vocal réactif à faible latence, une latence cloud nulle et une confidentialité à 100%.",
           tag: "Confidentialité Air-Gapped",
         },
         {
@@ -807,7 +807,7 @@ export const fr: Dictionary = {
     faqs: [
       {
         q: "DIHUAVA nécessite-t-il une connexion internet ?",
-        a: "Non. DIHUAVA fonctionne 100% hors ligne sur l'appareil par défaut. Tout le traitement vocal en 29 langues, le RAG documentaire, le catalogue de produits et la composition photo s'exécutent localement.",
+        a: "DIHUAVA est conçu pour un déploiement sur l'appareil, où la reconnaissance vocale, le RAG et le rendu de l'avatar fonctionnent entièrement hors ligne. Aucun accès internet continu n'est requis pour les interactions quotidiennes, la connectivité servant à l'installation, aux mises à jour, à la gestion distante ou au partage QR.",
       },
       {
         q: "Combien de langues sont prises en charge sur l'appareil ?",
@@ -867,7 +867,7 @@ export const fr: Dictionary = {
       badge: "ANALYSE DÉTAILLÉE",
       title: "Moteur multilingue & synthèse vocale",
       subtitle: "Plus de 29 langues mondiales prises en charge nativement sur l'appareil",
-      description: "Reconnaissance vocale, synthèse neuronale et traduction 100% locales dans plus de 29 langues. Permet des interactions multilingues sans latence cloud ni coûts par caractère.",
+      description: "Reconnaissance vocale, synthèse neuronale et traduction 100% locales dans plus de 29 langues. Permet des interactions multilingues sans latence cloud ni frais d'API cloud récurrents.",
       overviewHeading: "Pipeline multilingue 29+ langues et traduction sur appareil",
       nextFeatureName: "Gestion des personas & sécurité de marque",
     },
