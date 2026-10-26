@@ -5,12 +5,12 @@ import DihuavaClient from "./DihuavaClient";
 export const metadata: Metadata = {
   title: "Offline AI Digital Human Software Platform | DIHUAVA",
   description:
-    "DIHUAVA is an offline AI digital human software platform for enterprise deployment with 100% local processing, on-device RAG, and multilingual capabilities.",
+    "DIHUAVA is an on-device AI digital human software platform by HS Global AI, built for offline kiosks, 3D holograms, document RAG, and 29+ languages.",
   alternates: getLocalizedAlternates("/products/ai-digital-human"),
   openGraph: {
     title: "Offline AI Digital Human Software Platform | DIHUAVA | HS Global AI",
     description:
-      "DIHUAVA is an offline AI digital human software platform for enterprise deployment with 100% local processing, on-device RAG, and multilingual capabilities.",
+      "DIHUAVA is an on-device AI digital human software platform by HS Global AI, built for offline kiosks, 3D holograms, document RAG, and 29+ languages.",
     url: "https://www.hsglobalai.com/products/ai-digital-human",
     siteName: "HS Global AI",
     locale: "en_US",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Offline AI Digital Human Software Platform | DIHUAVA | HS Global AI",
     description:
-      "DIHUAVA is an offline AI digital human software platform for enterprise deployment with 100% local processing, on-device RAG, and multilingual capabilities.",
+      "DIHUAVA is an on-device AI digital human software platform by HS Global AI, built for offline kiosks, 3D holograms, document RAG, and 29+ languages.",
   },
 };
 
@@ -29,7 +29,10 @@ const jsonLd = {
   "@type": "SoftwareApplication",
   "@id": "https://www.hsglobalai.com/products/ai-digital-human#software",
   "name": "DIHUAVA",
-  "alternateName": "DIHUAVA AI Digital Human Platform",
+  "alternateName": [
+    "DIHUAVA AI Digital Human Platform",
+    "DIHUAVA Offline Digital Human Software",
+  ],
   "brand": {
     "@type": "Brand",
     "name": "HS Global AI",
@@ -39,7 +42,7 @@ const jsonLd = {
   "requirements": "NVIDIA RTX GPU (8GB VRAM baseline recommendation; actual requirements depend on model selection, avatar resolution, and concurrent workloads)",
   "url": "https://www.hsglobalai.com/products/ai-digital-human",
   "description":
-    "DIHUAVA is an offline AI digital human software platform for enterprise deployment with 100% local processing, on-device RAG, and multilingual capabilities.",
+    "DIHUAVA is an offline AI digital human software platform developed by HS Global AI for enterprise deployment with on-device processing, local RAG, and multilingual capabilities.",
   "publisher": {
     "@type": "Organization",
     "@id": "https://www.hsglobalai.com/#organization",
@@ -94,7 +97,7 @@ const faqJsonLd = {
       "acceptedAnswer": {
         "@type": "Answer",
         "text":
-          "Offline AI digital human software is an on-premise application that runs conversational avatars locally on dedicated hardware without depending on a continuous cloud connection. In DIHUAVA, speech recognition, language reasoning, and 3D facial animation process directly on local GPU hardware, keeping interactions responsive and sensitive corporate documents private within your facility.",
+          "Offline AI digital human software is an on-premise application that runs conversational avatars locally on dedicated hardware without depending on a continuous cloud connection. In DIHUAVA by HS Global AI, speech recognition, language reasoning, and 3D facial animation process directly on local GPU hardware, keeping interactions responsive and sensitive corporate documents private within your facility.",
       },
     },
     {
@@ -117,7 +120,7 @@ const faqJsonLd = {
     },
     {
       "@type": "Question",
-      "name": "Which languages does DIHUAVA support?",
+      "name": "Which languages does DIHUAVA support offline?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text":
@@ -131,6 +134,15 @@ const faqJsonLd = {
         "@type": "Answer",
         "text":
           "Yes. DIHUAVA is engineered specifically for physical customer presence, including interactive touchscreen kiosks, 3D Hologram Boxes (55″–86″), and glasses-free spatial displays. It supports responsive touch navigation, interactive CSV product catalogs, and optional camera-based visitor face tracking.",
+      },
+    },
+    {
+      "@type": "Question",
+      "name": "How does DIHUAVA handle enterprise document search and prevent hallucinations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text":
+          "DIHUAVA uses an on-device Retrieval-Augmented Generation (RAG) engine with two-stage cross-encoder re-ranking. Rather than relying on unconstrained web generation, answers are grounded in imported enterprise documents (PDFs, CSVs, TXT, Markdown). If a visitor asks an inquiry not covered in the verified materials, the avatar politely declines to answer rather than inventing unverified claims.",
       },
     },
     {

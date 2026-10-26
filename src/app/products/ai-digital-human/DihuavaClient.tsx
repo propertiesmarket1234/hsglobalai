@@ -104,7 +104,7 @@ const coreModules = [
       "Full on-device speech recognition, voice synthesis, and translation across 29+ global languages, including regional accents and automatic per-persona voice cloning.",
     icon: Globe2,
     badge: "29+ Global Languages",
-    featureUrl: "/products/ai-digital-human",
+    featureUrl: "/products/ai-digital-human/multilingual-support",
     highlights: [
       "Auto language switching without touch input",
       "Low latency voice generation",
@@ -318,7 +318,7 @@ const productSpecs = [
 const faqs = [
   {
     q: "What is offline AI digital human software?",
-    a: "Offline AI digital human software is an on-premise application that runs conversational avatars locally on dedicated hardware without depending on a continuous cloud connection. In DIHUAVA, speech recognition, language reasoning, and 3D facial animation process directly on local GPU hardware, keeping interactions responsive and sensitive corporate documents private within your facility.",
+    a: "Offline AI digital human software is an on-premise application that runs conversational avatars locally on dedicated hardware without depending on a continuous cloud connection. In DIHUAVA by HS Global AI, speech recognition, language reasoning, and 3D facial animation process directly on local GPU hardware, keeping interactions responsive and sensitive corporate documents private within your facility.",
   },
   {
     q: "Can DIHUAVA operate without a continuous internet connection?",
@@ -329,12 +329,16 @@ const faqs = [
     a: "DIHUAVA requires a dedicated workstation or embedded PC running Windows 11 or Linux paired with a compatible NVIDIA RTX GPU. An 8GB VRAM GPU provides a baseline recommendation, while actual requirements depend on model complexity, avatar resolution, and simultaneous workloads. The system interfaces with standard directional microphone arrays, HD/4K webcams, and display outputs including HDMI or DisplayPort for kiosks, spatial displays, and 3D hologram boxes.",
   },
   {
-    q: "Which languages does DIHUAVA support?",
+    q: "Which languages does DIHUAVA support offline?",
     a: "DIHUAVA supports real-time conversational interaction across 29+ global languages, including English, Mandarin, Spanish, French, German, Japanese, and Korean, along with 7 Indian regional languages (Hindi, Tamil, Telugu, Kannada, Bengali, Marathi, and Gujarati). The speech engine detects incoming spoken languages automatically on-device.",
   },
   {
     q: "Can DIHUAVA be deployed on kiosks and interactive displays?",
     a: "Yes. DIHUAVA is engineered specifically for physical customer presence, including interactive touchscreen kiosks, 3D Hologram Boxes (55″–86″), and glasses-free spatial displays. It supports responsive touch navigation, interactive CSV product catalogs, and optional camera-based visitor face tracking.",
+  },
+  {
+    q: "How does DIHUAVA handle enterprise document search and prevent hallucinations?",
+    a: "DIHUAVA uses an on-device Retrieval-Augmented Generation (RAG) engine with two-stage cross-encoder re-ranking. Rather than relying on unconstrained web generation, answers are grounded in imported enterprise documents (PDFs, CSVs, TXT, Markdown). If a visitor asks an inquiry not covered in the verified materials, the avatar politely declines to answer rather than inventing unverified claims.",
   },
   {
     q: "How is DIHUAVA different from cloud-based digital human platforms?",
@@ -391,7 +395,7 @@ export default function DihuavaClient() {
               </h1>
 
               <p className="mt-5 text-[16px] leading-[1.65] text-[var(--lp-ink-2)] sm:text-[18px]">
-                DIHUAVA is an enterprise offline AI digital human software platform powering interactive 3D avatars that converse naturally, query proprietary knowledge with on-device RAG, speak 29+ global languages, and operate locally on dedicated GPU hardware across interactive kiosks, 3D hologram boxes, and spatial displays.
+                DIHUAVA is an enterprise offline AI digital human software platform developed by HS Global AI. It powers interactive 3D avatars that converse naturally, query proprietary knowledge with on-device RAG, speak 29+ global languages, and operate locally on dedicated GPU hardware across interactive kiosks, 3D hologram boxes, and spatial displays—running on-device by default with optional cloud-management configurations.
               </p>
 
               {/* ACTION BUTTONS */}
@@ -425,7 +429,7 @@ export default function DihuavaClient() {
                   <Camera className="h-3 w-3 text-[var(--lp-ink)]" />
                   Selfie With Avatar
                 </span>
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-[var(--lp-card)] px-3 py-1 text-xs font-medium text-[var(--lp-ink)] shadow-2xs">
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-[var(--lp-card)] px-3 py-1 text-xs font-medium text-[var(--lp-accent)] shadow-2xs">
                   <Sparkles className="h-3 w-3 text-[var(--lp-accent)]" />
                   Live Cartoon Mode
                 </span>
@@ -471,7 +475,7 @@ export default function DihuavaClient() {
               What Is Offline AI Digital Human Software?
             </h2>
             <p className="mt-4 text-[15px] sm:text-base leading-[1.7] text-[var(--lp-ink-2)]">
-              Offline AI digital human software enables a digital human or conversational avatar to perform supported AI interactions locally on compatible hardware, without depending on a continuous cloud connection. DIHUAVA by HS Global AI is designed for on-device deployment, with capabilities for conversational interaction, speech processing, and 3D avatar presentation. Deployment requirements and available features depend on the configured hardware and software.
+              Offline AI digital human software is an on-premise application that runs conversational 3D avatars locally on dedicated computer hardware without requiring continuous cloud connectivity or external API streaming. Developed by HS Global AI, the DIHUAVA platform executes automatic speech recognition (ASR), on-device document intelligence (RAG), conversational LLM reasoning, neural voice synthesis (TTS), and real-time facial lip-sync directly on local GPU hardware. This architecture keeps proprietary corporate documents private, eliminates latency from cloud round-trips, and ensures continuous autonomous operation in physical environments.
             </p>
           </div>
         </div>
@@ -679,7 +683,7 @@ export default function DihuavaClient() {
                 AI Digital Human for Kiosks and Interactive Displays
               </h2>
               <p className="mt-4 text-base leading-relaxed text-[var(--lp-ink-2)]">
-                Deploy enterprise digital human software across high-traffic physical touchpoints—optimizing each AI digital human for kiosks, 3D hologram boxes, and spatial display totems in retail, healthcare, hospitality, banking, and public venues.
+                Deploy enterprise digital human software across high-traffic physical touchpoints—optimizing each AI digital human for freestanding touchscreen kiosks, <Link href={lPath("/products/holographic-display")} className="text-[var(--lp-ink)] font-semibold underline decoration-[var(--lp-line)] underline-offset-4 hover:text-[var(--lp-accent)] transition-colors">3D Hologram Boxes (55″–86″)</Link>, and <Link href={lPath("/products/spatial-display")} className="text-[var(--lp-ink)] font-semibold underline decoration-[var(--lp-line)] underline-offset-4 hover:text-[var(--lp-accent)] transition-colors">Glasses-Free Spatial Displays</Link> in <Link href={lPath("/industries/retail")} className="text-[var(--lp-ink)] font-medium underline decoration-[var(--lp-line)] underline-offset-4 hover:text-[var(--lp-accent)] transition-colors">smart retail</Link>, <Link href={lPath("/industries/healthcare")} className="text-[var(--lp-ink)] font-medium underline decoration-[var(--lp-line)] underline-offset-4 hover:text-[var(--lp-accent)] transition-colors">healthcare guidance</Link>, <Link href={lPath("/industries/banking")} className="text-[var(--lp-ink)] font-medium underline decoration-[var(--lp-line)] underline-offset-4 hover:text-[var(--lp-accent)] transition-colors">banking</Link>, and <Link href={lPath("/industries/corporate")} className="text-[var(--lp-ink)] font-medium underline decoration-[var(--lp-line)] underline-offset-4 hover:text-[var(--lp-accent)] transition-colors">corporate reception</Link>.
               </p>
 
               <div className="mt-8 space-y-3">
