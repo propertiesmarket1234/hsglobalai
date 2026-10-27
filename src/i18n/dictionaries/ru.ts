@@ -52,7 +52,7 @@ export const ru: Dictionary = {
     description:
       "HS Global AI — передовая платформа цифровых аватаров, создающая реалистичные голограммы для банков, ритейла, медицины и автоматизации предприятий.",
     singaporeHQLabel: "Штаб-квартира в Сингапуре:",
-    singaporeHQAddress: "20 COLLYER QUAY, #09-01, SINGAPORE – 049319",
+    singaporeHQAddress: "60 PAYA LEBAR ROAD, #07-54, PAYA LEBAR SQUARE, SINGAPORE – 409051",
     indiaOfficeLabel: "Офис в Индии:",
     indiaOfficeAddress:
       "Vijayawada, Andhra Pradesh 520004, India",
@@ -1071,7 +1071,7 @@ export const ru: Dictionary = {
       exerciseTitle: "6. Как реализовать свои права",
       exerciseIntro: "Чтобы воспользоваться своими правами или отправить запрос субъекта данных (DSAR), свяжитесь с нашим офицером по защите данных:",
       dpoTitle: "Офис защиты данных — HS GLOBAL SG PTE LTD",
-      address: "20 Collyer Quay, #09-01, Singapore 049319",
+      address: "60 Paya Lebar Road, #07-54, Paya Lebar Square, Singapore 409051",
       emailLabel: "Email: sales@hsglobalai.com",
     },
     metadata: {
@@ -1104,7 +1104,7 @@ export const ru: Dictionary = {
       section6Title: "6. Применимое право и разрешение споров",
       section6Content: "Настоящие Условия и положения регулируются и толкуются в соответствии с законодательством Республики Сингапур. В случае возникновения каких-либо споров стороны соглашаются сначала попытаться решить их в неформальном порядке, обратившись в наш юридический отдел.",
       legalDeptTitle: "Юридический отдел — HS GLOBAL SG PTE LTD",
-      legalDeptAddress: "20 Collyer Quay, #09-01, Singapore 049319",
+      legalDeptAddress: "60 Paya Lebar Road, #07-54, Paya Lebar Square, Singapore 409051",
       legalDeptEmail: "Email: info@hsglobalai.com / sales@hsglobalai.com",
     },
     metadata: {
@@ -1608,7 +1608,7 @@ export const ru: Dictionary = {
     sgHqBadge: "🇸🇬 ГЛОБАЛЬНАЯ ШТАБ-КВАРТИРА",
     sgHqCountry: "СИНГАПУР",
     sgHqName: "HS GLOBAL SG PTE LTD",
-    sgHqAddress: "20 COLLYER QUAY, #09-01, SINGAPORE – 049319",
+    sgHqAddress: "60 PAYA LEBAR ROAD, #07-54, PAYA LEBAR SQUARE, SINGAPORE – 409051",
     officialEmailLabel: "Официальный Email:",
     websiteLabel: "Веб-сайт:",
     indiaOfficeBadge: "🇮🇳 ОФИС В ИНДИИ",
@@ -1654,7 +1654,7 @@ export const ru: Dictionary = {
     mapTitleSg: "Посетите нашу штаб-квартиру в Сингапуре",
     mapTitleIndia: "Посетите наш офис в Индии",
     mapTitleChina: "Посетите наш офис в Китае",
-    mapDescSg: "Расположен по адресу HS GLOBAL SG PTE LTD, 20 COLLYER QUAY, #09-01, SINGAPORE – 049319.",
+    mapDescSg: "Расположен по адресу HS GLOBAL SG PTE LTD, 60 PAYA LEBAR ROAD, #07-54, PAYA LEBAR SQUARE, SINGAPORE – 409051.",
     mapDescIndia: "Расположен по адресу Vijayawada, Andhra Pradesh 520004, India.",
     mapDescChina: "Расположен в районе Баоань, Шэньчжэнь, Китай.",
     btnSgHq: "🇸🇬 Сингапур HQ",
@@ -1667,7 +1667,7 @@ export const ru: Dictionary = {
     pinTitleSg: "HS GLOBAL SG PTE LTD",
     pinTitleIndia: "HS GLOBAL SG PTE LTD(INDIA)",
     pinTitleChina: "HS GLOBAL AI CHINA",
-    pinAddressSg: "20 COLLYER QUAY, #09-01, SINGAPORE – 049319",
+    pinAddressSg: "60 PAYA LEBAR ROAD, #07-54, PAYA LEBAR SQUARE, SINGAPORE – 409051",
     pinAddressIndia: "VIJAYAWADA, AP 520004",
     pinAddressChina: "РАЙОН БАОАНЬ, ШЭНЬЧЖЭНЬ, КИТАЙ",
     cardHeaderSg: "Глобальная штаб-квартира в Сингапуре",

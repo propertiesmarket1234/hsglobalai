@@ -52,7 +52,7 @@ export const zh: Dictionary = {
     description:
       "HS Global AI 是先进的AI数字人平台，为金融、零售、医疗、教育和企业自动化提供逼真的全息数字人体验。",
     singaporeHQLabel: "新加坡总部:",
-    singaporeHQAddress: "20 COLLYER QUAY, #09-01, SINGAPORE – 049319",
+    singaporeHQAddress: "60 PAYA LEBAR ROAD, #07-54, PAYA LEBAR SQUARE, SINGAPORE – 409051",
     indiaOfficeLabel: "印度办公室:",
     indiaOfficeAddress:
       "Vijayawada, Andhra Pradesh 520004, India",
@@ -941,7 +941,7 @@ export const zh: Dictionary = {
       exerciseTitle: "6. 如何行使您的隐私权利",
       exerciseIntro: "如需行使您的任何数据保护权利或提交数据主体访问请求 (DSAR)，请联系我们的数据保护官：",
       dpoTitle: "数据保护办公室 — HS GLOBAL SG PTE LTD",
-      address: "20 Collyer Quay, #09-01, Singapore 049319",
+      address: "60 Paya Lebar Road, #07-54, Paya Lebar Square, Singapore 409051",
       emailLabel: "邮箱：sales@hsglobalai.com",
     },
     metadata: {
@@ -974,7 +974,7 @@ export const zh: Dictionary = {
       section6Title: "6. 管辖法律与争议解决",
       section6Content: "本条款与条件受新加坡共和国法律管辖并按其解释。如有任何疑虑或争议，各方同意首先联系我们的法务部门尝试非正式解决。",
       legalDeptTitle: "法务部 — HS GLOBAL SG PTE LTD",
-      legalDeptAddress: "20 Collyer Quay, #09-01, Singapore 049319",
+      legalDeptAddress: "60 Paya Lebar Road, #07-54, Paya Lebar Square, Singapore 409051",
       legalDeptEmail: "电子邮件：info@hsglobalai.com / sales@hsglobalai.com",
     },
     metadata: {
@@ -1478,7 +1478,7 @@ export const zh: Dictionary = {
     sgHqBadge: "🇸🇬 全球总部",
     sgHqCountry: "新加坡",
     sgHqName: "HS GLOBAL SG PTE LTD",
-    sgHqAddress: "20 COLLYER QUAY, #09-01, SINGAPORE – 049319",
+    sgHqAddress: "60 PAYA LEBAR ROAD, #07-54, PAYA LEBAR SQUARE, SINGAPORE – 409051",
     officialEmailLabel: "官方邮箱:",
     websiteLabel: "官方网站:",
     indiaOfficeBadge: "🇮🇳 印度办公室",
@@ -1524,7 +1524,7 @@ export const zh: Dictionary = {
     mapTitleSg: "访问我们的新加坡总部",
     mapTitleIndia: "访问我们的印度办公室",
     mapTitleChina: "访问我们的中国办公室",
-    mapDescSg: "位于 HS GLOBAL SG PTE LTD, 20 COLLYER QUAY, #09-01, SINGAPORE – 049319。",
+    mapDescSg: "位于 HS GLOBAL SG PTE LTD, 60 PAYA LEBAR ROAD, #07-54, PAYA LEBAR SQUARE, SINGAPORE – 409051。",
     mapDescIndia: "位于 Vijayawada, Andhra Pradesh 520004, India。",
     mapDescChina: "位于中国广东省深圳市宝安区。",
     btnSgHq: "🇸🇬 新加坡总部",
@@ -1537,7 +1537,7 @@ export const zh: Dictionary = {
     pinTitleSg: "HS GLOBAL SG PTE LTD",
     pinTitleIndia: "HS GLOBAL SG PTE LTD(INDIA)",
     pinTitleChina: "HS GLOBAL AI CHINA",
-    pinAddressSg: "20 COLLYER QUAY, #09-01, SINGAPORE – 049319",
+    pinAddressSg: "60 PAYA LEBAR ROAD, #07-54, PAYA LEBAR SQUARE, SINGAPORE – 409051",
     pinAddressIndia: "VIJAYAWADA, AP 520004",
     pinAddressChina: "中国广东省深圳市宝安区",
     cardHeaderSg: "新加坡全球总部",

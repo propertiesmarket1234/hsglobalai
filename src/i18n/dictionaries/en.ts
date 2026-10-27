@@ -50,7 +50,7 @@ export const en = {
     description:
       "HS Global AI is an advanced AI digital human platform delivering lifelike holographic avatars for banking, retail, healthcare, education and enterprise automation.",
     singaporeHQLabel: "Singapore HQ:",
-    singaporeHQAddress: "20 COLLYER QUAY, #09-01, SINGAPORE – 049319",
+    singaporeHQAddress: "60 PAYA LEBAR ROAD, #07-54, PAYA LEBAR SQUARE, SINGAPORE – 409051",
     indiaOfficeLabel: "India Office:",
     indiaOfficeAddress:
       "Vijayawada, Andhra Pradesh 520004, India",
@@ -1053,7 +1053,7 @@ export const en = {
       exerciseTitle: "6. How to Exercise Your Privacy Rights",
       exerciseIntro: "To exercise any of your data protection rights or submit a Data Subject Access Request (DSAR), please contact our Data Protection Officer:",
       dpoTitle: "Data Protection Office — HS GLOBAL SG PTE LTD",
-      address: "20 Collyer Quay, #09-01, Singapore 049319",
+      address: "60 Paya Lebar Road, #07-54, Paya Lebar Square, Singapore 409051",
       emailLabel: "Email: sales@hsglobalai.com",
     },
     metadata: {
@@ -1086,7 +1086,7 @@ export const en = {
       section6Title: "6. Governing Law & Dispute Resolution",
       section6Content: "These Terms and Conditions shall be governed by and construed in accordance with the laws of the Republic of Singapore. In the event of any concern or dispute, parties agree to first attempt informal resolution by contacting our legal department.",
       legalDeptTitle: "Legal Department — HS GLOBAL SG PTE LTD",
-      legalDeptAddress: "20 Collyer Quay, #09-01, Singapore 049319",
+      legalDeptAddress: "60 Paya Lebar Road, #07-54, Paya Lebar Square, Singapore 409051",
       legalDeptEmail: "Email: info@hsglobalai.com / sales@hsglobalai.com",
     },
     metadata: {
@@ -1591,7 +1591,7 @@ export const en = {
     sgHqBadge: "🇸🇬 GLOBAL HEADQUARTERS",
     sgHqCountry: "SINGAPORE",
     sgHqName: "HS GLOBAL SG PTE LTD",
-    sgHqAddress: "20 COLLYER QUAY, #09-01, SINGAPORE – 049319",
+    sgHqAddress: "60 PAYA LEBAR ROAD, #07-54, PAYA LEBAR SQUARE, SINGAPORE – 409051",
     officialEmailLabel: "Official Email:",
     websiteLabel: "Website:",
     indiaOfficeBadge: "🇮🇳 INDIA OFFICE",
@@ -1637,7 +1637,7 @@ export const en = {
     mapTitleSg: "Visit Our Singapore Headquarters",
     mapTitleIndia: "Visit Our India Office",
     mapTitleChina: "Visit Our China Office",
-    mapDescSg: "Located at HS GLOBAL SG PTE LTD, 20 COLLYER QUAY, #09-01, SINGAPORE – 049319.",
+    mapDescSg: "Located at HS GLOBAL SG PTE LTD, 60 PAYA LEBAR ROAD, #07-54, PAYA LEBAR SQUARE, SINGAPORE – 409051.",
     mapDescIndia: "Located at Vijayawada, Andhra Pradesh 520004, India.",
     mapDescChina: "Located at Bao'an District, Shenzhen, China.",
     btnSgHq: "🇸🇬 Singapore HQ",
@@ -1650,7 +1650,7 @@ export const en = {
     pinTitleSg: "HS GLOBAL SG PTE LTD",
     pinTitleIndia: "HS GLOBAL SG PTE LTD(INDIA)",
     pinTitleChina: "HS GLOBAL AI CHINA",
-    pinAddressSg: "20 COLLYER QUAY, #09-01, SINGAPORE – 049319",
+    pinAddressSg: "60 PAYA LEBAR ROAD, #07-54, PAYA LEBAR SQUARE, SINGAPORE – 409051",
     pinAddressIndia: "VIJAYAWADA, AP 520004",
     pinAddressChina: "BAO'AN DISTRICT, SHENZHEN, CHINA",
     cardHeaderSg: "Singapore Global HQ",
