@@ -52,7 +52,7 @@ export const es: Dictionary = {
     description:
       "HS Global AI es una plataforma avanzada de humanos digitales con IA que ofrece avatares holográficos hiperrealistas para banca, comercio, salud, educación y automatización empresarial.",
     singaporeHQLabel: "Sede en Singapur:",
-    singaporeHQAddress: "20 COLLYER QUAY, #09-01, SINGAPORE – 049319",
+    singaporeHQAddress: "60 PAYA LEBAR ROAD, #07-54, PAYA LEBAR SQUARE, SINGAPORE – 409051",
     indiaOfficeLabel: "Oficina en India:",
     indiaOfficeAddress:
       "Vijayawada, Andhra Pradesh 520004, India",
@@ -1071,7 +1071,7 @@ export const es: Dictionary = {
       exerciseTitle: "6. Cómo ejercer sus derechos de privacidad",
       exerciseIntro: "Para ejercer cualquiera de sus derechos o enviar una Solicitud de Acceso del Interesado (DSAR), póngase en contacto con nuestro Oficial de Protección de Datos:",
       dpoTitle: "Oficina de Protección de Datos — HS GLOBAL SG PTE LTD",
-      address: "20 Collyer Quay, #09-01, Singapore 049319",
+      address: "60 Paya Lebar Road, #07-54, Paya Lebar Square, Singapore 409051",
       emailLabel: "Correo electrónico: sales@hsglobalai.com",
     },
     metadata: {
@@ -1104,7 +1104,7 @@ export const es: Dictionary = {
       section6Title: "6. Ley Aplicable y Resolución de Disputas",
       section6Content: "Estos Términos y Condiciones se regirán e interpretarán de acuerdo con las leyes de la República de Singapur. En caso de cualquier inquietud o disputa, las partes acuerdan intentar primero una resolución informal poniéndose en contacto con nuestro departamento legal.",
       legalDeptTitle: "Departamento Legal — HS GLOBAL SG PTE LTD",
-      legalDeptAddress: "20 Collyer Quay, #09-01, Singapore 049319",
+      legalDeptAddress: "60 Paya Lebar Road, #07-54, Paya Lebar Square, Singapore 409051",
       legalDeptEmail: "Correo electrónico: info@hsglobalai.com / sales@hsglobalai.com",
     },
     metadata: {
@@ -1608,7 +1608,7 @@ export const es: Dictionary = {
     sgHqBadge: "🇸🇬 SEDE CENTRAL GLOBAL",
     sgHqCountry: "SINGAPUR",
     sgHqName: "HS GLOBAL SG PTE LTD",
-    sgHqAddress: "20 COLLYER QUAY, #09-01, SINGAPORE – 049319",
+    sgHqAddress: "60 PAYA LEBAR ROAD, #07-54, PAYA LEBAR SQUARE, SINGAPORE – 409051",
     officialEmailLabel: "Correo oficial:",
     websiteLabel: "Sitio web:",
     indiaOfficeBadge: "🇮🇳 OFICINA DE INDIA",
@@ -1654,7 +1654,7 @@ export const es: Dictionary = {
     mapTitleSg: "Visite nuestra sede central de Singapur",
     mapTitleIndia: "Visite nuestra oficina en India",
     mapTitleChina: "Visite nuestra oficina en China",
-    mapDescSg: "Ubicado en HS GLOBAL SG PTE LTD, 20 COLLYER QUAY, #09-01, SINGAPORE – 049319.",
+    mapDescSg: "Ubicado en HS GLOBAL SG PTE LTD, 60 PAYA LEBAR ROAD, #07-54, PAYA LEBAR SQUARE, SINGAPORE – 409051.",
     mapDescIndia: "Ubicado en Vijayawada, Andhra Pradesh 520004, India.",
     mapDescChina: "Ubicado en el distrito de Bao'an, Shenzhen, China.",
     btnSgHq: "🇸🇬 Sede de Singapur",
@@ -1667,7 +1667,7 @@ export const es: Dictionary = {
     pinTitleSg: "HS GLOBAL SG PTE LTD",
     pinTitleIndia: "HS GLOBAL SG PTE LTD(INDIA)",
     pinTitleChina: "HS GLOBAL AI CHINA",
-    pinAddressSg: "20 COLLYER QUAY, #09-01, SINGAPORE – 049319",
+    pinAddressSg: "60 PAYA LEBAR ROAD, #07-54, PAYA LEBAR SQUARE, SINGAPORE – 409051",
     pinAddressIndia: "VIJAYAWADA, AP 520004",
     pinAddressChina: "DISTRITO DE BAO'AN, SHENZHEN, CHINA",
     cardHeaderSg: "Sede central global de Singapur",

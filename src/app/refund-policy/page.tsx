@@ -60,7 +60,7 @@ const sections: { title: string; body: string[] }[] = [
   {
     title: "7. Contact",
     body: [
-      "HS GLOBAL SG PTE LTD, 20 Collyer Quay, #09-01, Singapore 049319. Email: info@hsglobalai.com. This policy forms part of our Terms & Conditions and is governed by the laws of the Republic of Singapore.",
+      "HS GLOBAL SG PTE LTD, 60 Paya Lebar Road, #07-54, Paya Lebar Square, Singapore 409051. Email: info@hsglobalai.com. This policy forms part of our Terms & Conditions and is governed by the laws of the Republic of Singapore.",
     ],
   },
 ];

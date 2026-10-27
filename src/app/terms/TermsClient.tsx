@@ -120,7 +120,7 @@ export default function TermsClient() {
               </p>
               <div className="mt-4 rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-card)] p-6 text-sm shadow-xs">
                 <p className="font-semibold text-[var(--lp-ink)]">{sec.legalDeptTitle || "Legal Department — HS GLOBAL SG PTE LTD"}</p>
-                <p className="text-[var(--lp-ink-2)] mt-1">{sec.legalDeptAddress || "20 Collyer Quay, #09-01, Singapore 049319"}</p>
+                <p className="text-[var(--lp-ink-2)] mt-1">{sec.legalDeptAddress || "60 Paya Lebar Road, #07-54, Paya Lebar Square, Singapore 409051"}</p>
                 <p className="mt-2 text-[var(--lp-accent)] font-medium">{sec.legalDeptEmail || "Email: info@hsglobalai.com / sales@hsglobalai.com"}</p>
               </div>
             </div>

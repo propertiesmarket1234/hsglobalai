@@ -109,7 +109,7 @@ export default function PrivacyClient() {
               </p>
               <div className="mt-4 rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-card)] p-6 text-sm shadow-xs">
                 <p className="font-semibold text-[var(--lp-ink)]">{sec.dpoTitle || "Data Protection Office — HS GLOBAL SG PTE LTD"}</p>
-                <p className="text-[var(--lp-ink-2)] mt-1">{sec.address || "20 Collyer Quay, #09-01, Singapore 049319"}</p>
+                <p className="text-[var(--lp-ink-2)] mt-1">{sec.address || "60 Paya Lebar Road, #07-54, Paya Lebar Square, Singapore 409051"}</p>
                 <p className="mt-2 text-[var(--lp-accent)] font-medium">{sec.emailLabel || "Email: sales@hsglobalai.com"}</p>
               </div>
             </div>

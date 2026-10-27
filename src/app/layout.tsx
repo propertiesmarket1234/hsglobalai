@@ -101,9 +101,9 @@ const organizationJsonLd = {
       "email": "sales@hsglobalai.com",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "20 Collyer Quay, #09-01",
+        "streetAddress": "60 Paya Lebar Road, #07-54, Paya Lebar Square",
         "addressLocality": "Singapore",
-        "postalCode": "049319",
+        "postalCode": "409051",
         "addressCountry": "SG",
       },
       "location": [
@@ -112,9 +112,9 @@ const organizationJsonLd = {
           "name": "Singapore Headquarters",
           "address": {
             "@type": "PostalAddress",
-            "streetAddress": "20 Collyer Quay, #09-01",
+            "streetAddress": "60 Paya Lebar Road, #07-54, Paya Lebar Square",
             "addressLocality": "Singapore",
-            "postalCode": "049319",
+            "postalCode": "409051",
             "addressCountry": "SG",
           },
         },
