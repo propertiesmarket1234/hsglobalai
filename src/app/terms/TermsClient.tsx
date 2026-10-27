@@ -3,6 +3,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { getDictionary } from "@/i18n/getDictionary";
 import { Locale, nonDefaultLocales } from "@/i18n/config";
 import { FileText } from "lucide-react";
@@ -101,6 +102,14 @@ export default function TermsClient() {
               <h2 className="text-xl font-bold text-[var(--lp-ink)]">{sec.section5Title || "5. Limitation of Liability"}</h2>
               <p className="mt-3">
                 {sec.section5Content || 'To the maximum extent permitted by applicable law, in no event shall HS Global AI or its suppliers be liable for special, incidental, indirect, or consequential damages (including loss of profits, business interruption, or data loss) arising out of the use or inability to use the platform.'}
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-xl font-bold text-[var(--lp-ink)]">5A. Avatar Credits & Payments</h2>
+              <p className="mt-3">
+                Avatar credits are sold in prepaid packs (100 credits for US$20, 300 credits for US$50, taxes included) and are processed by our payment provider, Airwallex. Generating or regenerating one avatar uses 100 credits. Each pack expires 30 days after purchase, and unused credits are forfeited at expiry. Credits have no cash value. Refunds, automatic credit returns for failed generations and payment disputes are handled as set out in our{" "}
+                <Link href="/refund-policy" className="text-[var(--lp-accent)] font-medium hover:underline">Refund Policy</Link>, which forms part of these Terms.
               </p>
             </div>
 
