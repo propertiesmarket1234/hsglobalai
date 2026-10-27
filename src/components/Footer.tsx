@@ -191,6 +191,9 @@ export default function Footer() {
               <Link href={lPath("/terms")} className="hover:text-[var(--lp-ink)] transition-colors">
                 Terms of Service
               </Link>
+              <Link href="/refund-policy" className="hover:text-[var(--lp-ink)] transition-colors">
+                Refund Policy
+              </Link>
             </div>
           </div>
         </div>
@@ -205,6 +208,9 @@ export default function Footer() {
             </Link>
             <Link href={lPath("/terms")} className="hover:text-[var(--lp-ink)] transition-colors">
               Terms & Conditions
+            </Link>
+            <Link href="/refund-policy" className="hover:text-[var(--lp-ink)] transition-colors">
+              Refund Policy
             </Link>
             <Link href={lPath("/contact")} className="hover:text-[var(--lp-ink)] transition-colors">
               Pilot Inquiries
