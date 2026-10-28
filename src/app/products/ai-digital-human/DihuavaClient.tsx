@@ -41,6 +41,7 @@ const coreModules = [
     icon: Camera,
     badge: "Interactive Photo Experience",
     featureUrl: "/products/ai-digital-human/avatar-customization",
+    featureCta: "Explore Selfie & Photo Features",
     highlights: [
       "Real-time local compositing",
       "Scale & height face alignment matching",
@@ -57,6 +58,7 @@ const coreModules = [
     icon: Sparkles,
     badge: "Real-Time Face Tracking",
     featureUrl: "/products/ai-digital-human/avatar-customization",
+    featureCta: "Explore Face Tracking Specs",
     highlights: [
       "Real-time camera face tracking",
       "Live expression & blink deformation",
@@ -73,6 +75,7 @@ const coreModules = [
     icon: ShoppingBag,
     badge: "Smart Recommendation",
     featureUrl: "/products/ai-digital-human/ai-product-catalog",
+    featureCta: "Explore AI Product Catalog Specs",
     highlights: [
       "Structured 9-column catalog schema",
       "Audio-visual sync with screen cards",
@@ -89,6 +92,7 @@ const coreModules = [
     icon: Zap,
     badge: "100% Offline RAG",
     featureUrl: "/products/ai-digital-human/document-intelligence",
+    featureCta: "Explore Document Intelligence & RAG",
     highlights: [
       "Local PDF, CSV, TXT & Markdown RAG",
       "On-device relevance reranking",
@@ -105,6 +109,7 @@ const coreModules = [
     icon: Globe2,
     badge: "29+ Global Languages",
     featureUrl: "/products/ai-digital-human/multilingual-support",
+    featureCta: "Explore Multilingual & Voice Engine",
     highlights: [
       "Auto language switching without touch input",
       "Low latency voice generation",
@@ -121,6 +126,7 @@ const coreModules = [
     icon: User,
     badge: "Avatar Studio",
     featureUrl: "/products/ai-digital-human/avatar-customization",
+    featureCta: "Explore Avatar & Voice Cloning",
     highlights: [
       "Catalog of enterprise personas",
       "Brand attire, color & styling customization",
@@ -136,7 +142,8 @@ const coreModules = [
       "A long-term digital persona preservation architecture designed to index personal histories, philosophies, corporate executive knowledge bases, and distinctive speech patterns into an interactive digital twin.",
     icon: Brain,
     badge: "Active R&D",
-    featureUrl: "/products/ai-digital-human/avatar-customization",
+    featureUrl: "/products/ai-digital-human/persona-management",
+    featureCta: "Explore Persona Management Specs",
     highlights: [
       "Long-term knowledge base indexing",
       "Executive knowledge preservation",
@@ -472,10 +479,10 @@ export default function DihuavaClient() {
               Industry Definition
             </span>
             <h2 className="mt-2 text-2xl font-bold tracking-tight text-[var(--lp-ink)] sm:text-3xl">
-              What Is Offline AI Digital Human Software?
+              What Is Digital Human Software and How Does DIHUAVA Operate Offline?
             </h2>
             <p className="mt-4 text-[15px] sm:text-base leading-[1.7] text-[var(--lp-ink-2)]">
-              Offline AI digital human software is an on-premise application that runs conversational 3D avatars locally on dedicated computer hardware without requiring continuous cloud connectivity or external API streaming. Developed by HS Global AI, the DIHUAVA platform executes automatic speech recognition (ASR), on-device document intelligence (RAG), conversational LLM reasoning, neural voice synthesis (TTS), and real-time facial lip-sync directly on local GPU hardware. This architecture keeps proprietary corporate documents private, eliminates latency from cloud round-trips, and ensures continuous autonomous operation in physical environments.
+              Digital human software combines AI-powered conversation, speech recognition, speech synthesis, and a visual human avatar to enable natural, real-time interactions with people. DIHUAVA by HS Global AI is an enterprise offline AI digital human software platform designed to run its conversational and avatar-processing pipeline locally on compatible hardware. It supports on-device document intelligence, multilingual interactions, and interactive deployments such as kiosks and digital displays without requiring continuous cloud connectivity for core operation. Optional cloud-management configurations may be available for supported deployments.
             </p>
           </div>
         </div>
@@ -658,7 +665,7 @@ export default function DihuavaClient() {
                         href={lPath(module.featureUrl)}
                         className="group/link text-xs font-semibold text-[var(--lp-ink)] hover:text-[var(--lp-accent)] inline-flex items-center gap-1 transition-colors"
                       >
-                        <span>View Specifications</span>
+                        <span>{module.featureCta || "Explore Feature Architecture"}</span>
                         <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/link:translate-x-1" />
                       </Link>
                     </div>

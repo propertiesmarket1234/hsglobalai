@@ -18,14 +18,9 @@ import {
   ChevronLeft,
   ArrowRight,
   ShieldCheck,
-  Cpu,
-  Layers,
-  HelpCircle,
-  FileCheck,
   Play,
-  Film,
-  Video,
   Plus,
+  LucideIcon,
 } from "lucide-react";
 
 interface SpecItem {
@@ -68,7 +63,7 @@ interface PlatformPageData {
   title: string;
   subtitle: string;
   description: string;
-  icon: any;
+  icon: LucideIcon;
   overviewHeading: string;
   overviewParagraphs: string[];
   specs: SpecItem[];
@@ -93,7 +88,7 @@ export const platformData: Record<string, PlatformPageData> = {
     icon: UserCheck,
     overviewHeading: "Photoreal Persona & Zero-Shot Voice Synthesis Pipeline",
     overviewParagraphs: [
-      "HS Global AI separates digital humans into two distinct, deterministic engineering pipelines: the visual video persona and the neural voice engine. The visual avatar displays seamless state transitions (idle, listening, thinking, speaking, and selfie pose) with smooth cross-fades so state changes never show jarring video cuts.",
+      "As part of the DIHUAVA [offline AI digital human software](/products/ai-digital-human) platform developed by HS Global AI, visual avatar rendering and neural voice cloning operate as two distinct, deterministic engineering pipelines. The visual avatar displays seamless state transitions (idle, listening, thinking, speaking, and selfie pose) with smooth cross-fades so state changes never show jarring video cuts.",
       "The voice engine uses zero-shot neural cloning. By uploading a single 5 to 30 second clean audio clip (WAV or MP3), the system normalizes the audio to 24kHz mono and pre-encodes the voice profile once at upload. From then on, the avatar speaks any sentence in any of our 29+ supported languages in your authentic voice synthesized 100% on-device without recurring cloud API usage charges.",
     ],
     specs: [
@@ -180,7 +175,7 @@ export const platformData: Record<string, PlatformPageData> = {
       {
         step: "03",
         title: "Deploy Package to Local Hardware",
-        desc: "Download the self-contained persona package (.zip) directly onto your local GPU kiosk or Hologram Box.",
+        desc: "Download the self-contained persona package (.zip) directly onto your local GPU kiosk, [3D Hologram Box](/products/holographic-display), or [Spatial Display](/products/spatial-display).",
       },
       {
         step: "04",
@@ -236,7 +231,7 @@ export const platformData: Record<string, PlatformPageData> = {
     icon: FileText,
     overviewHeading: "High-Precision Local Retrieval Stack with Cross-Encoder Architecture",
     overviewParagraphs: [
-      "DIHUAVA's Document Intelligence engine provides a complete retrieval-augmented generation (RAG) stack running entirely on local device hardware. Documents are chunked and embedded locally, retrieved via vector similarity search, and then re-ranked by an on-device cross-encoder before the answer is generated.",
+      "Developed by HS Global AI, the DIHUAVA Document Intelligence pipeline gives [on-device AI digital humans](/products/ai-digital-human) an exact, verifiable corporate memory grounded in local enterprise documents. Documents are chunked and embedded locally, retrieved via vector similarity search, and then re-ranked by an on-device cross-encoder before the answer is generated.",
       "The cross-encoder re-ranker solves the critical accuracy flaw of standard vector search. It evaluates passage relevance in context, ensuring cross-language questions (e.g. asking a question in Hindi about an English PDF manual) retrieve exact, truthful answers. If a question is not covered in your documents, our grounding guard ensures the avatar politely declines to answer rather than hallucinating details.",
     ],
     specs: [
@@ -379,7 +374,7 @@ export const platformData: Record<string, PlatformPageData> = {
     icon: Globe,
     overviewHeading: "29+ Shipping Languages with Purpose-Built Regional Speech Models",
     overviewParagraphs: [
-      "The DIHUAVA multilingual stack delivers complete speech recognition, translation, and neural voice synthesis across 29+ shipping global languages running on local edge hardware without recurring cloud API usage charges.",
+      "Engineered by HS Global AI, the DIHUAVA [enterprise digital human software](/products/ai-digital-human) platform delivers native, accent-accurate communication across 29+ spoken global languages running on local edge hardware without recurring cloud API usage charges.",
       "A major breakthrough is our dedicated support for 7 Indian regional languages: Hindi, Tamil, Telugu, Kannada, Bengali, Marathi, and Gujarati. Standard cloud speech vendors struggle with non-Latin script phonemes on local hardware. We built specialized speech recognition and synthesis models specifically trained for these regional scripts, delivering fluid, natural conversations at international airports, retail malls, and government venues.",
     ],
     specs: [
@@ -515,7 +510,7 @@ export const platformData: Record<string, PlatformPageData> = {
     icon: Sparkles,
     overviewHeading: "Zero-Code Vertical Transformation & Empathetic Engagement",
     overviewParagraphs: [
-      "The core architectural advantage of DIHUAVA is its persona package system. A single hardware kiosk becomes a luxury jeweller, a hospital receptionist, or a bank wealth concierge simply by dropping in a persona package (.zip) without shipping a single line of new software code.",
+      "The core architectural advantage of the DIHUAVA [AI digital human platform](/products/ai-digital-human) by HS Global AI is its persona package system. A single hardware kiosk becomes a luxury jeweller, a hospital receptionist, or a bank wealth concierge simply by dropping in a persona package (.zip) without shipping a single line of new software code.",
       "Persona Management also enforces strict corporate brand guardrails. Pre-generated greetings eliminate thinking pauses on initial visitor contact. Intent classification routes queries (price, specs, appointments, directions) to specialized domain handlers, while session memory retains context across multi-turn exchanges, wiping customer data as soon as the visitor walks away.",
     ],
     specs: [
@@ -666,7 +661,7 @@ export const platformData: Record<string, PlatformPageData> = {
     icon: ShoppingBag,
     overviewHeading: "Spreadsheet to Interactive Sales Floor in Minutes",
     overviewParagraphs: [
-      "The DIHUAVA AI Product Catalogue converts standard product spreadsheets into an intelligent spoken recommendation engine. By organizing products in a 9-column CSV structure where one product spans multiple feature rows, the avatar answers 'tell me more', 'what is it made of', and 'how does it compare' without anyone writing scripted dialogue.",
+      "Built on HS Global AI's [digital human software](/products/ai-digital-human) platform, the DIHUAVA AI Product Catalogue converts standard product spreadsheets into an intelligent spoken recommendation engine. By organizing products in a 9-column CSV structure where one product spans multiple feature rows, the avatar answers 'tell me more', 'what is it made of', and 'how does it compare' without anyone writing scripted dialogue.",
       "Catalogue assets consist of high-resolution product images and MP4 demo videos. As the avatar speaks about an item, the corresponding product card appears on screen in picture-in-picture mode. Strict price and product ID grounding checks ensure the avatar never quotes incorrect prices or non-existent items.",
     ],
     specs: [
@@ -799,6 +794,34 @@ export const platformData: Record<string, PlatformPageData> = {
     nextFeatureName: "Avatar & Zero-Shot Voice Cloning",
   },
 };
+
+/** Helper function to parse bold markdown text (**text**) and inline links ([text](url)) */
+function renderFormattedText(text: string, lPath: (p: string) => string) {
+  const parts = text.split(/(\*\*.*?\*\*|\[.*?\]\(.*?\))/g);
+  return parts.map((part, index) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={index} className="font-semibold text-[var(--lp-ink)]">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    if (part.startsWith("[") && part.includes("](") && part.endsWith(")")) {
+      const linkText = part.substring(1, part.indexOf("]("));
+      const linkHref = part.substring(part.indexOf("](") + 2, part.length - 1);
+      return (
+        <Link
+          key={index}
+          href={lPath(linkHref)}
+          className="text-[var(--lp-accent-ink)] font-semibold underline decoration-[var(--lp-line)] underline-offset-4 hover:text-[var(--lp-accent)] transition-colors"
+        >
+          {linkText}
+        </Link>
+      );
+    }
+    return part;
+  });
+}
 
 export default function PlatformClient({ initialSlug }: { initialSlug?: string }) {
   const params = useParams();
@@ -949,7 +972,7 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
               </h2>
               <div className="mt-6 space-y-4 text-base leading-relaxed text-[var(--lp-ink-2)]">
                 {data.overviewParagraphs.map((p, i) => (
-                  <p key={i}>{p}</p>
+                  <p key={i}>{renderFormattedText(p, lPath)}</p>
                 ))}
               </div>
             </div>
@@ -1103,7 +1126,7 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
               >
                 <span className="text-2xl font-bold text-[var(--lp-accent)]">{item.step}</span>
                 <h3 className="mt-3 text-lg font-bold text-[var(--lp-ink)]">{item.title}</h3>
-                <p className="mt-2 text-xs leading-relaxed text-[var(--lp-ink-2)]">{item.desc}</p>
+                <p className="mt-2 text-xs leading-relaxed text-[var(--lp-ink-2)]">{renderFormattedText(item.desc, lPath)}</p>
               </div>
             ))}
           </div>
@@ -1162,6 +1185,49 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
               </div>
             ))}
           </div>
+
+          {/* Compatible Hardware Touchpoints */}
+          <div className="mt-8 rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-card)] p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-left shadow-2xs">
+            <div>
+              <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--lp-accent-ink)] block">
+                Compatible Hardware Enclosures
+              </span>
+              <p className="mt-1 text-xs sm:text-sm text-[var(--lp-ink-2)] leading-relaxed">
+                Compatible with standalone touchscreen kiosks,{" "}
+                <Link
+                  href={lPath("/products/holographic-display")}
+                  className="font-semibold text-[var(--lp-ink)] underline decoration-[var(--lp-line)] underline-offset-4 hover:text-[var(--lp-accent)] transition-colors"
+                >
+                  3D Hologram Boxes
+                </Link>
+                , and{" "}
+                <Link
+                  href={lPath("/products/spatial-display")}
+                  className="font-semibold text-[var(--lp-ink)] underline decoration-[var(--lp-line)] underline-offset-4 hover:text-[var(--lp-accent)] transition-colors"
+                >
+                  Glasses-Free Spatial Displays
+                </Link>
+                .
+              </p>
+            </div>
+            <div className="flex items-center gap-3 shrink-0">
+              <Link
+                href={lPath("/products/holographic-display")}
+                className="inline-flex items-center gap-1 text-xs font-semibold text-[var(--lp-accent-ink)] hover:underline"
+              >
+                <span>Holographic Display</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+              <span className="text-[var(--lp-line)]">|</span>
+              <Link
+                href={lPath("/products/spatial-display")}
+                className="inline-flex items-center gap-1 text-xs font-semibold text-[var(--lp-accent-ink)] hover:underline"
+              >
+                <span>Spatial Display</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -1218,13 +1284,22 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
           <h3 className="mt-2 text-2xl font-bold text-[var(--lp-ink)] md:text-3xl">
             {data.nextFeatureName}
           </h3>
-          <Link
-            href={lPath(`/products/ai-digital-human/${data.nextFeatureSlug}`)}
-            className="mt-6 inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[var(--lp-ink)] px-6 text-sm sm:text-[15px] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_1px_2px_rgba(17,17,19,0.24)] transition-all hover:bg-[#2A2A2F] active:scale-[0.98] cursor-pointer"
-          >
-            <span>Explore Next Feature</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+            <Link
+              href={lPath("/products/ai-digital-human")}
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-[var(--lp-line)] bg-[var(--lp-card)] px-6 text-sm sm:text-[15px] font-semibold text-[var(--lp-ink)] shadow-xs transition-all hover:bg-[var(--lp-tile)] active:scale-[0.98] cursor-pointer"
+            >
+              <ChevronLeft className="w-4 h-4" />
+              <span>Back to DIHUAVA Platform Overview</span>
+            </Link>
+            <Link
+              href={lPath(`/products/ai-digital-human/${data.nextFeatureSlug}`)}
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[var(--lp-ink)] px-6 text-sm sm:text-[15px] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_1px_2px_rgba(17,17,19,0.24)] transition-all hover:bg-[#2A2A2F] active:scale-[0.98] cursor-pointer"
+            >
+              <span>Explore Next Feature</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 

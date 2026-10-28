@@ -3,14 +3,16 @@ import { getLocalizedAlternates } from "@/i18n/config";
 import DihuavaClient from "./DihuavaClient";
 
 export const metadata: Metadata = {
-  title: "Offline AI Digital Human Software Platform | DIHUAVA",
+  title: {
+    absolute: "Offline AI Digital Human Software | DIHUAVA by HS Global AI",
+  },
   description:
-    "DIHUAVA is an on-device AI digital human software platform by HS Global AI, built for offline kiosks, 3D holograms, document RAG, and 29+ languages.",
+    "Discover DIHUAVA by HS Global AI, an enterprise digital human software platform designed for offline operation, on-device document intelligence, multilingual interactions and interactive displays.",
   alternates: getLocalizedAlternates("/products/ai-digital-human"),
   openGraph: {
-    title: "Offline AI Digital Human Software Platform | DIHUAVA | HS Global AI",
+    title: "Offline AI Digital Human Software | DIHUAVA by HS Global AI",
     description:
-      "DIHUAVA is an on-device AI digital human software platform by HS Global AI, built for offline kiosks, 3D holograms, document RAG, and 29+ languages.",
+      "Discover DIHUAVA by HS Global AI, an enterprise digital human software platform designed for offline operation, on-device document intelligence, multilingual interactions and interactive displays.",
     url: "https://www.hsglobalai.com/products/ai-digital-human",
     siteName: "HS Global AI",
     locale: "en_US",
@@ -18,9 +20,35 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Offline AI Digital Human Software Platform | DIHUAVA | HS Global AI",
+    title: "Offline AI Digital Human Software | DIHUAVA by HS Global AI",
     description:
-      "DIHUAVA is an on-device AI digital human software platform by HS Global AI, built for offline kiosks, 3D holograms, document RAG, and 29+ languages.",
+      "Discover DIHUAVA by HS Global AI, an enterprise digital human software platform designed for offline operation, on-device document intelligence, multilingual interactions and interactive displays.",
+  },
+};
+
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://www.hsglobalai.com/products/ai-digital-human#webpage",
+  "url": "https://www.hsglobalai.com/products/ai-digital-human",
+  "name": "Offline AI Digital Human Software | DIHUAVA by HS Global AI",
+  "description":
+    "Discover DIHUAVA by HS Global AI, an enterprise digital human software platform designed for offline operation, on-device document intelligence, multilingual interactions and interactive displays.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://www.hsglobalai.com/#website",
+  },
+  "about": {
+    "@type": "SoftwareApplication",
+    "@id": "https://www.hsglobalai.com/products/ai-digital-human#software",
+  },
+  "mainEntity": {
+    "@type": "SoftwareApplication",
+    "@id": "https://www.hsglobalai.com/products/ai-digital-human#software",
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "@id": "https://www.hsglobalai.com/products/ai-digital-human#breadcrumb",
   },
 };
 
@@ -37,9 +65,14 @@ const jsonLd = {
     "@type": "Brand",
     "name": "HS Global AI",
   },
+  "image":
+    "https://www.hsglobalai.com/products/digital-humans/digital-human-dashboard.jpg",
   "applicationCategory": "BusinessApplication",
-  "operatingSystem": "Windows 11, Linux (Ubuntu 22.04 LTS)",
-  "requirements": "NVIDIA RTX GPU (8GB VRAM baseline recommendation; actual requirements depend on model selection, avatar resolution, and concurrent workloads)",
+  "applicationSubCategory": "AI Digital Human Software",
+  "operatingSystem": "Windows 11 (64-bit), Linux (Ubuntu 22.04 LTS)",
+  "processorRequirements": "Modern multi-core CPU",
+  "memoryRequirements":
+    "Dedicated NVIDIA RTX GPU (8GB VRAM baseline recommendation; actual requirements depend on model selection, avatar resolution, and concurrent workloads)",
   "url": "https://www.hsglobalai.com/products/ai-digital-human",
   "description":
     "DIHUAVA is an offline AI digital human software platform developed by HS Global AI for enterprise deployment with on-device processing, local RAG, and multilingual capabilities.",
@@ -65,6 +98,7 @@ const jsonLd = {
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
+  "@id": "https://www.hsglobalai.com/products/ai-digital-human#breadcrumb",
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -90,6 +124,7 @@ const breadcrumbJsonLd = {
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
+  "@id": "https://www.hsglobalai.com/products/ai-digital-human#faq",
   "mainEntity": [
     {
       "@type": "Question",
@@ -169,6 +204,10 @@ const faqJsonLd = {
 export default function DihuavaProductPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
