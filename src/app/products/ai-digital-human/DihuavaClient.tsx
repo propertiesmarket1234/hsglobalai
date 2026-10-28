@@ -28,6 +28,9 @@ import {
   Plus,
   ArrowRight,
   CheckCircle2,
+  Landmark,
+  Plane,
+  GraduationCap,
 } from "lucide-react";
 
 // CORE PLATFORM SUBSYSTEMS
@@ -354,6 +357,82 @@ const faqs = [
   {
     q: "How can an enterprise request pricing or a demonstration?",
     a: "Enterprises can schedule a live demonstration or request hardware and licensing pricing by visiting our contact page or downloading engineering datasheets from our download center. Our technical team works with you to determine the right hardware specifications, avatar styling, and domain knowledge integration for your venue.",
+  },
+];
+
+// ENTERPRISE USE CASES
+const enterpriseUseCases = [
+  {
+    id: "banking",
+    industry: "Banking and Financial Services",
+    headline: "Branch Information & Customer Guidance",
+    challenge:
+      "Branch visitors frequently wait for customer service desks to ask routine questions about required account documentation, loan checklists, fee schedules, or service counter locations, occupying specialized financial advisory staff.",
+    application:
+      "Deployed on interactive touchscreen kiosks or spatial displays in branch lobbies, DIHUAVA greets incoming customers, explains service offerings, and provides step-by-step account requirements using local document retrieval—keeping sensitive financial inquiries strictly on-premises.",
+    icon: Landmark,
+    href: "/industries/banking",
+    ctaText: "Explore Banking & Financial Services",
+  },
+  {
+    id: "retail",
+    industry: "Retail and Shopping Malls",
+    headline: "Product Discovery & Interactive Display Experiences",
+    challenge:
+      "Shoppers in high-traffic retail stores and multi-floor shopping malls often struggle to locate specific brand outlets, compare item attributes, or check current promotions when floor sales associates are occupied with other shoppers.",
+    application:
+      "Acting as an interactive concierge on freestanding totems or 3D hologram boxes, the avatar converses with visitors, showcases structured catalog cards, and helps shoppers navigate retail venues with synchronized audio and on-screen visuals.",
+    icon: ShoppingBag,
+    href: "/industries/retail",
+    ctaText: "Explore Retail & Mall Experiences",
+  },
+  {
+    id: "healthcare",
+    industry: "Healthcare and Hospitals",
+    headline: "Visitor Information & Hospital Wayfinding",
+    challenge:
+      "Patients and visitors arriving at complex medical centers frequently experience anxiety navigating multi-wing facilities, finding specific clinic desks, or clarifying visiting hours and administrative check-in requirements.",
+    application:
+      "Situated in main entrance foyers and outpatient waiting areas, DIHUAVA provides clear spoken directions, visiting guidelines, and administrative check-in navigation grounded in hospital directory documents—strictly focused on non-clinical wayfinding and administrative guidance, without offering medical diagnosis, treatment recommendations, or clinical triage.",
+    icon: HeartPulse,
+    href: "/industries/healthcare",
+    ctaText: "Explore Healthcare Wayfinding",
+  },
+  {
+    id: "corporate",
+    industry: "Corporate Offices",
+    headline: "Reception Assistance & Employee Information",
+    challenge:
+      "Corporate headquarters and multi-tenant commercial facilities manage constant flows of visitors, contractors, and meeting guests needing front-desk registration, credential guidance, and building directions.",
+    application:
+      "Operating on reception countertops or lobby kiosks, DIHUAVA welcomes arrivals, assists guests through sign-in protocols, directs visitors to meeting floors, and answers employee handbook queries from verified internal policy documents.",
+    icon: Building2,
+    href: "/industries/corporate",
+    ctaText: "Explore Corporate Reception Solutions",
+  },
+  {
+    id: "tourism",
+    industry: "Airports and Tourism",
+    headline: "Multilingual Information & Visitor Assistance",
+    challenge:
+      "International travelers and tourists face unfamiliar transit layouts, tight connection schedules, and language barriers when seeking terminals, baggage claims, local transportation, or regional points of interest.",
+    application:
+      "Positioned throughout airport terminals, transit concourses, and tourist information hubs, DIHUAVA delivers spoken and displayed directions across 29+ global languages, detecting and switching spoken languages automatically without requiring continuous cloud translation APIs.",
+    icon: Plane,
+    href: "/industries/tourism",
+    ctaText: "Explore Tourism & Transit Solutions",
+  },
+  {
+    id: "education",
+    industry: "Education and Public Institutions",
+    headline: "Campus Information & Service Navigation",
+    challenge:
+      "University campuses, civic centers, and public libraries handle repetitive inquiries regarding department office hours, registration deadlines, facility locations, and public service paperwork.",
+    application:
+      "Placed in student centers, libraries, and public service lobbies, DIHUAVA assists students and citizens by answering frequent procedural questions, displaying interactive facility directories, and clarifying documentation steps reliably on local venue hardware.",
+    icon: GraduationCap,
+    href: "/industries/education",
+    ctaText: "Explore Education & Public Institutions",
   },
 ];
 
@@ -780,6 +859,77 @@ export default function DihuavaClient() {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ENTERPRISE USE CASES SECTION */}
+      <section className="px-4 py-20 sm:px-6 md:py-28 bg-[var(--lp-bg)] border-b border-[var(--lp-line)]">
+        <div className="mx-auto max-w-[1200px]">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-wider text-[var(--lp-accent-ink)]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[var(--lp-accent)]" />
+              Industry Deployments
+            </span>
+            <h2 className="mt-2 text-3xl font-bold tracking-tight text-[var(--lp-ink)] md:text-4xl">
+              Enterprise Use Cases for DIHUAVA
+            </h2>
+            <p className="mt-4 text-base text-[var(--lp-ink-2)]">
+              DIHUAVA is designed for on-device and offline operation on compatible hardware across customer-facing environments, with optional cloud-management configurations available for multi-venue oversight. Explore how organizations apply conversational digital humans across high-traffic touchpoints.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {enterpriseUseCases.map((item) => {
+              const Icon = item.icon;
+              return (
+                <div
+                  key={item.id}
+                  className="rounded-[24px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-6 sm:p-7 shadow-xs flex flex-col justify-between hover:border-[var(--lp-accent)]/30 transition-all"
+                >
+                  <div>
+                    <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-[var(--lp-line)] bg-[var(--lp-tile)] text-[var(--lp-accent)] shadow-xs mb-4">
+                      <Icon className="w-6 h-6" strokeWidth={1.75} />
+                    </span>
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--lp-accent-ink)] block">
+                      {item.industry}
+                    </span>
+                    <h3 className="mt-1 text-lg font-bold text-[var(--lp-ink)]">
+                      {item.headline}
+                    </h3>
+
+                    <div className="mt-4 space-y-3">
+                      <div>
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--lp-muted)] block">
+                          Operational Need
+                        </span>
+                        <p className="mt-1 text-xs sm:text-[13px] leading-relaxed text-[var(--lp-ink-2)]">
+                          {item.challenge}
+                        </p>
+                      </div>
+                      <div>
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--lp-muted)] block">
+                          Digital Human Application
+                        </span>
+                        <p className="mt-1 text-xs sm:text-[13px] leading-relaxed text-[var(--lp-ink-2)]">
+                          {item.application}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 pt-4 border-t border-[var(--lp-line)]">
+                    <Link
+                      href={lPath(item.href)}
+                      className="group/link inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--lp-ink)] hover:text-[var(--lp-accent)] transition-colors"
+                    >
+                      <span>{item.ctaText}</span>
+                      <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/link:translate-x-1 text-[var(--lp-accent)]" />
+                    </Link>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
