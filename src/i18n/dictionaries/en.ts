@@ -329,7 +329,7 @@ export const en = {
       explorePrefix: "Explore",
       items: {
         dihuava: {
-          title: "AI Digital Humans",
+          title: "DIHUAVA AI Digital Human Platform",
           category: "Conversational Avatars",
           description: "Intelligent, human-like AI avatars designed for natural real-time customer interactions across languages.",
           tags: ["Multilingual", "Voice AI", "Digital Avatars"],
@@ -540,6 +540,11 @@ export const en = {
         "Deployment & Support",
       ],
       items: [
+        {
+          category: "General & Overview",
+          question: "What is DIHUAVA, and how is it related to HS Global AI?",
+          answer: "DIHUAVA is the proprietary offline AI digital human software platform developed by HS Global AI. While HS Global AI provides complete physical and spatial AI solutions—including 3D Hologram Boxes, Spatial Displays, and interactive kiosks—DIHUAVA serves as the underlying on-device AI software engine that powers autonomous conversational avatars, local document intelligence (RAG), and real-time multilingual voice interactions.",
+        },
         {
           category: "General & Overview",
           question: "What is a Digital Human AI Assistant?",

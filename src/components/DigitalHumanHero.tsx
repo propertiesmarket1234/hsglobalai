@@ -247,7 +247,8 @@ export default function DigitalHumanHero() {
 
           <p className="mx-auto mt-4 sm:mt-5 max-w-2xl text-sm sm:text-lg leading-relaxed text-[var(--lp-muted)]">
             Deploy 24/7 autonomous digital human assistants across retail stores, hospitals, defence installations, and premier events.
-            Cut staffing overhead by up to 70% while delivering zero-wait, empathetic, multilingual service.
+            DIHUAVA is HS Global AI&apos;s offline AI digital human software platform, built for secure on-device customer engagement.
+            Cut staffing overhead by up to 70% while delivering responsive, empathetic, multilingual service.
           </p>
 
           {/* DUAL ACTION BUTTONS (SWIPECRAFT STANDARD UNIFORM PADDING & MARGINS) */}

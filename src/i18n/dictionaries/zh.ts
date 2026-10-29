@@ -331,7 +331,7 @@ export const zh: Dictionary = {
       explorePrefix: "探索",
       items: {
         dihuava: {
-          title: "AI 数字人",
+          title: "DIHUAVA AI 数字人平台",
           category: "对话式数字人",
           description: "智能、拟人化的 AI 数字人，专为多语言自然实时客户交互而设计。",
           tags: ["多语言", "语音 AI", "数字人"],
@@ -542,6 +542,11 @@ export const zh: Dictionary = {
         "部署与支持",
       ],
       items: [
+        {
+          category: "通用与概览",
+          question: "什么是 DIHUAVA，它与 HS Global AI 有何关系？",
+          answer: "DIHUAVA 是由 HS Global AI 自主研发的离线 AI 数字人软件平台。HS Global AI 提供包括 3D 全息显示盒、空间显示屏和交互式一体机在内的完整企业级交互解决方案，而 DIHUAVA 则是其底层的端侧 AI 软件引擎，用于驱动自主对话数字人、本地文档智能检索（RAG）以及多语言实时交互。",
+        },
         {
           category: "通用与概览",
           question: "什么是 AI 数字人助手？",

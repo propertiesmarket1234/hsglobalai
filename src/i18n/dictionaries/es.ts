@@ -445,7 +445,7 @@ export const es: Dictionary = {
     "explorePrefix": "Explorar",
     "items": {
       "dihuava": {
-        "title": "Humanos Digitales IA",
+        "title": "Plataforma de Humanos Digitales IA DIHUAVA",
         "category": "Avatares conversacionales",
         "description": "Avatares de IA hiperrealistas diseñados para interacciones naturales con clientes en múltiples idiomas.",
         "tags": [
@@ -672,6 +672,11 @@ export const es: Dictionary = {
       "Soporte y mantenimiento"
     ],
     "items": [
+      {
+        "category": "General y visión global",
+        "question": "¿Qué es DIHUAVA y cómo se relaciona con HS Global AI?",
+        "answer": "DIHUAVA es la plataforma propietaria de software de humanos digitales con IA sin conexión desarrollada por HS Global AI. Mientras que HS Global AI ofrece soluciones completas que incluyen vitrinas holográficas 3D, pantallas espaciales y quioscos interactivos, DIHUAVA actúa como el motor de software de IA en el dispositivo que impulsa avatares conversacionales autónomos, inteligencia documental local (RAG) e interacciones multilingües en tiempo real."
+      },
       {
         "category": "General y visión global",
         "question": "¿Qué es un asistente de humano digital con IA?",

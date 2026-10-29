@@ -316,7 +316,7 @@ export const fr: Dictionary = {
       explorePrefix: "Explorer",
       items: {
         dihuava: {
-          title: "Humains Virtuels IA",
+          title: "Plateforme d'Humains Virtuels IA DIHUAVA",
           category: "Avatars Conversationnels",
           description: "Avatars IA intelligents et hyperréalistes conçus pour interagir naturellement avec les clients en plusieurs langues.",
           tags: ["Multilingue", "IA Vocale", "Avatars Virtuels"],
@@ -527,6 +527,11 @@ export const fr: Dictionary = {
         "Déploiement & Support",
       ],
       items: [
+        {
+          category: "Général & Présentation",
+          question: "Qu'est-ce que DIHUAVA et quel est son lien avec HS Global AI ?",
+          answer: "DIHUAVA est la plateforme logicielle propriétaire d'humains virtuels IA hors ligne développée par HS Global AI. Tandis que HS Global AI propose des solutions matérielles complètes—notamment des boîtes hologrammes 3D, des écrans spatiaux et des bornes interactives—DIHUAVA constitue le moteur logiciel d'IA sur l'appareil qui alimente les avatars conversationnels autonomes, l'intelligence documentaire locale (RAG) et les interactions vocales multilingues en temps réel.",
+        },
         {
           category: "Général & Présentation",
           question: "Qu'est-ce qu'un Assistant Humain Virtuel IA ?",
