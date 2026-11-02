@@ -6,12 +6,12 @@ import { ReceiptText } from "lucide-react";
 export const metadata: Metadata = {
   title: "Refund Policy",
   description:
-    "Refund policy for DIHUAVA avatar credit packs purchased from HS GLOBAL SG PTE LTD: pricing, 30-day credit expiry, automatic credit returns and refunds of unused packs.",
+    "Refund policy for DIHUAVA avatar credit packs purchased from HS GLOBAL SG PTE LTD: pricing, 30-day credit expiry, automatic credit returns for failed generations, and why credit packs are non-refundable.",
   alternates: { canonical: "https://www.hsglobalai.com/refund-policy" },
   openGraph: {
     title: "Refund Policy | HS Global AI",
     description:
-      "Refund policy for DIHUAVA avatar credit packs: 30-day expiry, automatic credit returns and refunds of unused packs.",
+      "Refund policy for DIHUAVA avatar credit packs: non-refundable, 30-day expiry, automatic credit returns for failed generations.",
     url: "https://www.hsglobalai.com/refund-policy",
     siteName: "HS Global AI",
     type: "website",
@@ -45,10 +45,10 @@ const sections: { title: string; body: string[] }[] = [
     ],
   },
   {
-    title: "5. Refunds of unused packs",
+    title: "5. Credit packs are non-refundable",
     body: [
-      "A pack from which no credits have been used can be refunded in full to the original payment method, provided the pack has not expired. Once any credits from a pack have been used, that pack is not refundable. Expired packs are not refundable.",
-      "To request a refund, email info@hsglobalai.com from the account's registered email with your organisation name, the purchase date and the payment receipt. Approved refunds are issued to the original payment method; the refunded pack's credits are removed from your account. Card refunds usually appear within 5 to 10 business days, depending on your bank.",
+      "All credit pack purchases are final. We do not refund a pack, whether or not any of its credits have been used and whether or not it has expired. Before paying, the buyer confirms in the DIHUAVA admin portal that they understand credits are non-refundable and expire 30 days after purchase.",
+      "This does not change the automatic return of credits for failed generations described in section 4. If we charged you in error, for example a duplicate payment, email info@hsglobalai.com from the account's registered email with your organisation name, the purchase date and the payment receipt, and we will refund the charge made in error to the original payment method. Card refunds usually appear within 5 to 10 business days, depending on your bank. Nothing in this policy limits any right you have under applicable law.",
     ],
   },
   {
@@ -81,7 +81,7 @@ export default function RefundPolicyPage() {
             Refund Policy
           </h1>
           <p className="mt-4 text-xs text-[var(--lp-muted)] font-mono">
-            Effective Date: October 2026 | HS GLOBAL SG PTE LTD
+            Effective Date: 2 November 2026 | HS GLOBAL SG PTE LTD
           </p>
 
           <div className="mt-12 space-y-10 text-base leading-relaxed text-[var(--lp-ink-2)] border-t border-[var(--lp-line)] pt-10">

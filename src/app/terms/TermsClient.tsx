@@ -108,7 +108,7 @@ export default function TermsClient() {
             <div>
               <h2 className="text-xl font-bold text-[var(--lp-ink)]">5A. Avatar Credits & Payments</h2>
               <p className="mt-3">
-                Avatar credits are sold in prepaid packs (100 credits for US$20, 300 credits for US$50, taxes included) and are processed by our payment provider, Airwallex. Generating or regenerating one avatar uses 100 credits. Each pack expires 30 days after purchase, and unused credits are forfeited at expiry. Credits have no cash value. Refunds, automatic credit returns for failed generations and payment disputes are handled as set out in our{" "}
+                Avatar credits are sold in prepaid packs (100 credits for US$20, 300 credits for US$50, taxes included) and are processed by our payment provider, Airwallex. Generating or regenerating one avatar uses 100 credits. Each pack expires 30 days after purchase, and unused credits are forfeited at expiry. Credits have no cash value and credit packs are non-refundable. Automatic credit returns for failed generations, charges made in error and payment disputes are handled as set out in our{" "}
                 <Link href="/refund-policy" className="text-[var(--lp-accent)] font-medium hover:underline">Refund Policy</Link>, which forms part of these Terms.
               </p>
             </div>
