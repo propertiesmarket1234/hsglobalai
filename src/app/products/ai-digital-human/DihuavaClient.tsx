@@ -565,7 +565,14 @@ export default function DihuavaClient() {
               What Is Digital Human Software and How Does DIHUAVA Operate Offline?
             </h2>
             <p className="mt-4 text-[15px] sm:text-base leading-[1.7] text-[var(--lp-ink-2)]">
-              Digital human software combines AI-powered conversation, speech recognition, speech synthesis, and a visual human avatar to enable natural, real-time interactions with people. DIHUAVA by HS Global AI is an enterprise offline AI digital human software platform designed to run its conversational and avatar-processing pipeline locally on compatible hardware. It supports on-device document intelligence, multilingual interactions, and interactive deployments such as kiosks and digital displays without requiring continuous cloud connectivity for core operation. Optional cloud-management configurations may be available for supported deployments.
+              Digital human software combines AI-powered conversation, speech recognition, speech synthesis, and a visual human avatar to enable natural, real-time interactions with people. Learn more in our detailed guide on{" "}
+              <Link
+                href={lPath("/blog/what-is-a-digital-human-avatar")}
+                className="text-[var(--lp-ink)] font-semibold underline decoration-[var(--lp-line)] underline-offset-4 hover:text-[var(--lp-accent)] transition-colors"
+              >
+                what a digital human avatar is and how AI avatars transform enterprise engagement
+              </Link>
+              . DIHUAVA by HS Global AI is an enterprise offline AI digital human software platform designed to run its conversational and avatar-processing pipeline locally on compatible hardware. It supports on-device document intelligence, multilingual interactions, and interactive deployments such as kiosks and digital displays without requiring continuous cloud connectivity for core operation. Optional cloud-management configurations may be available for supported deployments.
             </p>
           </div>
         </div>
@@ -607,7 +614,14 @@ export default function DihuavaClient() {
               On-Device AI Digital Human Architecture and Offline Processing
             </h2>
             <p className="mt-4 text-base text-[var(--lp-ink-2)]">
-              DIHUAVA is an on-device AI digital human platform engineered for offline enterprise deployment. Speech recognition, document retrieval (RAG), conversational LLM reasoning, voice synthesis, and 3D avatar rendering run locally on physical workstations—eliminating continuous cloud streaming dependencies during daily operations, while optional network connectivity remains available for initial installation, software updates, centralized fleet oversight, or mobile QR sharing.
+              DIHUAVA is an on-device AI digital human platform engineered for offline enterprise deployment. Speech recognition, document retrieval (RAG), conversational LLM reasoning, voice synthesis, and 3D avatar rendering run locally on physical workstations—eliminating continuous cloud streaming dependencies during daily operations (explore our perspective on{" "}
+              <Link
+                href={lPath("/blog/why-100-offline-ai")}
+                className="text-[var(--lp-ink)] font-semibold underline decoration-[var(--lp-line)] underline-offset-4 hover:text-[var(--lp-accent)] transition-colors"
+              >
+                why 100% offline AI is the future of enterprise technology
+              </Link>
+              ), while optional network connectivity remains available for initial installation, software updates, centralized fleet oversight, or mobile QR sharing.
             </p>
           </div>
 
@@ -881,6 +895,9 @@ export default function DihuavaClient() {
             <p className="mt-4 text-base text-[var(--lp-ink-2)]">
               DIHUAVA is designed for on-device and offline operation on compatible hardware across customer-facing environments, with optional cloud-management configurations available for multi-venue oversight. Explore how organizations apply conversational digital humans across high-traffic touchpoints.
             </p>
+            <p className="mt-4 text-sm sm:text-base leading-relaxed text-[var(--lp-ink-2)]">
+              The platform is engineered for enterprise IT leaders, customer-experience teams, retail chains, financial institutions, healthcare administrators, transit authorities, and venue operators deploying interactive kiosks or on-premise digital human assistants that require strict data locality and reliable local execution.
+            </p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -950,7 +967,14 @@ export default function DihuavaClient() {
               Offline Digital Human Platform vs. Cloud-Based Alternatives
             </h2>
             <p className="mt-4 text-base text-[var(--lp-ink-2)] max-w-2xl mx-auto">
-              Understand how local on-device processing compares with traditional cloud-dependent avatar services in privacy, network dependency, latency, and operational cost.
+              Understand how local on-device processing compares with traditional cloud-dependent avatar services in privacy, network dependency, latency, and operational cost, as examined in our technical comparison on{" "}
+              <Link
+                href={lPath("/blog/edge-ai-vs-cloud-ai")}
+                className="text-[var(--lp-ink)] font-semibold underline decoration-[var(--lp-line)] underline-offset-4 hover:text-[var(--lp-accent)] transition-colors"
+              >
+                Edge AI vs. Cloud AI infrastructure for business
+              </Link>
+              .
             </p>
           </div>
 
