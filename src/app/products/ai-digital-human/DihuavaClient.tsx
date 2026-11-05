@@ -331,6 +331,10 @@ const faqs = [
     a: "Offline AI digital human software is an on-premise application that runs conversational avatars locally on dedicated hardware without depending on a continuous cloud connection. In DIHUAVA by HS Global AI, speech recognition, language reasoning, and 3D facial animation process directly on local GPU hardware, keeping interactions responsive and sensitive corporate documents private within your facility.",
   },
   {
+    q: "What is an on-device AI digital human, and how does it differ from cloud-hosted avatars?",
+    a: "An on-device AI digital human processes supported AI workloads directly on compatible local hardware instead of depending entirely on continuous cloud processing. DIHUAVA is designed for offline, on-device operation, supporting local conversational AI, document intelligence (RAG), speech processing and digital human interactions. Optional cloud-management configurations can support centralized oversight across multiple deployments.",
+  },
+  {
     q: "Can DIHUAVA operate without a continuous internet connection?",
     a: "Yes. DIHUAVA is designed for on-device deployment where core speech recognition, document retrieval (RAG), and avatar rendering function completely offline. An active internet connection is not required for daily autonomous customer interactions, though network connectivity is used for initial installation, software updates, remote fleet management, or optional mobile QR photo sharing.",
   },
@@ -600,7 +604,7 @@ export default function DihuavaClient() {
               On-Device AI Architecture
             </span>
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-[var(--lp-ink)] md:text-4xl">
-              On-Device Processing and Offline Deployment
+              On-Device AI Digital Human Architecture and Offline Processing
             </h2>
             <p className="mt-4 text-base text-[var(--lp-ink-2)]">
               DIHUAVA is an on-device AI digital human platform engineered for offline enterprise deployment. Speech recognition, document retrieval (RAG), conversational LLM reasoning, voice synthesis, and 3D avatar rendering run locally on physical workstations—eliminating continuous cloud streaming dependencies during daily operations, while optional network connectivity remains available for initial installation, software updates, centralized fleet oversight, or mobile QR sharing.

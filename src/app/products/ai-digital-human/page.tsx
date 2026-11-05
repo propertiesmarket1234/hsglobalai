@@ -60,6 +60,7 @@ const jsonLd = {
   "alternateName": [
     "DIHUAVA AI Digital Human Platform",
     "DIHUAVA Offline Digital Human Software",
+    "On-Device AI Digital Human Software",
   ],
   "brand": {
     "@type": "Brand",
@@ -133,6 +134,15 @@ const faqJsonLd = {
         "@type": "Answer",
         "text":
           "Offline AI digital human software is an on-premise application that runs conversational avatars locally on dedicated hardware without depending on a continuous cloud connection. In DIHUAVA by HS Global AI, speech recognition, language reasoning, and 3D facial animation process directly on local GPU hardware, keeping interactions responsive and sensitive corporate documents private within your facility.",
+      },
+    },
+    {
+      "@type": "Question",
+      "name": "What is an on-device AI digital human, and how does it differ from cloud-hosted avatars?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text":
+          "An on-device AI digital human processes supported AI workloads directly on compatible local hardware instead of depending entirely on continuous cloud processing. DIHUAVA is designed for offline, on-device operation, supporting local conversational AI, document intelligence (RAG), speech processing and digital human interactions. Optional cloud-management configurations can support centralized oversight across multiple deployments.",
       },
     },
     {
