@@ -4,15 +4,15 @@ import DihuavaClient from "./DihuavaClient";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Offline AI Digital Human Software | DIHUAVA by HS Global AI",
+    absolute: "Offline AI Digital Human Software & Platform | DIHUAVA by HS Global AI",
   },
   description:
-    "Discover DIHUAVA by HS Global AI, an enterprise digital human software platform designed for offline operation, on-device document intelligence, multilingual interactions and interactive displays.",
+    "DIHUAVA by HS Global AI is an on-device AI digital human software platform running offline on local hardware with local document RAG, 29+ languages, and turnkey kiosk integration.",
   alternates: getLocalizedAlternates("/products/ai-digital-human"),
   openGraph: {
-    title: "Offline AI Digital Human Software | DIHUAVA by HS Global AI",
+    title: "Offline AI Digital Human Software & Platform | DIHUAVA by HS Global AI",
     description:
-      "Discover DIHUAVA by HS Global AI, an enterprise digital human software platform designed for offline operation, on-device document intelligence, multilingual interactions and interactive displays.",
+      "DIHUAVA by HS Global AI is an on-device AI digital human software platform running offline on local hardware with local document RAG, 29+ languages, and turnkey kiosk integration.",
     url: "https://www.hsglobalai.com/products/ai-digital-human",
     siteName: "HS Global AI",
     locale: "en_US",
@@ -20,9 +20,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Offline AI Digital Human Software | DIHUAVA by HS Global AI",
+    title: "Offline AI Digital Human Software & Platform | DIHUAVA by HS Global AI",
     description:
-      "Discover DIHUAVA by HS Global AI, an enterprise digital human software platform designed for offline operation, on-device document intelligence, multilingual interactions and interactive displays.",
+      "DIHUAVA by HS Global AI is an on-device AI digital human software platform running offline on local hardware with local document RAG, 29+ languages, and turnkey kiosk integration.",
   },
 };
 
@@ -31,9 +31,9 @@ const webPageJsonLd = {
   "@type": "WebPage",
   "@id": "https://www.hsglobalai.com/products/ai-digital-human#webpage",
   "url": "https://www.hsglobalai.com/products/ai-digital-human",
-  "name": "Offline AI Digital Human Software | DIHUAVA by HS Global AI",
+  "name": "Offline AI Digital Human Software & Platform | DIHUAVA by HS Global AI",
   "description":
-    "Discover DIHUAVA by HS Global AI, an enterprise digital human software platform designed for offline operation, on-device document intelligence, multilingual interactions and interactive displays.",
+    "DIHUAVA by HS Global AI is an on-device AI digital human software platform running offline on local hardware with local document RAG, 29+ languages, and turnkey kiosk integration.",
   "isPartOf": {
     "@type": "WebSite",
     "@id": "https://www.hsglobalai.com/#website",
@@ -61,6 +61,8 @@ const jsonLd = {
     "DIHUAVA AI Digital Human Platform",
     "DIHUAVA Offline Digital Human Software",
     "On-Device AI Digital Human Software",
+    "AI Digital Human Software",
+    "Offline AI Digital Human Software",
   ],
   "brand": {
     "@type": "Brand",
@@ -76,7 +78,7 @@ const jsonLd = {
     "Dedicated NVIDIA RTX GPU (8GB VRAM baseline recommendation; actual requirements depend on model selection, avatar resolution, and concurrent workloads)",
   "url": "https://www.hsglobalai.com/products/ai-digital-human",
   "description":
-    "DIHUAVA is an offline AI digital human software platform developed by HS Global AI for enterprise deployment with on-device processing, local RAG, and multilingual capabilities.",
+    "DIHUAVA is an on-device AI digital human software platform developed by HS Global AI for enterprise kiosks, holographic displays, and customer engagement, featuring offline execution, local RAG, and multilingual support.",
   "publisher": {
     "@type": "Organization",
     "@id": "https://www.hsglobalai.com/#organization",
@@ -129,38 +131,38 @@ const faqJsonLd = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What is offline AI digital human software?",
+      "name": "What is AI digital human software?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text":
-          "Offline AI digital human software is an on-premise application that runs conversational avatars locally on dedicated hardware without depending on a continuous cloud connection. In DIHUAVA by HS Global AI, speech recognition, language reasoning, and 3D facial animation process directly on local GPU hardware, keeping interactions responsive and sensitive corporate documents private within your facility.",
+          "AI digital human software is an application that combines conversational artificial intelligence, speech recognition, speech synthesis, and real-time 3D avatar animation to create interactive virtual human representations. These avatars interact naturally with people in physical or digital spaces, answering questions, guiding users, and delivering customer service. In DIHUAVA by HS Global AI, this software platform runs directly on local hardware for responsive, private interactions.",
       },
     },
     {
       "@type": "Question",
-      "name": "What is an on-device AI digital human, and how does it differ from cloud-hosted avatars?",
+      "name": "What is an offline AI digital human, and how does it operate on-device?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text":
-          "An on-device AI digital human processes supported AI workloads directly on compatible local hardware instead of depending entirely on continuous cloud processing. DIHUAVA is designed for offline, on-device operation, supporting local conversational AI, document intelligence (RAG), speech processing and digital human interactions. Optional cloud-management configurations can support centralized oversight across multiple deployments.",
+          "An offline AI digital human runs its core speech recognition, language model reasoning, knowledge retrieval, and avatar facial animation locally on dedicated edge hardware rather than streaming video and audio over cloud servers. DIHUAVA is designed for on-device operation, allowing interactive avatars to converse autonomously without requiring continuous internet connectivity, eliminating cloud round-trip latency, and keeping proprietary enterprise data within the local facility.",
       },
     },
     {
       "@type": "Question",
-      "name": "Can DIHUAVA operate without a continuous internet connection?",
+      "name": "How does DIHUAVA work without continuous internet connectivity?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text":
-          "Yes. DIHUAVA is designed for on-device deployment where core speech recognition, document retrieval (RAG), and avatar rendering function completely offline. An active internet connection is not required for daily autonomous customer interactions, though network connectivity is used for initial installation, software updates, remote fleet management, or optional mobile QR photo sharing.",
+          "DIHUAVA executes the complete conversational pipeline—including Voice Activity Detection (VAD), Speech-to-Text (STT), local document Retrieval-Augmented Generation (RAG), Large Language Model (LLM) reasoning, and 3D lip-sync rendering—directly on the local workstation's CPU and dedicated NVIDIA RTX GPU. Daily customer interactions operate autonomously offline. Network connectivity remains optional for initial installation, remote software updates, centralized fleet oversight, or mobile QR sharing.",
       },
     },
     {
       "@type": "Question",
-      "name": "What hardware is required to run DIHUAVA?",
+      "name": "What hardware does DIHUAVA require?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text":
-          "DIHUAVA requires a dedicated workstation or embedded PC running Windows 11 or Linux paired with a compatible NVIDIA RTX GPU. An 8GB VRAM GPU provides a baseline recommendation, while actual requirements depend on model complexity, avatar resolution, and simultaneous workloads. The system interfaces with standard directional microphone arrays, HD/4K webcams, and display outputs including HDMI or DisplayPort for kiosks, spatial displays, and 3D hologram boxes.",
+          "DIHUAVA requires a dedicated workstation or embedded industrial PC running 64-bit Windows 11 or Linux (Ubuntu 22.04 LTS), paired with a modern multi-core processor and a dedicated NVIDIA RTX GPU. An 8GB VRAM GPU provides a baseline recommendation for standard full-HD and 4K avatars; actual requirements depend on model selection, avatar complexity, and concurrent workloads. The platform connects to standard directional microphone arrays, HD/4K optical webcams, and display outputs via HDMI or DisplayPort.",
       },
     },
     {
@@ -169,16 +171,34 @@ const faqJsonLd = {
       "acceptedAnswer": {
         "@type": "Answer",
         "text":
-          "DIHUAVA supports real-time conversational interaction across 29+ global languages, including English, Mandarin, Spanish, French, German, Japanese, and Korean, along with 7 Indian regional languages (Hindi, Tamil, Telugu, Kannada, Bengali, Marathi, and Gujarati). The speech engine detects incoming spoken languages automatically on-device.",
+          "DIHUAVA supports real-time conversational interaction across 29+ global languages, including English, Mandarin, Spanish, French, German, Japanese, and Korean, along with 7 Indian regional languages (Hindi, Tamil, Telugu, Kannada, Bengali, Marathi, and Gujarati). The speech engine detects incoming spoken languages automatically on-device without relying on third-party cloud translation services.",
       },
     },
     {
       "@type": "Question",
-      "name": "Can DIHUAVA be deployed on kiosks and interactive displays?",
+      "name": "Can DIHUAVA work with interactive kiosks and holographic displays?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text":
-          "Yes. DIHUAVA is engineered specifically for physical customer presence, including interactive touchscreen kiosks, 3D Hologram Boxes (55″–86″), and glasses-free spatial displays. It supports responsive touch navigation, interactive CSV product catalogs, and optional camera-based visitor face tracking.",
+          "Yes. DIHUAVA is engineered specifically for physical enterprise presence. It integrates natively with freestanding touch kiosks, countertop totems, transparent OLED displays, and 3D Hologram Boxes (55″–86″). It supports responsive touchscreen navigation, interactive CSV product catalogs, and camera-based visitor face tracking. While HS Global AI develops the DIHUAVA software platform, compatible physical kiosks and holographic enclosures are manufactured and integrated with hardware partners such as Siddhartha Industries Private Limited.",
+      },
+    },
+    {
+      "@type": "Question",
+      "name": "Can enterprises centrally manage multiple DIHUAVA deployments?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text":
+          "Yes. While daily conversational interactions run autonomously offline on each individual kiosk or display, DIHUAVA supports optional local-area network (LAN) and cloud-connected management configurations. Enterprise administrators can remotely update knowledge documents, manage avatar assets, adjust interaction parameters, and monitor hardware health across multi-venue fleets from a centralized administrative console.",
+      },
+    },
+    {
+      "@type": "Question",
+      "name": "How does on-device processing support enterprise data locality and privacy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text":
+          "On-device processing ensures that visitor voice input, conversational queries, and confidential corporate documents remain confined to the physical edge workstation. Because language reasoning and vector document retrieval (RAG) execute locally on dedicated hardware without transmitting payloads to multi-tenant cloud APIs, organizations maintain strict data locality, avoid external data exposure risks, and satisfy on-premise data governance requirements.",
       },
     },
     {
@@ -187,7 +207,7 @@ const faqJsonLd = {
       "acceptedAnswer": {
         "@type": "Answer",
         "text":
-          "DIHUAVA uses an on-device Retrieval-Augmented Generation (RAG) engine with two-stage cross-encoder re-ranking. Rather than relying on unconstrained web generation, answers are grounded in imported enterprise documents (PDFs, CSVs, TXT, Markdown). If a visitor asks an inquiry not covered in the verified materials, the avatar politely declines to answer rather than inventing unverified claims.",
+          "DIHUAVA incorporates an on-device Retrieval-Augmented Generation (RAG) engine with two-stage cross-encoder re-ranking. Rather than relying on unconstrained generative output, answers are strictly grounded in imported enterprise documents (PDFs, CSV product catalogs, TXT, and Markdown). If a visitor asks a question not addressed in the verified source materials, the avatar politely indicates that the information is unavailable rather than inventing unverified claims.",
       },
     },
     {
@@ -196,7 +216,7 @@ const faqJsonLd = {
       "acceptedAnswer": {
         "@type": "Answer",
         "text":
-          "Cloud-based platforms stream video and audio over public WAN connections, which introduces network round-trip latency, recurring API costs, and external data transmission risks. In contrast, DIHUAVA processes voice and knowledge retrieval locally on edge hardware to keep sensitive data on-premise. On-premise deployment can avoid recurring cloud API usage charges. Software licensing, maintenance, updates, and support terms depend on the agreed commercial package.",
+          "Cloud-based digital human platforms stream audio and video over public internet connections using WebRTC, introducing variable network latency, recurring per-minute API fees, and external data residency risks. In contrast, DIHUAVA runs its conversational pipeline locally on edge hardware, ensuring low-latency interaction, consistent performance during internet outages, and complete on-premise data security. On-premise deployment avoids recurring cloud API usage fees for daily conversations, with software licensing and maintenance tailored to the enterprise agreement.",
       },
     },
     {
@@ -205,7 +225,7 @@ const faqJsonLd = {
       "acceptedAnswer": {
         "@type": "Answer",
         "text":
-          "Enterprises can schedule a live demonstration or request hardware and licensing pricing by visiting our contact page or downloading engineering datasheets from our download center. Our technical team works with you to determine the right hardware specifications, avatar styling, and domain knowledge integration for your venue.",
+          "Enterprises can schedule a live demonstration or request hardware and licensing pricing by contacting our engineering team at sales@hsglobalai.com or through our contact page. HS Global AI provides tailored deployments based on hardware selection, language requirements, and venue deployment scale.",
       },
     },
   ],
