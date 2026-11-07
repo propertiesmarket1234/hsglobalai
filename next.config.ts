@@ -82,6 +82,98 @@ const nextConfig: NextConfig = {
         destination: "/products/ai-digital-human",
         permanent: true,
       },
+      // Legacy Core & Hardware Slugs
+      {
+        source: "/holographic-ai-avatar",
+        destination: "/products/holographic-display",
+        permanent: true,
+      },
+      {
+        source: "/contact-us",
+        destination: "/contact",
+        permanent: true,
+      },
+      {
+        source: "/about-us",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/faqs",
+        destination: "/faq",
+        permanent: true,
+      },
+      {
+        source: "/spatial-display",
+        destination: "/products/spatial-display",
+        permanent: true,
+      },
+      {
+        source: "/digital-human",
+        destination: "/products/ai-digital-human",
+        permanent: true,
+      },
+      {
+        source: "/use-cases",
+        destination: "/industries",
+        permanent: true,
+      },
+      {
+        source: "/download-center",
+        destination: "/contact/download-center",
+        permanent: true,
+      },
+      {
+        source: "/privacy-policy",
+        destination: "/privacy",
+        permanent: true,
+      },
+      // Legacy Blog Articles
+      {
+        source: "/ai-retail-digital-human-avatars",
+        destination: "/blog/how-ai-in-retail",
+        permanent: true,
+      },
+      {
+        source: "/multilingual-ai-global-business",
+        destination: "/blog/multilingual-ai",
+        permanent: true,
+      },
+      {
+        source: "/digital-human-avatar-ai",
+        destination: "/blog/what-is-a-digital-human-avatar",
+        permanent: true,
+      },
+      {
+        source: "/ai-for-business-ai-avatar-2026",
+        destination: "/blog/ai-for-business",
+        permanent: true,
+      },
+      {
+        source: "/ai-product-catalog-smart-selling",
+        destination: "/blog/ai-product-catalogue",
+        permanent: true,
+      },
+      {
+        source: "/offline-ai-enterprise-security",
+        destination: "/blog/why-100-offline-ai",
+        permanent: true,
+      },
+      {
+        source: "/ai-in-healthcare-digital-assistants",
+        destination: "/blog/ai-patient-triage-healthcare-guidance",
+        permanent: true,
+      },
+      {
+        source: "/ai-business-automation-efficiency",
+        destination: "/blog/ai-business-automation",
+        permanent: true,
+      },
+      {
+        source: "/edge-ai-vs-cloud-ai-enterprise-applications",
+        destination: "/blog/edge-ai-vs-cloud-ai",
+        permanent: true,
+      },
     ];
   },
 };
