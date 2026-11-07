@@ -691,7 +691,7 @@ A digital human avatar is an advanced form of virtual assistant AI that delivers
 - Respond intelligently using AI and local [document intelligence](/products/ai-digital-human/document-intelligence)
 - Display emotions and expressions (in advanced systems)
 
-These avatars are typically deployed on interactive displays such as kiosks, [3D Hologram Boxes](/products/holographic-display), and [3D Volumetric Spatial Displays](/products/spatial-display), enabling real-time conversations with users. Learn more about the core **[DIHUAVA AI Digital Human platform](/products/ai-digital-human)**.
+These avatars are typically deployed on interactive displays such as kiosks, [3D Hologram Boxes](/products/holographic-display), and [3D Volumetric Spatial Displays](/products/spatial-display), enabling real-time conversations with users. Learn more about [DIHUAVA, our offline AI digital human software platform](/products/ai-digital-human).
 
 ---
 
@@ -742,11 +742,12 @@ Engages customers in multiple languages effortlessly.
 | **Visual Engine** | Displays avatar on screen |
 
 ### Advanced Capability
-Enterprise solutions like **[DIHUAVA digital human software](/products/ai-digital-human)** offer:
-- 100% on-device processing
-- Zero cloud dependency
-- High data privacy
-- Faster response times
+
+Enterprise solutions like the [DIHUAVA AI digital human platform](/products/ai-digital-human) offer:
+- 100% offline on-device processing by default
+- Cloud-independent daily visitor interactions
+- Optional cloud-management configurations for fleets
+- High data privacy through on-device processing
 
 ---
 

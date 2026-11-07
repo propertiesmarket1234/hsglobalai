@@ -114,7 +114,7 @@ export default function Footer() {
             </h3>
             <div className="flex flex-col gap-2.5 text-[14px] text-[var(--lp-ink-2)]">
               <Link href={lPath("/products/ai-digital-human")} className="hover:text-[var(--lp-ink)] transition-colors">
-                AI Digital Humans
+                AI Digital Human Software
               </Link>
               <Link href={lPath("/products/holographic-display")} className="hover:text-[var(--lp-ink)] transition-colors">
                 3D Hologram Box
