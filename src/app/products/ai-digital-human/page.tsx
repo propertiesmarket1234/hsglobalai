@@ -64,9 +64,21 @@ const jsonLd = {
     "Offline AI Digital Human Software",
     "AI Digital Human Software Platform",
     "Enterprise Digital Human Software",
+    "On-Device AI Digital Human",
+    "AI Digital Human Platform",
   ],
   "brand": {
     "@type": "Brand",
+    "name": "HS Global AI",
+  },
+  "manufacturer": {
+    "@type": "Organization",
+    "@id": "https://www.hsglobalai.com/#organization",
+    "name": "HS Global AI",
+  },
+  "creator": {
+    "@type": "Organization",
+    "@id": "https://www.hsglobalai.com/#organization",
     "name": "HS Global AI",
   },
   "image":
@@ -193,6 +205,15 @@ const faqJsonLd = {
         "@type": "Answer",
         "text":
           "DIHUAVA utilizes an on-device Retrieval-Augmented Generation (RAG) engine with two-stage cross-encoder re-ranking. Responses are strictly grounded in verified local corporate documents (PDFs, CSVs, TXT, and Markdown). If a visitor asks a question not covered in the local knowledge base, the avatar politely indicates that the information is unavailable rather than inventing unverified claims. Because vector processing executes locally, confidential enterprise data never leaves the facility.",
+      },
+    },
+    {
+      "@type": "Question",
+      "name": "Can DIHUAVA be deployed as an AI digital human teacher or educational assistant?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text":
+          "Yes. DIHUAVA is designed for deployment across universities, K-12 schools, and corporate academies as an interactive AI digital human teacher and campus assistant. Operating on interactive kiosks or life-size 3D hologram boxes, the avatar can ingest approved textbook PDFs, campus directories, and syllabus materials via on-device RAG to answer student inquiries and conduct multilingual conversational practice 100% offline without compromising institutional data privacy.",
       },
     },
   ],

@@ -42,7 +42,7 @@ export const industriesData: Record<string, IndustryDetail> = {
     description:
       "Transform branch experiences with 3D hologram AI bankers for customer onboarding, loan explanations, queue handling, account inquiries, and multilingual financial advisory – delivering secure, interactive banking journeys.",
     heroOverview:
-      "HS Global AI provides AI Digital Human and holographic solutions for banking and financial services, supporting customer-facing experiences such as branch reception, visitor guidance, multilingual assistance, and interactive financial information. DIHUAVA provides the AI Digital Human software layer, while supported holographic and spatial display hardware provides the physical experience. Systems deploy 100% offline, air-gapped digital human avatars in bank VIP lounges, wealth management centers, and retail branches to execute instant account inquiries, loan application guidance, compliance disclosure reviews, and multilingual client service locally on on-premise hardware.",
+      "HS Global AI provides AI Digital Human and holographic solutions for banking and financial services, supporting customer-facing experiences such as branch reception, visitor guidance, multilingual assistance, and interactive financial information. Powered by the [enterprise digital human software platform](/products/ai-digital-human), DIHUAVA provides the AI conversational software layer, while supported holographic and spatial display hardware provides the physical experience. Systems deploy 100% offline, air-gapped digital human avatars in bank VIP lounges, wealth management centers, and retail branches to execute instant account inquiries, loan application guidance, compliance disclosure reviews, and multilingual client service locally on on-premise hardware.",
     accentColor: "from-cyan-500/20 via-sky-500/10 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.3)",
     metrics: [
@@ -323,7 +323,7 @@ export const industriesData: Record<string, IndustryDetail> = {
     description:
       "Enhance front-desk operations with digital receptionists, visitor management holograms, employee onboarding guides, and enterprise-grade AI assistants for HR, IT, and internal corporate communications.",
     heroOverview:
-      "HS Global AI provides AI Digital Human receptionists and 3D holographic display solutions for corporate headquarters, enterprise lobbies, and HR departments. Powered by the DIHUAVA AI platform, systems support visitor registration, badge printing, workplace wayfinding, and employee information assistance through on-device processing.",
+      "HS Global AI provides AI Digital Human receptionists and 3D holographic display solutions for corporate headquarters, enterprise lobbies, and HR departments. Powered by the [DIHUAVA offline AI digital human software platform](/products/ai-digital-human), systems support visitor registration, badge printing, workplace wayfinding, and employee information assistance through on-device processing.",
     accentColor: "from-cyan-500/20 via-sky-500/10 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.3)",
     metrics: [
@@ -464,7 +464,7 @@ export const industriesData: Record<string, IndustryDetail> = {
     description:
       "Deploy AI Digital Humans on 3D Hologram Boxes or Spatial Displays for patient reception, hospital wayfinding, appointment guidance, patient intake support, and pre/post-op care explanations with 100% patient data privacy.",
     heroOverview:
-      "Support patients, families, and visitors across hospitals, clinics, and medical centers with empathetic digital human assistants. Provide instant hospital wayfinding, patient intake and triage support, appointment scheduling, and multilingual care instructions. Powered by DIHUAVA, all interactions run 100% offline on-device by default, preserving patient health data privacy with zero cloud data leakage.",
+      "Support patients, families, and visitors across hospitals, clinics, and medical centers with digital human assistants. Provide hospital wayfinding, administrative patient intake assistance, appointment scheduling, and visiting guidelines. Powered by the on-device AI digital human platform, all interactions run 100% offline on-device by default, maintaining patient data privacy without transmitting data to public cloud servers.",
     accentColor: "from-cyan-500/20 via-sky-500/10 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.3)",
     metrics: [
@@ -760,7 +760,7 @@ export const industriesData: Record<string, IndustryDetail> = {
     description:
       "Deliver immersive learning experiences using AI Digital Human tutors, campus guides, virtual science lab assistants, and 3D hologram instructors for schools, universities, and corporate academies.",
     heroOverview:
-      "HS Global AI provides AI Digital Human and 3D holographic display solutions for educational institutions, supporting campus orientation, multilingual student guidance, virtual science lab walkthroughs, and interactive learning assistance. The DIHUAVA AI platform powers real-time spoken dialogue and on-device document intelligence (RAG), while supported 3D Hologram Boxes and Spatial Displays provide physical volumetric visualization for classrooms and student centers.",
+      "HS Global AI provides AI Digital Human and 3D holographic display solutions for educational institutions, supporting campus orientation, multilingual student guidance, virtual science lab walkthroughs, and interactive learning assistance. The [offline AI digital human software platform](/products/ai-digital-human) powers real-time spoken dialogue, curriculum RAG, and 3D holographic teachers, while supported 3D Hologram Boxes and Spatial Displays provide physical volumetric visualization for classrooms and student centers.",
     accentColor: "from-cyan-500/20 via-sky-500/10 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.3)",
     metrics: [

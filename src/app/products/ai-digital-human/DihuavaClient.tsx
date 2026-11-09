@@ -354,6 +354,10 @@ const faqs = [
     q: "How does on-device document RAG prevent hallucinations and maintain enterprise data privacy?",
     a: "DIHUAVA utilizes an on-device Retrieval-Augmented Generation (RAG) engine with two-stage cross-encoder re-ranking. Responses are strictly grounded in verified local corporate documents (PDFs, CSVs, TXT, and Markdown). If a visitor asks a question not covered in the local knowledge base, the avatar politely indicates that the information is unavailable rather than inventing unverified claims. Because vector processing executes locally, confidential enterprise data never leaves the facility.",
   },
+  {
+    q: "Can DIHUAVA be deployed as an AI digital human teacher or educational assistant?",
+    a: "Yes. DIHUAVA is designed for deployment across universities, K-12 schools, and corporate academies as an interactive AI digital human teacher and campus assistant. Operating on interactive kiosks or life-size 3D hologram boxes, the avatar can ingest approved textbook PDFs, campus directories, and syllabus materials via on-device RAG to answer student inquiries and conduct multilingual conversational practice 100% offline without compromising institutional data privacy.",
+  },
 ];
 
 // ENTERPRISE USE CASES
@@ -420,15 +424,15 @@ const enterpriseUseCases = [
   },
   {
     id: "education",
-    industry: "Education and Public Institutions",
-    headline: "Campus Information & Service Navigation",
+    industry: "Education and Campus Learning",
+    headline: "Campus Information & AI Digital Human Teacher Solutions",
     challenge:
-      "University campuses, civic centers, and public libraries handle repetitive inquiries regarding department office hours, registration deadlines, facility locations, and public service paperwork.",
+      "University campuses, school districts, and training academies handle high volumes of repetitive inquiries regarding course schedules, department offices, lab procedures, and campus navigation, stretching administrative staff.",
     application:
-      "Placed in student centers, libraries, and public service lobbies, DIHUAVA assists students and citizens by answering frequent procedural questions, displaying interactive facility directories, and clarifying documentation steps reliably on local venue hardware.",
+      "Placed in student centers, libraries, and science foyers—or projected as life-size holographic teachers inside 3D hologram boxes—DIHUAVA assists students by answering curriculum and orientation questions, explaining lab guidelines via on-device RAG, and providing 29+ language practice 100% offline without exposing student data to public cloud servers.",
     icon: GraduationCap,
     href: "/industries/education",
-    ctaText: "Explore Education & Public Institutions",
+    ctaText: "Explore Education & Campus Solutions",
   },
 ];
 
@@ -477,7 +481,7 @@ export default function DihuavaClient() {
               </h1>
 
               <p className="mt-5 text-[16px] leading-[1.65] text-[var(--lp-ink-2)] sm:text-[18px]">
-                DIHUAVA is an on-device AI digital human software platform developed by HS Global AI for interactive kiosks, holographic displays, and enterprise customer service. Engineered for complete local execution, DIHUAVA runs speech recognition, document retrieval (RAG), language model reasoning, and 3D avatar lip-sync 100% offline on dedicated venue hardware, with optional network configurations available for centralized multi-location fleet management.
+                DIHUAVA is the proprietary on-device AI digital human software platform developed by HS Global AI for interactive kiosks, holographic displays, and enterprise customer service. Engineered for complete local execution, DIHUAVA runs speech recognition, document retrieval (RAG), conversational language reasoning, and 3D avatar lip-sync 100% offline on dedicated venue hardware, with optional network configurations available for centralized multi-location fleet management.
               </p>
 
               {/* ACTION BUTTONS */}
@@ -564,7 +568,7 @@ export default function DihuavaClient() {
               >
                 what a digital human avatar is and how AI avatars transform enterprise engagement
               </Link>
-              . DIHUAVA by HS Global AI is an enterprise on-device AI digital human software platform engineered to execute its conversational intelligence pipeline locally on compatible edge hardware. It delivers on-device document intelligence (RAG), real-time multilingual interaction, and turnkey physical deployments across interactive touch kiosks and spatial displays without requiring continuous cloud connectivity during daily operations.
+              . DIHUAVA by HS Global AI is an enterprise on-device AI digital human software platform engineered to execute its conversational intelligence pipeline locally on compatible edge hardware. As a comprehensive AI digital human platform, it delivers on-device document intelligence (RAG), real-time multilingual interaction across 29+ languages, and turnkey physical deployments across interactive touch kiosks and spatial displays without requiring continuous cloud connectivity during daily operations.
             </p>
           </div>
         </div>
@@ -882,13 +886,13 @@ export default function DihuavaClient() {
               Industry Deployments
             </span>
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-[var(--lp-ink)] md:text-4xl">
-              Enterprise Use Cases for DIHUAVA
+              Enterprise Digital Human Software &amp; Industry Deployments
             </h2>
             <p className="mt-4 text-base text-[var(--lp-ink-2)]">
-              DIHUAVA is designed for on-device and offline operation on compatible hardware across customer-facing environments, with optional cloud-management configurations available for multi-venue oversight. Explore how organizations apply conversational digital humans across high-traffic touchpoints.
+              DIHUAVA is designed for on-device and offline operation on compatible hardware across customer-facing environments, with optional cloud-management configurations available for multi-venue oversight. Explore how organizations deploy enterprise digital human software across high-traffic touchpoints.
             </p>
             <p className="mt-4 text-sm sm:text-base leading-relaxed text-[var(--lp-ink-2)]">
-              The platform is engineered for enterprise IT leaders, customer-experience teams, retail chains, financial institutions, healthcare administrators, transit authorities, and venue operators deploying interactive kiosks or on-premise digital human assistants that require strict data locality and reliable local execution.
+              The platform is engineered for enterprise IT leaders, customer-experience teams, retail chains, financial institutions, healthcare administrators, transit authorities, university campus managers, and venue operators deploying interactive kiosks or on-premise digital human assistants that require strict data locality and reliable local execution.
             </p>
           </div>
 
@@ -956,7 +960,7 @@ export default function DihuavaClient() {
               Platform Comparison
             </span>
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-[var(--lp-ink)] md:text-4xl">
-              Offline Digital Human Platform vs. Cloud-Based Alternatives
+              Offline AI Digital Human Platform vs. Cloud-Based Alternatives
             </h2>
             <p className="mt-4 text-base text-[var(--lp-ink-2)] max-w-2xl mx-auto">
               Understand how local on-device processing compares with traditional cloud-dependent avatar services in privacy, network dependency, latency, and operational cost, as examined in our technical comparison on{" "}
