@@ -182,7 +182,7 @@ export const industriesData: Record<string, IndustryDetail> = {
     description:
       "Engage shoppers with holographic brand ambassadors, smart product explainers, Virtual Try-On mirrors, and interactive promotional displays designed to boost in-store footfall and checkout conversion rates.",
     heroOverview:
-      "HS Global AI provides AI Digital Human and 3D holographic display solutions for commercial retail environments, supporting in-store experiences such as brand ambassador presentations, interactive product catalog displays, smart mirror visualization, and multilingual customer assistance. DIHUAVA provides the AI Digital Human software layer, while 3D Hologram Boxes and ultra-slim Spatial Displays provide the physical display hardware.",
+      "HS Global AI provides AI Digital Human and 3D holographic display solutions for commercial retail environments, supporting in-store experiences such as brand ambassador presentations, interactive product catalog displays, smart mirror visualization, and multilingual customer assistance. The [offline AI digital human software platform](/products/ai-digital-human) provides the conversational software layer, while 3D Hologram Boxes and ultra-slim Spatial Displays provide the physical display hardware.",
     accentColor: "from-cyan-500/20 via-sky-500/10 to-transparent",
     accentGlow: "rgba(6, 182, 212, 0.3)",
     metrics: [

@@ -231,7 +231,7 @@ export const platformData: Record<string, PlatformPageData> = {
     icon: FileText,
     overviewHeading: "High-Precision Local Retrieval Stack with Cross-Encoder Architecture",
     overviewParagraphs: [
-      "Developed by HS Global AI, the DIHUAVA Document Intelligence pipeline gives [on-device AI digital humans](/products/ai-digital-human) an exact, verifiable corporate memory grounded in local enterprise documents. Documents are chunked and embedded locally, retrieved via vector similarity search, and then re-ranked by an on-device cross-encoder before the answer is generated.",
+      "Developed by HS Global AI, the DIHUAVA Document Intelligence pipeline gives the [DIHUAVA offline AI digital human software platform](/products/ai-digital-human) an exact, verifiable corporate memory grounded in local enterprise documents. Documents are chunked and embedded locally, retrieved via vector similarity search, and then re-ranked by an on-device cross-encoder before the answer is generated.",
       "The cross-encoder re-ranker solves the critical accuracy flaw of standard vector search. It evaluates passage relevance in context, ensuring cross-language questions (e.g. asking a question in Hindi about an English PDF manual) retrieve exact, truthful answers. If a question is not covered in your documents, our grounding guard ensures the avatar politely declines to answer rather than hallucinating details.",
     ],
     specs: [

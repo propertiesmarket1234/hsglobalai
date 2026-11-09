@@ -420,7 +420,7 @@ The speech recognition module analyzes the visitor's initial spoken words with r
 
 The retail industry is undergoing a major technological transformation with the adoption of **AI in retail**. Businesses are now using AI-powered solutions to enhance customer engagement, improve sales, and deliver personalized in-store experiences.
 
-One of the most impactful innovations leading this change is the use of [DIHUAVA AI Digital Humans](/products/ai-digital-human) as intelligent sales assistants. DIHUAVA runs 100% offline on-device by default, with optional cloud-management configurations available.
+One of the most impactful innovations leading this change is the deployment of [AI digital human software for retail kiosks](/products/ai-digital-human) using DIHUAVA. DIHUAVA runs 100% offline on-device by default, with optional cloud-management configurations available.
 
 ---
 
@@ -548,7 +548,7 @@ Ready to bring AI digital human avatars to your retail stores or shopping center
 
 As businesses increasingly adopt artificial intelligence across physical and digital customer touchpoints, concerns around AI data privacy, security compliance, and system reliability are becoming critical. This is where offline AI is emerging as a game-changing enterprise solution.
 
-Unlike traditional cloud-based AI systems that transmit sensitive audio, video, and customer text across external public networks, offline AI processes data directly on local edge hardware—offering total data control, Low Latency, and enhanced air-gapped security. DIHUAVA runs 100% offline on-device by default, with optional cloud-management configurations available.
+Unlike traditional cloud-based AI systems that transmit sensitive audio, video, and customer text across external public networks, offline AI processes data directly on local edge hardware—offering total data control, Low Latency, and enhanced air-gapped security. DIHUAVA serves as an [on-device AI digital human platform](/products/ai-digital-human) that runs 100% offline on-device by default, with optional cloud-management configurations available.
 
 ---
 
@@ -1244,7 +1244,7 @@ It is important to distinguish between three operational tiers:
 2. **Multi-Unit AI Network**: A cluster of physical AI displays operating within a single facility or campus, sharing local network infrastructure but managed independently.
 3. **Enterprise AI Display Fleet**: A multi-location deployment spanning tens or hundreds of retail stores, bank branches, or medical centers, managed via a centralized control framework for remote content pushes, persona alignment, and system health oversight.
 
-While software-only chatbots exist entirely in the cloud, physical AI display fleets require managing both the **AI software platform** (conversational intelligence, avatar persona, local RAG knowledge) and the **physical hardware environment** (edge GPU computing units, optical sensors, directional microphones, and spatial display enclosures).
+While software-only chatbots exist entirely in the cloud, physical AI display fleets require managing both the [enterprise digital human software](/products/ai-digital-human) platform (conversational intelligence, avatar persona, local RAG knowledge) and the **physical hardware environment** (edge GPU computing units, optical sensors, directional microphones, and spatial display enclosures).
 
 ---
 

@@ -123,6 +123,34 @@ export async function generateMetadata({ params }: IndustryPageProps): Promise<M
   };
 }
 
+/** Helper function to parse bold markdown text (**text**) and inline links ([text](url)) */
+function renderFormattedText(text: string, lPath: (p: string) => string) {
+  const parts = text.split(/(\*\*.*?\*\*|\[.*?\]\(.*?\))/g);
+  return parts.map((part, index) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={index} className="font-semibold text-[var(--lp-ink)]">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    if (part.startsWith("[") && part.includes("](") && part.endsWith(")")) {
+      const linkText = part.substring(1, part.indexOf("]("));
+      const linkHref = part.substring(part.indexOf("](") + 2, part.length - 1);
+      return (
+        <Link
+          key={index}
+          href={lPath(linkHref)}
+          className="text-[var(--lp-accent)] font-semibold underline decoration-[var(--lp-line)] underline-offset-4 hover:text-[var(--lp-accent-ink)] transition-colors"
+        >
+          {linkText}
+        </Link>
+      );
+    }
+    return part;
+  });
+}
+
 export default async function IndustrySubPage({ params }: IndustryPageProps) {
   const { slug, lang = "en" } = await params;
   const industry = getLocalizedIndustryData(slug, lang);
@@ -259,7 +287,7 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
               </p>
 
               <p className="mt-5 text-[16px] leading-[1.65] text-[var(--lp-ink-2)] sm:text-[18px] max-w-2xl">
-                {industry.heroOverview}
+                {renderFormattedText(industry.heroOverview, (p) => lang === "en" ? p : `/${lang}${p}`)}
               </p>
 
               {/* Supported Platforms Link Strip */}
