@@ -125,6 +125,15 @@ export default function Footer() {
               <Link href={lPath("/products")} className="hover:text-[var(--lp-ink)] transition-colors text-xs text-[var(--lp-accent-ink)] font-semibold pt-1">
                 All Products Overview →
               </Link>
+              <a
+                href="https://www.g2.com/products/dihuava/reviews"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[var(--lp-accent)] transition-colors inline-flex items-center gap-1 text-[13px] text-[var(--lp-ink-2)] pt-0.5"
+              >
+                <span>DIHUAVA on G2</span>
+                <span className="text-[10px] text-[var(--lp-muted)]">↗</span>
+              </a>
             </div>
           </div>
 

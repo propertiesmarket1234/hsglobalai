@@ -519,6 +519,15 @@ export default function DihuavaClient() {
                   <Sparkles className="h-3 w-3 text-[var(--lp-accent)]" />
                   Live Cartoon Mode
                 </span>
+                <a
+                  href="https://www.g2.com/products/dihuava/reviews"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-[var(--lp-card)] px-3 py-1 text-xs font-medium text-[var(--lp-ink)] shadow-2xs hover:border-[var(--lp-accent)] hover:text-[var(--lp-accent)] transition-colors"
+                >
+                  <span>DIHUAVA on G2</span>
+                  <span className="text-[10px] text-[var(--lp-muted)]">↗</span>
+                </a>
               </div>
             </div>
 

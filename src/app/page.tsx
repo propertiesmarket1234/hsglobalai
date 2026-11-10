@@ -19,6 +19,9 @@ const dihuavaSoftwareSchema = {
   applicationCategory: "BusinessApplication",
   operatingSystem: "Cross-platform",
   url: "https://www.hsglobalai.com/products/ai-digital-human",
+  sameAs: [
+    "https://www.g2.com/products/dihuava/reviews"
+  ],
   description:
     "DIHUAVA is a proprietary AI Digital Human software platform running 100% offline on-device by default, featuring real-time talking avatars, multilingual speech synthesis across 29+ global languages and 7 Indian regional languages, and local document intelligence RAG.",
   publisher: {

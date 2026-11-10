@@ -71,6 +71,9 @@ const jsonLd = {
     "@type": "Brand",
     "name": "HS Global AI",
   },
+  "sameAs": [
+    "https://www.g2.com/products/dihuava/reviews"
+  ],
   "manufacturer": {
     "@type": "Organization",
     "@id": "https://www.hsglobalai.com/#organization",
