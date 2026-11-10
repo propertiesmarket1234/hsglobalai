@@ -548,7 +548,7 @@ Ready to bring AI digital human avatars to your retail stores or shopping center
 
 As businesses increasingly adopt artificial intelligence across physical and digital customer touchpoints, concerns around AI data privacy, security compliance, and system reliability are becoming critical. This is where offline AI is emerging as a game-changing enterprise solution.
 
-Unlike traditional cloud-based AI systems that transmit sensitive audio, video, and customer text across external public networks, offline AI processes data directly on local edge hardware—offering total data control, Low Latency, and enhanced air-gapped security. DIHUAVA serves as an [on-device AI digital human platform](/products/ai-digital-human) that runs 100% offline on-device by default, with optional cloud-management configurations available.
+Unlike traditional cloud-based AI systems that transmit sensitive audio, video, and customer text across external public networks, offline AI processes data directly on local edge hardware—offering total data control, Low Latency, and enhanced air-gapped security. DIHUAVA serves as proprietary [offline AI digital human software](/products/ai-digital-human) that runs 100% offline on-device by default, with optional cloud-management configurations available.
 
 ---
 
@@ -651,11 +651,11 @@ Offline AI is not just a temporary trend—it is the foundational future of ente
 
 ---
 
-## Upgrade to 100% Offline AI
+## Deploying Offline AI in Your Enterprise
 
-Want to secure your customer interactions and upgrade your enterprise to air-gapped on-device AI?
+For physical facilities requiring high-trust customer interaction with complete data privacy, [DIHUAVA Offline AI Digital Human Software](/products/ai-digital-human) delivers secure, on-premise digital human deployments for interactive touch kiosks, spatial displays, and 3D hologram enclosures. Operating 100% offline on local hardware, DIHUAVA combines conversational intelligence, local document retrieval, and natural avatar animation without external cloud exposure.
 
-[Contact HS Global AI today to book a demo and explore our 100% offline AI solutions](/contact)`,
+Explore [DIHUAVA Offline AI Digital Human Software](/products/ai-digital-human) or [contact our engineering team](/contact) to schedule an on-premise demonstration.`,
     },
     {
         id: "8",
@@ -868,7 +868,7 @@ AI Digital Humans provide interactive, spoken, and visual wayfinding directions.
 
 Patients and family members frequently require clear information regarding administrative procedures, visiting hours, facility policies, and care preparation guidelines. 
 
-Using **[On-Device Document RAG (Retrieval-Augmented Generation)](/products/ai-digital-human/document-intelligence)**, the **[DIHUAVA AI Digital Human Platform](/products/ai-digital-human)** instantly indexes and searches verified hospital information sheets, patient intake forms, and care pamphlets. The avatar delivers accurate, brand-safe answers to administrative queries without offering unauthorized medical treatment advice.
+Using [On-Device Document RAG (Retrieval-Augmented Generation)](/products/ai-digital-human/document-intelligence), the [DIHUAVA offline AI digital human software](/products/ai-digital-human) instantly indexes and searches verified hospital information sheets, patient intake forms, and care pamphlets. The avatar delivers accurate, brand-safe answers to administrative queries without offering unauthorized medical treatment advice.
 
 ### 4. Multilingual Patient Interaction
 
@@ -956,11 +956,11 @@ AI Digital Human assistants can be deployed across core physical touchpoints in 
 
 ## How DIHUAVA Supports Healthcare Environments
 
-**DIHUAVA** provides the AI Digital Human software platform powering conversational interactions, local document intelligence, and multilingual voice synthesis. Engineered for Low Latency performance, DIHUAVA turns physical spatial displays into intelligent, interactive healthcare assistants.
+[DIHUAVA Offline AI Digital Human Software](/products/ai-digital-human) provides the on-premise software platform powering conversational interactions, local document intelligence, and multilingual voice synthesis for healthcare facilities. Engineered for Low Latency performance, DIHUAVA turns physical kiosks and interactive displays into helpful, non-clinical healthcare assistants.
 
 > "DIHUAVA runs 100% offline on-device by default, with optional cloud-management configurations available."
 
-Whether deployed on a compact **[AI Spatial Display](/products/spatial-display)** or a life-size **[3D Hologram Box](/products/holographic-display)**, DIHUAVA delivers reliable, Low Latency interaction while preserving complete data privacy.
+Whether deployed on an interactive touch kiosk, a compact [AI Spatial Display](/products/spatial-display), or a life-size [3D Hologram Box](/products/holographic-display), DIHUAVA delivers reliable, real-time conversational interaction while keeping all patient data confined strictly to local edge hardware.
 
 ---
 
@@ -998,9 +998,18 @@ No. Clinical decisions and treatment recommendations remain strictly under the a
 
 ---
 
-## Ready to Elevate Your Healthcare Patient Experience?
+## Deploying Healthcare Kiosk Assistance
 
-Bring 100% offline AI Digital Humans to your hospital reception desks, outpatient clinics, and medical facilities.
+Hospitals and outpatient clinics deploy [DIHUAVA Offline AI Digital Human Software](/products/ai-digital-human) to assist patients across high-traffic facilities. Operating 100% offline on local physical hardware, DIHUAVA supports essential non-clinical reception workflows:
+
+- **Hospital Information & Policy Inquiries:** Answering routine questions regarding visiting hours, parking, admissions, and departmental procedures via local document RAG.
+- **Visual & Spoken Wayfinding:** Guiding visitors step-by-step through multi-building campuses, diagnostic labs, and radiology suites in 29+ languages.
+- **Appointment Assistance & Reception Routing:** Helping arriving patients check appointment counters and directing queues to the correct administrative desk.
+- **Non-Clinical Intake Support:** Streamlining preliminary administrative registration and intake paperwork without collecting clinical triage determinations.
+
+*Important Boundary:* DIHUAVA is designed exclusively for non-clinical administrative and navigational assistance. It does not perform medical diagnosis, symptom triage, medication prescribing, or clinical decision-making, which remain strictly under the authority of licensed healthcare professionals.
+
+Learn more about deploying [DIHUAVA Offline AI Digital Human Software](/products/ai-digital-human) for your healthcare facility.
 
 [CTA_BLOCK_BOTTOM]`,
     },
