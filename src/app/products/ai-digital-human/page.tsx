@@ -189,7 +189,7 @@ const faqJsonLd = {
       "acceptedAnswer": {
         "@type": "Answer",
         "text":
-          "Cloud-based digital human platforms stream audio and video over the public internet, introducing variable network latency, recurring per-minute usage fees, and external data residency risks. In contrast, DIHUAVA runs on-premise on dedicated edge hardware, ensuring zero cloud dependency during daily operations, predictable licensing costs, and complete corporate data locality.",
+          "Cloud-based digital human platforms stream audio and video over the public internet, introducing variable network latency, recurring per-minute usage fees, and external data residency risks. In contrast, DIHUAVA runs on-premise on dedicated edge hardware, avoiding recurring cloud API usage charges while keeping daily voice and document processing local; software licensing, maintenance, updates, and support terms depend on the agreed commercial package.",
       },
     },
     {
@@ -198,16 +198,16 @@ const faqJsonLd = {
       "acceptedAnswer": {
         "@type": "Answer",
         "text":
-          "Yes. While daily conversational interactions execute autonomously offline on each individual display, DIHUAVA supports optional local-area network (LAN) and secure cloud-management configurations. Enterprise administrators can remotely update knowledge documents, manage avatar assets, adjust interaction parameters, and monitor hardware health across multi-location fleets from a centralized administrative console.",
+          "Yes. While daily conversational interactions execute autonomously offline on each individual display, DIHUAVA supports optional local-area network (LAN) and cloud-management configurations. Enterprise administrators can remotely update knowledge documents, manage avatar assets, adjust interaction parameters, and monitor hardware health across multi-location fleets from a centralized administrative console.",
       },
     },
     {
       "@type": "Question",
-      "name": "How does on-device document RAG prevent hallucinations and maintain enterprise data privacy?",
+      "name": "How does on-device document RAG prevent hallucinations and keep customer data local?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text":
-          "DIHUAVA utilizes an on-device Retrieval-Augmented Generation (RAG) engine with two-stage cross-encoder re-ranking. Responses are strictly grounded in verified local corporate documents (PDFs, CSVs, TXT, and Markdown). If a visitor asks a question not covered in the local knowledge base, the avatar politely indicates that the information is unavailable rather than inventing unverified claims. Because vector processing executes locally, confidential enterprise data never leaves the facility.",
+          "DIHUAVA utilizes an on-device Retrieval-Augmented Generation (RAG) engine with two-stage cross-encoder re-ranking and a post-generation grounding guard. Responses are strictly grounded in verified local corporate documents (PDF, DOCX, CSV, TXT, and Markdown). If a visitor asks a question not covered in the local knowledge base, the avatar politely indicates that the information is unavailable rather than inventing unverified claims. When operating in offline on-device mode, document indexing and vector processing execute locally on venue hardware without mandatory cloud transmission.",
       },
     },
     {
@@ -216,7 +216,34 @@ const faqJsonLd = {
       "acceptedAnswer": {
         "@type": "Answer",
         "text":
-          "Yes. DIHUAVA is designed for deployment across universities, K-12 schools, and corporate academies as an interactive AI digital human teacher and campus assistant. Operating on interactive kiosks or life-size 3D hologram boxes, the avatar can ingest approved textbook PDFs, campus directories, and syllabus materials via on-device RAG to answer student inquiries and conduct multilingual conversational practice 100% offline without compromising institutional data privacy.",
+          "Yes. DIHUAVA is designed for deployment across universities, K-12 schools, and corporate academies as an interactive AI digital human teacher and campus assistant. Operating on interactive kiosks or life-size 3D hologram boxes, the avatar can ingest approved textbook PDFs, campus directories, and syllabus materials via on-device RAG to answer student inquiries and conduct multilingual conversational practice 100% offline without exposing institutional queries to third-party cloud servers.",
+      },
+    },
+    {
+      "@type": "Question",
+      "name": "Is DIHUAVA licensed as standalone software, or does it require purchasing display hardware?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text":
+          "DIHUAVA is a standalone offline AI digital human software platform developed by HS Global AI. Organizations can deploy DIHUAVA software on their own compatible 64-bit Windows 11 or Ubuntu 22.04 LTS workstations with a modern multi-core CPU, dedicated NVIDIA RTX GPU (8GB VRAM baseline recommendation), directional USB microphones, HD/4K webcams, and HDMI or DisplayPort screens—or pair it with optional turnkey touchscreen kiosks, 3D Hologram Boxes (55″–86″), and Glasses-Free Spatial Displays (32″–86″). Commercial licensing, maintenance, updates, and optional hardware integration depend on the selected deployment package.",
+      },
+    },
+    {
+      "@type": "Question",
+      "name": "How does DIHUAVA answer customer questions from documents and recommend products in real time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text":
+          "DIHUAVA pairs an on-device document RAG engine with a CSV-driven AI Product Catalog. Organizations ingest local PDF, DOCX, CSV, TXT, and Markdown files alongside 9-column product catalog spreadsheets containing product images and optional MP4 demo clips. During spoken conversations, cross-encoder re-ranking and grounding checks keep answers tied to approved files, while synchronized picture-in-picture product cards and side-by-side comparison trays present relevant recommendations verified against local CSV product IDs and prices.",
+      },
+    },
+    {
+      "@type": "Question",
+      "name": "Can organizations customize the digital human avatar's appearance, brand wardrobe, and voice?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text":
+          "Yes. Organizations can select existing enterprise personas or create custom digital humans tailored in appearance, corporate wardrobe, and conversational tone. Using zero-shot neural voice cloning, a single 5 to 30 second clean WAV or MP3 recording pre-encodes a 24kHz voice profile that synthesizes speech locally on-device without ongoing cloud voice API calls, while self-contained persona packages let teams switch kiosk roles without code changes.",
       },
     },
   ],
