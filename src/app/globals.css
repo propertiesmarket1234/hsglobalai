@@ -98,9 +98,11 @@ h3 {
   line-height: 1.2;
 }
 
-p {
-  color: var(--lp-ink-2);
-  line-height: 1.6;
+@layer base {
+  p {
+    color: var(--lp-ink-2);
+    line-height: 1.6;
+  }
 }
 
 /* BUTTON SPECULAR REFLECTION & SWIPECRAFT DESIGN SYSTEM TOKENS */

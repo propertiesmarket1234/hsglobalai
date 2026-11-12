@@ -22,31 +22,29 @@ export default function HomeClient() {
       {/* 1. FLOATING CAPSULE NAVIGATION HEADER */}
       <Header />
 
-      {/* 2. SWIPECRAFT-STYLE DOMAIN-FIRST DIGITAL HUMAN HERO */}
+      {/* Band 1: Asymmetric Split Hero + Live Avatar Stage */}
       <DigitalHumanHero />
 
-      {/* 3. INTERACTIVE ENTERPRISE WORKFLOW & DOMAIN QUESTION SIMULATOR */}
-      <EnterpriseQuestionSimulator />
-
-      {/* 4. ASYMMETRIC BENTO GRID: DOMAIN SOLUTIONS (RETAIL, HEALTHCARE, DEFENCE, EVENTS) */}
-      <Industries />
-
-      {/* 5. INTERACTIVE AIR-GAPPED SECURITY & DATA PRIVACY COMMAND CENTER */}
-      <EnterpriseSecurityCommand />
-
-      {/* 7. COST CUTTING & ROI VALUE COMPARISON (CHATBOTS VS STAFFING VS DIGITAL HUMANS) */}
-      <ChatbotVsAvatar />
-
-      {/* 8. PHYSICAL HARDWARE & FORM FACTORS (HOLOGRAM BOXES, KIOSKS, SPATIAL DISPLAYS) */}
+      {/* Band 2: Visual-First Product Ecosystem Showcase */}
       <Products />
 
-      {/* 8B. LATEST INSIGHTS & FEATURED ARTICLES */}
+      {/* Band 3: Enterprise Conversational Question Simulator */}
+      <EnterpriseQuestionSimulator />
+
+      {/* Band 4: 6-Industry Visual Deployments Bento */}
+      <Industries />
+
+      {/* Band 5: Interactive Visual On-Device Air-Gap Architecture Diagram */}
+      <EnterpriseSecurityCommand />
+
+      {/* Band 6: Compact Comparison Matrix (Embodied Digital Humans vs Alternatives) */}
+      <ChatbotVsAvatar />
+
+      {/* Band 7: Featured Blog Insights + Live Exhibition Showcase */}
       <LatestInsights />
 
-      {/* 9. ENTERPRISE DEPLOYMENT FAQ ACCORDION */}
+      {/* Band 8: Categorized FAQ (All Items Preserved in DOM) + Conversion CTA */}
       <FAQ />
-
-      {/* 10. HIGH-CONVERSION ENTERPRISE PILOT CTA CALLOUT */}
       <CTA />
 
       {/* 11. MINIMALIST EDITORIAL FOOTER */}

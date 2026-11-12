@@ -40,7 +40,7 @@ export default function RealtimeTalkingAvatars() {
       id: "full-presenter",
       name: "Elena Rostova",
       role: "AI Chief Presenter",
-      videoSrc: "/videos/avatars/elena-rostova.mp4",
+      videoSrc: "/videos/avatars/elena_speaking.mp4",
       imageSrc: "/images/avatars/full_digital_human_presenter.png",
       greeting: av.elena.greeting,
       voiceProfile: {
@@ -57,7 +57,7 @@ export default function RealtimeTalkingAvatars() {
       id: "modern-presenter",
       name: "Sophia Vance",
       role: "Digital Executive Host",
-      videoSrc: "/videos/avatars/sophia-vance.mp4",
+      videoSrc: "/videos/avatars/sophia_speaking.mp4",
       imageSrc: "/images/avatars/modern_digital_human_presenter.png",
       greeting: av.sophia.greeting,
       voiceProfile: {
@@ -74,7 +74,7 @@ export default function RealtimeTalkingAvatars() {
       id: "mei-lin",
       name: "Mei Lin",
       role: "Global Concierge Lead",
-      videoSrc: "/videos/avatars/mei-lin.mp4",
+      videoSrc: "/videos/avatars/meilin_speaking.mp4",
       imageSrc: "/images/avatars/asian_lady.png",
       greeting: av.meiLin.greeting,
       voiceProfile: {
@@ -91,7 +91,7 @@ export default function RealtimeTalkingAvatars() {
       id: "victoria",
       name: "Victoria Vance",
       role: "Corporate Wealth Advisor",
-      videoSrc: "/videos/avatars/victoria-vance.mp4",
+      videoSrc: "/videos/avatars/victoria_speaking.mp4",
       imageSrc: "/images/avatars/executive_lady.png",
       greeting: av.victoria.greeting,
       voiceProfile: {
@@ -202,6 +202,8 @@ export default function RealtimeTalkingAvatars() {
                     loop
                     muted
                     playsInline
+                    preload="metadata"
+                    poster={activeLady.imageSrc}
                     key={activeLady.videoSrc}
                     className="h-full w-full object-cover object-top filter brightness-105 contrast-105"
                   >

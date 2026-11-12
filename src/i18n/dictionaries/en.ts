@@ -796,7 +796,7 @@ export const en = {
         featureUrl: "/products/ai-digital-human/persona-management",
         highlights: [
           "100% local hardware processing",
-          "GDPR, PDPA & HIPAA-friendly",
+          "Zero cloud data egress",
           "Zero voice data transmission",
           "Cryptographic device licensing",
         ],
@@ -1228,7 +1228,7 @@ export const en = {
     imageAlt: "AI Spatial Display Volumetric Screen Showcase",
     hardwareHighlightBadge: "★ Confirmed Hardware Specifications",
     hardwareHighlightTitle1: "Spatial Display Touch Screen",
-    hardwareHighlightTitle2: "With ",
+    hardwareHighlightTitle2: "With 4K Ultra HD",
     hardwareHighlightDesc:
       "Featuring an ultra-thin 6 cm body thickness, responsive multi-touch interactive glass surface, and ultra-crisp 4K Ultra HD resolution across 32\", 43\", 55\", 65\", 75\", and 86\" screen sizes.",
     cardProfileLabel: "Body Profile",
@@ -1719,22 +1719,22 @@ export const en = {
         {
             "title": "Reduced Operational Costs",
             "description": "Automate repetitive customer inquiries and front-desk workflows while allowing human staff to focus on high-value advisory tasks.",
-            "stat": "-45% Support Costs"
+            "stat": "24/7 Inquiry Coverage"
         },
         {
             "title": "Higher Customer Engagement",
-            "description": "Interactive 3D Digital Human AI experiences increase visitor attention, dwell time, and overall brand satisfaction.",
-            "stat": "4x Higher Dwell Time"
+            "description": "Interactive 3D Digital Human AI experiences increase visitor attention and guide shoppers effortlessly through complex catalogs.",
+            "stat": "Volumetric 3D Presence"
         },
         {
             "title": "Faster Information Delivery",
-            "description": "Provide instant, accurate responses to customer questions without queues or waiting for staff availability.",
+            "description": "Provide immediate, accurate responses to customer questions without queues or waiting for staff availability.",
             "stat": "Low Latency Answer Time"
         },
         {
             "title": "24/7 Service Availability",
-            "description": "Deliver consistent, high-quality customer assistance across all physical branches, kiosks, and time zones.",
-            "stat": "99.9% Uptime"
+            "description": "Deliver consistent, high-quality customer assistance across all physical branches, kiosks, and extended hours.",
+            "stat": "Continuous Local Operation"
         },
         {
             "title": "Multilingual Communication",
@@ -1743,8 +1743,8 @@ export const en = {
         },
         {
             "title": "Improved Brand Perception",
-            "description": "Create futuristic, memorable holographic interactions that position your organization as an innovative market leader.",
-            "stat": "98% Customer Satisfaction"
+            "description": "Create memorable, glasses-free holographic interactions that position your organization as an innovative technology leader.",
+            "stat": "Consistent Brand Voice"
         },
         {
             "title": "Enterprise Security & Privacy",

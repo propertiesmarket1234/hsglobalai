@@ -43,7 +43,7 @@ export default function IndustriesClient() {
       pills: ["Banque & Finance", "Commerce de Luxe", "Santé", "Défense & Sécurité", "Événements"],
     },
     en: {
-      heroDescription: "Our Digital Human AI platform helps enterprise organizations automate front-line customer interactions, reduce staffing overhead by up to 70%, and deliver zero-wait empathetic experiences across physical environments.",
+      heroDescription: "Our Digital Human AI platform helps enterprise organizations automate front-line visitor inquiries, offload repetitive desk workflows, and deliver continuous, responsive guidance across physical environments.",
       pills: ["Banking & Finance", "Retail & Luxury", "Hospitals & Healthcare", "Defence & High-Security", "Events & Culture"],
     },
   };

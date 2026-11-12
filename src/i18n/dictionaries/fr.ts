@@ -756,7 +756,7 @@ export const fr: Dictionary = {
         description: "Conçu pour les environnements réglementés (banque, défense, santé). Tous les calculs vocaux, dialogues LLM, recherches PDF et photos restent locaux.",
         badge: "Conformité Air-Gap",
         featureUrl: "/products/ai-digital-human/persona-management",
-        highlights: ["Traitement 100% sur matériel local", "Compatible GDPR, PDPA & HIPAA", "Zéro transmission de données vocales", "Licence chiffrée sur appareil"],
+        highlights: ["Traitement 100% sur matériel local", "Résidence locale des données", "Zéro transmission de données vocales", "Licence chiffrée sur appareil"],
       },
     ],
     archPillars: [
@@ -1080,7 +1080,7 @@ export const fr: Dictionary = {
     imageAlt: "Démonstration d'écran volumétrique AI Spatial Display",
     hardwareHighlightBadge: "★ SPÉCIFICATIONS MATÉRIELLES CONFIRMÉES",
     hardwareHighlightTitle1: "Écran tactile Spatial Display",
-    hardwareHighlightTitle2: "Avec technologie ",
+    hardwareHighlightTitle2: "Avec technologie 4K Ultra HD",
     hardwareHighlightDesc:
       "Conçu avec un boîtier ultra-fin de 6 cm d'épaisseur, une surface tactile en verre et une résolution 4K Ultra HD disponible en 32\", 43\", 55\", 65\", 75\" et 86\".",
     cardProfileLabel: "Profil du boîtier",
@@ -1570,12 +1570,12 @@ export const fr: Dictionary = {
       {
         title: "Réduction des Coûts Opérationnels",
         description: "Automatisez les demandes répétitives des clients et les processus d'accueil tout en permettant au personnel de se concentrer sur les tâches de conseil à forte valeur ajoutée.",
-        stat: "-45% Coûts de Support",
+        stat: "Couverture 24/7 des demandes",
       },
       {
         title: "Engagement Client Plus Élevé",
-        description: "Les expériences interactives d'humains virtuels 3D augmentent l'attention des visiteurs, le temps de présence et la satisfaction globale.",
-        stat: "4x Plus de Temps de Présence",
+        description: "Les expériences interactives d'humains virtuels 3D captent l'attention des visiteurs et fluidifient la découverte produits.",
+        stat: "Présence Volumétrique 3D",
       },
       {
         title: "Livraison d'Informations Plus Rapide",
@@ -1585,7 +1585,7 @@ export const fr: Dictionary = {
       {
         title: "Disponibilité du Service 24/7",
         description: "Fournissez une assistance client constante et de haute qualité dans toutes les filiales physiques, bornes et fuseaux horaires.",
-        stat: "Disponibilité de 99,9%",
+        stat: "Fonctionnement Local Continu",
       },
       {
         title: "Communication Multilingue",
@@ -1594,8 +1594,8 @@ export const fr: Dictionary = {
       },
       {
         title: "Perception de Marque Améliorée",
-        description: "Créez des interactions holographiques futuristes et mémorables qui positionnent votre organisation comme un leader innovant du marché.",
-        stat: "98% Satisfaction Client",
+        description: "Créez des interactions holographiques mémorables qui positionnent votre organisation comme un leader innovant du marché.",
+        stat: "Voix de Marque Cohérente",
       },
       {
         title: "Sécurité & Confidentialité d'Entreprise",

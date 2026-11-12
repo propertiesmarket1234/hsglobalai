@@ -39,7 +39,7 @@ export default function CTA({
   const finalTitle = title || "Ready to deploy your digital workforce?";
   const finalDescription =
     description ||
-    "Join leading retail chains, hospital networks, and enterprises reducing staffing overhead by up to 70% while providing instant, empathetic 24/7 customer care.";
+    "Deploy interactive 3D digital humans and air-gapped on-device AI kiosks across retail stores, hospitals, and enterprise lobbies for consistent 24/7 customer guidance.";
 
   return (
     <section className="relative overflow-hidden py-16 sm:py-20 md:py-24 bg-[var(--lp-bg)] border-b border-[var(--lp-line)]">

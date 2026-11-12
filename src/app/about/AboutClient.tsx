@@ -31,7 +31,7 @@ const missionVisionValues = [
     title: "Our Mission",
     tagline: "Empowering Human-AI Presence",
     description:
-      "To deploy lifelike, empathetic AI digital humans that resolve customer needs instantly in physical environments, driving measurable revenue lift and cutting operational labor costs by up to 70%.",
+      "To deploy lifelike, empathetic AI digital humans that resolve routine visitor needs immediately in physical environments, supporting front-line teams with continuous 24/7 coverage.",
     icon: Target,
     badge: "Corporate Mission",
   },
@@ -91,9 +91,9 @@ const enterprisePillars = [
     icon: Sparkles,
   },
   {
-    title: "Measurable Staffing Cost Savings",
+    title: "Scalable Front-Desk Offloading",
     description:
-      "Replace overlapping 24/7 shifts and recruitment overhead with an always-attentive assistant that lowers overhead by up to 70%.",
+      "Offload repetitive visitor greetings, product lookups, and directional inquiries across shifts with an always-attentive digital assistant.",
     icon: BarChart2,
   },
   {
@@ -109,7 +109,7 @@ const approachItems = [
     number: "01",
     title: "Air-Gapped by Design",
     description:
-      "Engineered to run entirely on local GPU workstations without cloud dependencies, ensuring complete compliance with GDPR, HIPAA, and national security mandates.",
+      "Engineered to run entirely on local GPU workstations without cloud dependencies, ensuring complete local data residency and zero external audio or conversation transmission.",
   },
   {
     number: "02",

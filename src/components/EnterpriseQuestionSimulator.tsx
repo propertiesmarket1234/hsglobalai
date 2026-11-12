@@ -1,6 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Locale, nonDefaultLocales, getLocalizedPath } from "@/i18n/config";
 import {
   ShoppingBag,
   HeartPulse,
@@ -67,7 +70,7 @@ const DOMAIN_SCENARIOS: DomainScenario[] = [
           "Catalog Pricing & Gift Margin Filter (24ms)",
           "Gift-Wrap Fulfillment Queue Assigned",
         ],
-        businessImpact: "3.2x higher cross-sell basket value via personalized visual guidance.",
+        businessImpact: "Guides shoppers visually across catalog accessories and gift sets on screen.",
         actionTaken: "Cross-Sell Basket Recommended & Gift-Wrap Dispatched",
       },
       {
@@ -114,7 +117,7 @@ const DOMAIN_SCENARIOS: DomainScenario[] = [
           "Pre-MRI Metal Safety Checklist Verified",
           "Digital Locker Pass Token Issued",
         ],
-        businessImpact: "Reduces patient waiting room congestion by 40% while preserving nurse focus.",
+        businessImpact: "Relieves lobby waiting room congestion so nursing and front-desk staff stay focused on care.",
         actionTaken: "Pre-Check-in Validated & Locker Card Dispensed",
       },
       {
@@ -202,6 +205,14 @@ const DOMAIN_SCENARIOS: DomainScenario[] = [
 ];
 
 export default function EnterpriseQuestionSimulator() {
+  const pathname = usePathname();
+  const seg = pathname ? pathname.split("/")[1] : "";
+  const currentLocale: Locale =
+    seg && (nonDefaultLocales as readonly string[]).includes(seg)
+      ? (seg as Locale)
+      : "en";
+  const lPath = (path: string) => getLocalizedPath(path, currentLocale);
+
   const [activeDomainId, setActiveDomainId] = useState<string>("retail");
   const [activeQuestionIndex, setActiveQuestionIndex] = useState<number>(0);
   const [customQuestionInput, setCustomQuestionInput] = useState<string>("");
@@ -456,13 +467,13 @@ export default function EnterpriseQuestionSimulator() {
               {/* CALL TO ACTION LINK */}
               <div className="mt-6 pt-5 border-t border-[var(--lp-line)] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-[var(--lp-muted)]">
                 <span>Need a custom workflow integration?</span>
-                <a
-                  href="#contact"
+                <Link
+                  href={lPath("/contact")}
                   className="group/sim-cta inline-flex h-8 items-center gap-1.5 px-4 rounded-full border border-[var(--lp-line)] bg-white text-xs font-semibold text-[var(--lp-ink)] hover:border-[var(--lp-accent)] hover:text-[var(--lp-accent)] hover:bg-[var(--lp-tile)] transition-all duration-150 shadow-2xs active:scale-[0.98] shrink-0 cursor-pointer"
                 >
                   <span>Deploy Domain Persona Pilot</span>
                   <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover/sim-cta:translate-x-1" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>

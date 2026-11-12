@@ -901,7 +901,7 @@ export const es: Dictionary = {
         description: "Diseñado para banca, defensa y salud. Todo el procesamiento de voz, LLM, RAG y fotografía se ejecuta localmente en hardware físico.",
         badge: "Cumplimiento Air-Gap",
         featureUrl: "/products/ai-digital-human/persona-management",
-        highlights: ["Procesamiento 100% en hardware local", "Compatible con GDPR, PDPA y HIPAA", "Cero transmisión de voz", "Licencia criptográfica de dispositivo"],
+        highlights: ["Procesamiento 100% en hardware local", "Residencia de datos local", "Cero transmisión de voz", "Licencia criptográfica de dispositivo"],
       },
     ],
     archPillars: [
@@ -1246,7 +1246,7 @@ export const es: Dictionary = {
     imageAlt: "Exhibición de pantalla volumétrica AI Spatial Display",
     hardwareHighlightBadge: "★ ESPECIFICACIONES DE HARDWARE CONFIRMADAS",
     hardwareHighlightTitle1: "Pantalla táctil Spatial Display",
-    hardwareHighlightTitle2: "Con resolución ",
+    hardwareHighlightTitle2: "Con resolución 4K Ultra HD",
     hardwareHighlightDesc:
       "Diseñada con un cuerpo ultradelgado de 6 cm de grosor, superficie de cristal multitáctil y resolución 4K Ultra HD en tamaños de 32\", 43\", 55\", 65\", 75\" y 86\".",
     cardProfileLabel: "Perfil del cuerpo",
@@ -1736,12 +1736,12 @@ export const es: Dictionary = {
         {
             "title": "Reducción de costos operativos",
             "description": "Automatice consultas repetitivas de clientes y flujos de recepción para que el personal se enfoque en tareas de mayor valor.",
-            "stat": "-45% en costos de soporte"
+            "stat": "Cobertura continua 24/7"
         },
         {
             "title": "Mayor interacción con clientes",
-            "description": "Las experiencias de Humanos Digitales IA 3D aumentan la atención del visitante y el tiempo de permanencia.",
-            "stat": "4x mayor tiempo de permanencia"
+            "description": "Las experiencias de Humanos Digitales IA 3D captan la atención del visitante y facilitan la exploración guiada de catálogos.",
+            "stat": "Presencia volumétrica 3D"
         },
         {
             "title": "Entrega de información más rápida",
@@ -1750,8 +1750,8 @@ export const es: Dictionary = {
         },
         {
             "title": "Disponibilidad de servicio 24/7",
-            "description": "Ofrezca asistencia constante de alta calidad en todas las sucursales físicas, kioscos y zonas horarias.",
-            "stat": "99.9% tiempo de actividad"
+            "description": "Ofrezca asistencia constante de alta calidad en todas las sucursales físicas, kioscos y horarios extendidos.",
+            "stat": "Operación local continua"
         },
         {
             "title": "Comunicación multilingüe",
@@ -1761,7 +1761,7 @@ export const es: Dictionary = {
         {
             "title": "Mejor percepción de marca",
             "description": "Cree interacciones holográficas memorables que posicionen a su empresa como líder en innovación.",
-            "stat": "98% satisfacción del cliente"
+            "stat": "Voz de marca consistente"
         },
         {
             "title": "Seguridad y privacidad empresarial",

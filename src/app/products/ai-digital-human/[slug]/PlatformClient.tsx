@@ -55,6 +55,7 @@ interface DemoVideo {
   duration: string;
   description: string;
   videoSrc: string;
+  poster?: string;
 }
 
 interface PlatformPageData {
@@ -103,28 +104,32 @@ export const platformData: Record<string, PlatformPageData> = {
         title: "Zero-Shot Voice Clone End-to-End",
         duration: "0:45",
         description: "Upload a 10-second phone audio recording, then watch the digital avatar answer questions in English and Hindi using that exact authentic voice.",
-        videoSrc: "/videos/features/avatar_voice_clone_demo.mp4",
+        videoSrc: "/videos/avatars/elena_speaking.mp4",
+        poster: "/images/avatars/full_digital_human_presenter.png",
       },
       {
         id: "lipsync-closeup",
         title: "60 FPS Real-Time Lipsync Close-Up",
         duration: "0:15",
         description: "High-resolution facial crop demonstrating real-time phoneme mapping and mouth blendshape movements during natural speech.",
-        videoSrc: "/videos/features/avatar_lipsync_closeup.mp4",
+        videoSrc: "/videos/avatars/sophia_speaking.mp4",
+        poster: "/images/avatars/modern_digital_human_presenter.png",
       },
       {
         id: "state-transitions",
         title: "State Transitions (Idle → Listening → Thinking → Speaking)",
         duration: "0:20",
         description: "Demonstrating smooth cross-fades between visual state video clips when a visitor approaches and speaks to the kiosk.",
-        videoSrc: "/videos/features/avatar_state_transitions.mp4",
+        videoSrc: "/talking-avatar-speaking.mp4",
+        poster: "/products/digital-humans/digital-human-new.png",
       },
       {
         id: "character-switcher",
         title: "Instant Character & Persona Switcher",
         duration: "0:10",
         description: "On-screen tap demonstration switching avatar character appearance, wardrobe, and cloned voice profile instantly.",
-        videoSrc: "/videos/features/avatar_character_switcher.mp4",
+        videoSrc: "/videos/avatars/meilin_speaking.mp4",
+        poster: "/images/avatars/asian_lady.png",
       },
     ],
     microFeatures: [
@@ -246,28 +251,32 @@ export const platformData: Record<string, PlatformPageData> = {
         title: "Drag & Drop PDF Upload to Instant Grounded Answer",
         duration: "0:40",
         description: "Drag a technical PDF manual into the dashboard, watch local vector indexing, and ask a question answered strictly from the PDF.",
-        videoSrc: "/videos/features/document_rag_ingest_demo.mp4",
+        videoSrc: "/videos/avatars/victoria_speaking.mp4",
+        poster: "/products/digital-humans/digital-human-dashboard.jpg",
       },
       {
         id: "rag-offline-test",
         title: "100% Offline Airplane Mode Air-Gapped Test",
         duration: "0:25",
         description: "Disconnecting network cables and demonstrating local vector search and cross-encoder re-ranking with 0ms cloud ping.",
-        videoSrc: "/videos/features/document_rag_offline_test.mp4",
+        videoSrc: "/videos/avatars/elena_speaking.mp4",
+        poster: "/images/use-cases/executive_lady_hologram.png",
       },
       {
         id: "rag-cross-lang",
         title: "Cross-Language Retrieval (Hindi Query → English PDF Source)",
         duration: "0:20",
         description: "Visitor asks a question in Hindi, local cross-encoder retrieves English PDF source text, and avatar responds fluently in Hindi.",
-        videoSrc: "/videos/features/document_rag_cross_lang.mp4",
+        videoSrc: "/videos/avatars/meilin_speaking.mp4",
+        poster: "/images/avatars/asian_lady.png",
       },
       {
         id: "rag-refusal-guard",
         title: "Post-Generation Factual Refusal Guard",
         duration: "0:15",
         description: "Asking an unlisted question; avatar politely declines to answer instead of hallucinating false details.",
-        videoSrc: "/videos/features/document_rag_refusal_guard.mp4",
+        videoSrc: "/videos/avatars/sophia_speaking.mp4",
+        poster: "/images/avatars/modern_digital_human_presenter.png",
       },
     ],
     microFeatures: [
@@ -389,21 +398,24 @@ export const platformData: Record<string, PlatformPageData> = {
         title: "The Multilingual Wall (Fast Cuts Across 6 Languages)",
         duration: "0:30",
         description: "Same question asked back-to-back in English, Spanish, Mandarin, Hindi, Arabic, and French with instant neural speech synthesis.",
-        videoSrc: "/videos/features/multilingual_wall_demo.mp4",
+        videoSrc: "/videos/avatars/meilin_speaking.mp4",
+        poster: "/images/avatars/asian_lady.png",
       },
       {
         id: "midsentence-switch",
         title: "Mid-Sentence Language Switch & Context Retention",
         duration: "0:20",
         description: "Visitor begins in English and switches mid-sentence to a regional language; avatar follows fluidly without losing session memory.",
-        videoSrc: "/videos/features/multilingual_midsentence_switch.mp4",
+        videoSrc: "/videos/avatars/elena_speaking.mp4",
+        poster: "/images/avatars/full_digital_human_presenter.png",
       },
       {
         id: "indian-language-spotlight",
         title: "Indian Regional Languages Spotlight (Telugu & Tamil Offline)",
         duration: "0:30",
         description: "Demonstrating purpose-built offline speech models for Telugu and Tamil on local kiosk hardware.",
-        videoSrc: "/videos/features/multilingual_indian_spotlight.mp4",
+        videoSrc: "/talking-avatar-speaking.mp4",
+        poster: "/products/digital-humans/digital-human-new.png",
       },
     ],
     microFeatures: [
@@ -525,28 +537,32 @@ export const platformData: Record<string, PlatformPageData> = {
         title: "Same Kiosk, Three Vertical Brand Transformations",
         duration: "0:30",
         description: "Dropping in persona packages (.zip) to instantly swap kiosk roles between a luxury jeweller, hospital receptionist, and bank concierge.",
-        videoSrc: "/videos/features/persona_brand_swap_demo.mp4",
+        videoSrc: "/videos/avatars/victoria_speaking.mp4",
+        poster: "/products/digital-humans/digital-human-dashboard.jpg",
       },
       {
         id: "persona-session-memory",
         title: "Contextual Session Memory Across Multi-Turn Exchanges",
         duration: "0:30",
         description: "Visitor mentions occasion preference early in conversation; avatar recalls preference 3 turns later and wipes data upon exit.",
-        videoSrc: "/videos/features/persona_session_memory.mp4",
+        videoSrc: "/videos/avatars/sophia_speaking.mp4",
+        poster: "/images/avatars/ai_digital_human_lady.png",
       },
       {
         id: "persona-barge-in",
         title: "Real-Time Visitor Mid-Sentence Barge-In",
         duration: "0:10",
         description: "Visitor interrupts avatar mid-sentence; avatar stops speaking immediately and listens to the new question.",
-        videoSrc: "/videos/features/persona_barge_in_demo.mp4",
+        videoSrc: "/videos/avatars/elena_speaking.mp4",
+        poster: "/images/avatars/full_digital_human_presenter.png",
       },
       {
         id: "persona-idle-ad-wake",
         title: "Idle Screen Video Ad Reel to Proximity Greeting Wake",
         duration: "0:15",
         description: "Kiosk plays brand ad loop, senses approaching visitor, and wakes to greet them in their native language.",
-        videoSrc: "/videos/features/persona_idle_ad_wake.mp4",
+        videoSrc: "/talking-avatar-speaking.mp4",
+        poster: "/products/spatial-display/spatial-display.png",
       },
     ],
     microFeatures: [
@@ -676,28 +692,32 @@ export const platformData: Record<string, PlatformPageData> = {
         title: "Spreadsheet Upload to Interactive Picture-in-Picture Cards",
         duration: "0:45",
         description: "Uploading 9-column product CSV, visitor asking for a product, and matching picture-in-picture card appearing while avatar speaks.",
-        videoSrc: "/videos/features/catalog_csv_pip_demo.mp4",
+        videoSrc: "/videos/avatars/elena_speaking.mp4",
+        poster: "/images/use-cases/jewellery_hologram_kiosk.png",
       },
       {
         id: "catalog-comparison",
         title: "Voice-Driven Side-by-Side Product Comparison Tray",
         duration: "0:25",
         description: "Asking to compare two luxury items; kiosk displays side-by-side comparison tray with specs and prices.",
-        videoSrc: "/videos/features/catalog_comparison_tray.mp4",
+        videoSrc: "/videos/avatars/meilin_speaking.mp4",
+        poster: "/products/digital-humans/digital-human-dashboard.jpg",
       },
       {
         id: "catalog-mp4-playback",
         title: "Interactive Product MP4 Video Demonstration Playback",
         duration: "0:15",
         description: "Visitor asks 'show me how it works'; kiosk plays product MP4 demo video clip directly on screen.",
-        videoSrc: "/videos/features/catalog_mp4_playback.mp4",
+        videoSrc: "/talking-avatar-speaking.mp4",
+        poster: "/products/hologram-box/hologram-box-saree.jpg",
       },
       {
         id: "catalog-healthcare-variant",
         title: "Healthcare Variant (Doctor & Department Services Cards)",
         duration: "0:20",
         description: "Visitor asks for a specialist; kiosk presents doctor cards, department schedules, and service details.",
-        videoSrc: "/videos/features/catalog_healthcare_cards.mp4",
+        videoSrc: "/videos/avatars/sophia_speaking.mp4",
+        poster: "/images/avatars/ai_digital_human_lady.png",
       },
     ],
     microFeatures: [
@@ -994,7 +1014,7 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
                   </li>
                   <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                    <span>Air-Gapped Data Security Designed for GDPR/HIPAA Privacy Alignment</span>
+                    <span>100% On-Device Data Residency &amp; Zero Cloud Transmission</span>
                   </li>
                   <li className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
@@ -1030,11 +1050,13 @@ export default function PlatformClient({ initialSlug }: { initialSlug?: string }
                   <video
                     key={activeVideo.id}
                     src={activeVideo.videoSrc}
+                    poster={activeVideo.poster}
+                    preload="metadata"
                     controls
                     autoPlay
                     muted
                     playsInline
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover object-top"
                   />
                 </div>
                 <div className="p-6 border-t border-[var(--lp-line)] bg-[var(--lp-card)]">

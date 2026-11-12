@@ -2,19 +2,105 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import {
   ShoppingBag,
   HeartPulse,
+  Landmark,
   Shield,
   Sparkles,
-  Lock,
+  GraduationCap,
   ArrowRight,
-  CheckCircle2,
 } from "lucide-react";
-import { getDictionary } from "@/i18n/getDictionary";
 import { Locale, nonDefaultLocales, getLocalizedPath } from "@/i18n/config";
+
+interface IndustryCardData {
+  id: string;
+  label: string;
+  title: string;
+  description: string;
+  specPill: string;
+  imageSrc: string;
+  imageAlt: string;
+  icon: typeof ShoppingBag;
+  href: string;
+}
+
+const INDUSTRY_CARDS: IndustryCardData[] = [
+  {
+    id: "retail",
+    label: "Retail & Luxury Stores",
+    title: "24/7 store concierge & catalog stylist",
+    description:
+      "Guide shoppers through collections, sizes, and product pairings with synchronized on-screen media.",
+    specPill: "CSV Catalog RAG · Multilingual",
+    imageSrc: "/images/use-cases/jewellery_hologram_kiosk.png",
+    imageAlt: "Interactive Retail Digital Human Kiosk in Luxury Showroom",
+    icon: ShoppingBag,
+    href: "/industries/retail",
+  },
+  {
+    id: "healthcare",
+    label: "Hospitals & Clinics",
+    title: "Compassionate reception & wayfinding",
+    description:
+      "Direct patients across clinics, answer department questions locally, and bridge 29+ spoken languages.",
+    specPill: "Local Privacy · 29+ Langs",
+    imageSrc: "/images/avatars/ai_digital_human_lady.png",
+    imageAlt: "Healthcare AI Digital Human Patient Guidance Assistant",
+    icon: HeartPulse,
+    href: "/industries/healthcare",
+  },
+  {
+    id: "banking",
+    label: "Banking & Finance",
+    title: "Private branch concierge & policy guide",
+    description:
+      "Explain financial products, branch workflows, and onboarding requirements inside air-gapped branches.",
+    specPill: "Air-Gapped Branch Hardware",
+    imageSrc: "/images/use-cases/banking_hologram_kiosk.png",
+    imageAlt: "Banking Branch 3D Hologram Kiosk Assistant",
+    icon: Landmark,
+    href: "/industries/banking",
+  },
+  {
+    id: "corporate",
+    label: "Corporate & Security",
+    title: "Air-gapped enterprise & facility host",
+    description:
+      "Run reception, visitor safety briefings, and manual search completely offline on dedicated GPU stations.",
+    specPill: "100% On-Device · Zero Cloud",
+    imageSrc: "/images/use-cases/executive_lady_hologram.png",
+    imageAlt: "Corporate Executive Lobby AI Digital Human Hologram",
+    icon: Shield,
+    href: "/industries/corporate",
+  },
+  {
+    id: "tourism",
+    label: "Museums, Tourism & Expos",
+    title: "Life-sized holographic docent & guide",
+    description:
+      "Engage international crowds across exhibitions and cultural venues with multilingual storytelling.",
+    specPill: "55\"–86\" Volumetric Hologram",
+    imageSrc: "/images/use-cases/museum_hologram_avatar.png",
+    imageAlt: "Museum and Exhibition 3D Holographic Digital Human Presenter",
+    icon: Sparkles,
+    href: "/industries/tourism",
+  },
+  {
+    id: "education",
+    label: "Education & Campuses",
+    title: "Interactive campus & lab mentor",
+    description:
+      "Deliver admissions support, campus maps, and course advisory across university hubs continuously.",
+    specPill: "24/7 Campus Knowledge Hub",
+    imageSrc: "/images/avatars/education_assistant.png",
+    imageAlt: "Education Campus Interactive Digital Human Assistant",
+    icon: GraduationCap,
+    href: "/industries/education",
+  },
+];
 
 export default function Industries() {
   const pathname = usePathname();
@@ -23,262 +109,91 @@ export default function Industries() {
     seg && (nonDefaultLocales as readonly string[]).includes(seg)
       ? (seg as Locale)
       : "en";
-  const dict = getDictionary(currentLocale);
-  const ind = dict.home.industriesSection;
+  const shouldReduceMotion = useReducedMotion();
 
   const lPath = (path: string) => getLocalizedPath(path, currentLocale);
 
   return (
     <section
       id="domains"
-      className="relative overflow-hidden py-16 sm:py-20 md:py-24 bg-[var(--lp-bg)] border-b border-[var(--lp-line)]"
+      className="relative overflow-hidden py-16 sm:py-24 bg-[var(--lp-tile)] border-b border-[var(--lp-line)]"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* SECTION HEADER: SWIPECRAFT EDITORIAL STYLE */}
-        <div className="max-w-3xl mb-8 sm:mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--lp-card)] border border-[var(--lp-line)] shadow-xs mb-3.5">
-            <span className="w-2 h-2 rounded-full bg-[var(--lp-accent)] animate-pulse" />
-            <span className="text-[11px] font-semibold tracking-wider text-[var(--lp-muted)] uppercase">
-              Enterprise Domain Solutions
-            </span>
+      <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
+        {/* SECTION HEADER */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-12">
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--lp-card)] border border-[var(--lp-line)] shadow-xs mb-3.5">
+              <span className="w-2 h-2 rounded-full bg-[var(--lp-accent)]" />
+              <span className="text-[11px] font-semibold tracking-wider text-[var(--lp-muted)] uppercase">
+                Industry Deployments
+              </span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold tracking-tight text-[var(--lp-ink)] leading-[1.12]">
+              Built for physical environments where presence builds trust.
+            </h2>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--lp-ink)] leading-[1.12]">
-            Built for physical environments where human presence drives trust.
-          </h2>
-          <p className="mt-3.5 sm:mt-4 text-sm sm:text-lg leading-relaxed text-[var(--lp-muted)]">
-            Text chatbots get ignored, and manual staffing is costly and inconsistent.
-            Deploy autonomous digital humans that eliminate wait times, lower costs by up to 70%, and never tire.
-          </p>
+
+          <Link
+            href={lPath("/industries")}
+            className="group inline-flex h-10 shrink-0 items-center justify-center gap-2 rounded-full border border-[var(--lp-line)] bg-white px-5 text-xs sm:text-sm font-semibold text-[var(--lp-ink)] shadow-xs hover:bg-[var(--lp-card)] transition-all self-start md:self-auto"
+          >
+            <span>All 6 Industries</span>
+            <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+          </Link>
         </div>
 
-        {/* ASYMMETRIC BENTO GRID */}
-        <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-3">
-          {/* CARD 1 (COL-SPAN 2): RETAIL & LUXURY FLAGSHIPS */}
-          <motion.article
-            whileHover={{ y: -3 }}
-            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="group flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-[28px] bg-[var(--lp-tile)] p-4 sm:p-7 md:col-span-2 border border-[var(--lp-line)] shadow-[var(--lp-shadow-card)]"
-          >
-            <div className="flex flex-col gap-6 lg:flex-row lg:items-center">
-              <div className="max-w-md">
-                <div className="flex items-center gap-2.5">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--lp-card)] border border-[var(--lp-line)] shadow-xs">
-                    <ShoppingBag className="h-4 w-4 text-[var(--lp-accent)]" strokeWidth={1.75} />
+        {/* VISUAL 6-CARD INDUSTRY GRID */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {INDUSTRY_CARDS.map((card) => {
+            const Icon = card.icon;
+            return (
+              <motion.article
+                key={card.id}
+                whileHover={shouldReduceMotion ? undefined : { y: -3 }}
+                transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                className="group flex flex-col justify-between overflow-hidden rounded-[24px] bg-[var(--lp-card)] p-4 sm:p-5 border border-[var(--lp-line)] shadow-[var(--lp-shadow-card)] transition-shadow hover:shadow-[var(--lp-shadow-lift)]"
+              >
+                <div>
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#0B1224] border border-white/10">
+                    <Image
+                      src={card.imageSrc}
+                      alt={card.imageAlt}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-contain p-2 transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                    />
+                    <div className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-black/75 px-3 py-1 backdrop-blur-md">
+                      <Icon className="h-3.5 w-3.5 text-[var(--lp-accent)]" />
+                      <span className="text-[11px] font-semibold text-white">
+                        {card.label}
+                      </span>
+                    </div>
                   </div>
-                  <span className="text-[13px] font-semibold text-[var(--lp-ink)]">
-                    Retail & Luxury Stores
-                  </span>
+
+                  <h3 className="mt-4 text-lg sm:text-[19px] font-semibold tracking-tight text-[var(--lp-ink)] leading-snug">
+                    {card.title}
+                  </h3>
+
+                  <p className="mt-2 text-xs sm:text-[13.5px] leading-relaxed text-[var(--lp-ink-2)] line-clamp-2">
+                    {card.description}
+                  </p>
                 </div>
 
-                <h3 className="mt-4 text-[22px] font-semibold tracking-[-0.025em] text-[var(--lp-ink)] sm:text-[26px]">
-                  The 24/7 store concierge that never misses a sale.
-                </h3>
-
-                <p className="mt-3 text-[15px] leading-[1.6] text-[var(--lp-ink-2)]">
-                  Eliminate walkouts during peak rushes. Digital human kiosks guide shoppers through complete product catalogs, check backroom sizing, and recommend personalized luxury pairings in 29+ languages.
-                </p>
-
-                {/* ROI Badges */}
-                <div className="mt-5 flex flex-wrap gap-2">
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[rgba(255,90,31,0.1)] px-3 py-1 text-[12px] font-semibold text-[var(--lp-accent-ink)]">
-                    <CheckCircle2 className="h-3 w-3 text-[var(--lp-accent)]" />
-                    70% Labor Cost Saved
+                <div className="mt-4 pt-3.5 border-t border-[var(--lp-line)] flex items-center justify-between gap-2">
+                  <span className="text-[11px] font-medium text-[var(--lp-muted)] truncate">
+                    {card.specPill}
                   </span>
-                  <span className="rounded-full bg-[var(--lp-card)] border border-[var(--lp-line)] px-3 py-1 text-[12px] font-medium text-[var(--lp-ink)] shadow-xs">
-                    3.2x Basket Size Lift
-                  </span>
-                  <span className="rounded-full bg-[var(--lp-card)] border border-[var(--lp-line)] px-3 py-1 text-[12px] font-medium text-[var(--lp-ink)] shadow-xs">
-                    Zero Queue Abandonment
-                  </span>
+                  <Link
+                    href={lPath(card.href)}
+                    className="group/link inline-flex items-center gap-1 text-xs font-semibold text-[var(--lp-ink)] hover:text-[var(--lp-accent)] transition-colors shrink-0"
+                  >
+                    <span>Explore</span>
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/link:translate-x-0.5" />
+                  </Link>
                 </div>
-              </div>
-
-              {/* Visual Showcase */}
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#0B1224] shadow-[var(--lp-shadow-lift)] lg:w-72 lg:shrink-0">
-                <Image
-                  src="/images/use-cases/jewellery_hologram_kiosk.png"
-                  alt="Interactive Retail Digital Human Kiosk"
-                  fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                />
-              </div>
-            </div>
-
-            <div className="mt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-t border-[var(--lp-line)] pt-4">
-              <span className="text-[13px] text-[var(--lp-muted)]">
-                Deployable as interactive touchscreen kiosk or 3D hologram box
-              </span>
-              <Link
-                href={lPath("/industries/retail")}
-                className="group/link inline-flex h-8 items-center gap-1.5 px-4 rounded-full border border-[var(--lp-line)] bg-white text-xs font-semibold text-[var(--lp-ink)] hover:border-[var(--lp-accent)] hover:text-[var(--lp-accent)] hover:bg-[var(--lp-tile)] transition-all duration-150 shadow-2xs active:scale-[0.98] shrink-0 cursor-pointer"
-              >
-                <span>Read Retail Case Study</span>
-                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover/link:translate-x-0.5" />
-              </Link>
-            </div>
-          </motion.article>
-
-          {/* CARD 2 (COL-SPAN 1): HOSPITALS & HEALTHCARE */}
-          <motion.article
-            whileHover={{ y: -3 }}
-            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="group flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-[28px] bg-[var(--lp-tile)] p-4 sm:p-7 border border-[var(--lp-line)] shadow-[var(--lp-shadow-card)]"
-          >
-            <div>
-              <div className="flex items-center gap-2.5">
-                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--lp-card)] border border-[var(--lp-line)] shadow-xs">
-                  <HeartPulse className="h-4 w-4 text-[#16a34a]" strokeWidth={1.75} />
-                </div>
-                <span className="text-[13px] font-semibold text-[var(--lp-ink)]">
-                  Hospitals & Clinics
-                </span>
-              </div>
-
-              <h3 className="mt-4 text-[20px] font-semibold tracking-[-0.025em] text-[var(--lp-ink)] sm:text-[22px]">
-                Compassionate patient intake without nurse burnout.
-              </h3>
-
-              <p className="mt-2.5 text-[14px] leading-[1.6] text-[var(--lp-ink-2)]">
-                Relieve overwhelmed reception desks. Patients check in, receive appointment guidance, and navigate large medical complexes with zero wait time.
-              </p>
-
-              <div className="mt-5 flex flex-wrap gap-2">
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-[rgba(21,128,61,0.1)] px-3 py-1 text-[12px] font-semibold text-[var(--lp-success)]">
-                  <CheckCircle2 className="h-3 w-3 text-[var(--lp-success)]" />
-                  40% Wait Time Reduced
-                </span>
-                <span className="rounded-full bg-[var(--lp-card)] border border-[var(--lp-line)] px-3 py-1 text-[12px] font-medium text-[var(--lp-ink)] shadow-xs">
-                  100% Patient Privacy
-                </span>
-              </div>
-            </div>
-
-            <div className="mt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-t border-[var(--lp-line)] pt-4">
-              <span className="text-[12px] text-[var(--lp-muted)]">
-                Privacy-aligned patient intake & navigation kiosk
-              </span>
-              <Link
-                href={lPath("/industries/healthcare")}
-                className="group/link inline-flex h-8 items-center gap-1.5 px-4 rounded-full border border-[var(--lp-line)] bg-white text-xs font-semibold text-[var(--lp-ink)] hover:border-[var(--lp-accent)] hover:text-[var(--lp-accent)] hover:bg-[var(--lp-tile)] transition-all duration-150 shadow-2xs active:scale-[0.98] shrink-0 cursor-pointer"
-              >
-                <span>Explore Patient Navigation</span>
-                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover/link:translate-x-0.5" />
-              </Link>
-            </div>
-          </motion.article>
-
-          {/* CARD 3 (COL-SPAN 1): DEFENCE & AIR-GAPPED SITES */}
-          <motion.article
-            whileHover={{ y: -3 }}
-            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="group flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-[28px] bg-[var(--lp-tile)] p-4 sm:p-7 border border-[var(--lp-line)] shadow-[var(--lp-shadow-card)]"
-          >
-            <div>
-              <div className="flex items-center gap-2.5">
-                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--lp-card)] border border-[var(--lp-line)] shadow-xs">
-                  <Shield className="h-4 w-4 text-[var(--lp-ink)]" strokeWidth={1.75} />
-                </div>
-                <span className="text-[13px] font-semibold text-[var(--lp-ink)]">
-                  Defence & High-Security
-                </span>
-              </div>
-
-              <h3 className="mt-4 text-[20px] font-semibold tracking-[-0.025em] text-[var(--lp-ink)] sm:text-[22px]">
-                100% air-gapped on-premise intelligence.
-              </h3>
-
-              <p className="mt-2.5 text-[14px] leading-[1.6] text-[var(--lp-ink-2)]">
-                Zero internet connection required. Operates completely on private local GPU hardware for classified facility briefings and tactical manual lookup.
-              </p>
-
-              <div className="mt-5 flex flex-wrap gap-2">
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-[var(--lp-card)] border border-[var(--lp-line)] px-3 py-1 text-[12px] font-semibold text-[var(--lp-ink)] shadow-xs">
-                  <Lock className="h-3 w-3 text-[var(--lp-ink)]" />
-                  Zero Cloud Transmission
-                </span>
-                <span className="rounded-full bg-[rgba(255,90,31,0.1)] px-3 py-1 text-[12px] font-semibold text-[var(--lp-accent-ink)]">
-                  Military-Grade Offline
-                </span>
-              </div>
-            </div>
-
-            <div className="mt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-t border-[var(--lp-line)] pt-4">
-              <span className="text-[12px] text-[var(--lp-muted)]">
-                Classified offline on-premise GPU
-              </span>
-              <Link
-                href={lPath("/contact")}
-                className="group/link inline-flex h-8 items-center gap-1.5 px-4 rounded-full border border-[var(--lp-line)] bg-white text-xs font-semibold text-[var(--lp-ink)] hover:border-[var(--lp-accent)] hover:text-[var(--lp-accent)] hover:bg-[var(--lp-tile)] transition-all duration-150 shadow-2xs active:scale-[0.98] shrink-0 cursor-pointer"
-              >
-                <span>Request Air-Gapped Briefing</span>
-                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover/link:translate-x-0.5" />
-              </Link>
-            </div>
-          </motion.article>
-
-          {/* CARD 4 (COL-SPAN 2): EVENTS, EXPOS & HOLOGRAPHIC STAGES */}
-          <motion.article
-            whileHover={{ y: -3 }}
-            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="group flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-[28px] bg-[var(--lp-tile)] p-4 sm:p-7 md:col-span-2 border border-[var(--lp-line)] shadow-[var(--lp-shadow-card)]"
-          >
-            <div className="flex flex-col gap-6 lg:flex-row lg:items-center">
-              <div className="max-w-md">
-                <div className="flex items-center gap-2.5">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--lp-card)] border border-[var(--lp-line)] shadow-xs">
-                    <Sparkles className="h-4 w-4 text-[var(--lp-accent)]" strokeWidth={1.75} />
-                  </div>
-                  <span className="text-[13px] font-semibold text-[var(--lp-ink)]">
-                    Events, Expos & Hospitality
-                  </span>
-                </div>
-
-                <h3 className="mt-4 text-[22px] font-semibold tracking-[-0.025em] text-[var(--lp-ink)] sm:text-[26px]">
-                  Life-sized 3D hologram presenters that captivate crowds.
-                </h3>
-
-                <p className="mt-3 text-[15px] leading-[1.6] text-[var(--lp-ink-2)]">
-                  Handle 10,000+ repetitive attendee inquiries per day without staff fatigue. Digital humans print badges, guide visitors to booths, and present keynote highlights continuously.
-                </p>
-
-                <div className="mt-5 flex flex-wrap gap-2">
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[rgba(255,90,31,0.1)] px-3 py-1 text-[12px] font-semibold text-[var(--lp-accent-ink)]">
-                    <CheckCircle2 className="h-3 w-3 text-[var(--lp-accent)]" />
-                    10,000+ Interactions/Day
-                  </span>
-                  <span className="rounded-full bg-[var(--lp-card)] border border-[var(--lp-line)] px-3 py-1 text-[12px] font-medium text-[var(--lp-ink)] shadow-xs">
-                    29+ Languages Real-Time
-                  </span>
-                  <span className="rounded-full bg-[var(--lp-card)] border border-[var(--lp-line)] px-3 py-1 text-[12px] font-medium text-[var(--lp-ink)] shadow-xs">
-                    Zero Host Fatigue
-                  </span>
-                </div>
-              </div>
-
-              {/* Visual Showcase */}
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#0B1224] shadow-[var(--lp-shadow-lift)] lg:w-72 lg:shrink-0">
-                <Image
-                  src="/images/use-cases/museum_hologram_avatar.png"
-                  alt="3D Hologram Exhibition Presenter"
-                  fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                />
-              </div>
-            </div>
-
-            <div className="mt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-t border-[var(--lp-line)] pt-4">
-              <span className="text-[13px] text-[var(--lp-muted)]">
-                Available in 55&apos;&apos;, 65&apos;&apos;, 75&apos;&apos;, and 86&apos;&apos; life-sized volumetric hologram enclosures
-              </span>
-              <Link
-                href={lPath("/industries/tourism")}
-                className="group/link inline-flex h-8 items-center gap-1.5 px-4 rounded-full border border-[var(--lp-line)] bg-white text-xs font-semibold text-[var(--lp-ink)] hover:border-[var(--lp-accent)] hover:text-[var(--lp-accent)] hover:bg-[var(--lp-tile)] transition-all duration-150 shadow-2xs active:scale-[0.98] shrink-0 cursor-pointer"
-              >
-                <span>Explore Event Holograms</span>
-                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover/link:translate-x-0.5" />
-              </Link>
-            </div>
-          </motion.article>
+              </motion.article>
+            );
+          })}
         </div>
       </div>
     </section>

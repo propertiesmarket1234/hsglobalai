@@ -106,7 +106,7 @@ const eventHighlights = [
     image: "/images/events/isle-china-2026.jpg",
     description:
       "Demonstrating digital human assistants in interactive retail configurations for high-end boutique environments.",
-    stat: "98% Positive Feedback",
+    stat: "Live Retail Kiosk Showcase",
   },
   {
     id: 4,

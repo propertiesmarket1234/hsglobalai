@@ -771,7 +771,7 @@ export const zh: Dictionary = {
         description: "专为高监管企业环境（金融、国防、医疗）设计。所有语音计算、LLM 对话、文档检索与照片合成均在本地硬件完成。",
         badge: "物理隔离合规",
         featureUrl: "/products/ai-digital-human/persona-management",
-        highlights: ["100% 本地硬件处理", "符合 GDPR, PDPA & HIPAA", "零语音数据传输", "设备加密授权"],
+        highlights: ["100% 本地硬件处理", "本地数据物理驻留", "零语音数据传输", "设备加密授权"],
       },
     ],
     archPillars: [
@@ -1116,7 +1116,7 @@ export const zh: Dictionary = {
     imageAlt: "AI Spatial Display 空间显示屏体积光场展示",
     hardwareHighlightBadge: "★ 确认硬件技术规格",
     hardwareHighlightTitle1: "Spatial Display 空间显示触控屏",
-    hardwareHighlightTitle2: "搭载 ",
+    hardwareHighlightTitle2: "搭载 4K 超高清显示",
     hardwareHighlightDesc:
       "采用 6 cm 超薄机身设计，支持高灵敏多点触控与超高清 4K Ultra HD 分辨率，覆盖 32 英寸、43 英寸、55 英寸、65 英寸、75 英寸和 86 英寸全系显示尺寸。",
     cardProfileLabel: "机身轮廓",
@@ -1606,12 +1606,12 @@ export const zh: Dictionary = {
         {
             "title": "降低运营成本",
             "description": "自动化处理重复性客户咨询和前台工作流程，同时让员工专注于高价值咨询服务。",
-            "stat": "支持成本降低 45%"
+            "stat": "全天候高频咨询分流"
         },
         {
             "title": "提高客户参与度",
-            "description": "交互式 3D 数字人 AI 体验可增加访客注意力、停留时间及整体品牌满意度。",
-            "stat": "停留时间提升 4 倍"
+            "description": "交互式 3D 数字人 AI 体验自然吸引访客注意力并引导商品浏览。",
+            "stat": "裸眼 3D 立体交互"
         },
         {
             "title": "更快速的信息传递",
@@ -1621,7 +1621,7 @@ export const zh: Dictionary = {
         {
             "title": "24/7 服务可用性",
             "description": "跨所有实体分行、自助终端和时区提供一致、高质量的客户协助。",
-            "stat": "99.9% 正常运行时间"
+            "stat": "端侧稳定连续运行"
         },
         {
             "title": "多语言沟通",
@@ -1630,8 +1630,8 @@ export const zh: Dictionary = {
         },
         {
             "title": "提升品牌形象",
-            "description": "打造未来感十足、令人难忘的全息互动，将您的企业定位为创新市场领导者。",
-            "stat": "98% 客户满意度"
+            "description": "打造令人难忘的全息互动体验，强化企业科技创新品牌形象。",
+            "stat": "统一规范品牌表达"
         },
         {
             "title": "企业级安全与隐私",

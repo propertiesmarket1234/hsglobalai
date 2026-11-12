@@ -20,15 +20,15 @@ const impacts = [
       "Automate repetitive customer inquiries and front-desk workflows, freeing human staff for high-value advisory tasks.",
     icon: TrendingDown,
     iconColor: "text-[var(--lp-accent)]",
-    stat: "-70% Staffing Overhead",
+    stat: "24/7 Inquiry Offloading",
   },
   {
     title: "Higher Customer Engagement",
     description:
-      "Lifelike 3D Digital Human AI experiences increase visitor attention, dwell time, and overall brand recall dramatically.",
+      "Lifelike 3D Digital Human AI experiences capture visitor attention and simplify interactive catalog exploration.",
     icon: TrendingUp,
     iconColor: "text-[var(--lp-accent)]",
-    stat: "4x Higher Dwell Time",
+    stat: "Volumetric 3D Presence",
   },
   {
     title: "Instant Information Delivery",
@@ -57,15 +57,15 @@ const impacts = [
   {
     title: "Consistent Service Quality",
     description:
-      "Eliminate bad days, employee fatigue, and high staff turnover. Every customer gets empathetic, patient care.",
+      "Deliver uniform, verified product and operational guidance across every kiosk shift without fatigue or script drift.",
     icon: Star,
     iconColor: "text-[var(--lp-accent)]",
-    stat: "98% Positive Feedback",
+    stat: "Factual Guardrail Verified",
   },
   {
     title: "Enterprise Air-Gapped Security",
     description:
-      "Built for strict corporate compliance with 100% on-premise local execution, zero cloud data pings, and HIPAA/GDPR alignment.",
+      "Built for strict corporate security requirements with 100% on-premise local execution and zero external cloud data transmission.",
     icon: ShieldCheck,
     iconColor: "text-[var(--lp-ink)]",
     stat: "100% On-Premise",
