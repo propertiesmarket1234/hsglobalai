@@ -8,6 +8,7 @@ import Industries from "@/components/Industries";
 import EnterpriseSecurityCommand from "@/components/EnterpriseSecurityCommand";
 import ChatbotVsAvatar from "@/components/ChatbotVsAvatar";
 import Products from "@/components/Products";
+import LatestInsights from "@/components/LatestInsights";
 import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
@@ -38,6 +39,9 @@ export default function HomeClient() {
 
       {/* 8. PHYSICAL HARDWARE & FORM FACTORS (HOLOGRAM BOXES, KIOSKS, SPATIAL DISPLAYS) */}
       <Products />
+
+      {/* 8B. LATEST INSIGHTS & FEATURED ARTICLES */}
+      <LatestInsights />
 
       {/* 9. ENTERPRISE DEPLOYMENT FAQ ACCORDION */}
       <FAQ />

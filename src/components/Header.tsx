@@ -80,9 +80,9 @@ export default function Header() {
           <Link
             href={lPath("/")}
             aria-label="HS Global AI home"
-            className="group flex items-center gap-2.5 rounded-full"
+            className="group flex shrink-0 items-center gap-2.5 rounded-full whitespace-nowrap"
           >
-            <span className="transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:-rotate-6 group-hover:scale-105">
+            <span className="transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:-rotate-6 group-hover:scale-105 shrink-0">
               <Image
                 src="/logo/hs-global-ai-logo.png"
                 alt="HS Global AI"
@@ -92,17 +92,17 @@ export default function Header() {
                 className="h-7 w-auto object-contain"
               />
             </span>
-            <span className="text-[15px] font-semibold tracking-[-0.03em] text-[var(--lp-ink)]">
+            <span className="text-[15px] font-semibold tracking-[-0.03em] text-[var(--lp-ink)] whitespace-nowrap">
               HS Global AI
             </span>
           </Link>
 
           {/* DESKTOP NAVIGATION LINKS */}
-          <nav aria-label="Primary" className="hidden items-center gap-1 md:flex">
+          <nav aria-label="Primary" className="hidden items-center gap-0.5 lg:flex whitespace-nowrap">
             {/* HOME */}
             <Link
               href={lPath("/")}
-              className={`relative rounded-full px-3 py-1.5 text-[14px] transition-colors duration-200 ${
+              className={`relative rounded-full px-2.5 xl:px-3 py-1.5 text-[13.5px] xl:text-[14px] transition-colors duration-200 ${
                 isActive("/")
                   ? "bg-[var(--lp-tile)] text-[var(--lp-ink)] font-semibold"
                   : "text-[var(--lp-ink-2)] hover:text-[var(--lp-ink)] hover:bg-[var(--lp-tile)]"
@@ -119,7 +119,7 @@ export default function Header() {
             >
               <Link
                 href={lPath("/products")}
-                className={`inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-[14px] transition-colors duration-200 ${
+                className={`inline-flex items-center gap-1 rounded-full px-2.5 xl:px-3 py-1.5 text-[13.5px] xl:text-[14px] transition-colors duration-200 ${
                   isActive("/products")
                     ? "bg-[var(--lp-tile)] text-[var(--lp-ink)] font-semibold"
                     : "text-[var(--lp-ink-2)] hover:text-[var(--lp-ink)] hover:bg-[var(--lp-tile)]"
@@ -187,7 +187,7 @@ export default function Header() {
             >
               <Link
                 href={lPath("/industries")}
-                className={`inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-[14px] transition-colors duration-200 ${
+                className={`inline-flex items-center gap-1 rounded-full px-2.5 xl:px-3 py-1.5 text-[13.5px] xl:text-[14px] transition-colors duration-200 ${
                   isActive("/industries")
                     ? "bg-[var(--lp-tile)] text-[var(--lp-ink)] font-semibold"
                     : "text-[var(--lp-ink-2)] hover:text-[var(--lp-ink)] hover:bg-[var(--lp-tile)]"
@@ -256,7 +256,7 @@ export default function Header() {
             {/* ABOUT */}
             <Link
               href={lPath("/about")}
-              className={`rounded-full px-3 py-1.5 text-[14px] transition-colors duration-200 ${
+              className={`rounded-full px-2.5 xl:px-3 py-1.5 text-[13.5px] xl:text-[14px] transition-colors duration-200 ${
                 isActive("/about")
                   ? "bg-[var(--lp-tile)] text-[var(--lp-ink)] font-semibold"
                   : "text-[var(--lp-ink-2)] hover:text-[var(--lp-ink)] hover:bg-[var(--lp-tile)]"
@@ -268,7 +268,7 @@ export default function Header() {
             {/* EVENTS */}
             <Link
               href={lPath("/events")}
-              className={`rounded-full px-3 py-1.5 text-[14px] transition-colors duration-200 ${
+              className={`rounded-full px-2.5 xl:px-3 py-1.5 text-[13.5px] xl:text-[14px] transition-colors duration-200 ${
                 isActive("/events")
                   ? "bg-[var(--lp-tile)] text-[var(--lp-ink)] font-semibold"
                   : "text-[var(--lp-ink-2)] hover:text-[var(--lp-ink)] hover:bg-[var(--lp-tile)]"
@@ -277,10 +277,22 @@ export default function Header() {
               <span>{dict.nav.events}</span>
             </Link>
 
+            {/* BLOG */}
+            <Link
+              href={lPath("/blog")}
+              className={`rounded-full px-2.5 xl:px-3 py-1.5 text-[13.5px] xl:text-[14px] transition-colors duration-200 ${
+                isActive("/blog")
+                  ? "bg-[var(--lp-tile)] text-[var(--lp-ink)] font-semibold"
+                  : "text-[var(--lp-ink-2)] hover:text-[var(--lp-ink)] hover:bg-[var(--lp-tile)]"
+              }`}
+            >
+              <span>{dict.nav.blog || "Blog"}</span>
+            </Link>
+
             {/* CONTACT */}
             <Link
               href={lPath("/contact")}
-              className={`rounded-full px-3 py-1.5 text-[14px] transition-colors duration-200 ${
+              className={`rounded-full px-2.5 xl:px-3 py-1.5 text-[13.5px] xl:text-[14px] transition-colors duration-200 ${
                 isActive("/contact")
                   ? "bg-[var(--lp-tile)] text-[var(--lp-ink)] font-semibold"
                   : "text-[var(--lp-ink-2)] hover:text-[var(--lp-ink)] hover:bg-[var(--lp-tile)]"
@@ -291,10 +303,10 @@ export default function Header() {
           </nav>
 
           {/* RIGHT ACTION CONTROLS */}
-          <div className="flex items-center gap-1.5 sm:gap-2">
-            {/* LANGUAGE SELECTOR (Desktop and Tablet) */}
+          <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
+            {/* LANGUAGE SELECTOR (Desktop) */}
             <div
-              className="relative hidden md:block"
+              className="relative hidden lg:block"
               onMouseEnter={() => setLangDropdownOpen(true)}
               onMouseLeave={() => setLangDropdownOpen(false)}
             >
@@ -358,8 +370,8 @@ export default function Header() {
               {dict.common.bookDemo || "Book Demo"}
             </Link>
 
-            {/* SOCIAL LINKS (Desktop & Tablet) */}
-            <div className="hidden md:flex items-center gap-1 border-l border-[var(--lp-line)] pl-2 sm:pl-3 ml-0.5">
+            {/* SOCIAL LINKS (Large Desktop Only to prevent header wrap) */}
+            <div className="hidden xl:flex items-center gap-1 border-l border-[var(--lp-line)] pl-3 ml-0.5">
               {socialLinks.map((item) => (
                 <a
                   key={item.name}
@@ -374,11 +386,11 @@ export default function Header() {
               ))}
             </div>
 
-            {/* MOBILE HAMBURGER BUTTON */}
+            {/* MOBILE & TABLET HAMBURGER BUTTON */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle Menu"
-              className="relative inline-flex h-10 w-10 items-center justify-center rounded-full text-[var(--lp-ink-2)] transition-colors hover:bg-[var(--lp-tile-2)] active:scale-95 cursor-pointer md:hidden"
+              className="relative inline-flex h-10 w-10 items-center justify-center rounded-full text-[var(--lp-ink-2)] transition-colors hover:bg-[var(--lp-tile-2)] active:scale-95 cursor-pointer lg:hidden"
             >
               {mobileMenuOpen ? (
                 <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -401,7 +413,7 @@ export default function Header() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2 }}
-              className="mx-auto mt-2 max-w-[1200px] overflow-hidden rounded-[24px] border border-[var(--lp-line)] bg-white p-4 sm:p-5 shadow-[var(--lp-shadow-lift)] md:hidden"
+              className="mx-auto mt-2 max-w-[1200px] overflow-hidden rounded-[24px] border border-[var(--lp-line)] bg-white p-4 sm:p-5 shadow-[var(--lp-shadow-lift)] lg:hidden"
             >
               <div className="space-y-3">
                 {/* PROMINENT MOBILE BOOK DEMO BUTTON */}
@@ -453,6 +465,17 @@ export default function Header() {
                   className="block rounded-xl px-3 py-2 text-[14px] font-medium text-[var(--lp-ink)] hover:bg-[var(--lp-tile)]"
                 >
                   {dict.nav.events}
+                </Link>
+                <Link
+                  href={lPath("/blog")}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`block rounded-xl px-3 py-2 text-[14px] transition-colors ${
+                    isActive("/blog")
+                      ? "bg-[var(--lp-tile)] text-[var(--lp-ink)] font-semibold"
+                      : "font-medium text-[var(--lp-ink)] hover:bg-[var(--lp-tile)]"
+                  }`}
+                >
+                  {dict.nav.blog || "Blog"}
                 </Link>
                 <Link
                   href={lPath("/contact")}

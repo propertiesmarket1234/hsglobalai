@@ -1,10 +1,11 @@
+import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
-import { ArrowRight, BookOpen, Sparkles, CheckCircle2, ChevronLeft } from "lucide-react";
+import { ArrowRight, BookOpen, Sparkles, ChevronLeft } from "lucide-react";
 import { blogPosts } from "@/data/blogPosts";
 import { getDictionary } from "@/i18n/getDictionary";
 import { Locale, nonDefaultLocales, getLocalizedPath } from "@/i18n/config";
@@ -75,32 +76,74 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
   };
 }
 
-/** Helper function to parse bold markdown text (**text**) and inline links ([text](url)) */
-function renderFormattedText(text: string, lPath: (p: string) => string) {
-  const parts = text.split(/(\*\*.*?\*\*|\[.*?\]\(.*?\))/g);
-  return parts.map((part, index) => {
-    if (part.startsWith("**") && part.endsWith("**")) {
-      return (
-        <strong key={index} className="font-semibold text-[var(--lp-ink)]">
-          {part.slice(2, -2)}
-        </strong>
-      );
+/** Helper function to parse bold (**text**), italic (*text*), and nested inline links ([text](url)) */
+function renderFormattedText(
+  text: string,
+  lPath: (p: string) => string,
+  keyPrefix = "md",
+): ReactNode {
+  const tokenRegex = /(\*\*[\s\S]*?\*\*|\[[^\]]+\]\([^)]+\)|\*[^*\s][^*]*?\*)/g;
+  const result: ReactNode[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+  let tokenIdx = 0;
+
+  while ((match = tokenRegex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      result.push(text.slice(lastIndex, match.index));
     }
-    if (part.startsWith("[") && part.includes("](") && part.endsWith(")")) {
-      const linkText = part.substring(1, part.indexOf("]("));
-      const linkHref = part.substring(part.indexOf("](") + 2, part.length - 1);
-      return (
-        <Link
-          key={index}
-          href={lPath(linkHref)}
-          className="text-[var(--lp-accent)] hover:underline font-semibold transition-colors"
-        >
-          {linkText}
-        </Link>
+
+    const token = match[0];
+    const key = `${keyPrefix}-${tokenIdx++}`;
+
+    if (token.startsWith("**") && token.endsWith("**") && token.length >= 4) {
+      const inner = token.slice(2, -2);
+      result.push(
+        <strong key={key} className="font-semibold text-[var(--lp-ink)]">
+          {renderFormattedText(inner, lPath, `${key}-b`)}
+        </strong>,
       );
+    } else if (token.startsWith("[") && token.endsWith(")")) {
+      const linkMatch = /^\[([^\]]+)\]\(([^)]+)\)$/.exec(token);
+      if (linkMatch) {
+        const [, linkText, linkHref] = linkMatch;
+        const resolvedHref =
+          linkHref.startsWith("http://") ||
+          linkHref.startsWith("https://") ||
+          linkHref.startsWith("mailto:")
+            ? linkHref
+            : lPath(linkHref);
+        result.push(
+          <Link
+            key={key}
+            href={resolvedHref}
+            className="text-[var(--lp-accent)] hover:underline font-semibold transition-colors"
+          >
+            {renderFormattedText(linkText, lPath, `${key}-l`)}
+          </Link>,
+        );
+      } else {
+        result.push(token);
+      }
+    } else if (token.startsWith("*") && token.endsWith("*") && token.length >= 2) {
+      const inner = token.slice(1, -1);
+      result.push(
+        <em key={key} className="italic">
+          {renderFormattedText(inner, lPath, `${key}-i`)}
+        </em>,
+      );
+    } else {
+      result.push(token);
     }
-    return part;
-  });
+
+    lastIndex = tokenRegex.lastIndex;
+  }
+
+  if (lastIndex < text.length) {
+    result.push(text.slice(lastIndex));
+  }
+
+  return result.length === 1 ? result[0] : result;
 }
 
 export default async function BlogPostPage({ params }: BlogPageProps) {
@@ -110,7 +153,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
       ? (lang as Locale)
       : "en";
   const dict = getDictionary(currentLocale);
-  const bPage = (dict as any).blogPage || {};
+  const bPage = dict.blogPage;
 
   const lPath = (path: string) => getLocalizedPath(path, currentLocale);
 
@@ -145,13 +188,25 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
     .slice(0, 3);
 
   // Structured Data (JSON-LD) for Search Engine Indexing
+  const baseUrl = "https://www.hsglobalai.com";
+  const articleUrl = `${baseUrl}/blog/${post.slug}`;
+  const bannerImageUrl = post.bannerImage.startsWith("http")
+    ? post.bannerImage
+    : `${baseUrl}${post.bannerImage.startsWith("/") ? "" : "/"}${post.bannerImage}`;
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": articleUrl,
+    },
+    url: articleUrl,
     headline: post.title,
     description: post.snippet,
-    image: post.bannerImage,
+    image: bannerImageUrl,
     datePublished: post.date,
+    dateModified: post.date,
     author: {
       "@type": "Organization",
       name: post.author,
@@ -161,7 +216,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
       name: "HS Global AI",
       logo: {
         "@type": "ImageObject",
-        url: "https://hsglobalai.com/logo.png",
+        url: `${baseUrl}/logo/hs-global-ai-logo.png`,
       },
     },
     keywords: post.tags.join(", "),
@@ -192,10 +247,10 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
     ],
   };
 
-  const contentBlocks = post.content.split("\n\n");
+  const rawContentBlocks = post.content.split("\n\n");
 
   // Extract FAQ items for FAQPage JSON-LD schema
-  const faqItems = contentBlocks
+  const faqItems = rawContentBlocks
     .filter((b) => b.trim().startsWith("### ") && b.trim().includes("\n"))
     .map((b) => {
       const fullContent = b.trim().replace("### ", "").trim();
@@ -204,6 +259,16 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
       const answer = lines.slice(1).join(" ").replace(/\*\*/g, "").replace(/\[(.*?)\]\(.*?\)/g, "$1").trim();
       return { question, answer };
     });
+
+  // Separate single-newline heading+body blocks so heading styling and Markdown link parsing apply independently
+  const contentBlocks = rawContentBlocks.flatMap((block) => {
+    const t = block.trim();
+    if (/^#{2,4}\s/.test(t) && t.includes("\n")) {
+      const firstNl = t.indexOf("\n");
+      return [t.slice(0, firstNl).trim(), t.slice(firstNl + 1).trim()];
+    }
+    return [block];
+  });
 
   const faqSchema =
     faqItems.length > 0
@@ -242,7 +307,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
       <Header />
 
       {/* ARTICLE HERO BANNER */}
-      <section className="relative pt-32 pb-14 md:pt-40 md:pb-16 px-4 sm:px-6 border-b border-[var(--lp-line)]">
+      <section className="relative bg-white pt-28 pb-16 md:pt-36 md:pb-20 px-4 sm:px-6 border-b border-[var(--lp-line)]">
         <div className="relative mx-auto max-w-4xl">
           {/* Breadcrumb Navigation */}
           <div className="flex items-center gap-2 text-xs text-[var(--lp-muted)] mb-6">
@@ -265,7 +330,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
           </div>
 
           {/* H1 Title */}
-          <h1 className="text-3xl font-semibold tracking-[-0.03em] text-[var(--lp-ink)] sm:text-5xl lg:text-6xl leading-[1.12]">
+          <h1 className="text-3xl font-semibold tracking-[-0.03em] text-[var(--lp-ink)] sm:text-5xl lg:text-[54px] leading-[1.12]">
             {post.title}
           </h1>
 
@@ -280,14 +345,15 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
             <span className="text-[var(--lp-ink)]">{post.readTime}</span>
           </div>
 
-          {/* Hero Banner Image */}
+          {/* Hero Banner Image (1:1 square artwork centered without dark sidebars or distortion) */}
           {post.bannerImage && (
-            <div className="mt-10 overflow-hidden rounded-[28px] border border-[var(--lp-line)] relative h-72 sm:h-96 w-full shadow-xs bg-[var(--lp-tile)]">
+            <div className="mt-10 mx-auto max-w-[540px] w-full overflow-hidden rounded-[24px] border border-[var(--lp-line)] relative aspect-square shadow-xs bg-[var(--lp-tile)]">
               <Image
                 src={post.bannerImage}
                 alt={post.title}
                 fill
                 priority
+                sizes="(max-width: 640px) 100vw, 540px"
                 className="object-cover"
               />
             </div>
@@ -296,8 +362,8 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
       </section>
 
       {/* ARTICLE CONTENT CONTAINER */}
-      <section className="relative px-4 py-16 sm:px-6">
-        <article className="mx-auto max-w-4xl leading-relaxed text-[var(--lp-ink-2)]">
+      <section className="relative bg-[var(--lp-bg)] px-4 py-16 sm:py-20 sm:px-6 border-b border-[var(--lp-line)]">
+        <article className="mx-auto max-w-3xl leading-[1.75] text-[var(--lp-ink-2)]">
           {contentBlocks.map((block, idx) => {
             const trimmed = block.trim();
 
@@ -419,7 +485,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
                   key={idx}
                   className="mt-12 mb-5 text-2xl md:text-3xl font-bold tracking-tight text-[var(--lp-ink)] border-l-4 border-[var(--lp-accent)] pl-4 py-1"
                 >
-                  {titleText}
+                  {renderFormattedText(titleText, lPath)}
                 </h2>
               );
             }
@@ -432,7 +498,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
                   key={idx}
                   className="mt-8 mb-3 text-xl font-bold text-[var(--lp-ink)]"
                 >
-                  {titleText}
+                  {renderFormattedText(titleText, lPath)}
                 </h3>
               );
             }
@@ -445,7 +511,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
                   key={idx}
                   className="mt-6 mb-2 text-base font-semibold text-[var(--lp-ink)]"
                 >
-                  {titleText}
+                  {renderFormattedText(titleText, lPath)}
                 </h4>
               );
             }

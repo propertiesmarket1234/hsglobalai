@@ -188,6 +188,9 @@ export default function Footer() {
               {dict.footer.usefulLinksHeader || "Resources"}
             </h3>
             <div className="flex flex-col gap-2.5 text-[14px] text-[var(--lp-ink-2)]">
+              <Link href={lPath("/blog")} className="hover:text-[var(--lp-ink)] transition-colors">
+                {dict.nav.blog || "Blog"}
+              </Link>
               <Link href={lPath("/contact/download-center")} className="hover:text-[var(--lp-ink)] transition-colors">
                 Technical Datasheets
               </Link>
