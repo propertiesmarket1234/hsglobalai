@@ -243,11 +243,11 @@ export default function EnterpriseQuestionSimulator() {
   return (
     <section
       id="enterprise-simulator"
-      className="relative overflow-hidden py-16 sm:py-20 md:py-24 bg-white border-b border-[var(--lp-line)]"
+      className="relative overflow-hidden py-20 sm:py-24 md:py-28 bg-white border-b border-[var(--lp-line)]"
     >
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
         {/* SECTION HEADER */}
-        <div className="mx-auto max-w-3xl text-center mb-8 sm:mb-12">
+        <div className="mx-auto max-w-2xl text-center mb-10 sm:mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--lp-tile)] border border-[var(--lp-line)] shadow-xs mb-3.5">
             <span className="w-2 h-2 rounded-full bg-[var(--lp-accent)] animate-pulse" />
             <span className="text-[11px] font-semibold tracking-wider text-[var(--lp-muted)] uppercase">

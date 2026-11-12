@@ -308,7 +308,7 @@ export default function SpatialDisplayClient() {
       <Header />
 
       {/* HERO SECTION: SWIPECRAFT LIGHT AESTHETIC */}
-      <section className="relative px-4 pt-32 pb-16 sm:px-6 md:pt-40 md:pb-24 border-b border-[var(--lp-line)]">
+      <section className="relative bg-white px-4 pt-32 pb-16 sm:px-6 md:pt-40 md:pb-24 border-b border-[var(--lp-line)]">
         <div className="mx-auto max-w-[1200px]">
           {/* Breadcrumb Navigation */}
           <div className="flex items-center gap-2 text-xs text-[var(--lp-muted)] mb-6">
@@ -402,12 +402,10 @@ export default function SpatialDisplayClient() {
                     fill
                     priority
                     sizes="(max-width: 768px) 100vw, 400px"
-                    className="object-contain bg-[#0F172A]"
+                    className="object-contain bg-[#0F172A] p-3"
                   />
 
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
-
-                  <div className="absolute top-4 left-4 z-10 flex items-center gap-2 rounded-full border border-white/20 bg-black/60 px-3.5 py-1.5 backdrop-blur-md">
+                  <div className="pointer-events-none absolute top-3.5 left-3.5 z-10 flex items-center gap-2 rounded-full border border-white/20 bg-black/75 px-3.5 py-1.5 backdrop-blur-md">
                     <span className="relative flex h-2 w-2">
                       <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--lp-accent)] opacity-75" />
                       <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--lp-accent)]" />
@@ -416,16 +414,16 @@ export default function SpatialDisplayClient() {
                       {sPage.heroPillProfile || '6 cm Profile • 32"–86"'}
                     </span>
                   </div>
+                </div>
 
-                  <div className="absolute bottom-4 left-4 right-4 z-10 rounded-xl border border-white/15 bg-black/75 p-3.5 backdrop-blur-md">
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="text-white font-semibold">{sPage.heroOverlayThickness || "6 CM PROFILE"}</span>
-                      <span className="text-amber-400 font-bold">4K ULTRA HD</span>
-                    </div>
-                    <p className="mt-1 text-[11px] leading-snug text-gray-200">
-                      {sPage.heroOverlayCaption || "Spatial Display Touch Screen with 4K Ultra HD volumetric depth perception"}
-                    </p>
+                <div className="mt-3 rounded-2xl border border-[var(--lp-line)] bg-white p-3.5 shadow-2xs">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="text-[var(--lp-ink)] font-semibold">{sPage.heroOverlayThickness || "6 CM PROFILE"}</span>
+                    <span className="text-[var(--lp-accent-ink)] font-bold">4K ULTRA HD</span>
                   </div>
+                  <p className="mt-1 text-xs leading-snug text-[var(--lp-muted)]">
+                    {sPage.heroOverlayCaption || "Spatial Display Touch Screen with 4K Ultra HD volumetric depth perception"}
+                  </p>
                 </div>
               </div>
             </div>
@@ -774,7 +772,7 @@ export default function SpatialDisplayClient() {
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--lp-ink)] sm:text-5xl">
               {sPage.compSectionTitle || "Spatial Display vs. Conventional Display"}
             </h2>
-            <p className="mt-4 text-base text-[var(--lp-ink-2)]">
+            <p className="mt-4 max-w-2xl mx-auto text-base leading-[1.7] text-[var(--lp-ink-2)]">
               {sPage.compSectionSubtitle || "Why leading enterprises are transitioning from flat signage to volumetric naked-eye 3D."}
             </p>
           </div>
@@ -981,7 +979,7 @@ export default function SpatialDisplayClient() {
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--lp-ink)] sm:text-5xl">
               Spatial Display FAQs
             </h2>
-            <p className="mt-4 text-base text-[var(--lp-ink-2)]">
+            <p className="mt-4 max-w-2xl mx-auto text-base leading-[1.7] text-[var(--lp-ink-2)]">
               Essential answers regarding Spatial Display technology, glasses-free 3D optics, available sizes, and DIHUAVA AI integration.
             </p>
           </div>

@@ -96,7 +96,7 @@ export default function ImmersiveUseCases() {
   const activeStory = useCases.find((u) => u.id === activeTab) || useCases[0];
 
   return (
-    <section className="relative overflow-hidden bg-[var(--lp-tile)] px-4 py-20 sm:px-6 md:py-28 text-[var(--lp-ink)]">
+    <section className="relative overflow-hidden bg-white border-b border-[var(--lp-line)] px-4 py-20 sm:px-6 md:py-28 text-[var(--lp-ink)]">
       <div className="mx-auto max-w-[1200px]">
         {/* SECTION HEADER */}
         <div className="mx-auto max-w-[44rem] text-center mb-12">
@@ -210,12 +210,12 @@ export default function ImmersiveUseCases() {
               </div>
 
               {/* RIGHT COLUMN: REAL PHOTOGRAPHIC DEMONSTRATION */}
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#0B1224] shadow-[var(--lp-shadow-lift)] lg:col-span-6">
+              <div className="relative aspect-[4/3] lg:aspect-square max-h-[460px] w-full overflow-hidden rounded-2xl bg-[#0B1224] p-3 shadow-[var(--lp-shadow-lift)] lg:col-span-6">
                 <Image
                   src={activeStory.imageSrc}
                   alt={activeStory.imageAlt}
                   fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  className="object-contain p-2 transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                 />
               </div>
             </div>

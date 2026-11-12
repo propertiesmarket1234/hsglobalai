@@ -126,7 +126,7 @@ export default function HolographicDisplayClient() {
       <Header />
 
       {/* HERO SECTION: SWIPECRAFT STYLE */}
-      <section className="relative px-4 pt-32 pb-16 sm:px-6 md:pt-40 md:pb-24 border-b border-[var(--lp-line)]">
+      <section className="relative bg-white px-4 pt-32 pb-16 sm:px-6 md:pt-40 md:pb-24 border-b border-[var(--lp-line)]">
         <div className="mx-auto max-w-[1200px]">
           {/* Breadcrumb Navigation */}
           <div className="flex items-center gap-2 text-xs text-[var(--lp-muted)] mb-6">
@@ -208,8 +208,8 @@ export default function HolographicDisplayClient() {
 
             {/* Right Visual Image */}
             <div className="lg:col-span-5">
-              <div className="rounded-[32px] border border-[var(--lp-line)] bg-[var(--lp-tile)] p-3 shadow-[var(--lp-shadow-card)]">
-                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-[#0B1224]">
+              <div className="rounded-[32px] border border-[var(--lp-line)] bg-[var(--lp-tile)] p-3.5 shadow-[var(--lp-shadow-card)]">
+                <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl bg-[#0B1224]">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={currentImageIndex}
@@ -224,13 +224,13 @@ export default function HolographicDisplayClient() {
                         alt={hologramHeroImages[currentImageIndex].alt}
                         fill
                         priority
-                        className="object-cover"
+                        className="object-contain p-2"
                       />
                     </motion.div>
                   </AnimatePresence>
 
                   {/* Top Left Slide Indicators */}
-                  <div className="absolute top-4 left-4 z-20 flex items-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-white/90 px-3 py-1.5 backdrop-blur-md shadow-xs">
+                  <div className="absolute top-3.5 left-3.5 z-20 flex items-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-white/95 px-3 py-1.5 backdrop-blur-md shadow-xs">
                     {hologramHeroImages.map((_, idx) => (
                       <button
                         key={idx}
@@ -246,12 +246,12 @@ export default function HolographicDisplayClient() {
                       Enclosure View {currentImageIndex + 1}
                     </span>
                   </div>
+                </div>
 
-                  <div className="absolute bottom-3 left-3 right-3 rounded-xl border border-[var(--lp-line)] bg-white/90 p-3 backdrop-blur-md shadow-xs">
-                    <p className="text-xs font-medium text-[var(--lp-ink)]">
-                      {hologramHeroImages[currentImageIndex].caption}
-                    </p>
-                  </div>
+                <div className="mt-3 rounded-2xl border border-[var(--lp-line)] bg-white px-4 py-3 shadow-2xs">
+                  <p className="text-xs font-medium text-[var(--lp-ink)]">
+                    {hologramHeroImages[currentImageIndex].caption}
+                  </p>
                 </div>
               </div>
             </div>
@@ -260,7 +260,7 @@ export default function HolographicDisplayClient() {
       </section>
 
       {/* 4 CORE HARDWARE FEATURES */}
-      <section className="px-4 py-20 sm:px-6 md:py-28 bg-[var(--lp-bg)] border-b border-[var(--lp-line)]">
+      <section className="px-4 py-20 sm:px-6 md:py-28 bg-[var(--lp-tile)] border-b border-[var(--lp-line)]">
         <div className="mx-auto max-w-[1200px]">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-wider text-[var(--lp-accent-ink)]">
@@ -314,7 +314,7 @@ export default function HolographicDisplayClient() {
       </section>
 
       {/* HARDWARE SPECIFICATIONS */}
-      <section className="px-4 py-20 sm:px-6 md:py-28 bg-[var(--lp-tile)] border-b border-[var(--lp-line)]">
+      <section className="px-4 py-20 sm:px-6 md:py-28 bg-white border-b border-[var(--lp-line)]">
         <div className="mx-auto max-w-[960px]">
           <div className="text-center mb-12">
             <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-wider text-[var(--lp-accent-ink)]">

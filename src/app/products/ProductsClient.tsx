@@ -27,7 +27,7 @@ export default function ProductsClient() {
       <Header />
 
       {/* PRODUCTS HERO SECTION: SWIPECRAFT STYLE */}
-      <section className="relative px-4 pt-28 pb-12 sm:px-6 md:pt-36 md:pb-16 border-b border-[var(--lp-line)]">
+      <section className="relative bg-white px-4 pt-28 pb-16 sm:px-6 md:pt-36 md:pb-20 border-b border-[var(--lp-line)]">
         <div className="mx-auto max-w-[1200px]">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

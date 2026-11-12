@@ -24,7 +24,7 @@ export default function IndustryFAQ({ title, faqs }: IndustryFAQProps) {
   if (!faqs || faqs.length === 0) return null;
 
   return (
-    <section className="px-4 py-20 sm:px-6 md:py-28 bg-[var(--lp-bg)] border-t border-[var(--lp-line)] text-[var(--lp-ink)]">
+    <section className="px-4 py-20 sm:px-6 md:py-28 bg-white border-b border-[var(--lp-line)] text-[var(--lp-ink)]">
       <div className="mx-auto max-w-[960px]">
         <div className="max-w-xl mb-12">
           <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-wider text-[var(--lp-accent-ink)]">

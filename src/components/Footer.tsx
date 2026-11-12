@@ -158,6 +158,9 @@ export default function Footer() {
               <Link href={lPath("/industries/tourism")} className="hover:text-[var(--lp-ink)] transition-colors">
                 Events & Tourism
               </Link>
+              <Link href={lPath("/industries/education")} className="hover:text-[var(--lp-ink)] transition-colors">
+                Education & Campuses
+              </Link>
             </div>
           </div>
 

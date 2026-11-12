@@ -247,6 +247,18 @@ export default function Header() {
                       >
                         {dict.nav.healthcareHospitals}
                       </Link>
+                      <Link
+                        href={lPath("/industries/tourism")}
+                        className="block rounded-xl px-3.5 py-2 text-[13px] font-medium text-[var(--lp-ink-2)] hover:bg-[var(--lp-tile)] hover:text-[var(--lp-ink)] transition-colors"
+                      >
+                        {dict.nav.tourismMuseums}
+                      </Link>
+                      <Link
+                        href={lPath("/industries/education")}
+                        className="block rounded-xl px-3.5 py-2 text-[13px] font-medium text-[var(--lp-ink-2)] hover:bg-[var(--lp-tile)] hover:text-[var(--lp-ink)] transition-colors"
+                      >
+                        {dict.nav.educationAcademies}
+                      </Link>
                     </div>
                   </motion.div>
                 )}

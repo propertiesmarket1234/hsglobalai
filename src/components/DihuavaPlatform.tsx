@@ -198,16 +198,16 @@ export default function DihuavaPlatform() {
               </div>
 
               {/* Active Tab Pictorial Graphic & Specs Display */}
-              <div className="mt-8 relative overflow-hidden rounded-2xl border border-[var(--lp-line)] bg-black/80 p-5 backdrop-blur-md shadow-xl">
+              <div className="mt-8 relative overflow-hidden rounded-2xl border border-[var(--lp-line)] bg-[#0B1224] p-4 shadow-xl">
                 {/* Pictorial Visual Container depending on activeTab */}
-                <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl border border-white/10 bg-neutral-950 group">
+                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-white/10 bg-[#0B1224] group">
                   {activeCapability.id === "avatar" && (
                     <div className="relative h-full w-full flex items-center justify-center bg-gradient-to-br from-cyan-950/60 via-black to-slate-950">
                       <Image
                         src="/images/avatars/executive_lady.png"
                         alt="AI Avatar Face Customization"
                         fill
-                        className="object-cover object-top filter brightness-105 contrast-105 transition-transform duration-700 group-hover:scale-105"
+                        className="object-contain p-2 filter brightness-105 contrast-105 transition-transform duration-700 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/30" />
                       <div className="absolute top-3 left-3 z-10 rounded-full border border-cyan-400/50 bg-black/80 px-3 py-1 text-[11px] font-semibold text-cyan-300 backdrop-blur-md flex items-center gap-1.5 shadow-lg">
@@ -226,7 +226,7 @@ export default function DihuavaPlatform() {
                         src="/products/digital-humans/digital-human-dashboard.jpg"
                         alt="On-Device Document Intelligence RAG Engine"
                         fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        className="object-contain p-2 transition-transform duration-700 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/30" />
                       <div className="absolute top-3 left-3 z-10 rounded-full border border-cyan-400/50 bg-black/80 px-3 py-1 text-[11px] font-semibold text-cyan-300 backdrop-blur-md flex items-center gap-1.5 shadow-lg">

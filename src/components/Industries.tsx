@@ -35,7 +35,7 @@ const INDUSTRY_CARDS: IndustryCardData[] = [
     description:
       "Guide shoppers through collections, sizes, and product pairings with synchronized on-screen media.",
     specPill: "CSV Catalog RAG · Multilingual",
-    imageSrc: "/images/use-cases/jewellery_hologram_kiosk.png",
+    imageSrc: "/images/industries/retail_display_v2.jpg",
     imageAlt: "Interactive Retail Digital Human Kiosk in Luxury Showroom",
     icon: ShoppingBag,
     href: "/industries/retail",
@@ -47,7 +47,7 @@ const INDUSTRY_CARDS: IndustryCardData[] = [
     description:
       "Direct patients across clinics, answer department questions locally, and bridge 29+ spoken languages.",
     specPill: "Local Privacy · 29+ Langs",
-    imageSrc: "/images/avatars/ai_digital_human_lady.png",
+    imageSrc: "/images/industries/healthcare_display.jpg",
     imageAlt: "Healthcare AI Digital Human Patient Guidance Assistant",
     icon: HeartPulse,
     href: "/industries/healthcare",
@@ -59,7 +59,7 @@ const INDUSTRY_CARDS: IndustryCardData[] = [
     description:
       "Explain financial products, branch workflows, and onboarding requirements inside air-gapped branches.",
     specPill: "Air-Gapped Branch Hardware",
-    imageSrc: "/images/use-cases/banking_hologram_kiosk.png",
+    imageSrc: "/images/industries/banking_display.jpg",
     imageAlt: "Banking Branch 3D Hologram Kiosk Assistant",
     icon: Landmark,
     href: "/industries/banking",
@@ -71,7 +71,7 @@ const INDUSTRY_CARDS: IndustryCardData[] = [
     description:
       "Run reception, visitor safety briefings, and manual search completely offline on dedicated GPU stations.",
     specPill: "100% On-Device · Zero Cloud",
-    imageSrc: "/images/use-cases/executive_lady_hologram.png",
+    imageSrc: "/images/industries/corporate_display.jpg",
     imageAlt: "Corporate Executive Lobby AI Digital Human Hologram",
     icon: Shield,
     href: "/industries/corporate",
@@ -83,7 +83,7 @@ const INDUSTRY_CARDS: IndustryCardData[] = [
     description:
       "Engage international crowds across exhibitions and cultural venues with multilingual storytelling.",
     specPill: "55\"–86\" Volumetric Hologram",
-    imageSrc: "/images/use-cases/museum_hologram_avatar.png",
+    imageSrc: "/images/industries/tourism_display.jpg",
     imageAlt: "Museum and Exhibition 3D Holographic Digital Human Presenter",
     icon: Sparkles,
     href: "/industries/tourism",
@@ -95,7 +95,7 @@ const INDUSTRY_CARDS: IndustryCardData[] = [
     description:
       "Deliver admissions support, campus maps, and course advisory across university hubs continuously.",
     specPill: "24/7 Campus Knowledge Hub",
-    imageSrc: "/images/avatars/education_assistant.png",
+    imageSrc: "/images/industries/education_display.jpg",
     imageAlt: "Education Campus Interactive Digital Human Assistant",
     icon: GraduationCap,
     href: "/industries/education",

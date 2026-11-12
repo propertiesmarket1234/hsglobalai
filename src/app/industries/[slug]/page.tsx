@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 import Link from "next/link";
+import Image from "next/image";
 import { industriesData } from "@/data/industriesData";
 import { getLocalizedIndustryData, getLocalizedUIStrings } from "@/data/localizedIndustriesData";
 import IndustryInfoDepth from "@/components/IndustryInfoDepth";
@@ -250,7 +251,7 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
       <Header />
 
       {/* HERO SECTION: SWIPECRAFT STYLE */}
-      <section className="relative px-4 pt-32 pb-16 sm:px-6 md:pt-40 md:pb-24 border-b border-[var(--lp-line)]">
+      <section className="relative bg-white px-4 pt-32 pb-16 sm:px-6 md:pt-40 md:pb-24 border-b border-[var(--lp-line)]">
         <div className="mx-auto max-w-[1200px]">
           {/* Breadcrumb Navigation */}
           <div className="flex items-center gap-2 text-xs text-[var(--lp-muted)] mb-6">
@@ -264,6 +265,29 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
             <span>/</span>
             <span className="text-[var(--lp-ink)] font-semibold">{industry.title}</span>
           </div>
+
+          {(() => {
+            const topHeroImages: Record<string, string> = {
+              retail: "/images/industries/retail_display_v2.jpg",
+              banking: "/images/industries/banking_display_v2.jpg",
+            };
+            const topHeroSrc = topHeroImages[slug];
+            if (!topHeroSrc) return null;
+            return (
+              <div className="mb-10 sm:mb-12 rounded-[28px] border border-[var(--lp-line)] bg-[var(--lp-tile)] p-2 sm:p-3 shadow-[var(--lp-shadow-card)]">
+                <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[20px] border border-[var(--lp-line)] bg-[#0B1224]">
+                  <Image
+                    src={topHeroSrc}
+                    alt={`${industry.title} Spatial Display AI Digital Human Assistant`}
+                    fill
+                    sizes="(max-width: 1200px) 100vw, 1176px"
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+              </div>
+            );
+          })()}
 
           <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
             {/* Left Content */}
@@ -431,7 +455,7 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
       </section>
 
       {/* REAL-WORLD DEPLOYMENT USE CASES */}
-      <section className="px-4 py-20 sm:px-6 md:py-28 bg-[var(--lp-tile)] border-b border-[var(--lp-line)]">
+      <section className="px-4 py-20 sm:px-6 md:py-28 bg-white border-b border-[var(--lp-line)]">
         <div className="mx-auto max-w-[1200px]">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-wider text-[var(--lp-accent-ink)]">
@@ -483,6 +507,20 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
             ))}
           </div>
 
+          {slug === "banking" && (
+            <div className="mt-12 rounded-[28px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-2 sm:p-3 shadow-[var(--lp-shadow-card)]">
+              <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[20px] border border-[var(--lp-line)] bg-[#0B1224]">
+                <Image
+                  src="/images/industries/banking_interactive_experience.jpg"
+                  alt="Banking & Financial Services Interactive AI Digital Human Consultation"
+                  fill
+                  sizes="(max-width: 1200px) 100vw, 1176px"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          )}
+
           {/* Contextual DIHUAVA Software Integration Callout */}
           <div className="mt-12 rounded-[24px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xs">
             <div className="max-w-2xl">
@@ -511,6 +549,24 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
       {/* TOPICAL INFORMATION DEPTH */}
       {industry.infoDepth && (
         <IndustryInfoDepth title={industry.title} infoDepth={industry.infoDepth} />
+      )}
+
+      {slug === "retail" && (
+        <section className="px-4 py-12 sm:px-6 sm:py-16 bg-[var(--lp-tile)] border-b border-[var(--lp-line)]">
+          <div className="mx-auto max-w-[1200px]">
+            <div className="rounded-[28px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-2 sm:p-3 shadow-[var(--lp-shadow-card)]">
+              <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[20px] border border-[var(--lp-line)] bg-[#0B1224]">
+                <Image
+                  src="/images/industries/retail_interactive_experience.jpg"
+                  alt="Interactive Retail Experiences with 3D Holographic Product Catalogs and AI Brand Ambassadors"
+                  fill
+                  sizes="(max-width: 1200px) 100vw, 1176px"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
       )}
 
       {/* TECHNICAL SPECIFICATIONS */}
@@ -552,7 +608,7 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
       )}
 
       {/* OTHER INDUSTRIES NAVIGATOR */}
-      <section className="px-4 py-20 sm:px-6 md:py-28 bg-[var(--lp-tile)] border-b border-[var(--lp-line)]">
+      <section className="px-4 py-20 sm:px-6 md:py-28 bg-[var(--lp-bg)] border-b border-[var(--lp-line)]">
         <div className="mx-auto max-w-[1200px]">
           <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end mb-10">
             <div>

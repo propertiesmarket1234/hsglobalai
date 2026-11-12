@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   Landmark,
@@ -33,6 +34,8 @@ const industries = [
     ],
     icon: Landmark,
     accentColor: "text-[var(--lp-accent)]",
+    imageSrc: "/images/industries/banking_display.jpg",
+    imageAlt: "Banking & Financial Services Spatial Display AI Assistant",
   },
   {
     number: "02",
@@ -40,16 +43,18 @@ const industries = [
     title: "Retail & Luxury Stores",
     subtitle: "Holographic Brand Ambassadors",
     description:
-      "Engage shoppers with holographic brand ambassadors, smart product explainers, interactive product discovery displays, and Virtual Try-On smart mirrors (Active R&D) designed to boost in-store footfall and checkout conversion rates.",
-    useCase: "3D Holographic Shopping Guide & Smart Mirror",
+      "Engage shoppers with lifelike AI digital human brand ambassadors, real-time interactive product catalogs, tailored pairing recommendations, and multilingual store assistance across luxury boutiques and retail showrooms.",
+    useCase: "3D Store Concierge & Interactive Product Catalog",
     features: [
-      "Virtual Try-On (Active R&D)",
-      "Interactive Product Discovery",
-      "AI Sales Ambassador",
+      "Virtual Brand Ambassadors",
+      "Interactive Product Catalogs",
+      "Multilingual Customer Assistance",
       "Smart Promotional Displays",
     ],
     icon: ShoppingBag,
     accentColor: "text-[var(--lp-accent)]",
+    imageSrc: "/images/industries/retail_display_v2.jpg",
+    imageAlt: "Retail & Luxury Stores Spatial Display Digital Human",
   },
   {
     number: "03",
@@ -67,6 +72,8 @@ const industries = [
     ],
     icon: Building2,
     accentColor: "text-[var(--lp-ink)]",
+    imageSrc: "/images/industries/corporate_display.jpg",
+    imageAlt: "Corporate Services & HR Spatial Display Receptionist",
   },
   {
     number: "04",
@@ -84,6 +91,8 @@ const industries = [
     ],
     icon: HeartPulse,
     accentColor: "text-[#16a34a]",
+    imageSrc: "/images/industries/healthcare_display.jpg",
+    imageAlt: "Healthcare & Hospital Navigation Spatial Display Assistant",
   },
   {
     number: "05",
@@ -101,6 +110,8 @@ const industries = [
     ],
     icon: Castle,
     accentColor: "text-[var(--lp-accent)]",
+    imageSrc: "/images/industries/tourism_display.jpg",
+    imageAlt: "Tourism & Exhibitions Spatial Display Holographic Guide",
   },
   {
     number: "06",
@@ -118,6 +129,8 @@ const industries = [
     ],
     icon: GraduationCap,
     accentColor: "text-[var(--lp-ink)]",
+    imageSrc: "/images/industries/education_display.jpg",
+    imageAlt: "Education & Training Spatial Display AI Campus Assistant",
   },
 ];
 
@@ -128,20 +141,21 @@ export default function IndustriesShowcase() {
   const lPath = (path: string) => getLocalizedPath(path, currentLocale);
 
   return (
-    <section className="relative overflow-hidden bg-[var(--lp-bg)] px-4 py-20 sm:px-6 md:py-28 text-[var(--lp-ink)]">
-      <div className="relative mx-auto max-w-7xl divide-y divide-[var(--lp-line)]">
-        {industries.map((industry) => {
+    <section className="relative overflow-hidden bg-[var(--lp-bg)] border-b border-[var(--lp-line)] px-4 py-20 sm:px-6 md:py-28 text-[var(--lp-ink)]">
+      <div className="relative mx-auto max-w-[1200px] divide-y divide-[var(--lp-line)]">
+        {industries.map((industry, idx) => {
           const Icon = industry.icon;
+          const isAlternate = idx % 2 === 1;
           return (
-            <div key={industry.number} id={industry.slug} className="py-16 first:pt-0 last:pb-0 overflow-hidden">
+            <div key={industry.number} id={industry.slug} className="py-16 sm:py-20 first:pt-0 last:pb-0 overflow-hidden">
               <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
-                {/* LEFT HEADER & ICON */}
+                {/* HEADER & ICON COLUMN */}
                 <motion.div
-                  initial={{ opacity: 0, x: -60 }}
+                  initial={{ opacity: 0, x: isAlternate ? 40 : -40 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-80px" }}
                   transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                  className="lg:col-span-5"
+                  className={`lg:col-span-6 ${isAlternate ? "lg:order-2" : "lg:order-1"}`}
                 >
                   <div className="flex items-center gap-3">
                     <span className="text-sm font-semibold tracking-wider text-[var(--lp-accent)]">
@@ -164,6 +178,16 @@ export default function IndustriesShowcase() {
                       {industry.title}
                     </h2>
                   </div>
+
+                  <div className="relative mt-6 aspect-[16/9] w-full overflow-hidden rounded-2xl border border-[var(--lp-line)] bg-[#0B1224] shadow-[var(--lp-shadow-card)]">
+                    <Image
+                      src={industry.imageSrc}
+                      alt={industry.imageAlt}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 600px"
+                      className="object-cover transition-transform duration-700 ease-out hover:scale-[1.02]"
+                    />
+                  </div>
                 </motion.div>
 
                 {/* RIGHT DESCRIPTION & FEATURES */}
@@ -172,7 +196,7 @@ export default function IndustriesShowcase() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-80px" }}
                   transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                  className="lg:col-span-7"
+                  className={`lg:col-span-6 ${isAlternate ? "lg:order-1" : "lg:order-2"}`}
                 >
                   <motion.div
                     whileHover={{ y: -3 }}

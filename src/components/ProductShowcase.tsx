@@ -127,7 +127,7 @@ export default function ProductShowcase() {
                   <div className={`group relative ${product.reverseLayout ? "lg:col-start-2" : ""}`}>
                     <div className="relative overflow-hidden rounded-[28px] border border-[var(--lp-line)] bg-[var(--lp-tile)] p-3 shadow-[var(--lp-shadow-card)]">
                       <div className={`relative w-full overflow-hidden rounded-2xl bg-[#0B1224] ${
-                        product.id === "digital-humans" ? "aspect-[16/11]" : "aspect-[4/5]"
+                        product.id === "digital-humans" ? "aspect-[16/11]" : product.id === "virtual-try-on" ? "aspect-square max-w-[480px] mx-auto" : "aspect-[3/4] max-w-[440px] mx-auto"
                       }`}>
                         {/* Live Status Badge */}
                         <div className="absolute top-4 left-4 z-20 flex items-center gap-2 rounded-full border border-[var(--lp-line)] bg-white/90 px-3.5 py-1.5 backdrop-blur-md shadow-xs">
@@ -148,7 +148,7 @@ export default function ProductShowcase() {
                           className={
                             product.id === "spatial-display" || product.id === "digital-humans" || product.id === "hologram-box"
                               ? "object-contain bg-[#0B1224] p-3 transition-transform duration-700 group-hover:scale-105"
-                              : "object-cover transition-transform duration-700 group-hover:scale-105"
+                              : "object-contain bg-[#0B1224] p-3 transition-transform duration-700 group-hover:scale-105"
                           }
                         />
                       </div>

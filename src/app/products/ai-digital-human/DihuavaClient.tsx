@@ -462,7 +462,7 @@ export default function DihuavaClient() {
       <Header />
 
       {/* HERO SECTION: SWIPECRAFT STYLE */}
-      <section className="relative px-4 pt-32 pb-16 sm:px-6 md:pt-40 md:pb-24 border-b border-[var(--lp-line)]">
+      <section className="relative bg-white px-4 pt-28 pb-16 sm:px-6 md:pt-36 md:pb-24 border-b border-[var(--lp-line)]">
         <div className="mx-auto max-w-[1200px]">
           {/* Breadcrumb Navigation */}
           <div className="flex items-center gap-2 text-xs text-[var(--lp-muted)] mb-6">
@@ -493,9 +493,14 @@ export default function DihuavaClient() {
                 </span>
               </h1>
 
-              <p className="mt-5 text-[16px] leading-[1.65] text-[var(--lp-ink-2)] sm:text-[18px]">
-                DIHUAVA is an offline digital human platform and on-device AI software system developed by HS Global AI. Operating 100% offline on-device by default—with optional network configurations for updates and centralized fleet management—it executes speech recognition, neural voice synthesis across 29+ global languages and 7 specialized Indian languages, and real-time 3D avatar lip-sync locally on venue hardware. Organizations deploy DIHUAVA as standalone software on compatible Windows or Linux workstations—or paired with optional kiosks, hologram boxes, and spatial displays—to answer customer questions from approved local documents via RAG and deliver relevant product recommendations from synchronized CSV catalogs.
-              </p>
+              <div className="mt-6 space-y-4 max-w-[60ch] text-[16px] leading-[1.7] text-[var(--lp-ink-2)] sm:text-[17px]">
+                <p>
+                  DIHUAVA is an offline digital human platform and on-device AI software system developed by HS Global AI. Operating 100% offline on-device by default—with optional network configurations for updates and centralized fleet management—it executes speech recognition, neural voice synthesis across 29+ global languages and 7 specialized Indian languages, and real-time 3D avatar lip-sync locally on venue hardware.
+                </p>
+                <p>
+                  Organizations deploy DIHUAVA as standalone software on compatible Windows or Linux workstations—or paired with optional kiosks, hologram boxes, and spatial displays—to answer customer questions from approved local documents via RAG and deliver relevant product recommendations from synchronized CSV catalogs.
+                </p>
+              </div>
 
               {/* ACTION BUTTONS */}
               <div className="mt-8 flex flex-col sm:flex-row items-center gap-3">
@@ -546,7 +551,7 @@ export default function DihuavaClient() {
 
             {/* Right Visual Image */}
             <div className="lg:col-span-6">
-              <div className="rounded-[32px] border border-[var(--lp-line)] bg-[var(--lp-tile)] p-3 shadow-[var(--lp-shadow-card)]">
+              <div className="rounded-[32px] border border-[var(--lp-line)] bg-[var(--lp-tile)] p-3.5 shadow-[var(--lp-shadow-card)]">
                 <div className="relative aspect-[16/11] w-full overflow-hidden rounded-2xl bg-[#0B1224]">
                   <Image
                     src="/products/digital-humans/digital-human-dashboard.jpg"
@@ -555,15 +560,15 @@ export default function DihuavaClient() {
                     priority
                     className="object-contain w-full h-full p-2"
                   />
-                  <div className="absolute bottom-3 left-3 right-3 rounded-xl border border-[var(--lp-line)] bg-white/90 p-3 backdrop-blur-md shadow-xs">
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="font-bold text-[var(--lp-ink)]">DIHUAVA ON-PREMISE ENGINE</span>
-                      <span className="font-semibold text-[#16a34a]">STATUS: 100% LOCAL</span>
-                    </div>
-                    <p className="mt-0.5 text-xs text-[var(--lp-muted)]">
-                      Local Speech, Voice Cloning, Document RAG &amp; 3D Lip Sync Active
-                    </p>
+                </div>
+                <div className="mt-3 rounded-2xl border border-[var(--lp-line)] bg-white p-3.5 shadow-2xs">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="font-bold text-[var(--lp-ink)]">DIHUAVA ON-PREMISE ENGINE</span>
+                    <span className="font-semibold text-[#16a34a]">STATUS: 100% LOCAL</span>
                   </div>
+                  <p className="mt-1 text-xs text-[var(--lp-muted)]">
+                    Local Speech, Voice Cloning, Document RAG &amp; 3D Lip Sync Active
+                  </p>
                 </div>
               </div>
             </div>
@@ -572,9 +577,9 @@ export default function DihuavaClient() {
       </section>
 
       {/* DEFINITION SECTION: WHAT IS OFFLINE AI DIGITAL HUMAN SOFTWARE? */}
-      <section className="px-4 py-14 sm:px-6 bg-[var(--lp-bg)] border-b border-[var(--lp-line)]">
+      <section className="px-4 py-16 sm:py-20 sm:px-6 bg-[var(--lp-bg)] border-b border-[var(--lp-line)]">
         <div className="mx-auto max-w-[960px]">
-          <div className="rounded-[24px] border border-[var(--lp-line)] bg-[var(--lp-tile)] p-6 sm:p-8 shadow-xs">
+          <div className="rounded-[24px] border border-[var(--lp-line)] bg-[var(--lp-tile)] p-6 sm:p-10 shadow-xs">
             <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-wider text-[var(--lp-accent-ink)]">
               <span className="h-1.5 w-1.5 rounded-full bg-[var(--lp-accent)]" />
               Direct Definition &amp; Platform Overview
@@ -582,16 +587,21 @@ export default function DihuavaClient() {
             <h2 className="mt-2 text-2xl font-bold tracking-tight text-[var(--lp-ink)] sm:text-3xl">
               What Is DIHUAVA, and How Does an Offline Digital Human Platform Work?
             </h2>
-            <p className="mt-4 text-[15px] sm:text-base leading-[1.7] text-[var(--lp-ink-2)]">
-              Digital human software combines conversational AI, speech recognition, neural voice synthesis, and 3D facial animation to enable natural, real-time interactions with people—learn more in our detailed guide on{" "}
-              <Link
-                href={lPath("/blog/what-is-a-digital-human-avatar")}
-                className="text-[var(--lp-ink)] font-semibold underline decoration-[var(--lp-line)] underline-offset-4 hover:text-[var(--lp-accent)] transition-colors"
-              >
-                what a digital human avatar is and how AI avatars transform enterprise engagement
-              </Link>
-              . Built by HS Global AI as an offline digital human platform, DIHUAVA executes speech-to-text, two-stage local document RAG, CSV product catalog retrieval, and 3D avatar rendering locally on dedicated edge hardware. By licensing DIHUAVA as standalone software for compatible workstations or integrating it with optional interactive touch kiosks, 3D hologram boxes, and spatial displays, organizations can answer customer questions from approved local documents and recommend relevant products without requiring continuous cloud connectivity during daily operations.
-            </p>
+            <div className="mt-5 space-y-4 max-w-[68ch] text-[15px] sm:text-base leading-[1.7] text-[var(--lp-ink-2)]">
+              <p>
+                Digital human software combines conversational AI, speech recognition, neural voice synthesis, and 3D facial animation to enable natural, real-time interactions with people—learn more in our detailed guide on{" "}
+                <Link
+                  href={lPath("/blog/what-is-a-digital-human-avatar")}
+                  className="text-[var(--lp-ink)] font-semibold underline decoration-[var(--lp-line)] underline-offset-4 hover:text-[var(--lp-accent)] transition-colors"
+                >
+                  what a digital human avatar is and how AI avatars transform enterprise engagement
+                </Link>
+                .
+              </p>
+              <p>
+                Built by HS Global AI as an offline digital human platform, DIHUAVA executes speech-to-text, two-stage local document RAG, CSV product catalog retrieval, and 3D avatar rendering locally on dedicated edge hardware. By licensing DIHUAVA as standalone software for compatible workstations or integrating it with optional interactive touch kiosks, 3D hologram boxes, and spatial displays, organizations can answer customer questions from approved local documents and recommend relevant products without requiring continuous cloud connectivity during daily operations.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -736,42 +746,47 @@ export default function DihuavaClient() {
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {coreModules.map((module) => {
+            {coreModules.map((module, idx) => {
               const Icon = module.icon;
+              const isLastFullRow = idx === coreModules.length - 1 && coreModules.length % 3 === 1;
               return (
                 <div
                   key={module.id}
-                  className="group flex flex-col justify-between rounded-[28px] border border-[var(--lp-line)] bg-[var(--lp-tile)] p-7 shadow-xs hover:shadow-[var(--lp-shadow-card)] transition-shadow"
+                  className={`group flex flex-col justify-between rounded-[28px] border border-[var(--lp-line)] bg-[var(--lp-tile)] p-7 shadow-xs hover:shadow-[var(--lp-shadow-card)] transition-shadow ${
+                    isLastFullRow ? "md:col-span-2 lg:col-span-3" : ""
+                  }`}
                 >
-                  <div>
-                    <div className="flex items-center justify-between mb-5">
-                      <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-[var(--lp-line)] bg-[var(--lp-card)] text-[var(--lp-accent)] shadow-xs">
-                        <Icon className="w-6 h-6" strokeWidth={1.75} />
-                      </span>
-                      <span className="rounded-full bg-[rgba(255,90,31,0.08)] px-3 py-1 text-[11px] font-semibold text-[var(--lp-accent-ink)]">
-                        {module.badge}
-                      </span>
+                  <div className={isLastFullRow ? "grid gap-6 lg:grid-cols-[1.35fr_1fr] lg:items-center lg:gap-10" : ""}>
+                    <div className={isLastFullRow ? "max-w-2xl" : ""}>
+                      <div className="flex items-center justify-between mb-5">
+                        <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-[var(--lp-line)] bg-[var(--lp-card)] text-[var(--lp-accent)] shadow-xs">
+                          <Icon className="w-6 h-6" strokeWidth={1.75} />
+                        </span>
+                        <span className="rounded-full bg-[rgba(255,90,31,0.08)] px-3 py-1 text-[11px] font-semibold text-[var(--lp-accent-ink)]">
+                          {module.badge}
+                        </span>
+                      </div>
+
+                      <h3 className="text-xl font-bold text-[var(--lp-ink)]">
+                        {module.title}
+                      </h3>
+                      <p className="mt-1 text-xs text-[var(--lp-muted)] font-medium max-w-2xl">
+                        {module.subtitle}
+                      </p>
+
+                      <p className="mt-3.5 text-sm leading-[1.7] text-[var(--lp-ink-2)] max-w-2xl">
+                        {module.description}
+                      </p>
                     </div>
 
-                    <h3 className="text-xl font-bold text-[var(--lp-ink)]">
-                      {module.title}
-                    </h3>
-                    <p className="mt-1 text-xs text-[var(--lp-muted)] font-medium">
-                      {module.subtitle}
-                    </p>
-
-                    <p className="mt-3.5 text-sm leading-relaxed text-[var(--lp-ink-2)]">
-                      {module.description}
-                    </p>
-                  </div>
-
-                  <div className="mt-6 space-y-1.5 border-t border-[var(--lp-line)] pt-4">
-                    {module.highlights.map((h, i) => (
-                      <div key={i} className="flex items-center gap-2 text-xs text-[var(--lp-ink-2)]">
-                        <CheckCircle2 className="h-3 w-3 text-[var(--lp-accent)] shrink-0" />
-                        <span>{h}</span>
-                      </div>
-                    ))}
+                    <div className={isLastFullRow ? "space-y-2 border-t border-[var(--lp-line)] pt-4 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-8" : "mt-6 space-y-1.5 border-t border-[var(--lp-line)] pt-4"}>
+                      {module.highlights.map((h, i) => (
+                        <div key={i} className="flex items-center gap-2 text-xs text-[var(--lp-ink-2)]">
+                          <CheckCircle2 className="h-3 w-3 text-[var(--lp-accent)] shrink-0" />
+                          <span>{h}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
 
                   {module.featureUrl && (
@@ -974,7 +989,7 @@ export default function DihuavaClient() {
       </section>
 
       {/* COMPETITIVE ADVANTAGES: DIHUAVA VS CLOUD AI */}
-      <section className="px-4 py-20 sm:px-6 md:py-28 bg-[var(--lp-bg)] border-b border-[var(--lp-line)]">
+      <section className="px-4 py-20 sm:px-6 md:py-28 bg-white border-b border-[var(--lp-line)]">
         <div className="mx-auto max-w-[960px]">
           <div className="text-center mb-12">
             <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-wider text-[var(--lp-accent-ink)]">
@@ -1061,7 +1076,7 @@ export default function DihuavaClient() {
       </section>
 
       {/* FREQUENTLY ASKED QUESTIONS */}
-      <section className="px-4 py-20 sm:px-6 md:py-28 bg-[var(--lp-bg)] border-b border-[var(--lp-line)]">
+      <section className="px-4 py-20 sm:px-6 md:py-28 bg-white border-b border-[var(--lp-line)]">
         <div className="mx-auto max-w-[960px]">
           <div className="max-w-xl mb-12">
             <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-wider text-[var(--lp-accent-ink)]">

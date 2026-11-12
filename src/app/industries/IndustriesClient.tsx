@@ -28,23 +28,23 @@ export default function IndustriesClient() {
   }> = {
     zh: {
       heroDescription: "我们的数字人 AI 平台助力企业自动化客户服务、提升接待品质、降低运营成本，并凭借逼真的 AI 阿凡达与 3D 全息显示屏打造高吸引力的沉浸式体验。",
-      pills: ["金融与银行", "零售与奢品", "医疗健康", "国防安全", "文旅博览"],
+      pills: ["金融与银行", "零售与奢品", "医疗健康", "国防安全", "文旅博览", "教育与培训"],
     },
     ru: {
       heroDescription: "Наша платформа ИИ Цифровых Людей помогает организациям автоматизировать обслуживание клиентов, повышать качество сервиса, снижать операционные расходы и создавать незабываемый опыт.",
-      pills: ["Банки и Финансы", "Ритейл и Моллы", "Здравоохранение", "Безопасность", "Выставки"],
+      pills: ["Банки и Финансы", "Ритейл и Моллы", "Здравоохранение", "Безопасность", "Выставки", "Образование и Кампусы"],
     },
     es: {
       heroDescription: "Nuestra plataforma de IA de Humanos Digitales ayuda a las organizaciones a automatizar las interacciones con los clientes, mejorar la calidad del servicio, reducir los costos operativos y ofrecer experiencias atractivas.",
-      pills: ["Banca y Finanzas", "Comercio Minorista", "Salud", "Defensa y Seguridad", "Eventos"],
+      pills: ["Banca y Finanzas", "Comercio Minorista", "Salud", "Defensa y Seguridad", "Eventos", "Educación y Formación"],
     },
     fr: {
       heroDescription: "Notre plateforme d'Humains Virtuels IA aide les organisations à automatiser les interactions clients, améliorer la qualité de service, réduire les coûts opérationnels et offrir des expériences captivantes.",
-      pills: ["Banque & Finance", "Commerce de Luxe", "Santé", "Défense & Sécurité", "Événements"],
+      pills: ["Banque & Finance", "Commerce de Luxe", "Santé", "Défense & Sécurité", "Événements", "Éducation & Formation"],
     },
     en: {
       heroDescription: "Our Digital Human AI platform helps enterprise organizations automate front-line visitor inquiries, offload repetitive desk workflows, and deliver continuous, responsive guidance across physical environments.",
-      pills: ["Banking & Finance", "Retail & Luxury", "Hospitals & Healthcare", "Defence & High-Security", "Events & Culture"],
+      pills: ["Banking & Finance", "Retail & Luxury", "Hospitals & Healthcare", "Defence & High-Security", "Events & Culture", "Education & Training"],
     },
   };
 
@@ -55,7 +55,7 @@ export default function IndustriesClient() {
       <Header />
 
       {/* INDUSTRIES HERO SECTION: SWIPECRAFT STYLE */}
-      <section className="relative px-4 pt-28 pb-12 sm:px-6 md:pt-36 md:pb-16 border-b border-[var(--lp-line)]">
+      <section className="relative bg-white px-4 pt-28 pb-16 sm:px-6 md:pt-36 md:pb-20 border-b border-[var(--lp-line)]">
         <div className="mx-auto max-w-[1200px]">
           {/* Category Badge */}
           <motion.div
