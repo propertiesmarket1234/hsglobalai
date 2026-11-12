@@ -75,24 +75,24 @@ export default function Header() {
     <>
       <LanguageBanner />
       <header className="sticky top-0 z-50 px-3 pt-3 sm:px-4">
-        <div className="lp-nav-capsule mx-auto flex h-14 max-w-[1200px] items-center justify-between rounded-full border border-[var(--lp-line)] bg-[rgba(250,250,250,0.88)] pl-4 pr-2 backdrop-blur-md shadow-[0_2px_12px_rgba(17,17,19,0.04)]">
+        <div className="lp-nav-capsule mx-auto flex h-16 max-w-[1320px] items-center justify-between gap-2 rounded-full border border-[var(--lp-line)] bg-[rgba(250,250,250,0.88)] pl-4 pr-2.5 xl:pr-3 backdrop-blur-md shadow-[0_2px_12px_rgba(17,17,19,0.04)]">
           {/* BRAND LOGO */}
           <Link
             href={lPath("/")}
             aria-label="HS Global AI home"
             className="group flex shrink-0 items-center gap-2.5 rounded-full whitespace-nowrap"
           >
-            <span className="transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:-rotate-6 group-hover:scale-105 shrink-0">
+            <span className="inline-flex items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:-rotate-6 group-hover:scale-105 shrink-0">
               <Image
-                src="/logo/hs-global-ai-logo.png"
+                src="/logo/hs-global-ai-logo-mark.png"
                 alt="HS Global AI"
-                width={32}
-                height={32}
+                width={64}
+                height={44}
                 priority
-                className="h-7 w-auto object-contain"
+                className="block h-10 w-auto sm:h-11 object-contain"
               />
             </span>
-            <span className="text-[15px] font-semibold tracking-[-0.03em] text-[var(--lp-ink)] whitespace-nowrap">
+            <span className="text-[18px] sm:text-[20px] font-bold leading-none tracking-[-0.03em] text-[var(--lp-ink)] whitespace-nowrap">
               HS Global AI
             </span>
           </Link>
@@ -102,7 +102,7 @@ export default function Header() {
             {/* HOME */}
             <Link
               href={lPath("/")}
-              className={`relative rounded-full px-2.5 xl:px-3 py-1.5 text-[13.5px] xl:text-[14px] transition-colors duration-200 ${
+              className={`relative rounded-full px-2 xl:px-2.5 py-1.5 text-[13.5px] xl:text-[14px] transition-colors duration-200 ${
                 isActive("/")
                   ? "bg-[var(--lp-tile)] text-[var(--lp-ink)] font-semibold"
                   : "text-[var(--lp-ink-2)] hover:text-[var(--lp-ink)] hover:bg-[var(--lp-tile)]"
@@ -119,7 +119,7 @@ export default function Header() {
             >
               <Link
                 href={lPath("/products")}
-                className={`inline-flex items-center gap-1 rounded-full px-2.5 xl:px-3 py-1.5 text-[13.5px] xl:text-[14px] transition-colors duration-200 ${
+                className={`inline-flex items-center gap-1 rounded-full px-2 xl:px-2.5 py-1.5 text-[13.5px] xl:text-[14px] transition-colors duration-200 ${
                   isActive("/products")
                     ? "bg-[var(--lp-tile)] text-[var(--lp-ink)] font-semibold"
                     : "text-[var(--lp-ink-2)] hover:text-[var(--lp-ink)] hover:bg-[var(--lp-tile)]"
@@ -187,7 +187,7 @@ export default function Header() {
             >
               <Link
                 href={lPath("/industries")}
-                className={`inline-flex items-center gap-1 rounded-full px-2.5 xl:px-3 py-1.5 text-[13.5px] xl:text-[14px] transition-colors duration-200 ${
+                className={`inline-flex items-center gap-1 rounded-full px-2 xl:px-2.5 py-1.5 text-[13.5px] xl:text-[14px] transition-colors duration-200 ${
                   isActive("/industries")
                     ? "bg-[var(--lp-tile)] text-[var(--lp-ink)] font-semibold"
                     : "text-[var(--lp-ink-2)] hover:text-[var(--lp-ink)] hover:bg-[var(--lp-tile)]"
@@ -268,7 +268,7 @@ export default function Header() {
             {/* ABOUT */}
             <Link
               href={lPath("/about")}
-              className={`rounded-full px-2.5 xl:px-3 py-1.5 text-[13.5px] xl:text-[14px] transition-colors duration-200 ${
+              className={`rounded-full px-2 xl:px-2.5 py-1.5 text-[13.5px] xl:text-[14px] transition-colors duration-200 ${
                 isActive("/about")
                   ? "bg-[var(--lp-tile)] text-[var(--lp-ink)] font-semibold"
                   : "text-[var(--lp-ink-2)] hover:text-[var(--lp-ink)] hover:bg-[var(--lp-tile)]"
@@ -280,7 +280,7 @@ export default function Header() {
             {/* EVENTS */}
             <Link
               href={lPath("/events")}
-              className={`rounded-full px-2.5 xl:px-3 py-1.5 text-[13.5px] xl:text-[14px] transition-colors duration-200 ${
+              className={`rounded-full px-2 xl:px-2.5 py-1.5 text-[13.5px] xl:text-[14px] transition-colors duration-200 ${
                 isActive("/events")
                   ? "bg-[var(--lp-tile)] text-[var(--lp-ink)] font-semibold"
                   : "text-[var(--lp-ink-2)] hover:text-[var(--lp-ink)] hover:bg-[var(--lp-tile)]"
@@ -292,7 +292,7 @@ export default function Header() {
             {/* BLOG */}
             <Link
               href={lPath("/blog")}
-              className={`rounded-full px-2.5 xl:px-3 py-1.5 text-[13.5px] xl:text-[14px] transition-colors duration-200 ${
+              className={`rounded-full px-2 xl:px-2.5 py-1.5 text-[13.5px] xl:text-[14px] transition-colors duration-200 ${
                 isActive("/blog")
                   ? "bg-[var(--lp-tile)] text-[var(--lp-ink)] font-semibold"
                   : "text-[var(--lp-ink-2)] hover:text-[var(--lp-ink)] hover:bg-[var(--lp-tile)]"
@@ -304,7 +304,7 @@ export default function Header() {
             {/* CONTACT */}
             <Link
               href={lPath("/contact")}
-              className={`rounded-full px-2.5 xl:px-3 py-1.5 text-[13.5px] xl:text-[14px] transition-colors duration-200 ${
+              className={`rounded-full px-2 xl:px-2.5 py-1.5 text-[13.5px] xl:text-[14px] transition-colors duration-200 ${
                 isActive("/contact")
                   ? "bg-[var(--lp-tile)] text-[var(--lp-ink)] font-semibold"
                   : "text-[var(--lp-ink-2)] hover:text-[var(--lp-ink)] hover:bg-[var(--lp-tile)]"
@@ -324,7 +324,7 @@ export default function Header() {
             >
               <button
                 onClick={() => setLangDropdownOpen(!langDropdownOpen)}
-                className="inline-flex h-10 items-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-white px-3.5 text-[12px] font-medium text-[var(--lp-ink-2)] shadow-xs transition-all duration-150 hover:bg-[var(--lp-tile)] hover:text-[var(--lp-ink)] active:scale-[0.98] cursor-pointer"
+                className="inline-flex h-10 items-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-white px-2.5 xl:px-3 text-[12px] font-medium text-[var(--lp-ink-2)] shadow-xs transition-all duration-150 hover:bg-[var(--lp-tile)] hover:text-[var(--lp-ink)] active:scale-[0.98] cursor-pointer"
                 aria-label="Select Language"
               >
                 <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-[var(--lp-tile)] border border-[var(--lp-line)] text-[var(--lp-ink)]">{locales[currentLocale].flag}</span>
@@ -377,13 +377,13 @@ export default function Header() {
             {/* PRIMARY CTA: BOOK DEMO BUTTON (Hidden on mobile < sm to guarantee zero header squish) */}
             <Link
               href={lPath("/contact")}
-              className="hidden sm:inline-flex h-10 items-center justify-center whitespace-nowrap rounded-full bg-[var(--lp-ink)] px-5 text-[14px] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_1px_2px_rgba(17,17,19,0.24)] transition-all duration-150 hover:bg-[#2A2A2F] active:scale-[0.98] cursor-pointer"
+              className="hidden sm:inline-flex h-10 items-center justify-center whitespace-nowrap rounded-full bg-[var(--lp-ink)] px-4 xl:px-5 text-[14px] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_1px_2px_rgba(17,17,19,0.24)] transition-all duration-150 hover:bg-[#2A2A2F] active:scale-[0.98] cursor-pointer"
             >
               {dict.common.bookDemo || "Book Demo"}
             </Link>
 
             {/* SOCIAL LINKS (Large Desktop Only to prevent header wrap) */}
-            <div className="hidden xl:flex items-center gap-1 border-l border-[var(--lp-line)] pl-3 ml-0.5">
+            <div className="hidden xl:flex items-center gap-0.5 border-l border-[var(--lp-line)] pl-2.5 ml-0.5">
               {socialLinks.map((item) => (
                 <a
                   key={item.name}
@@ -391,7 +391,7 @@ export default function Header() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={item.ariaLabel}
-                  className="inline-flex h-8 w-8 items-center justify-center rounded-full text-[var(--lp-muted)] transition-colors hover:bg-[var(--lp-tile)] hover:text-[var(--lp-ink)] active:scale-95 cursor-pointer"
+                  className="inline-flex h-7 w-7 xl:h-8 xl:w-8 items-center justify-center rounded-full text-[var(--lp-muted)] transition-colors hover:bg-[var(--lp-tile)] hover:text-[var(--lp-ink)] active:scale-95 cursor-pointer"
                 >
                   <item.icon className="h-3.5 w-3.5" />
                 </a>
