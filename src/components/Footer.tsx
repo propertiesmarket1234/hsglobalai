@@ -144,22 +144,22 @@ export default function Footer() {
             </h3>
             <div className="flex flex-col gap-2.5 text-[14px] text-[var(--lp-ink-2)]">
               <Link href={lPath("/industries/retail")} className="hover:text-[var(--lp-ink)] transition-colors">
-                Retail & Luxury
+                Retail & Advertising
               </Link>
               <Link href={lPath("/industries/healthcare")} className="hover:text-[var(--lp-ink)] transition-colors">
-                Hospitals & Clinics
+                Healthcare & Hospital Navigation
               </Link>
               <Link href={lPath("/industries/banking")} className="hover:text-[var(--lp-ink)] transition-colors">
-                Banking & VIP Wealth
+                Banking & Financial Services
               </Link>
               <Link href={lPath("/industries/corporate")} className="hover:text-[var(--lp-ink)] transition-colors">
-                Corporate & Defence
+                Corporate Services & HR
               </Link>
               <Link href={lPath("/industries/tourism")} className="hover:text-[var(--lp-ink)] transition-colors">
-                Events & Tourism
+                Tourism & Exhibitions
               </Link>
               <Link href={lPath("/industries/education")} className="hover:text-[var(--lp-ink)] transition-colors">
-                Education & Campuses
+                Education & Training
               </Link>
             </div>
           </div>

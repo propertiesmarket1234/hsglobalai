@@ -44,7 +44,7 @@ export default function IndustriesClient() {
     },
     en: {
       heroDescription: "Our Digital Human AI platform helps enterprise organizations automate front-line visitor inquiries, offload repetitive desk workflows, and deliver continuous, responsive guidance across physical environments.",
-      pills: ["Banking & Finance", "Retail & Luxury", "Hospitals & Healthcare", "Defence & High-Security", "Events & Culture", "Education & Training"],
+      pills: ["Banking & Financial Services", "Retail & Advertising", "Corporate Services & HR", "Healthcare & Hospital Navigation", "Tourism & Exhibitions", "Education & Training"],
     },
   };
 

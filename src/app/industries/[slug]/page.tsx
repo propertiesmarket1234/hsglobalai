@@ -268,8 +268,12 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
 
           {(() => {
             const topHeroImages: Record<string, string> = {
-              retail: "/images/industries/retail_display_v2.jpg",
-              banking: "/images/industries/banking_display_v2.jpg",
+              retail: "/images/industries/retail_display_v3.jpg",
+              banking: "/images/industries/banking_display_v3.jpg",
+              corporate: "/images/industries/corporate_display_v3.jpg",
+              healthcare: "/images/industries/healthcare_display_v3.jpg",
+              tourism: "/images/industries/tourism_display_v3.jpg",
+              education: "/images/industries/education_display_v3.jpg",
             };
             const topHeroSrc = topHeroImages[slug];
             if (!topHeroSrc) return null;
@@ -507,19 +511,49 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
             ))}
           </div>
 
-          {slug === "banking" && (
-            <div className="mt-12 rounded-[28px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-2 sm:p-3 shadow-[var(--lp-shadow-card)]">
-              <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[20px] border border-[var(--lp-line)] bg-[#0B1224]">
-                <Image
-                  src="/images/industries/banking_interactive_experience.jpg"
-                  alt="Banking & Financial Services Interactive AI Digital Human Consultation"
-                  fill
-                  sizes="(max-width: 1200px) 100vw, 1176px"
-                  className="object-cover"
-                />
+          {(() => {
+            const preDihuavaImages: Record<string, { src: string; alt: string }> = {
+              retail: {
+                src: "/images/industries/retail_interactive_experience_v3.jpg",
+                alt: "Retail & Advertising Interactive Experiences with AI Brand Ambassadors and 3D Product Catalogs",
+              },
+              banking: {
+                src: "/images/industries/banking_interactive_experience_v4.jpg",
+                alt: "Banking & Financial Services Interactive AI Digital Human Branch Advisory",
+              },
+              corporate: {
+                src: "/images/industries/corporate_interactive_experience_v2.jpg",
+                alt: "Corporate Services & HR Interactive AI Digital Human Reception & Wayfinding",
+              },
+              healthcare: {
+                src: "/images/industries/healthcare_interactive_experience_v2.jpg",
+                alt: "Healthcare & Hospital Navigation Interactive Hospital Navigation & Patient Guidance AI",
+              },
+              tourism: {
+                src: "/images/industries/tourism_interactive_experience_v2.jpg",
+                alt: "Tourism & Exhibitions Interactive AI Digital Human Guide & Wayfinding",
+              },
+              education: {
+                src: "/images/industries/education_interactive_experience.jpg",
+                alt: "Education & Training Interactive STEM Learning Center AI Digital Human",
+              },
+            };
+            const preDihuava = preDihuavaImages[slug];
+            if (!preDihuava) return null;
+            return (
+              <div className="mt-12 rounded-[28px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-2 sm:p-3 shadow-[var(--lp-shadow-card)]">
+                <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[20px] border border-[var(--lp-line)] bg-[#0B1224]">
+                  <Image
+                    src={preDihuava.src}
+                    alt={preDihuava.alt}
+                    fill
+                    sizes="(max-width: 1200px) 100vw, 1176px"
+                    className="object-cover"
+                  />
+                </div>
               </div>
-            </div>
-          )}
+            );
+          })()}
 
           {/* Contextual DIHUAVA Software Integration Callout */}
           <div className="mt-12 rounded-[24px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xs">
@@ -551,23 +585,7 @@ export default async function IndustrySubPage({ params }: IndustryPageProps) {
         <IndustryInfoDepth title={industry.title} infoDepth={industry.infoDepth} />
       )}
 
-      {slug === "retail" && (
-        <section className="px-4 py-12 sm:px-6 sm:py-16 bg-[var(--lp-tile)] border-b border-[var(--lp-line)]">
-          <div className="mx-auto max-w-[1200px]">
-            <div className="rounded-[28px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-2 sm:p-3 shadow-[var(--lp-shadow-card)]">
-              <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[20px] border border-[var(--lp-line)] bg-[#0B1224]">
-                <Image
-                  src="/images/industries/retail_interactive_experience.jpg"
-                  alt="Interactive Retail Experiences with 3D Holographic Product Catalogs and AI Brand Ambassadors"
-                  fill
-                  sizes="(max-width: 1200px) 100vw, 1176px"
-                  className="object-cover"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
+
 
       {/* TECHNICAL SPECIFICATIONS */}
       <section className="px-4 py-20 sm:px-6 md:py-28 bg-[var(--lp-bg)] border-b border-[var(--lp-line)]">

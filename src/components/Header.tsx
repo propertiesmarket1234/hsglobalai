@@ -391,9 +391,9 @@ export default function Header() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={item.ariaLabel}
-                  className="inline-flex h-7 w-7 xl:h-8 xl:w-8 items-center justify-center rounded-full text-[var(--lp-muted)] transition-colors hover:bg-[var(--lp-tile)] hover:text-[var(--lp-ink)] active:scale-95 cursor-pointer"
+                  className="inline-flex h-8 w-8 items-center justify-center rounded-full text-[var(--lp-muted)] transition-colors hover:bg-[var(--lp-tile)] hover:text-[var(--lp-ink)] active:scale-95 cursor-pointer"
                 >
-                  <item.icon className="h-3.5 w-3.5" />
+                  <item.icon className="h-4 w-4" />
                 </a>
               ))}
             </div>
