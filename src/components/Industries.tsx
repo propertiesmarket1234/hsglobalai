@@ -116,7 +116,7 @@ export default function Industries() {
   return (
     <section
       id="domains"
-      className="relative overflow-hidden py-16 sm:py-24 bg-[var(--lp-tile)] border-b border-[var(--lp-line)]"
+      className="relative overflow-hidden py-16 sm:py-24 bg-[var(--lp-tile)] border-b border-[var(--lp-line)] scroll-mt-20"
     >
       <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
         {/* SECTION HEADER */}
@@ -170,7 +170,7 @@ export default function Industries() {
                     </div>
                   </div>
 
-                  <h3 className="mt-4 text-lg sm:text-[19px] font-semibold tracking-tight text-[var(--lp-ink)] leading-snug">
+                  <h3 className="mt-4 text-lg sm:text-[19px] font-semibold tracking-tight text-[var(--lp-ink)] leading-snug min-h-[3rem] sm:min-h-[3.25rem]">
                     {card.title}
                   </h3>
 

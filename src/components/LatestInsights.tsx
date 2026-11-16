@@ -52,17 +52,11 @@ export default function LatestInsights() {
   return (
     <section
       id="latest-insights"
-      className="relative bg-[var(--lp-bg)] px-4 py-16 sm:px-6 md:py-24 text-[var(--lp-ink)] border-b border-[var(--lp-line)]"
+      className="relative bg-[var(--lp-bg)] px-4 py-16 sm:px-6 md:py-24 text-[var(--lp-ink)] border-b border-[var(--lp-line)] scroll-mt-20"
     >
       <div className="mx-auto max-w-[1200px]">
         {/* Section Header */}
-        <motion.div
-          initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.5 }}
-          className="flex flex-col justify-between gap-6 md:flex-row md:items-end mb-10 sm:mb-12"
-        >
+        <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end mb-10 sm:mb-12">
           <div className="max-w-2xl">
             <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-wider text-[var(--lp-accent-ink)]">
               <span className="h-1.5 w-1.5 rounded-full bg-[var(--lp-accent)]" />
@@ -81,24 +75,18 @@ export default function LatestInsights() {
             <span>{ins.exploreAll || "Explore All"}</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </Link>
-        </motion.div>
+        </div>
 
         {/* 3 Distinct Featured Articles Grid */}
         <div className="grid gap-6 md:grid-cols-3">
-          {latestPosts.map((post, idx) => (
-            <motion.div
-              key={post.id}
-              initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.45, delay: shouldReduceMotion ? 0 : idx * 0.06 }}
-            >
+          {latestPosts.map((post) => (
+            <div key={post.id}>
               <Link
                 href={lPath(`/blog/${post.slug}`)}
                 className="group flex h-full flex-col justify-between overflow-hidden rounded-[24px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-4 sm:p-5 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--lp-shadow-card)]"
               >
                 <div>
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-tile)]">
+                  <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-[var(--lp-line)] bg-[var(--lp-tile)]">
                     <Image
                       src={post.bannerImage}
                       alt={post.title}
@@ -137,7 +125,7 @@ export default function LatestInsights() {
                   </span>
                 </div>
               </Link>
-            </motion.div>
+            </div>
           ))}
         </div>
 

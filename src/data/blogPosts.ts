@@ -28,7 +28,7 @@ export const blogPosts: BlogPost[] = [
             "How companies are leveraging local AI digital human avatars to automate workflow bottlenecks, streamline customer onboarding, and achieve 100% data privacy with Low Latency.",
         author: "HS Global AI Enterprise Team",
         featured: true,
-        bannerImage: "/images/blog/blog_banner_automation.png",
+        bannerImage: "/images/blog/ai_business_automation_overview.jpg",
         bannerBg: "from-cyan-950 via-blue-950/80 to-black",
         accentColor: "cyan",
         icon: "bot",
@@ -141,7 +141,7 @@ Bring next-generation AI Digital Humans to your business locations, customer ser
             "An executive architectural guide comparing low latency, security, bandwidth consumption, and total cost of ownership between cloud-hosted AI APIs and local Edge AI processing.",
         author: "HS Global AI Infrastructure Team",
         featured: false,
-        bannerImage: "/images/blog/blog_banner_edge_ai.png",
+        bannerImage: "/images/blog/edge_ai_vs_cloud_ai_infrastructure.jpg",
         bannerBg: "from-cyan-950 via-sky-950/80 to-black",
         accentColor: "cyan",
         icon: "zap",
@@ -165,6 +165,8 @@ Regulated industries—such as [banking & financial services](/industries/bankin
 ---
 
 ## Infrastructure Breakdown
+
+![Edge AI vs. Cloud AI Infrastructure Architecture Comparison](/images/blog/edge_ai_vs_cloud_ai_infrastructure.jpg)
 
 1. **Bandwidth Savings:** Local model execution eliminates continuous high-resolution video and audio streaming back and forth across WAN networks.
 2. **Deterministic Reliability:** Edge AI continues to function seamlessly during internet outages, regional ISP failures, or server downtime.

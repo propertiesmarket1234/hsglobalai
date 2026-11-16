@@ -209,12 +209,7 @@ export default function DigitalHumanHero() {
         {/* ASYMMETRIC SPLIT HERO: EDITORIAL VALUE PROP (5 COLS) + LIVE AVATAR STAGE (7 COLS) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           {/* LEFT COLUMN: FOCUSED HEADLINE, CONCISE PROP & DUAL CTAS */}
-          <motion.div
-            initial={shouldReduceMotion ? false : { opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 text-left"
-          >
+          <div className="lg:col-span-5 text-left">
             <Link
               href={lPath("/products/ai-digital-human")}
               className="group inline-flex items-center gap-2 rounded-full border border-[var(--lp-line)] bg-[var(--lp-card)] px-3.5 py-1.5 text-xs font-medium text-[var(--lp-ink)] shadow-xs transition-all hover:border-[var(--lp-accent)]"
@@ -287,15 +282,10 @@ export default function DigitalHumanHero() {
                 </p>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* RIGHT COLUMN: LIVE SPEAKING AVATAR STAGE + DOMAIN CONTROLS (7 COLS) */}
-          <motion.div
-            initial={shouldReduceMotion ? false : { opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.06, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7"
-          >
+          <div className="lg:col-span-7">
             <div className="rounded-[26px] bg-[var(--lp-tile)] p-2 sm:p-3 border border-[var(--lp-line)] shadow-[var(--lp-shadow-card)]">
               <div className="rounded-[20px] bg-[var(--lp-card)] p-3 sm:p-4 border border-[var(--lp-line)]">
                 {/* DOMAIN TABS + LIVE PERSONA BADGE */}
@@ -399,7 +389,7 @@ export default function DigitalHumanHero() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

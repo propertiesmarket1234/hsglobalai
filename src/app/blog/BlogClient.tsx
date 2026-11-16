@@ -77,12 +77,7 @@ export default function BlogClient() {
       {/* HERO SECTION */}
       <section className="relative bg-white px-4 pt-28 pb-16 sm:px-6 md:pt-36 md:pb-20 border-b border-[var(--lp-line)]">
         <div className="relative mx-auto max-w-[1200px]">
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55 }}
-            className="text-center"
-          >
+          <div className="text-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-[var(--lp-line)] bg-[var(--lp-tile)] px-3.5 py-1.5 mb-6">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--lp-accent)] opacity-75" />
@@ -131,7 +126,7 @@ export default function BlogClient() {
                 )}
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -139,18 +134,14 @@ export default function BlogClient() {
       {!searchQuery && selectedCategoryIdx === 0 && featuredPost && (
         <section className="relative bg-[var(--lp-tile)] px-4 py-16 sm:px-6 sm:py-20 border-b border-[var(--lp-line)]">
           <div className="mx-auto max-w-[1200px]">
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.08 }}
-            >
+            <div>
               <Link
                 href={lPath(`/blog/${featuredPost.slug}`)}
                 className="group block overflow-hidden rounded-[28px] border border-[var(--lp-line)] bg-[var(--lp-card)] p-6 sm:p-8 shadow-xs hover:shadow-[var(--lp-shadow-card)] transition-all duration-300"
               >
                 <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
                   {/* FEATURED ARTWORK FRAME */}
-                  <div className="lg:col-span-5 mx-auto max-w-md w-full lg:max-w-none overflow-hidden rounded-[20px] relative aspect-square bg-[var(--lp-tile)] border border-[var(--lp-line)]">
+                  <div className="lg:col-span-5 mx-auto max-w-md w-full lg:max-w-none overflow-hidden rounded-[20px] relative aspect-[16/10] bg-[var(--lp-tile)] border border-[var(--lp-line)]">
                     <Image
                       src={featuredPost.bannerImage}
                       alt={featuredPost.title}
@@ -213,7 +204,7 @@ export default function BlogClient() {
                   </div>
                 </div>
               </Link>
-            </motion.div>
+            </div>
           </div>
         </section>
       )}

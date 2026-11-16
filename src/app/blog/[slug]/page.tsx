@@ -345,15 +345,15 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
             <span className="text-[var(--lp-ink)]">{post.readTime}</span>
           </div>
 
-          {/* Hero Banner Image (1:1 square artwork centered without dark sidebars or distortion) */}
+          {/* Hero Banner Image */}
           {post.bannerImage && (
-            <div className="mt-10 mx-auto max-w-[540px] w-full overflow-hidden rounded-[24px] border border-[var(--lp-line)] relative aspect-square shadow-xs bg-[var(--lp-tile)]">
+            <div className="mt-10 mx-auto max-w-4xl w-full overflow-hidden rounded-[24px] border border-[var(--lp-line)] relative aspect-[16/9] shadow-xs bg-[var(--lp-tile)]">
               <Image
                 src={post.bannerImage}
                 alt={post.title}
                 fill
                 priority
-                sizes="(max-width: 640px) 100vw, 540px"
+                sizes="(max-width: 1024px) 100vw, 896px"
                 className="object-cover"
               />
             </div>
@@ -519,6 +519,31 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
             // 7. HORIZONTAL DIVIDERS
             if (trimmed === "---") {
               return <hr key={idx} className="my-8 border-[var(--lp-line)]" />;
+            }
+
+            // 7b. INLINE ARTICLE IMAGES: ![alt](url)
+            if (trimmed.startsWith("![") && trimmed.includes("](") && trimmed.endsWith(")")) {
+              const alt = trimmed.substring(2, trimmed.indexOf("]("));
+              const src = trimmed.substring(trimmed.indexOf("](") + 2, trimmed.length - 1);
+              return (
+                <figure key={idx} className="my-10 overflow-hidden rounded-[24px] border border-[var(--lp-line)] bg-[var(--lp-card)] shadow-xs">
+                  <div className="relative aspect-[16/9] w-full overflow-hidden bg-[var(--lp-tile)]">
+                    <Image
+                      src={src}
+                      alt={alt}
+                      fill
+                      priority
+                      sizes="(max-width: 768px) 100vw, 800px"
+                      className="object-contain"
+                    />
+                  </div>
+                  {alt && (
+                    <figcaption className="px-4 py-3 text-center text-xs font-medium text-[var(--lp-muted)] border-t border-[var(--lp-line)] bg-[var(--lp-tile)]/50">
+                      {alt}
+                    </figcaption>
+                  )}
+                </figure>
+              );
             }
 
             // 8. TABLES

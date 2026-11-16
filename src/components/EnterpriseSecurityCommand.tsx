@@ -141,7 +141,7 @@ export default function EnterpriseSecurityCommand() {
   return (
     <section
       id="enterprise-security"
-      className="relative overflow-hidden py-16 sm:py-24 bg-[var(--lp-bg)] border-b border-[var(--lp-line)]"
+      className="relative overflow-hidden py-16 sm:py-24 bg-[var(--lp-bg)] border-b border-[var(--lp-line)] scroll-mt-20"
     >
       <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
         {/* SECTION HEADER */}
@@ -301,14 +301,8 @@ export default function EnterpriseSecurityCommand() {
           </div>
 
           <div className="lg:col-span-7 rounded-[24px] bg-[var(--lp-card)] border border-[var(--lp-line)] p-5 sm:p-7 shadow-[var(--lp-shadow-card)] flex flex-col justify-between">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activePillar.id}
-                initial={shouldReduceMotion ? false : { opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={shouldReduceMotion ? undefined : { opacity: 0, y: -8 }}
-                transition={{ duration: 0.2 }}
-              >
+            <div>
+              <div key={activePillar.id} className="transition-opacity duration-200">
                 <div className="flex flex-wrap gap-1.5 mb-3">
                   {activePillar.architectureTags.map((tag) => (
                     <span
@@ -342,8 +336,8 @@ export default function EnterpriseSecurityCommand() {
                     </div>
                   ))}
                 </div>
-              </motion.div>
-            </AnimatePresence>
+              </div>
+            </div>
 
             <div className="mt-6 pt-4 border-t border-[var(--lp-line)] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-[var(--lp-muted)]">
               <div className="flex items-center gap-2">

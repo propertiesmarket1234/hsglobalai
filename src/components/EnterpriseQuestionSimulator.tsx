@@ -243,7 +243,7 @@ export default function EnterpriseQuestionSimulator() {
   return (
     <section
       id="enterprise-simulator"
-      className="relative overflow-hidden py-20 sm:py-24 md:py-28 bg-white border-b border-[var(--lp-line)]"
+      className="relative overflow-hidden py-20 sm:py-24 md:py-28 bg-white border-b border-[var(--lp-line)] scroll-mt-20"
     >
       <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
         {/* SECTION HEADER */}

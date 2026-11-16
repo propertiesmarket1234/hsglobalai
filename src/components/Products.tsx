@@ -105,7 +105,7 @@ export default function Products() {
   return (
     <section
       id="hardware-deployments"
-      className="relative overflow-hidden py-16 sm:py-24 bg-[var(--lp-tile)] border-b border-[var(--lp-line)]"
+      className="relative overflow-hidden py-16 sm:py-24 bg-[var(--lp-tile)] border-b border-[var(--lp-line)] scroll-mt-20"
     >
       <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
         {/* SECTION HEADER */}
@@ -162,14 +162,16 @@ export default function Products() {
                       sizes="(max-width: 768px) 100vw, 50vw"
                       className={`${product.objectClass} transition-transform duration-700 ease-out group-hover:scale-[1.03]`}
                     />
-                    <div className="absolute left-3 top-3 flex items-center gap-2 rounded-full border border-white/15 bg-black/75 px-3 py-1 backdrop-blur-md">
-                      <Icon className={`h-3.5 w-3.5 ${product.iconColor}`} strokeWidth={2} />
-                      <span className="text-[11px] font-semibold text-white">
-                        {product.category}
-                      </span>
-                    </div>
-                    <div className="absolute right-3 top-3 rounded-full border border-white/15 bg-black/75 px-3 py-1 text-[11px] font-medium text-white/90 backdrop-blur-md">
-                      {product.specBadge}
+                    <div className="absolute inset-x-3 top-3 flex items-center justify-between gap-2 pointer-events-none">
+                      <div className="flex items-center gap-1.5 rounded-full border border-white/15 bg-black/75 px-2.5 sm:px-3 py-1 backdrop-blur-md max-w-[55%] truncate">
+                        <Icon className={`h-3.5 w-3.5 shrink-0 ${product.iconColor}`} strokeWidth={2} />
+                        <span className="text-[11px] font-semibold text-white truncate">
+                          {product.category}
+                        </span>
+                      </div>
+                      <div className="rounded-full border border-white/15 bg-black/75 px-2.5 sm:px-3 py-1 text-[11px] font-medium text-white/90 backdrop-blur-md shrink-0">
+                        {product.specBadge}
+                      </div>
                     </div>
                   </div>
 

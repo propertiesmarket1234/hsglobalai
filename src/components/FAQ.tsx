@@ -38,7 +38,7 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      className="relative overflow-hidden py-16 sm:py-24 bg-white border-b border-[var(--lp-line)]"
+      className="relative overflow-hidden py-16 sm:py-24 bg-white border-b border-[var(--lp-line)] scroll-mt-20"
     >
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         {/* SECTION HEADER */}

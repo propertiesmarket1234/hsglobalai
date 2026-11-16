@@ -42,7 +42,10 @@ export default function CTA({
     "Deploy interactive 3D digital humans and air-gapped on-device AI kiosks across retail stores, hospitals, and enterprise lobbies for consistent 24/7 customer guidance.";
 
   return (
-    <section className="relative overflow-hidden py-20 sm:py-24 md:py-28 bg-[var(--lp-tile)] border-b border-[var(--lp-line)]">
+    <section
+      id="cta"
+      className="relative overflow-hidden py-20 sm:py-24 md:py-28 bg-[var(--lp-tile)] border-b border-[var(--lp-line)] scroll-mt-20"
+    >
       <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
         <div className="rounded-2xl sm:rounded-[32px] bg-white px-6 py-10 sm:px-12 sm:py-16 text-center border border-[var(--lp-line)] shadow-[var(--lp-shadow-card)]">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-[rgba(255,90,31,0.08)] border border-[rgba(255,90,31,0.18)] px-3.5 py-1 text-[12px] font-semibold text-[var(--lp-accent)] mb-5">
