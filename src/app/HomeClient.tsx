@@ -3,7 +3,6 @@
 import Header from "@/components/Header";
 import ParallaxBackgroundLayer from "@/components/ParallaxBackgroundLayer";
 import DigitalHumanHero from "@/components/DigitalHumanHero";
-import EnterpriseQuestionSimulator from "@/components/EnterpriseQuestionSimulator";
 import Industries from "@/components/Industries";
 import EnterpriseSecurityCommand from "@/components/EnterpriseSecurityCommand";
 import ChatbotVsAvatar from "@/components/ChatbotVsAvatar";
@@ -28,10 +27,7 @@ export default function HomeClient() {
       {/* Band 2: Visual-First Product Ecosystem Showcase */}
       <Products />
 
-      {/* Band 3: Enterprise Conversational Question Simulator */}
-      <EnterpriseQuestionSimulator />
-
-      {/* Band 4: 6-Industry Visual Deployments Bento */}
+      {/* Band 3: 6-Industry Visual Deployments Bento */}
       <Industries />
 
       {/* Band 5: Interactive Visual On-Device Air-Gap Architecture Diagram */}
