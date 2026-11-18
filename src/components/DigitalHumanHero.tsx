@@ -203,11 +203,11 @@ export default function DigitalHumanHero() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden px-4 sm:px-6 lg:px-8 pt-24 pb-14 sm:pt-28 sm:pb-16 lg:pt-28 lg:pb-20 border-b border-[var(--lp-line)] bg-[var(--lp-bg)]"
+      className="relative overflow-hidden px-4 sm:px-6 lg:px-8 pt-20 pb-12 sm:pt-28 sm:pb-16 lg:pt-28 lg:pb-20 border-b border-[var(--lp-line)] bg-[var(--lp-bg)]"
     >
       <div className="mx-auto max-w-[1200px]">
         {/* ASYMMETRIC SPLIT HERO: EDITORIAL VALUE PROP (5 COLS) + LIVE AVATAR STAGE (7 COLS) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
           {/* LEFT COLUMN: FOCUSED HEADLINE, CONCISE PROP & DUAL CTAS */}
           <div className="lg:col-span-5 text-left">
             <Link
@@ -355,7 +355,7 @@ export default function DigitalHumanHero() {
                 </div>
 
                 {/* CLEAN HIGH-CONTRAST TRANSCRIPT STRIP BELOW VIDEO */}
-                <div className="mt-3 rounded-xl bg-[var(--lp-tile)] border border-[var(--lp-line)] p-3">
+                <div className="mt-2.5 sm:mt-3 rounded-xl bg-[var(--lp-tile)] border border-[var(--lp-line)] p-2.5 sm:p-3">
                   <div className="flex items-center justify-between gap-2 text-[11px] mb-1">
                     <span className="inline-flex items-center gap-1.5 font-semibold text-[var(--lp-ink)]">
                       <Activity className="h-3 w-3 text-emerald-600" />
@@ -372,8 +372,8 @@ export default function DigitalHumanHero() {
                 </div>
 
                 {/* INTERACTIVE PROMPT PILLS */}
-                <div className="mt-3 flex flex-wrap items-center gap-1.5">
-                  <span className="text-[11px] font-semibold text-[var(--lp-muted)] mr-1">
+                <div className="mt-2.5 sm:mt-3 flex flex-wrap items-center gap-1.5">
+                  <span className="text-[10.5px] sm:text-[11px] font-semibold text-[var(--lp-muted)] mr-1">
                     Ask {activeDomain.personaName}:
                   </span>
                   {activeDomain.promptOptions.map((opt) => (
@@ -381,7 +381,7 @@ export default function DigitalHumanHero() {
                       key={opt.question}
                       type="button"
                       onClick={() => handleSelectPrompt(opt)}
-                      className="inline-flex h-7 items-center rounded-full bg-[var(--lp-tile)] border border-[var(--lp-line)] px-3 text-[11px] font-medium text-[var(--lp-ink)] hover:border-[var(--lp-accent)] hover:text-[var(--lp-accent)] hover:bg-white transition-all cursor-pointer active:scale-[0.98]"
+                      className="inline-flex h-6.5 sm:h-7 items-center rounded-full bg-[var(--lp-tile)] border border-[var(--lp-line)] px-2.5 sm:px-3 text-[10.5px] sm:text-[11px] font-medium text-[var(--lp-ink)] hover:border-[var(--lp-accent)] hover:text-[var(--lp-accent)] hover:bg-white transition-all cursor-pointer active:scale-[0.98]"
                     >
                       {opt.question}
                     </button>

@@ -201,7 +201,7 @@ export default function IndustriesShowcase() {
                   <motion.div
                     whileHover={{ y: -3 }}
                     transition={{ type: "spring", stiffness: 350, damping: 25 }}
-                    className="relative overflow-hidden rounded-[28px] border border-[var(--lp-line)] bg-[var(--lp-tile)] p-6 sm:p-8 shadow-[var(--lp-shadow-card)]"
+                    className="relative overflow-hidden rounded-[28px] border border-[var(--lp-line)] bg-[var(--lp-tile)] p-6 sm:p-8 shadow-[var(--lp-shadow-card)] transition-all duration-300 hover:border-[var(--lp-accent)]/30 hover:shadow-[0_12px_32px_-8px_rgba(255,90,31,0.08)]"
                   >
                     {/* Primary Use Case Badge */}
                     <div className="inline-flex items-center gap-2 rounded-full border border-[rgba(255,90,31,0.2)] bg-[rgba(255,90,31,0.08)] px-3.5 py-1 text-xs font-semibold text-[var(--lp-accent-ink)]">

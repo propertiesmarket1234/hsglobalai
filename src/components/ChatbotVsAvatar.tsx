@@ -1,44 +1,122 @@
 "use client";
 
-import { CheckCircle2, Globe, Lock, Sparkles } from "lucide-react";
+import { CheckCircle2, XCircle, AlertTriangle, Globe, Lock, Sparkles, Cpu, Clock, ShieldCheck } from "lucide-react";
 
 export default function ChatbotVsAvatar() {
   const comparisonRows = [
     {
-      feature: "Visitor Presence & Attention",
-      chatbot: "Small screen widget often overlooked",
-      humanStaff: "High when stationed at desk",
-      digitalHuman: "Life-sized 3D or spatial embodied host",
+      feature: "Visitor Presence & Engagement",
+      featureSub: "Physical visual draw in physical facilities",
+      chatbot: {
+        tag: "Small Screen Widget",
+        desc: "Overlooked text box with low user retention",
+        status: "negative",
+      },
+      humanStaff: {
+        tag: "Stationary Staff",
+        desc: "High when present at desk, absent during breaks",
+        status: "neutral",
+      },
+      digitalHuman: {
+        tag: "Life-Sized Embodied Host",
+        desc: "3D Hologram Box or 4K Spatial Display commanding immediate attention",
+        status: "positive",
+      },
     },
     {
-      feature: "Extended Hours & Shifts",
-      chatbot: "Online 24/7 (text only)",
-      humanStaff: "Requires multi-shift staffing & training",
-      digitalHuman: "Continuous 24/7 consistent front-line coverage",
+      feature: "Extended Hours & Coverage",
+      featureSub: "Operational availability & staffing costs",
+      chatbot: {
+        tag: "24/7 (Text Only)",
+        desc: "Available online, but cannot greet physical footfall",
+        status: "neutral",
+      },
+      humanStaff: {
+        tag: "Shift-Constrained",
+        desc: "Requires multi-shift overtime, recruitment & ongoing training",
+        status: "negative",
+      },
+      digitalHuman: {
+        tag: "Continuous 24/7 Floor Coverage",
+        desc: "Zero staffing fatigue, consistent enterprise hospitality day & night",
+        status: "positive",
+      },
     },
     {
-      feature: "Queue & Intake Speed",
-      chatbot: "Typing friction slows complex lookups",
-      humanStaff: "Bottlenecks during peak hours",
-      digitalHuman: "Natural spoken answers with low latency",
+      feature: "Intake & Interaction Speed",
+      featureSub: "Turnaround time from question to answer",
+      chatbot: {
+        tag: "Typing Friction",
+        desc: "Slow on-screen virtual keyboard input causing queue bottlenecks",
+        status: "negative",
+      },
+      humanStaff: {
+        tag: "Variable Intake",
+        desc: "Prone to peak-hour line buildup and inconsistent wait times",
+        status: "neutral",
+      },
+      digitalHuman: {
+        tag: "Sub-200ms Spoken Audio",
+        desc: "Natural conversational speech recognition & instant vocal reply",
+        status: "positive",
+      },
     },
     {
       feature: "Multilingual Fluency",
-      chatbot: "Text translation widgets",
-      humanStaff: "Limited to hired staff languages",
-      digitalHuman: "29+ global & 7 Indian regional spoken languages",
+      featureSub: "Global tourist & multi-ethnic visitor support",
+      chatbot: {
+        tag: "Text Translation",
+        desc: "Machine-translated text with phrasing errors and no vocal nuance",
+        status: "neutral",
+      },
+      humanStaff: {
+        tag: "Staff-Dependent",
+        desc: "Limited to individual employee languages (usually 1–2)",
+        status: "negative",
+      },
+      digitalHuman: {
+        tag: "29+ Global & 7 Indian Regional",
+        desc: "Native lip-sync and empathetic speech synthesis on the very first phrase",
+        status: "positive",
+      },
     },
     {
-      feature: "Data & Network Architecture",
-      chatbot: "Dependent on third-party cloud APIs",
-      humanStaff: "Varies with manual tools",
-      digitalHuman: "100% offline on-device execution by default",
+      feature: "Data Privacy & Architecture",
+      featureSub: "Compliance in banks, hospitals & government",
+      chatbot: {
+        tag: "Third-Party Cloud APIs",
+        desc: "Voice and query text transmitted over public WAN with data privacy risks",
+        status: "negative",
+      },
+      humanStaff: {
+        tag: "Manual Procedures",
+        desc: "Paper or terminal logging susceptible to physical loss or oversight",
+        status: "neutral",
+      },
+      digitalHuman: {
+        tag: "100% Offline Air-Gapped",
+        desc: "On-premise GPU workstation with zero outbound cloud audio transmission",
+        status: "positive",
+      },
     },
     {
       feature: "Catalog & Knowledge Grounding",
-      chatbot: "Generic script trees or ungrounded chat",
-      humanStaff: "Memory varies across new hires",
-      digitalHuman: "Local cross-encoder RAG + strict source guard",
+      featureSub: "Accuracy on internal documents & inventory",
+      chatbot: {
+        tag: "Hallucination Risk",
+        desc: "Ungrounded LLM chat or brittle hardcoded decision trees",
+        status: "negative",
+      },
+      humanStaff: {
+        tag: "Variable Memory",
+        desc: "Knowledge varies across new hires; requires constant manual updates",
+        status: "neutral",
+      },
+      digitalHuman: {
+        tag: "Local Cross-Encoder RAG",
+        desc: "Strict source citation from local CSVs, PDFs, and facility manuals",
+        status: "positive",
+      },
     },
   ];
 
@@ -79,39 +157,69 @@ export default function ChatbotVsAvatar() {
           </div>
         </div>
 
-        {/* COMPACT COMPARISON MATRIX */}
+        {/* COMPACT COMPARISON MATRIX WITH CLEAR STATUS BADGES */}
         <div className="flex items-center justify-between px-1 mb-2.5 sm:hidden text-[11px] text-[var(--lp-muted)]">
-          <span className="font-medium text-[var(--lp-ink-2)]">Capability matrix</span>
+          <span className="font-medium text-[var(--lp-ink-2)]">Architectural breakdown</span>
           <span className="font-semibold text-[var(--lp-accent)]">Swipe table &rarr;</span>
         </div>
 
-        <div className="rounded-[24px] sm:rounded-[28px] bg-[var(--lp-tile)] p-2 sm:p-3 border border-[var(--lp-line)]">
-          <div className="overflow-hidden rounded-[18px] sm:rounded-[22px] border border-[var(--lp-line)] bg-[var(--lp-card)] shadow-[var(--lp-shadow-card)]">
+        <div className="rounded-[24px] sm:rounded-[28px] bg-[var(--lp-tile)] p-2 sm:p-3 border border-[var(--lp-line)] shadow-[var(--lp-shadow-card)]">
+          <div className="overflow-hidden rounded-[18px] sm:rounded-[22px] border border-[var(--lp-line)] bg-[var(--lp-card)]">
             <div className="overflow-x-auto scrollbar-none">
-              <table className="min-w-[640px] w-full border-collapse text-left text-[13px] sm:text-[14px]">
+              <table className="min-w-[720px] w-full border-collapse text-left text-[13px] sm:text-[14px]">
                 <thead>
                   <tr className="border-b border-[var(--lp-line)] bg-[var(--lp-tile)]">
-                    <th className="p-4 sm:p-5 font-semibold text-[var(--lp-ink)]">Capability</th>
-                    <th className="p-4 sm:p-5 font-medium text-[var(--lp-muted)]">Text Chatbots</th>
-                    <th className="p-4 sm:p-5 font-medium text-[var(--lp-muted)]">Manual Shift Desk</th>
-                    <th className="p-4 sm:p-5 font-semibold text-[var(--lp-ink)] bg-[rgba(255,90,31,0.06)]">
-                      HS Global AI Digital Human
+                    <th className="p-4 sm:p-5 font-semibold text-[var(--lp-ink)] w-[26%]">
+                      Evaluation Dimension
+                    </th>
+                    <th className="p-4 sm:p-5 font-medium text-[var(--lp-muted)] w-[24%]">
+                      Conventional Chatbots
+                    </th>
+                    <th className="p-4 sm:p-5 font-medium text-[var(--lp-muted)] w-[22%]">
+                      Manual Front Desk
+                    </th>
+                    <th className="p-4 sm:p-5 font-semibold text-[var(--lp-accent-ink)] bg-[rgba(255,90,31,0.06)] w-[28%] border-l border-[rgba(255,90,31,0.15)]">
+                      <div className="flex items-center gap-2">
+                        <Sparkles className="h-4 w-4 text-[var(--lp-accent)] shrink-0" />
+                        <span>HS Global AI Digital Human</span>
+                      </div>
                     </th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-[var(--lp-line)]">
                   {comparisonRows.map((row) => (
                     <tr key={row.feature} className="hover:bg-[var(--lp-tile)]/40 transition-colors">
-                      <td className="p-4 sm:p-5 font-medium text-[var(--lp-ink)]">
-                        {row.feature}
+                      {/* DIMENSION */}
+                      <td className="p-4 sm:p-5 align-top">
+                        <div className="font-bold text-[var(--lp-ink)]">{row.feature}</div>
+                        <div className="text-[11px] text-[var(--lp-muted)] mt-0.5">{row.featureSub}</div>
                       </td>
-                      <td className="p-4 sm:p-5 text-[var(--lp-muted)]">{row.chatbot}</td>
-                      <td className="p-4 sm:p-5 text-[var(--lp-muted)]">{row.humanStaff}</td>
-                      <td className="p-4 sm:p-5 font-semibold text-[var(--lp-ink)] bg-[rgba(255,90,31,0.06)]">
-                        <span className="inline-flex items-center gap-2">
-                          <CheckCircle2 className="h-4 w-4 text-[var(--lp-accent)] shrink-0" />
-                          <span>{row.digitalHuman}</span>
+
+                      {/* CHATBOT */}
+                      <td className="p-4 sm:p-5 align-top">
+                        <span className="inline-flex items-center gap-1.5 rounded-md bg-amber-50 border border-amber-200/60 px-2 py-0.5 text-[11px] font-semibold text-amber-800 mb-1.5">
+                          <AlertTriangle className="h-3 w-3 text-amber-600 shrink-0" />
+                          <span>{row.chatbot.tag}</span>
                         </span>
+                        <p className="text-xs text-[var(--lp-muted)] leading-relaxed">{row.chatbot.desc}</p>
+                      </td>
+
+                      {/* MANUAL STAFF */}
+                      <td className="p-4 sm:p-5 align-top">
+                        <span className="inline-flex items-center gap-1.5 rounded-md bg-gray-100 border border-gray-200 px-2 py-0.5 text-[11px] font-semibold text-gray-700 mb-1.5">
+                          <Clock className="h-3 w-3 text-gray-500 shrink-0" />
+                          <span>{row.humanStaff.tag}</span>
+                        </span>
+                        <p className="text-xs text-[var(--lp-muted)] leading-relaxed">{row.humanStaff.desc}</p>
+                      </td>
+
+                      {/* HS GLOBAL AI */}
+                      <td className="p-4 sm:p-5 align-top bg-[rgba(255,90,31,0.04)] border-l border-[rgba(255,90,31,0.12)]">
+                        <span className="inline-flex items-center gap-1.5 rounded-md bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 text-[11.5px] font-bold text-emerald-800 mb-1.5 shadow-2xs">
+                          <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
+                          <span>{row.digitalHuman.tag}</span>
+                        </span>
+                        <p className="text-xs font-medium text-[var(--lp-ink)] leading-relaxed">{row.digitalHuman.desc}</p>
                       </td>
                     </tr>
                   ))}

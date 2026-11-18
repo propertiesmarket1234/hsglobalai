@@ -1,9 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
-import { ArrowRight, FileText } from "lucide-react";
+import { ArrowRight, FileText, Sparkles } from "lucide-react";
 import { Locale, nonDefaultLocales, getLocalizedPath } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
 
@@ -44,39 +43,48 @@ export default function CTA({
   return (
     <section
       id="cta"
-      className="relative overflow-hidden py-20 sm:py-24 md:py-28 bg-[var(--lp-tile)] border-b border-[var(--lp-line)] scroll-mt-20"
+      className="relative overflow-hidden py-16 sm:py-24 bg-[var(--lp-tile)] border-b border-[var(--lp-line)] scroll-mt-20"
     >
       <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
-        <div className="rounded-2xl sm:rounded-[32px] bg-white px-6 py-10 sm:px-12 sm:py-16 text-center border border-[var(--lp-line)] shadow-[var(--lp-shadow-card)]">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-[rgba(255,90,31,0.08)] border border-[rgba(255,90,31,0.18)] px-3.5 py-1 text-[12px] font-semibold text-[var(--lp-accent)] mb-5">
-            <span className="h-1.5 w-1.5 rounded-full bg-[var(--lp-accent)] animate-pulse" />
-            {finalBadgeText}
-          </span>
+        {/* PREMIUM DARK CARD WITH RADIAL AMBIENT LIGHTING & RESTRAINED GLOW */}
+        <div className="relative overflow-hidden rounded-[26px] sm:rounded-[36px] bg-gradient-to-b from-[#111115] via-[#14141A] to-[#0E0E12] px-6 py-12 sm:px-12 sm:py-16 text-center border border-white/12 shadow-[0_24px_60px_-15px_rgba(0,0,0,0.6),0_0_50px_-15px_rgba(255,90,31,0.18)]">
+          {/* Subtle Radial Lighting Highlights */}
+          <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[580px] h-[340px] rounded-full bg-[radial-gradient(circle,rgba(255,90,31,0.20)_0%,rgba(6,182,212,0.06)_45%,transparent_75%)] blur-2xl pointer-events-none" />
+          <div className="absolute -bottom-24 -left-20 w-72 h-72 rounded-full bg-cyan-500/5 blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-24 -right-20 w-72 h-72 rounded-full bg-[var(--lp-accent)]/5 blur-3xl pointer-events-none" />
 
-          <h2 className="mx-auto max-w-3xl text-balance text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--lp-ink)] leading-[1.12]">
-            {finalTitle}
-          </h2>
+          {/* Content */}
+          <div className="relative z-10">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 border border-white/20 px-3.5 py-1 text-[12px] font-semibold text-white !text-white mb-5 backdrop-blur-md">
+              <span className="h-1.5 w-1.5 rounded-full bg-[var(--lp-accent)] animate-pulse" />
+              {finalBadgeText}
+            </span>
 
-          <p className="mx-auto mt-4 max-w-2xl text-sm sm:text-[18px] leading-[1.65] text-[var(--lp-ink-2)]">
-            {finalDescription}
-          </p>
+            <h2 className="mx-auto max-w-3xl text-balance text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white !text-white leading-[1.12]">
+              {finalTitle}
+            </h2>
 
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto">
-            <Link
-              href={lPath(primaryButtonHref)}
-              className="group/btn w-full sm:w-auto inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[var(--lp-ink)] px-6 text-sm sm:text-[15px] font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_1px_2px_rgba(17,17,19,0.24)] transition-all duration-150 hover:bg-[#2A2A2F] hover:-translate-y-0.5 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_4px_14px_rgba(17,17,19,0.3)] active:scale-[0.98] cursor-pointer"
-            >
-              <span>{primaryButtonText || "Schedule Private Architecture Pilot"}</span>
-              <ArrowRight className="h-4 w-4 transition-transform duration-200 ease-out group-hover/btn:translate-x-1 shrink-0" />
-            </Link>
+            <p className="mx-auto mt-4 max-w-2xl text-sm sm:text-[17px] leading-[1.65] text-neutral-200 !text-neutral-200">
+              {finalDescription}
+            </p>
 
-            <Link
-              href={lPath(secondaryButtonHref)}
-              className="group/btn2 w-full sm:w-auto inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white px-6 text-sm sm:text-[15px] font-semibold text-[var(--lp-ink)] border border-[var(--lp-line)] shadow-xs transition-all duration-150 hover:bg-[var(--lp-tile)] hover:border-[var(--lp-line-strong)] hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer"
-            >
-              <FileText className="h-4 w-4 text-[var(--lp-muted)] transition-colors group-hover/btn2:text-[var(--lp-ink)] shrink-0" />
-              <span>{secondaryButtonText || "Download Domain Case Studies"}</span>
-            </Link>
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto">
+              <Link
+                href={lPath(primaryButtonHref)}
+                className="group/btn w-full sm:w-auto inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white px-7 text-sm sm:text-[15px] font-bold text-[var(--lp-ink)] shadow-[0_2px_12px_rgba(255,255,255,0.18)] transition-all duration-150 hover:bg-neutral-100 hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer"
+              >
+                <span>{primaryButtonText || "Schedule Private Architecture Pilot"}</span>
+                <ArrowRight className="h-4 w-4 transition-transform duration-200 ease-out group-hover/btn:translate-x-1 shrink-0" />
+              </Link>
+
+              <Link
+                href={lPath(secondaryButtonHref)}
+                className="group/btn2 w-full sm:w-auto inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white/10 px-6 text-sm sm:text-[15px] font-semibold text-white !text-white border border-white/20 backdrop-blur-md shadow-xs transition-all duration-150 hover:bg-white/15 hover:border-white/30 hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer"
+              >
+                <FileText className="h-4 w-4 text-white !text-white transition-colors group-hover/btn2:text-white shrink-0" />
+                <span>{secondaryButtonText || "Download Domain Case Studies"}</span>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

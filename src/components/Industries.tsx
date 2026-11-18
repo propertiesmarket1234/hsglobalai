@@ -135,14 +135,14 @@ export default function Industries() {
 
           <Link
             href={lPath("/industries")}
-            className="group inline-flex h-10 shrink-0 items-center justify-center gap-2 rounded-full border border-[var(--lp-line)] bg-white px-5 text-xs sm:text-sm font-semibold text-[var(--lp-ink)] shadow-xs hover:bg-[var(--lp-card)] transition-all self-start md:self-auto"
+            className="group inline-flex h-10 shrink-0 items-center justify-center gap-2 rounded-full border border-[var(--lp-line)] bg-white px-5 text-xs sm:text-sm font-semibold text-[var(--lp-ink)] shadow-xs hover:bg-[var(--lp-card)] hover:border-[var(--lp-line-strong)] transition-all self-start md:self-auto"
           >
             <span>All 6 Industries</span>
             <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
 
-        {/* VISUAL 6-CARD INDUSTRY GRID */}
+        {/* VISUAL 6-CARD INDUSTRY GRID WITH REFINED SPATIAL HIGHLIGHTS */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {INDUSTRY_CARDS.map((card) => {
             const Icon = card.icon;
@@ -150,17 +150,18 @@ export default function Industries() {
               <motion.article
                 key={card.id}
                 whileHover={shouldReduceMotion ? undefined : { y: -3 }}
-                transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                className="group flex flex-col justify-between overflow-hidden rounded-[24px] bg-[var(--lp-card)] p-4 sm:p-5 border border-[var(--lp-line)] shadow-[var(--lp-shadow-card)] transition-shadow hover:shadow-[var(--lp-shadow-lift)]"
+                transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                className="group flex flex-col justify-between overflow-hidden rounded-[24px] bg-[var(--lp-card)] p-4 sm:p-5 border border-[var(--lp-line)] shadow-[var(--lp-shadow-card)] transition-all duration-300 hover:border-[var(--lp-accent)]/30 hover:shadow-[0_12px_32px_-8px_rgba(255,90,31,0.08),0_1px_2px_rgba(17,17,19,0.06)]"
               >
                 <div>
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#0B1224] border border-white/10">
+                  {/* AUTHENTIC HARDWARE FRAME WITH AMBIENT GLASS ACCENTS */}
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#0B1224] border border-white/10 transition-colors group-hover:border-cyan-500/25">
                     <Image
                       src={card.imageSrc}
                       alt={card.imageAlt}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-contain p-2 transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                      className="object-contain p-2 transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                     />
                     <div className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-black/75 px-3 py-1 backdrop-blur-md">
                       <Icon className="h-3.5 w-3.5 text-[var(--lp-accent)]" />

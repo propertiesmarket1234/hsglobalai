@@ -12,6 +12,10 @@ import {
   Sparkles,
   ArrowRight,
   CheckCircle2,
+  Cpu,
+  Globe,
+  Lock,
+  FileCheck2,
 } from "lucide-react";
 import { getDictionary } from "@/i18n/getDictionary";
 import { Locale, nonDefaultLocales, getLocalizedPath } from "@/i18n/config";
@@ -29,21 +33,26 @@ export default function Products() {
 
   const lPath = (path: string) => getLocalizedPath(path, currentLocale);
 
-  const products = [
-    {
-      id: "01",
-      title: fp.items.dihuava.title,
-      category: fp.items.dihuava.category,
-      specBadge: "On-Device AI Suite · 29+ Langs",
-      description: fp.items.dihuava.description,
-      icon: Sparkles,
-      iconColor: "text-[var(--lp-accent)]",
-      imageSrc: "/products/digital-humans/digital-human-dashboard.jpg",
-      imageAlt: "DIHUAVA AI Digital Human Software Control Platform",
-      objectClass: "object-cover object-center",
-      tags: fp.items.dihuava.tags.slice(0, 3),
-      href: lPath("/products/ai-digital-human"),
-    },
+  // Tier 1 Flagship
+  const flagship = {
+    id: "01",
+    title: fp.items.dihuava.title,
+    category: fp.items.dihuava.category,
+    specBadge: "On-Device AI Suite · 29+ Langs",
+    description: fp.items.dihuava.description,
+    imageSrc: "/products/digital-humans/digital-human-dashboard.jpg",
+    imageAlt: "DIHUAVA AI Digital Human Software Control Platform",
+    tags: [
+      "100% Offline by Default",
+      "Sub-200ms Voice Synthesis",
+      "On-Device Document RAG",
+      "29+ Global & 7 Indian Regional Languages",
+    ],
+    href: lPath("/products/ai-digital-human"),
+  };
+
+  // Tier 2 Supporting Hardware & Optics
+  const supportingProducts = [
     {
       id: "02",
       title: fp.items.hologramBox.title,
@@ -58,7 +67,6 @@ export default function Products() {
         "/products/hologram-box/hologram-box-saree.jpg",
       ],
       imageAlt: "3D AI Hologram Box Life-Size Display Unit",
-      objectClass: "object-contain p-2",
       tags: fp.items.hologramBox.tags.slice(0, 3),
       href: lPath("/products/holographic-display"),
     },
@@ -72,7 +80,6 @@ export default function Products() {
       iconColor: "text-cyan-400",
       imageSrc: "/products/spatial-display/spatial-display.png",
       imageAlt: "Glasses-Free 3D Spatial Display 4K Touch Panel",
-      objectClass: "object-contain p-2",
       tags: fp.items.spatialDisplay.tags.slice(0, 3),
       href: lPath("/products/spatial-display"),
     },
@@ -86,7 +93,6 @@ export default function Products() {
       iconColor: "text-[var(--lp-accent)]",
       imageSrc: "/products/virtual-try-on/virtual-try-on.png",
       imageAlt: "Virtual Try-On Interactive Retail Mirror Kiosk",
-      objectClass: "object-contain p-2",
       tags: fp.items.virtualTryOn.tags.slice(0, 3),
       href: lPath("/blog/what-is-virtual-try-on-technology"),
     },
@@ -140,81 +146,189 @@ export default function Products() {
           </div>
         </div>
 
-        {/* IMAGE-LED 2x2 PRODUCT SHOWCASE */}
-        <div className="grid gap-6 md:grid-cols-2">
-          {products.map((product) => {
-            const activeImg = product.images ? product.images[hologramIndex] : product.imageSrc;
-            const Icon = product.icon;
-            return (
-              <motion.article
-                key={product.id}
-                whileHover={shouldReduceMotion ? undefined : { y: -3 }}
-                transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                className="group flex flex-col justify-between overflow-hidden rounded-[24px] sm:rounded-[28px] bg-[var(--lp-card)] p-4 sm:p-6 border border-[var(--lp-line)] shadow-[var(--lp-shadow-card)] transition-shadow hover:shadow-[var(--lp-shadow-lift)]"
-              >
-                <div>
-                  {/* LARGE PRODUCT PHOTOGRAPHY FRAME FIRST */}
-                  <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-[#0B1224] border border-white/10">
-                    <Image
-                      src={activeImg}
-                      alt={product.imageAlt}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className={`${product.objectClass} transition-transform duration-700 ease-out group-hover:scale-[1.03]`}
-                    />
-                    <div className="absolute inset-x-3 top-3 flex items-center justify-between gap-2 pointer-events-none">
-                      <div className="flex items-center gap-1.5 rounded-full border border-white/15 bg-black/75 px-2.5 sm:px-3 py-1 backdrop-blur-md max-w-[55%] truncate">
-                        <Icon className={`h-3.5 w-3.5 shrink-0 ${product.iconColor}`} strokeWidth={2} />
-                        <span className="text-[11px] font-semibold text-white truncate">
-                          {product.category}
-                        </span>
-                      </div>
-                      <div className="rounded-full border border-white/15 bg-black/75 px-2.5 sm:px-3 py-1 text-[11px] font-medium text-white/90 backdrop-blur-md shrink-0">
-                        {product.specBadge}
-                      </div>
-                    </div>
-                  </div>
+        {/* ASYMMETRIC TWO-TIER PRODUCT LAYOUT */}
+        <div className="space-y-6">
+          {/* TIER 1: FLAGSHIP PLATFORM (WIDE DOMINANT CARD) */}
+          <motion.article
+            whileHover={shouldReduceMotion ? undefined : { y: -2 }}
+            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="group relative overflow-hidden rounded-[26px] sm:rounded-[32px] bg-[var(--lp-card)] p-5 sm:p-8 lg:p-10 border border-[var(--lp-line)] shadow-[var(--lp-shadow-card)] transition-all hover:shadow-[var(--lp-shadow-lift)] hover:border-[var(--lp-accent)]/30"
+          >
+            {/* Ambient Background Accent */}
+            <div className="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-[var(--lp-accent)]/5 blur-3xl pointer-events-none" />
 
-                  {/* CONCISE TITLE + SINGLE SUMMARY SENTENCE */}
-                  <div className="mt-5 flex items-baseline justify-between gap-2">
-                    <h3 className="text-xl sm:text-[22px] font-semibold tracking-tight text-[var(--lp-ink)]">
-                      {product.title}
-                    </h3>
-                    <span className="text-xs font-mono text-[var(--lp-muted)]">
-                      {product.id}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
+              {/* LEFT COLUMN: NARRATIVE & SPECIFICATIONS */}
+              <div className="lg:col-span-6 flex flex-col justify-between">
+                <div>
+                  <div className="flex flex-wrap items-center gap-2.5 mb-4">
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-[rgba(255,90,31,0.08)] border border-[rgba(255,90,31,0.2)] px-3 py-1 text-xs font-semibold text-[var(--lp-accent)]">
+                      <Sparkles className="h-3.5 w-3.5" />
+                      <span>Flagship AI Software Platform</span>
+                    </span>
+                    <span className="rounded-full bg-[var(--lp-tile)] border border-[var(--lp-line)] px-2.5 py-1 text-[11px] font-mono text-[var(--lp-muted)]">
+                      {flagship.id}
                     </span>
                   </div>
 
-                  <p className="mt-2 text-sm leading-relaxed text-[var(--lp-ink-2)] line-clamp-2">
-                    {product.description}
-                  </p>
-                </div>
+                  <h3 className="text-2xl sm:text-3xl lg:text-[34px] font-bold tracking-tight text-[var(--lp-ink)] leading-[1.15]">
+                    {flagship.title}
+                  </h3>
 
-                {/* SPECS STRIP + ACTION */}
-                <div className="mt-5 pt-4 border-t border-[var(--lp-line)] flex flex-wrap items-center justify-between gap-3">
-                  <div className="flex flex-wrap gap-1.5">
-                    {product.tags.map((tag: string) => (
-                      <span
+                  <p className="mt-3.5 text-sm sm:text-base leading-[1.65] text-[var(--lp-ink-2)]">
+                    {flagship.description}
+                  </p>
+
+                  {/* CAPABILITY BADGES */}
+                  <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    {flagship.tags.map((tag) => (
+                      <div
                         key={tag}
-                        className="inline-flex items-center gap-1 rounded-full bg-[var(--lp-tile)] border border-[var(--lp-line)] px-2.5 py-0.5 text-[11px] font-medium text-[var(--lp-ink-2)]"
+                        className="inline-flex items-center gap-2 rounded-xl bg-[var(--lp-tile)] border border-[var(--lp-line)] px-3 py-2 text-xs font-medium text-[var(--lp-ink)]"
                       >
-                        <CheckCircle2 className="h-3 w-3 text-emerald-600 shrink-0" />
+                        <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
                         <span>{tag}</span>
-                      </span>
+                      </div>
                     ))}
                   </div>
+                </div>
+
+                {/* ACTION CTA STRIP */}
+                <div className="mt-8 pt-5 border-t border-[var(--lp-line)] flex flex-wrap items-center gap-3">
+                  <Link
+                    href={flagship.href}
+                    className="group/link inline-flex h-11 items-center gap-2 rounded-full bg-[var(--lp-ink)] px-6 text-sm font-semibold text-white shadow-xs transition-all hover:bg-[#2A2A2F] active:scale-[0.98]"
+                  >
+                    <span>Explore DIHUAVA Platform</span>
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
+                  </Link>
 
                   <Link
-                    href={product.href}
-                    className="group/link inline-flex h-8.5 items-center gap-1.5 px-4 rounded-full border border-[var(--lp-line)] bg-[var(--lp-tile)] text-xs font-semibold text-[var(--lp-ink)] hover:border-[var(--lp-accent)] hover:text-[var(--lp-accent)] hover:bg-white transition-all active:scale-[0.98] shrink-0"
+                    href={lPath("/contact/download-center")}
+                    className="inline-flex h-11 items-center gap-1.5 rounded-full border border-[var(--lp-line)] bg-[var(--lp-tile)] px-5 text-xs sm:text-sm font-semibold text-[var(--lp-ink)] hover:bg-white hover:border-[var(--lp-line-strong)] transition-all"
                   >
-                    <span>Explore Specs</span>
-                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/link:translate-x-0.5" />
+                    <FileCheck2 className="h-4 w-4 text-[var(--lp-muted)]" />
+                    <span>Download Software Specs</span>
                   </Link>
                 </div>
-              </motion.article>
-            );
-          })}
+              </div>
+
+              {/* RIGHT COLUMN: AUTHENTIC SOFTWARE DASHBOARD & AVATAR CANVAS */}
+              <div className="lg:col-span-6">
+                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-[#0B1224] border border-white/10 shadow-lg">
+                  <Image
+                    src={flagship.imageSrc}
+                    alt={flagship.imageAlt}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                    priority
+                  />
+
+                  {/* FLOATING CAPABILITY PILLS */}
+                  <div className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-black/75 px-3 py-1 backdrop-blur-md">
+                    <Cpu className="h-3.5 w-3.5 text-cyan-400" />
+                    <span className="text-[11px] font-semibold text-white">
+                      100% On-Premise GPU
+                    </span>
+                  </div>
+
+                  <div className="absolute right-3 top-3 inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-black/75 px-3 py-1 backdrop-blur-md">
+                    <Globe className="h-3.5 w-3.5 text-[var(--lp-accent)]" />
+                    <span className="text-[11px] font-semibold text-white">
+                      29+ Global Languages
+                    </span>
+                  </div>
+
+                  <div className="absolute inset-x-3 bottom-3 flex items-center justify-between rounded-xl border border-white/15 bg-black/80 px-3.5 py-2 backdrop-blur-md text-white text-xs">
+                    <span className="font-medium text-neutral-300">
+                      RAG Search · Speech Lip-Sync · Kiosk Display
+                    </span>
+                    <span className="text-emerald-400 font-mono text-[11px]">
+                      ● Air-Gapped Ready
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.article>
+
+          {/* TIER 2: THREE SUPPORTING DISPLAY HARDWARE PRODUCTS */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {supportingProducts.map((product) => {
+              const activeImg = product.images ? product.images[hologramIndex] : product.imageSrc;
+              const Icon = product.icon;
+              return (
+                <motion.article
+                  key={product.id}
+                  whileHover={shouldReduceMotion ? undefined : { y: -3 }}
+                  transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                  className="group flex flex-col justify-between overflow-hidden rounded-[24px] sm:rounded-[28px] bg-[var(--lp-card)] p-4 sm:p-5 border border-[var(--lp-line)] shadow-[var(--lp-shadow-card)] transition-all hover:shadow-[var(--lp-shadow-lift)] hover:border-[var(--lp-line-strong)]"
+                >
+                  <div>
+                    {/* PRODUCT HARDWARE PHOTOGRAPHY */}
+                    <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#0B1224] border border-white/10">
+                      <Image
+                        src={activeImg}
+                        alt={product.imageAlt}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-contain p-2 transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                      />
+                      <div className="absolute inset-x-2.5 top-2.5 flex items-center justify-between gap-1.5 pointer-events-none">
+                        <div className="flex items-center gap-1.5 rounded-full border border-white/15 bg-black/75 px-2.5 py-1 backdrop-blur-md max-w-[60%] truncate">
+                          <Icon className={`h-3 w-3 shrink-0 ${product.iconColor}`} strokeWidth={2} />
+                          <span className="text-[10.5px] font-semibold text-white truncate">
+                            {product.category}
+                          </span>
+                        </div>
+                        <div className="rounded-full border border-white/15 bg-black/75 px-2 py-0.5 text-[10px] font-medium text-white/90 backdrop-blur-md shrink-0">
+                          {product.specBadge}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* TITLE + SUMMARY */}
+                    <div className="mt-4 flex items-baseline justify-between gap-2">
+                      <h4 className="text-lg sm:text-[19px] font-semibold tracking-tight text-[var(--lp-ink)] leading-snug">
+                        {product.title}
+                      </h4>
+                      <span className="text-xs font-mono text-[var(--lp-muted)]">
+                        {product.id}
+                      </span>
+                    </div>
+
+                    <p className="mt-2 text-xs sm:text-[13px] leading-relaxed text-[var(--lp-ink-2)] line-clamp-3">
+                      {product.description}
+                    </p>
+                  </div>
+
+                  {/* SPECS STRIP + ACTION */}
+                  <div className="mt-5 pt-3.5 border-t border-[var(--lp-line)] flex items-center justify-between gap-2">
+                    <div className="flex flex-wrap gap-1">
+                      {product.tags.slice(0, 2).map((tag: string) => (
+                        <span
+                          key={tag}
+                          className="inline-flex items-center gap-1 rounded-full bg-[var(--lp-tile)] border border-[var(--lp-line)] px-2 py-0.5 text-[10.5px] font-medium text-[var(--lp-ink-2)]"
+                        >
+                          <CheckCircle2 className="h-2.5 w-2.5 text-emerald-600 shrink-0" />
+                          <span>{tag}</span>
+                        </span>
+                      ))}
+                    </div>
+
+                    <Link
+                      href={product.href}
+                      className="group/link inline-flex h-8 items-center gap-1 px-3 rounded-full border border-[var(--lp-line)] bg-[var(--lp-tile)] text-xs font-semibold text-[var(--lp-ink)] hover:border-[var(--lp-accent)] hover:text-[var(--lp-accent)] hover:bg-white transition-all active:scale-[0.98] shrink-0"
+                    >
+                      <span>Specs</span>
+                      <ArrowRight className="h-3 w-3 transition-transform group-hover/link:translate-x-0.5" />
+                    </Link>
+                  </div>
+                </motion.article>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
