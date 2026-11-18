@@ -21,9 +21,9 @@
   --lp-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --lp-ease-pop: cubic-bezier(0.34, 1.56, 0.64, 1);
 
-  /* TYPOGRAPHY */
-  --font-inter: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-plus-jakarta: 'Plus Jakarta Sans', var(--font-inter), system-ui, -apple-system, sans-serif;
+  /* TYPOGRAPHY FALLBACKS */
+  --font-inter: var(--font-manrope, 'Manrope'), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-plus-jakarta: var(--font-manrope, 'Manrope'), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 @theme inline {
@@ -41,13 +41,13 @@
   --color-lp-accent: var(--lp-accent);
   --color-lp-accent-ink: var(--lp-accent-ink);
   --color-lp-success: var(--lp-success);
-  --font-sans: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-heading: var(--font-plus-jakarta), var(--font-inter), system-ui, -apple-system, sans-serif;
-  --font-mono: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: var(--font-manrope, 'Manrope'), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-heading: var(--font-manrope, 'Manrope'), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-manrope, 'Manrope'), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 html {
-  font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--font-manrope, 'Manrope'), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -58,12 +58,13 @@ html {
 }
 
 body {
-  font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--font-manrope, 'Manrope'), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background-color: var(--lp-bg);
   color: var(--lp-ink);
   min-height: 100vh;
-  letter-spacing: -0.011em;
-  line-height: 1.6;
+  letter-spacing: -0.01em;
+  line-height: 1.65;
+  font-weight: 400;
   overflow-x: clip;
   max-width: 100%;
 }
@@ -79,29 +80,44 @@ body {
 
 /* TYPOGRAPHIC RHYTHM */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-plus-jakarta), var(--font-inter), system-ui, -apple-system, sans-serif;
+  font-family: var(--font-manrope, 'Manrope'), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   text-rendering: optimizeLegibility;
+  color: var(--lp-ink);
 }
 
 h1 {
-  letter-spacing: -0.045em;
-  line-height: 1.04;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.12;
 }
 
 h2 {
-  letter-spacing: -0.04em;
-  line-height: 1.06;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.18;
 }
 
 h3 {
-  letter-spacing: -0.025em;
-  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+
+h4, h5, h6 {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+}
+
+button, input, select, textarea, optgroup {
+  font-family: inherit;
 }
 
 @layer base {
   p {
     color: var(--lp-ink-2);
-    line-height: 1.6;
+    line-height: 1.65;
+    letter-spacing: -0.01em;
   }
 }
 
