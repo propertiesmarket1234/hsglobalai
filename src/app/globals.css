@@ -44,6 +44,10 @@
   --font-sans: var(--font-manrope, 'Manrope'), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-heading: var(--font-manrope, 'Manrope'), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: var(--font-manrope, 'Manrope'), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --tracking-tighter: -0.02em;
+  --tracking-tight: -0.01em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.02em;
 }
 
 html {
@@ -62,8 +66,8 @@ body {
   background-color: var(--lp-bg);
   color: var(--lp-ink);
   min-height: 100vh;
-  letter-spacing: -0.01em;
-  line-height: 1.65;
+  letter-spacing: -0.005em;
+  line-height: 1.68;
   font-weight: 400;
   overflow-x: clip;
   max-width: 100%;
@@ -87,37 +91,43 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-weight: 800;
-  letter-spacing: -0.025em;
-  line-height: 1.12;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
 }
 
 h2 {
   font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.18;
+  letter-spacing: -0.012em;
+  line-height: 1.20;
 }
 
 h3 {
   font-weight: 600;
-  letter-spacing: -0.015em;
-  line-height: 1.25;
+  letter-spacing: -0.008em;
+  line-height: 1.28;
 }
 
 h4, h5, h6 {
   font-weight: 600;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.004em;
   line-height: 1.35;
 }
 
 button, input, select, textarea, optgroup {
   font-family: inherit;
+  letter-spacing: inherit;
+}
+
+nav a, header a {
+  font-weight: 500;
+  letter-spacing: -0.005em;
 }
 
 @layer base {
   p {
     color: var(--lp-ink-2);
-    line-height: 1.65;
-    letter-spacing: -0.01em;
+    line-height: 1.68;
+    letter-spacing: -0.005em;
   }
 }
 

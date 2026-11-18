@@ -7,8 +7,7 @@ import "./globals.css";
 
 const manrope = Manrope({
   variable: "--font-manrope",
-  subsets: ["latin", "latin-ext", "cyrillic"],
-  weight: ["400", "500", "600", "700", "800"],
+  subsets: ["latin"],
   display: "swap",
 });
 
@@ -164,7 +163,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${manrope.variable} h-full antialiased`}
+      className={`${manrope.variable} font-sans h-full antialiased`}
     >
       <head>
         <script
@@ -188,7 +187,7 @@ export default function RootLayout({
         }}
       />
 
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col font-sans">
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-NRR92D9K"
